@@ -1,10 +1,13 @@
 title: Hello World
+tags: intro
 ---
 Welcome to [Hexo](http://hexo.io/)! This is your very first post. Check [documentation](http://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](http://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
-## Quick Start
+# An H1 header
 
-### Create a new post
+## Quick Start H2
+
+### Create a new post H3
 
 ``` bash
 $ hexo new "My New Post"
@@ -35,3 +38,17 @@ $ hexo deploy
 ```
 
 More info: [Deployment](http://hexo.io/docs/deployment.html)
+
+### Some more stuff
+
+This is a bunch of text that we can use to display. It has *italics* and **bold** and ~~strikethrough~~. I need to find a way to do color!
+
+#### Header 4
+
+Nothing left here.. Maybe a table?
+
+| Header 1 | header 2 | header 3 Long!! |
+| -------- | -------- | --------------- |
+| Content | Content with some wide | content |
+
+

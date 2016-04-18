@@ -25,6 +25,21 @@ foant-family: DOS,SimHei,Monaco,Menlo,Consolas,'Courier New',monospace;
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'VGAx2';
+  src: url('fonts/PxPlus_IBM_VGA8-2x.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BIOSy2';
+  src: url('fonts/PxPlus_IBM_BIOS-2y.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 .container-narrow {
     margin: 0 auto;
     max-width: 970px;
@@ -45,7 +60,7 @@ foant-family: DOS,SimHei,Monaco,Menlo,Consolas,'Courier New',monospace;
 
 body {
     position: relative;
-    padding-top: 40px;
+    padding-top: 10px;
     padding-bottom: 70px;
     font-size: 16px;
     line-height: 16px;
@@ -90,6 +105,38 @@ body {
     padding-bottom: 30px;
     border-bottom: 1px solid #fff;
 }
+
+
+.mypage h2:not(.title)::after {
+    content: " ]\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\a0\2500\a0\B7";
+    color: #5ff
+}
+
+.mypage h2:not(.title)::before {
+    content: "[ ";
+    color: #5ff
+}
+
+.mypage h2:not(.title) {
+    font-size: 32px;
+    color: #5f5;
+}
+
+.mypage h3:not(.title)::after {
+    content: "";
+    color: #5ff
+}
+
+.mypage h3:not(.title)::before {
+    content: "";
+    color: #5ff
+}
+
+.mypage h3 {
+    color: #5f5;
+    font-size: 16px;
+}
+
 
 .navbar-brand {
     text-shadow: 0 1px 0 rgba(255,255,255,.1),0 0 30px rgba(255,255,255,.125);
@@ -370,7 +417,7 @@ header h1 {
 }
 
 h1 {
-    font-size: 1.5em;
+    font-size: 16px;
     line-height: 1.2em;
     margin-bottom: .6667em;
 }
@@ -381,16 +428,13 @@ h1, h2, h3, h4, h5, h6 {
     color: #fff;
 }
 
-h3::after {
-    content: " ]";
-}
-h3::before {
-    content: "[ ";
+h1 {
+    font-size: 32px;
+    line-height: 1.2em;
+    margin-bottom: .6667em;
 }
 
-h3 {
-    font-size: 16px;
-}
+
 
 h2 {
     color: #fff;
@@ -409,6 +453,11 @@ h2 {
     font-size: 1.3em;
 }
 
+.page-header > h1 {
+    font-size: 64px;
+    margin: 0px;
+}
+
 .page .entry {
     padding-top: 10px;
     padding-bottom: 25px;
@@ -419,20 +468,6 @@ h2 {
         padding-right: 5px;
     }
 
-    .page .entry h2 {
-        display: block;
-        overflow: hidden;
-        width: 0;
-        height: 0;
-        margin: -20px 0;
-    }
-
-    .page .entry h3 {
-        display: block;
-        overflow: hidden;
-        width: 0;
-        height: 0;
-    }
 
     .page .entry .col-md-8 {
         margin: 10px 0;
@@ -565,9 +600,9 @@ hr {
 }
 
     .logo > h1 {
-        padding-left: 2.4em;
-        font-size: 1.5em;
-        line-height: 2.0em;
+        padding-left: 1.3em;
+        font-size: 64px;
+        font-family: IBMVGA8,monospace;
     }
 
 .fa-heart:before {
