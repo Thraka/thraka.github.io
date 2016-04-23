@@ -11,6 +11,8 @@ Yesterday I was writing some [code to generate](https://github.com/Thraka/SadCon
 
 {% asset_img static.gif animated static ascii %}
 
+And I found a bug..
+
 The bug has to do with when you create an entity and then add a new animation to it that replaces the **default** animation. The entity has the new animation but the `Entity.CurrentAnimation` property still points to the old one. Not good.
 
 Fixed now in version 2.7+.
