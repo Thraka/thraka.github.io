@@ -24,6 +24,8 @@ I think that is all the types provided by **SadConsole**. Here is a diagram of (
 
 {% asset_img cellsrenderer-class.png animated static ascii %}
 
+<!-- more -->
+
 The `CellsRenderer` type is what actually does the drawing to the screen. All the other classes that inherit it (or inherit from `Console`) are really specialty classes that are about how a console operates.
 
 | Type | Behavior |
