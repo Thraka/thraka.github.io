@@ -9,7 +9,20 @@
   <title>Thoughts on rendering a console | Thraka</title>
   <meta name="author" content="Thraka">
   
-  <meta name="description" content="The more and more that I use SadConsole on my own little games, the more I grow to dislike the way I render to the screen. Now, I don’t mean specifica">
+  <meta name="description" content="The more and more that I use SadConsole on my own little games, the more I grow to dislike the way I render to the screen. Now, I don’t mean specifically the rendering code itself. It’s pretty good, though I have an improvement coming soon.
+What I mean is the way you, say from a console, get your data rendered to the screen. A console generally has two roles, it either reads input from the user (providing visual feedback) and/or it presents characters to the user. However, the capabilities you want in drawing characters to the screen may vary. You may:
+
+Use a standard Width x Height console.
+Use a bigger console and allow scrolling.
+Use a single console the entire time.
+Use many different consoles positioned on the screen.
+A console that has multiple layers.
+A console with a bunch of extra metadata.
+A console for UI controls.
+A floating window console.
+An animated console (entity).
+
+I think that is all the types provided by SadConsole. Here is a diagram of (out of all the libraries for SadConsole) the way the classes are structured.">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -128,6 +141,7 @@
 </ul>
 <p>I think that is all the types provided by <strong>SadConsole</strong>. Here is a diagram of (out of all the libraries for SadConsole) the way the classes are structured.</p>
 <img src="/2016/04/23/thoughts-on-rendering-a-console/cellsrenderer-class.png" alt="animated static ascii" title="animated static ascii">
+<a id="more"></a>
 <p>The <code>CellsRenderer</code> type is what actually does the drawing to the screen. All the other classes that inherit it (or inherit from <code>Console</code>) are really specialty classes that are about how a console operates.</p>
 <table>
 <thead>

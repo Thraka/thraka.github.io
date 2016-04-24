@@ -140,55 +140,6 @@
 </ul>
 <p>I think that is all the types provided by <strong>SadConsole</strong>. Here is a diagram of (out of all the libraries for SadConsole) the way the classes are structured.</p>
 <img src="/2016/04/23/thoughts-on-rendering-a-console/cellsrenderer-class.png" alt="animated static ascii" title="animated static ascii">
-<p>The <code>CellsRenderer</code> type is what actually does the drawing to the screen. All the other classes that inherit it (or inherit from <code>Console</code>) are really specialty classes that are about how a console operates.</p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Behavior</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CellsRenderer</td>
-<td>Handles drawing data to the screen.<br>Manages viewport and scrolling.<br>Manages cell effects.</td>
-</tr>
-<tr>
-<td>Console</td>
-<td>Implements input keyboard handling.<br>Provides a cursor for input.<br></td>
-</tr>
-<tr>
-<td>LayeredConsole</td>
-<td>Inherits from Console.<br>Provides layering.</td>
-</tr>
-<tr>
-<td>ControlsConsole</td>
-<td>Inherits from Console.<br>Supports rendering UI controls.</td>
-</tr>
-<tr>
-<td>Window</td>
-<td>Inherits from ControlsConsole, Console.<br>A bordered, title, movable console.<br>Modal or non-modal.</td>
-</tr>
-<tr>
-<td>GameConsole</td>
-<td>Inherits from LayeredConsole.<br>Adds a metadata system to attach data to cells.</td>
-</tr>
-<tr>
-<td>Entity</td>
-<td>Standalone console supporting animation.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="Why-this-is-bad"><a href="#Why-this-is-bad" class="headerlink" title="Why this is bad"></a>Why this is bad</h2><p>Now where things get messy is in cases like the <strong>Entity</strong> or a <strong>Window</strong> type. These console types shouldn’t support scrolling. You don’t make an entity that is bigger than the screen and only render a subset of it at a time. The same for a window. A window is meant to be totally visible on the screen. (the UI system supports hooking up scroll bars and things)</p>
-<p>So what happens to an entity when you adjust the viewport to only render a subset of the cells? Nothing bad mind you, but you may not get what you expected. Especially when the entity is animating and flipping through multiple cell surfaces that have completely different sets of cells.</p>
-<p>The problem is that the <strong>CellsRenderer</strong> type supports all these rendering systems out of the box, it’s a jack-of-all-trades. Which is great for flexibility, but it puts a strain on the developer to deeply understand the behavior of the types and not mess something up.</p>
-<h3 id="The-entity"><a href="#The-entity" class="headerlink" title="The entity"></a>The entity</h3><p>The way the entity works is it uses an animation type. The animation is a bunch of frames (CellData classes) and each frame is presented as the <em>current frame</em> during rendering. If the <em>current frame</em> hasn’t changed, the <strong>CellsRenderer</strong> doesn’t check for which cells to render, it already has them cached.</p>
-<h3 id="Back-to-the-problem"><a href="#Back-to-the-problem" class="headerlink" title="Back to the problem"></a>Back to the problem</h3><p>Now I ran into a situation where even myself, the one most familiar with the code, was confused as to why my entity wasn’t rendering correctly. What I had done is resized the animation of an entity, which just resizes the CellData of all the animation’s frames. The <em>current frame</em> class reference hadn’t changed, but the size of the frame did. So when the <strong>CellsRenderer</strong> went to render the old 1x1 console, it only drew the top-left cell even though the CellsSurface was much bigger. Ouch. The fix was just to force a recalculation after I resized the animation.</p>
-<p>Now with an entity, all this viewport rect rendering stuff doesn’t matter. So the system that is in place for other consoles was stepping on the simpler entity rendering.</p>
-<p>Well, I want this library to be easy to work with, so I think I need to separate out functionality out either into components, or specialized consoles. And then for when rendering systems must be different, specialized rendering. I’m not sure what it will look like, but I want to make sure it is easier for others to work with. </p>
-<p>There are some awesome .NET console game libraries (like <a href="https://bitbucket.org/clarktravism/rlnet/" target="_blank" rel="external">RLNET</a> and <a href="https://github.com/derrickcreamer/SunshineConsole" target="_blank" rel="external">SunShine Console</a>) out there much like mine that are quick and easy to use. That is something I want for SadConsole. I think I’ve gotten part of the way there though with NuGet. But more can be done…</p>
-<p>.. Stay tuned ..</p>
-
 	
 	</div>
   <a type="button" href="/2016/04/23/thoughts-on-rendering-a-console/#more" class="btn btn-default more">Read More</a>
@@ -265,11 +216,11 @@
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/Bug/">Bug<span>1</span></a></li>
-		
 			<li><a href="/tags/intro/">intro<span>0</span></a></li>
 		
 			<li><a href="/tags/SadConsole/">SadConsole<span>2</span></a></li>
+		
+			<li><a href="/tags/Bug/">Bug<span>1</span></a></li>
 		
 		 
 		</ul>
