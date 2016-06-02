@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://thraka.github.io/"/>
-  <updated>2016-06-02T01:02:46.949Z</updated>
+  <updated>2016-06-02T01:05:38.723Z</updated>
   <id>http://thraka.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://thraka.github.io/2016/06/01/cached-console/"/>
     <id>http://thraka.github.io/2016/06/01/cached-console/</id>
     <published>2016-06-02T00:45:58.000Z</published>
-    <updated>2016-06-02T01:02:46.949Z</updated>
+    <updated>2016-06-02T01:05:38.723Z</updated>
     
     <content type="html">&lt;p&gt;Oh hai! As part of my rewrite of how SadConsole renders to the screen (&lt;a href=&quot;https://github.com/Thraka/SadConsole/tree/sadconsole-v3&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;my v3 branch&lt;/a&gt;) I came up with a few new console types. Well.. not really a new console, but it’s actually a new renderer. The class is &lt;a href=&quot;https://github.com/Thraka/SadConsole/blob/sadconsole-v3/SadConsole.Core/Consoles/CachedTextSurfaceRenderer.cs&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;SadConsole.Consoles.CachedTextSurfaceRenderer&lt;/a&gt; (name subject to change) and it works by rendering the text data to a texture instead of the screen. Then when the renderer is drawn, it draws the texture instead of console cell data.&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -31,12 +31,12 @@
 &lt;li&gt;(on each cell) Render the character on top of that background (if needed)&lt;/li&gt;
 &lt;li&gt;Render a tint to the whole rendered area (if needed)&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;If you have a console that is displaying 80x25 (standard MS-DOS text screen) it is rendering: &lt;code&gt;2,000 background + 2,000 character + 1 fill + 1 tint = 4,002 sprite draw calls&lt;/code&gt;. That is a lot of drawing. Of course, the renderer is smart enough to optimize out transparent colors and backgrounds that match the default background fill color. So you may not always be doing 4,002 draw calls. Here is a console rendering 4,001 draw calls (no tint)&lt;/p&gt;
+&lt;p&gt;If you have a console that is displaying 80x25 (standard MS-DOS text screen) it is rendering: &lt;em&gt;2,000 background + 2,000 character + 1 fill + 1 tint = 4,002 sprite draw calls&lt;/em&gt;. That is a lot of drawing. Of course, the renderer is smart enough to optimize out transparent colors and backgrounds that match the default background fill color. So you may not always be doing 4,002 draw calls. Here is a console rendering 4,001 draw calls (no tint)&lt;/p&gt;
 &lt;img src=&quot;/2016/06/01/cached-console/normal-renderer.png&quot; alt=&quot;normal console renderer&quot; title=&quot;normal console renderer&quot;&gt;
-&lt;p&gt;As you can see it is running at (it’s in debug mode, so it’s slower than normal) XXX frames per second. No problem really. However, if the console we’re drawing isn’t changing at all, we’re really wasting time drawing each cell over and over. Here is that same console rendered to the &lt;code&gt;CachedTextSurfaceRenderer&lt;/code&gt; renderer. (darker color here just so we know we’re in cached mode, it’s not normally darker)&lt;/p&gt;
+&lt;p&gt;As you can see it is running at (it’s in debug mode, so it’s slower than normal) &lt;strong&gt;~1000&lt;/strong&gt; frames per second. No problem really. However, if the console we’re drawing isn’t changing at all, we’re really wasting time drawing each cell over and over. Here is that same console rendered to the &lt;code&gt;CachedTextSurfaceRenderer&lt;/code&gt; renderer. (darker color here just so we know we’re in cached mode, it’s not normally darker)&lt;/p&gt;
 &lt;img src=&quot;/2016/06/01/cached-console/cached-renderer.png&quot; alt=&quot;cached console renderer&quot; title=&quot;cached console renderer&quot;&gt;
 &lt;p&gt;Much better performance. We’re only doing a single draw call too. &lt;/p&gt;
-&lt;p&gt;This renderer will be great for UI frames and things that don’t change often. You can easily update the cached renderer with the latest state of the console data.&lt;/p&gt;
+&lt;p&gt;This renderer will be great for UI and static backgrounds, or anything that doesn’t change often. You can easily update the cached renderer with the latest state of the console data.&lt;/p&gt;
 &lt;p&gt;I’ll have some other renderers and text surface types coming soon too. &lt;/p&gt;
 </content>
     
@@ -50,6 +50,8 @@
     
     
       <category term="SadConsole" scheme="http://thraka.github.io/tags/SadConsole/"/>
+    
+      <category term="Renderer" scheme="http://thraka.github.io/tags/Renderer/"/>
     
   </entry>
   
