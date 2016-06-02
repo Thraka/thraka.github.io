@@ -6,18 +6,15 @@
   <meta http-equiv="cache-control" content="no-cache">
   <meta http-equiv="expires" content="0">
   
-  <title>Entity animation bug | Thraka</title>
+  <title>Cached console | Thraka</title>
   <meta name="author" content="Thraka">
   
-  <meta name="description" content="Yesterday I was writing some code to generate an entity that animated white static, like you have on an old TV. 
-
-And I found a bug..
-The bug has to d">
+  <meta name="description" content="Oh hai! As part of my rewrite of how SadConsole renders to the screen (my v3 branch) I came up with a few new console types. Well.. not really a new console, but it’s actually a new renderer. The class is SadConsole.Consoles.CachedTextSurfaceRenderer (name subject to change) and it works by rendering the text data to a texture instead of the screen. Then when the renderer is drawn, it draws the texture instead of console cell data.">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Entity animation bug"/>
+  <meta property="og:title" content="Cached console"/>
   <meta property="og:site_name" content="Thraka"/>
 
   
@@ -105,7 +102,7 @@ The bug has to d">
 
 	
 		<div class="page-header">
-			<h1> Entity animation bug</h1>
+			<h1> Cached console</h1>
 		</div>
 	
 
@@ -122,11 +119,22 @@ The bug has to d">
 	<div class="mypage">		
 	  		
 
-	  <p>Yesterday I was writing some <a href="https://github.com/Thraka/SadConsole/commit/066e68bc4ce8ae8f1a3e525e347f89e0e9f14f66#diff-2a6004b6fa04ffddd85619ce217d01a5R20" target="_blank" rel="external">code to generate</a> an entity that animated white static, like you have on an old TV. </p>
-<img src="/2016/04/21/entity-animation-bug/static.gif" alt="animated static ascii" title="animated static ascii">
-<p>And I found a bug..</p>
-<p>The bug has to do with when you create an entity and then add a new animation to it that replaces the <strong>default</strong> animation. The entity has the new animation but the <code>Entity.CurrentAnimation</code> property still points to the old one. Not good.</p>
-<p>Fixed now in version 2.7+.</p>
+	  <p>Oh hai! As part of my rewrite of how SadConsole renders to the screen (<a href="https://github.com/Thraka/SadConsole/tree/sadconsole-v3" target="_blank" rel="external">my v3 branch</a>) I came up with a few new console types. Well.. not really a new console, but it’s actually a new renderer. The class is <a href="https://github.com/Thraka/SadConsole/blob/sadconsole-v3/SadConsole.Core/Consoles/CachedTextSurfaceRenderer.cs" target="_blank" rel="external">SadConsole.Consoles.CachedTextSurfaceRenderer</a> (name subject to change) and it works by rendering the text data to a texture instead of the screen. Then when the renderer is drawn, it draws the texture instead of console cell data.</p>
+<a id="more"></a>
+<p>The normal renderer (<a href="https://github.com/Thraka/SadConsole/blob/sadconsole-v3/SadConsole.Core/Consoles/TextSurfaceRenderer.cs" target="_blank" rel="external">TextSurfaceRenderer</a>) crawls through every cell that is supposed to be rendered and</p>
+<ol>
+<li>Render a background fill for the whole rendered area</li>
+<li>(on each cell) Render the background (if needed)</li>
+<li>(on each cell) Render the character on top of that background (if needed)</li>
+<li>Render a tint to the whole rendered area (if needed)</li>
+</ol>
+<p>If you have a console that is displaying 80x25 (standard MS-DOS text screen) it is rendering: <code>2,000 background + 2,000 character + 1 fill + 1 tint = 4,002 sprite draw calls</code>. That is a lot of drawing. Of course, the renderer is smart enough to optimize out transparent colors and backgrounds that match the default background fill color. So you may not always be doing 4,002 draw calls. Here is a console rendering 4,001 draw calls (no tint)</p>
+<img src="/2016/06/01/cached-console/normal-renderer.png" alt="normal console renderer" title="normal console renderer">
+<p>As you can see it is running at (it’s in debug mode, so it’s slower than normal) XXX frames per second. No problem really. However, if the console we’re drawing isn’t changing at all, we’re really wasting time drawing each cell over and over. Here is that same console rendered to the <code>CachedTextSurfaceRenderer</code> renderer. (darker color here just so we know we’re in cached mode, it’s not normally darker)</p>
+<img src="/2016/06/01/cached-console/cached-renderer.png" alt="cached console renderer" title="cached console renderer">
+<p>Much better performance. We’re only doing a single draw call too. </p>
+<p>This renderer will be great for UI frames and things that don’t change often. You can easily update the cached renderer with the latest state of the console data.</p>
+<p>I’ll have some other renderers and text surface types coming soon too. </p>
 	  
 	</div>
 
@@ -136,13 +144,13 @@ The bug has to d">
 
     
     
-    <a href="/2016/04/23/thoughts-on-rendering-a-console/" type="button" class="btn btn-default"><i
-                class="fa fa-arrow-circle-o-left"></i> Prev</a>
+    <a type="button" class="btn btn-default disabled"><i class="fa fa-arrow-circle-o-left"></i>Prev</a>
     
 
     <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
     
-    <a type="button" class="btn btn-default disabled">Next<i class="fa fa-arrow-circle-o-right"></i></a>
+    <a href="/2016/04/23/thoughts-on-rendering-a-console/" type="button" class="btn btn-default ">Next<i
+                class="fa fa-arrow-circle-o-right"></i></a>
     
 
     
@@ -165,8 +173,8 @@ The bug has to d">
              */
                 
             var disqus_config = function () {
-                this.page.url = "http://thraka.github.io/2016/04/21/entity-animation-bug/"; // Replace PAGE_URL with your page's canonical URL variable
-                this.page.identifier = "2016/04/21/entity-animation-bug/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                this.page.url = "http://thraka.github.io/2016/06/01/cached-console/"; // Replace PAGE_URL with your page's canonical URL variable
+                this.page.identifier = "2016/06/01/cached-console/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
             };
                  
             (function() { // DON'T EDIT BELOW THIS LINE
@@ -195,7 +203,7 @@ The bug has to d">
 	
 	<div class="meta-widget">
 	<i class="fa fa-clock-o"></i>
-	2016-04-21 
+	2016-06-01 
 	</div>
 	
 
@@ -219,7 +227,7 @@ The bug has to d">
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/SadConsole/">SadConsole<span>3</span></a></li> <li><a href="/tags/Bug/">Bug<span>1</span></a></li>
+  <li><a href="/tags/SadConsole/">SadConsole<span>3</span></a></li>
     </ul>
 	</div>
 		

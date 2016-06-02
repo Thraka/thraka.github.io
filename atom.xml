@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Thraka</title>
+  <subtitle>Home of SadConsole &amp; more</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://thraka.github.io/"/>
+  <updated>2016-06-02T01:02:46.949Z</updated>
+  <id>http://thraka.github.io/</id>
+  
+  <author>
+    <name>Thraka</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Cached console</title>
+    <link href="http://thraka.github.io/2016/06/01/cached-console/"/>
+    <id>http://thraka.github.io/2016/06/01/cached-console/</id>
+    <published>2016-06-02T00:45:58.000Z</published>
+    <updated>2016-06-02T01:02:46.949Z</updated>
+    
+    <content type="html">&lt;p&gt;Oh hai! As part of my rewrite of how SadConsole renders to the screen (&lt;a href=&quot;https://github.com/Thraka/SadConsole/tree/sadconsole-v3&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;my v3 branch&lt;/a&gt;) I came up with a few new console types. Well.. not really a new console, but it’s actually a new renderer. The class is &lt;a href=&quot;https://github.com/Thraka/SadConsole/blob/sadconsole-v3/SadConsole.Core/Consoles/CachedTextSurfaceRenderer.cs&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;SadConsole.Consoles.CachedTextSurfaceRenderer&lt;/a&gt; (name subject to change) and it works by rendering the text data to a texture instead of the screen. Then when the renderer is drawn, it draws the texture instead of console cell data.&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;The normal renderer (&lt;a href=&quot;https://github.com/Thraka/SadConsole/blob/sadconsole-v3/SadConsole.Core/Consoles/TextSurfaceRenderer.cs&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;TextSurfaceRenderer&lt;/a&gt;) crawls through every cell that is supposed to be rendered and&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Render a background fill for the whole rendered area&lt;/li&gt;
+&lt;li&gt;(on each cell) Render the background (if needed)&lt;/li&gt;
+&lt;li&gt;(on each cell) Render the character on top of that background (if needed)&lt;/li&gt;
+&lt;li&gt;Render a tint to the whole rendered area (if needed)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;If you have a console that is displaying 80x25 (standard MS-DOS text screen) it is rendering: &lt;code&gt;2,000 background + 2,000 character + 1 fill + 1 tint = 4,002 sprite draw calls&lt;/code&gt;. That is a lot of drawing. Of course, the renderer is smart enough to optimize out transparent colors and backgrounds that match the default background fill color. So you may not always be doing 4,002 draw calls. Here is a console rendering 4,001 draw calls (no tint)&lt;/p&gt;
+&lt;img src=&quot;/2016/06/01/cached-console/normal-renderer.png&quot; alt=&quot;normal console renderer&quot; title=&quot;normal console renderer&quot;&gt;
+&lt;p&gt;As you can see it is running at (it’s in debug mode, so it’s slower than normal) XXX frames per second. No problem really. However, if the console we’re drawing isn’t changing at all, we’re really wasting time drawing each cell over and over. Here is that same console rendered to the &lt;code&gt;CachedTextSurfaceRenderer&lt;/code&gt; renderer. (darker color here just so we know we’re in cached mode, it’s not normally darker)&lt;/p&gt;
+&lt;img src=&quot;/2016/06/01/cached-console/cached-renderer.png&quot; alt=&quot;cached console renderer&quot; title=&quot;cached console renderer&quot;&gt;
+&lt;p&gt;Much better performance. We’re only doing a single draw call too. &lt;/p&gt;
+&lt;p&gt;This renderer will be great for UI frames and things that don’t change often. You can easily update the cached renderer with the latest state of the console data.&lt;/p&gt;
+&lt;p&gt;I’ll have some other renderers and text surface types coming soon too. &lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Oh hai! As part of my rewrite of how SadConsole renders to the screen (&lt;a href=&quot;https://github.com/Thraka/SadConsole/tree/sadconsole-v3&quot;&gt;my v3 branch&lt;/a&gt;) I came up with a few new console types. Well.. not really a new console, but it’s actually a new renderer. The class is &lt;a href=&quot;https://github.com/Thraka/SadConsole/blob/sadconsole-v3/SadConsole.Core/Consoles/CachedTextSurfaceRenderer.cs&quot;&gt;SadConsole.Consoles.CachedTextSurfaceRenderer&lt;/a&gt; (name subject to change) and it works by rendering the text data to a texture instead of the screen. Then when the renderer is drawn, it draws the texture instead of console cell data.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="SadConsole" scheme="http://thraka.github.io/categories/SadConsole/"/>
+    
+    
+      <category term="SadConsole" scheme="http://thraka.github.io/tags/SadConsole/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Thoughts on rendering a console</title>
+    <link href="http://thraka.github.io/2016/04/23/thoughts-on-rendering-a-console/"/>
+    <id>http://thraka.github.io/2016/04/23/thoughts-on-rendering-a-console/</id>
+    <published>2016-04-24T00:46:02.000Z</published>
+    <updated>2016-04-24T03:27:09.020Z</updated>
+    
+    <content type="html">&lt;p&gt;The more and more that I use &lt;strong&gt;SadConsole&lt;/strong&gt; on my own little games, the more I grow to dislike the way I render to the screen. Now, I don’t mean specifically the rendering code itself. It’s pretty good, though I have an improvement coming soon. What I mean is the way you, say from a console, get your data rendered to the screen. &lt;/p&gt;
+&lt;p&gt;A console generally has two roles, it either reads input from the user (providing visual feedback) and/or it presents characters to the user. However, the capabilities you want in drawing characters to the screen may vary. You may:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Use a standard Width x Height console.&lt;/li&gt;
+&lt;li&gt;Use a bigger console and allow scrolling.&lt;/li&gt;
+&lt;li&gt;Use a single console the entire time.&lt;/li&gt;
+&lt;li&gt;Use many different consoles positioned on the screen.&lt;/li&gt;
+&lt;li&gt;A console that has multiple layers.&lt;/li&gt;
+&lt;li&gt;A console with a bunch of extra metadata.&lt;/li&gt;
+&lt;li&gt;A console for UI controls.&lt;/li&gt;
+&lt;li&gt;A floating window console.&lt;/li&gt;
+&lt;li&gt;An animated console (entity).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I think that is all the types provided by &lt;strong&gt;SadConsole&lt;/strong&gt;. Here is a diagram of (out of all the libraries for SadConsole) the way the classes are structured.&lt;/p&gt;
+&lt;img src=&quot;/2016/04/23/thoughts-on-rendering-a-console/cellsrenderer-class.png&quot; alt=&quot;animated static ascii&quot; title=&quot;animated static ascii&quot;&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;The &lt;code&gt;CellsRenderer&lt;/code&gt; type is what actually does the drawing to the screen. All the other classes that inherit it (or inherit from &lt;code&gt;Console&lt;/code&gt;) are really specialty classes that are about how a console operates.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Behavior&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;CellsRenderer&lt;/td&gt;
+&lt;td&gt;Handles drawing data to the screen.&lt;br&gt;Manages viewport and scrolling.&lt;br&gt;Manages cell effects.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Console&lt;/td&gt;
+&lt;td&gt;Implements input keyboard handling.&lt;br&gt;Provides a cursor for input.&lt;br&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;LayeredConsole&lt;/td&gt;
+&lt;td&gt;Inherits from Console.&lt;br&gt;Provides layering.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ControlsConsole&lt;/td&gt;
+&lt;td&gt;Inherits from Console.&lt;br&gt;Supports rendering UI controls.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Window&lt;/td&gt;
+&lt;td&gt;Inherits from ControlsConsole, Console.&lt;br&gt;A bordered, title, movable console.&lt;br&gt;Modal or non-modal.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GameConsole&lt;/td&gt;
+&lt;td&gt;Inherits from LayeredConsole.&lt;br&gt;Adds a metadata system to attach data to cells.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Entity&lt;/td&gt;
+&lt;td&gt;Standalone console supporting animation.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&quot;Why-this-is-bad&quot;&gt;&lt;a href=&quot;#Why-this-is-bad&quot; class=&quot;headerlink&quot; title=&quot;Why this is bad&quot;&gt;&lt;/a&gt;Why this is bad&lt;/h2&gt;&lt;p&gt;Now where things get messy is in cases like the &lt;strong&gt;Entity&lt;/strong&gt; or a &lt;strong&gt;Window&lt;/strong&gt; type. These console types shouldn’t support scrolling. You don’t make an entity that is bigger than the screen and only render a subset of it at a time. The same for a window. A window is meant to be totally visible on the screen. (the UI system supports hooking up scroll bars and things)&lt;/p&gt;
+&lt;p&gt;So what happens to an entity when you adjust the viewport to only render a subset of the cells? Nothing bad mind you, but you may not get what you expected. Especially when the entity is animating and flipping through multiple cell surfaces that have completely different sets of cells.&lt;/p&gt;
+&lt;p&gt;The problem is that the &lt;strong&gt;CellsRenderer&lt;/strong&gt; type supports all these rendering systems out of the box, it’s a jack-of-all-trades. Which is great for flexibility, but it puts a strain on the developer to deeply understand the behavior of the types and not mess something up.&lt;/p&gt;
+&lt;h3 id=&quot;The-entity&quot;&gt;&lt;a href=&quot;#The-entity&quot; class=&quot;headerlink&quot; title=&quot;The entity&quot;&gt;&lt;/a&gt;The entity&lt;/h3&gt;&lt;p&gt;The way the entity works is it uses an animation type. The animation is a bunch of frames (CellData classes) and each frame is presented as the &lt;em&gt;current frame&lt;/em&gt; during rendering. If the &lt;em&gt;current frame&lt;/em&gt; hasn’t changed, the &lt;strong&gt;CellsRenderer&lt;/strong&gt; doesn’t check for which cells to render, it already has them cached.&lt;/p&gt;
+&lt;h3 id=&quot;Back-to-the-problem&quot;&gt;&lt;a href=&quot;#Back-to-the-problem&quot; class=&quot;headerlink&quot; title=&quot;Back to the problem&quot;&gt;&lt;/a&gt;Back to the problem&lt;/h3&gt;&lt;p&gt;Now I ran into a situation where even myself, the one most familiar with the code, was confused as to why my entity wasn’t rendering correctly. What I had done is resized the animation of an entity, which just resizes the CellData of all the animation’s frames. The &lt;em&gt;current frame&lt;/em&gt; class reference hadn’t changed, but the size of the frame did. So when the &lt;strong&gt;CellsRenderer&lt;/strong&gt; went to render the old 1x1 console, it only drew the top-left cell even though the CellsSurface was much bigger. Ouch. The fix was just to force a recalculation after I resized the animation.&lt;/p&gt;
+&lt;p&gt;Now with an entity, all this viewport rect rendering stuff doesn’t matter. So the system that is in place for other consoles was stepping on the simpler entity rendering.&lt;/p&gt;
+&lt;p&gt;Well, I want this library to be easy to work with, so I think I need to separate out functionality out either into components, or specialized consoles. And then for when rendering systems must be different, specialized rendering. I’m not sure what it will look like, but I want to make sure it is easier for others to work with. &lt;/p&gt;
+&lt;p&gt;There are some awesome .NET console game libraries (like &lt;a href=&quot;https://bitbucket.org/clarktravism/rlnet/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;RLNET&lt;/a&gt; and &lt;a href=&quot;https://github.com/derrickcreamer/SunshineConsole&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;SunShine Console&lt;/a&gt;) out there much like mine that are quick and easy to use. That is something I want for SadConsole. I think I’ve gotten part of the way there though with NuGet. But more can be done…&lt;/p&gt;
+&lt;p&gt;.. Stay tuned ..&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;The more and more that I use &lt;strong&gt;SadConsole&lt;/strong&gt; on my own little games, the more I grow to dislike the way I render to the screen. Now, I don’t mean specifically the rendering code itself. It’s pretty good, though I have an improvement coming soon. What I mean is the way you, say from a console, get your data rendered to the screen. &lt;/p&gt;
+&lt;p&gt;A console generally has two roles, it either reads input from the user (providing visual feedback) and/or it presents characters to the user. However, the capabilities you want in drawing characters to the screen may vary. You may:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Use a standard Width x Height console.&lt;/li&gt;
+&lt;li&gt;Use a bigger console and allow scrolling.&lt;/li&gt;
+&lt;li&gt;Use a single console the entire time.&lt;/li&gt;
+&lt;li&gt;Use many different consoles positioned on the screen.&lt;/li&gt;
+&lt;li&gt;A console that has multiple layers.&lt;/li&gt;
+&lt;li&gt;A console with a bunch of extra metadata.&lt;/li&gt;
+&lt;li&gt;A console for UI controls.&lt;/li&gt;
+&lt;li&gt;A floating window console.&lt;/li&gt;
+&lt;li&gt;An animated console (entity).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I think that is all the types provided by &lt;strong&gt;SadConsole&lt;/strong&gt;. Here is a diagram of (out of all the libraries for SadConsole) the way the classes are structured.&lt;/p&gt;
+&lt;img src=&quot;/2016/04/23/thoughts-on-rendering-a-console/cellsrenderer-class.png&quot; alt=&quot;animated static ascii&quot; title=&quot;animated static ascii&quot;&gt;
+    
+    </summary>
+    
+      <category term="SadConsole" scheme="http://thraka.github.io/categories/SadConsole/"/>
+    
+    
+      <category term="SadConsole" scheme="http://thraka.github.io/tags/SadConsole/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Entity animation bug</title>
+    <link href="http://thraka.github.io/2016/04/21/entity-animation-bug/"/>
+    <id>http://thraka.github.io/2016/04/21/entity-animation-bug/</id>
+    <published>2016-04-21T15:10:44.000Z</published>
+    <updated>2016-04-23T05:20:22.749Z</updated>
+    
+    <content type="html">&lt;p&gt;Yesterday I was writing some &lt;a href=&quot;https://github.com/Thraka/SadConsole/commit/066e68bc4ce8ae8f1a3e525e347f89e0e9f14f66#diff-2a6004b6fa04ffddd85619ce217d01a5R20&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;code to generate&lt;/a&gt; an entity that animated white static, like you have on an old TV. &lt;/p&gt;
+&lt;img src=&quot;/2016/04/21/entity-animation-bug/static.gif&quot; alt=&quot;animated static ascii&quot; title=&quot;animated static ascii&quot;&gt;
+&lt;p&gt;And I found a bug..&lt;/p&gt;
+&lt;p&gt;The bug has to do with when you create an entity and then add a new animation to it that replaces the &lt;strong&gt;default&lt;/strong&gt; animation. The entity has the new animation but the &lt;code&gt;Entity.CurrentAnimation&lt;/code&gt; property still points to the old one. Not good.&lt;/p&gt;
+&lt;p&gt;Fixed now in version 2.7+.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Yesterday I was writing some &lt;a href=&quot;https://github.com/Thraka/SadConsole/commit/066e68bc4ce8ae8f1a3e525e347f89e0e9f14f66#diff-2a6004b6f
+    
+    </summary>
+    
+      <category term="SadConsole" scheme="http://thraka.github.io/categories/SadConsole/"/>
+    
+    
+      <category term="SadConsole" scheme="http://thraka.github.io/tags/SadConsole/"/>
+    
+      <category term="Bug" scheme="http://thraka.github.io/tags/Bug/"/>
+    
+  </entry>
+  
+</feed>
