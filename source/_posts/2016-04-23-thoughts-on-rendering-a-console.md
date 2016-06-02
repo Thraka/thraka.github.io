@@ -6,9 +6,9 @@ category:
 - SadConsole
 ---
 
-The more and more that I use **SadConsole** on my own little games, the more I grow to dislike the way I render to the screen. Now, I don't mean specifically the rendering code itself. It's pretty good, though I have an improvement coming soon.
+The more and more that I use **SadConsole** on my own little games, the more I grow to dislike the way I render to the screen. Now, I don't mean specifically the rendering code itself. It's pretty good, though I have an improvement coming soon. What I mean is the way you, say from a console, get your data rendered to the screen. 
 
-What I mean is the way you, say from a console, get your data rendered to the screen. A console generally has two roles, it either reads input from the user (providing visual feedback) and/or it presents characters to the user. However, the capabilities you want in drawing characters to the screen may vary. You may:
+A console generally has two roles, it either reads input from the user (providing visual feedback) and/or it presents characters to the user. However, the capabilities you want in drawing characters to the screen may vary. You may:
 
 - Use a standard Width x Height console.
 - Use a bigger console and allow scrolling.
