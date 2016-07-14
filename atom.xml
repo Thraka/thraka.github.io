@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://thraka.github.io/"/>
-  <updated>2016-07-14T01:22:48.473Z</updated>
+  <updated>2016-07-14T01:42:26.402Z</updated>
   <id>http://thraka.github.io/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://thraka.github.io/2016/07/07/version-3-release/"/>
     <id>http://thraka.github.io/2016/07/07/version-3-release/</id>
     <published>2016-07-07T22:42:42.000Z</published>
-    <updated>2016-07-14T01:22:48.473Z</updated>
+    <updated>2016-07-14T01:42:26.402Z</updated>
     
-    <content type="html">&lt;p&gt;It’s finally done! Version 3 of SadConsole brings a lot of structural changes and increases flexibility.  &lt;a href=&quot;/2016/04/23/thoughts-on-rendering-a-console&quot;&gt;Previously&lt;/a&gt; it was &lt;em&gt;hard&lt;/em&gt; to &lt;del&gt;implement&lt;/del&gt; new types of objects that hooked into the rendering system. And whenever I did create something extra, I always felt like I was trying to fit it around the system instead of the system being flexible enough to handle it. Not any more!&lt;/p&gt;
+    <content type="html">&lt;p&gt;It’s finally done! Version 3 of SadConsole brings a lot of structural changes and increases flexibility.  &lt;a href=&quot;/2016/04/23/thoughts-on-rendering-a-console&quot;&gt;Previously&lt;/a&gt; it was hard to implement new types of objects that hooked into the rendering system. And whenever I did create something extra, I always felt like I was trying to fit it around the system instead of the system being flexible enough to handle it. Not any more!&lt;/p&gt;
 &lt;p&gt;Version 3.0 has taken me 2 1/2 months, 113 commits to the code repository, and 192 files were edited.&lt;/p&gt;
 &lt;p&gt;Here is a class diagram of how the system is put together now. Click below after the picture for more about the changes.&lt;/p&gt;
 &lt;img src=&quot;/2016/07/07/version-3-release/v3-rendering-classes.png&quot; alt=&quot;version 3 class structure&quot; title=&quot;version 3 class structure&quot;&gt;
@@ -48,14 +48,14 @@
 &lt;/blockquote&gt;
 &lt;figure class=&quot;highlight csharp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;console.Renderer.Render(console.TextSurface, &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Point(&lt;span class=&quot;number&quot;&gt;19&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;), &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.Renderer.Render(console.TextSurface, &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Point(&lt;span class=&quot;number&quot;&gt;37&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;), &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;img src=&quot;/2016/07/07/version-3-release/hello-world-2.png&quot; alt=&quot;Hello world rendered three times in SadConsole&quot; title=&quot;Hello world rendered three times in SadConsole&quot;&gt;
-&lt;p&gt;Instead of using the console itself to render, you could do it all by hand.&lt;/p&gt;
+&lt;p&gt;Instead of using the console itself to render, you could also do it all by hand.&lt;/p&gt;
 &lt;figure class=&quot;highlight csharp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; renderer = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; SadConsole.Consoles.TextSurfaceRenderer();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; textSurface = console.TextSurface;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;renderer.Render(textSurface, &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Point(&lt;span class=&quot;number&quot;&gt;19&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;), &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;renderer.Render(textSurface, &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Point(&lt;span class=&quot;number&quot;&gt;37&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;), &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h2 id=&quot;Next&quot;&gt;&lt;a href=&quot;#Next&quot; class=&quot;headerlink&quot; title=&quot;Next&quot;&gt;&lt;/a&gt;Next&lt;/h2&gt;&lt;p&gt;In the next blog post, I’ll show how to use the render multiple layers on a console using built in types. &lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;It’s finally done! Version 3 of SadConsole brings a lot of structural changes and increases flexibility.  &lt;a href=&quot;/2016/04/23/thoughts-on-rendering-a-console&quot;&gt;Previously&lt;/a&gt; it was &lt;em&gt;hard&lt;/em&gt; to &lt;del&gt;implement&lt;/del&gt; new types of objects that hooked into the rendering system. And whenever I did create something extra, I always felt like I was trying to fit it around the system instead of the system being flexible enough to handle it. Not any more!&lt;/p&gt;
+      &lt;p&gt;It’s finally done! Version 3 of SadConsole brings a lot of structural changes and increases flexibility.  &lt;a href=&quot;/2016/04/23/thoughts-on-rendering-a-console&quot;&gt;Previously&lt;/a&gt; it was hard to implement new types of objects that hooked into the rendering system. And whenever I did create something extra, I always felt like I was trying to fit it around the system instead of the system being flexible enough to handle it. Not any more!&lt;/p&gt;
 &lt;p&gt;Version 3.0 has taken me 2 1/2 months, 113 commits to the code repository, and 192 files were edited.&lt;/p&gt;
 &lt;p&gt;Here is a class diagram of how the system is put together now. Click below after the picture for more about the changes.&lt;/p&gt;
 &lt;img src=&quot;/2016/07/07/version-3-release/v3-rendering-classes.png&quot; alt=&quot;version 3 class structure&quot; title=&quot;version 3 class structure&quot;&gt;
