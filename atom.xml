@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://thraka.github.io/"/>
-  <updated>2016-06-02T01:05:38.723Z</updated>
+  <updated>2016-07-14T01:22:48.473Z</updated>
   <id>http://thraka.github.io/</id>
   
   <author>
@@ -14,6 +14,60 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Version 3 Release</title>
+    <link href="http://thraka.github.io/2016/07/07/version-3-release/"/>
+    <id>http://thraka.github.io/2016/07/07/version-3-release/</id>
+    <published>2016-07-07T22:42:42.000Z</published>
+    <updated>2016-07-14T01:22:48.473Z</updated>
+    
+    <content type="html">&lt;p&gt;It’s finally done! Version 3 of SadConsole brings a lot of structural changes and increases flexibility.  &lt;a href=&quot;/2016/04/23/thoughts-on-rendering-a-console&quot;&gt;Previously&lt;/a&gt; it was &lt;em&gt;hard&lt;/em&gt; to &lt;del&gt;implement&lt;/del&gt; new types of objects that hooked into the rendering system. And whenever I did create something extra, I always felt like I was trying to fit it around the system instead of the system being flexible enough to handle it. Not any more!&lt;/p&gt;
+&lt;p&gt;Version 3.0 has taken me 2 1/2 months, 113 commits to the code repository, and 192 files were edited.&lt;/p&gt;
+&lt;p&gt;Here is a class diagram of how the system is put together now. Click below after the picture for more about the changes.&lt;/p&gt;
+&lt;img src=&quot;/2016/07/07/version-3-release/v3-rendering-classes.png&quot; alt=&quot;version 3 class structure&quot; title=&quot;version 3 class structure&quot;&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;The system is made up of three concepts (that work out to different types)&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;TextSurface&lt;br&gt;This represents the text data of a surface.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;TextSurfaceRenderer&lt;br&gt;Takes in TextSurface data and draws it to the screen.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;SurfaceEditor&lt;br&gt;Provides a way to change a TextSurface, like the background or foreground of cells.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;What about the classic &lt;strong&gt;SadConsole.Consoles.Console&lt;/strong&gt; type? It’s there. This class is a &lt;code&gt;SurfaceEditor&lt;/code&gt; that has both a &lt;code&gt;TextSurface&lt;/code&gt; and &lt;code&gt;TextSurfaceRenderer&lt;/code&gt;. The concept of a &lt;code&gt;Console&lt;/code&gt; comes together when you combine those three elements. The &lt;code&gt;Console&lt;/code&gt; still has all the other things: cursor, position, and input handling. You can easily use a &lt;code&gt;TextSurfaceRenderer&lt;/code&gt; to render a &lt;code&gt;TextSurface&lt;/code&gt; directly, and you can use the &lt;code&gt;SurfaceEditor&lt;/code&gt; to change the data on the &lt;code&gt;TextSurface&lt;/code&gt;, all without the actual &lt;code&gt;Console&lt;/code&gt; type.&lt;/p&gt;
+&lt;p&gt;This flexability allows us to create new types of data and rendering systems. For example, there is now a &lt;code&gt;CachedTextSurfaceRenderer&lt;/code&gt; that instead of rendering the &lt;code&gt;TextSurface&lt;/code&gt; on every render call, it renders once and keeps that output for every subsequent render call. You have to explicitly tell it to update itself. This is handy for UI elements, frames and borders, and text areas that never change once rendered. If a text surface is 10x10, that is about 200 renders calls every frame. With the &lt;code&gt;CachedTextSurfaceRenderer&lt;/code&gt; you take those 200 render calls once, and then every time after that a single render call is done. Very optimized.&lt;/p&gt;
+&lt;h2 id=&quot;Sample-code&quot;&gt;&lt;a href=&quot;#Sample-code&quot; class=&quot;headerlink&quot; title=&quot;Sample code&quot;&gt;&lt;/a&gt;Sample code&lt;/h2&gt;&lt;p&gt;Here are some common examples of using the new types.&lt;/p&gt;
+&lt;h3 id=&quot;Create-a-console&quot;&gt;&lt;a href=&quot;#Create-a-console&quot; class=&quot;headerlink&quot; title=&quot;Create a console&quot;&gt;&lt;/a&gt;Create a console&lt;/h3&gt;&lt;p&gt;By default, SadConsole handles all rendering and updates of a &lt;code&gt;Console&lt;/code&gt; type for you. Just add it to the &lt;code&gt;SadConsole.Engine.ConsoleRenderStack&lt;/code&gt; collection.&lt;/p&gt;
+&lt;figure class=&quot;highlight csharp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; console = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; SadConsole.Consoles.Console(&lt;span class=&quot;number&quot;&gt;16&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.Fill(Color.Aqua, Color.Gray, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.Print(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;Hello World!&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.Position = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Point(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;SadConsole.Engine.ConsoleRenderStack.Add(console);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img src=&quot;/2016/07/07/version-3-release/hello-world-1.png&quot; alt=&quot;Hello world rendered in SadConsole&quot; title=&quot;Hello world rendered in SadConsole&quot;&gt;
+&lt;h3 id=&quot;Manually-render-a-TextSurface&quot;&gt;&lt;a href=&quot;#Manually-render-a-TextSurface&quot; class=&quot;headerlink&quot; title=&quot;Manually render a TextSurface&quot;&gt;&lt;/a&gt;Manually render a TextSurface&lt;/h3&gt;&lt;p&gt;You can take any existing TextSurface and render it multiple times. A console draws it self once per frame, wherever &lt;code&gt;Console.Position&lt;/code&gt; points to on the screen, but we can also draw manually if we would like to duplicate the console. &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;&lt;br&gt;Remember that the console is still in the &lt;code&gt;SadConsole.Engine.ConsoleRenderStack&lt;/code&gt; and will draw at position &lt;strong&gt;1, 1&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight csharp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;console.Renderer.Render(console.TextSurface, &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Point(&lt;span class=&quot;number&quot;&gt;19&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;), &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.Renderer.Render(console.TextSurface, &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Point(&lt;span class=&quot;number&quot;&gt;37&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;), &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;img src=&quot;/2016/07/07/version-3-release/hello-world-2.png&quot; alt=&quot;Hello world rendered three times in SadConsole&quot; title=&quot;Hello world rendered three times in SadConsole&quot;&gt;
+&lt;p&gt;Instead of using the console itself to render, you could do it all by hand.&lt;/p&gt;
+&lt;figure class=&quot;highlight csharp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; renderer = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; SadConsole.Consoles.TextSurfaceRenderer();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; textSurface = console.TextSurface;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;renderer.Render(textSurface, &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Point(&lt;span class=&quot;number&quot;&gt;19&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;), &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;renderer.Render(textSurface, &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Point(&lt;span class=&quot;number&quot;&gt;37&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;), &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;Next&quot;&gt;&lt;a href=&quot;#Next&quot; class=&quot;headerlink&quot; title=&quot;Next&quot;&gt;&lt;/a&gt;Next&lt;/h2&gt;&lt;p&gt;In the next blog post, I’ll show how to use the render multiple layers on a console using built in types. &lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;It’s finally done! Version 3 of SadConsole brings a lot of structural changes and increases flexibility.  &lt;a href=&quot;/2016/04/23/thoughts-on-rendering-a-console&quot;&gt;Previously&lt;/a&gt; it was &lt;em&gt;hard&lt;/em&gt; to &lt;del&gt;implement&lt;/del&gt; new types of objects that hooked into the rendering system. And whenever I did create something extra, I always felt like I was trying to fit it around the system instead of the system being flexible enough to handle it. Not any more!&lt;/p&gt;
+&lt;p&gt;Version 3.0 has taken me 2 1/2 months, 113 commits to the code repository, and 192 files were edited.&lt;/p&gt;
+&lt;p&gt;Here is a class diagram of how the system is put together now. Click below after the picture for more about the changes.&lt;/p&gt;
+&lt;img src=&quot;/2016/07/07/version-3-release/v3-rendering-classes.png&quot; alt=&quot;version 3 class structure&quot; title=&quot;version 3 class structure&quot;&gt;
+    
+    </summary>
+    
+      <category term="SadConsole" scheme="http://thraka.github.io/categories/SadConsole/"/>
+    
+    
+      <category term="SadConsole" scheme="http://thraka.github.io/tags/SadConsole/"/>
+    
+  </entry>
   
   <entry>
     <title>Cached console</title>
