@@ -11,7 +11,11 @@
 		<ul class="nav navbar-nav">
 		  <% theme.menu.forEach(function(m){ %>
 		  <li>
-			<a href="<%- config.root %><%- m.url %>" title="<%- m.intro %>">
+            <% if (m.url.startsWith("http")){ %>
+			<a href="<%- m.url %>" title="<%- m.intro %>">
+            <% } else { %>
+            <a href="<%- config.root %><%- m.url %>" title="<%- m.intro %>">
+            <% } %>
 			  <i class="<%- m.icon %>"></i><%- m.title %>
 			</a>
 		  </li>
