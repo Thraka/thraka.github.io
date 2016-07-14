@@ -1,5 +1,5 @@
 title: Version 3 Release
-date: 2016-07-07 15:42:42
+date: 2016-07-13 15:42:42
 tags:
 - SadConsole
 category:
@@ -18,17 +18,30 @@ Here is a class diagram of how the system is put together now. Click below after
 
 The system is made up of three concepts (that work out to different types)
 
-1. TextSurface  
+1. *TextSurface*  
 This represents the text data of a surface.
 
-2. TextSurfaceRenderer
+2. *TextSurfaceRenderer*  
 Takes in TextSurface data and draws it to the screen.
 
-3. SurfaceEditor
+3. *SurfaceEditor*  
 Provides a way to change a TextSurface, like the background or foreground of cells.
 
 
-What about the classic **SadConsole.Consoles.Console** type? It's there. This class is a `SurfaceEditor` that has both a `TextSurface` and `TextSurfaceRenderer`. The concept of a `Console` comes together when you combine those three elements. The `Console` still has all the other things: cursor, position, and input handling. You can easily use a `TextSurfaceRenderer` to render a `TextSurface` directly, and you can use the `SurfaceEditor` to change the data on the `TextSurface`, all without the actual `Console` type.
+What about the classic **SadConsole.Consoles.Console** type? It's there. This class is a `SurfaceEditor` that has both a `TextSurface` and `TextSurfaceRenderer`. The concept of a `Console` comes together when you combine those three elements. The `Console` still has all the other things: cursor, position, and input handling.
+
+You can easily use a `TextSurfaceRenderer` to render a `TextSurface` directly, and you can use the `SurfaceEditor` to change the data on the `TextSurface`, all without the actual `Console` type.
+
+```csharp
+var surface = new SadConsole.Consoles.TextSurface(16, 5, SadConsole.Engine.DefaultFont);
+var editor = new SadConsole.Consoles.SurfaceEditor(surface);
+var renderer = new SadConsole.Consoles.TextSurfaceRenderer();
+
+editor.Fill(Color.Aqua, Color.Gray, 0, null);
+editor.Print(2, 2, "Hello World!");
+
+renderer.Render(surface, new Point(1, 1));
+```
 
 This flexability allows us to create new types of data and rendering systems. For example, there is now a `CachedTextSurfaceRenderer` that instead of rendering the `TextSurface` on every render call, it renders once and keeps that output for every subsequent render call. You have to explicitly tell it to update itself. This is handy for UI elements, frames and borders, and text areas that never change once rendered. If a text surface is 10x10, that is about 200 renders calls every frame. With the `CachedTextSurfaceRenderer` you take those 200 render calls once, and then every time after that a single render call is done. Very optimized.
 
