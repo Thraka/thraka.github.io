@@ -32,7 +32,7 @@ namespace MyNamespace
             // Hook the start event so we can add consoles to the system.
             SadConsole.Engine.EngineStart += Engine_EngineStart;
 
-            // Hook the update event that happens each frame so we can trap keys and respond.
+            // Hook the update event that happens each frame so we can do logic.
             SadConsole.Engine.EngineUpdated += Engine_EngineUpdated;
 
             // Start the game.
@@ -48,7 +48,7 @@ namespace MyNamespace
 
         private static void Engine_EngineUpdated(object sender, EventArgs e)
         {
-
+            // Game logic if doing it in a console directly.
         }
     }
 }
