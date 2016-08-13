@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://thraka.github.io/"/>
-  <updated>2016-07-14T02:07:04.890Z</updated>
+  <updated>2016-08-13T07:22:14.345Z</updated>
   <id>http://thraka.github.io/</id>
   
   <author>
@@ -14,6 +14,86 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Easier Startup</title>
+    <link href="http://thraka.github.io/2016/08/12/easier-startup/"/>
+    <id>http://thraka.github.io/2016/08/12/easier-startup/</id>
+    <published>2016-08-13T05:16:17.000Z</published>
+    <updated>2016-08-13T07:22:14.345Z</updated>
+    
+    <content type="html">&lt;p&gt;First, NuGet has been updated with a bunch more fixes. I’m trying my best now to stick with the &lt;a href=&quot;http://semver.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;semantic versioning&lt;/a&gt; format. It’s hard to transition from the old versioning style. It’s also getting harder and harder to not break interface on updates. So I’m really going to try hard to no longer do that. &lt;/p&gt;
+&lt;p&gt;Down to business…..&lt;/p&gt;
+&lt;p&gt;I’ve created new init sequences for SadConsole that removes all the crap that comes with MonoGame. That means if you’re not making a full MonoGame-game where you need all the extra 3D management, you can omit the whole giant &lt;code&gt;game1.cs&lt;/code&gt; class and instead use this nice, compact, easy, startup file.&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;pre&gt;&lt;code class=&quot;csharp&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;using&lt;/span&gt; System;
+&lt;span class=&quot;keyword&quot;&gt;using&lt;/span&gt; Console = SadConsole.Consoles.Console;
+&lt;span class=&quot;keyword&quot;&gt;using&lt;/span&gt; SadConsole.Consoles;
+&lt;span class=&quot;keyword&quot;&gt;using&lt;/span&gt; Microsoft.Xna.Framework;
+
+&lt;span class=&quot;keyword&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;MyNamespace&lt;/span&gt;
+{
+    &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Program&lt;/span&gt;
+    {
+        &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Main&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;string&lt;/span&gt;[] args&lt;/span&gt;)
+        &lt;/span&gt;{
+            &lt;span class=&quot;comment&quot;&gt;// Setup the engine and creat the main window.&lt;/span&gt;
+            SadConsole.Engine.Initialize(&lt;span class=&quot;string&quot;&gt;&quot;IBM.font&quot;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;80&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;25&lt;/span&gt;);
+
+            &lt;span class=&quot;comment&quot;&gt;// Hook the start event so we can add consoles to the system.&lt;/span&gt;
+            SadConsole.Engine.EngineStart += Engine_EngineStart;
+
+            &lt;span class=&quot;comment&quot;&gt;// Hook the update event that happens each frame so we can trap keys and respond.&lt;/span&gt;
+            SadConsole.Engine.EngineUpdated += Engine_EngineUpdated;
+
+            &lt;span class=&quot;comment&quot;&gt;// Start the game.&lt;/span&gt;
+            SadConsole.Engine.Run();
+        }
+
+        &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Engine_EngineStart&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;object&lt;/span&gt; sender, EventArgs e&lt;/span&gt;)
+        &lt;/span&gt;{
+            &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; defaultConsole = (Console)SadConsole.Engine.ActiveConsole;
+
+            defaultConsole.Print(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;Welcome to SadConsole&quot;&lt;/span&gt;, Color.Aqua, Color.Black);
+        }
+
+        &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Engine_EngineUpdated&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;object&lt;/span&gt; sender, EventArgs e&lt;/span&gt;)
+        &lt;/span&gt;{
+
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Of course that is how to startup with MonoGame. I’m also introducing support for SFML.&lt;/p&gt;
+&lt;h3 id=&quot;SFML&quot;&gt;&lt;a href=&quot;#SFML&quot; class=&quot;headerlink&quot; title=&quot;SFML&quot;&gt;&lt;/a&gt;SFML&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.sfml-dev.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;SFML&lt;/a&gt; provides a simple interface to the various components of your PC, to ease the development of games and multimedia applications. It is composed of five modules: system, window, graphics, audio and network.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;That is the summary of what SFML website says. It’s a C++ library that someone has lovingly provided a .NET wrapper for on NuGet. I’m using the wrapper. &lt;/p&gt;
+&lt;p&gt;Using the SFML version of SadConsole doesn’t really change much from your perspective. While the MonoGame framework itself is cleaner from a game developer perspective, there is a bit of overhead. SFML renders slightly faster.&lt;/p&gt;
+&lt;p&gt;The NuGet packages for SFML are&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.nuget.org/packages/SadConsole.Core.SFML/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.nuget.org/packages/SadConsole.Core.SFML/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.nuget.org/packages/SadConsole.Controls.SFML/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.nuget.org/packages/SadConsole.Controls.SFML/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.nuget.org/packages/SadConsole.GameHelpers.SFML/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.nuget.org/packages/SadConsole.GameHelpers.SFML/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.nuget.org/packages/SadConsole.Ansi.SFML/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.nuget.org/packages/SadConsole.Ansi.SFML/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The starter tutorial for SFML is available &lt;a href=&quot;https://github.com/Thraka/SadConsole/wiki/NuGet%20Starter%20SFML&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;First, NuGet has been updated with a bunch more fixes. I’m trying my best now to stick with the &lt;a href=&quot;http://semver.org/&quot;&gt;semantic versioning&lt;/a&gt; format. It’s hard to transition from the old versioning style. It’s also getting harder and harder to not break interface on updates. So I’m really going to try hard to no longer do that. &lt;/p&gt;
+&lt;p&gt;Down to business…..&lt;/p&gt;
+&lt;p&gt;I’ve created new init sequences for SadConsole that removes all the crap that comes with MonoGame. That means if you’re not making a full MonoGame-game where you need all the extra 3D management, you can omit the whole giant &lt;code&gt;game1.cs&lt;/code&gt; class and instead use this nice, compact, easy, startup file.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="SadConsole" scheme="http://thraka.github.io/categories/SadConsole/"/>
+    
+    
+      <category term="SadConsole" scheme="http://thraka.github.io/tags/SadConsole/"/>
+    
+  </entry>
   
   <entry>
     <title>Version 3 Release</title>
@@ -116,7 +196,7 @@
     <link href="http://thraka.github.io/2016/04/23/thoughts-on-rendering-a-console/"/>
     <id>http://thraka.github.io/2016/04/23/thoughts-on-rendering-a-console/</id>
     <published>2016-04-24T00:46:02.000Z</published>
-    <updated>2016-04-24T03:27:09.020Z</updated>
+    <updated>2016-08-13T07:21:24.800Z</updated>
     
     <content type="html">&lt;p&gt;The more and more that I use &lt;strong&gt;SadConsole&lt;/strong&gt; on my own little games, the more I grow to dislike the way I render to the screen. Now, I don’t mean specifically the rendering code itself. It’s pretty good, though I have an improvement coming soon. What I mean is the way you, say from a console, get your data rendered to the screen. &lt;/p&gt;
 &lt;p&gt;A console generally has two roles, it either reads input from the user (providing visual feedback) and/or it presents characters to the user. However, the capabilities you want in drawing characters to the screen may vary. You may:&lt;/p&gt;
