@@ -29,7 +29,7 @@ For example, the **Console** type used to be located at the `SadConsole.Consoles
 
 Other things have simplified naming too, like `Console.CanUseKeyboard` is just `Console.UseKeyboard` now.
 
-### Core engine
+## Core engine
 
 `SadConsole.Engine` has been removed. Its role was to coordinate all the parts of SadConsole. Instead this has been split into three parts, `SadConsole.Global` which represents state (time passed, keyboard/mouse, current thing to render), `SadConsole.Game` which is the `MonoGame.Game` instance, and `SadConsole.Settings` which provides full screen, toggle drawing on/off etc.
 
@@ -40,7 +40,7 @@ Other things have simplified naming too, like `Console.CanUseKeyboard` is just `
 | SadConsole.Settings | Various settings like fullscreen, device clear color, enable/disable keyboard or mouse, other settings. | 
 
 
-### Core types
+## Core types
 
 The `SadConsole.Consoles` namespace does not exist anymore and is instead broken up into two different namespaces that better represents the types contained in it:
 
@@ -51,7 +51,7 @@ The `SadConsole.Consoles` namespace does not exist anymore and is instead broken
 
 The **TextSurface** naming convention has been simplified to **Surface**. And some of the interface and base class complexity of the **TextSurface** stuff has been simplified into fewer types. 
 
-### Rendering
+## Rendering
 
 The rendering system in SadConsole has had some improvements. Instead of each ** Renderer**  having its own ** SpriteBatch** , there is a single `SadConosle.Global.SpriteBatch` which is reused by all renderers. This reduces memory and reduces CPU cycles that were wasted everytime a renderer was created.
 
@@ -59,7 +59,7 @@ Each **Surface** now provides a **RenderTarget2D** type which is a texture. When
 
 The rendering system is now completely cached. Each **ISurface** type has a **IsDirty** flag which causes the backing **RenderTarget2D** to be updated.
 
-### Notable types
+## Notable types
 
 Here is a list of types that have changed and what replaced them. The root `SadConsole` namespace is implied in all of these.
 
@@ -98,11 +98,11 @@ Some methods and/or properties have been renamed. Here are some of them.
 | Input.Mouse.ProcessMouse   | Input.Mouse.Process |
 | Engine.ActiveConsole       | Global.InputTargets -- This is a new type that allows a Push/Pop/Set system for who gets keyboard/exclusive mouse input |
 
-### Input
+## Input
 
 Input has been overhauled a bit. Keyboard is mostly the same except for some minor method refactoring. Mouse has change a lot. Previously each console evaulated mouse state for itself. This is no longer how mouse input works. Instead mouse input is driven by the `SadConsole.Input.Mouse.Update` method which cycles through the `SadConsole.Global.Screen` gathering all console types. Then, each console has the `ProcessMouse` method called. If `true` is returned, mouse processing stops. This happens unless the `Global.InputTargets.Console` has the `IsExclusiveMouse` property set to `true`. If `true`, mouse is always sent to this console and never to anything else.
 
-### Startup code
+## Startup code
 
 The code to start SadConsole from a dedicated SadConsole project is pretty much the same. But now that `Engine` is gone, `Global` is used and the names of the draw/update events are simplier. They also are direct delegates instead of event.
 
