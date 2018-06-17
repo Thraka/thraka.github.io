@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://thraka.github.io/"/>
-  <updated>2017-03-08T18:40:43.531Z</updated>
+  <updated>2018-06-17T02:31:44.182Z</updated>
   <id>http://thraka.github.io/</id>
   
   <author>
@@ -16,27 +16,51 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Engine Revision</title>
-    <link href="http://thraka.github.io/2017/03/08/engine-revision/"/>
-    <id>http://thraka.github.io/2017/03/08/engine-revision/</id>
-    <published>2017-03-08T19:34:22.000Z</published>
-    <updated>2017-03-08T18:40:43.531Z</updated>
+    <title>Plans for 7.0</title>
+    <link href="http://thraka.github.io/2018/06/16/Plans-for-7-0/"/>
+    <id>http://thraka.github.io/2018/06/16/Plans-for-7-0/</id>
+    <published>2018-06-17T02:15:52.000Z</published>
+    <updated>2018-06-17T02:31:44.182Z</updated>
     
-    <content type="html">&lt;p&gt;Over the last two months I’ve spent a lot of time looking at how SadConsole is put together. Specifically, paying attention to namespaces and class names. There a few complexities in the object model that I wanted to address and just make things simpler. I’ve come to a point now where I would guess that I’m 99% complete on implementing these changes, and I’m extremely happy with how things have turned out.&lt;/p&gt;
-&lt;p&gt;Two major changes that I’ve figured out impact you as a coder.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;All four libraries (Core, Ansi, Controls, GameHelpers) have been merged into a single library: &lt;code&gt;SadConsole.dll&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Instead of two libraries, one for OpenGl and one for DirectX, a single library handles both.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Originally I thought I needed both types of libraries, however it turns out that you (creating the game) choose which target (OpenGL or DirectX) based on which MonoGame you choose. SadConsole will just play along without a problem.&lt;/p&gt;
-&lt;p&gt;The internal rendering and processing system has also changed.&lt;/p&gt;
+    <content type="html">&lt;p&gt;It’s been over a year since my last post. Unacceptable! I need to keep up on this. &lt;/p&gt;
+&lt;p&gt;Over the last year, &lt;strong&gt;SadConsole&lt;/strong&gt; has seen a lot of minor changes and improvement. A few new controls were added, various input bugs fixed, windowing adjust, it’s been fun. &lt;strong&gt;SadConsole&lt;/strong&gt; as a whole is pretty solid and good. I now want to start playing with some fun enhancements such as angled cells, cell decorations (such as underline), TrueType fonts, that kind of fun stuff.&lt;/p&gt;
+&lt;p&gt;The next major release (it has to be a major release because some things are breaking) is going to be &lt;em&gt;7.0&lt;/em&gt;. I’ve created a &lt;a href=&quot;https://github.com/Thraka/SadConsole/projects/1#card-10550416&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub project&lt;/a&gt; to track all of things to be adressed. Some things may get cut and new items may be added. If you have an idea, please add a new issue to the repository.&lt;/p&gt;
+&lt;p&gt;I have a few more blog posts coming up soon, with screenshots and all! Stay tuned…&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;It’s been over a year since my last post. Unacceptable! I need to keep up on this. &lt;/p&gt;
+&lt;p&gt;Over the last year, &lt;strong&gt;SadConsole&lt;/strong
+    
+    </summary>
+    
+      <category term="SadConsole" scheme="http://thraka.github.io/categories/SadConsole/"/>
+    
+    
+      <category term="SadConsole" scheme="http://thraka.github.io/tags/SadConsole/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Engine Revision Completed</title>
+    <link href="http://thraka.github.io/2017/03/18/engine-revision-completed/"/>
+    <id>http://thraka.github.io/2017/03/18/engine-revision-completed/</id>
+    <published>2017-03-19T01:29:11.000Z</published>
+    <updated>2017-03-19T17:59:13.893Z</updated>
+    
+    <content type="html">&lt;p&gt;Yahhh!! I’ve completed the rewrite! Wiki, NuGet, GitHub have all been updated.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.nuget.org/packages/sadconsole&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;NuGet package&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Thraka/SadConsole&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Thraka/SadConsole/wiki/NuGet-Starter-MonoGame&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Getting started&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;Here are the notes from the readme.&lt;/p&gt;
-&lt;p&gt;The preview release NuGet package is at &lt;a href=&quot;https://www.nuget.org/packages/SadConsole/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.nuget.org/packages/SadConsole/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;A lot of refactoring has happened. Many of the types in SadConsole have been moved around to a more logical position and a lot of redundancy has been removed. &lt;/p&gt;
 &lt;p&gt;For example, the &lt;strong&gt;Console&lt;/strong&gt; type used to be located at the &lt;code&gt;SadConsole.Consoles.Console&lt;/code&gt; which felt very obtuse. &lt;strong&gt;Console&lt;/strong&gt; is a core type that doesn’t need its own namespace, much like &lt;strong&gt;Cell&lt;/strong&gt;. This type is now located in the root namespace &lt;code&gt;SadConsole&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Other things have simplified naming too, like &lt;code&gt;Console.CanUseKeyboard&lt;/code&gt; is just &lt;code&gt;Console.UseKeyboard&lt;/code&gt; now.&lt;/p&gt;
-&lt;h3 id=&quot;Core-engine&quot;&gt;&lt;a href=&quot;#Core-engine&quot; class=&quot;headerlink&quot; title=&quot;Core engine&quot;&gt;&lt;/a&gt;Core engine&lt;/h3&gt;&lt;p&gt;&lt;code&gt;SadConsole.Engine&lt;/code&gt; has been removed. Its role was to coordinate all the parts of SadConsole. Instead this has been split into three parts, &lt;code&gt;SadConsole.Global&lt;/code&gt; which represents state (time passed, keyboard/mouse, current thing to render), &lt;code&gt;SadConsole.Game&lt;/code&gt; which is the &lt;code&gt;MonoGame.Game&lt;/code&gt; instance, and &lt;code&gt;SadConsole.Settings&lt;/code&gt; which provides full screen, toggle drawing on/off etc.&lt;/p&gt;
+&lt;h2 id=&quot;Core-engine&quot;&gt;&lt;a href=&quot;#Core-engine&quot; class=&quot;headerlink&quot; title=&quot;Core engine&quot;&gt;&lt;/a&gt;Core engine&lt;/h2&gt;&lt;p&gt;&lt;code&gt;SadConsole.Engine&lt;/code&gt; has been removed. Its role was to coordinate all the parts of SadConsole. Instead this has been split into three parts, &lt;code&gt;SadConsole.Global&lt;/code&gt; which represents state (time passed, keyboard/mouse, current thing to render), &lt;code&gt;SadConsole.Game&lt;/code&gt; which is the &lt;code&gt;MonoGame.Game&lt;/code&gt; instance, and &lt;code&gt;SadConsole.Settings&lt;/code&gt; which provides full screen, toggle drawing on/off etc.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -59,7 +83,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&quot;Core-types&quot;&gt;&lt;a href=&quot;#Core-types&quot; class=&quot;headerlink&quot; title=&quot;Core types&quot;&gt;&lt;/a&gt;Core types&lt;/h3&gt;&lt;p&gt;The &lt;code&gt;SadConsole.Consoles&lt;/code&gt; namespace does not exist anymore and is instead broken up into two different namespaces that better represents the types contained in it:&lt;/p&gt;
+&lt;h2 id=&quot;Core-types&quot;&gt;&lt;a href=&quot;#Core-types&quot; class=&quot;headerlink&quot; title=&quot;Core types&quot;&gt;&lt;/a&gt;Core types&lt;/h2&gt;&lt;p&gt;The &lt;code&gt;SadConsole.Consoles&lt;/code&gt; namespace does not exist anymore and is instead broken up into two different namespaces that better represents the types contained in it:&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -79,10 +103,10 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;The &lt;strong&gt;TextSurface&lt;/strong&gt; naming convention has been simplified to &lt;strong&gt;Surface&lt;/strong&gt;. And some of the interface and base class complexity of the &lt;strong&gt;TextSurface&lt;/strong&gt; stuff has been simplified into fewer types. &lt;/p&gt;
-&lt;h3 id=&quot;Rendering&quot;&gt;&lt;a href=&quot;#Rendering&quot; class=&quot;headerlink&quot; title=&quot;Rendering&quot;&gt;&lt;/a&gt;Rendering&lt;/h3&gt;&lt;p&gt;The rendering system in SadConsole has had some improvements. Instead of each &lt;strong&gt; Renderer&lt;/strong&gt;  having its own &lt;strong&gt; SpriteBatch&lt;/strong&gt; , there is a single &lt;code&gt;SadConosle.Global.SpriteBatch&lt;/code&gt; which is reused by all renderers. This reduces memory and reduces CPU cycles that were wasted everytime a renderer was created.&lt;/p&gt;
+&lt;h2 id=&quot;Rendering&quot;&gt;&lt;a href=&quot;#Rendering&quot; class=&quot;headerlink&quot; title=&quot;Rendering&quot;&gt;&lt;/a&gt;Rendering&lt;/h2&gt;&lt;p&gt;The rendering system in SadConsole has had some improvements. Instead of each &lt;strong&gt; Renderer&lt;/strong&gt;  having its own &lt;strong&gt; SpriteBatch&lt;/strong&gt; , there is a single &lt;code&gt;SadConosle.Global.SpriteBatch&lt;/code&gt; which is reused by all renderers. This reduces memory and reduces CPU cycles that were wasted every time a renderer was created.&lt;/p&gt;
 &lt;p&gt;Each &lt;strong&gt;Surface&lt;/strong&gt; now provides a &lt;strong&gt;RenderTarget2D&lt;/strong&gt; type which is a texture. Whenever a surface is rendered, it is drawn onto this texture. At the end of the global Draw call, all surfaces that are in the drawing pipeline are rendered to a single &lt;strong&gt;RenderTarget2D&lt;/strong&gt; texture at &lt;code&gt;SadConsole.Global.RenderOutput&lt;/code&gt;. This final texture (which contains all drawing from SadConsole) is then drawn to the screen. This simplifies fullscreen and stretch modes. This new system also allows anyone to bypass any part of SadConsole rendering and use the rendered textures to draw on any sort of 3D model or scene of their game. For example, you could build up a 3D scene of an old computer terminal and then use SadConsole on the screen of the computer.&lt;/p&gt;
 &lt;p&gt;The rendering system is now completely cached. Each &lt;strong&gt;ISurface&lt;/strong&gt; type has a &lt;strong&gt;IsDirty&lt;/strong&gt; flag which causes the backing &lt;strong&gt;RenderTarget2D&lt;/strong&gt; to be updated.&lt;/p&gt;
-&lt;h3 id=&quot;Notable-types&quot;&gt;&lt;a href=&quot;#Notable-types&quot; class=&quot;headerlink&quot; title=&quot;Notable types&quot;&gt;&lt;/a&gt;Notable types&lt;/h3&gt;&lt;p&gt;Here is a list of types that have changed and what replaced them. The root &lt;code&gt;SadConsole&lt;/code&gt; namespace is implied in all of these.&lt;/p&gt;
+&lt;h2 id=&quot;Notable-types&quot;&gt;&lt;a href=&quot;#Notable-types&quot; class=&quot;headerlink&quot; title=&quot;Notable types&quot;&gt;&lt;/a&gt;Notable types&lt;/h2&gt;&lt;p&gt;Here is a list of types that have changed and what replaced them. The root &lt;code&gt;SadConsole&lt;/code&gt; namespace is implied in all of these.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -205,8 +229,220 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id=&quot;Input&quot;&gt;&lt;a href=&quot;#Input&quot; class=&quot;headerlink&quot; title=&quot;Input&quot;&gt;&lt;/a&gt;Input&lt;/h3&gt;&lt;p&gt;Input has been overhauled a bit. Keyboard is mostly the same except for some minor method refactoring. Mouse has change a lot. Previously each console evaulated mouse state for itself. This is no longer how mouse input works. Instead mouse input is driven by the &lt;code&gt;SadConsole.Input.Mouse.Update&lt;/code&gt; method which cycles through the &lt;code&gt;SadConsole.Global.Screen&lt;/code&gt; gathering all console types. Then, each console has the &lt;code&gt;ProcessMouse&lt;/code&gt; method called. If &lt;code&gt;true&lt;/code&gt; is returned, mouse processing stops. This happens unless the &lt;code&gt;Global.InputTargets.Console&lt;/code&gt; has the &lt;code&gt;IsExclusiveMouse&lt;/code&gt; property set to &lt;code&gt;true&lt;/code&gt;. If &lt;code&gt;true&lt;/code&gt;, mouse is always sent to this console and never to anything else.&lt;/p&gt;
-&lt;h3 id=&quot;Startup-code&quot;&gt;&lt;a href=&quot;#Startup-code&quot; class=&quot;headerlink&quot; title=&quot;Startup code&quot;&gt;&lt;/a&gt;Startup code&lt;/h3&gt;&lt;p&gt;The code to start SadConsole from a dedicated SadConsole project is pretty much the same. But now that &lt;code&gt;Engine&lt;/code&gt; is gone, &lt;code&gt;Global&lt;/code&gt; is used and the names of the draw/update events are simplier. They also are direct delegates instead of event.&lt;/p&gt;
+&lt;h2 id=&quot;Input&quot;&gt;&lt;a href=&quot;#Input&quot; class=&quot;headerlink&quot; title=&quot;Input&quot;&gt;&lt;/a&gt;Input&lt;/h2&gt;&lt;p&gt;Input has been overhauled a bit. Keyboard is mostly the same except for some minor method refactoring. Mouse has change a lot. Previously each console evaluated mouse state for itself. This is no longer how mouse input works. Instead mouse input is driven by the &lt;code&gt;SadConsole.Input.Mouse.Update&lt;/code&gt; method which cycles through the &lt;code&gt;SadConsole.Global.Screen&lt;/code&gt; gathering all console types. Then, each console has the &lt;code&gt;ProcessMouse&lt;/code&gt; method called. If &lt;code&gt;true&lt;/code&gt; is returned, mouse processing stops. This happens unless the &lt;code&gt;Global.InputTargets.Console&lt;/code&gt; has the &lt;code&gt;IsExclusiveMouse&lt;/code&gt; property set to &lt;code&gt;true&lt;/code&gt;. If &lt;code&gt;true&lt;/code&gt;, mouse is always sent to this console and never to anything else.&lt;/p&gt;
+&lt;h2 id=&quot;Startup-code&quot;&gt;&lt;a href=&quot;#Startup-code&quot; class=&quot;headerlink&quot; title=&quot;Startup code&quot;&gt;&lt;/a&gt;Startup code&lt;/h2&gt;&lt;p&gt;The code to start SadConsole from a dedicated SadConsole project is pretty much the same. But now that &lt;code&gt;Engine&lt;/code&gt; is gone, &lt;code&gt;Global&lt;/code&gt; is used and the names of the draw/update events are simplier. They also are direct delegates instead of event.&lt;/p&gt;
+&lt;figure class=&quot;highlight csharp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;26&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;27&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;28&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;29&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;30&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;31&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;32&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;33&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;34&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;35&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;36&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Main&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;string&lt;/span&gt;[] args&lt;/span&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// Setup the engine and creat the main window.&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    SadConsole.Game.Create(&lt;span class=&quot;string&quot;&gt;&quot;IBM.font&quot;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;80&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;25&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// Hook the start event so we can add consoles to the system.&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    SadConsole.Game.OnInitialize = Init;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// Hook the update event that happens each frame so we can trap keys and respond.&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    SadConsole.Game.OnUpdate = Update;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// Hook the &quot;after render&quot; even though we&#39;re not using it.&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    SadConsole.Game.OnDraw = DrawFrame;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// Start the game.&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    SadConsole.Game.Instance.Run();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// Code here will not run until the game has shut down.&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;DrawFrame&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;GameTime time&lt;/span&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// Custom drawing. You don&#39;t usually have to do this.&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Update&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;GameTime time&lt;/span&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// Called each logic update.&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Init&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// Any setup&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Yahhh!! I’ve completed the rewrite! Wiki, NuGet, GitHub have all been updated.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.nuget.org/packages/sadconsole&quot;&gt;NuGet package&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Thraka/SadConsole&quot;&gt;GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Thraka/SadConsole/wiki/NuGet-Starter-MonoGame&quot;&gt;Getting started&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="SadConsole" scheme="http://thraka.github.io/categories/SadConsole/"/>
+    
+    
+      <category term="SadConsole" scheme="http://thraka.github.io/tags/SadConsole/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Engine Revision</title>
+    <link href="http://thraka.github.io/2017/03/08/engine-revision/"/>
+    <id>http://thraka.github.io/2017/03/08/engine-revision/</id>
+    <published>2017-03-08T19:34:22.000Z</published>
+    <updated>2017-03-19T17:58:56.688Z</updated>
+    
+    <content type="html">&lt;p&gt;Over the last two months I’ve spent a lot of time looking at how SadConsole is put together. Specifically, paying attention to namespaces and class names. There a few complexities in the object model that I wanted to address and just make things simpler. I’ve come to a point now where I would guess that I’m 99% complete on implementing these changes, and I’m extremely happy with how things have turned out.&lt;/p&gt;
+&lt;p&gt;Two major changes that I’ve figured out impact you as a coder.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;All four libraries (Core, Ansi, Controls, GameHelpers) have been merged into a single library: &lt;code&gt;SadConsole.dll&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Instead of two libraries, one for OpenGl and one for DirectX, a single library handles both.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Originally I thought I needed both types of libraries, however it turns out that you (creating the game) choose which target (OpenGL or DirectX) based on which MonoGame you choose. SadConsole will just play along without a problem.&lt;/p&gt;
+&lt;p&gt;The internal rendering and processing system has also changed.&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;Here are the notes from the readme.&lt;/p&gt;
+&lt;p&gt;The preview release NuGet package is at &lt;a href=&quot;https://www.nuget.org/packages/SadConsole/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.nuget.org/packages/SadConsole/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;A lot of refactoring has happened. Many of the types in SadConsole have been moved around to a more logical position and a lot of redundancy has been removed. &lt;/p&gt;
+&lt;p&gt;For example, the &lt;strong&gt;Console&lt;/strong&gt; type used to be located at the &lt;code&gt;SadConsole.Consoles.Console&lt;/code&gt; which felt very obtuse. &lt;strong&gt;Console&lt;/strong&gt; is a core type that doesn’t need its own namespace, much like &lt;strong&gt;Cell&lt;/strong&gt;. This type is now located in the root namespace &lt;code&gt;SadConsole&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Other things have simplified naming too, like &lt;code&gt;Console.CanUseKeyboard&lt;/code&gt; is just &lt;code&gt;Console.UseKeyboard&lt;/code&gt; now.&lt;/p&gt;
+&lt;h2 id=&quot;Core-engine&quot;&gt;&lt;a href=&quot;#Core-engine&quot; class=&quot;headerlink&quot; title=&quot;Core engine&quot;&gt;&lt;/a&gt;Core engine&lt;/h2&gt;&lt;p&gt;&lt;code&gt;SadConsole.Engine&lt;/code&gt; has been removed. Its role was to coordinate all the parts of SadConsole. Instead this has been split into three parts, &lt;code&gt;SadConsole.Global&lt;/code&gt; which represents state (time passed, keyboard/mouse, current thing to render), &lt;code&gt;SadConsole.Game&lt;/code&gt; which is the &lt;code&gt;MonoGame.Game&lt;/code&gt; instance, and &lt;code&gt;SadConsole.Settings&lt;/code&gt; which provides full screen, toggle drawing on/off etc.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Class&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;SadConsole.Global&lt;/td&gt;
+&lt;td&gt;Global state, like time elapsed, keyboard/mouse input state, the active thing to render.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SadConsole.Game&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Microsoft.Xna.Framework.Game&lt;/code&gt; game instance that you can run instead of providing your own.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SadConsole.Settings&lt;/td&gt;
+&lt;td&gt;Various settings like fullscreen, device clear color, enable/disable keyboard or mouse, other settings.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&quot;Core-types&quot;&gt;&lt;a href=&quot;#Core-types&quot; class=&quot;headerlink&quot; title=&quot;Core types&quot;&gt;&lt;/a&gt;Core types&lt;/h2&gt;&lt;p&gt;The &lt;code&gt;SadConsole.Consoles&lt;/code&gt; namespace does not exist anymore and is instead broken up into two different namespaces that better represents the types contained in it:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Namespace&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;SadConsole.Surfaces&lt;/td&gt;
+&lt;td&gt;All types of surfaces that are attached to a Console.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SadConsole.Renderers&lt;/td&gt;
+&lt;td&gt;All renderers that render surfaces and are attached to a Console.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The &lt;strong&gt;TextSurface&lt;/strong&gt; naming convention has been simplified to &lt;strong&gt;Surface&lt;/strong&gt;. And some of the interface and base class complexity of the &lt;strong&gt;TextSurface&lt;/strong&gt; stuff has been simplified into fewer types. &lt;/p&gt;
+&lt;h2 id=&quot;Rendering&quot;&gt;&lt;a href=&quot;#Rendering&quot; class=&quot;headerlink&quot; title=&quot;Rendering&quot;&gt;&lt;/a&gt;Rendering&lt;/h2&gt;&lt;p&gt;The rendering system in SadConsole has had some improvements. Instead of each &lt;strong&gt; Renderer&lt;/strong&gt;  having its own &lt;strong&gt; SpriteBatch&lt;/strong&gt; , there is a single &lt;code&gt;SadConosle.Global.SpriteBatch&lt;/code&gt; which is reused by all renderers. This reduces memory and reduces CPU cycles that were wasted every time a renderer was created.&lt;/p&gt;
+&lt;p&gt;Each &lt;strong&gt;Surface&lt;/strong&gt; now provides a &lt;strong&gt;RenderTarget2D&lt;/strong&gt; type which is a texture. Whenever a surface is rendered, it is drawn onto this texture. At the end of the global Draw call, all surfaces that are in the drawing pipeline are rendered to a single &lt;strong&gt;RenderTarget2D&lt;/strong&gt; texture at &lt;code&gt;SadConsole.Global.RenderOutput&lt;/code&gt;. This final texture (which contains all drawing from SadConsole) is then drawn to the screen. This simplifies fullscreen and stretch modes. This new system also allows anyone to bypass any part of SadConsole rendering and use the rendered textures to draw on any sort of 3D model or scene of their game. For example, you could build up a 3D scene of an old computer terminal and then use SadConsole on the screen of the computer.&lt;/p&gt;
+&lt;p&gt;The rendering system is now completely cached. Each &lt;strong&gt;ISurface&lt;/strong&gt; type has a &lt;strong&gt;IsDirty&lt;/strong&gt; flag which causes the backing &lt;strong&gt;RenderTarget2D&lt;/strong&gt; to be updated.&lt;/p&gt;
+&lt;h2 id=&quot;Notable-types&quot;&gt;&lt;a href=&quot;#Notable-types&quot; class=&quot;headerlink&quot; title=&quot;Notable types&quot;&gt;&lt;/a&gt;Notable types&lt;/h2&gt;&lt;p&gt;Here is a list of types that have changed and what replaced them. The root &lt;code&gt;SadConsole&lt;/code&gt; namespace is implied in all of these.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Old Class&lt;/th&gt;
+&lt;th&gt;New Class&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Engine&lt;/td&gt;
+&lt;td&gt;Replaced by &lt;strong&gt;Global&lt;/strong&gt;, &lt;strong&gt;Game&lt;/strong&gt;, and &lt;strong&gt;Settings&lt;/strong&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ICellAppearance&lt;/td&gt;
+&lt;td&gt;Removed - Use &lt;strong&gt;Cell&lt;/strong&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CellAppearance&lt;/td&gt;
+&lt;td&gt;Removed - Use &lt;strong&gt;Cell&lt;/strong&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Consoles.IConsole&lt;/td&gt;
+&lt;td&gt;IConsole. Still exists, implements &lt;strong&gt;IScreen&lt;/strong&gt; now.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Consoles.IConsoleList&lt;/td&gt;
+&lt;td&gt;Removed.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Consoles.Console&lt;/td&gt;
+&lt;td&gt;Console&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Consoles.ConsoleList&lt;/td&gt;
+&lt;td&gt;Removed. All &lt;strong&gt;IScreen&lt;/strong&gt; types have both &lt;strong&gt;Parent&lt;/strong&gt; and &lt;strong&gt;Children&lt;/strong&gt; properties.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Consoles.ITextSurface&lt;/td&gt;
+&lt;td&gt;Surfaces.ISurface&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Consoles.TextSurfaceBasic&lt;/td&gt;
+&lt;td&gt;Removed. Merged into &lt;strong&gt;Surfaces.Surface&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Consoles.TextSurface&lt;/td&gt;
+&lt;td&gt;Surfaces.BasicSurface&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Consoles.TextSurfaceView&lt;/td&gt;
+&lt;td&gt;Surfaces.SurfaceView&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Consoles.AnimatedTextSurface&lt;/td&gt;
+&lt;td&gt;Surfaces.AnimatedSurface&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Consoles.LayeredTextSurface&lt;/td&gt;
+&lt;td&gt;Surfaces.LayeredSurface&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Consoles.Cursor&lt;/td&gt;
+&lt;td&gt;Cursor&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Consoles.SurfaceEditor&lt;/td&gt;
+&lt;td&gt;Surfaces.SurfaceEditor&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Consoles.ITextSurfaceRenderer&lt;/td&gt;
+&lt;td&gt;Renderers.ISurfaceRenderer&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Consoles.TextSurfaceRenderer&lt;/td&gt;
+&lt;td&gt;Renderers.SurfaceRenderer&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Consoles.LayeredTextRenderer&lt;/td&gt;
+&lt;td&gt;Renderers.LayeredSurfaceRenderer&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Consoles.ITextSurfaceRendererUpdate&lt;/td&gt;
+&lt;td&gt;Removed - All surfaces support cached rendering.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Consoles.CachedTextSurfaceRenderer&lt;/td&gt;
+&lt;td&gt;Removed - All surfaces support cached rendering.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Input.MouseInfo&lt;/td&gt;
+&lt;td&gt;Renamed to Input.Mouse&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Input.KeyboardInfo&lt;/td&gt;
+&lt;td&gt;Renamed to Input.Keyboard&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Besides the &lt;strong&gt;Consoles&lt;/strong&gt; namespace, startup, and &lt;strong&gt;Engine&lt;/strong&gt; -&amp;gt; &lt;strong&gt;Global&lt;/strong&gt; changes, not much else has changed.&lt;/p&gt;
+&lt;p&gt;Some methods and/or properties have been renamed. Here are some of them.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Old name&lt;/th&gt;
+&lt;th&gt;New name&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Input.Keyboard.ProcessKeys&lt;/td&gt;
+&lt;td&gt;Input.Keyboard.Process&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Input.Mouse.ProcessMouse&lt;/td&gt;
+&lt;td&gt;Input.Mouse.Process&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Engine.ActiveConsole&lt;/td&gt;
+&lt;td&gt;Global.InputTargets – This is a new type that allows a Push/Pop/Set system for who gets keyboard/exclusive mouse input&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&quot;Input&quot;&gt;&lt;a href=&quot;#Input&quot; class=&quot;headerlink&quot; title=&quot;Input&quot;&gt;&lt;/a&gt;Input&lt;/h2&gt;&lt;p&gt;Input has been overhauled a bit. Keyboard is mostly the same except for some minor method refactoring. Mouse has change a lot. Previously each console evaluated mouse state for itself. This is no longer how mouse input works. Instead mouse input is driven by the &lt;code&gt;SadConsole.Input.Mouse.Update&lt;/code&gt; method which cycles through the &lt;code&gt;SadConsole.Global.Screen&lt;/code&gt; gathering all console types. Then, each console has the &lt;code&gt;ProcessMouse&lt;/code&gt; method called. If &lt;code&gt;true&lt;/code&gt; is returned, mouse processing stops. This happens unless the &lt;code&gt;Global.InputTargets.Console&lt;/code&gt; has the &lt;code&gt;IsExclusiveMouse&lt;/code&gt; property set to &lt;code&gt;true&lt;/code&gt;. If &lt;code&gt;true&lt;/code&gt;, mouse is always sent to this console and never to anything else.&lt;/p&gt;
+&lt;h2 id=&quot;Startup-code&quot;&gt;&lt;a href=&quot;#Startup-code&quot; class=&quot;headerlink&quot; title=&quot;Startup code&quot;&gt;&lt;/a&gt;Startup code&lt;/h2&gt;&lt;p&gt;The code to start SadConsole from a dedicated SadConsole project is pretty much the same. But now that &lt;code&gt;Engine&lt;/code&gt; is gone, &lt;code&gt;Global&lt;/code&gt; is used and the names of the draw/update events are simplier. They also are direct delegates instead of event.&lt;/p&gt;
 &lt;figure class=&quot;highlight csharp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;26&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;27&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;28&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;29&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;30&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;31&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;32&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;33&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;34&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;35&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;36&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Main&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;string&lt;/span&gt;[] args&lt;/span&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// Setup the engine and creat the main window.&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    SadConsole.Game.Create(&lt;span class=&quot;string&quot;&gt;&quot;IBM.font&quot;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;80&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;25&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// Hook the start event so we can add consoles to the system.&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    SadConsole.Game.OnInitialize = Init;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// Hook the update event that happens each frame so we can trap keys and respond.&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    SadConsole.Game.OnUpdate = Update;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// Hook the &quot;after render&quot; even though we&#39;re not using it.&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    SadConsole.Game.OnDraw = DrawFrame;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// Start the game.&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    SadConsole.Game.Instance.Run();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// Code here will not run until the game has shut down.&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;DrawFrame&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;GameTime time&lt;/span&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// Custom drawing. You don&#39;t usually have to do this.&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Update&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;GameTime time&lt;/span&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// Called each logic update.&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Init&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// Any setup&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
     
     <summary type="html">
@@ -226,71 +462,6 @@
     
     
       <category term="SadConsole" scheme="http://thraka.github.io/tags/SadConsole/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Engine Revision</title>
-    <link href="http://thraka.github.io/2017/02/26/getting-started-with-preview/"/>
-    <id>http://thraka.github.io/2017/02/26/getting-started-with-preview/</id>
-    <published>2017-02-26T19:34:22.000Z</published>
-    <updated>2017-03-08T18:39:46.049Z</updated>
-    
-    <content type="html">&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;The preview release NuGet package is at &lt;a href=&quot;https://www.nuget.org/packages/SadConsole/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.nuget.org/packages/SadConsole/&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;The preview release NuGet package is at &lt;a href=&quot;https://www.nuget.org/packages/SadConsole/&quot; target=&quot;_blank&quot; rel=&quot;exter
-    
-    </summary>
-    
-      <category term="SadConsole" scheme="http://thraka.github.io/categories/SadConsole/"/>
-    
-    
-      <category term="SadConsole" scheme="http://thraka.github.io/tags/SadConsole/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SadConsoleEditor and GameHelper changes</title>
-    <link href="http://thraka.github.io/2016/10/16/sadconsole-editor/"/>
-    <id>http://thraka.github.io/2016/10/16/sadconsole-editor/</id>
-    <published>2016-10-16T09:00:00.000Z</published>
-    <updated>2016-10-16T21:45:22.263Z</updated>
-    
-    <content type="html">&lt;p&gt;For the last month or so, I’ve worked really hard on updating [SadConsoleEditor][]. If you’re unfamiliar with what that is, it’s the most comprehensive SadConsole project to date. It’s a screen and animation editor that outputs JSON files that are compatibile with SadConsole. Here is a screenshot, with more information after it.&lt;/p&gt;
-
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;After the rewrite of SadConsole (dubbed V3), the editor tool that has been available for quite some time has been unusable. I started upgrading the tool right after V3 was released. However, the tool was a bit hard to just easily transplant one architecutre to another. I don’t suspect that this architecture change would have been hard on actual games made with SadConsole. The editor however tries to disect the SadConsole types and transform them into smaller, easier to manage, types. &lt;/p&gt;
-&lt;p&gt;Easier to manage? Yes. Since the tool lets you visually change surface data across all sorts of types (animated, multi-layered, etc), the tool must break things down into the most basic bits of data. This is something you normally don’t need to do in a game.&lt;/p&gt;
-&lt;h2 id=&quot;GameHelper-enhancements&quot;&gt;&lt;a href=&quot;#GameHelper-enhancements&quot; class=&quot;headerlink&quot; title=&quot;GameHelper enhancements&quot;&gt;&lt;/a&gt;GameHelper enhancements&lt;/h2&gt;&lt;p&gt;The [GameHelper][] library provides has added some more game creation help. There are three new types to help with this:&lt;/p&gt;
-&lt;p&gt;| SadConsole.Game.Zone | A rectangle region within a surface. Has a set dictionary of settings. |&lt;br&gt;| SadConsole.Game.Hotspot | One or more spots within a surface. Has a set of dictionary of settings. |&lt;br&gt;| SadConsole.Game.Scene | Combines a &lt;code&gt;LayeredTextSurface&lt;/code&gt;, Zones, Hotspots, and &lt;code&gt;SadConsole.Game.GameObjects&lt;/code&gt; into a single type. | &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt; GameObject types have been available since V3. They are the replacement for the old Entity types. A GameObject combines position and animations into a single object.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;The tool has been updated to handle all these types within the &lt;strong&gt;Scene editor&lt;/strong&gt; part of the tool.&lt;/p&gt;
-&lt;h3 id=&quot;Scenes&quot;&gt;&lt;a href=&quot;#Scenes&quot; class=&quot;headerlink&quot; title=&quot;Scenes&quot;&gt;&lt;/a&gt;Scenes&lt;/h3&gt;&lt;p&gt;While your game scenes would usually have the objects placed dynamically (such as monsters or items) when you load map data, this is helpful to compose non-dynamic objects such as health bars, regional panes (like splitting the screen up into sections for consoles to be loaded into) and individual hotspots. &lt;/p&gt;
-&lt;p&gt;Zones are useful for marking large regions of your console for something. For example, if you wanted to mark where a roof was on a roof layer.&lt;/p&gt;
-&lt;p&gt;Hotspots are helpful for marking individual spaces on the console that you can react to layter. For example you could mark where the name of the character is placed, where the health or power bar is located. Also, when you combine this with a zone, you can create an effect of some sort. As an example, you could mark the entrance to a building, combine that with a zone that represents the roof of the building, and when the player enters the building, the roof disappears. &lt;/p&gt;
-&lt;p&gt;As time goes on, my work is going to be more focused on this library than on SadConsole. I feel like SadConsole is in a good place feature wise. There isn’t a whole lot to do to enhance it. You can do pretty much anything with it, especially combined with the &lt;strong&gt;Controls&lt;/strong&gt; library. What I want to do with the &lt;strong&gt;GameHelper&lt;/strong&gt; library is continue to add things that make it easier to compose a game. One thing I started to add pre-V3 was a trigger/reaction system so you could compose events and reactions based on SadConsole types and data.&lt;/p&gt;
-&lt;h2 id=&quot;Editor&quot;&gt;&lt;a href=&quot;#Editor&quot; class=&quot;headerlink&quot; title=&quot;Editor&quot;&gt;&lt;/a&gt;Editor&lt;/h2&gt;&lt;p&gt;The editor has three types, a standered multilayered console, animations, and a scene. &lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;For the last month or so, I’ve worked really hard on updating [SadConsoleEditor][]. If you’re unfamiliar with what that is, it’s the most comprehensive SadConsole project to date. It’s a screen and animation editor that outputs JSON files that are compatibile with SadConsole. Here is a screenshot, with more information after it.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="SadConsole" scheme="http://thraka.github.io/categories/SadConsole/"/>
-    
-    
-      <category term="SadConsole" scheme="http://thraka.github.io/tags/SadConsole/"/>
-    
-      <category term="SadConsoleEditor" scheme="http://thraka.github.io/tags/SadConsoleEditor/"/>
     
   </entry>
   
@@ -435,7 +606,7 @@
     <link href="http://thraka.github.io/2016/06/01/cached-console/"/>
     <id>http://thraka.github.io/2016/06/01/cached-console/</id>
     <published>2016-06-02T00:45:58.000Z</published>
-    <updated>2016-06-02T01:05:38.723Z</updated>
+    <updated>2016-06-02T01:05:38.724Z</updated>
     
     <content type="html">&lt;p&gt;Oh hai! As part of my rewrite of how SadConsole renders to the screen (&lt;a href=&quot;https://github.com/Thraka/SadConsole/tree/sadconsole-v3&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;my v3 branch&lt;/a&gt;) I came up with a few new console types. Well.. not really a new console, but it’s actually a new renderer. The class is &lt;a href=&quot;https://github.com/Thraka/SadConsole/blob/sadconsole-v3/SadConsole.Core/Consoles/CachedTextSurfaceRenderer.cs&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;SadConsole.Consoles.CachedTextSurfaceRenderer&lt;/a&gt; (name subject to change) and it works by rendering the text data to a texture instead of the screen. Then when the renderer is drawn, it draws the texture instead of console cell data.&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -575,7 +746,7 @@
     <link href="http://thraka.github.io/2016/04/21/entity-animation-bug/"/>
     <id>http://thraka.github.io/2016/04/21/entity-animation-bug/</id>
     <published>2016-04-21T15:10:44.000Z</published>
-    <updated>2016-08-13T07:21:24.655Z</updated>
+    <updated>2016-08-13T07:21:24.656Z</updated>
     
     <content type="html">&lt;p&gt;Yesterday I was writing some &lt;a href=&quot;https://github.com/Thraka/SadConsole/commit/066e68bc4ce8ae8f1a3e525e347f89e0e9f14f66#diff-2a6004b6fa04ffddd85619ce217d01a5R20&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;code to generate&lt;/a&gt; an entity that animated white static, like you have on an old TV. &lt;/p&gt;
 &lt;img src=&quot;/2016/04/21/entity-animation-bug/static.gif&quot; alt=&quot;animated static ascii&quot; title=&quot;animated static ascii&quot;&gt;

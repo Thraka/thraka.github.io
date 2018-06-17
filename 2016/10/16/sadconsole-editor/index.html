@@ -6,18 +6,15 @@
   <meta http-equiv="cache-control" content="no-cache">
   <meta http-equiv="expires" content="0">
   
-  <title>Entity animation bug | Thraka</title>
+  <title>SadConsoleEditor and GameHelper changes | Thraka</title>
   <meta name="author" content="Thraka">
   
-  <meta name="description" content="Yesterday I was writing some code to generate an entity that animated white static, like you have on an old TV. 
-
-And I found a bug..
-The bug has to d">
+  <meta name="description" content="For the last month or so, I’ve worked really hard on updating [SadConsoleEditor][]. If you’re unfamiliar with what that is, it’s the most comprehensive SadConsole project to date. It’s a screen and animation editor that outputs JSON files that are compatibile with SadConsole. Here is a screenshot, with more information after it.">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Entity animation bug"/>
+  <meta property="og:title" content="SadConsoleEditor and GameHelper changes"/>
   <meta property="og:site_name" content="Thraka"/>
 
   
@@ -121,7 +118,7 @@ The bug has to d">
 
 	
 		<div class="page-header">
-			<h1> Entity animation bug</h1>
+			<h1> SadConsoleEditor and GameHelper changes</h1>
 		</div>
 	
 
@@ -138,11 +135,22 @@ The bug has to d">
 	<div class="mypage">		
 	  		
 
-	  <p>Yesterday I was writing some <a href="https://github.com/Thraka/SadConsole/commit/066e68bc4ce8ae8f1a3e525e347f89e0e9f14f66#diff-2a6004b6fa04ffddd85619ce217d01a5R20" target="_blank" rel="external">code to generate</a> an entity that animated white static, like you have on an old TV. </p>
-<img src="/2016/04/21/entity-animation-bug/static.gif" alt="animated static ascii" title="animated static ascii">
-<p>And I found a bug..</p>
-<p>The bug has to do with when you create an entity and then add a new animation to it that replaces the <strong>default</strong> animation. The entity has the new animation but the <code>Entity.CurrentAnimation</code> property still points to the old one. Not good.</p>
-<p>Fixed now in version 2.7+.</p>
+	  <p>For the last month or so, I’ve worked really hard on updating [SadConsoleEditor][]. If you’re unfamiliar with what that is, it’s the most comprehensive SadConsole project to date. It’s a screen and animation editor that outputs JSON files that are compatibile with SadConsole. Here is a screenshot, with more information after it.</p>
+
+<a id="more"></a>
+<p>After the rewrite of SadConsole (dubbed V3), the editor tool that has been available for quite some time has been unusable. I started upgrading the tool right after V3 was released. However, the tool was a bit hard to just easily transplant one architecutre to another. I don’t suspect that this architecture change would have been hard on actual games made with SadConsole. The editor however tries to disect the SadConsole types and transform them into smaller, easier to manage, types. </p>
+<p>Easier to manage? Yes. Since the tool lets you visually change surface data across all sorts of types (animated, multi-layered, etc), the tool must break things down into the most basic bits of data. This is something you normally don’t need to do in a game.</p>
+<h2 id="GameHelper-enhancements"><a href="#GameHelper-enhancements" class="headerlink" title="GameHelper enhancements"></a>GameHelper enhancements</h2><p>The [GameHelper][] library provides has added some more game creation help. There are three new types to help with this:</p>
+<p>| SadConsole.Game.Zone | A rectangle region within a surface. Has a set dictionary of settings. |<br>| SadConsole.Game.Hotspot | One or more spots within a surface. Has a set of dictionary of settings. |<br>| SadConsole.Game.Scene | Combines a <code>LayeredTextSurface</code>, Zones, Hotspots, and <code>SadConsole.Game.GameObjects</code> into a single type. | </p>
+<blockquote>
+<p><strong>NOTE</strong> GameObject types have been available since V3. They are the replacement for the old Entity types. A GameObject combines position and animations into a single object.</p>
+</blockquote>
+<p>The tool has been updated to handle all these types within the <strong>Scene editor</strong> part of the tool.</p>
+<h3 id="Scenes"><a href="#Scenes" class="headerlink" title="Scenes"></a>Scenes</h3><p>While your game scenes would usually have the objects placed dynamically (such as monsters or items) when you load map data, this is helpful to compose non-dynamic objects such as health bars, regional panes (like splitting the screen up into sections for consoles to be loaded into) and individual hotspots. </p>
+<p>Zones are useful for marking large regions of your console for something. For example, if you wanted to mark where a roof was on a roof layer.</p>
+<p>Hotspots are helpful for marking individual spaces on the console that you can react to layter. For example you could mark where the name of the character is placed, where the health or power bar is located. Also, when you combine this with a zone, you can create an effect of some sort. As an example, you could mark the entrance to a building, combine that with a zone that represents the roof of the building, and when the player enters the building, the roof disappears. </p>
+<p>As time goes on, my work is going to be more focused on this library than on SadConsole. I feel like SadConsole is in a good place feature wise. There isn’t a whole lot to do to enhance it. You can do pretty much anything with it, especially combined with the <strong>Controls</strong> library. What I want to do with the <strong>GameHelper</strong> library is continue to add things that make it easier to compose a game. One thing I started to add pre-V3 was a trigger/reaction system so you could compose events and reactions based on SadConsole types and data.</p>
+<h2 id="Editor"><a href="#Editor" class="headerlink" title="Editor"></a>Editor</h2><p>The editor has three types, a standered multilayered console, animations, and a scene. </p>
 	  
 	</div>
 
@@ -152,13 +160,14 @@ The bug has to d">
 
     
     
-    <a href="/2016/04/23/thoughts-on-rendering-a-console/" type="button" class="btn btn-default"><i
-                class="fa fa-arrow-circle-o-left"></i> Next</a>
+    <a href="/2017/02/26/getting-started-with-preview/" type="button" class="btn btn-default"><i
+                class="fa fa-arrow-circle-o-left"></i> Prev</a>
     
 
     <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
     
-    <a type="button" class="btn btn-default disabled">Prev<i class="fa fa-arrow-circle-o-right"></i></a>
+    <a href="/2016/08/12/easier-startup/" type="button" class="btn btn-default ">Next<i
+                class="fa fa-arrow-circle-o-right"></i></a>
     
 
     
@@ -181,8 +190,8 @@ The bug has to d">
              */
                 
             var disqus_config = function () {
-                this.page.url = "http://thraka.github.io/2016/04/21/entity-animation-bug/"; // Replace PAGE_URL with your page's canonical URL variable
-                this.page.identifier = "2016/04/21/entity-animation-bug/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                this.page.url = "http://thraka.github.io/2016/10/16/sadconsole-editor/"; // Replace PAGE_URL with your page's canonical URL variable
+                this.page.identifier = "2016/10/16/sadconsole-editor/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
             };
                  
             (function() { // DON'T EDIT BELOW THIS LINE
@@ -211,7 +220,7 @@ The bug has to d">
 	
 	<div class="meta-widget">
 	<i class="fa fa-clock-o"></i>
-	2016-04-21 
+	2016-10-16 
 	</div>
 	
 
@@ -235,7 +244,7 @@ The bug has to d">
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/SadConsole/">SadConsole<span>8</span></a></li> <li><a href="/tags/Bug/">Bug<span>1</span></a></li>
+  <li><a href="/tags/SadConsole/">SadConsole<span>8</span></a></li> <li><a href="/tags/SadConsoleEditor/">SadConsoleEditor<span>1</span></a></li>
     </ul>
 	</div>
 		
@@ -260,7 +269,7 @@ The bug has to d">
   </div>
   <div class="container-narrow">
   <footer> <p>
-  &copy; 2018 Thraka
+  &copy; 2017 Thraka
   
       with help from <a href="http://hexo.io/" target="_blank">Hexo</a>,<a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>,<a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a> and <a href="http://getbootstrap.com/" target="_blank">BOOTSTRA.386</a>. 
      <br> Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind.386</a>.    
