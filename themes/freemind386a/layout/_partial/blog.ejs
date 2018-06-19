@@ -11,7 +11,7 @@
 		<div class="mypage">
 		
 		<!-- title and entry -->
-		<% page.posts.each(function(item){ %>
+		<% site.posts.sort('date', -1).each(function(item){ %>
 			<%- partial('post/title', {item: item, index: index}) %>
 			<%- partial('post/entry', {item: item, index: index}) %>
 		<% }); %>

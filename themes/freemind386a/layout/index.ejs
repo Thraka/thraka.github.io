@@ -1,5 +1,48 @@
+<%
+item = site.pages.find({source: 'index1.md'}).first();
+post = false;
+%>
+
 <div class="page-header logo">
   <h1><% if (config.subtitle){ %><%= config.subtitle%><% } else { %><%= config.title%><% }%><span class="blink-fast">∎</span></h1>
 </div>
 
-<%- partial('_partial/index', {index: true}) %>
+
+<div class="row <% if (post) { %>post<% } else { %>page<% } %>">
+	<!-- cols -->
+	<% if (post) { %>
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	<% } else { %>
+	<div class="col-md-12">
+	<% } %>
+
+	<!-- content -->
+	<div class="mypage">		
+	  <% if (item.description) { %>
+		 <div class="alert alert-success description">
+			<i class="fa fa-info-circle"></i> <%- item.description %>
+		 </div> <!-- alert -->
+	  <% } %>		
+
+	  <%- item.content %>	  
+	</div>
+
+	<div>
+  	<center>
+	<%- partial('_partial/post/pagination', {page: item}) %>
+    </center>
+	</div>
+	
+	<!-- comment -->
+	<%- partial('post/comment', {page: item}) %>
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	<% if (post) { %>
+	<div id="side_meta">
+		<%- partial('_partial/post/meta', {item: item}) %>
+	</div>
+	<% } %>	
+
+</div><!-- row -->
+<%- partial('_partial/post/comment_footer', {page: item}) %>
