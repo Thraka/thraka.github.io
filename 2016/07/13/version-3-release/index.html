@@ -77,17 +77,17 @@ Here is a class diagram of how the system is put together now. Click below after
 		  
 		  <li>
             
-            <a href="/categories" title="All the categories">
+            <a href="/docs" title="Documentation for SadConsole">
             
-			  <i class=""></i>Categories
+			  <i class=""></i>Documentation
 			</a>
 		  </li>
 		  
 		  <li>
             
-            <a href="/atom.xml" title="Subscribe">
+			<a href="https://github.com/thraka/sadconsole" title="SadConsole GitHub">
             
-			  <i class="fa fa-rss"></i>RSS
+			  <i class="fa fa-github"></i>Github
 			</a>
 		  </li>
 		  
@@ -96,6 +96,14 @@ Here is a class diagram of how the system is put together now. Click below after
 			<a href="https://www.reddit.com/r/sadconsole/" title="SadConsole SubReddit">
             
 			  <i class="fa fa-reddit"></i>Reddit
+			</a>
+		  </li>
+		  
+		  <li>
+            
+            <a href="/atom.xml" title="Subscribe">
+            
+			  <i class="fa fa-rss"></i>RSS
 			</a>
 		  </li>
 		  
@@ -132,7 +140,7 @@ Here is a class diagram of how the system is put together now. Click below after
 	  <p>It’s finally done! Version 3 of SadConsole brings a lot of structural changes and increases flexibility.  <a href="/2016/04/23/thoughts-on-rendering-a-console">Previously</a> it was hard to implement new types of objects that hooked into the rendering system. And whenever I did create something extra, I always felt like I was trying to fit it around the system instead of the system being flexible enough to handle it. Not any more!</p>
 <p>Version 3.0 has taken me 2 1/2 months, 113 commits to the code repository, and 192 files were edited.</p>
 <p>Here is a class diagram of how the system is put together now. Click below after the picture for more about the changes.</p>
-<img src="/2016/07/13/version-3-release/v3-rendering-classes.png" alt="version 3 class structure" title="version 3 class structure">
+<img src="/2016/07/13/version-3-release/v3-rendering-classes.png" title="version 3 class structure">
 <a id="more"></a>
 <p>The system is made up of three concepts (that work out to different types)</p>
 <ol>
@@ -145,20 +153,20 @@ Here is a class diagram of how the system is put together now. Click below after
 </ol>
 <p>What about the classic <strong>SadConsole.Consoles.Console</strong> type? It’s there. This class is a <code>SurfaceEditor</code> that has both a <code>TextSurface</code> and <code>TextSurfaceRenderer</code>. The concept of a <code>Console</code> comes together when you combine those three elements. The <code>Console</code> still has all the other things: cursor, position, and input handling.</p>
 <p>You can easily use a <code>TextSurfaceRenderer</code> to render a <code>TextSurface</code> directly, and you can use the <code>SurfaceEditor</code> to change the data on the <code>TextSurface</code>, all without the actual <code>Console</code> type.</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> surface = <span class="keyword">new</span> SadConsole.Consoles.TextSurface(<span class="number">16</span>, <span class="number">5</span>, SadConsole.Engine.DefaultFont);</div><div class="line"><span class="keyword">var</span> editor = <span class="keyword">new</span> SadConsole.Consoles.SurfaceEditor(surface);</div><div class="line"><span class="keyword">var</span> renderer = <span class="keyword">new</span> SadConsole.Consoles.TextSurfaceRenderer();</div><div class="line"></div><div class="line">editor.Fill(Color.Aqua, Color.Gray, <span class="number">0</span>, <span class="literal">null</span>);</div><div class="line">editor.Print(<span class="number">2</span>, <span class="number">2</span>, <span class="string">"Hello World!"</span>);</div><div class="line"></div><div class="line">renderer.Render(surface, <span class="keyword">new</span> Point(<span class="number">1</span>, <span class="number">1</span>));</div></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> surface = <span class="keyword">new</span> SadConsole.Consoles.TextSurface(<span class="number">16</span>, <span class="number">5</span>, SadConsole.Engine.DefaultFont);</span><br><span class="line"><span class="keyword">var</span> editor = <span class="keyword">new</span> SadConsole.Consoles.SurfaceEditor(surface);</span><br><span class="line"><span class="keyword">var</span> renderer = <span class="keyword">new</span> SadConsole.Consoles.TextSurfaceRenderer();</span><br><span class="line"></span><br><span class="line">editor.Fill(Color.Aqua, Color.Gray, <span class="number">0</span>, <span class="literal">null</span>);</span><br><span class="line">editor.Print(<span class="number">2</span>, <span class="number">2</span>, <span class="string">"Hello World!"</span>);</span><br><span class="line"></span><br><span class="line">renderer.Render(surface, <span class="keyword">new</span> Point(<span class="number">1</span>, <span class="number">1</span>));</span><br></pre></td></tr></table></figure>
 <p>This flexability allows us to create new types of data and rendering systems. For example, there is now a <code>CachedTextSurfaceRenderer</code> that instead of rendering the <code>TextSurface</code> on every render call, it renders once and keeps that output for every subsequent render call. You have to explicitly tell it to update itself. This is handy for UI elements, frames and borders, and text areas that never change once rendered. If a text surface is 10x10, that is about 200 renders calls every frame. With the <code>CachedTextSurfaceRenderer</code> you take those 200 render calls once, and then every time after that a single render call is done. Very optimized.</p>
 <h2 id="Sample-code"><a href="#Sample-code" class="headerlink" title="Sample code"></a>Sample code</h2><p>Here are some common examples of using the new types.</p>
 <h3 id="Create-a-console"><a href="#Create-a-console" class="headerlink" title="Create a console"></a>Create a console</h3><p>By default, SadConsole handles all rendering and updates of a <code>Console</code> type for you. Just add it to the <code>SadConsole.Engine.ConsoleRenderStack</code> collection.</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> console = <span class="keyword">new</span> SadConsole.Consoles.Console(<span class="number">16</span>, <span class="number">5</span>);</div><div class="line">console.Fill(Color.Aqua, Color.Gray, <span class="number">0</span>, <span class="literal">null</span>);</div><div class="line">console.Print(<span class="number">2</span>, <span class="number">2</span>, <span class="string">"Hello World!"</span>);</div><div class="line">console.Position = <span class="keyword">new</span> Point(<span class="number">1</span>, <span class="number">1</span>);</div><div class="line">SadConsole.Engine.ConsoleRenderStack.Add(console);</div></pre></td></tr></table></figure>
-<img src="/2016/07/13/version-3-release/hello-world-1.png" alt="Hello world rendered in SadConsole" title="Hello world rendered in SadConsole">
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> console = <span class="keyword">new</span> SadConsole.Consoles.Console(<span class="number">16</span>, <span class="number">5</span>);</span><br><span class="line">console.Fill(Color.Aqua, Color.Gray, <span class="number">0</span>, <span class="literal">null</span>);</span><br><span class="line">console.Print(<span class="number">2</span>, <span class="number">2</span>, <span class="string">"Hello World!"</span>);</span><br><span class="line">console.Position = <span class="keyword">new</span> Point(<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">SadConsole.Engine.ConsoleRenderStack.Add(console);</span><br></pre></td></tr></table></figure>
+<img src="/2016/07/13/version-3-release/hello-world-1.png" title="Hello world rendered in SadConsole">
 <h3 id="Manually-render-a-TextSurface"><a href="#Manually-render-a-TextSurface" class="headerlink" title="Manually render a TextSurface"></a>Manually render a TextSurface</h3><p>You can take any existing TextSurface and render it multiple times. A console draws it self once per frame, wherever <code>Console.Position</code> points to on the screen, but we can also draw manually if we would like to duplicate the console. </p>
 <blockquote>
 <p><strong>NOTE</strong><br>Remember that the console is still in the <code>SadConsole.Engine.ConsoleRenderStack</code> and will draw at position <strong>1, 1</strong>.</p>
 </blockquote>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.Renderer.Render(console.TextSurface, <span class="keyword">new</span> Point(<span class="number">19</span>, <span class="number">1</span>), <span class="literal">false</span>);</div><div class="line">console.Renderer.Render(console.TextSurface, <span class="keyword">new</span> Point(<span class="number">37</span>, <span class="number">1</span>), <span class="literal">false</span>);</div></pre></td></tr></table></figure>
-<img src="/2016/07/13/version-3-release/hello-world-2.png" alt="Hello world rendered three times in SadConsole" title="Hello world rendered three times in SadConsole">
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.Renderer.Render(console.TextSurface, <span class="keyword">new</span> Point(<span class="number">19</span>, <span class="number">1</span>), <span class="literal">false</span>);</span><br><span class="line">console.Renderer.Render(console.TextSurface, <span class="keyword">new</span> Point(<span class="number">37</span>, <span class="number">1</span>), <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<img src="/2016/07/13/version-3-release/hello-world-2.png" title="Hello world rendered three times in SadConsole">
 <p>Instead of using the console itself to render, you could also do it all by hand.</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> renderer = <span class="keyword">new</span> SadConsole.Consoles.TextSurfaceRenderer();</div><div class="line"><span class="keyword">var</span> textSurface = console.TextSurface;</div><div class="line"></div><div class="line">renderer.Render(textSurface, <span class="keyword">new</span> Point(<span class="number">19</span>, <span class="number">1</span>), <span class="literal">false</span>);</div><div class="line">renderer.Render(textSurface, <span class="keyword">new</span> Point(<span class="number">37</span>, <span class="number">1</span>), <span class="literal">false</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> renderer = <span class="keyword">new</span> SadConsole.Consoles.TextSurfaceRenderer();</span><br><span class="line"><span class="keyword">var</span> textSurface = console.TextSurface;</span><br><span class="line"></span><br><span class="line">renderer.Render(textSurface, <span class="keyword">new</span> Point(<span class="number">19</span>, <span class="number">1</span>), <span class="literal">false</span>);</span><br><span class="line">renderer.Render(textSurface, <span class="keyword">new</span> Point(<span class="number">37</span>, <span class="number">1</span>), <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
 <h2 id="Next"><a href="#Next" class="headerlink" title="Next"></a>Next</h2><p>In the next blog post, I’ll show how to use the render multiple layers on a console using built in types. </p>
 	  
 	</div>

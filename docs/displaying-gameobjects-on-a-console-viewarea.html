@@ -1,0 +1,222 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  
+  <title>Display GameObjects on a console | Thraka</title>
+  <meta name="author" content="Thraka">
+  
+  <meta name="description" content="The RenderArea property on a ISurface allows you to only display a small section of the surface. This way you can have a giant surface that is bigger ">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Display GameObjects on a console"/>
+  <meta property="og:site_name" content="Thraka"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-76753055-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">Thraka</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+            
+            <a href="/blog" title="All the articles">
+            
+			  <i class=""></i>Blog
+			</a>
+		  </li>
+		  
+		  <li>
+            
+            <a href="/docs" title="Documentation for SadConsole">
+            
+			  <i class=""></i>Documentation
+			</a>
+		  </li>
+		  
+		  <li>
+            
+			<a href="https://github.com/thraka/sadconsole" title="SadConsole GitHub">
+            
+			  <i class="fa fa-github"></i>Github
+			</a>
+		  </li>
+		  
+		  <li>
+            
+			<a href="https://www.reddit.com/r/sadconsole/" title="SadConsole SubReddit">
+            
+			  <i class="fa fa-reddit"></i>Reddit
+			</a>
+		  </li>
+		  
+		  <li>
+            
+            <a href="/atom.xml" title="Subscribe">
+            
+			  <i class="fa fa-rss"></i>RSS
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+	
+		<div class="page-header">
+			<h1> Display GameObjects on a console</h1>
+		</div>
+	
+
+
+
+<div class="row page">
+	<!-- cols -->
+	
+	<div class="col-md-12">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <p>The <code>RenderArea</code> property on a <code>ISurface</code> allows you to only display a small section of the surface. This way you can have a giant surface that is bigger than the game window and allows you to scroll around. This is very useful for when you have console that represents the map or play area.</p>
+<blockquote>
+<p><strong>NOTE</strong> You may want to review the introduction to <a href="How-to-create-a-gameobject.html">game objects article</a>.</p>
+</blockquote>
+<p>Here is an example (click on the screenshot) of a console with a bunch of random characters and colors. The console is 1000x1000 but the view area is only 80x24 and it can be scrolled.</p>
+<p><a href="http://imgur.com/r7R7VA2" target="_blank" rel="noopener"><img src="images/scrolling-example.png" alt="scrolling console"></a></p>
+<h3 id="Use-a-render-area"><a href="#Use-a-render-area" class="headerlink" title="Use a render area"></a>Use a render area</h3><p>By default the render area is the same size of the backing text surface and no optimizations are made. Once you set the <code>ISurface.RenderArea</code> property to something custom, optimizations take affect for rendering.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myConsole = <span class="keyword">new</span> SadConsole.Console(<span class="number">100</span>,<span class="number">100</span>);</span><br><span class="line">myConsole.TextSurface.RenderArea = <span class="keyword">new</span> Microsoft.Xna.Framework.Rectangle(<span class="number">20</span>, <span class="number">25</span>, <span class="number">30</span>, <span class="number">30</span>);</span><br></pre></td></tr></table></figure>
+<p>In the example the console is created with a <strong>100 x 100</strong> surface and will render all <strong>100 x 100</strong> cells. Once you change it to be <strong>30 x 30</strong>, only that smaller area will actually render.</p>
+<h5 id="Reset-the-render-area"><a href="#Reset-the-render-area" class="headerlink" title="Reset the render area"></a>Reset the render area</h5><p>Reset the render area by simply setting the <code>RenderArea</code> property to null. This will make the render area match the size of the text surface.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myConsole.TextSurface.RenderArea = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="Game-objects"><a href="#Game-objects" class="headerlink" title="Game objects"></a>Game objects</h3><p>Game objects are powerful because they represent independent animated consoles. Even though many of the game objects I use in my games are not animated, I still use them when I want to position characters independently of the console, for example a smiley face character that moves around but does not animate.</p>
+<p><strong>Q</strong> <em>Hey, if my entity is not going to be animated, why would I want to use this instead of a console?</em><br>Good question. The reason is that if you move characters around on the console, you need to remember erase the old position when you move the character to a new position. If you also have background characters (like roads or something) too, you need to not only erase the old position of the character, but restore it to what it was originally.</p>
+<p>Think of it like this. If you print a character at <code>(20, 30)</code> to represent the player and then the player presses the left-arrow key, you need to move the character left by one cell. You do this by printing the character at <code>(19, 30)</code>. However the old location <code>(20, 30)</code> still has a character there. Now you need to <strong>erase</strong> the old location so it is blank. Let’s say in this case your player is currently walking through a forest of green and yellow tiles, you’ll need to remember what was there prior to the character and restore it.</p>
+<p>Game objects help solve this problem because you position them physically on the screen instead of physically on an individual console.</p>
+<h5 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h5><p>A problem however appears when your console is not located at <code>(0, 0)</code> or you’re using a view port. This is because if you position the object at <code>(1, 1)</code> on the <strong>screen</strong>, this may not map to where <code>(1, 1)</code> is on the console.</p>
+<p>For example, if you position your console on the screen at <code>(5, 5)</code> this makes the left-most <code>(0, 0)</code> cell of the console draw there. If your object is positioned at <code>(1, 1)</code> it will not appear on the console because the game object position represents where on the <strong>screen</strong> it is located, not where on a console it should be drawn.</p>
+<h6 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h6><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> console = <span class="keyword">new</span> Console(<span class="number">10</span>, <span class="number">5</span>);</span><br><span class="line">console.Position = <span class="keyword">new</span> Point(<span class="number">5</span>, <span class="number">3</span>);</span><br><span class="line">console.Fill(Color.Purple, Color.DarkGray, <span class="number">250</span>, <span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> entity = <span class="keyword">new</span> SadConsole.GameHelpers.GameObject();</span><br><span class="line"><span class="keyword">var</span> animation = <span class="keyword">new</span> SadConsole.Surfaces.AnimatedSurface(<span class="string">"default"</span>, <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line"><span class="keyword">var</span> frame = animation.CreateFrame();</span><br><span class="line">frame[<span class="number">0</span>].Glyph = <span class="number">1</span>;</span><br><span class="line">frame[<span class="number">0</span>].Foreground = Color.GreenYellow;</span><br><span class="line">frame[<span class="number">0</span>].Background = Color.Transparent;</span><br><span class="line">entity.Animation = animation;</span><br><span class="line">entity.Position = <span class="keyword">new</span> Point(<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">entity.Update();</span><br><span class="line"></span><br><span class="line"><span class="comment">// Note, you need to call `entity.Render` after the console has been rendered</span></span><br></pre></td></tr></table></figure>
+<p><img src="images/entity-position-bad.png" alt="bad entity position"></p>
+<p>To fix this, the game object has a property called <code>RenderOffset</code> which offsets the position on the screen where the game object would be rendered by that amount. To sync any game object’s position with a console use this code:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">entity.RenderOffset = console.RelativePosition - console.TextSurface.RenderArea.Location;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>NOTE</strong><br>You use <code>console.RelativePosition</code> instead of <code>console.Position</code> because the relative position takes into account any console parents that may offset where the console is located on the screen.</p>
+</blockquote>
+<p><img src="images/entity-position-good.png" alt="good entity position"></p>
+<p>If you’re using <code>TextSurface.RenderArea</code> on your console, you need to check and makes sure that the game object is actually located within the view of the console so that it doesn’t appear outside of the render area. Set the game object <code>IsVisible</code> to hide game objects that are outside of what you’re showing the user. Obviously if your console is exactly the same size of the view area you don’t really have to worry about this.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">entity.IsVisible = console.TextSurface.RenderArea.Contains(entity.Position);</span><br></pre></td></tr></table></figure>	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+
+    
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+		
+
+</div><!-- row -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2018 Thraka
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a>,<a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>,<a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a> and <a href="http://getbootstrap.com/" target="_blank">BOOTSTRA.386</a>. 
+     <br> Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind.386</a>.    
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>⬆︎TOP</span>
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+   </html>

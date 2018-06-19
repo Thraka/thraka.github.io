@@ -88,17 +88,17 @@ I think that is all the types provided by SadConsole. Here is a diagram of (out 
 		  
 		  <li>
             
-            <a href="/categories" title="All the categories">
+            <a href="/docs" title="Documentation for SadConsole">
             
-			  <i class=""></i>Categories
+			  <i class=""></i>Documentation
 			</a>
 		  </li>
 		  
 		  <li>
             
-            <a href="/atom.xml" title="Subscribe">
+			<a href="https://github.com/thraka/sadconsole" title="SadConsole GitHub">
             
-			  <i class="fa fa-rss"></i>RSS
+			  <i class="fa fa-github"></i>Github
 			</a>
 		  </li>
 		  
@@ -107,6 +107,14 @@ I think that is all the types provided by SadConsole. Here is a diagram of (out 
 			<a href="https://www.reddit.com/r/sadconsole/" title="SadConsole SubReddit">
             
 			  <i class="fa fa-reddit"></i>Reddit
+			</a>
+		  </li>
+		  
+		  <li>
+            
+            <a href="/atom.xml" title="Subscribe">
+            
+			  <i class="fa fa-rss"></i>RSS
 			</a>
 		  </li>
 		  
@@ -154,7 +162,7 @@ I think that is all the types provided by SadConsole. Here is a diagram of (out 
 <li>An animated console (entity).</li>
 </ul>
 <p>I think that is all the types provided by <strong>SadConsole</strong>. Here is a diagram of (out of all the libraries for SadConsole) the way the classes are structured.</p>
-<img src="/2016/04/23/thoughts-on-rendering-a-console/cellsrenderer-class.png" alt="animated static ascii" title="animated static ascii">
+<img src="/2016/04/23/thoughts-on-rendering-a-console/cellsrenderer-class.png" title="animated static ascii">
 <a id="more"></a>
 <p>The <code>CellsRenderer</code> type is what actually does the drawing to the screen. All the other classes that inherit it (or inherit from <code>Console</code>) are really specialty classes that are about how a console operates.</p>
 <table>
@@ -202,7 +210,7 @@ I think that is all the types provided by SadConsole. Here is a diagram of (out 
 <h3 id="Back-to-the-problem"><a href="#Back-to-the-problem" class="headerlink" title="Back to the problem"></a>Back to the problem</h3><p>Now I ran into a situation where even myself, the one most familiar with the code, was confused as to why my entity wasn’t rendering correctly. What I had done is resized the animation of an entity, which just resizes the CellData of all the animation’s frames. The <em>current frame</em> class reference hadn’t changed, but the size of the frame did. So when the <strong>CellsRenderer</strong> went to render the old 1x1 console, it only drew the top-left cell even though the CellsSurface was much bigger. Ouch. The fix was just to force a recalculation after I resized the animation.</p>
 <p>Now with an entity, all this viewport rect rendering stuff doesn’t matter. So the system that is in place for other consoles was stepping on the simpler entity rendering.</p>
 <p>Well, I want this library to be easy to work with, so I think I need to separate out functionality out either into components, or specialized consoles. And then for when rendering systems must be different, specialized rendering. I’m not sure what it will look like, but I want to make sure it is easier for others to work with. </p>
-<p>There are some awesome .NET console game libraries (like <a href="https://bitbucket.org/clarktravism/rlnet/" target="_blank" rel="external">RLNET</a> and <a href="https://github.com/derrickcreamer/SunshineConsole" target="_blank" rel="external">SunShine Console</a>) out there much like mine that are quick and easy to use. That is something I want for SadConsole. I think I’ve gotten part of the way there though with NuGet. But more can be done…</p>
+<p>There are some awesome .NET console game libraries (like <a href="https://bitbucket.org/clarktravism/rlnet/" target="_blank" rel="noopener">RLNET</a> and <a href="https://github.com/derrickcreamer/SunshineConsole" target="_blank" rel="noopener">SunShine Console</a>) out there much like mine that are quick and easy to use. That is something I want for SadConsole. I think I’ve gotten part of the way there though with NuGet. But more can be done…</p>
 <p>.. Stay tuned ..</p>
 	  
 	</div>

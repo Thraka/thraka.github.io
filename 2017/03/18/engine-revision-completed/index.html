@@ -79,17 +79,17 @@ Getting started">
 		  
 		  <li>
             
-            <a href="/categories" title="All the categories">
+            <a href="/docs" title="Documentation for SadConsole">
             
-			  <i class=""></i>Categories
+			  <i class=""></i>Documentation
 			</a>
 		  </li>
 		  
 		  <li>
             
-            <a href="/atom.xml" title="Subscribe">
+			<a href="https://github.com/thraka/sadconsole" title="SadConsole GitHub">
             
-			  <i class="fa fa-rss"></i>RSS
+			  <i class="fa fa-github"></i>Github
 			</a>
 		  </li>
 		  
@@ -98,6 +98,14 @@ Getting started">
 			<a href="https://www.reddit.com/r/sadconsole/" title="SadConsole SubReddit">
             
 			  <i class="fa fa-reddit"></i>Reddit
+			</a>
+		  </li>
+		  
+		  <li>
+            
+            <a href="/atom.xml" title="Subscribe">
+            
+			  <i class="fa fa-rss"></i>RSS
 			</a>
 		  </li>
 		  
@@ -133,9 +141,9 @@ Getting started">
 
 	  <p>Yahhh!! I’ve completed the rewrite! Wiki, NuGet, GitHub have all been updated.</p>
 <ul>
-<li><a href="https://www.nuget.org/packages/sadconsole" target="_blank" rel="external">NuGet package</a></li>
-<li><a href="https://github.com/Thraka/SadConsole" target="_blank" rel="external">GitHub</a></li>
-<li><a href="https://github.com/Thraka/SadConsole/wiki/NuGet-Starter-MonoGame" target="_blank" rel="external">Getting started</a></li>
+<li><a href="https://www.nuget.org/packages/sadconsole" target="_blank" rel="noopener">NuGet package</a></li>
+<li><a href="https://github.com/Thraka/SadConsole" target="_blank" rel="noopener">GitHub</a></li>
+<li><a href="https://github.com/Thraka/SadConsole/wiki/NuGet-Starter-MonoGame" target="_blank" rel="noopener">Getting started</a></li>
 </ul>
 <a id="more"></a>
 <p>Here are the notes from the readme.</p>
@@ -313,7 +321,7 @@ Getting started">
 </table>
 <h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>Input has been overhauled a bit. Keyboard is mostly the same except for some minor method refactoring. Mouse has change a lot. Previously each console evaluated mouse state for itself. This is no longer how mouse input works. Instead mouse input is driven by the <code>SadConsole.Input.Mouse.Update</code> method which cycles through the <code>SadConsole.Global.Screen</code> gathering all console types. Then, each console has the <code>ProcessMouse</code> method called. If <code>true</code> is returned, mouse processing stops. This happens unless the <code>Global.InputTargets.Console</code> has the <code>IsExclusiveMouse</code> property set to <code>true</code>. If <code>true</code>, mouse is always sent to this console and never to anything else.</p>
 <h2 id="Startup-code"><a href="#Startup-code" class="headerlink" title="Startup code"></a>Startup code</h2><p>The code to start SadConsole from a dedicated SadConsole project is pretty much the same. But now that <code>Engine</code> is gone, <code>Global</code> is used and the names of the draw/update events are simplier. They also are direct delegates instead of event.</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// Setup the engine and creat the main window.</span></div><div class="line">    SadConsole.Game.Create(<span class="string">"IBM.font"</span>, <span class="number">80</span>, <span class="number">25</span>);</div><div class="line"></div><div class="line">    <span class="comment">// Hook the start event so we can add consoles to the system.</span></div><div class="line">    SadConsole.Game.OnInitialize = Init;</div><div class="line"></div><div class="line">    <span class="comment">// Hook the update event that happens each frame so we can trap keys and respond.</span></div><div class="line">    SadConsole.Game.OnUpdate = Update;</div><div class="line"></div><div class="line">    <span class="comment">// Hook the "after render" even though we're not using it.</span></div><div class="line">    SadConsole.Game.OnDraw = DrawFrame;</div><div class="line">            </div><div class="line">    <span class="comment">// Start the game.</span></div><div class="line">    SadConsole.Game.Instance.Run();</div><div class="line"></div><div class="line">    <span class="comment">//</span></div><div class="line">    <span class="comment">// Code here will not run until the game has shut down.</span></div><div class="line">    <span class="comment">//</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">DrawFrame</span>(<span class="params">GameTime time</span>)</span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// Custom drawing. You don't usually have to do this.</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Update</span>(<span class="params">GameTime time</span>)</span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// Called each logic update.</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Init</span>(<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// Any setup</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>	  
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// Setup the engine and creat the main window.</span></span><br><span class="line">    SadConsole.Game.Create(<span class="string">"IBM.font"</span>, <span class="number">80</span>, <span class="number">25</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Hook the start event so we can add consoles to the system.</span></span><br><span class="line">    SadConsole.Game.OnInitialize = Init;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Hook the update event that happens each frame so we can trap keys and respond.</span></span><br><span class="line">    SadConsole.Game.OnUpdate = Update;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Hook the "after render" even though we're not using it.</span></span><br><span class="line">    SadConsole.Game.OnDraw = DrawFrame;</span><br><span class="line">            </span><br><span class="line">    <span class="comment">// Start the game.</span></span><br><span class="line">    SadConsole.Game.Instance.Run();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="comment">// Code here will not run until the game has shut down.</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">DrawFrame</span>(<span class="params">GameTime time</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// Custom drawing. You don't usually have to do this.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Update</span>(<span class="params">GameTime time</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// Called each logic update.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Init</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// Any setup</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>	  
 	</div>
 
 	<div>
