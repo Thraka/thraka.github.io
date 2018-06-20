@@ -13,11 +13,11 @@ In this article we'll accomplish the following:
 ##### Tutorial index
 
 - **Part 1 - Create the project**
-- [Part 2 - Character and map](Part-2---Character-and-map.md)
-- [Part 3 - Map generation](Part-3---Map-generation.md)
+- [Part 2 - Character and map](part-2---character-and-map.md)
+- [Part 3 - Map generation](part-3---map-generation.md)
 - More coming soon...
 
-[Download the source code for the entire series](SadConsole-RoguelikeTutorial.zip).
+[Download the source code for the entire series](sadconsole-rogueliketutorial.zip).
 
 
 ## Create the SadConsole project
@@ -170,6 +170,6 @@ If you run the game, you'll see an `@` character in the middle of the screen.
 
 We've initialized SadConsole and displayed a simple console with a character. Pretty simple huh? A few lines of code and we're off and running.
 
-In the [next step](Part-2---Character-and-map.md) of the tutorial we'll create our own custom console and display a player character on it.
+In the [next step](part-2---character-and-map.md) of the tutorial we'll create our own custom console and display a player character on it.
 
-[Download the source code for the entire series](SadConsole-RoguelikeTutorial.zip).
+[Download the source code for the entire series](sadconsole-rogueliketutorial.zip).

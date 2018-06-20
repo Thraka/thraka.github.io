@@ -3,7 +3,7 @@ layout: docpage
 ---
 
 
-This page describes how to create a new project in Visual Studio to use SadConsole. If you already have a **MonoGame template** project created, read about how to use **SadConsole** [here](MonoGame-Template.md).
+This page describes how to create a new project in Visual Studio to use SadConsole. If you already have a **MonoGame template** project created, read about how to use **SadConsole** [here](monogame-template.md).
 
 The best way to create a new SadConsole game is to start with the **Empty project** template provided by Visual Studio.
 
@@ -27,4 +27,4 @@ Now that you have the project created, you need to add reference to the SadConso
 
     ![nuget preview](images/part1-nuget.png)
 
-When **SadConsole.Starter** is added to your project, Visual Studio should open up the [NuGet Starter MonoGame](NuGet-Starter-MonoGame.md) page which tells you next steps you need to do.
+When **SadConsole.Starter** is added to your project, Visual Studio should open up the [NuGet Starter MonoGame](nuget-starter-monogame.md) page which tells you next steps you need to do.

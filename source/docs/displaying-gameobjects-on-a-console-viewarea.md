@@ -4,7 +4,7 @@ layout: docpage
 
 The `RenderArea` property on a `ISurface` allows you to only display a small section of the surface. This way you can have a giant surface that is bigger than the game window and allows you to scroll around. This is very useful for when you have console that represents the map or play area.
 
->**NOTE** You may want to review the introduction to [game objects article](How-to-create-a-gameobject.md).
+>**NOTE** You may want to review the introduction to [game objects article](how-to-create-a-gameobject.md).
 
 Here is an example (click on the screenshot) of a console with a bunch of random characters and colors. The console is 1000x1000 but the view area is only 80x24 and it can be scrolled.
 

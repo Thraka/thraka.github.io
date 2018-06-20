@@ -62,4 +62,4 @@ and
 fallingText.Draw(time.ElapsedGameTime);
 ```
 
-Next, read through [this](Displaying-gameobjects-on-a-console-viewarea.md) tutorial to understand how to draw an entity with a console.
+Next, read through [this](displaying-gameobjects-on-a-console-viewarea.md) tutorial to understand how to draw an entity with a console.

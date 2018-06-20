@@ -11,12 +11,12 @@ In this article we'll accomplish the following:
 
 ##### Tutorial index
 
-- [Part 1 - Create the project](Part-1---Create-a-new-project.md)
+- [Part 1 - Create the project](part-1---create-a-new-project.md)
 - **Part 2 - Character and map**
-- [Part 3 - Map generation](Part-3---Map-generation.md)
+- [Part 3 - Map generation](part-3---map-generation.md)
 - More coming soon...
 
-[Download the source code for the entire series](SadConsole-RoguelikeTutorial.zip).
+[Download the source code for the entire series](sadconsole-rogueliketutorial.zip).
 
 ## Create an entity
 
@@ -440,6 +440,6 @@ Now run the game and you'll see that you can no longer walk through the walls!
 
 In this part of the series we created some map tile objects, a player entity, and a map. We displayed the map through a screen object, and we hooked up input to move our player around.
 
-In the [next step](Part-3---Map-generation.md) of the tutorial we'll handle randomizing and scrolling the map.
+In the [next step](part-3---map-generation.md) of the tutorial we'll handle randomizing and scrolling the map.
 
-[Download the source code for the entire series](SadConsole-RoguelikeTutorial.zip).
+[Download the source code for the entire series](sadconsole-rogueliketutorial.zip).

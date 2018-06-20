@@ -2,7 +2,7 @@ title: NuGet Starter for MonoGame
 layout: docpage
 ---
 
->This page is for those who have just installed the [SadConsole NuGet](https://www.nuget.org/packages/SadConsole/). If you have not created a project yet, start with the [Create a new SadConsole project](Create-a-new-SadConsole-project.md) article.
+>This page is for those who have just installed the [SadConsole NuGet](https://www.nuget.org/packages/SadConsole/). If you have not created a project yet, start with the [Create a new SadConsole project](create-a-new-sadconsole-project.md) article.
 
 -----
 
@@ -51,7 +51,7 @@ With your project created in Visual Studio and the [SadConsole NuGet](https://ww
 
 3. Rename `program-example.cs` to `program.cs`.
 
-    The **SadConsole.Starter** NuGet package that was [installed previously](Create-a-new-SadConsole-project.md) should have added a `program-example.cs` file to your project. 
+    The **SadConsole.Starter** NuGet package that was [installed previously](create-a-new-sadconsole-project.md) should have added a `program-example.cs` file to your project. 
 
     If you have an existing `program.cs` file, delete it.
 

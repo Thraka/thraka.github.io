@@ -2,7 +2,7 @@ title: How to make a scrolling Console
 layout: docpage
 ---
 
-Because a console already supports the idea of a [render area](Displaying-gameobjects-on-a-console-viewarea.md#use-a-render-area), you can combine it with a scroll bar to control what is shown on the render area. These two items would effectively create a user controlled scrolling console. You could have this be a map that the user scrolls, or you can use this in a more "console" traditional sense where the user scrolls up/down to see the history of the console.
+Because a console already supports the idea of a [render area](displaying-gameobjects-on-a-console-viewarea.md#use-a-render-area), you can combine it with a scroll bar to control what is shown on the render area. These two items would effectively create a user controlled scrolling console. You could have this be a map that the user scrolls, or you can use this in a more "console" traditional sense where the user scrolls up/down to see the history of the console.
 
 This article will show how to create a scrollable-history console.
 
