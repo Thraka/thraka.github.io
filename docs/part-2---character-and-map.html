@@ -11,9 +11,9 @@
   
   <meta name="description" content="In this article we’ll accomplish the following:
 
-[x] Create objects to represent the player.
-[x] Create map tiles and a map.
-[x] Display a map and pla">
+ Create objects to represent the player.
+ Create map tiles and a map.
+ Display a map and player on th">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -138,18 +138,18 @@
 
 	  <p>In this article we’ll accomplish the following:</p>
 <ul>
-<li>[x] Create objects to represent the player.</li>
-<li>[x] Create map tiles and a map.</li>
-<li>[x] Display a map and player on the screen.</li>
-<li>[x] Use the keyboard to move the player.</li>
+<li style="list-style: none"><input type="checkbox" checked> Create objects to represent the player.</li>
+<li style="list-style: none"><input type="checkbox" checked> Create map tiles and a map.</li>
+<li style="list-style: none"><input type="checkbox" checked> Display a map and player on the screen.</li>
+<li style="list-style: none"><input type="checkbox" checked> Use the keyboard to move the player.</li>
 </ul>
 <h5 id="Tutorial-index"><a href="#Tutorial-index" class="headerlink" title="Tutorial index"></a>Tutorial index</h5><ul>
-<li><a href="Part-1---Create-a-new-project.html">Part 1 - Create the project</a></li>
+<li><a href="part-1---create-a-new-project.html">Part 1 - Create the project</a></li>
 <li><strong>Part 2 - Character and map</strong></li>
-<li><a href="Part-3---Map-generation.html">Part 3 - Map generation</a></li>
+<li><a href="part-3---map-generation.html">Part 3 - Map generation</a></li>
 <li>More coming soon…</li>
 </ul>
-<p><a href="SadConsole-RoguelikeTutorial.zip">Download the source code for the entire series</a>.</p>
+<p><a href="sadconsole-rogueliketutorial.zip">Download the source code for the entire series</a>.</p>
 <h2 id="Create-an-entity"><a href="#Create-an-entity" class="headerlink" title="Create an entity"></a>Create an entity</h2><p>In a lot of text engines where you want to move characters around a console, you get some additional overhead. Normally, you print the character on the console. Then, when it moves, you redraw it in the new position. After that, you also have to make sure to restore whatever was under the original spot of the character.</p>
 <p>SadConsole can avoid that with the <code>SadConsole.GameHelpers.GameObject</code> type. This type provides a positionable text object that can also be animated. The <code>GameObject</code> is used when you have a bunch of moving objects that are layered on top of a background.</p>
 <p>We’ll create a class named <code>EntityBase.cs</code> that represents things placed on the map. Right-click on the project file and choose <strong>New</strong> &gt; <strong>Add Folder</strong> and name it <code>Entities</code>. Right-click on the new folder and choose <strong>New</strong> &gt; <strong>Class…</strong> and name the class <code>EntityBase.cs</code>. In this class we’ll inherit from <code>SadConsole.GameHelpers.GameObject</code>. This will represent the base class for monsters, the player, things like that.</p>
@@ -236,8 +236,8 @@
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">MoveBy</span>(<span class="params">Point change, Map map</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> newPosition = Position + change;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Check the map if we can move to this new position</span></span><br><span class="line">    <span class="keyword">if</span> (map.IsTileWalkable(newPosition.X, newPosition.Y))</span><br><span class="line">        Position = newPosition;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Now run the game and you’ll see that you can no longer walk through the walls!</p>
 <h2 id="Closing-thoughts"><a href="#Closing-thoughts" class="headerlink" title="Closing thoughts"></a>Closing thoughts</h2><p>In this part of the series we created some map tile objects, a player entity, and a map. We displayed the map through a screen object, and we hooked up input to move our player around.</p>
-<p>In the <a href="Part-3---Map-generation.html">next step</a> of the tutorial we’ll handle randomizing and scrolling the map.</p>
-<p><a href="SadConsole-RoguelikeTutorial.zip">Download the source code for the entire series</a>.</p>
+<p>In the <a href="part-3---map-generation.html">next step</a> of the tutorial we’ll handle randomizing and scrolling the map.</p>
+<p><a href="sadconsole-rogueliketutorial.zip">Download the source code for the entire series</a>.</p>
 	  
 	</div>
 
