@@ -4,6 +4,8 @@ layout: docpage
 
 SadConsole is pretty simple to get up and running. If you're working with the starter project included in the source code, you can tweak that to test out engine features. 
 
+<span class="label label-success">Success</span>
+
 * [New project for MonoGame (from a MonoGame template)](monogame-template.md)
 * [New project for MonoGame (from a blank-new project)](create-a-new-sadconsole-project.md)
 
@@ -14,14 +16,14 @@ Once you have a basic SadConsole project up-and-running, use these tutorials to 
 * [How to Create a Console](how-to-create-and-print-on-a-console.md)
 * [How to Draw on a Console](how-to-draw-on-a-console.md)
 * [How to Change the font size of a console](basic-font-information.md#change-the-font-of-a-console)
-* [Printing pretty with a cursor object](cursor-vs-print.md) -- COMING SOON
+* Printing pretty with a cursor object -- COMING SOON
 
 ## Concepts
 
 Knowing more about how SadConsole works can help you think your way out of a problem. You will also come to know how to work around the engine features to accomplish your design goals.
 
-* [Understanding SadConsole.Global](understanding-sadconsole.global.md) -- COMING SOON
-* [What are Screens, Consoles, and Surfaces?](how-screens-consoles-and-surfaces-work.md) -- COMING SOON
+* Understanding SadConsole.Global -- COMING SOON
+* What are Screens, Consoles, and Surfaces? -- COMING SOON
 * [How does SadConsole draw?](how-sadconsole-draws-to-the-screen.md)
 * [Create and load fonts](basic-font-information.md)
 

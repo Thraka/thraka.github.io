@@ -10,11 +10,11 @@ SadConsole provides 4 out of the box commands.
 
 | Command   | Format                                                     | Description                          |
 | --------- | ---------------------------------------------------------- | ------------------------------------ |
-| [r,recolor][cr]  | `[c:r f\|b:color[:count]]`           | Recolor the foreground or background |
-| [m,mirror][cm]   | `[c:m 0\|1\|2\|None\|FlipHorizontally\|FlipVertically[:count]]` | Set SpriteEffect (mirroring)         |
-| [u,undo][cu]     | `[c:undo [count:f\|b\|g\|e\|m\|a]]`                             | Remove the last command              |
+| [r,recolor][cr]  | `[c:r f|b:color[:count]]`           | Recolor the foreground or background |
+| [m,mirror][cm]   | `[c:m 0|1|2|None|FlipHorizontally|FlipVertically[:count]]` | Set SpriteEffect (mirroring)         |
+| [u,undo][cu]     | `[c:undo [count:f|b|g|e|m|a]]`                             | Remove the last command              |
 | [b,blink][cb]    | `[c:b [count:speed]]`                                      | Blinks a set of characters           |
-| [g,grad][cg]     | `[c:g f\|b:color[:color]:count]`                            | Applies a gradient across a set of characters |
+| [g,grad][cg]     | `[c:g f|b:color[:color]:count]`                            | Applies a gradient across a set of characters |
 | [sg,sglyph][csg] | `[c:sg glyph index[:count]]`                               | Sets the glyph for the `count` of characters  | 
 
 A command is built with this string format: `[c:{command} {parameters}]`
@@ -28,9 +28,9 @@ Syntax: `[c:r|recolor f|b:color[:count]]`
 | ------------------ | -------- | ----------- |
 | 1                  | False    | Picks color area.<br>f = foreground<br>b = background |
 | 2                  | False    | Chooses the color to use. See [color selection](#color-selection) down below for more information. |
-| 3                  | True     | Amount of characters to affect. If omitted, goes on indefinitely. | 
+| 3                  | True     | Amount of characters to affect. If omitted, goes on indefinitely. |
 
-Examples
+##### Examples
 
 | String             | Description                 |
 | ------------------ | --------------------------- |
@@ -47,7 +47,7 @@ Syntax: `[c:m 0|1|2|None|FlipHorizontally|FlipVertically[:count]]`
 | 1                  | False    | Mirror type<br>0 or None = Do not mirror<br>1 or FlipHorizontally = Mirror horizontal<br>2 or FlipVertically = Mirror vertical |
 | 2                  | True     | Amount of characters to affect. If omitted, goes on indefinitely. | 
 
-Examples
+##### Examples
 
 | String                 | Description                 |
 | ---------------------- | --------------------------- |
@@ -66,7 +66,7 @@ Syntax: `[c:undo [count:f|b|g|e|m|a]]`
 
 *Parameter 2 is required if parameter 1 is provided.
 
-Examples
+##### Examples
 
 | String       | Description                 |
 | -----------  | --------------------------- |
@@ -84,7 +84,7 @@ Syntax: `[c:b [count:speed]`
 
 *Parameter 2 is required if parameter 1 is provided.
 
-Examples
+##### Examples
 
 | String         | Description                 |
 | -----------    | --------------------------- |
@@ -101,7 +101,7 @@ Syntax: `[c:g f|b:color[:color]:count]`
 | 2                  | False    | The color step to apply to the gradient. Repeat as many times as needed. See [color selection](#color-selection) down below for more information. |
 | Last               | False    | How many characters for the gradient to apply to |
 
-Examples
+##### Examples
 
 | String         | Description                 |
 | -----------    | --------------------------- |
@@ -117,7 +117,7 @@ Syntax: `[c:sg glyph index[:count]]`
 | 1                  | False    | The glyph index to apply. |
 | 2                  | True     | The count of characters to apply the glyph to. If omitted, defaults to 1. Use * to indicate the rest of the string. |
 
-Examples
+##### Examples
 
 | String          | Description                 |
 | -----------     | --------------------------- |
