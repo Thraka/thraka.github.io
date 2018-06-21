@@ -6,7 +6,7 @@
   <meta http-equiv="cache-control" content="no-cache">
   <meta http-equiv="expires" content="0">
   
-  <title>Engine Revision Completed | Thraka</title>
+  <title>Engine Revision Completed | Thraka&#39;s Home</title>
   <meta name="author" content="Thraka">
   
   <meta name="description" content="Yahhh!! I’ve completed the rewrite! Wiki, NuGet, GitHub have all been updated.
@@ -19,7 +19,7 @@ Getting started">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <meta property="og:title" content="Engine Revision Completed"/>
-  <meta property="og:site_name" content="Thraka"/>
+  <meta property="og:site_name" content="Thraka&#39;s Home"/>
 
   
     <meta property="og:image" content="undefined"/>
@@ -65,7 +65,7 @@ Getting started">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-	  <a class="navbar-brand" href="/">Thraka</a>
+	  <a class="navbar-brand" href="/">Thraka&#39;s Home</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
@@ -147,10 +147,11 @@ Getting started">
 </ul>
 <a id="more"></a>
 <p>Here are the notes from the readme.</p>
-<p>A lot of refactoring has happened. Many of the types in SadConsole have been moved around to a more logical position and a lot of redundancy has been removed. </p>
+<p>A lot of refactoring has happened. Many of the types in SadConsole have been moved around to a more logical position and a lot of redundancy has been removed.</p>
 <p>For example, the <strong>Console</strong> type used to be located at the <code>SadConsole.Consoles.Console</code> which felt very obtuse. <strong>Console</strong> is a core type that doesn’t need its own namespace, much like <strong>Cell</strong>. This type is now located in the root namespace <code>SadConsole</code>.</p>
 <p>Other things have simplified naming too, like <code>Console.CanUseKeyboard</code> is just <code>Console.UseKeyboard</code> now.</p>
-<h2 id="Core-engine"><a href="#Core-engine" class="headerlink" title="Core engine"></a>Core engine</h2><p><code>SadConsole.Engine</code> has been removed. Its role was to coordinate all the parts of SadConsole. Instead this has been split into three parts, <code>SadConsole.Global</code> which represents state (time passed, keyboard/mouse, current thing to render), <code>SadConsole.Game</code> which is the <code>MonoGame.Game</code> instance, and <code>SadConsole.Settings</code> which provides full screen, toggle drawing on/off etc.</p>
+<h2 id="core-engine"><a class="markdownIt-Anchor" href="#core-engine"></a> Core engine</h2>
+<p><code>SadConsole.Engine</code> has been removed. Its role was to coordinate all the parts of SadConsole. Instead this has been split into three parts, <code>SadConsole.Global</code> which represents state (time passed, keyboard/mouse, current thing to render), <code>SadConsole.Game</code> which is the <code>MonoGame.Game</code> instance, and <code>SadConsole.Settings</code> which provides full screen, toggle drawing on/off etc.</p>
 <table>
 <thead>
 <tr>
@@ -173,7 +174,8 @@ Getting started">
 </tr>
 </tbody>
 </table>
-<h2 id="Core-types"><a href="#Core-types" class="headerlink" title="Core types"></a>Core types</h2><p>The <code>SadConsole.Consoles</code> namespace does not exist anymore and is instead broken up into two different namespaces that better represents the types contained in it:</p>
+<h2 id="core-types"><a class="markdownIt-Anchor" href="#core-types"></a> Core types</h2>
+<p>The <code>SadConsole.Consoles</code> namespace does not exist anymore and is instead broken up into two different namespaces that better represents the types contained in it:</p>
 <table>
 <thead>
 <tr>
@@ -192,11 +194,13 @@ Getting started">
 </tr>
 </tbody>
 </table>
-<p>The <strong>TextSurface</strong> naming convention has been simplified to <strong>Surface</strong>. And some of the interface and base class complexity of the <strong>TextSurface</strong> stuff has been simplified into fewer types. </p>
-<h2 id="Rendering"><a href="#Rendering" class="headerlink" title="Rendering"></a>Rendering</h2><p>The rendering system in SadConsole has had some improvements. Instead of each <strong> Renderer</strong>  having its own <strong> SpriteBatch</strong> , there is a single <code>SadConosle.Global.SpriteBatch</code> which is reused by all renderers. This reduces memory and reduces CPU cycles that were wasted every time a renderer was created.</p>
+<p>The <strong>TextSurface</strong> naming convention has been simplified to <strong>Surface</strong>. And some of the interface and base class complexity of the <strong>TextSurface</strong> stuff has been simplified into fewer types.</p>
+<h2 id="rendering"><a class="markdownIt-Anchor" href="#rendering"></a> Rendering</h2>
+<p>The rendering system in SadConsole has had some improvements. Instead of each ** Renderer**  having its own ** SpriteBatch** , there is a single <code>SadConosle.Global.SpriteBatch</code> which is reused by all renderers. This reduces memory and reduces CPU cycles that were wasted every time a renderer was created.</p>
 <p>Each <strong>Surface</strong> now provides a <strong>RenderTarget2D</strong> type which is a texture. Whenever a surface is rendered, it is drawn onto this texture. At the end of the global Draw call, all surfaces that are in the drawing pipeline are rendered to a single <strong>RenderTarget2D</strong> texture at <code>SadConsole.Global.RenderOutput</code>. This final texture (which contains all drawing from SadConsole) is then drawn to the screen. This simplifies fullscreen and stretch modes. This new system also allows anyone to bypass any part of SadConsole rendering and use the rendered textures to draw on any sort of 3D model or scene of their game. For example, you could build up a 3D scene of an old computer terminal and then use SadConsole on the screen of the computer.</p>
 <p>The rendering system is now completely cached. Each <strong>ISurface</strong> type has a <strong>IsDirty</strong> flag which causes the backing <strong>RenderTarget2D</strong> to be updated.</p>
-<h2 id="Notable-types"><a href="#Notable-types" class="headerlink" title="Notable types"></a>Notable types</h2><p>Here is a list of types that have changed and what replaced them. The root <code>SadConsole</code> namespace is implied in all of these.</p>
+<h2 id="notable-types"><a class="markdownIt-Anchor" href="#notable-types"></a> Notable types</h2>
+<p>Here is a list of types that have changed and what replaced them. The root <code>SadConsole</code> namespace is implied in all of these.</p>
 <table>
 <thead>
 <tr>
@@ -319,8 +323,10 @@ Getting started">
 </tr>
 </tbody>
 </table>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>Input has been overhauled a bit. Keyboard is mostly the same except for some minor method refactoring. Mouse has change a lot. Previously each console evaluated mouse state for itself. This is no longer how mouse input works. Instead mouse input is driven by the <code>SadConsole.Input.Mouse.Update</code> method which cycles through the <code>SadConsole.Global.Screen</code> gathering all console types. Then, each console has the <code>ProcessMouse</code> method called. If <code>true</code> is returned, mouse processing stops. This happens unless the <code>Global.InputTargets.Console</code> has the <code>IsExclusiveMouse</code> property set to <code>true</code>. If <code>true</code>, mouse is always sent to this console and never to anything else.</p>
-<h2 id="Startup-code"><a href="#Startup-code" class="headerlink" title="Startup code"></a>Startup code</h2><p>The code to start SadConsole from a dedicated SadConsole project is pretty much the same. But now that <code>Engine</code> is gone, <code>Global</code> is used and the names of the draw/update events are simplier. They also are direct delegates instead of event.</p>
+<h2 id="input"><a class="markdownIt-Anchor" href="#input"></a> Input</h2>
+<p>Input has been overhauled a bit. Keyboard is mostly the same except for some minor method refactoring. Mouse has change a lot. Previously each console evaluated mouse state for itself. This is no longer how mouse input works. Instead mouse input is driven by the <code>SadConsole.Input.Mouse.Update</code> method which cycles through the <code>SadConsole.Global.Screen</code> gathering all console types. Then, each console has the <code>ProcessMouse</code> method called. If <code>true</code> is returned, mouse processing stops. This happens unless the <code>Global.InputTargets.Console</code> has the <code>IsExclusiveMouse</code> property set to <code>true</code>. If <code>true</code>, mouse is always sent to this console and never to anything else.</p>
+<h2 id="startup-code"><a class="markdownIt-Anchor" href="#startup-code"></a> Startup code</h2>
+<p>The code to start SadConsole from a dedicated SadConsole project is pretty much the same. But now that <code>Engine</code> is gone, <code>Global</code> is used and the names of the draw/update events are simplier. They also are direct delegates instead of event.</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// Setup the engine and creat the main window.</span></span><br><span class="line">    SadConsole.Game.Create(<span class="string">"IBM.font"</span>, <span class="number">80</span>, <span class="number">25</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Hook the start event so we can add consoles to the system.</span></span><br><span class="line">    SadConsole.Game.OnInitialize = Init;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Hook the update event that happens each frame so we can trap keys and respond.</span></span><br><span class="line">    SadConsole.Game.OnUpdate = Update;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Hook the "after render" even though we're not using it.</span></span><br><span class="line">    SadConsole.Game.OnDraw = DrawFrame;</span><br><span class="line">            </span><br><span class="line">    <span class="comment">// Start the game.</span></span><br><span class="line">    SadConsole.Game.Instance.Run();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="comment">// Code here will not run until the game has shut down.</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">DrawFrame</span>(<span class="params">GameTime time</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// Custom drawing. You don't usually have to do this.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Update</span>(<span class="params">GameTime time</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// Called each logic update.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Init</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// Any setup</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>	  
 	</div>
 

@@ -6,18 +6,18 @@
   <meta http-equiv="cache-control" content="no-cache">
   <meta http-equiv="expires" content="0">
   
-  <title>Easier Startup | Thraka</title>
+  <title>Easier Startup | Thraka&#39;s Home</title>
   <meta name="author" content="Thraka">
   
-  <meta name="description" content="First, NuGet has been updated with a bunch more fixes. I’m trying my best now to stick with the semantic versioning format. It’s hard to transition from the old versioning style. It’s also getting harder and harder to not break interface on updates. So I’m really going to try hard to no longer do that. 
-Down to business…..
+  <meta name="description" content="First, NuGet has been updated with a bunch more fixes. I’m trying my best now to stick with the semantic versioning format. It’s hard to transition from the old versioning style. It’s also getting harder and harder to not break interface on updates. So I’m really going to try hard to no longer do that.
+Down to business…
 I’ve created new init sequences for SadConsole that removes all the crap that comes with MonoGame. That means if you’re not making a full MonoGame-game where you need all the extra 3D management, you can omit the whole giant game1.cs class and instead use this nice, compact, easy, startup file.">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <meta property="og:title" content="Easier Startup"/>
-  <meta property="og:site_name" content="Thraka"/>
+  <meta property="og:site_name" content="Thraka&#39;s Home"/>
 
   
     <meta property="og:image" content="undefined"/>
@@ -63,7 +63,7 @@ I’ve created new init sequences for SadConsole that removes all the crap that 
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-	  <a class="navbar-brand" href="/">Thraka</a>
+	  <a class="navbar-brand" href="/">Thraka&#39;s Home</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
@@ -137,11 +137,11 @@ I’ve created new init sequences for SadConsole that removes all the crap that 
 	<div class="mypage">		
 	  		
 
-	  <p>First, NuGet has been updated with a bunch more fixes. I’m trying my best now to stick with the <a href="http://semver.org/" target="_blank" rel="noopener">semantic versioning</a> format. It’s hard to transition from the old versioning style. It’s also getting harder and harder to not break interface on updates. So I’m really going to try hard to no longer do that. </p>
-<p>Down to business…..</p>
+	  <p>First, NuGet has been updated with a bunch more fixes. I’m trying my best now to stick with the <a href="http://semver.org/" target="_blank" rel="noopener">semantic versioning</a> format. It’s hard to transition from the old versioning style. It’s also getting harder and harder to not break interface on updates. So I’m really going to try hard to no longer do that.</p>
+<p>Down to business…</p>
 <p>I’ve created new init sequences for SadConsole that removes all the crap that comes with MonoGame. That means if you’re not making a full MonoGame-game where you need all the extra 3D management, you can omit the whole giant <code>game1.cs</code> class and instead use this nice, compact, easy, startup file.</p>
 <a id="more"></a>
-<pre><code class="csharp"><span class="keyword">using</span> System;
+<pre class="highlight"><code class="csharp"><span class="keyword">using</span> System;
 <span class="keyword">using</span> Console = SadConsole.Consoles.Console;
 <span class="keyword">using</span> SadConsole.Consoles;
 <span class="keyword">using</span> Microsoft.Xna.Framework;
@@ -150,8 +150,8 @@ I’ve created new init sequences for SadConsole that removes all the crap that 
 {
     <span class="keyword">class</span> <span class="title">Program</span>
     {
-        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span>
-<span class="function">        </span>{
+        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)
+        </span>{
             <span class="comment">// Setup the engine and creat the main window.</span>
             SadConsole.Engine.Initialize(<span class="string">"IBM.font"</span>, <span class="number">80</span>, <span class="number">25</span>);
 
@@ -165,25 +165,26 @@ I’ve created new init sequences for SadConsole that removes all the crap that 
             SadConsole.Engine.Run();
         }
 
-        <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Engine_EngineStart</span>(<span class="params"><span class="keyword">object</span> sender, EventArgs e</span>)</span>
-<span class="function">        </span>{
+        <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Engine_EngineStart</span>(<span class="params"><span class="keyword">object</span> sender, EventArgs e</span>)
+        </span>{
             <span class="keyword">var</span> defaultConsole = (Console)SadConsole.Engine.ActiveConsole;
 
             defaultConsole.Print(<span class="number">1</span>, <span class="number">1</span>, <span class="string">"Welcome to SadConsole"</span>, Color.Aqua, Color.Black);
         }
 
-        <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Engine_EngineUpdated</span>(<span class="params"><span class="keyword">object</span> sender, EventArgs e</span>)</span>
-<span class="function">        </span>{
+        <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Engine_EngineUpdated</span>(<span class="params"><span class="keyword">object</span> sender, EventArgs e</span>)
+        </span>{
             <span class="comment">// Game logic if doing it in a console directly.</span>
         }
     }
 }
 </code></pre>
 <p>Of course that is how to startup with MonoGame. I’m also introducing support for SFML.</p>
-<h3 id="SFML"><a href="#SFML" class="headerlink" title="SFML"></a>SFML</h3><blockquote>
+<h3 id="sfml"><a class="markdownIt-Anchor" href="#sfml"></a> SFML</h3>
+<blockquote>
 <p><a href="http://www.sfml-dev.org/" target="_blank" rel="noopener">SFML</a> provides a simple interface to the various components of your PC, to ease the development of games and multimedia applications. It is composed of five modules: system, window, graphics, audio and network.</p>
 </blockquote>
-<p>That is the summary of what SFML website says. It’s a C++ library that someone has lovingly provided a .NET wrapper for on NuGet. I’m using the wrapper. </p>
+<p>That is the summary of what SFML website says. It’s a C++ library that someone has lovingly provided a .NET wrapper for on NuGet. I’m using the wrapper.</p>
 <p>Using the SFML version of SadConsole doesn’t really change much from your perspective. While the MonoGame framework itself is cleaner from a game developer perspective, there is a bit of overhead. SFML renders slightly faster.</p>
 <p>The NuGet packages for SFML are</p>
 <ul>

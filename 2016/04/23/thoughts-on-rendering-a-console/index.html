@@ -6,10 +6,10 @@
   <meta http-equiv="cache-control" content="no-cache">
   <meta http-equiv="expires" content="0">
   
-  <title>Thoughts on rendering a console | Thraka</title>
+  <title>Thoughts on rendering a console | Thraka&#39;s Home</title>
   <meta name="author" content="Thraka">
   
-  <meta name="description" content="The more and more that I use SadConsole on my own little games, the more I grow to dislike the way I render to the screen. Now, I don’t mean specifically the rendering code itself. It’s pretty good, though I have an improvement coming soon. What I mean is the way you, say from a console, get your data rendered to the screen. 
+  <meta name="description" content="The more and more that I use SadConsole on my own little games, the more I grow to dislike the way I render to the screen. Now, I don’t mean specifically the rendering code itself. It’s pretty good, though I have an improvement coming soon. What I mean is the way you, say from a console, get your data rendered to the screen.
 A console generally has two roles, it either reads input from the user (providing visual feedback) and/or it presents characters to the user. However, the capabilities you want in drawing characters to the screen may vary. You may:
 
 Use a standard Width x Height console.
@@ -28,7 +28,7 @@ I think that is all the types provided by SadConsole. Here is a diagram of (out 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <meta property="og:title" content="Thoughts on rendering a console"/>
-  <meta property="og:site_name" content="Thraka"/>
+  <meta property="og:site_name" content="Thraka&#39;s Home"/>
 
   
     <meta property="og:image" content="undefined"/>
@@ -74,7 +74,7 @@ I think that is all the types provided by SadConsole. Here is a diagram of (out 
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-	  <a class="navbar-brand" href="/">Thraka</a>
+	  <a class="navbar-brand" href="/">Thraka&#39;s Home</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
@@ -148,7 +148,7 @@ I think that is all the types provided by SadConsole. Here is a diagram of (out 
 	<div class="mypage">		
 	  		
 
-	  <p>The more and more that I use <strong>SadConsole</strong> on my own little games, the more I grow to dislike the way I render to the screen. Now, I don’t mean specifically the rendering code itself. It’s pretty good, though I have an improvement coming soon. What I mean is the way you, say from a console, get your data rendered to the screen. </p>
+	  <p>The more and more that I use <strong>SadConsole</strong> on my own little games, the more I grow to dislike the way I render to the screen. Now, I don’t mean specifically the rendering code itself. It’s pretty good, though I have an improvement coming soon. What I mean is the way you, say from a console, get your data rendered to the screen.</p>
 <p>A console generally has two roles, it either reads input from the user (providing visual feedback) and/or it presents characters to the user. However, the capabilities you want in drawing characters to the screen may vary. You may:</p>
 <ul>
 <li>Use a standard Width x Height console.</li>
@@ -203,15 +203,18 @@ I think that is all the types provided by SadConsole. Here is a diagram of (out 
 </tr>
 </tbody>
 </table>
-<h2 id="Why-this-is-bad"><a href="#Why-this-is-bad" class="headerlink" title="Why this is bad"></a>Why this is bad</h2><p>Now where things get messy is in cases like the <strong>Entity</strong> or a <strong>Window</strong> type. These console types shouldn’t support scrolling. You don’t make an entity that is bigger than the screen and only render a subset of it at a time. The same for a window. A window is meant to be totally visible on the screen. (the UI system supports hooking up scroll bars and things)</p>
+<h2 id="why-this-is-bad"><a class="markdownIt-Anchor" href="#why-this-is-bad"></a> Why this is bad</h2>
+<p>Now where things get messy is in cases like the <strong>Entity</strong> or a <strong>Window</strong> type. These console types shouldn’t support scrolling. You don’t make an entity that is bigger than the screen and only render a subset of it at a time. The same for a window. A window is meant to be totally visible on the screen. (the UI system supports hooking up scroll bars and things)</p>
 <p>So what happens to an entity when you adjust the viewport to only render a subset of the cells? Nothing bad mind you, but you may not get what you expected. Especially when the entity is animating and flipping through multiple cell surfaces that have completely different sets of cells.</p>
 <p>The problem is that the <strong>CellsRenderer</strong> type supports all these rendering systems out of the box, it’s a jack-of-all-trades. Which is great for flexibility, but it puts a strain on the developer to deeply understand the behavior of the types and not mess something up.</p>
-<h3 id="The-entity"><a href="#The-entity" class="headerlink" title="The entity"></a>The entity</h3><p>The way the entity works is it uses an animation type. The animation is a bunch of frames (CellData classes) and each frame is presented as the <em>current frame</em> during rendering. If the <em>current frame</em> hasn’t changed, the <strong>CellsRenderer</strong> doesn’t check for which cells to render, it already has them cached.</p>
-<h3 id="Back-to-the-problem"><a href="#Back-to-the-problem" class="headerlink" title="Back to the problem"></a>Back to the problem</h3><p>Now I ran into a situation where even myself, the one most familiar with the code, was confused as to why my entity wasn’t rendering correctly. What I had done is resized the animation of an entity, which just resizes the CellData of all the animation’s frames. The <em>current frame</em> class reference hadn’t changed, but the size of the frame did. So when the <strong>CellsRenderer</strong> went to render the old 1x1 console, it only drew the top-left cell even though the CellsSurface was much bigger. Ouch. The fix was just to force a recalculation after I resized the animation.</p>
+<h3 id="the-entity"><a class="markdownIt-Anchor" href="#the-entity"></a> The entity</h3>
+<p>The way the entity works is it uses an animation type. The animation is a bunch of frames (CellData classes) and each frame is presented as the <em>current frame</em> during rendering. If the <em>current frame</em> hasn’t changed, the <strong>CellsRenderer</strong> doesn’t check for which cells to render, it already has them cached.</p>
+<h3 id="back-to-the-problem"><a class="markdownIt-Anchor" href="#back-to-the-problem"></a> Back to the problem</h3>
+<p>Now I ran into a situation where even myself, the one most familiar with the code, was confused as to why my entity wasn’t rendering correctly. What I had done is resized the animation of an entity, which just resizes the CellData of all the animation’s frames. The <em>current frame</em> class reference hadn’t changed, but the size of the frame did. So when the <strong>CellsRenderer</strong> went to render the old 1x1 console, it only drew the top-left cell even though the CellsSurface was much bigger. Ouch. The fix was just to force a recalculation after I resized the animation.</p>
 <p>Now with an entity, all this viewport rect rendering stuff doesn’t matter. So the system that is in place for other consoles was stepping on the simpler entity rendering.</p>
-<p>Well, I want this library to be easy to work with, so I think I need to separate out functionality out either into components, or specialized consoles. And then for when rendering systems must be different, specialized rendering. I’m not sure what it will look like, but I want to make sure it is easier for others to work with. </p>
+<p>Well, I want this library to be easy to work with, so I think I need to separate out functionality out either into components, or specialized consoles. And then for when rendering systems must be different, specialized rendering. I’m not sure what it will look like, but I want to make sure it is easier for others to work with.</p>
 <p>There are some awesome .NET console game libraries (like <a href="https://bitbucket.org/clarktravism/rlnet/" target="_blank" rel="noopener">RLNET</a> and <a href="https://github.com/derrickcreamer/SunshineConsole" target="_blank" rel="noopener">SunShine Console</a>) out there much like mine that are quick and easy to use. That is something I want for SadConsole. I think I’ve gotten part of the way there though with NuGet. But more can be done…</p>
-<p>.. Stay tuned ..</p>
+<p>… Stay tuned …</p>
 	  
 	</div>
 

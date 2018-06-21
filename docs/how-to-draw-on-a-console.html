@@ -6,7 +6,7 @@
   <meta http-equiv="cache-control" content="no-cache">
   <meta http-equiv="expires" content="0">
   
-  <title>How to draw on a Console | Thraka</title>
+  <title>How to draw on a Console | Thraka&#39;s Home</title>
   <meta name="author" content="Thraka">
   
   <meta name="description" content="Really, you don’t draw to a console. The console object only combines a text surface with a renderer and lets you use the keyboard/mouse. The console ">
@@ -15,7 +15,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <meta property="og:title" content="How to draw on a Console"/>
-  <meta property="og:site_name" content="Thraka"/>
+  <meta property="og:site_name" content="Thraka&#39;s Home"/>
 
   
     <meta property="og:image" content="undefined"/>
@@ -61,7 +61,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-	  <a class="navbar-brand" href="/">Thraka</a>
+	  <a class="navbar-brand" href="/">Thraka&#39;s Home</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
@@ -133,17 +133,27 @@
 	  		
 
 	  <p>Really, you don’t draw to a console. The console object only combines a text surface with a renderer and lets you use the keyboard/mouse. The console provides all the methods you need to work with a text surface and edit it.</p>
-<p>The <code>SadConsole.Surfaces.BasicSurface</code> is broken up into multiple cells, all arranged in a grid. Each cell can change its foreground and background color, and the character it is currently showing. </p>
-<h3 id="Color"><a href="#Color" class="headerlink" title="Color"></a>Color</h3><p>The foreground or the background of a cell can be colored. When the background is colored, it fills the entire cell with that color. When the foreground is colored, it changes the color of the character being displayed in that cell.</p>
-<h4 id="Foreground"><a href="#Foreground" class="headerlink" title="Foreground"></a>Foreground</h4><p>You can set or get the foreground color of a cell by using its x, y coordinates and the <code>SetForeground</code> or <code>GetForeground</code> method.</p>
+<p>The <code>SadConsole.Surfaces.BasicSurface</code> is broken up into multiple cells, all arranged in a grid. Each cell can change its foreground and background color, and the character it is currently showing.</p>
+<h3 id="color"><a class="markdownIt-Anchor" href="#color"></a> Color</h3>
+<p>The foreground or the background of a cell can be colored. When the background is colored, it fills the entire cell with that color. When the foreground is colored, it changes the color of the character being displayed in that cell.</p>
+<h4 id="foreground"><a class="markdownIt-Anchor" href="#foreground"></a> Foreground</h4>
+<p>You can set or get the foreground color of a cell by using its x, y coordinates and the <code>SetForeground</code> or <code>GetForeground</code> method.</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">console.SetForeground(<span class="number">10</span>, <span class="number">10</span>, Microsoft.Xna.Framework.Color.Yellow);</span><br><span class="line"><span class="comment">// - or -</span></span><br><span class="line"><span class="keyword">var</span> color1 = console.GetForeground(<span class="number">10</span>, <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
-<h4 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h4><p>You can set or get the background color of a cell by using its x, y coordinates and the <code>SetBackground</code> or <code>GetBackground</code> method.<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">console.SetBackground(<span class="number">10</span>, <span class="number">10</span>, Microsoft.Xna.Framework.Color.White);</span><br><span class="line"><span class="comment">// - or -</span></span><br><span class="line"><span class="keyword">var</span> color1 = console.GetBackground(<span class="number">10</span>, <span class="number">10</span>);</span><br></pre></td></tr></table></figure></p>
-<h4 id="Character"><a href="#Character" class="headerlink" title="Character"></a>Character</h4><p>The character displayed on a cell is changed by calling the <code>SetGlyph</code> method. It works much the same as working with the color does. You can get or set the character in a cell. The overloads for the <code>SetGlyph</code> method also allow you to provide foreground and background colors if you want.</p>
-<h5 id="Set-Get-a-character-using-int"><a href="#Set-Get-a-character-using-int" class="headerlink" title="Set/Get a character using int"></a>Set/Get a character using int</h5><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Set the character at 41,22 to index 1 on the font sheet, a smiley face.</span></span><br><span class="line">console.SetGlyph(<span class="number">41</span>, <span class="number">22</span>, <span class="number">1</span>);</span><br><span class="line"><span class="comment">// - or -</span></span><br><span class="line"><span class="keyword">int</span> character = console.SetGlyph(<span class="number">41</span>, <span class="number">22</span>);</span><br></pre></td></tr></table></figure>
-<h5 id="Set-a-character-using-System-Char"><a href="#Set-a-character-using-System-Char" class="headerlink" title="Set a character using System.Char"></a>Set a character using System.Char</h5><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> character = <span class="string">'B'</span>;</span><br><span class="line">console.SetGlyph(<span class="number">41</span>, <span class="number">22</span>, character);</span><br></pre></td></tr></table></figure>
-<h5 id="Set-a-character-with-a-foreground-color"><a href="#Set-a-character-with-a-foreground-color" class="headerlink" title="Set a character with a foreground color"></a>Set a character with a foreground color</h5><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.SetGlyph(<span class="number">41</span>, <span class="number">22</span>, <span class="number">13</span>, Color.Purple);</span><br></pre></td></tr></table></figure>
-<h5 id="Set-a-character-with-a-foreground-and-background-color"><a href="#Set-a-character-with-a-foreground-and-background-color" class="headerlink" title="Set a character with a foreground and background color"></a>Set a character with a foreground and background color</h5><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.SetGlyph(<span class="number">41</span>, <span class="number">22</span>, <span class="number">13</span>, Color.Purple, Color.Green);</span><br></pre></td></tr></table></figure>
-<h4 id="Working-with-strings"><a href="#Working-with-strings" class="headerlink" title="Working with strings"></a>Working with strings</h4><p>Setting the character cell-by-cell is not very efficient when you have a string you want to print. The cell surface provides a way to print an entire string.</p>
+<h4 id="background"><a class="markdownIt-Anchor" href="#background"></a> Background</h4>
+<p>You can set or get the background color of a cell by using its x, y coordinates and the <code>SetBackground</code> or <code>GetBackground</code> method.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">console.SetBackground(<span class="number">10</span>, <span class="number">10</span>, Microsoft.Xna.Framework.Color.White);</span><br><span class="line"><span class="comment">// - or -</span></span><br><span class="line"><span class="keyword">var</span> color1 = console.GetBackground(<span class="number">10</span>, <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="character"><a class="markdownIt-Anchor" href="#character"></a> Character</h4>
+<p>The character displayed on a cell is changed by calling the <code>SetGlyph</code> method. It works much the same as working with the color does. You can get or set the character in a cell. The overloads for the <code>SetGlyph</code> method also allow you to provide foreground and background colors if you want.</p>
+<h5 id="setget-a-character-using-int"><a class="markdownIt-Anchor" href="#setget-a-character-using-int"></a> Set/Get a character using int</h5>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Set the character at 41,22 to index 1 on the font sheet, a smiley face.</span></span><br><span class="line">console.SetGlyph(<span class="number">41</span>, <span class="number">22</span>, <span class="number">1</span>);</span><br><span class="line"><span class="comment">// - or -</span></span><br><span class="line"><span class="keyword">int</span> character = console.SetGlyph(<span class="number">41</span>, <span class="number">22</span>);</span><br></pre></td></tr></table></figure>
+<h5 id="set-a-character-using-systemchar"><a class="markdownIt-Anchor" href="#set-a-character-using-systemchar"></a> Set a character using System.Char</h5>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> character = <span class="string">'B'</span>;</span><br><span class="line">console.SetGlyph(<span class="number">41</span>, <span class="number">22</span>, character);</span><br></pre></td></tr></table></figure>
+<h5 id="set-a-character-with-a-foreground-color"><a class="markdownIt-Anchor" href="#set-a-character-with-a-foreground-color"></a> Set a character with a foreground color</h5>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.SetGlyph(<span class="number">41</span>, <span class="number">22</span>, <span class="number">13</span>, Color.Purple);</span><br></pre></td></tr></table></figure>
+<h5 id="set-a-character-with-a-foreground-and-background-color"><a class="markdownIt-Anchor" href="#set-a-character-with-a-foreground-and-background-color"></a> Set a character with a foreground and background color</h5>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.SetGlyph(<span class="number">41</span>, <span class="number">22</span>, <span class="number">13</span>, Color.Purple, Color.Green);</span><br></pre></td></tr></table></figure>
+<h4 id="working-with-strings"><a class="markdownIt-Anchor" href="#working-with-strings"></a> Working with strings</h4>
+<p>Setting the character cell-by-cell is not very efficient when you have a string you want to print. The cell surface provides a way to print an entire string.</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.Print(<span class="number">2</span>, <span class="number">0</span>, <span class="string">"This will be printed at 2,0"</span>);</span><br></pre></td></tr></table></figure>
 <p>Additionally, you can stuff the cell data characters into a string, by using an x,y location, and a length of string you want. For example, the previous code example printed a string at 2,0 that was 27 characters long, to pull that string back out into a variable, you would use:</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">string</span> text = console.GetString(<span class="number">2</span>, <span class="number">0</span>, <span class="number">27</span>);</span><br></pre></td></tr></table></figure>	  

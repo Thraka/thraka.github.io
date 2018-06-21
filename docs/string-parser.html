@@ -6,7 +6,7 @@
   <meta http-equiv="cache-control" content="no-cache">
   <meta http-equiv="expires" content="0">
   
-  <title>Reference - String Parser syntax | Thraka</title>
+  <title>Reference - String Parser syntax | Thraka&#39;s Home</title>
   <meta name="author" content="Thraka">
   
   <meta name="description" content="When you use the SurfaceEditor (or a Console) and print, the string is sent through a parser allowing you to add special commands. For example, you ca">
@@ -15,7 +15,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <meta property="og:title" content="Reference - String Parser syntax"/>
-  <meta property="og:site_name" content="Thraka"/>
+  <meta property="og:site_name" content="Thraka&#39;s Home"/>
 
   
     <meta property="og:image" content="undefined"/>
@@ -61,7 +61,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-	  <a class="navbar-brand" href="/">Thraka</a>
+	  <a class="navbar-brand" href="/">Thraka&#39;s Home</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
@@ -133,7 +133,8 @@
 	  		
 
 	  <p>When you use the <code>SurfaceEditor</code> (or a <code>Console</code>) and print, the string is sent through a parser allowing you to add special commands. For example, you can use commands to change the foreground or background or adjust the mirroring settings. You can also <a href="#create-a-command">create your own</a> commands.</p>
-<h2 id="Commands"><a href="#Commands" class="headerlink" title="Commands"></a>Commands</h2><p>SadConsole provides 4 out of the box commands.</p>
+<h2 id="commands"><a class="markdownIt-Anchor" href="#commands"></a> Commands</h2>
+<p>SadConsole provides 4 out of the box commands.</p>
 <table>
 <thead>
 <tr>
@@ -145,28 +146,17 @@
 <tbody>
 <tr>
 <td><a href="#recolor">r,recolor</a></td>
-<td>`[c:r f\</td>
-<td>b:color[:count]]`</td>
+<td><code>[c:r f|b:color[:count]]</code></td>
 <td>Recolor the foreground or background</td>
 </tr>
 <tr>
 <td><a href="#mirror">m,mirror</a></td>
-<td>`[c:m 0\</td>
-<td>1\</td>
-<td>2\</td>
-<td>None\</td>
-<td>FlipHorizontally\</td>
-<td>FlipVertically[:count]]`</td>
+<td><code>[c:m 0|1|2|None|FlipHorizontally|FlipVertically[:count]]</code></td>
 <td>Set SpriteEffect (mirroring)</td>
 </tr>
 <tr>
 <td><a href="#undo">u,undo</a></td>
-<td>`[c:undo [count:f\</td>
-<td>b\</td>
-<td>g\</td>
-<td>e\</td>
-<td>m\</td>
-<td>a]]`</td>
+<td><code>[c:undo [count:f|b|g|e|m|a]]</code></td>
 <td>Remove the last command</td>
 </tr>
 <tr>
@@ -176,8 +166,7 @@
 </tr>
 <tr>
 <td><a href="#gradient">g,grad</a></td>
-<td>`[c:g f\</td>
-<td>b:color[:color]:count]`</td>
+<td><code>[c:g f|b:color[:color]:count]</code></td>
 <td>Applies a gradient across a set of characters</td>
 </tr>
 <tr>
@@ -189,7 +178,8 @@
 </table>
 <p>A command is built with this string format: <code>[c:{command} {parameters}]</code></p>
 <p><code>[c:</code> starts the command sequence. The sequence ends when <code>]</code> is encountered. If the command is invalid for some reason it will not be processed and will show up in the resulting string. Some commands have optional or mandatory parameters. There is a space character between the <strong>command</strong> and the <strong>parameters</strong>.</p>
-<h4 id="Recolor"><a href="#Recolor" class="headerlink" title="Recolor"></a>Recolor</h4><p>Syntax: <code>[c:r|recolor f|b:color[:count]]</code></p>
+<h4 id="recolor"><a class="markdownIt-Anchor" href="#recolor"></a> Recolor</h4>
+<p>Syntax: <code>[c:r|recolor f|b:color[:count]]</code></p>
 <table>
 <thead>
 <tr>
@@ -216,7 +206,7 @@
 </tr>
 </tbody>
 </table>
-<p>Examples</p>
+<h5 id="examples"><a class="markdownIt-Anchor" href="#examples"></a> Examples</h5>
 <table>
 <thead>
 <tr>
@@ -239,7 +229,8 @@
 </tr>
 </tbody>
 </table>
-<h4 id="Mirror"><a href="#Mirror" class="headerlink" title="Mirror"></a>Mirror</h4><p>Syntax: <code>[c:m 0|1|2|None|FlipHorizontally|FlipVertically[:count]]</code></p>
+<h4 id="mirror"><a class="markdownIt-Anchor" href="#mirror"></a> Mirror</h4>
+<p>Syntax: <code>[c:m 0|1|2|None|FlipHorizontally|FlipVertically[:count]]</code></p>
 <table>
 <thead>
 <tr>
@@ -261,7 +252,7 @@
 </tr>
 </tbody>
 </table>
-<p>Examples</p>
+<h5 id="examples-2"><a class="markdownIt-Anchor" href="#examples-2"></a> Examples</h5>
 <table>
 <thead>
 <tr>
@@ -288,7 +279,8 @@
 </tr>
 </tbody>
 </table>
-<h4 id="Undo"><a href="#Undo" class="headerlink" title="Undo"></a>Undo</h4><p>Syntax: <code>[c:undo [count:f|b|g|e|m|a]]</code></p>
+<h4 id="undo"><a class="markdownIt-Anchor" href="#undo"></a> Undo</h4>
+<p>Syntax: <code>[c:undo [count:f|b|g|e|m|a]]</code></p>
 <table>
 <thead>
 <tr>
@@ -311,7 +303,7 @@
 </tbody>
 </table>
 <p>*Parameter 2 is required if parameter 1 is provided.</p>
-<p>Examples</p>
+<h5 id="examples-3"><a class="markdownIt-Anchor" href="#examples-3"></a> Examples</h5>
 <table>
 <thead>
 <tr>
@@ -334,7 +326,8 @@
 </tr>
 </tbody>
 </table>
-<h4 id="Blink"><a href="#Blink" class="headerlink" title="Blink"></a>Blink</h4><p>Syntax: <code>[c:b [count:speed]</code></p>
+<h4 id="blink"><a class="markdownIt-Anchor" href="#blink"></a> Blink</h4>
+<p>Syntax: <code>[c:b [count:speed]</code></p>
 <table>
 <thead>
 <tr>
@@ -357,7 +350,7 @@
 </tbody>
 </table>
 <p>*Parameter 2 is required if parameter 1 is provided.</p>
-<p>Examples</p>
+<h5 id="examples-4"><a class="markdownIt-Anchor" href="#examples-4"></a> Examples</h5>
 <table>
 <thead>
 <tr>
@@ -376,7 +369,8 @@
 </tr>
 </tbody>
 </table>
-<h4 id="Gradient"><a href="#Gradient" class="headerlink" title="Gradient"></a>Gradient</h4><p>Syntax: <code>[c:g f|b:color[:color]:count]</code></p>
+<h4 id="gradient"><a class="markdownIt-Anchor" href="#gradient"></a> Gradient</h4>
+<p>Syntax: <code>[c:g f|b:color[:color]:count]</code></p>
 <table>
 <thead>
 <tr>
@@ -403,7 +397,7 @@
 </tr>
 </tbody>
 </table>
-<p>Examples</p>
+<h5 id="examples-5"><a class="markdownIt-Anchor" href="#examples-5"></a> Examples</h5>
 <table>
 <thead>
 <tr>
@@ -422,7 +416,8 @@
 </tr>
 </tbody>
 </table>
-<h4 id="Glyph"><a href="#Glyph" class="headerlink" title="Glyph"></a>Glyph</h4><p>Syntax: <code>[c:sg glyph index[:count]]</code></p>
+<h4 id="glyph"><a class="markdownIt-Anchor" href="#glyph"></a> Glyph</h4>
+<p>Syntax: <code>[c:sg glyph index[:count]]</code></p>
 <table>
 <thead>
 <tr>
@@ -444,7 +439,7 @@
 </tr>
 </tbody>
 </table>
-<p>Examples</p>
+<h5 id="examples-6"><a class="markdownIt-Anchor" href="#examples-6"></a> Examples</h5>
 <table>
 <thead>
 <tr>
@@ -467,28 +462,39 @@
 </tr>
 </tbody>
 </table>
-<h3 id="Color-selection"><a href="#Color-selection" class="headerlink" title="Color selection"></a>Color selection</h3><p>If a command uses a color parameter, it can be specified in the following ways.</p>
+<h3 id="color-selection"><a class="markdownIt-Anchor" href="#color-selection"></a> Color selection</h3>
+<p>If a command uses a color parameter, it can be specified in the following ways.</p>
 <ol>
-<li><p><code>rgb</code><br>red,green,blue as a byte value.</p>
+<li>
+<p><code>rgb</code><br>
+red,green,blue as a byte value.</p>
 </li>
-<li><p><code>rgba</code><br>red,green,blue,alpha as a byte value.</p>
+<li>
+<p><code>rgba</code><br>
+red,green,blue,alpha as a byte value.</p>
 </li>
-<li><p><code>name</code><br>A named color from the MonoGame Color type (supported in SFML)</p>
+<li>
+<p><code>name</code><br>
+A named color from the MonoGame Color type (supported in SFML)</p>
 </li>
-<li><p><code>default</code><br>use the default color of the surface.</p>
+<li>
+<p><code>default</code><br>
+use the default color of the surface.</p>
 </li>
 </ol>
 <blockquote>
-<p><strong>TIP</strong><br>If you use the <em>rgb</em> or <em>rgba</em> color values, you can use <code>x</code> in place of any color channel to skip it and use the existing color channel on the surface.</p>
+<p><strong>TIP</strong><br>
+If you use the <em>rgb</em> or <em>rgba</em> color values, you can use <code>x</code> in place of any color channel to skip it and use the existing color channel on the surface.</p>
 </blockquote>
-<h2 id="Create-a-command"><a href="#Create-a-command" class="headerlink" title="Create a command"></a>Create a command</h2><p>To add your own string parsing commands, you need to create a method to figure out which command to load, and then load that command. When the command parser processes a command, it will send the command string to the custom processor first. If a command is not returned (meaning you don’t have a command for that string) the built in commands will be processed. This lets you do two things:</p>
+<h2 id="create-a-command"><a class="markdownIt-Anchor" href="#create-a-command"></a> Create a command</h2>
+<p>To add your own string parsing commands, you need to create a method to figure out which command to load, and then load that command. When the command parser processes a command, it will send the command string to the custom processor first. If a command is not returned (meaning you don’t have a command for that string) the built in commands will be processed. This lets you do two things:</p>
 <ol>
 <li>Create your own command</li>
 <li>Override the built in commands</li>
 </ol>
 <p>The <code>SadConsole.ColoredString.CustomProcessor</code> static property is a <code>Func</code> you hook to process commands. The signature looks like this:</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ParseCommandBase <span class="title">CustomParseCommand</span>(<span class="params"><span class="keyword">string</span> command, <span class="keyword">string</span> parameters, ColoredGlyph[] glyphString,</span></span></span><br><span class="line"><span class="function"><span class="params">                                    ITextSurface surface, SurfaceEditor editor, ParseCommandStacks commandStacks</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>NOTE:</strong> The surface that is passed to the method may be null. When null, this means that the string is being built outside of the print statement. </p>
+<p><strong>NOTE:</strong> The surface that is passed to the method may be null. When null, this means that the string is being built outside of the print statement.</p>
 <p>With the parser method declared, you can create a new command type based on the <code>SadConsole.StringParser.ParseCommandBase</code> type. This has one important method, <strong>Build</strong>. The <strong>Build</strong> takes in a colored glyph and transforms it.</p>
 <p>The <code>SadConsole.StringParser.CommandType</code> property must be set on the new command otherwise it won’t be processed. There are 6 different types of valid commands.</p>
 <table>
@@ -529,16 +535,24 @@
 <p>This command doesn’t take any parameters (we’ll add that in a bit) and we still need to add it to the custom parser. Update the customer parser method.</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ParseCommandBase <span class="title">CustomParseCommand</span>(<span class="params"><span class="keyword">string</span> command, <span class="keyword">string</span> parameters, ColoredGlyph[] glyphString,</span></span></span><br><span class="line"><span class="function"><span class="params">                                    ITextSurface surface, SurfaceEditor editor, ParseCommandStacks commandStacks</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">switch</span> (command)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"t"</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ParseCommandRetext();</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>; ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>We can trigger that command by sending a string through the print function: <code>console.Print(2, 2, &quot;my text is all [c:t]characters&quot;)</code></p>
-<h3 id="Command-parameters"><a href="#Command-parameters" class="headerlink" title="Command parameters"></a>Command parameters</h3><p>It’s easy to add parameters for the command. It all comes down to (sometimes painful) string manipulation. This code modifies the <strong>retext</strong> command to require a character parameter and optional count.</p>
+<h3 id="command-parameters"><a class="markdownIt-Anchor" href="#command-parameters"></a> Command parameters</h3>
+<p>It’s easy to add parameters for the command. It all comes down to (sometimes painful) string manipulation. This code modifies the <strong>retext</strong> command to require a character parameter and optional count.</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">ParseCommandRetext</span> : <span class="title">ParseCommandBase</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Counter;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">char</span> Glyph;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ParseCommandRetext</span>(<span class="params"><span class="keyword">string</span> parameters</span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">string</span>[] parts = parameters.Split(<span class="keyword">new</span> <span class="keyword">char</span>[] &#123; <span class="string">':'</span> &#125;, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Count and glyph type provided</span></span><br><span class="line">        <span class="keyword">if</span> (parts.Length == <span class="number">2</span>)</span><br><span class="line">            Counter = <span class="keyword">int</span>.Parse(parts[<span class="number">1</span>]);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            Counter = <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Get character</span></span><br><span class="line">        Glyph = parts[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">        <span class="comment">// No exceptions, set the type</span></span><br><span class="line">        CommandType = CommandTypes.Glyph;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Build</span>(<span class="params"><span class="keyword">ref</span> ColoredGlyph glyphState, ColoredGlyph[] glyphString, <span class="keyword">int</span> surfaceIndex,</span></span></span><br><span class="line"><span class="function"><span class="params">                               ISurface surface, SurfaceEditor editor, <span class="keyword">ref</span> <span class="keyword">int</span> stringIndex, <span class="keyword">string</span> processedString, ParseCommandStacks commandStack</span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        glyphState.Glyph = Glyph;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (Counter != <span class="number">-1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            Counter--;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (Counter == <span class="number">0</span>)</span><br><span class="line">                commandStack.RemoveSafe(<span class="keyword">this</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Now we can trigger this with the print function: <code>console.Print(2, 2, &quot;my text is all [c:t D:5]characters&quot;)</code></p>
-<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><ul>
-<li>Set foreground to Color.Blue and background to Color.Yellow<br><code>&quot;Normal [c:r f:Blue][c:r b:Yellow]And colored&quot;</code></li>
-<li>Set foreground to RGBA and background to RGBA<br><code>&quot;Normal [c:r f:0,0,255,255][c:r b:255,255,0,255]and colored&quot;</code></li>
-<li>Set foreground to RGB and background to RGB. Alpha 255 assumed<br><code>&quot;Normal [c:r f:0,0,255][c:r b:255,255,0]and colored&quot;</code></li>
-<li>Maintain color channels but change green<br><code>&quot;Normal [c:r f:r,100,b,a][c:r b:r,255,g,a]and [c:s 1]mirrored&quot;</code></li>
-<li>Remove last two commands<br><code>&quot;Normal [c:r f:0,0,255][c:r b:255,255,0]and colored[c:undo][c:undo] more text&quot;</code></li>
-<li>Set foreground and background to default colors for surface<br><code>&quot;Normal and colored[c:r f:default]background not set yet[c:r b:default] now it is&quot;</code></li>
+<h2 id="examples-7"><a class="markdownIt-Anchor" href="#examples-7"></a> Examples</h2>
+<ul>
+<li>Set foreground to Color.Blue and background to Color.Yellow<br>
+<code>&quot;Normal [c:r f:Blue][c:r b:Yellow]And colored&quot;</code></li>
+<li>Set foreground to RGBA and background to RGBA<br>
+<code>&quot;Normal [c:r f:0,0,255,255][c:r b:255,255,0,255]and colored&quot;</code></li>
+<li>Set foreground to RGB and background to RGB. Alpha 255 assumed<br>
+<code>&quot;Normal [c:r f:0,0,255][c:r b:255,255,0]and colored&quot;</code></li>
+<li>Maintain color channels but change green<br>
+<code>&quot;Normal [c:r f:r,100,b,a][c:r b:r,255,g,a]and [c:s 1]mirrored&quot;</code></li>
+<li>Remove last two commands<br>
+<code>&quot;Normal [c:r f:0,0,255][c:r b:255,255,0]and colored[c:undo][c:undo] more text&quot;</code></li>
+<li>Set foreground and background to default colors for surface<br>
+<code>&quot;Normal and colored[c:r f:default]background not set yet[c:r b:default] now it is&quot;</code></li>
 </ul>
 	  
 	</div>

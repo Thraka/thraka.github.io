@@ -6,16 +6,16 @@
   <meta http-equiv="cache-control" content="no-cache">
   <meta http-equiv="expires" content="0">
   
-  <title>Cached console | Thraka</title>
+  <title>Cached console | Thraka&#39;s Home</title>
   <meta name="author" content="Thraka">
   
-  <meta name="description" content="Oh hai! As part of my rewrite of how SadConsole renders to the screen (my v3 branch) I came up with a few new console types. Well.. not really a new console, but it’s actually a new renderer. The class is SadConsole.Consoles.CachedTextSurfaceRenderer (name subject to change) and it works by rendering the text data to a texture instead of the screen. Then when the renderer is drawn, it draws the texture instead of console cell data.">
+  <meta name="description" content="Oh hai! As part of my rewrite of how SadConsole renders to the screen (my v3 branch) I came up with a few new console types. Well… not really a new console, but it’s actually a new renderer. The class is SadConsole.Consoles.CachedTextSurfaceRenderer (name subject to change) and it works by rendering the text data to a texture instead of the screen. Then when the renderer is drawn, it draws the texture instead of console cell data.">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <meta property="og:title" content="Cached console"/>
-  <meta property="og:site_name" content="Thraka"/>
+  <meta property="og:site_name" content="Thraka&#39;s Home"/>
 
   
     <meta property="og:image" content="undefined"/>
@@ -61,7 +61,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-	  <a class="navbar-brand" href="/">Thraka</a>
+	  <a class="navbar-brand" href="/">Thraka&#39;s Home</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
@@ -135,7 +135,7 @@
 	<div class="mypage">		
 	  		
 
-	  <p>Oh hai! As part of my rewrite of how SadConsole renders to the screen (<a href="https://github.com/Thraka/SadConsole/tree/sadconsole-v3" target="_blank" rel="noopener">my v3 branch</a>) I came up with a few new console types. Well.. not really a new console, but it’s actually a new renderer. The class is <a href="https://github.com/Thraka/SadConsole/blob/sadconsole-v3/SadConsole.Core/Consoles/CachedTextSurfaceRenderer.cs" target="_blank" rel="noopener">SadConsole.Consoles.CachedTextSurfaceRenderer</a> (name subject to change) and it works by rendering the text data to a texture instead of the screen. Then when the renderer is drawn, it draws the texture instead of console cell data.</p>
+	  <p>Oh hai! As part of my rewrite of how SadConsole renders to the screen (<a href="https://github.com/Thraka/SadConsole/tree/sadconsole-v3" target="_blank" rel="noopener">my v3 branch</a>) I came up with a few new console types. Well… not really a new console, but it’s actually a new renderer. The class is <a href="https://github.com/Thraka/SadConsole/blob/sadconsole-v3/SadConsole.Core/Consoles/CachedTextSurfaceRenderer.cs" target="_blank" rel="noopener">SadConsole.Consoles.CachedTextSurfaceRenderer</a> (name subject to change) and it works by rendering the text data to a texture instead of the screen. Then when the renderer is drawn, it draws the texture instead of console cell data.</p>
 <a id="more"></a>
 <p>The normal renderer (<a href="https://github.com/Thraka/SadConsole/blob/sadconsole-v3/SadConsole.Core/Consoles/TextSurfaceRenderer.cs" target="_blank" rel="noopener">TextSurfaceRenderer</a>) crawls through every cell that is supposed to be rendered and</p>
 <ol>
@@ -148,9 +148,9 @@
 <img src="/2016/06/01/cached-console/normal-renderer.png" title="normal console renderer">
 <p>As you can see it is running at (it’s in debug mode, so it’s slower than normal) <strong>~1000</strong> frames per second. No problem really. However, if the console we’re drawing isn’t changing at all, we’re really wasting time drawing each cell over and over. Here is that same console rendered to the <code>CachedTextSurfaceRenderer</code> renderer. (darker color here just so we know we’re in cached mode, it’s not normally darker)</p>
 <img src="/2016/06/01/cached-console/cached-renderer.png" title="cached console renderer">
-<p>Much better performance. We’re only doing a single draw call too. </p>
+<p>Much better performance. We’re only doing a single draw call too.</p>
 <p>This renderer will be great for UI and static backgrounds, or anything that doesn’t change often. You can easily update the cached renderer with the latest state of the console data.</p>
-<p>I’ll have some other renderers and text surface types coming soon too. </p>
+<p>I’ll have some other renderers and text surface types coming soon too.</p>
 	  
 	</div>
 

@@ -6,7 +6,7 @@
   <meta http-equiv="cache-control" content="no-cache">
   <meta http-equiv="expires" content="0">
   
-  <title>Working with input | Thraka</title>
+  <title>Working with input | Thraka&#39;s Home</title>
   <meta name="author" content="Thraka">
   
   <meta name="description" content="The SadConsole.Engine static class processes input for the entire SadConsole framework. At this point, it only includes the Keyboard and Mouse inputs ">
@@ -15,7 +15,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <meta property="og:title" content="Working with input"/>
-  <meta property="og:site_name" content="Thraka"/>
+  <meta property="og:site_name" content="Thraka&#39;s Home"/>
 
   
     <meta property="og:image" content="undefined"/>
@@ -61,7 +61,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-	  <a class="navbar-brand" href="/">Thraka</a>
+	  <a class="navbar-brand" href="/">Thraka&#39;s Home</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
@@ -134,27 +134,35 @@
 
 	  <p>The <em>SadConsole.Engine</em> static class processes input for the entire SadConsole framework. At this point, it only includes the <strong>Keyboard</strong> and <strong>Mouse</strong> inputs as <strong>Controller</strong> support has not been implemented yet. <strong>Controller</strong> support is provided by MonoGame. Keyboard and Mouse states have been updated by the time the <code>Global.Update</code> method has been called.</p>
 <p>When the mouse and keyboard information is sent to a console, the <em>SadConsole.Console.ProcessMouse(SadConsole.Input.MouseConsoleState)</em> and the <em>SadConsole.Console.ProcessKeyboard(SadConsole.Input.Keyboard)</em> methods will be called. Each console can indicate if it wants to process the mouse and keyboard input. These two properties, <code>SadConsole.Console.UseKeyboard</code> and <code>SadConsole.Console.UseMouse</code>, default to <code>True</code>. Regardless of the <strong>Console</strong> settings though, if the Engine’s mouse or keyboard processing is turned off, the console will never have these methods called.</p>
-<h4 id="Engine-input"><a href="#Engine-input" class="headerlink" title="Engine input"></a>Engine input</h4><p>Input processing by the engine can be toggled on or off with the <code>Settings.Input.DoKeyboard</code> and <code>Settings.Input.DoMouse</code> properties. Both input types are on by default.</p>
+<h4 id="engine-input"><a class="markdownIt-Anchor" href="#engine-input"></a> Engine input</h4>
+<p>Input processing by the engine can be toggled on or off with the <code>Settings.Input.DoKeyboard</code> and <code>Settings.Input.DoMouse</code> properties. Both input types are on by default.</p>
 <p>The <code>Global.FocusedConsoles</code> property specifies which consoles should receive keyboard events. It is always the first in the stack. This console is considered the focused console. No other console will ever receive keyboard input, however, other consoles may receive mouse input. When this property changes, the <code>Console.Focused()</code> and <code>Console.FocusLost()</code> methods are called on the appropriate consoles.</p>
-<p>When the <code>Engine.Update</code> method is called, the input system flows like this: </p>
+<p>When the <code>Engine.Update</code> method is called, the input system flows like this:</p>
 <ol>
-<li>If <code>Settings.Input.DoKeyboard</code> is true<ol>
+<li>
+<p>If <code>Settings.Input.DoKeyboard</code> is true</p>
+<ol>
 <li>Update <code>Global.KeyboardState</code> with the latest state.</li>
 <li>Look for a <code>Global.FocusedConsoles.Console</code> to process the keyboard.</li>
 </ol>
 </li>
-<li><p>If <code>Settings.Input.DoMouse</code> is true</p>
+<li>
+<p>If <code>Settings.Input.DoMouse</code> is true</p>
 <ol>
 <li>Update <code>Global.MouseState</code> with the latest state.</li>
 <li>Check if <code>Global.FocusedConsoles.Console</code> has <code>ExclusiveFocus</code> set.</li>
 <li>If <code>ExclusiveFocus</code> is not set, search through <code>Global.CurrentScreen</code> for all <code>IConsole</code> types and <code>ProcessMouse</code> until one returns true.</li>
 </ol>
 </li>
-<li><p>Cycle through the <code>Global.CurrentScreen</code> and call <code>Update</code> on everything.</p>
+<li>
+<p>Cycle through the <code>Global.CurrentScreen</code> and call <code>Update</code> on everything.</p>
 </li>
-<li>Invoke the <code>SadConsole.Game.OnUpdate</code> callback.</li>
+<li>
+<p>Invoke the <code>SadConsole.Game.OnUpdate</code> callback.</p>
+</li>
 </ol>
-<h5 id="Mouse-details"><a href="#Mouse-details" class="headerlink" title="Mouse details"></a>Mouse details</h5><p>The left and right button states are tracked, as well as any information related to the console under the mouse. The <code>Global.MouseState</code> property is an instance of the <code>SadConsole.Input.Mouse</code> type and is always available for you to peek at.</p>
+<h5 id="mouse-details"><a class="markdownIt-Anchor" href="#mouse-details"></a> Mouse details</h5>
+<p>The left and right button states are tracked, as well as any information related to the console under the mouse. The <code>Global.MouseState</code> property is an instance of the <code>SadConsole.Input.Mouse</code> type and is always available for you to peek at.</p>
 <table>
 <thead>
 <tr>
@@ -190,7 +198,8 @@
 </tbody>
 </table>
 <p>Whenever the <code>ProcessMouse</code> method is called on an <code>IConsole</code>, the mouse state is wrapped in a <code>SadConsole.Input.MouseConsoleState</code> type which represents how the console sees the mouse.</p>
-<h5 id="Keyboard-details"><a href="#Keyboard-details" class="headerlink" title="Keyboard details"></a>Keyboard details</h5><p>The keyboard works similar to the mouse. The <code>Global.KeyboardState</code> property is an instance of the <code>SadConsole.Input.Keyboard</code> type and is always available for you to peek at. This instance tracks the state of the keyboard throughout the application’s lifetime. </p>
+<h5 id="keyboard-details"><a class="markdownIt-Anchor" href="#keyboard-details"></a> Keyboard details</h5>
+<p>The keyboard works similar to the mouse. The <code>Global.KeyboardState</code> property is an instance of the <code>SadConsole.Input.Keyboard</code> type and is always available for you to peek at. This instance tracks the state of the keyboard throughout the application’s lifetime.</p>
 <table>
 <thead>
 <tr>
@@ -213,7 +222,8 @@
 </tr>
 </tbody>
 </table>
-<h4 id="Focusing-consoles-with-the-mouse"><a href="#Focusing-consoles-with-the-mouse" class="headerlink" title="Focusing consoles with the mouse"></a>Focusing consoles with the mouse</h4><p>By default, a console can become the active console by clicking it with the mouse. When the mouse clicks on a console, and the <code>Console.FocusOnMouseClick</code> property is set to <code>True</code>, the <code>Global.FocusedConsoles</code> property will be set to the console. </p>
+<h4 id="focusing-consoles-with-the-mouse"><a class="markdownIt-Anchor" href="#focusing-consoles-with-the-mouse"></a> Focusing consoles with the mouse</h4>
+<p>By default, a console can become the active console by clicking it with the mouse. When the mouse clicks on a console, and the <code>Console.FocusOnMouseClick</code> property is set to <code>True</code>, the <code>Global.FocusedConsoles</code> property will be set to the console.</p>
 	  
 	</div>
 
