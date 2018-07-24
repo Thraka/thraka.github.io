@@ -2,6 +2,10 @@ title: Roguelike Tutorial - Part 1 - Character and Map
 layout: docpage
 ---
 
+<div class="alert alert-danger" role="alert">
+This article is part of an out-of-date series that will be replaced in the future.
+</div>
+
 In this series of tutorials we'll look at creating a roguelike while using SadConsole. SadConsole is a .NET library that works with MonoGame to create a tile based game. The focus of SadConsole though is to treat the tile system like a classic terminal or command prompt system.
 
 In this article we'll accomplish the following:
@@ -14,11 +18,6 @@ In this article we'll accomplish the following:
 
 - **Part 1 - Create the project**
 - [Part 2 - Character and map](part-2---character-and-map.md)
-- [Part 3 - Map generation](part-3---map-generation.md)
-- More coming soon...
-
-[Download the source code for the entire series](sadconsole-rogueliketutorial.zip).
-
 
 ## Create the SadConsole project
 
@@ -69,7 +68,7 @@ You need to create a new blank .NET project in [Visual Studio](https://www.visua
 
     ```csharp
     using System;
-    using Console = SadConsole.Consoles.Console;
+    using Console = SadConsole.Console;
 
     public const int ScreenWidth = 80;
     public const int ScreenHeight = 25;
@@ -171,5 +170,3 @@ If you run the game, you'll see an `@` character in the middle of the screen.
 We've initialized SadConsole and displayed a simple console with a character. Pretty simple huh? A few lines of code and we're off and running.
 
 In the [next step](part-2---character-and-map.md) of the tutorial we'll create our own custom console and display a player character on it.
-
-[Download the source code for the entire series](sadconsole-rogueliketutorial.zip).

@@ -2,6 +2,10 @@ title: Roguelike Tutorial - Part 2 - Character and Map
 layout: docpage
 ---
 
+<div class="alert alert-danger" role="alert">
+This article is part of an out-of-date series that will be replaced in the future.
+</div>
+
 In this article we'll accomplish the following:
 
 - [x] Create objects to represent the player.
@@ -13,10 +17,6 @@ In this article we'll accomplish the following:
 
 - [Part 1 - Create the project](part-1---create-a-new-project.md)
 - **Part 2 - Character and map**
-- [Part 3 - Map generation](part-3---map-generation.md)
-- More coming soon...
-
-[Download the source code for the entire series](sadconsole-rogueliketutorial.zip).
 
 ## Create an entity
 
@@ -439,7 +439,3 @@ Now run the game and you'll see that you can no longer walk through the walls!
 ## Closing thoughts
 
 In this part of the series we created some map tile objects, a player entity, and a map. We displayed the map through a screen object, and we hooked up input to move our player around.
-
-In the [next step](part-3---map-generation.md) of the tutorial we'll handle randomizing and scrolling the map.
-
-[Download the source code for the entire series](sadconsole-rogueliketutorial.zip).
