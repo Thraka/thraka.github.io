@@ -140,6 +140,40 @@
 <div class="row">
 	<div class="col-md-10">
 		<h3 class="title">
+			<a href="/2018/08/02/Console-changes-with-7-0/" >Console changes with 7.0</a>
+		</h3>
+		</div>
+	<div class="col-md-2">
+		<div class="date">@ 2018-08-02  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>As the previous entry stated, the <code>Console</code> type is changing. As an example take creating a border on the outside of a console. This involved creating a derived class that handled the drawing of the console itself and the border. There was a lot to do just to create the border.</p>
+<h3 id="v6-style"><a class="markdownIt-Anchor" href="#v6-style"></a> V6 style</h3>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">BorderedConsole</span>: <span class="title">Console</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> SadConsole.Surfaces.BasicSurface border;</span><br><span class="line">    <span class="keyword">private</span> DrawCallSurface drawCall;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BorderedConsole</span>(<span class="params"><span class="keyword">int</span> width, <span class="keyword">int</span> height</span>):<span class="title">base</span>(<span class="params">width, height</span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        border = <span class="keyword">new</span> BasicSurface(width + <span class="number">2</span>, height + <span class="number">2</span>);</span><br><span class="line">        border.DefaultBackground = Color.Black;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> editor = <span class="keyword">new</span> SurfaceEditor(border);</span><br><span class="line">        editor.Clear();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> borderBox = Box.Thick();</span><br><span class="line">        borderBox.Position = <span class="keyword">new</span> Point(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">        borderBox.Width = border.Width;</span><br><span class="line">        borderBox.Height = border.Height;</span><br><span class="line">        borderBox.Draw(editor);</span><br><span class="line"></span><br><span class="line">        Renderer.Render(border);</span><br><span class="line"></span><br><span class="line">        drawCall = <span class="keyword">new</span> DrawCallSurface(border, CalculatedPosition, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">        Print(<span class="number">0</span>, <span class="number">0</span>, <span class="string">"Hello inside the border"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Draw</span>(<span class="params">TimeSpan delta</span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Global.DrawCalls.Clear();</span><br><span class="line">        drawCall.Position = border.Font.GetWorldPosition((CalculatedPosition - <span class="keyword">new</span> Point(<span class="number">1</span>))).ToVector2();</span><br><span class="line">        Global.DrawCalls.Add(drawCall);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">base</span>.Draw(delta);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="v7-style"><a class="markdownIt-Anchor" href="#v7-style"></a> V7 style</h3>
+<p>In 7.0 this is much easier, and it doesn’t require creating a derived class.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> console = <span class="keyword">new</span> SadConsole.Console(<span class="number">10</span>, <span class="number">10</span>);</span><br><span class="line"><span class="keyword">var</span> border = <span class="keyword">new</span> SadConsole.Surfaces.Basic(console.Width + <span class="number">2</span>, console.Height + <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">console.Position = <span class="keyword">new</span> Point(<span class="number">10</span>, <span class="number">10</span>);</span><br><span class="line">console.Print(<span class="string">"Hello inside the border"</span>);</span><br><span class="line"></span><br><span class="line">border.DrawBox(<span class="keyword">new</span> Rectangle(<span class="number">0</span>, <span class="number">0</span>, border.Width, border.Height), </span><br><span class="line">               foreground: Color.White, background: Color.Black, </span><br><span class="line">               connectedLineStyle: SurfaceBase.ConnectedLineThick);</span><br><span class="line"></span><br><span class="line">border.Draw(TimeSpan.Zero);</span><br><span class="line">border.Position = <span class="keyword">new</span> Point(<span class="number">-1</span>, <span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">console.Children.Add(border);</span><br></pre></td></tr></table></figure>
+<p>Sure, some code is missing because it’s easier to draw shapes now, but this also requires less overhead in types you create just to do simple things. And since any surface is now a positionable and drawable object, it can be added as a child to a console. Now the position of the border is automatically kept in place.</p>
+
+	
+	</div>
+  <a type="button" href="/2018/08/02/Console-changes-with-7-0/#more" class="btn btn-default more">Read More</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-10">
+		<h3 class="title">
 			<a href="/2018/08/01/Major-changes-to-be-included-in-7-0/" >Major changes to be included in 7.0</a>
 		</h3>
 		</div>
@@ -448,7 +482,7 @@
 		<h4>Categories</h4>
 		<ul class="tag_box inline list-unstyled">
 		
-			<li><a href="/categories/SadConsole/">SadConsole<span>8</span></a></li>
+			<li><a href="/categories/SadConsole/">SadConsole<span>10</span></a></li>
 		
 		</ul>
 	</div>
@@ -459,15 +493,17 @@
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/SadConsole/">SadConsole<span>8</span></a></li>
-		
 			<li><a href="/tags/Controls/">Controls<span>0</span></a></li>
-		
-			<li><a href="/tags/Bug/">Bug<span>1</span></a></li>
 		
 			<li><a href="/tags/Renderer/">Renderer<span>1</span></a></li>
 		
 			<li><a href="/tags/SadConsoleEditor/">SadConsoleEditor<span>0</span></a></li>
+		
+			<li><a href="/tags/v7/">v7<span>3</span></a></li>
+		
+			<li><a href="/tags/Bug/">Bug<span>1</span></a></li>
+		
+			<li><a href="/tags/SadConsole/">SadConsole<span>10</span></a></li>
 		
 			<li><a href="/tags/intro/">intro<span>0</span></a></li>
 		
@@ -483,6 +519,10 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2018/08/02/Console-changes-with-7-0/" ><i class="fa fa-file-o"></i>Console changes with 7.0</a>
+      </li>
+    
+      <li>
         <a href="/2018/08/01/Major-changes-to-be-included-in-7-0/" ><i class="fa fa-file-o"></i>Major changes to be include...</a>
       </li>
     
@@ -496,10 +536,6 @@
     
       <li>
         <a href="/2017/03/08/engine-revision/" ><i class="fa fa-file-o"></i>Engine Revision</a>
-      </li>
-    
-      <li>
-        <a href="/2016/08/12/easier-startup/" ><i class="fa fa-file-o"></i>Easier Startup</a>
       </li>
     
   </ul>

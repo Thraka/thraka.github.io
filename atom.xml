@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.sadconsole.com/"/>
-  <updated>2018-08-02T06:48:56.589Z</updated>
+  <updated>2018-08-02T20:52:09.658Z</updated>
   <id>http://www.sadconsole.com/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Console changes with 7.0</title>
+    <link href="http://www.sadconsole.com/2018/08/02/Console-changes-with-7-0/"/>
+    <id>http://www.sadconsole.com/2018/08/02/Console-changes-with-7-0/</id>
+    <published>2018-08-02T19:59:41.000Z</published>
+    <updated>2018-08-02T20:52:09.658Z</updated>
+    
+    <content type="html"><![CDATA[<p>As the previous entry stated, the <code>Console</code> type is changing. As an example take creating a border on the outside of a console. This involved creating a derived class that handled the drawing of the console itself and the border. There was a lot to do just to create the border.</p><h3 id="v6-style"><a class="markdownIt-Anchor" href="#v6-style"></a> V6 style</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">BorderedConsole</span>: <span class="title">Console</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> SadConsole.Surfaces.BasicSurface border;</span><br><span class="line">    <span class="keyword">private</span> DrawCallSurface drawCall;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BorderedConsole</span>(<span class="params"><span class="keyword">int</span> width, <span class="keyword">int</span> height</span>):<span class="title">base</span>(<span class="params">width, height</span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        border = <span class="keyword">new</span> BasicSurface(width + <span class="number">2</span>, height + <span class="number">2</span>);</span><br><span class="line">        border.DefaultBackground = Color.Black;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> editor = <span class="keyword">new</span> SurfaceEditor(border);</span><br><span class="line">        editor.Clear();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> borderBox = Box.Thick();</span><br><span class="line">        borderBox.Position = <span class="keyword">new</span> Point(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">        borderBox.Width = border.Width;</span><br><span class="line">        borderBox.Height = border.Height;</span><br><span class="line">        borderBox.Draw(editor);</span><br><span class="line"></span><br><span class="line">        Renderer.Render(border);</span><br><span class="line"></span><br><span class="line">        drawCall = <span class="keyword">new</span> DrawCallSurface(border, CalculatedPosition, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">        Print(<span class="number">0</span>, <span class="number">0</span>, <span class="string">"Hello inside the border"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Draw</span>(<span class="params">TimeSpan delta</span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Global.DrawCalls.Clear();</span><br><span class="line">        drawCall.Position = border.Font.GetWorldPosition((CalculatedPosition - <span class="keyword">new</span> Point(<span class="number">1</span>))).ToVector2();</span><br><span class="line">        Global.DrawCalls.Add(drawCall);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">base</span>.Draw(delta);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="v7-style"><a class="markdownIt-Anchor" href="#v7-style"></a> V7 style</h3><p>In 7.0 this is much easier, and it doesn’t require creating a derived class.</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> console = <span class="keyword">new</span> SadConsole.Console(<span class="number">10</span>, <span class="number">10</span>);</span><br><span class="line"><span class="keyword">var</span> border = <span class="keyword">new</span> SadConsole.Surfaces.Basic(console.Width + <span class="number">2</span>, console.Height + <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">console.Position = <span class="keyword">new</span> Point(<span class="number">10</span>, <span class="number">10</span>);</span><br><span class="line">console.Print(<span class="string">"Hello inside the border"</span>);</span><br><span class="line"></span><br><span class="line">border.DrawBox(<span class="keyword">new</span> Rectangle(<span class="number">0</span>, <span class="number">0</span>, border.Width, border.Height), </span><br><span class="line">               foreground: Color.White, background: Color.Black, </span><br><span class="line">               connectedLineStyle: SurfaceBase.ConnectedLineThick);</span><br><span class="line"></span><br><span class="line">border.Draw(TimeSpan.Zero);</span><br><span class="line">border.Position = <span class="keyword">new</span> Point(<span class="number">-1</span>, <span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">console.Children.Add(border);</span><br></pre></td></tr></table></figure><p>Sure, some code is missing because it’s easier to draw shapes now, but this also requires less overhead in types you create just to do simple things. And since any surface is now a positionable and drawable object, it can be added as a child to a console. Now the position of the border is automatically kept in place.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;As the previous entry stated, the &lt;code&gt;Console&lt;/code&gt; type is changing. As an example take creating a border on the outside of a console
+      
+    
+    </summary>
+    
+      <category term="SadConsole" scheme="http://www.sadconsole.com/categories/SadConsole/"/>
+    
+    
+      <category term="SadConsole" scheme="http://www.sadconsole.com/tags/SadConsole/"/>
+    
+      <category term="v7" scheme="http://www.sadconsole.com/tags/v7/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Major changes to be included in 7.0</title>
     <link href="http://www.sadconsole.com/2018/08/01/Major-changes-to-be-included-in-7-0/"/>
     <id>http://www.sadconsole.com/2018/08/01/Major-changes-to-be-included-in-7-0/</id>
     <published>2018-08-02T01:23:16.000Z</published>
-    <updated>2018-08-02T06:48:56.589Z</updated>
+    <updated>2018-08-02T20:28:57.388Z</updated>
     
     <content type="html"><![CDATA[<p>A month and a half into the V7.0 rewrite, and I’m about 90% complete. There are some major changes to how a <code>console</code> and <code>surfaces</code> work. A friend of mine did a nice writeup about how SadConsole looks to a first-time user. The <a href="https://github.com/Thraka/SadConsole/pull/139" target="_blank" rel="noopener">current pull request</a> on GitHub shows all of the changes so far; 200+ files changed.</p><p>The major change is that the whole concept of changable backing surfaces is gone. Prior to 7.0, a console was the editor for a <code>TextSurface</code> property, a property represented the actual graphical text surface of a console. You could easily change the surface in/out of the console. There was also a <code>SurfaceEditor</code> class (which console inherited from) that could be directed at any <code>TextSurface</code> object, and edit it. This <code>SurfaceEditor</code> type was what had all of the editing methods such as <code>SetForeground</code> and <code>Print</code>.</p><p>This has been changed to where every <code>Surface</code> type itself (ex: layered, animated, basic) has all of the methods needed to manipulate the cells themselves directly. Surfaces are also positionable and drawable without the need a <code>Console</code>, if you don’t want one. Previously every surface had to be wrapped by a console or by a bunch of code. A <code>Console</code> now inherits from a surface base class which means a console <strong>is</strong> a surface now.</p><p>I think this will greatly simplify the getting started aspects of the engine. I’ll have more to talk about soon.</p>]]></content>
     
@@ -34,6 +61,12 @@
     
     </summary>
     
+      <category term="SadConsole" scheme="http://www.sadconsole.com/categories/SadConsole/"/>
+    
+    
+      <category term="SadConsole" scheme="http://www.sadconsole.com/tags/SadConsole/"/>
+    
+      <category term="v7" scheme="http://www.sadconsole.com/tags/v7/"/>
     
   </entry>
   
@@ -42,7 +75,7 @@
     <link href="http://www.sadconsole.com/2018/06/16/Plans-for-7-0/"/>
     <id>http://www.sadconsole.com/2018/06/16/Plans-for-7-0/</id>
     <published>2018-06-17T02:15:52.000Z</published>
-    <updated>2018-06-17T02:31:44.182Z</updated>
+    <updated>2018-08-02T20:28:49.371Z</updated>
     
     <content type="html"><![CDATA[<p>It’s been over a year since my last post. Unacceptable! I need to keep up on this.</p><p>Over the last year, <strong>SadConsole</strong> has seen a lot of minor changes and improvement. A few new controls were added, various input bugs fixed, windowing adjust, it’s been fun. <strong>SadConsole</strong> as a whole is pretty solid and good. I now want to start playing with some fun enhancements such as angled cells, cell decorations (such as underline), TrueType fonts, that kind of fun stuff.</p><p>The next major release (it has to be a major release because some things are breaking) is going to be <em>7.0</em>. I’ve created a <a href="https://github.com/Thraka/SadConsole/projects/1#card-10550416" target="_blank" rel="noopener">GitHub project</a> to track all of things to be adressed. Some things may get cut and new items may be added. If you have an idea, please add a new issue to the repository.</p><p>I have a few more blog posts coming up soon, with screenshots and all! Stay tuned…</p>]]></content>
     
@@ -60,6 +93,8 @@
     
     
       <category term="SadConsole" scheme="http://www.sadconsole.com/tags/SadConsole/"/>
+    
+      <category term="v7" scheme="http://www.sadconsole.com/tags/v7/"/>
     
   </entry>
   
