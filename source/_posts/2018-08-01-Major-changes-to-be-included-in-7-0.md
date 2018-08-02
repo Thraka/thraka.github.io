@@ -1,6 +1,10 @@
 title: Major changes to be included in 7.0
 date: 2018-08-01 18:23:16
 tags:
+- v7
+- SadConsole
+category:
+- SadConsole
 ---
 
 A month and a half into the V7.0 rewrite, and I'm about 90% complete. There are some major changes to how a `console` and `surfaces` work. A friend of mine did a nice writeup about how SadConsole looks to a first-time user. The [current pull request](https://github.com/Thraka/SadConsole/pull/139) on GitHub shows all of the changes so far; 200+ files changed.
