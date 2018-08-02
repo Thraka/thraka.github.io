@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.sadconsole.com/"/>
-  <updated>2018-06-17T02:31:44.182Z</updated>
+  <updated>2018-08-02T06:48:56.589Z</updated>
   <id>http://www.sadconsole.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Major changes to be included in 7.0</title>
+    <link href="http://www.sadconsole.com/2018/08/01/Major-changes-to-be-included-in-7-0/"/>
+    <id>http://www.sadconsole.com/2018/08/01/Major-changes-to-be-included-in-7-0/</id>
+    <published>2018-08-02T01:23:16.000Z</published>
+    <updated>2018-08-02T06:48:56.589Z</updated>
+    
+    <content type="html"><![CDATA[<p>A month and a half into the V7.0 rewrite, and I’m about 90% complete. There are some major changes to how a <code>console</code> and <code>surfaces</code> work. A friend of mine did a nice writeup about how SadConsole looks to a first-time user. The <a href="https://github.com/Thraka/SadConsole/pull/139" target="_blank" rel="noopener">current pull request</a> on GitHub shows all of the changes so far; 200+ files changed.</p><p>The major change is that the whole concept of changable backing surfaces is gone. Prior to 7.0, a console was the editor for a <code>TextSurface</code> property, a property represented the actual graphical text surface of a console. You could easily change the surface in/out of the console. There was also a <code>SurfaceEditor</code> class (which console inherited from) that could be directed at any <code>TextSurface</code> object, and edit it. This <code>SurfaceEditor</code> type was what had all of the editing methods such as <code>SetForeground</code> and <code>Print</code>.</p><p>This has been changed to where every <code>Surface</code> type itself (ex: layered, animated, basic) has all of the methods needed to manipulate the cells themselves directly. Surfaces are also positionable and drawable without the need a <code>Console</code>, if you don’t want one. Previously every surface had to be wrapped by a console or by a bunch of code. A <code>Console</code> now inherits from a surface base class which means a console <strong>is</strong> a surface now.</p><p>I think this will greatly simplify the getting started aspects of the engine. I’ll have more to talk about soon.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;A month and a half into the V7.0 rewrite, and I’m about 90% complete. There are some major changes to how a &lt;code&gt;console&lt;/code&gt; and &lt;cod
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Plans for 7.0</title>

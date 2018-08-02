@@ -6,16 +6,15 @@
   <meta http-equiv="cache-control" content="no-cache">
   <meta http-equiv="expires" content="0">
   
-  <title>Plans for 7.0 | Thraka&#39;s Home</title>
+  <title>Major changes to be included in 7.0 | Thraka&#39;s Home</title>
   <meta name="author" content="Thraka">
   
-  <meta name="description" content="It’s been over a year since my last post. Unacceptable! I need to keep up on this.
-Over the last year, SadConsole has seen a lot of minor changes and ">
+  <meta name="description" content="A month and a half into the V7.0 rewrite, and I’m about 90% complete. There are some major changes to how a console and surfaces work. A friend of min">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Plans for 7.0"/>
+  <meta property="og:title" content="Major changes to be included in 7.0"/>
   <meta property="og:site_name" content="Thraka&#39;s Home"/>
 
   
@@ -119,7 +118,7 @@ Over the last year, SadConsole has seen a lot of minor changes and ">
 
 	
 		<div class="page-header">
-			<h1> Plans for 7.0</h1>
+			<h1> Major changes to be included in 7.0</h1>
 		</div>
 	
 
@@ -136,10 +135,10 @@ Over the last year, SadConsole has seen a lot of minor changes and ">
 	<div class="mypage">		
 	  		
 
-	  <p>It’s been over a year since my last post. Unacceptable! I need to keep up on this.</p>
-<p>Over the last year, <strong>SadConsole</strong> has seen a lot of minor changes and improvement. A few new controls were added, various input bugs fixed, windowing adjust, it’s been fun. <strong>SadConsole</strong> as a whole is pretty solid and good. I now want to start playing with some fun enhancements such as angled cells, cell decorations (such as underline), TrueType fonts, that kind of fun stuff.</p>
-<p>The next major release (it has to be a major release because some things are breaking) is going to be <em>7.0</em>. I’ve created a <a href="https://github.com/Thraka/SadConsole/projects/1#card-10550416" target="_blank" rel="noopener">GitHub project</a> to track all of things to be adressed. Some things may get cut and new items may be added. If you have an idea, please add a new issue to the repository.</p>
-<p>I have a few more blog posts coming up soon, with screenshots and all! Stay tuned…</p>
+	  <p>A month and a half into the V7.0 rewrite, and I’m about 90% complete. There are some major changes to how a <code>console</code> and <code>surfaces</code> work. A friend of mine did a nice writeup about how SadConsole looks to a first-time user. The <a href="https://github.com/Thraka/SadConsole/pull/139" target="_blank" rel="noopener">current pull request</a> on GitHub shows all of the changes so far; 200+ files changed.</p>
+<p>The major change is that the whole concept of changable backing surfaces is gone. Prior to 7.0, a console was the editor for a <code>TextSurface</code> property, a property represented the actual graphical text surface of a console. You could easily change the surface in/out of the console. There was also a <code>SurfaceEditor</code> class (which console inherited from) that could be directed at any <code>TextSurface</code> object, and edit it. This <code>SurfaceEditor</code> type was what had all of the editing methods such as <code>SetForeground</code> and <code>Print</code>.</p>
+<p>This has been changed to where every <code>Surface</code> type itself (ex: layered, animated, basic) has all of the methods needed to manipulate the cells themselves directly. Surfaces are also positionable and drawable without the need a <code>Console</code>, if you don’t want one. Previously every surface had to be wrapped by a console or by a bunch of code. A <code>Console</code> now inherits from a surface base class which means a console <strong>is</strong> a surface now.</p>
+<p>I think this will greatly simplify the getting started aspects of the engine. I’ll have more to talk about soon.</p>
 	  
 	</div>
 
@@ -149,13 +148,12 @@ Over the last year, SadConsole has seen a lot of minor changes and ">
 
     
     
-    <a href="/2018/08/01/Major-changes-to-be-included-in-7-0/" type="button" class="btn btn-default"><i
-                class="fa fa-arrow-circle-o-left"></i> Next</a>
+    <a type="button" class="btn btn-default disabled"><i class="fa fa-arrow-circle-o-left"></i>Next</a>
     
 
     <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
     
-    <a href="/2017/03/18/engine-revision-completed/" type="button" class="btn btn-default ">Prev<i
+    <a href="/2018/06/16/Plans-for-7-0/" type="button" class="btn btn-default ">Prev<i
                 class="fa fa-arrow-circle-o-right"></i></a>
     
 
@@ -179,8 +177,8 @@ Over the last year, SadConsole has seen a lot of minor changes and ">
              */
                 
             var disqus_config = function () {
-                this.page.url = "http://www.sadconsole.com/2018/06/16/Plans-for-7-0/"; // Replace PAGE_URL with your page's canonical URL variable
-                this.page.identifier = "2018/06/16/Plans-for-7-0/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                this.page.url = "http://www.sadconsole.com/2018/08/01/Major-changes-to-be-included-in-7-0/"; // Replace PAGE_URL with your page's canonical URL variable
+                this.page.identifier = "2018/08/01/Major-changes-to-be-included-in-7-0/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
             };
                  
             (function() { // DON'T EDIT BELOW THIS LINE
@@ -209,33 +207,14 @@ Over the last year, SadConsole has seen a lot of minor changes and ">
 	
 	<div class="meta-widget">
 	<i class="fa fa-clock-o"></i>
-	2018-06-16 
+	2018-08-01 
 	</div>
 	
 
 	<!-- categories -->
     
-	<div class="meta-widget">
-	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
-    <ul id="categorys" class="tag_box list-unstyled collapse in">
-          
-  <li>
-    <li><a href="/categories/SadConsole/">SadConsole<span>8</span></a></li>
-  </li>
-
-    </ul>
-	</div>
-	
 
 	<!-- tags -->
-	
-	<div class="meta-widget">
-	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
-    <ul id="tags" class="tag_box list-unstyled collapse in">	  
-	    
-  <li><a href="/tags/SadConsole/">SadConsole<span>8</span></a></li>
-    </ul>
-	</div>
 		
 
 	<!-- toc -->
