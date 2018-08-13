@@ -6,16 +6,15 @@
   <meta http-equiv="cache-control" content="no-cache">
   <meta http-equiv="expires" content="0">
   
-  <title>Plans for 7.0 | Thraka&#39;s Home</title>
+  <title>New Theme System for 7.0 | Thraka&#39;s Home</title>
   <meta name="author" content="Thraka">
   
-  <meta name="description" content="It’s been over a year since my last post. Unacceptable! I need to keep up on this.
-Over the last year, SadConsole has seen a lot of minor changes and ">
+  <meta name="description" content="The last two weeks have been pretty busy, but I’ve been slowly banging around on the controls redesign for SadConsole. One thing that I didn’t with ho">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Plans for 7.0"/>
+  <meta property="og:title" content="New Theme System for 7.0"/>
   <meta property="og:site_name" content="Thraka&#39;s Home"/>
 
   
@@ -119,7 +118,7 @@ Over the last year, SadConsole has seen a lot of minor changes and ">
 
 	
 		<div class="page-header">
-			<h1> Plans for 7.0</h1>
+			<h1> New Theme System for 7.0</h1>
 		</div>
 	
 
@@ -136,11 +135,10 @@ Over the last year, SadConsole has seen a lot of minor changes and ">
 	<div class="mypage">		
 	  		
 
-	  <p>It’s been over a year since my last post. Unacceptable! I need to keep up on this.</p>
-<p>Over the last year, <strong>SadConsole</strong> has seen a lot of minor changes and improvement. A few new controls were added, various input bugs fixed, windowing adjust, it’s been fun. <strong>SadConsole</strong> as a whole is pretty solid and good. I now want to start playing with some fun enhancements such as angled cells, cell decorations (such as underline), TrueType fonts, that kind of fun stuff.</p>
-<p>The next major release (it has to be a major release because some things are breaking) is going to be <em>7.0</em>. I’ve created a <a href="https://github.com/Thraka/SadConsole/projects/1#card-10550416" target="_blank" rel="noopener">GitHub project</a> to track all of things to be adressed. Some things may get cut and new items may be added. If you have an idea, please add a new issue to the repository.</p>
-<p>I have a few more blog posts coming up soon, with screenshots and all! Stay tuned…</p>
-	  
+	  <p>The last two weeks have been pretty busy, but I’ve been slowly banging around on the controls redesign for SadConsole. One thing that I didn’t with how the controls worked was that each control controls its drawing. This means that if you have a button control, and you wanted it to draw a border around it all of the time, you had to create a new button class. This meant adding whole new types of controls just to tweak the drawing.</p>
+<p>The new system for 7.0 decouples the drawing from the control. The drawing is now moved to the theme object. Now all you need to do is create a new button theme type and implement the draw method, and set it to the <code>ButtonVariable.Theme</code> property. This new system also controls the drawing for the <code>ControlsConsole</code> and the <code>Window</code> types.</p>
+<p>To test this out I create 3 types of themes for the button type. The normal button from v7, a 3d button, and a new bordered button which uses the SadConsole extended character sheet.</p>
+<img src="/2018/08/12/new-theme-system-for-7-0/new-button-themes.gif" title="3d themes for buttons in sadconsole">	  
 	</div>
 
 	<div>
@@ -149,13 +147,12 @@ Over the last year, SadConsole has seen a lot of minor changes and ">
 
     
     
-    <a href="/2018/08/01/Major-changes-to-be-included-in-7-0/" type="button" class="btn btn-default"><i
-                class="fa fa-arrow-circle-o-left"></i> Next</a>
+    <a type="button" class="btn btn-default disabled"><i class="fa fa-arrow-circle-o-left"></i>Next</a>
     
 
     <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
     
-    <a href="/2017/03/18/engine-revision-completed/" type="button" class="btn btn-default ">Prev<i
+    <a href="/2018/08/02/Console-changes-with-7-0/" type="button" class="btn btn-default ">Prev<i
                 class="fa fa-arrow-circle-o-right"></i></a>
     
 
@@ -179,8 +176,8 @@ Over the last year, SadConsole has seen a lot of minor changes and ">
              */
                 
             var disqus_config = function () {
-                this.page.url = "http://www.sadconsole.com/2018/06/16/Plans-for-7-0/"; // Replace PAGE_URL with your page's canonical URL variable
-                this.page.identifier = "2018/06/16/Plans-for-7-0/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                this.page.url = "http://www.sadconsole.com/2018/08/12/new-theme-system-for-7-0/"; // Replace PAGE_URL with your page's canonical URL variable
+                this.page.identifier = "2018/08/12/new-theme-system-for-7-0/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
             };
                  
             (function() { // DON'T EDIT BELOW THIS LINE
@@ -209,7 +206,7 @@ Over the last year, SadConsole has seen a lot of minor changes and ">
 	
 	<div class="meta-widget">
 	<i class="fa fa-clock-o"></i>
-	2018-06-16 
+	2018-08-12 
 	</div>
 	
 
