@@ -8,9 +8,11 @@ The `SadConsole.Surfaces.BasicSurface` is broken up into multiple cells, all arr
 
 
 ### Color
+
 The foreground or the background of a cell can be colored. When the background is colored, it fills the entire cell with that color. When the foreground is colored, it changes the color of the character being displayed in that cell.
 
 #### Foreground
+
 You can set or get the foreground color of a cell by using its x, y coordinates and the `SetForeground` or `GetForeground` method.
 
 ```csharp
@@ -20,7 +22,9 @@ var color1 = console.GetForeground(10, 10);
 ```
 
 #### Background
+
 You can set or get the background color of a cell by using its x, y coordinates and the `SetBackground` or `GetBackground` method.
+
 ```csharp
 console.SetBackground(10, 10, Microsoft.Xna.Framework.Color.White);
 // - or -
@@ -36,7 +40,7 @@ The character displayed on a cell is changed by calling the `SetGlyph` method. I
 // Set the character at 41,22 to index 1 on the font sheet, a smiley face.
 console.SetGlyph(41, 22, 1);
 // - or -
-int character = console.SetGlyph(41, 22);
+int character = console.GetGlyph(41, 22);
 ```
 
 ##### Set a character using System.Char
@@ -56,14 +60,21 @@ console.SetGlyph(41, 22, 13, Color.Purple, Color.Green);
 ```
 
 #### Working with strings
-Setting the character cell-by-cell is not very efficient when you have a string you want to print. The cell surface provides a way to print an entire string.
+Setting the glyph cell-by-cell is not very efficient when you have a string you want to print. The cell surface provides a way to print an entire string.
 
 ```csharp
 console.Print(2, 0, "This will be printed at 2,0");
 ```
 
-Additionally, you can stuff the cell data characters into a string, by using an x,y location, and a length of string you want. For example, the previous code example printed a string at 2,0 that was 27 characters long, to pull that string back out into a variable, you would use:
+Additionally, you can read the characters back from a console into a string. This uses an x,y location for the start of the string, and a length of string. For example, the previous code example printed a string at 2,0 that was 27 characters long, to pull that string back out into a variable, you would use:
 
 ```csharp
 string text = console.GetString(2, 0, 27);
+```
+
+Using the `Print` statement on a console or surface will read each character as is and print it on the surface. That means any type of newline commands, such as `\r\n`,will also be printed. The text will not trigger a new line. The `Console` type has a `Cursor` property that helps with this. By using `Console.Cursor.Print`, SadConsole will try and "pretty print" your string. It will respect new line characters, and it will try and break up words so that they don't appear split across lines.
+
+```csharp
+console.Cursor.Position = new Point(2, 0);
+console.Cursor.Print("This will be printed at 2,0");
 ```

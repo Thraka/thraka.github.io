@@ -18,7 +18,7 @@ This article describes how to use SadConsole from a Visual Studio MonoGame templ
 
     >**TIP:**  
     >If you're using **Linux**, NuGet may not setup your project correctly. Look at the folder containing your project. Add any **.font** and **.png** as project references and set them to **Copy to output folder**.
-
+5. Delete the *program-example.cs* file.
 6. Open up your `game1.cs` file.
 7. Change the base class from the MonoGame Game class to `SadConsole.Game`
 
@@ -35,7 +35,7 @@ This article describes how to use SadConsole from a Visual Studio MonoGame templ
 #### Initialize
 Before anything can be done with SadConsole, the main engine must be initialized. The initialization routine takes a GraphicsDevice reference object. 
 
-At least one font file must be loaded into the engine as the default font. A font is a set of cells representing every character used by your game. The following example overrides the Initialize() method on a Game class:
+The following example overrides the `Initialize()` method on a Game class:
 
 ```csharp
 protected override void Initialize()
@@ -87,13 +87,13 @@ namespace SadRogueSharp
             base.Initialize();
 
             // Create your console
-            var firstConsole = new SadConsole.Console(60, 30);
+            var firstConsole = new SadConsole.Console(60, 25);
 
             firstConsole.FillWithRandomGarbage();
             firstConsole.Fill(new Rectangle(2, 2, 20, 3), Color.Aqua, Color.Black, 0);
             firstConsole.Print(3, 3, "Hello World!");
 
-            SadConsole.Global.CurrentScreen.Children.Add(firstConsole);
+            SadConsole.Global.CurrentScreen = firstConsole;
         }
     }
 }

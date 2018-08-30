@@ -2,13 +2,13 @@ title: How to make a scrolling Console
 layout: docpage
 ---
 
-Because a console already supports the idea of a [render area](displaying-gameobjects-on-a-console-viewarea.md#use-a-render-area), you can combine it with a scroll bar to control what is shown on the render area. These two items would effectively create a user controlled scrolling console. You could have this be a map that the user scrolls, or you can use this in a more "console" traditional sense where the user scrolls up/down to see the history of the console.
+Because a console already supports the idea of a [ViewPort](displaying-gameobjects-on-a-console-viewarea.md#use-a-render-area), you can combine it with a scroll bar to control what is shown on the screen. These two items would effectively create a user controlled scrolling console. You could have this become a map or even a more traditional "console" where the user scrolls up/down to see the history.
 
 This article will show how to create a scrollable-history console.
 
 ## Three consoles
 
-We're using three types of consoles to make a user-scrollable console: a normal `Console` which is the main display, a `ControlsConsole` for the scroll bar, and a `ConsoleContainer` to group it all together.
+We're using three types of consoles to make a user-scrollable console: a normal `Console` which is the main display, a `ControlsConsole` to host the scroll bar, and a `ConsoleContainer` to group it all together.
 
 Since the `ConsoleContainer` groups the main console and the scrolling part together, it will represent our new `ScrollingConsole` class. This class will define:
 
@@ -28,18 +28,20 @@ class ScrollingConsole: SadConsole.ConsoleContainer
 
     public ScrollingConsole(int width, int height, int bufferHeight)
     {
+        UseKeyboard = true;
+        UseMouse = true;
         controlsHost = new ControlsConsole(1, height);
 
         mainConsole = new Console(width - 1, bufferHeight);
-        mainConsole.TextSurface.RenderArea = new Rectangle(0, 0, width - 1, height);
-        mainConsole.VirtualCursor.IsVisible = true;
+        mainConsole.ViewPort = new Rectangle(0, 0, width - 1, height);
+        mainConsole.Cursor.IsVisible = true;
 
-        scrollBar = SadConsole.Controls.ScrollBar.Create(System.Windows.Controls.Orientation.Vertical, height);
+        scrollBar = SadConsole.Controls.ScrollBar.Create(SadConsole.Orientation.Vertical, height);
         scrollBar.IsEnabled = false;
         scrollBar.ValueChanged += ScrollBar_ValueChanged;
 
         controlsHost.Add(scrollBar);
-        controlsHost.Position = new Point(1 + mainConsole.TextSurface.Width, Position.Y);
+        controlsHost.Position = new Point(1 + mainConsole.Width, Position.Y);
 
         Children.Add(mainConsole);
         Children.Add(controlsHost);
@@ -50,7 +52,7 @@ class ScrollingConsole: SadConsole.ConsoleContainer
     private void ScrollBar_ValueChanged(object sender, EventArgs e)
     {
         // Set the visible area of the console based on where the scroll bar is
-        mainConsole.TextSurface.RenderArea = new Rectangle(0, scrollBar.Value, mainConsole.TextSurface.Width, mainConsole.TextSurface.RenderArea.Height);
+        mainConsole.ViewPort = new Rectangle(0, scrollBar.Value, mainConsole.Width, mainConsole.ViewPort.Height);
     }
 
 }
@@ -84,8 +86,9 @@ class ScrollingConsole: SadConsole.ConsoleContainer
             return mainConsole.ProcessMouse(state);
         }
 
-        // If we get here, then the mouse was over the scroll bar.
-        re
+        return false;
+    }
+
 }
 ```
 
@@ -103,17 +106,17 @@ class ScrollingConsole: SadConsole.ConsoleContainer
         // If we detect that this console has shifted the data up for any reason (like the virtual cursor reached the
         // bottom of the entire text surface, OR we reached the bottom of the render area, we need to adjust the 
         // scroll bar and follow the cursor
-        if (mainConsole.TimesShiftedUp != 0 | mainConsole.VirtualCursor.Position.Y >= mainConsole.TextSurface.RenderArea.Height + scrollingCounter)
+        if (mainConsole.TimesShiftedUp != 0 | mainConsole.Cursor.Position.Y >= mainConsole.ViewPort.Height + scrollingCounter)
         {
             // Once the buffer has finally been filled enough to need scrolling (a single screen's worth), turn on the scroll bar
             scrollBar.IsEnabled = true;
 
             // Make sure we've never scrolled the entire size of the buffer
-            if (scrollingCounter < mainConsole.TextSurface.Height - mainConsole.TextSurface.RenderArea.Height)
+            if (scrollingCounter < mainConsole.Height - mainConsole.ViewPort.Height)
                 // Record how much we've scrolled to enable how far back the bar can see
                 scrollingCounter += mainConsole.TimesShiftedUp != 0 ? mainConsole.TimesShiftedUp : 1;
 
-            scrollBar.Maximum = (mainConsole.TextSurface.Height + scrollingCounter) - mainConsole.TextSurface.Height;
+            scrollBar.Maximum = (mainConsole.Height + scrollingCounter) - mainConsole.Height;
 
             // This will follow the cursor since we move the render area in the event.
             scrollBar.Value = scrollingCounter;
@@ -133,26 +136,28 @@ And that's it. The console now has the ability to scroll the designated height b
 ```csharp
 class ScrollingConsole : SadConsole.ConsoleContainer
 {
-    SadConsole.Console mainConsole;
-    SadConsole.ControlsConsole controlsHost;
-    SadConsole.Controls.ScrollBar scrollBar;
+    SadConsole.Console mainConsole;                 // The main console that is typed into
+    SadConsole.ControlsConsole controlsHost;        // The scroll bar host
+    SadConsole.Controls.ScrollBar scrollBar;        // The scroll bar
 
-    int scrollingCounter;
+    int scrollingCounter;   // This is a counter to indicate how much buffer is used
 
     public ScrollingConsole(int width, int height, int bufferHeight)
     {
+        UseKeyboard = true;
+        UseMouse = true;
         controlsHost = new ControlsConsole(1, height);
 
         mainConsole = new Console(width - 1, bufferHeight);
-        mainConsole.TextSurface.RenderArea = new Rectangle(0, 0, width - 1, height);
-        mainConsole.VirtualCursor.IsVisible = true;
+        mainConsole.ViewPort = new Rectangle(0, 0, width - 1, height);
+        mainConsole.Cursor.IsVisible = true;
 
-        scrollBar = SadConsole.Controls.ScrollBar.Create(System.Windows.Controls.Orientation.Vertical, height);
+        scrollBar = SadConsole.Controls.ScrollBar.Create(SadConsole.Orientation.Vertical, height);
         scrollBar.IsEnabled = false;
         scrollBar.ValueChanged += ScrollBar_ValueChanged;
 
         controlsHost.Add(scrollBar);
-        controlsHost.Position = new Point(1 + mainConsole.TextSurface.Width, Position.Y);
+        controlsHost.Position = new Point(1 + mainConsole.Width, Position.Y);
 
         Children.Add(mainConsole);
         Children.Add(controlsHost);
@@ -162,41 +167,55 @@ class ScrollingConsole : SadConsole.ConsoleContainer
 
     private void ScrollBar_ValueChanged(object sender, EventArgs e)
     {
-        mainConsole.TextSurface.RenderArea = new Rectangle(0, scrollBar.Value, mainConsole.TextSurface.Width, mainConsole.TextSurface.RenderArea.Height);
+        // Set the visible area of the console based on where the scroll bar is
+        mainConsole.ViewPort = new Rectangle(0, scrollBar.Value, mainConsole.Width, mainConsole.ViewPort.Height);
+    }
+
+    public override bool ProcessKeyboard(Keyboard state)
+    {
+        // Send keyboard input to the main console
+        return mainConsole.ProcessKeyboard(state);
+    }
+
+    public override bool ProcessMouse(MouseConsoleState state)
+    {
+        // Check the scroll bar for mouse info first. If mouse not handled by scroll bar, then..
+
+        // Create a mouse state based on the controlsHost
+        if (!controlsHost.ProcessMouse(new MouseConsoleState(controlsHost, state.Mouse)))
+        {
+            // Process this console normally.
+            return mainConsole.ProcessMouse(state);
+        }
+
+        return false;
     }
 
     public override void Update(TimeSpan delta)
     {
         base.Update(delta);
 
-        if (mainConsole.TimesShiftedUp != 0 | mainConsole.VirtualCursor.Position.Y >= mainConsole.TextSurface.RenderArea.Height + scrollingCounter)
+        // If we detect that this console has shifted the data up for any reason (like the virtual cursor reached the
+        // bottom of the entire text surface, OR we reached the bottom of the render area, we need to adjust the 
+        // scroll bar and follow the cursor
+        if (mainConsole.TimesShiftedUp != 0 | mainConsole.Cursor.Position.Y >= mainConsole.ViewPort.Height + scrollingCounter)
         {
+            // Once the buffer has finally been filled enough to need scrolling (a single screen's worth), turn on the scroll bar
             scrollBar.IsEnabled = true;
 
-            if (scrollingCounter < mainConsole.TextSurface.Height - mainConsole.TextSurface.RenderArea.Height)
+            // Make sure we've never scrolled the entire size of the buffer
+            if (scrollingCounter < mainConsole.Height - mainConsole.ViewPort.Height)
+                // Record how much we've scrolled to enable how far back the bar can see
                 scrollingCounter += mainConsole.TimesShiftedUp != 0 ? mainConsole.TimesShiftedUp : 1;
 
-            scrollBar.Maximum = (mainConsole.TextSurface.Height + scrollingCounter) - mainConsole.TextSurface.Height;
+            scrollBar.Maximum = (mainConsole.Height + scrollingCounter) - mainConsole.Height;
 
+            // This will follow the cursor since we move the render area in the event.
             scrollBar.Value = scrollingCounter;
 
+            // Reset the shift amount.
             mainConsole.TimesShiftedUp = 0;
         }
-    }
-
-    public override bool ProcessKeyboard(Keyboard state)
-    {
-        return mainConsole.ProcessKeyboard(state);
-    }
-
-    public override bool ProcessMouse(MouseConsoleState state)
-    {
-        if (!controlsHost.ProcessMouse(new MouseConsoleState(controlsHost, state.Mouse)))
-        {
-            return mainConsole.ProcessMouse(state);
-        }
-
-        return true;
     }
 }
 ```

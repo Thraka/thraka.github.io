@@ -1,65 +1,57 @@
-title: How to create a GameObject
+title: How to create an Entity
 layout: docpage
 ---
 
-The `SadConsole.GameHelpers.GameObject` type provides a simple way to independently track text objects. 
+The `SadConsole.Entities.Entity` type provides a simple way to independently track text objects. 
 
-Game objects are very similar to consoles, but they have a different focus. Where a console provides features related to typing, mouse handling, and a virtual cursor, the `GameObject` type provides simple animation management. By default, the game object type doesn't do anything with the keyboard or mouse.
+Entities are very similar to consoles, but they have a different purpose. Where a console provides features related to typing, mouse handling, and a virtual cursor, the `Entity` type provides simple animation management. By default, the entity doesn't do anything with the keyboard or mouse.
 
 # Animation
-The game object presents a single animation to the screen when rendered. The `GameObject.Animation` property is the `SadConsole.Surfaces.AnimatedSurface` type. The animation defines the size of the game object.
+Entities are positioned objects that do not have a width or height. However, when an entity is drawn, it draws a `SadConsole.Surfaces.Animated` object, which does have a width and height. This is defined by the `Entity.Animation` property.
 
 ## Frames
-The animation is used to create individual frames. When you call the `AnimatedSurface.CreateFrame` method, you're returned a `SadConsole.Surfaces.BasicSurface` type which represents the surface array of cells. You can modify the cells individually or you can provide that frame to a `SadConsole.Surfaces.SurfaceEditor` type for helpful editing methods (SetBackground, Print, SetGlyph, etc).
+The animation is made up of individual frames. When you call the `SadConsole.Surfaces.Animated.CreateFrame` method, you're returned a `SadConsole.Surfaces.BasicNoDraw` type which represents the surface array of cells. You can edit that animation frame as you would any other surface or console in SadConsole. Every time you call `CreateFrame`, you create a new frame in the animation. When you're finished, you have multiple frames that make up the animation.
 
-The total amount of time it takes to play all frames is in seconds and is set on the `AnimatedSurface.AnimationDuration` property. 
+The total amount of time it takes to play all frames is in seconds, and is set with the `Animated.AnimationDuration` property. 
 
 # Example
-The following example demonstrates how to create a basic animation and add it to an game object. The animation is text that moves down the object.
+The following example demonstrates how to create a basic animation and add it to an entity.
 
-First, declare a variable to hold our game object.
+First, declare a variable to hold our entity.
+
 ```csharp
-private SadConsole.GameHelpers.GameObject fallingText;
+private SadConsole.Entities.Entity fallingText;
 ```
 
-Next, initialize the game object, create an animation, attach the animation to the game object, and position the game object.
+Next, initialize the entity, create an animation, attach the animation to the entity, and position the entity.
 
 ```csharp
-fallingText = new SadConsole.GameHelpers.GameObject();
-
 // Height of 5, one line for each frame
-var textAnimation = new SadConsole.Surfaces.AnimatedSurface("default", 14, 5);
+var animation = new SadConsole.Surfaces.Animated("default", 24, 5);
 
-// We create a "BasicSurface" just to satisfy the creation of the SurfaceEditor
-var editor = new SadConsole.Surfaces.SurfaceEditor(new SadConsole.Surfaces.BasicSurface(1, 1));
-
-for (int line = 0; line < 5; line++)
+for (var line = 0; line < 5; line++)
 {
-    var frame = textAnimation.CreateFrame();
-    editor.TextSurface = frame;
-    editor.Fill(Color.Purple, Color.DarkGray, 0, null);
-    editor.Print(1, line, "Hello World!");
+    // use the default animation built into the object
+    var frame = animation.CreateFrame();
+    frame.Fill(Color.Purple, Color.DarkGray, 0, null);
+    frame.Print(1, line, "Hello World!");
 }
 
-textAnimation.AnimationDuration = 2;
-textAnimation.Repeat = true;
+animation.AnimationDuration = 2;
+animation.Repeat = true;
+animation.Start();
 
-textAnimation.Start();
+// Create the new entity
+var fallingTextEntity = new SadConsole.Entities.Entity(animation);
+fallingTextEntity.Position = new Point(1, 1);
 
-fallingText.Animation = textAnimation;
-fallingText.Position = new Point(1, 1);
+// Add the entity to the current screen so we can preview it
+Global.CurrentScreen.Children.Add(fallingTextEntity);
 ```
 
-During each update and render pass, you need to call `GameObject.Update` and `GameObject.Draw`. You could do this in a derived console that overrides the render and update methods.
+You should see the following animation:
 
-```csharp
-fallingText.Update();
-```
+![animated entity](images/falling-text.gif)
 
-and
-
-```csharp
-fallingText.Draw(time.ElapsedGameTime);
-```
 
 Next, read through [this](displaying-gameobjects-on-a-console-viewarea.md) tutorial to understand how to draw an entity with a console.

@@ -2,12 +2,12 @@ title: Basic font information
 layout: docpage
 ---
 
-Because of the way the system works, you use tile sets that map to character codes. Therefore, the tile set you use is a set of indexed graphics or, as is the default with SadConsole, a tile set of font characters.
+Because of the way the system works, you use "tile sets" that map to character codes. Therefore, the "tile set" you use is a set of indexed graphics or, as is the default with SadConsole, a "tile set" of font characters.
 
 ![font sample](images/font-sample.png)
 
 >**NOTE**  
->Normally the background of the font texture is transparent, not black. It is black just for the examples here.
+>Normally the background of the font texture is transparent, not black. It is black just for example purposes.
 
 Each graphical font has a special config file that tells SadConsole how to read it. Regardless of how the font is configured, it is always used in the same way. The font is broken down into cells which are referenced by index. This works by starting at index 0 for the top-left cell, and moving right, counting up from 0. Once the index reaches the end of the line, it moves to the next line continuing to count.
 
@@ -26,19 +26,17 @@ When a font is loaded, a `SadConsole.FontMaster` object is created. This is used
 - Three
 - Four
 
-For example, if you have a font is made up of *4x8* characters and you generate a *Two* variation of the font, the rendering output will display the characters `size * 2.0` the original, *8x16* in size. If you generate a *Quarter* variation of that font, you would end up with `size * 0.25` the original, *1x4* in size.
+For example, if you have a font is made up of *4x8* characters and you generate a *Two* variation of the font, the rendering output will display the characters x2 of the original, *8x16* in size. If you generate a *Quarter* variation of that font, you would end up with x0.25` the original, *1x4* in size.
 
 # Change the font of a console
 
-Each `Console` actually uses the `TextSurface` property as it's source of character, color, and font information. The `TextSurface.Font` property determines how each character is supposed to look. After you've loaded a font, you can easily use that font with any console.
-
-Create a new console (10x10) which automatically uses the font assigned to the `SadConsole.Global.FontDefault` property. 
+The `Font` property of a console or surface determines how each character will look when rendered. After you've loaded a font, you can easily use that font with any console. By default, all consoles created will use the `SadConsole.Global.FontDefault` font.
 
 ```csharp
 var myConsole = new SadConsole.Console(10, 10);
 ```
 
-Load a new font with `SadConsole.Global.LoadFont`. This adds the font into the system so that any console or text surface that is loaded can find the font.
+Load a new font with `SadConsole.Global.LoadFont`. This adds the font into the system.
 
 ```csharp
 SadConsole.FontMaster fontMaster = SadConsole.Global.LoadFont("filename.font");
@@ -47,11 +45,11 @@ SadConsole.FontMaster fontMaster = SadConsole.Global.LoadFont("filename.font");
 Set the font on the text surface that the console is using to the new font.
 
 ```csharp
-myConsole.TextSurface.Font = fontMaster.GetFont(SadConsole.Font.FontSizes.One);
+myConsole.Font = fontMaster.GetFont(SadConsole.Font.FontSizes.One);
 ```
 
 You can use a double sized font (x2 on both axis) by changing the `GetFont` call.
 
 ```csharp
-myConsole.TextSurface.Font = fontMaster.GetFont(SadConsole.Font.FontSizes.Two);
+myConsole.Font = fontMaster.GetFont(SadConsole.Font.FontSizes.Two);
 ```
