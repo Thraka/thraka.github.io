@@ -9,7 +9,7 @@
   <title>Basic font information | Thraka&#39;s Home</title>
   <meta name="author" content="Thraka">
   
-  <meta name="description" content="Because of the way the system works, you use tile sets that map to character codes. Therefore, the tile set you use is a set of indexed graphics or, a">
+  <meta name="description" content="Because of the way the system works, you use “tile sets” that map to character codes. Therefore, the “tile set” you use is a set of indexed graphics o">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -132,11 +132,11 @@
 	<div class="mypage">		
 	  		
 
-	  <p>Because of the way the system works, you use tile sets that map to character codes. Therefore, the tile set you use is a set of indexed graphics or, as is the default with SadConsole, a tile set of font characters.</p>
+	  <p>Because of the way the system works, you use “tile sets” that map to character codes. Therefore, the “tile set” you use is a set of indexed graphics or, as is the default with SadConsole, a “tile set” of font characters.</p>
 <p><img src="images/font-sample.png" alt="font sample"></p>
 <blockquote>
 <p><strong>NOTE</strong><br>
-Normally the background of the font texture is transparent, not black. It is black just for the examples here.</p>
+Normally the background of the font texture is transparent, not black. It is black just for example purposes.</p>
 </blockquote>
 <p>Each graphical font has a special config file that tells SadConsole how to read it. Regardless of how the font is configured, it is always used in the same way. The font is broken down into cells which are referenced by index. This works by starting at index 0 for the top-left cell, and moving right, counting up from 0. Once the index reaches the end of the line, it moves to the next line continuing to count.</p>
 <p><img src="images/how-font-works.png" alt="font indexing"></p>
@@ -151,17 +151,16 @@ Normally the background of the font texture is transparent, not black. It is bla
 <li>Three</li>
 <li>Four</li>
 </ul>
-<p>For example, if you have a font is made up of <em>4x8</em> characters and you generate a <em>Two</em> variation of the font, the rendering output will display the characters <code>size * 2.0</code> the original, <em>8x16</em> in size. If you generate a <em>Quarter</em> variation of that font, you would end up with <code>size * 0.25</code> the original, <em>1x4</em> in size.</p>
+<p>For example, if you have a font is made up of <em>4x8</em> characters and you generate a <em>Two</em> variation of the font, the rendering output will display the characters x2 of the original, <em>8x16</em> in size. If you generate a <em>Quarter</em> variation of that font, you would end up with x0.25` the original, <em>1x4</em> in size.</p>
 <h1 id="change-the-font-of-a-console"><a class="markdownIt-Anchor" href="#change-the-font-of-a-console"></a> Change the font of a console</h1>
-<p>Each <code>Console</code> actually uses the <code>TextSurface</code> property as it’s source of character, color, and font information. The <code>TextSurface.Font</code> property determines how each character is supposed to look. After you’ve loaded a font, you can easily use that font with any console.</p>
-<p>Create a new console (10x10) which automatically uses the font assigned to the <code>SadConsole.Global.FontDefault</code> property.</p>
+<p>The <code>Font</code> property of a console or surface determines how each character will look when rendered. After you’ve loaded a font, you can easily use that font with any console. By default, all consoles created will use the <code>SadConsole.Global.FontDefault</code> font.</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myConsole = <span class="keyword">new</span> SadConsole.Console(<span class="number">10</span>, <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
-<p>Load a new font with <code>SadConsole.Global.LoadFont</code>. This adds the font into the system so that any console or text surface that is loaded can find the font.</p>
+<p>Load a new font with <code>SadConsole.Global.LoadFont</code>. This adds the font into the system.</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SadConsole.FontMaster fontMaster = SadConsole.Global.LoadFont(<span class="string">"filename.font"</span>);</span><br></pre></td></tr></table></figure>
 <p>Set the font on the text surface that the console is using to the new font.</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myConsole.TextSurface.Font = fontMaster.GetFont(SadConsole.Font.FontSizes.One);</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myConsole.Font = fontMaster.GetFont(SadConsole.Font.FontSizes.One);</span><br></pre></td></tr></table></figure>
 <p>You can use a double sized font (x2 on both axis) by changing the <code>GetFont</code> call.</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myConsole.TextSurface.Font = fontMaster.GetFont(SadConsole.Font.FontSizes.Two);</span><br></pre></td></tr></table></figure>	  
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myConsole.Font = fontMaster.GetFont(SadConsole.Font.FontSizes.Two);</span><br></pre></td></tr></table></figure>	  
 	</div>
 
 	<div>

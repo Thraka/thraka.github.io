@@ -6,16 +6,16 @@
   <meta http-equiv="cache-control" content="no-cache">
   <meta http-equiv="expires" content="0">
   
-  <title>How to create a GameObject | Thraka&#39;s Home</title>
+  <title>How to create an Entity | Thraka&#39;s Home</title>
   <meta name="author" content="Thraka">
   
-  <meta name="description" content="The SadConsole.GameHelpers.GameObject type provides a simple way to independently track text objects.
-Game objects are very similar to consoles, but t">
+  <meta name="description" content="The SadConsole.Entities.Entity type provides a simple way to independently track text objects.
+Entities are very similar to consoles, but they have a ">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="How to create a GameObject"/>
+  <meta property="og:title" content="How to create an Entity"/>
   <meta property="og:site_name" content="Thraka&#39;s Home"/>
 
   
@@ -117,7 +117,7 @@ Game objects are very similar to consoles, but t">
     	 
 	
 		<div class="page-header">
-			<h1> How to create a GameObject</h1>
+			<h1> How to create an Entity</h1>
 		</div>
 	
 
@@ -133,23 +133,21 @@ Game objects are very similar to consoles, but t">
 	<div class="mypage">		
 	  		
 
-	  <p>The <code>SadConsole.GameHelpers.GameObject</code> type provides a simple way to independently track text objects.</p>
-<p>Game objects are very similar to consoles, but they have a different focus. Where a console provides features related to typing, mouse handling, and a virtual cursor, the <code>GameObject</code> type provides simple animation management. By default, the game object type doesn’t do anything with the keyboard or mouse.</p>
+	  <p>The <code>SadConsole.Entities.Entity</code> type provides a simple way to independently track text objects.</p>
+<p>Entities are very similar to consoles, but they have a different purpose. Where a console provides features related to typing, mouse handling, and a virtual cursor, the <code>Entity</code> type provides simple animation management. By default, the entity doesn’t do anything with the keyboard or mouse.</p>
 <h1 id="animation"><a class="markdownIt-Anchor" href="#animation"></a> Animation</h1>
-<p>The game object presents a single animation to the screen when rendered. The <code>GameObject.Animation</code> property is the <code>SadConsole.Surfaces.AnimatedSurface</code> type. The animation defines the size of the game object.</p>
+<p>Entities are positioned objects that do not have a width or height. However, when an entity is drawn, it draws a <code>SadConsole.Surfaces.Animated</code> object, which does have a width and height. This is defined by the <code>Entity.Animation</code> property.</p>
 <h2 id="frames"><a class="markdownIt-Anchor" href="#frames"></a> Frames</h2>
-<p>The animation is used to create individual frames. When you call the <code>AnimatedSurface.CreateFrame</code> method, you’re returned a <code>SadConsole.Surfaces.BasicSurface</code> type which represents the surface array of cells. You can modify the cells individually or you can provide that frame to a <code>SadConsole.Surfaces.SurfaceEditor</code> type for helpful editing methods (SetBackground, Print, SetGlyph, etc).</p>
-<p>The total amount of time it takes to play all frames is in seconds and is set on the <code>AnimatedSurface.AnimationDuration</code> property.</p>
+<p>The animation is made up of individual frames. When you call the <code>SadConsole.Surfaces.Animated.CreateFrame</code> method, you’re returned a <code>SadConsole.Surfaces.BasicNoDraw</code> type which represents the surface array of cells. You can edit that animation frame as you would any other surface or console in SadConsole. Every time you call <code>CreateFrame</code>, you create a new frame in the animation. When you’re finished, you have multiple frames that make up the animation.</p>
+<p>The total amount of time it takes to play all frames is in seconds, and is set with the <code>Animated.AnimationDuration</code> property.</p>
 <h1 id="example"><a class="markdownIt-Anchor" href="#example"></a> Example</h1>
-<p>The following example demonstrates how to create a basic animation and add it to an game object. The animation is text that moves down the object.</p>
-<p>First, declare a variable to hold our game object.</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> SadConsole.GameHelpers.GameObject fallingText;</span><br></pre></td></tr></table></figure>
-<p>Next, initialize the game object, create an animation, attach the animation to the game object, and position the game object.</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">fallingText = <span class="keyword">new</span> SadConsole.GameHelpers.GameObject();</span><br><span class="line"></span><br><span class="line"><span class="comment">// Height of 5, one line for each frame</span></span><br><span class="line"><span class="keyword">var</span> textAnimation = <span class="keyword">new</span> SadConsole.Surfaces.AnimatedSurface(<span class="string">"default"</span>, <span class="number">14</span>, <span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// We create a "BasicSurface" just to satisfy the creation of the SurfaceEditor</span></span><br><span class="line"><span class="keyword">var</span> editor = <span class="keyword">new</span> SadConsole.Surfaces.SurfaceEditor(<span class="keyword">new</span> SadConsole.Surfaces.BasicSurface(<span class="number">1</span>, <span class="number">1</span>));</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> line = <span class="number">0</span>; line &lt; <span class="number">5</span>; line++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">var</span> frame = textAnimation.CreateFrame();</span><br><span class="line">    editor.TextSurface = frame;</span><br><span class="line">    editor.Fill(Color.Purple, Color.DarkGray, <span class="number">0</span>, <span class="literal">null</span>);</span><br><span class="line">    editor.Print(<span class="number">1</span>, line, <span class="string">"Hello World!"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">textAnimation.AnimationDuration = <span class="number">2</span>;</span><br><span class="line">textAnimation.Repeat = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">textAnimation.Start();</span><br><span class="line"></span><br><span class="line">fallingText.Animation = textAnimation;</span><br><span class="line">fallingText.Position = <span class="keyword">new</span> Point(<span class="number">1</span>, <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
-<p>During each update and render pass, you need to call <code>GameObject.Update</code> and <code>GameObject.Draw</code>. You could do this in a derived console that overrides the render and update methods.</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fallingText.Update();</span><br></pre></td></tr></table></figure>
-<p>and</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fallingText.Draw(time.ElapsedGameTime);</span><br></pre></td></tr></table></figure>
+<p>The following example demonstrates how to create a basic animation and add it to an entity.</p>
+<p>First, declare a variable to hold our entity.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> SadConsole.Entities.Entity fallingText;</span><br></pre></td></tr></table></figure>
+<p>Next, initialize the entity, create an animation, attach the animation to the entity, and position the entity.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Height of 5, one line for each frame</span></span><br><span class="line"><span class="keyword">var</span> animation = <span class="keyword">new</span> SadConsole.Surfaces.Animated(<span class="string">"default"</span>, <span class="number">24</span>, <span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> line = <span class="number">0</span>; line &lt; <span class="number">5</span>; line++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// use the default animation built into the object</span></span><br><span class="line">    <span class="keyword">var</span> frame = animation.CreateFrame();</span><br><span class="line">    frame.Fill(Color.Purple, Color.DarkGray, <span class="number">0</span>, <span class="literal">null</span>);</span><br><span class="line">    frame.Print(<span class="number">1</span>, line, <span class="string">"Hello World!"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">animation.AnimationDuration = <span class="number">2</span>;</span><br><span class="line">animation.Repeat = <span class="literal">true</span>;</span><br><span class="line">animation.Start();</span><br><span class="line"></span><br><span class="line"><span class="comment">// Create the new entity</span></span><br><span class="line"><span class="keyword">var</span> fallingTextEntity = <span class="keyword">new</span> SadConsole.Entities.Entity(animation);</span><br><span class="line">fallingTextEntity.Position = <span class="keyword">new</span> Point(<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Add the entity to the current screen so we can preview it</span></span><br><span class="line">Global.CurrentScreen.Children.Add(fallingTextEntity);</span><br></pre></td></tr></table></figure>
+<p>You should see the following animation:</p>
+<p><img src="images/falling-text.gif" alt="animated entity"></p>
 <p>Next, read through <a href="displaying-gameobjects-on-a-console-viewarea.html">this</a> tutorial to understand how to draw an entity with a console.</p>
 	  
 	</div>
