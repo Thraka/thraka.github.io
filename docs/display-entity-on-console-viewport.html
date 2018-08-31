@@ -1,0 +1,224 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  
+  <title>Display Entities on a console | Thraka&#39;s Home</title>
+  <meta name="author" content="Thraka">
+  
+  <meta name="description" content="Entities are powerful because they represent independent-animated objects. Even if an entity is not animated, they make it easy to position glyphs ind">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Display Entities on a console"/>
+  <meta property="og:site_name" content="Thraka&#39;s Home"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-76753055-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">Thraka&#39;s Home</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+            
+            <a href="/blog" title="All the articles">
+            
+			  <i class=""></i>Blog
+			</a>
+		  </li>
+		  
+		  <li>
+            
+            <a href="/docs" title="Documentation for SadConsole">
+            
+			  <i class=""></i>Documentation
+			</a>
+		  </li>
+		  
+		  <li>
+            
+			<a href="https://github.com/thraka/sadconsole" title="SadConsole GitHub">
+            
+			  <i class="fa fa-github"></i>Github
+			</a>
+		  </li>
+		  
+		  <li>
+            
+			<a href="https://www.reddit.com/r/sadconsole/" title="SadConsole SubReddit">
+            
+			  <i class="fa fa-reddit"></i>Reddit
+			</a>
+		  </li>
+		  
+		  <li>
+            
+            <a href="/atom.xml" title="Subscribe">
+            
+			  <i class="fa fa-rss"></i>RSS
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+	
+		<div class="page-header">
+			<h1> Display Entities on a console</h1>
+		</div>
+	
+
+
+
+<div class="row page">
+	<!-- cols -->
+	
+	<div class="col-md-12">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <p>Entities are powerful because they represent independent-animated objects. Even if an entity is not animated, they make it easy to position glyphs independently of the console they are drawn on top of, for example a smiley face glyph that moves around but does not animate.</p>
+<p>But why not just draw the glyph directly on the console? You could, but if you move glyphs around, you need to remember to erase the old glyph position and then draw it in the new position. If you also have background glyphs (like roads or scenery) you need to not only erase the old position of the glyph, but then restore that old position back to the original background glyph.</p>
+<p>Think of it like this. If you print a glyph at <code>(20, 30)</code> to represent the player, and then the player presses the left-arrow key, you need to move the glyph left by one cell. You “move” the player by printing the player glyph at <code>(19, 30)</code>. However the old location <code>(20, 30)</code> still has a player glyph there. Now you need to <strong>erase</strong> the old location so it is blank. Let’s say in this case your player is currently walking through a forest of green and yellow tiles, you’ll need to remember what was there prior to the player entering that position, and restore it.</p>
+<p>Entities help solve this problem because they are positioned and drawn independent other objects.</p>
+<blockquote>
+<p><strong>NOTE</strong> You may want to review the introduction to <a href="how-to-create-an-entity.html">entities article</a>.</p>
+</blockquote>
+<h3 id="position-problems"><a class="markdownIt-Anchor" href="#position-problems"></a> Position problems</h3>
+<p>A problem appears when your console is not located at <code>(0, 0)</code> or you’re using a custom <code>ViewPort</code>. This is because if you position the entity at <code>(1, 1)</code> on the <strong>screen</strong>, this may not map to where <code>(1, 1)</code> is on the console.</p>
+<p>For example, if you position your console on the screen at <code>(5, 5)</code> this makes the top-left cell <code>(0, 0)</code> of the console draw at <code>(5, 5)</code>. If your entity is positioned at <code>(1, 1)</code> it will not appear on top of the console because the entity position represents where on the <strong>screen</strong> it is located, not where on a console it should be drawn.</p>
+<p>Here is an example that demonstrates a badly positioned entity:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> console = <span class="keyword">new</span> Console(<span class="number">10</span>, <span class="number">5</span>);</span><br><span class="line">console.Position = <span class="keyword">new</span> Point(<span class="number">5</span>, <span class="number">3</span>);</span><br><span class="line">console.Fill(Color.Purple, Color.DarkGray, <span class="number">250</span>, <span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> animation = <span class="keyword">new</span> SadConsole.Surfaces.Animated(<span class="string">"default"</span>, <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line"><span class="keyword">var</span> frame = animation.CreateFrame();</span><br><span class="line">frame[<span class="number">0</span>].Glyph = <span class="number">1</span>;</span><br><span class="line">frame[<span class="number">0</span>].Foreground = Color.GreenYellow;</span><br><span class="line">frame[<span class="number">0</span>].Background = Color.Transparent;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> entity = <span class="keyword">new</span> SadConsole.Entities.Entity(animation);</span><br><span class="line">entity.Position = <span class="keyword">new</span> Point(<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">Global.CurrentScreen.Children.Add(console);</span><br><span class="line">Global.CurrentScreen.Children.Add(entity);</span><br></pre></td></tr></table></figure>
+<p><img src="images/entity-position-bad.png" alt="bad entity position"></p>
+<p>To fix this, you can parent the entity to the console. This ensures that the entity is always positioned relative to the console’s current position:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ...other code from above...</span></span><br><span class="line">Global.CurrentScreen.Children.Add(console);</span><br><span class="line"></span><br><span class="line"><span class="comment">// entity is now added as a child of the console instead of the Global.CurrentScreen</span></span><br><span class="line">console.Children.Add(entity);</span><br></pre></td></tr></table></figure>
+<p><img src="images/entity-position-good.png" alt="good entity position"></p>
+<h3 id="view-ports"><a class="markdownIt-Anchor" href="#view-ports"></a> View ports</h3>
+<p>The <code>ViewPort</code> property on a <code>Console</code> allows you to only display a small section of the surface. This way you can have a giant surface that is bigger than the game window which you can scroll around. This is very useful for when you have console that represents the map or play area.</p>
+<p>Here is an example (click on the screenshot) of a console with a bunch of random glyphs and colors. The console is <strong>1000 x 1000</strong> but the <code>ViewPort</code> is positioned at <code>(71, 66)</code> and is <strong>80 x 24</strong> in size.</p>
+<p><a href="http://imgur.com/r7R7VA2" target="_blank" rel="noopener"><img src="images/scrolling-example.png" alt="scrolling console"></a></p>
+<p>By default, a console displays the entire surface area, and no optimizations are made. Once you set the <code>Console.ViewPort</code> property to something custom, optimizations take affect for rendering.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> console = <span class="keyword">new</span> SadConsole.Console(<span class="number">100</span>,<span class="number">100</span>);</span><br><span class="line">console.ViewPort = <span class="keyword">new</span> Microsoft.Xna.Framework.Rectangle(<span class="number">20</span>, <span class="number">25</span>, <span class="number">30</span>, <span class="number">30</span>);</span><br><span class="line">Global.CurrentScreen.Children.Add(console);</span><br></pre></td></tr></table></figure>
+<p>In the example above the console is created with a <strong>100 x 100</strong> surface area and will render all <strong>100 x 100</strong> cells. When the <code>ViewPort</code> is changed to <strong>30 x 30</strong>, only that specified area is rendered.</p>
+<p>By setting the <code>ViewPort</code> to <code>null</code>, you can reset the render area to draw the entire console.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.ViewPort = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+<p>If you’re trying to render other objects on the console, such as an enitity, this becomes problematic. Even if you parent the entity to the console, as done in the previous section, the <code>ViewPort</code> moves the backing console cells around. The top-left cell of the console may not be <code>(0, 0)</code> but could be <code>(20, 25)</code>. If you are trying to sync an entity to the console, you need to offset the entity by the <code>ViewPort</code> to keep things in sync.</p>
+<p>The <code>SadConsole.Entities.EntityManager</code> is a class that was created to help sync the entity with a console’s <code>ViewPort</code> value. Instead of adding the entity to the console, add it to the <code>EntityManager</code>. Then, add the <code>EntityManager</code> to the console:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> console = <span class="keyword">new</span> Console(<span class="number">10</span>, <span class="number">5</span>);</span><br><span class="line">console.Position = <span class="keyword">new</span> Point(<span class="number">5</span>, <span class="number">3</span>);</span><br><span class="line">console.Fill(Color.Purple, Color.DarkGray, <span class="number">250</span>, <span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> animation = <span class="keyword">new</span> SadConsole.Surfaces.Animated(<span class="string">"default"</span>, <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line"><span class="keyword">var</span> frame = animation.CreateFrame();</span><br><span class="line">frame[<span class="number">0</span>].Glyph = <span class="number">1</span>;</span><br><span class="line">frame[<span class="number">0</span>].Foreground = Color.GreenYellow;</span><br><span class="line">frame[<span class="number">0</span>].Background = Color.Transparent;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> entity = <span class="keyword">new</span> SadConsole.Entities.Entity(animation);</span><br><span class="line">entity.Position = <span class="keyword">new</span> Point(<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> manager = <span class="keyword">new</span> SadConsole.Entities.EntityManager();</span><br><span class="line">manager.Entities.Add(entity);</span><br><span class="line"></span><br><span class="line">Global.CurrentScreen.Children.Add(console);</span><br><span class="line">console.Children.Add(manager);</span><br></pre></td></tr></table></figure>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+
+    
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+		
+
+</div><!-- row -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2018 Thraka
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a>,<a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>,<a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a> and <a href="http://getbootstrap.com/" target="_blank">BOOTSTRA.386</a>. 
+     <br> Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind.386</a>.    
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>⬆︎TOP</span>
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+   </html>

@@ -6,15 +6,16 @@
   <meta http-equiv="cache-control" content="no-cache">
   <meta http-equiv="expires" content="0">
   
-  <title>New Theme System for 7.0 | Thraka&#39;s Home</title>
+  <title>Version 7.0 Completed | Thraka&#39;s Home</title>
   <meta name="author" content="Thraka">
   
-  <meta name="description" content="The last two weeks have been pretty busy, but I’ve been slowly banging around on the controls redesign for SadConsole. One thing that I didn’t like wi">
+  <meta name="description" content="Version 7.0 has been released to NuGet!!
+This release was driven by valuable feedback from you! I think this will make it a lot easier to work with su">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="New Theme System for 7.0"/>
+  <meta property="og:title" content="Version 7.0 Completed"/>
   <meta property="og:site_name" content="Thraka&#39;s Home"/>
 
   
@@ -118,7 +119,7 @@
 
 	
 		<div class="page-header">
-			<h1> New Theme System for 7.0</h1>
+			<h1> Version 7.0 Completed</h1>
 		</div>
 	
 
@@ -135,15 +136,44 @@
 	<div class="mypage">		
 	  		
 
-	  <p>The last two weeks have been pretty busy, but I’ve been slowly banging around on the controls redesign for SadConsole. One thing that I didn’t like with how the controls worked was that each control does its own drawing. This means that if you have a button control, and you wanted it to draw a border around it all of the time, you had to create a new button class; adding whole new types of controls just to tweak the drawing of an existing control.</p>
-<p>The new system for 7.0 decouples the drawing from the control, putting all drawing in the theme assigned to the control. To create a new button look-and-feel, create a new theme type and customize the draw method. This new “the theme draws the control” system is also implemented on the <code>ControlsConsole</code> and <code>Window</code> types.</p>
-<p>To test this out I create 3 types of themes for the button type:</p>
+	  <p>Version 7.0 has been released to <a href="https://www.nuget.org/packages/SadConsole/" target="_blank" rel="noopener">NuGet</a>!!</p>
+<p>This release was driven by valuable feedback from you! I think this will make it a lot easier to work with surfaces, animations, and objects in general.</p>
+<p>I did remove the world generation code. It felt very specific to a game scenario and I have plans to release a new library that adds more game functions (such as random world/dungeon generation) and plays very nicely with <a href="https://github.com/Chris3606/GoRogue" target="_blank" rel="noopener">GoRogue</a>.</p>
+<p>I’ve compiled (but not released) a  .NET Standard 2.0 version of SadConsole that will replace the existing release. This will make it easy to use with .NET Core.</p>
+<p>The <a href="http://sadconsole.com/docs/" target="_blank" rel="noopener">documentation</a> is just about finished. I’ll have that done tonight.</p>
+<h5 id="next-goals"><a class="markdownIt-Anchor" href="#next-goals"></a> Next goals</h5>
 <ol>
-<li>The normal button from v6.</li>
-<li>A 3d button.</li>
-<li>Bordered 3d button (which uses the SadConsole extended character sheet).</li>
+<li>Update the Sample Games in the GitHub repo.</li>
+<li>Release the .NET Standard 2.0 build.</li>
+<li>Start work on the GoRogue-SadConsole game helper.</li>
+<li>Start work on redoing the Roguelike tutorial.</li>
 </ol>
-<img src="/2018/08/12/new-theme-system-for-7-0/new-button-themes.gif" title="3d themes for buttons in sadconsole">	  
+<h5 id="notes-about-the-changes"><a class="markdownIt-Anchor" href="#notes-about-the-changes"></a> Notes about the changes</h5>
+<p>The NuGet release notes details some of these changes but the most notible are:</p>
+<ul>
+<li>
+<p>SurfaceEditor has been removed and is now implemented on SurfaceBase directly.</p>
+<p>You do not need to use a <code>SurfaceEditor</code> type to edit surfaces. You won’t really notice this change on the <code>Console</code> as it had inherited from <code>SurfaceEditor</code>. <code>Console</code> is now a surface, and all surfaces can be edited directly.</p>
+</li>
+<li>
+<p>Console no longer combines Renderer and TextSurface for drawing.</p>
+<p><code>Console</code> had a <code>TextSurface</code> property that allowed you to swap out different surfaces that represented the visual of the console. This has gone away. A <code>Console</code> is now a surface.</p>
+</li>
+<li>
+<p>SadConsole.Serialization uses Newtonsoft.Json instead of the default .NET classes.</p>
+<p>The <code>Newtonsoft.Json</code> library is much more capable of de/serializing objects. Compression is also supported now.</p>
+</li>
+<li>
+<p>Removed GameHelpers namespace and GameObject renamed to Entity.</p>
+<p>GameHelpers had the GameObject and world generation code. The GameObject is now <code>SadConsole.Entities.Entity</code> and the world generation code has been removed. The generation code will be added to a different library in the future.</p>
+<p>If you were previously using the world generation code, you can use a temporary library <a href="https://github.com/Thraka/SadConsole/issues/149" target="_blank" rel="noopener">here</a>.</p>
+</li>
+<li>
+<p>Control themes completely rewritten. Themes control all drawing for a control now.</p>
+<p>Previously the control itself would draw itself using some color settings from a theme object. Now the theme object actually <a href="https://github.com/Thraka/SadConsole/blob/c2103c218f829433d147669fc3a4fc59957fecff/src/SadConsole.Shared/Themes/ButtonTheme.cs#L44" target="_blank" rel="noopener">draws the entire control</a> using various settings from the control instance itself.</p>
+</li>
+</ul>
+	  
 	</div>
 
 	<div>
@@ -152,13 +182,12 @@
 
     
     
-    <a href="/2018/08/30/version-7-0-completed/" type="button" class="btn btn-default"><i
-                class="fa fa-arrow-circle-o-left"></i> Next</a>
+    <a type="button" class="btn btn-default disabled"><i class="fa fa-arrow-circle-o-left"></i>Next</a>
     
 
     <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
     
-    <a href="/2018/08/02/Console-changes-with-7-0/" type="button" class="btn btn-default ">Prev<i
+    <a href="/2018/08/12/new-theme-system-for-7-0/" type="button" class="btn btn-default ">Prev<i
                 class="fa fa-arrow-circle-o-right"></i></a>
     
 
@@ -182,8 +211,8 @@
              */
                 
             var disqus_config = function () {
-                this.page.url = "http://www.sadconsole.com/2018/08/12/new-theme-system-for-7-0/"; // Replace PAGE_URL with your page's canonical URL variable
-                this.page.identifier = "2018/08/12/new-theme-system-for-7-0/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                this.page.url = "http://www.sadconsole.com/2018/08/30/version-7-0-completed/"; // Replace PAGE_URL with your page's canonical URL variable
+                this.page.identifier = "2018/08/30/version-7-0-completed/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
             };
                  
             (function() { // DON'T EDIT BELOW THIS LINE
@@ -212,7 +241,7 @@
 	
 	<div class="meta-widget">
 	<i class="fa fa-clock-o"></i>
-	2018-08-12 
+	2018-08-30 
 	</div>
 	
 
