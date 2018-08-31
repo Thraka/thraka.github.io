@@ -2,24 +2,27 @@ title: Reference - String Parser syntax
 layout: docpage
 ---
 
-When you use the `SurfaceEditor` (or a `Console`) and print, the string is sent through a parser allowing you to add special commands. For example, you can use commands to change the foreground or background or adjust the mirroring settings. You can also [create your own](#create-a-command) commands.
+When you use a surface, such as a `Console`, and print, the string is sent through a parser allowing you to add special commands. For example, you can use commands to change the foreground or background or adjust the mirroring setting. You can also [create your own](#create-a-command) commands.
 
 ## Commands
 
-SadConsole provides 4 out of the box commands.
+SadConsole provides 6 commands by default. A command is built with this string format: `[c:{command} {parameters}]`.
 
-| Command   | Format                                                     | Description                          |
-| --------- | ---------------------------------------------------------- | ------------------------------------ |
-| [r,recolor][cr]  | `[c:r f|b:color[:count]]`           | Recolor the foreground or background |
+`[c:` starts the command sequence. The sequence ends when `]` is encountered. If the command is invalid for some reason, it will not be processed and will show up in the resulting string. Commands are put on a stack and apply to each string character encountered. In general, commands can be set to only last for *x* amount of characters and then remove itself from the command stack.
+
+Some commands have optional or mandatory parameters. There is a space character between the **command** and the **parameters**.
+
+| Command   | Format                                                            | Description                          |
+| --------- | ----------------------------------------------------------------- | ------------------------------------ |
+| [r,recolor][cr]  | `[c:r f|b:color[:count]]`                                  | Recolor the foreground or background |
 | [m,mirror][cm]   | `[c:m 0|1|2|None|FlipHorizontally|FlipVertically[:count]]` | Set SpriteEffect (mirroring)         |
-| [u,undo][cu]     | `[c:undo [count:f|b|g|e|m|a]]`                             | Remove the last command              |
+| [u,undo][cu]     | `[c:undo [count:f|b|g|e|m|a]]`                             | Remove the last command on the command stack  |
 | [b,blink][cb]    | `[c:b [count:speed]]`                                      | Blinks a set of characters           |
 | [g,grad][cg]     | `[c:g f|b:color[:color]:count]`                            | Applies a gradient across a set of characters |
 | [sg,sglyph][csg] | `[c:sg glyph index[:count]]`                               | Sets the glyph for the `count` of characters  | 
 
-A command is built with this string format: `[c:{command} {parameters}]`
 
-`[c:` starts the command sequence. The sequence ends when `]` is encountered. If the command is invalid for some reason it will not be processed and will show up in the resulting string. Some commands have optional or mandatory parameters. There is a space character between the **command** and the **parameters**.
+
 
 #### Recolor
 Syntax: `[c:r|recolor f|b:color[:count]]`
@@ -35,7 +38,7 @@ Syntax: `[c:r|recolor f|b:color[:count]]`
 | String             | Description                 |
 | ------------------ | --------------------------- |
 | `[c:r f:blue]`     | Sets the foreground to blue |
-| `[c:r f:x,200,x]`  | Sets the foreground green channel to 200, and does not change red and blue |
+| `[c:r f:x,200,x]`  | Sets the foreground (r,g,b) green channel to 200, and does not change red and blue |
 | `[c:r b:yellow:5]` | Sets the background to yellow for 5 characters |
 
 
@@ -156,7 +159,7 @@ The `SadConsole.ColoredString.CustomProcessor` static property is a `Func` you h
 
 ```csharp
 ParseCommandBase CustomParseCommand(string command, string parameters, ColoredGlyph[] glyphString,
-                                    ITextSurface surface, SurfaceEditor editor, ParseCommandStacks commandStacks)
+                                    SurfaceBase surface, ParseCommandStacks commandStacks)
 {
     return null;
 }
@@ -186,22 +189,23 @@ class ParseCommandRetext : ParseCommandBase
         CommandType = ProcessType.Glyph; // If you dont set the type, the command will not be processed
     }
 
-    public override void Build(ref ColoredGlyph glyphState, ColoredGlyph[] glyphString, int surfaceIndex,
-                               ITextSurface surface, SurfaceEditor editor, ref int stringIndex, string processedString, ParseCommandStacks commandStack)
+    public override void Build(ref ColoredGlyph glyphState, ColoredGlyph[] glyphString, int surfaceIndex, 
+                               SurfaceBase surface, ref int stringIndex, string processedString, ParseCommandStacks commandStack)
     {
         glyphState.Glyph = 'D';
     }
 }
 ```
 
-This command doesn't take any parameters (we'll add that in a bit) and we still need to add it to the custom parser. Update the customer parser method.
+This command doesn't take any parameters, we'll add that in a bit. We still need to add it to the custom parser. Update the customer parser method.
 
 ```csharp
 ParseCommandBase CustomParseCommand(string command, string parameters, ColoredGlyph[] glyphString,
-                                    ITextSurface surface, SurfaceEditor editor, ParseCommandStacks commandStacks)
+                                    SurfaceBase surface, ParseCommandStacks commandStacks)
 {
     switch (command)
     {
+        case "retext":
         case "t":
             return new ParseCommandRetext();
         default:
@@ -239,8 +243,8 @@ class ParseCommandRetext : ParseCommandBase
         CommandType = CommandTypes.Glyph;
     }
 
-    public override void Build(ref ColoredGlyph glyphState, ColoredGlyph[] glyphString, int surfaceIndex,
-                               ISurface surface, SurfaceEditor editor, ref int stringIndex, string processedString, ParseCommandStacks commandStack)
+    public override void Build(ref ColoredGlyph glyphState, ColoredGlyph[] glyphString, int surfaceIndex, 
+                               SurfaceBase surface, ref int stringIndex, string processedString, ParseCommandStacks commandStack)
     {
         glyphState.Glyph = Glyph;
 

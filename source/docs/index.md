@@ -31,8 +31,8 @@ These tutorials offer something a bit more in-depth than the basic tutorials. On
 
 * [Create a custom console to render a border](create-a-bordered-console.md)
 * [Create a console to scroll with a scroll bar](make-a-scrolling-console.md)
-* [Introduction to game objects](how-to-create-a-gameobject.md)
-* [Relative game object positioning](displaying-gameobjects-on-a-console-viewarea.md)
+* [Introduction to game objects](how-to-create-an-entity.md)
+* [Relative game object positioning](display-entity-on-console-viewport.md)
 * [Use the string parser](string-parser.md)
 
 ## Controls & UI
