@@ -20,10 +20,10 @@ Once you have a basic SadConsole project up-and-running, use these tutorials to 
 
 Knowing more about how SadConsole works can help you think your way out of a problem. You will also come to know how to work around the engine features to accomplish your design goals.
 
-* Understanding SadConsole.Global -- COMING SOON
-* What are Screens, Consoles, and Surfaces? -- COMING SOON
-* [How does SadConsole draw?](how-sadconsole-draws-to-the-screen.md)
+* [What are Screens, Consoles, and Surfaces?](what-are-screens-consoles-surfaces.md)
 * [Create and load fonts](basic-font-information.md)
+* [How does SadConsole draw?](how-sadconsole-draws-to-the-screen.md)
+* Understanding SadConsole.Global -- COMING SOON
 
 ## Advanced
 
