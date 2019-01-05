@@ -4,6 +4,7 @@ layout: docpage
 
 SadConsole is pretty simple to get up and running. If you're working with the starter project included in the source code, you can tweak that to test out engine features. 
 
+* [New project for .NET Core](getting-started-sadconsole-core-standard.md)
 * [New project for MonoGame (from a MonoGame template)](monogame-template.md)
 * [New project for MonoGame (from a blank-new project)](create-a-new-sadconsole-project.md)
 
