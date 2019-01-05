@@ -140,6 +140,76 @@
 <div class="row">
 	<div class="col-md-10">
 		<h3 class="title">
+			<a href="/2019/01/05/Version-7-3-released/" >Version 7.3 released</a>
+		</h3>
+		</div>
+	<div class="col-md-2">
+		<div class="date">@ 2019-01-05  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>Version 7.3 was released and included a bunch of minor fixes. While this version was being produced, work started on V8.0 which includes radical changes to the key types. I will follow up with a post about that in the future. Both the 8.0 prerelease and 7.3 final versions are on NuGet.</p>
+<h5 id="changes"><a class="markdownIt-Anchor" href="#changes"></a> Changes</h5>
+<p>Here are the changes since 7.0:</p>
+<p><strong>12/29/2018 V7.3.0</strong></p>
+<ul>
+<li>Windows now default MoveToFrontOnMouseClick = true.</li>
+<li>Consoles are brought forward and focused via LeftMouseDown instead of LeftMouseClick. (Thanks VGA256) #188</li>
+<li>You can set ListBox.SelectedItem = null now (Thanks darrellp) #183</li>
+<li>TextBox supports moving the cursor and inserting characters now (Thanks darrellp) #145</li>
+<li>Window could steal the mouse focus while dragging some other control across the title bar (Thanks VGA256) #165</li>
+<li>ColoredString.Parse now uses CultureInvariant (Thanks GPugnet) #173</li>
+<li>SadConsole.Standard was missing the non extended font embedded resource.</li>
+<li>Various helper methods in ColoredGlyph, ColoredString, and SurfaceBase added (Thanks INeedAUniqueUsername) #187</li>
+</ul>
+<p><strong>11/19/2018 V7.2.0</strong></p>
+<ul>
+<li>ControlsConsole.Controls collection now uses a foreach loop to make sure the collection is not modified when processing the mouse.</li>
+<li>Button theme would crash if ShowEnds was on and the width of the button was &lt; 3. (reported by Hoonius)</li>
+<li>Renamed and promoted the method that forwarded entity animation states to the entity: OnAnimationStateChanged. Override this on custom entities to detect the state changes.</li>
+<li>Blink event did not respect the BlinkCounter property. (reported by Hoonius)</li>
+<li>Default font is now a non-extended IBM 8x16 font.</li>
+<li>Added SadConsole.Settings.UseDefaultExtendedFont setting and when set to true, loads the IBM 8x16 extended font instead of the normal font. Must be set before creating the game.</li>
+</ul>
+<p><strong>10/18/2018 V7.1.0</strong></p>
+<ul>
+<li>Moved SurfaceBase.GetIndexFromPoint to Helpers class.</li>
+<li>Fixed bug in EntityManager that did not remove entity/hotspot/zone parents when the EntityManager’s parent was cleared.</li>
+<li>EntityManager does not support .Clear calls on collections. Instead, use the RemoveAll extension method.</li>
+<li>An extension method was added: SurfaceBase.CenterViewPortOnPoint</li>
+<li>An extension method was added: Rectangle.CenterOnPoint</li>
+</ul>
+<p><strong>09/08/2018 V7.0.3 / 7.0.4</strong></p>
+<ul>
+<li>Fixed bug with textbox displaying two carets.</li>
+<li>If TextBox was first control in console, rendering was wrong.</li>
+<li>Added int overload for Helpers.*Flag related methods.</li>
+</ul>
+<p><strong>08/30/2018 V7.0.2</strong></p>
+<ul>
+<li>Fixed render bug with Entity/Animation if no parent was attached.</li>
+<li>Fixed ColoredString + operator.</li>
+<li>SadConsole IBM Extended font embedded in library now.</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2019/01/05/Version-7-3-released/#more" class="btn btn-default more">Read More</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-10">
+		<h3 class="title">
 			<a href="/2018/08/30/version-7-0-completed/" >Version 7.0 Completed</a>
 		</h3>
 		</div>
@@ -581,7 +651,7 @@
 		<h4>Categories</h4>
 		<ul class="tag_box inline list-unstyled">
 		
-			<li><a href="/categories/SadConsole/">SadConsole<span>12</span></a></li>
+			<li><a href="/categories/SadConsole/">SadConsole<span>13</span></a></li>
 		
 		</ul>
 	</div>
@@ -592,19 +662,19 @@
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/SadConsole/">SadConsole<span>12</span></a></li>
+			<li><a href="/tags/v7/">v7<span>6</span></a></li>
+		
+			<li><a href="/tags/SadConsole/">SadConsole<span>13</span></a></li>
+		
+			<li><a href="/tags/SadConsoleEditor/">SadConsoleEditor<span>0</span></a></li>
+		
+			<li><a href="/tags/Controls/">Controls<span>0</span></a></li>
+		
+			<li><a href="/tags/Bug/">Bug<span>1</span></a></li>
 		
 			<li><a href="/tags/intro/">intro<span>0</span></a></li>
 		
 			<li><a href="/tags/Renderer/">Renderer<span>1</span></a></li>
-		
-			<li><a href="/tags/v7/">v7<span>5</span></a></li>
-		
-			<li><a href="/tags/Controls/">Controls<span>0</span></a></li>
-		
-			<li><a href="/tags/SadConsoleEditor/">SadConsoleEditor<span>0</span></a></li>
-		
-			<li><a href="/tags/Bug/">Bug<span>1</span></a></li>
 		
 		 
 		</ul>
@@ -616,6 +686,10 @@
 <div class="widget">
   <h4>Recent Posts</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2019/01/05/Version-7-3-released/" ><i class="fa fa-file-o"></i>Version 7.3 released</a>
+      </li>
     
       <li>
         <a href="/2018/08/30/version-7-0-completed/" ><i class="fa fa-file-o"></i>Version 7.0 Completed</a>
@@ -631,10 +705,6 @@
     
       <li>
         <a href="/2018/08/01/Major-changes-to-be-included-in-7-0/" ><i class="fa fa-file-o"></i>Major changes to be include...</a>
-      </li>
-    
-      <li>
-        <a href="/2018/06/16/Plans-for-7-0/" ><i class="fa fa-file-o"></i>Plans for 7.0</a>
       </li>
     
   </ul>
@@ -666,7 +736,7 @@
   </div>
   <div class="container-narrow">
   <footer> <p>
-  &copy; 2018 Thraka
+  &copy; 2019 Thraka
   
       with help from <a href="http://hexo.io/" target="_blank">Hexo</a>,<a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>,<a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a> and <a href="http://getbootstrap.com/" target="_blank">BOOTSTRA.386</a>. 
      <br> Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind.386</a>.    
