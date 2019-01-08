@@ -8,7 +8,7 @@ This page describes how to create a new project based on SadConsole Standard usi
 
 Currently, SadConsole for .NET Core only supports OpenGL.
 
-## Prerequsites
+## Prerequisites
 
 [Download and install the .NET Core 2.2 SDK](https://dotnet.microsoft.com/download/dotnet-core/2.2). You can use .NET Core 2.0 through 2.2. To see what versions you have, run `dotnet --info`. If this command fails, download the .NET Core SDK. 
 
@@ -16,7 +16,7 @@ Currently, SadConsole for .NET Core only supports OpenGL.
 
 After you have a .NET Core SDK installed, open up a command shell. If you're unsure how to do that, search the internet for a tutorial.
 
-Once you have a terminal open, navigate to the folder you want to code in. This tutorial just assumes your in a clean folder waiting to input commands. For example, I opened a shell window on Windows and ran the following commands:
+Once you have a terminal open, navigate to the folder you want to code in. This tutorial just assumes you're in a clean folder waiting to input commands. For example, I opened a shell window on Windows and ran the following commands:
 
 ```shell
 mkdir sadconsolegame
@@ -24,6 +24,10 @@ cd sadconsolegame
 ```
 
 It's highly likely that those commands work on every operating system, or it will be very similar.
+
+>**[WARNING]**
+>
+>The folder name you use (in this example sadconsolegame) cannot be **sadconsole**. The default behavior for .NET Core is to create a project file named the same as the folder, and then the output file will be the same name as the project. This will cause a clash.
 
 ## Download the template
 
@@ -79,9 +83,11 @@ log  : Restore completed in 8.06 sec for c:\projects\sadconsolegame\sadconsolega
 
 ## Create the game
 
-The preceding command added a reference to SadConsole, but we need to recode the startup of your game to launch SadConsole instead of MonoGame. Use your favorite editor and change the `Program.cs` file.
+The preceding command added a reference to SadConsole, but we need to recode the startup of your game to launch SadConsole instead of MonoGame. 
 
-First, change the `using` directives at the top of the file to the following:
+The MonoGame template adds a `Game1.cs` file, this is not needed as we'll be recoding how the game starts up. You can delete this file with either the following shell command: `del Game1.cs` or `rm Game1.cs`.
+
+Next, use your favorite editor and edit the `Program.cs` file. Change the `using` directives at the top of the file to the following:
 
 ```csharp
 using System;
