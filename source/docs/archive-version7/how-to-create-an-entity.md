@@ -1,6 +1,11 @@
 title: How to create an Entity
 layout: docpage
+comments: false
+searcharchive: true
 ---
+
+>**NOTE**  
+>This article was written for version 7 of SadConsole.
 
 The `SadConsole.Entities.Entity` type provides a simple way to independently track text objects. 
 

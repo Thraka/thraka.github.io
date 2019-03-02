@@ -1,6 +1,11 @@
 title: Display Entities on a console
 layout: docpage
+comments: false
+searcharchive: true
 ---
+
+>**NOTE**  
+>This article was written for version 7 of SadConsole.
 
 Entities are powerful because they represent independent-animated objects. Even if an entity is not animated, they make it easy to position glyphs independently of the console they are drawn on top of, for example a smiley face glyph that moves around but does not animate.
 

@@ -1,5 +1,6 @@
 title: Upgrading your code from V7 to V8
 layout: docpage
+comments: false
 ---
 
 Functionally, SadConsole v8 is similar to SadConsole v7. Some namespaces have been removed and a few classes have been renamed. All of the same capabilities that used to exist, still exist, they have must been moved around.

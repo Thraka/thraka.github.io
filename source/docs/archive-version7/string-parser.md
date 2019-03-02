@@ -1,6 +1,11 @@
 title: Reference - String Parser syntax
 layout: docpage
+comments: false
+searcharchive: true
 ---
+
+>**NOTE**  
+>This article was written for version 7 of SadConsole.
 
 When you use a surface, such as a `Console`, and print, the string is sent through a parser allowing you to add special commands. For example, you can use commands to change the foreground or background or adjust the mirroring setting. You can also [create your own](#create-a-command) commands.
 

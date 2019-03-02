@@ -1,6 +1,11 @@
 title: MonoGame Template
 layout: docpage
+comments: false
+searcharchive: true
 ---
+
+>**NOTE**  
+>This article was written for version 7 of SadConsole.
 
 This article describes how to use SadConsole from a Visual Studio MonoGame template.
 

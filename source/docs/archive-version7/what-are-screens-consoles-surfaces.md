@@ -1,7 +1,11 @@
 title: What are Screens, Consoles, and Surfaces?
 layout: docpage
-date: 2018-08-31 15:19:00
+comments: false
+searcharchive: true
 ---
+
+>**NOTE**  
+>This article was written for version 7 of SadConsole.
 
 The main type of object in SadConsole is the `ScreenObject`. As you can probably guess from the name, it represents something that can be displayed on the screen. Alone, screen objects do not really do much of anything, they are empty shells that form the base of objects. 
 

@@ -1,6 +1,11 @@
 title: Overview - Controls
 layout: docpage
+comments: false
+searcharchive: true
 ---
+
+>**NOTE**  
+>This article was written for version 7 of SadConsole.
 
 SadConsole provides a text-based UI system with the `SadConsole.Controls` namespace. You can use it to make it easy for your user to interact with your game. Or you can use it to display popup windows and dialogs. This basic functionality is demonstrated in the [DemoProject/CustomConsoles/ControlsTest][controls-test] code file.
 

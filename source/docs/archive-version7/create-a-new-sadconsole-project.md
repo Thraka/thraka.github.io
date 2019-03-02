@@ -1,7 +1,11 @@
 title: Create a new SadConsole project
 layout: docpage
+comments: false
+searcharchive: true
 ---
 
+>**NOTE**  
+>This article was written for version 7 of SadConsole.
 
 This page describes how to create a new project in Visual Studio to use SadConsole. If you already have a **MonoGame template** project created, read about how to use **SadConsole** [here](monogame-template.md).
 

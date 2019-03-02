@@ -1,6 +1,11 @@
 title: NuGet Starter for MonoGame
 layout: docpage
+comments: false
+searcharchive: true
 ---
+
+>**NOTE**  
+>This article was written for version 7 of SadConsole.
 
 This article describes how to setup SadConsole with your new project, after you've installed the [SadConsole NuGet](https://www.nuget.org/packages/SadConsole/) package. If you have not yet created a project, start with the [Create a new SadConsole project](create-a-new-sadconsole-project.md) article.
 

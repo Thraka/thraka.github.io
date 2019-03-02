@@ -1,6 +1,11 @@
 title: Create a bordered console
 layout: docpage
+comments: false
+searcharchive: true
 ---
+
+>**NOTE**  
+>This article was written for version 7 of SadConsole.
 
 A lot of the time you want a border around a console, which is pretty easy to do using the `console.DrawBox` method. However, if you want to use typing/virtual cursor or you're printing things that may wrap the next line, this becomes a problem. The text will wrap into the box border:
 

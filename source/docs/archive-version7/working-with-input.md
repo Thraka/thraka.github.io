@@ -1,6 +1,11 @@
 title: Working with input
 layout: docpage
+comments: false
+searcharchive: true
 ---
+
+>**NOTE**  
+>This article was written for version 7 of SadConsole.
 
 The *SadConsole.Engine* static class processes input for the entire SadConsole framework. At this point, it only includes the **Keyboard** and **Mouse** inputs as **Controller** support has not been implemented yet. **Controller** support is provided by MonoGame. Keyboard and Mouse states have been updated by the time the `Global.Update` method has been called.
 

@@ -1,17 +1,21 @@
 title: Create a new SadConsole .NET Core project
 layout: docpage
 comments: false
+searcharchive: true
 ---
+
+>**NOTE**  
+>This article was written for version 7 of SadConsole.
 
 This page describes how to create a new project based on SadConsole Standard using .NET Core 2.2. 
 
-.NET Core includes easy ways to create a project, add references, and build/compile, without any sort of editor. This tutorial will show you how to create a new project using the .NET Core SDK. You can then open that project with your editor or IDE of choice.
+.NET Core includes easy ways to create a project, add references, and build/compile, without any sort of editor. This tutorial will show you how to create a new project using the .NET Core SDK. You can then open that project with your editor of choice.
 
-SadConsole uses MonoGame 3.7+.
+Currently, SadConsole for .NET Core only supports OpenGL.
 
 ## Prerequisites
 
-[Download and install the .NET Core 2.2 SDK](https://dotnet.microsoft.com/download/dotnet-core/2.2). You can use .NET Core 2.0 through 2.2, or the 3.0 preview. To see what versions you have, run `dotnet --info`. If this command fails, download the .NET Core SDK. 
+[Download and install the .NET Core 2.2 SDK](https://dotnet.microsoft.com/download/dotnet-core/2.2). You can use .NET Core 2.0 through 2.2. To see what versions you have, run `dotnet --info`. If this command fails, download the .NET Core SDK. 
 
 ## Create your working folder
 
@@ -28,7 +32,7 @@ It's highly likely that those commands work on every operating system, or it wil
 
 >**[WARNING]**
 >
->The folder name you use (in this example sadconsolegame) cannot be **sadconsole**. The default behavior for .NET Core is to create a project file named the same as the folder, and then the *output* file will be the same name as the project. This will cause a clash.
+>The folder name you use (in this example sadconsolegame) cannot be **sadconsole**. The default behavior for .NET Core is to create a project file named the same as the folder, and then the output file will be the same name as the project. This will cause a clash.
 
 ## Download the template
 
@@ -73,9 +77,9 @@ info :   GET https://api.nuget.org/v3-flatcontainer/sadconsole.standard/index.js
 info :   GET https://dotnetmyget.blob.core.windows.net/artifacts/roslyn/nuget/v3/flatcontainer/sadconsole.standard/index.json
 info :   NotFound https://dotnetmyget.blob.core.windows.net/artifacts/roslyn/nuget/v3/flatcontainer/sadconsole.standard/index.json 3421ms
 info :   OK https://api.nuget.org/v3-flatcontainer/sadconsole.standard/index.json 7716ms
-log  : Installing SadConsole.Standard 8.0.0.
+log  : Installing SadConsole.Standard 7.3.0.
 info : Package 'SadConsole.Standard' is compatible with all the specified frameworks in project 'c:\projects\sadconsolegame\sadconsolegame.csproj'.
-info : PackageReference for package 'SadConsole.Standard' version '8.0.0' added to file 'c:\projects\sadconsolegame\sadconsolegame.csproj'.
+info : PackageReference for package 'SadConsole.Standard' version '7.3.0' added to file 'c:\projects\sadconsolegame\sadconsolegame.csproj'.
 info : Committing restore...
 log  : Generating MSBuild file c:\projects\sadconsolegame\obj\sadconsolegame.csproj.nuget.g.targets.
 info : Writing lock file to disk. Path: c:\projects\sadconsolegame\obj\project.assets.json
@@ -154,6 +158,7 @@ namespace sadconsolegame
 {
     public static class Program
     {
+        [STAThread]
         static void Main()
         {
             // Setup the engine and create the main window.
