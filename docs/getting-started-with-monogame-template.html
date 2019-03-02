@@ -1,0 +1,238 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+
+  
+  <title>New project from a MonoGame template | Thraka&#39;s Home</title>
+  
+  <meta name="author" content="Thraka">
+  
+  <meta name="description" content="This article describes how to use SadConsole from a Visual Studio MonoGame template. It is generally easier to create a game with either a new blank .">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="New project from a MonoGame template"/>
+  <meta property="og:site_name" content="Thraka&#39;s Home"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-76753055-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">Thraka&#39;s Home</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+            
+            <a href="/blog" title="All the articles">
+            
+			  <i class=""></i>Blog
+			</a>
+		  </li>
+		  
+		  <li>
+            
+            <a href="/docs" title="Documentation for SadConsole">
+            
+			  <i class=""></i>Documentation
+			</a>
+		  </li>
+		  
+		  <li>
+            
+			<a href="https://github.com/thraka/sadconsole" title="SadConsole GitHub">
+            
+			  <i class="fa fa-github"></i>Github
+			</a>
+		  </li>
+		  
+		  <li>
+            
+			<a href="https://www.reddit.com/r/sadconsole/" title="SadConsole SubReddit">
+            
+			  <i class="fa fa-reddit"></i>Reddit
+			</a>
+		  </li>
+		  
+		  <li>
+            
+            <a href="/atom.xml" title="Subscribe">
+            
+			  <i class="fa fa-rss"></i>RSS
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+	
+		<div class="page-header">
+			<h1> New project from a MonoGame template</h1>
+		</div>
+	
+
+
+
+<div class="row page">
+	<!-- cols -->
+	
+	<div class="col-md-12">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <p>This article describes how to use SadConsole from a Visual Studio MonoGame template. It is generally easier to create a game with either a <a href="create-a-new-sadconsole-project.html">new blank .NET project</a> or a <a href="getting-started-sadconsole-core-standard.html">.NET Core project</a>.</p>
+<ul>
+<li>If you’re using a MonoGame template to create a new project, which auto-generated your <code>game1</code> code file, continue to read this article.</li>
+<li>If you do not have the MonoGame SDK installed, you should create a new blank .NET project by following the directions in the <a href="create-a-new-sadconsole-project.html">Create a new SadConsole project</a> article.</li>
+</ul>
+<blockquote>
+<p><strong>NOTE</strong><br>
+SadConsole for MonoGame targets <em>.NET Standard 2.0</em>. The minimum version of the .NET Framework you must use is 4.6.1.</p>
+</blockquote>
+<ol>
+<li>
+<p>After creating a new MonoGame project, open the <em>game1.cs</em> or <em>game1.vb</em> source code file</p>
+</li>
+<li>
+<p>Right-click on the project and click Manage NuGet Packages.</p>
+</li>
+<li>
+<p>Search for <a href="https://www.nuget.org/packages/SadConsole" target="_blank" rel="noopener">SadConsole</a> and add it to your project.</p>
+</li>
+<li>
+<p>Open up your <code>game1.cs</code> file.</p>
+</li>
+<li>
+<p>Change the base class from the MonoGame Game class to <code>SadConsole.Game</code></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public class Game1 : SadConsole.Game</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>Change the constructor to initialize SadConsole. This constructor has a blank font for the first parameter which tells SadConsole to use the default font built in to SadConsole.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Game1</span>(<span class="params"></span>) : <span class="title">base</span>(<span class="params"><span class="string">""</span>, <span class="number">80</span>, <span class="number">25</span>, <span class="literal">null</span></span>)</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="initialize"><a class="markdownIt-Anchor" href="#initialize"></a> Initialize</h4>
+<p>Before anything can be done with SadConsole, the main engine must be initialized. The initialization routine takes a GraphicsDevice reference object.</p>
+<p>The following example overrides the <code>Initialize()</code> method on a Game class:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Initialize</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// Generally you don't want to hide the mouse from the user</span></span><br><span class="line">    IsMouseVisible = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Finish the initialization of SadConsole</span></span><br><span class="line">    <span class="keyword">base</span>.Initialize();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Create your console</span></span><br><span class="line">    <span class="keyword">var</span> firstConsole = <span class="keyword">new</span> SadConsole.Console(<span class="number">60</span>, <span class="number">30</span>);</span><br><span class="line"></span><br><span class="line">    firstConsole.FillWithRandomGarbage();</span><br><span class="line">    firstConsole.Fill(<span class="keyword">new</span> Rectangle(<span class="number">2</span>, <span class="number">2</span>, <span class="number">20</span>, <span class="number">3</span>), Color.Aqua, Color.Black, <span class="number">0</span>);</span><br><span class="line">    firstConsole.Print(<span class="number">3</span>, <span class="number">3</span>, <span class="string">"Hello World!"</span>);</span><br><span class="line"></span><br><span class="line">    SadConsole.Global.CurrentScreen.Children.Add(firstConsole);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="example-game1cs-class"><a class="markdownIt-Anchor" href="#example-game1cs-class"></a> Example game1.cs class</h3>
+<p>This class shows using the SadConsole Engine Component to initialize MonoGame</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> Microsoft.Xna.Framework;</span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> System.Text;</span><br><span class="line"><span class="keyword">using</span> System.Threading.Tasks;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">SadRogueSharp</span></span><br><span class="line">&#123;</span><br><span class="line">    public class Game1 : SadConsole.Game</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Game1</span>(<span class="params"></span>) : <span class="title">base</span>(<span class="params"><span class="string">""</span>, <span class="number">80</span>, <span class="number">25</span>, <span class="literal">null</span></span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Initialize</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="comment">// Generally you don't want to hide the mouse from the user</span></span><br><span class="line">            IsMouseVisible = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Finish the initialization of SadConsole before you start your game init</span></span><br><span class="line">            <span class="keyword">base</span>.Initialize();</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Create your console</span></span><br><span class="line">            <span class="keyword">var</span> firstConsole = <span class="keyword">new</span> SadConsole.Console(<span class="number">60</span>, <span class="number">25</span>);</span><br><span class="line"></span><br><span class="line">            firstConsole.FillWithRandomGarbage();</span><br><span class="line">            firstConsole.Fill(<span class="keyword">new</span> Rectangle(<span class="number">2</span>, <span class="number">2</span>, <span class="number">20</span>, <span class="number">3</span>), Color.Aqua, Color.Black, <span class="number">0</span>);</span><br><span class="line">            firstConsole.Print(<span class="number">3</span>, <span class="number">3</span>, <span class="string">"Hello World!"</span>);</span><br><span class="line"></span><br><span class="line">            SadConsole.Global.CurrentScreen = firstConsole;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="next-steps"><a class="markdownIt-Anchor" href="#next-steps"></a> Next steps</h2>
+<p>Now that you have the project created and working, check out the <a href="index.html">existing tutorials</a>. These will walk you through the basics.</p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+
+    
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+		
+
+</div><!-- row -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2019 Thraka
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a>,<a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>,<a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a> and <a href="http://getbootstrap.com/" target="_blank">BOOTSTRA.386</a>. 
+     <br> Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind.386</a>.    
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>⬆︎TOP</span>
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+   </html>

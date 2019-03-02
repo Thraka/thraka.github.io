@@ -5,11 +5,16 @@
   <meta http-equiv="pragma" content="no-cache">
   <meta http-equiv="cache-control" content="no-cache">
   <meta http-equiv="expires" content="0">
+
   
   <title>Display Entities on a console | Thraka&#39;s Home</title>
+   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW"> 
   <meta name="author" content="Thraka">
   
-  <meta name="description" content="Entities are powerful because they represent independent-animated objects. Even if an entity is not animated, they make it easy to position glyphs ind">
+  <meta name="description" content="NOTE
+This article was written for version 7 of SadConsole.
+
+Entities are powerful because they represent independent-animated objects. Even if an enti">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -132,7 +137,11 @@
 	<div class="mypage">		
 	  		
 
-	  <p>Entities are powerful because they represent independent-animated objects. Even if an entity is not animated, they make it easy to position glyphs independently of the console they are drawn on top of, for example a smiley face glyph that moves around but does not animate.</p>
+	  <blockquote>
+<p><strong>NOTE</strong><br>
+This article was written for version 7 of SadConsole.</p>
+</blockquote>
+<p>Entities are powerful because they represent independent-animated objects. Even if an entity is not animated, they make it easy to position glyphs independently of the console they are drawn on top of, for example a smiley face glyph that moves around but does not animate.</p>
 <p>But why not just draw the glyph directly on the console? You could, but if you move glyphs around, you need to remember to erase the old glyph position and then draw it in the new position. If you also have background glyphs (like roads or scenery) you need to not only erase the old position of the glyph, but then restore that old position back to the original background glyph.</p>
 <p>Think of it like this. If you print a glyph at <code>(20, 30)</code> to represent the player, and then the player presses the left-arrow key, you need to move the glyph left by one cell. You “move” the player by printing the player glyph at <code>(19, 30)</code>. However the old location <code>(20, 30)</code> still has a player glyph there. Now you need to <strong>erase</strong> the old location so it is blank. Let’s say in this case your player is currently walking through a forest of green and yellow tiles, you’ll need to remember what was there prior to the player entering that position, and restore it.</p>
 <p>Entities help solve this problem because they are positioned and drawn independent other objects.</p>

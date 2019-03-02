@@ -1,0 +1,233 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+
+  
+  <title>Basic font information | Thraka&#39;s Home</title>
+   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW"> 
+  <meta name="author" content="Thraka">
+  
+  <meta name="description" content="NOTE
+This article was written for version 7 of SadConsole.
+
+Because of the way the system works, you use “tile sets” that map to character codes. Ther">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Basic font information"/>
+  <meta property="og:site_name" content="Thraka&#39;s Home"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-76753055-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">Thraka&#39;s Home</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+            
+            <a href="/blog" title="All the articles">
+            
+			  <i class=""></i>Blog
+			</a>
+		  </li>
+		  
+		  <li>
+            
+            <a href="/docs" title="Documentation for SadConsole">
+            
+			  <i class=""></i>Documentation
+			</a>
+		  </li>
+		  
+		  <li>
+            
+			<a href="https://github.com/thraka/sadconsole" title="SadConsole GitHub">
+            
+			  <i class="fa fa-github"></i>Github
+			</a>
+		  </li>
+		  
+		  <li>
+            
+			<a href="https://www.reddit.com/r/sadconsole/" title="SadConsole SubReddit">
+            
+			  <i class="fa fa-reddit"></i>Reddit
+			</a>
+		  </li>
+		  
+		  <li>
+            
+            <a href="/atom.xml" title="Subscribe">
+            
+			  <i class="fa fa-rss"></i>RSS
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+	
+		<div class="page-header">
+			<h1> Basic font information</h1>
+		</div>
+	
+
+
+
+<div class="row page">
+	<!-- cols -->
+	
+	<div class="col-md-12">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <blockquote>
+<p><strong>NOTE</strong><br>
+This article was written for version 7 of SadConsole.</p>
+</blockquote>
+<p>Because of the way the system works, you use “tile sets” that map to character codes. Therefore, the “tile set” you use is a set of indexed graphics or, as is the default with SadConsole, a “tile set” of font characters.</p>
+<p><img src="images/font-sample.png" alt="font sample"></p>
+<blockquote>
+<p><strong>NOTE</strong><br>
+Normally the background of the font texture is transparent, not black. It is black just for example purposes.</p>
+</blockquote>
+<p>Each graphical font has a special config file that tells SadConsole how to read it. Regardless of how the font is configured, it is always used in the same way. The font is broken down into cells which are referenced by index. This works by starting at index 0 for the top-left cell, and moving right, counting up from 0. Once the index reaches the end of the line, it moves to the next line continuing to count.</p>
+<p><img src="images/how-font-works.png" alt="font indexing"></p>
+<p>This is how you write to the console. The <code>0</code> character on the keyboard is character code 48, which also happens to be the index in the font file that character <code>0</code> is placed. By default, all of the characters represented in the font file are placed in their matching character index. Character <code>A</code> (code 65) is placed at index 65, while character <code>z</code> (code 122) is placed at index 122, and so on.</p>
+<h2 id="fontmaster"><a class="markdownIt-Anchor" href="#fontmaster"></a> FontMaster</h2>
+<p>When a font is loaded, a <code>SadConsole.FontMaster</code> object is created. This is used to generate font objects used throughout SadConsole. There are 6 sizes of fonts per font master, each relative to the existing font.</p>
+<ul>
+<li>Quarter</li>
+<li>Half</li>
+<li>One</li>
+<li>Two</li>
+<li>Three</li>
+<li>Four</li>
+</ul>
+<p>For example, if you have a font is made up of <em>4x8</em> characters and you generate a <em>Two</em> variation of the font, the rendering output will display the characters x2 of the original, <em>8x16</em> in size. If you generate a <em>Quarter</em> variation of that font, you would end up with x0.25` the original, <em>1x4</em> in size.</p>
+<h1 id="change-the-font-of-a-console"><a class="markdownIt-Anchor" href="#change-the-font-of-a-console"></a> Change the font of a console</h1>
+<p>The <code>Font</code> property of a console or surface determines how each character will look when rendered. After you’ve loaded a font, you can easily use that font with any console. By default, all consoles created will use the <code>SadConsole.Global.FontDefault</code> font.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myConsole = <span class="keyword">new</span> SadConsole.Console(<span class="number">10</span>, <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+<p>Load a new font with <code>SadConsole.Global.LoadFont</code>. This adds the font into the system.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SadConsole.FontMaster fontMaster = SadConsole.Global.LoadFont(<span class="string">"filename.font"</span>);</span><br></pre></td></tr></table></figure>
+<p>Set the font on the text surface that the console is using to the new font.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myConsole.Font = fontMaster.GetFont(SadConsole.Font.FontSizes.One);</span><br></pre></td></tr></table></figure>
+<p>You can use a double sized font (x2 on both axis) by changing the <code>GetFont</code> call.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myConsole.Font = fontMaster.GetFont(SadConsole.Font.FontSizes.Two);</span><br></pre></td></tr></table></figure>	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+
+    
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+		
+
+</div><!-- row -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2019 Thraka
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a>,<a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>,<a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a> and <a href="http://getbootstrap.com/" target="_blank">BOOTSTRA.386</a>. 
+     <br> Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind.386</a>.    
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>⬆︎TOP</span>
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+   </html>

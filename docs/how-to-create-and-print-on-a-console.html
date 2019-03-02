@@ -5,20 +5,21 @@
   <meta http-equiv="pragma" content="no-cache">
   <meta http-equiv="cache-control" content="no-cache">
   <meta http-equiv="expires" content="0">
+
   
-  <title>How to create and print on a Console | Thraka&#39;s Home</title>
+  <title>Create your first console | Thraka&#39;s Home</title>
+  
   <meta name="author" content="Thraka">
   
-  <meta name="description" content="A console that you use in your program can be created in three ways:
+  <meta name="description" content="A console that you use in your program can be created in two ways:
 
-Create a new instance of the default console class.
-Create a new console class.
-">
+Create a new instance of the built in SadConsole.Console type.
+Inherit from SadCon">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="How to create and print on a Console"/>
+  <meta property="og:title" content="Create your first console"/>
   <meta property="og:site_name" content="Thraka&#39;s Home"/>
 
   
@@ -120,7 +121,7 @@ Create a new console class.
     	 
 	
 		<div class="page-header">
-			<h1> How to create and print on a Console</h1>
+			<h1> Create your first console</h1>
 		</div>
 	
 
@@ -136,24 +137,29 @@ Create a new console class.
 	<div class="mypage">		
 	  		
 
-	  <p>A console that you use in your program can be created in three ways:</p>
+	  <p>A console that you use in your program can be created in two ways:</p>
 <ol>
-<li>Create a new instance of the default console class.</li>
-<li>Create a new console class.</li>
+<li>Create a new instance of the built in <code>SadConsole.Console</code> type.</li>
+<li>Inherit from <code>SadConsole.Console</code> to create a new type.</li>
 </ol>
-<p>Before a console can be displayed, it must be set as the <code>SadConsole.Global.CurrentScreen</code> or added as a child of the <code>CurrentScreen</code>.</p>
 <h2 id="using-the-default-console-class"><a class="markdownIt-Anchor" href="#using-the-default-console-class"></a> Using the default console class</h2>
-<p>When you create a <code>SadConsole.Console</code> class instance, you are getting all of the basic functionality by default. However, the console will be blank, and you will need to configure it piece-by-piece. This means that you will have to print all of the things you want on the console every time you create it. This may work well for prototyping a design of some sort, but it doesn’t really give you anything reusable.</p>
-<p>The following example shows the basic steps to create a console that has some text on it.</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> defaultConsole = <span class="keyword">new</span> SadConsole.Console(<span class="number">80</span>, <span class="number">25</span>);</span><br><span class="line">defaultConsole.Cursor.IsVisible = <span class="literal">true</span>;</span><br><span class="line">defaultConsole.Print(<span class="number">0</span>, <span class="number">0</span>, <span class="string">"WELCOME TO THE CONSOLE - PLEASE BEGIN TYPING"</span>);</span><br><span class="line">defaultConsole.Cursor.Position = <span class="keyword">new</span> Point(<span class="number">0</span>, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">SadConsole.Global.CurrentScreen = defaultConsole;</span><br><span class="line">SadConsole.Global.FocusedConsoles.Set(defaultConsole);</span><br></pre></td></tr></table></figure>
-<p>The last two lines set the console we just created to the <code>CurrentScreen</code> which displays it. Then, the <code>FocusedConsoles.Set</code> method is called and we pass in the console we created. This lets the keyboard input work on the console.</p>
+<p>When you create a <code>SadConsole.Console</code> class instance, you are getting all of the basic functionality by default. However, the console will be blank. This means that you will have to print all of the things you want on the console after you create it.</p>
+<p>The following example shows the basic steps to create a console that has some text on it. You can use this in your <code>Init()</code> method (or whatever it is named for you) in your <code>program.cs</code> file.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> defaultConsole = <span class="keyword">new</span> SadConsole.Console(<span class="number">80</span>, <span class="number">25</span>);</span><br><span class="line">defaultConsole.Print(<span class="number">0</span>, <span class="number">0</span>, <span class="string">"WELCOME TO THE CONSOLE - PLEASE BEGIN TYPING"</span>);</span><br><span class="line">defaultConsole.Cursor.IsVisible = <span class="literal">true</span>;</span><br><span class="line">defaultConsole.Cursor.Position = <span class="keyword">new</span> Point(<span class="number">0</span>, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">SadConsole.Global.CurrentScreen = defaultConsole;</span><br><span class="line">SadConsole.Global.FocusedConsoles.Set(defaultConsole);</span><br></pre></td></tr></table></figure>
+<p>First, A new console is created with 80 cells horizontally by 25 cells vertical. When you call the <code>Print</code> method on a console, you can tell it the <strong>X,Y</strong> coordinates of where to print, and then what to print. In this example we printed at <strong>0,0</strong> and the text <strong>WELCOME TO THE CONSOLE - PLEASE BEGIN TYPING</strong>.</p>
+<p>After that code, the <code>Cursor.IsVisible</code> is called. This displays the text cursor on the console. Each console has a text cursor but it is invisible by default. The cursor is then positioned to <strong>0,2</strong>.</p>
+<p>The last two lines of the code above set the console as the <code>CurrentScreen</code>, which displays it. The <code>CurrentScreen</code> is always the object that is drawn and processed by SadConsole. Then, the <code>FocusedConsoles.Set</code> method is called and we pass in the console we created. The focused console always receives keyboard input. The console, when focused, responds to keyboard input by default and starts printing. A visible cursor helps you to know where the next key press is going print.</p>
+<p><img src="images/how-to-create-and-print-on-a-console/first-console.png" alt="first console created"></p>
+<p>If you leave the cursor invisible, and do not focus the console, it will become non-interactive.</p>
 <h2 id="creating-a-new-console-type"><a class="markdownIt-Anchor" href="#creating-a-new-console-type"></a> Creating a new console type</h2>
-<p>If you want to create a console that is consistently created the same every time it is instantiated, you should create a new class type. You can hard code size, behavior settings, or even the look of the console.</p>
-<p>This example creates a console that takes a string parameter as a title, and creates a small panel.</p>
-<h4 id="derived-class"><a class="markdownIt-Anchor" href="#derived-class"></a> Derived Class</h4>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> Microsoft.Xna.Framework;</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> SadConsole;</span><br><span class="line"><span class="keyword">using</span> Console = SadConsole.Console;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">MyProject</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">TitleConsole</span>: <span class="title">Console</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">TitleConsole</span>(<span class="params"><span class="keyword">string</span> title</span>)</span></span><br><span class="line"><span class="function">            : <span class="title">base</span>(<span class="params"><span class="number">25</span>, <span class="number">6</span></span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            Fill(Color.White, Color.Black, <span class="number">176</span>);</span><br><span class="line">            Print(<span class="number">0</span>, <span class="number">0</span>, title.Align(HorizontalAlignment.Center, Width), Color.Black, Color.Yellow);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="class-usage"><a class="markdownIt-Anchor" href="#class-usage"></a> Class Usage</h4>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SadConsole.Global.CurrentScreen = <span class="keyword">new</span> SadConsole.ScreenObject();</span><br><span class="line">SadConsole.Global.CurrentScreen.Children.Add(<span class="keyword">new</span> TitleConsole(<span class="string">"Player Inventory"</span>) &#123; Position = <span class="keyword">new</span> Point(<span class="number">1</span>, <span class="number">1</span>) &#125;);</span><br><span class="line">SadConsole.Global.CurrentScreen.Children.Add(<span class="keyword">new</span> TitleConsole(<span class="string">"Game World"</span>) &#123; Position = <span class="keyword">new</span> Point(<span class="number">1</span>, <span class="number">8</span>) &#125;);</span><br><span class="line">SadConsole.Global.CurrentScreen.Children.Add(<span class="keyword">new</span> TitleConsole(<span class="string">"Status Panel"</span>) &#123; Position = <span class="keyword">new</span> Point(<span class="number">1</span>, <span class="number">15</span>) &#125;);</span><br></pre></td></tr></table></figure>	  
+<p>If you want to create a console that looks the same each time it is created, you can create a new class type that inherits from <code>SadConsole.Console</code>.</p>
+<p>For example, this creates a new console type that fills the console with a shaded background, and then prints a title at the top. By default, the console is <strong>26x6</strong> in cells, so it looks like a nice little panel.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> Microsoft.Xna.Framework;</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> SadConsole;</span><br><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> Console = SadConsole.Console;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">MyProject</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">TitleConsole</span> : <span class="title">Console</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">TitleConsole</span>(<span class="params"><span class="keyword">string</span> title</span>)</span></span><br><span class="line"><span class="function">            : <span class="title">base</span>(<span class="params"><span class="number">25</span>, <span class="number">6</span></span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            Fill(Color.White, Color.Black, <span class="number">176</span>);</span><br><span class="line">            Print(<span class="number">0</span>, <span class="number">0</span>, title.Align(HorizontalAlignment.Center, Width), Color.Black, Color.Yellow);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>To use the console, you can create a new instance of it, providing a title, and then position the console on the screen.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SadConsole.Global.CurrentScreen = <span class="keyword">new</span> SadConsole.ContainerConsole();</span><br><span class="line">SadConsole.Global.CurrentScreen.Children.Add(<span class="keyword">new</span> TitleConsole(<span class="string">"Player Inventory"</span>) &#123; Position = <span class="keyword">new</span> Point(<span class="number">1</span>, <span class="number">1</span>) &#125;);</span><br><span class="line">SadConsole.Global.CurrentScreen.Children.Add(<span class="keyword">new</span> TitleConsole(<span class="string">"Game World"</span>) &#123; Position = <span class="keyword">new</span> Point(<span class="number">1</span>, <span class="number">8</span>) &#125;);</span><br><span class="line">SadConsole.Global.CurrentScreen.Children.Add(<span class="keyword">new</span> TitleConsole(<span class="string">"Status Panel"</span>) &#123; Position = <span class="keyword">new</span> Point(<span class="number">1</span>, <span class="number">15</span>) &#125;);</span><br></pre></td></tr></table></figure>
+<p>Notice that the <code>SadConsole.Global.CurrentScreen</code> is set to a <code>SadConsole.ContainerConsole</code> type. This is a special console that does not draw itself, cannot be sized, and only contains child objects. All console types in SadConsole can actually contain child consoles. If you run that code, you’ll see the following screen.</p>
+<p><img src="images/how-to-create-and-print-on-a-console/second-console.png" alt="first console created"></p>
+	  
 	</div>
 
 	<div>

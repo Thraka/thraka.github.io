@@ -5,11 +5,16 @@
   <meta http-equiv="pragma" content="no-cache">
   <meta http-equiv="cache-control" content="no-cache">
   <meta http-equiv="expires" content="0">
+
   
   <title>Working with input | Thraka&#39;s Home</title>
+   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW"> 
   <meta name="author" content="Thraka">
   
-  <meta name="description" content="The SadConsole.Engine static class processes input for the entire SadConsole framework. At this point, it only includes the Keyboard and Mouse inputs ">
+  <meta name="description" content="NOTE
+This article was written for version 7 of SadConsole.
+
+The SadConsole.Engine static class processes input for the entire SadConsole framework. At">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -132,7 +137,11 @@
 	<div class="mypage">		
 	  		
 
-	  <p>The <em>SadConsole.Engine</em> static class processes input for the entire SadConsole framework. At this point, it only includes the <strong>Keyboard</strong> and <strong>Mouse</strong> inputs as <strong>Controller</strong> support has not been implemented yet. <strong>Controller</strong> support is provided by MonoGame. Keyboard and Mouse states have been updated by the time the <code>Global.Update</code> method has been called.</p>
+	  <blockquote>
+<p><strong>NOTE</strong><br>
+This article was written for version 7 of SadConsole.</p>
+</blockquote>
+<p>The <em>SadConsole.Engine</em> static class processes input for the entire SadConsole framework. At this point, it only includes the <strong>Keyboard</strong> and <strong>Mouse</strong> inputs as <strong>Controller</strong> support has not been implemented yet. <strong>Controller</strong> support is provided by MonoGame. Keyboard and Mouse states have been updated by the time the <code>Global.Update</code> method has been called.</p>
 <p>When the mouse and keyboard information is sent to a console, the <em>SadConsole.Console.ProcessMouse(SadConsole.Input.MouseConsoleState)</em> and the <em>SadConsole.Console.ProcessKeyboard(SadConsole.Input.Keyboard)</em> methods will be called. Each console can indicate if it wants to process the mouse and keyboard input. These two properties, <code>SadConsole.Console.UseKeyboard</code> and <code>SadConsole.Console.UseMouse</code>, default to <code>True</code>. Regardless of the <strong>Console</strong> settings though, if the Engine’s mouse or keyboard processing is turned off, the console will never have these methods called.</p>
 <h4 id="engine-input"><a class="markdownIt-Anchor" href="#engine-input"></a> Engine input</h4>
 <p>Input processing by the engine can be toggled on or off with the <code>Settings.Input.DoKeyboard</code> and <code>Settings.Input.DoMouse</code> properties. Both input types are on by default.</p>
