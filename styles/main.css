@@ -1,0 +1,419 @@
+﻿/*@font-face {
+    font-family: 'DOS';
+    src: url('fonts/Fixedsys500c.eot');
+    src: local('鈽�'),url('fonts/Fixedsys500c.woff') format('woff'),url('fonts/Fixedsys500c.ttf') format('truetype'),url('fonts/Fixedsys500c.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+foant-family: DOS,SimHei,Monaco,Menlo,Consolas,'Courier New';
+@font-face {
+  font-family: 'DOSWide';
+  src: url('../fonts/PxPlus_IBM_BIOS-2y.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+@font-face {
+  font-family: 'DOS';
+  src: url('../fonts/DejaVuSansMonoNerdFont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+*/
+
+
+
+
+@font-face {
+  font-family: 'Hack';
+  src: url('../fonts/hack-regular.woff2?sha=3114f1256') format('woff2'), url('fonts/hack-regular.woff?sha=3114f1256') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Hack';
+  src: url('../fonts/hack-bold.woff2?sha=3114f1256') format('woff2'), url('fonts/hack-bold.woff?sha=3114f1256') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Hack';
+  src: url('../fonts/hack-italic.woff2?sha=3114f1256') format('woff2'), url('fonts/hack-italic.woff?sha=3114f1256') format('woff');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Hack';
+  src: url('../fonts/hack-bolditalic.woff2?sha=3114f1256') format('woff2'), url('fonts/hack-bolditalic.woff?sha=3114f1256') format('woff');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'DOS';
+  src: url('../fonts/PxPlus_IBM_VGA8.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+html,
+body {
+  font-size: 14px;
+  line-height: 18px;
+  font-family: Hack;
+  background-color: #000084;
+  color: #bbb;
+}
+
+body .toc{
+  background-color: #000084;
+  overflow-x: hidden;
+}
+
+.footer {
+  background-color: #0000b4;
+}
+
+.navbar-default {
+  background-color: #000084;
+  border-color: #000084;
+}
+
+.navbar-inverse {
+  background-color: black;
+  border-color: #080808;
+}
+
+.navbar-brand {
+  font-size: inherit;
+  padding: 2px;
+  margin-top: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidetoc {
+  background-color: #000084;
+  border-left: 0px solid #e7e7e7;
+  border-right: 0px solid #e7e7e7;
+}
+
+.sidefilter {
+  background-color: #000084;
+  border-left: 0px solid #e7e7e7;
+  border-right: 0px solid #e7e7e7;
+}
+
+.sidenav, .fixed_header, .toc  {
+  background-color: #000084;
+}
+
+.toc .level1 > li {
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: normal;
+}
+.toc .level2 {
+  font-weight: normal;
+  margin: 5px 0 0 15px;
+  font-size: 14px;
+}
+
+.toc .nav > li > a {
+  color: #080;
+  margin-bottom: 3px;
+}
+
+.toc .nav > li.active > a {
+  color: #5f5;
+}
+.toc .nav > li.active > a:hover,
+.toc .nav > li.active > a:focus {
+  color: #5f5;
+}
+
+.toc .nav > li > a:hover,
+.toc .nav > li > a:focus {
+  color: #5f5;
+}
+
+.sideaffix {
+  margin-top: 50px;
+  font-size: 14px;
+  max-height: 100%;
+  overflow: hidden;
+  top: 100px;
+  bottom: 10px;
+  position: fixed;
+}
+
+strong {
+  color: rgb(255, 85, 85);
+  font-weight: normal;
+}
+em {
+  color: fuchsia;
+  font-weight: normal;
+  font-style: normal;
+}
+
+code, kbd, pre, samp {
+  font-family: Hack
+}
+
+pre {
+  padding: 0px;
+  background-color: #f5f5f5;
+  border: 0px solid #ccc;
+  border-radius: 0px;
+}
+
+code {
+  padding: 0px 0px;
+  background: inherit;
+  font-size: 14px;
+  color: rgb(85, 255, 255);
+}
+
+pre code {
+  font-size: 16px;
+  line-height: 16px;
+  font-family: DOS;
+  white-space: pre;
+}
+
+.hljs {
+  background: black;
+}
+
+
+.h5, h5 {
+  font-size: 14px;
+}
+
+.h6, h6 {
+  font-size: 14px;
+}
+
+h1 {
+  font-size: 24px;
+  color: white;
+}
+
+h2::before {
+  content: "\2500[";
+  color: #5ff;
+}
+h2 {
+  font-size: 18px;
+  color: #5f5;
+}
+h2::after {
+  /*content: " ]\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\a0\2500\a0\B7";*/
+  content: "]\2500";
+  color: #5ff;
+}
+
+.alert {
+  border-radius: 0px;
+}
+
+.alert-warning {
+  color: inherit;
+  background-color: #5d0000;
+  border-color: inherit;
+}
+
+    .alert-warning h5:before {
+      
+    }
+
+    .alert-warning h5 {
+      text-transform: uppercase;
+      font-weight: normal;
+      margin-top: 0;
+      color: red;
+    }
+
+.alert-info {
+  color: black;
+  background-color: #bbb;
+  border-color: black;
+}
+
+    .alert-info h5:before {
+      
+    }
+
+    .alert-info h5 {
+      text-transform: uppercase;
+      font-weight: normal;
+      margin-top: 0;
+      color: bbb;
+    }
+
+.alert-danger {
+  color:inherit;
+  background-color: #176f6f;
+  border-color: #5ff;
+}
+
+    .alert-danger h5:before {
+      
+    }
+
+    .alert-danger h5 {
+      text-transform: uppercase;
+      font-weight: normal;
+      margin-top: 0;
+      color: white;
+    }
+
+
+
+.sideaffix > div.contribution > ul > li > a.contribution-link {
+  padding: 6px 10px;
+  font-weight: bold;
+  font-size: 14px;
+}
+.sideaffix > div.contribution > ul > li > a.contribution-link:hover {
+  background-color: #ffffff;
+}
+
+.affix{
+  position: fixed;
+}
+
+.affix ul > li > a:before {
+  color: #cccccc;
+  position: absolute;
+}
+.affix ul > li > a:hover {
+  background: none;
+  color: #080;
+}
+.affix ul > li.active > a,
+.affix ul > li.active > a:before {
+  color: #5f5;
+}
+.affix ul > li > a {
+  padding: 5px 12px;
+  color: #080;
+}
+.affix > ul > li > a:before {
+  content: "|";
+  font-size: 14px;
+  top: 5px;
+  left: 0;
+}
+.affix > ul > li.active > a,
+.affix > ul > li.active > a:before {
+  color: #5f5;
+  font-weight: normal;
+}
+.affix ul ul > li > a:before {
+  content: ">";
+  font-size: 14px;
+  top: 1px;
+  left: 5px;
+}
+.affix > ul.level1 {
+  overflow: hidden;
+  padding-bottom: 10px;
+  height: calc(100% - 100px);
+  margin-right: 0px;
+}
+
+.affix h5 {
+  font-weight: normal;
+  text-transform: uppercase;
+  padding-left: 10px;
+  font-size: 14px;
+}
+
+article h4 {
+  color: fuchsia;
+  border-bottom: 2px solid #5ff;
+  padding-bottom: 0.2em;
+  font-size: 16px;
+}
+
+.anchorjs-link {
+  margin-left: -0.75em!important;
+  margin-top: -2px;
+}
+
+button,
+a {
+  color: #fefe54;
+  cursor: pointer;
+}
+button:hover,
+button:focus,
+a:hover,
+a:focus {
+  color: #fefe54;
+  background: #a50;
+  text-decoration: none;
+}
+a.disable,
+a.disable:hover {
+  text-decoration: none;
+  cursor: default;
+  color: #000000;
+}
+
+.table td,.table th{background-color:inherit!important}
+.table-bordered td,.table-bordered th{border:0px solid #ddd!important}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  vertical-align: middle;
+  margin-bottom: 20px;
+}
+
+th {
+  padding: 12px 10px 12px 10px;
+  font-weight: normal;
+}
+
+th+th,td+td {
+  border-left: 1px dashed #4088b8;
+}
+
+td {
+  padding: 7px 10px 7px 10px;
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+td:first-child {  
+  white-space: nowrap;
+}
+
+.table-bordered td:not(:first-child), .table-bordered th:not(:first-child) {  
+  border-left: 1px dashed #4088b8!important;
+}
+
+.table-bordered td{
+  border-top: 1px dashed #4088b8!important;
+}
+
+.table-bordered {
+  border: 1px dashed #4088b8!important;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd) {
+  background-color: #0000b4;
+}

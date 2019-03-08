@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>title: Create a new SadConsole .NET Core project
+layout: docpage
+comments: false
+searcharchive: true </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="title: Create a new SadConsole .NET Core project
+layout: docpage
+comments: false
+searcharchive: true ">
+    <meta name="generator" content="docfx 2.40.11.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/dracula.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" src="../../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="title-create-a-new-sadconsole-net-core-projectlayout-docpagecomments-falsesearcharchive-true">title: Create a new SadConsole .NET Core project
+layout: docpage
+comments: false
+searcharchive: true</h2>
+
+<blockquote>
+<p><strong>NOTE</strong><br>
+This article was written for version 7 of SadConsole.</p>
+</blockquote>
+<p>This page describes how to create a new project based on SadConsole Standard using .NET Core 2.2.</p>
+<p>.NET Core includes easy ways to create a project, add references, and build/compile, without any sort of editor. This tutorial will show you how to create a new project using the .NET Core SDK. You can then open that project with your editor of choice.</p>
+<p>Currently, SadConsole for .NET Core only supports OpenGL.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p><a href="https://dotnet.microsoft.com/download/dotnet-core/2.2">Download and install the .NET Core 2.2 SDK</a>. You can use .NET Core 2.0 through 2.2. To see what versions you have, run <code>dotnet --info</code>. If this command fails, download the .NET Core SDK.</p>
+<h2 id="create-your-working-folder">Create your working folder</h2>
+<p>After you have a .NET Core SDK installed, open up a command shell. If you're unsure how to do that, search the internet for a tutorial.</p>
+<p>Once you have a terminal open, navigate to the folder you want to code in. This tutorial just assumes you're in a clean folder waiting to input commands. For example, I opened a shell window on Windows and ran the following commands:</p>
+<pre><code class="lang-shell">mkdir sadconsolegame
+cd sadconsolegame
+</code></pre>
+<p>It's highly likely that those commands work on every operating system, or it will be very similar.</p>
+<blockquote>
+<p><strong>[WARNING]</strong></p>
+<p>The folder name you use (in this example sadconsolegame) cannot be <strong>sadconsole</strong>. The default behavior for .NET Core is to create a project file named the same as the folder, and then the output file will be the same name as the project. This will cause a clash.</p>
+</blockquote>
+<h2 id="download-the-template">Download the template</h2>
+<p>Next, install the unofficial MonoGame for .NET Core template.</p>
+<pre><code class="lang-shell">dotnet new --install MonoGame.Template.CSharp
+</code></pre>
+<h2 id="create-a-project">Create a project</h2>
+<p>Next, create your project.</p>
+<pre><code class="lang-shell">dotnet new mgdesktopgl
+</code></pre>
+<p>You can now run your game, though it's just a standard MonoGame game, without SadConsole.</p>
+<pre><code class="lang-shell">dotnet run
+</code></pre>
+<p>The preceding command will display a window with the default background for MonoGame. You can close this window and go back to your shell.</p>
+<p><img src="images/blank-monogame-window.png" alt="a blank monogame game without sadconsole"></p>
+<h2 id="add-reference-to-sadconsole">Add reference to SadConsole</h2>
+<p>Back in the shell, type the following command to add the <a href="https://www.nuget.org/packages/SadConsole.Standard/">SadConsole.Standard NuGet</a> project to your game.</p>
+<pre><code class="lang-shell">dotnet add package SadConsole.Standard
+</code></pre>
+<p>You should see ouput similar to the following:</p>
+<pre><code class="lang-shell">info : Adding PackageReference for package 'SadConsole.Standard' into project 'c:\projects\sadconsolegame\sadconsolegame.csproj'.
+log  : Restoring packages for c:\projects\sadconsolegame\sadconsolegame.csproj...
+info :   GET https://api.nuget.org/v3-flatcontainer/sadconsole.standard/index.json
+info :   GET https://dotnetmyget.blob.core.windows.net/artifacts/roslyn/nuget/v3/flatcontainer/sadconsole.standard/index.json
+info :   NotFound https://dotnetmyget.blob.core.windows.net/artifacts/roslyn/nuget/v3/flatcontainer/sadconsole.standard/index.json 3421ms
+info :   OK https://api.nuget.org/v3-flatcontainer/sadconsole.standard/index.json 7716ms
+log  : Installing SadConsole.Standard 7.3.0.
+info : Package 'SadConsole.Standard' is compatible with all the specified frameworks in project 'c:\projects\sadconsolegame\sadconsolegame.csproj'.
+info : PackageReference for package 'SadConsole.Standard' version '7.3.0' added to file 'c:\projects\sadconsolegame\sadconsolegame.csproj'.
+info : Committing restore...
+log  : Generating MSBuild file c:\projects\sadconsolegame\obj\sadconsolegame.csproj.nuget.g.targets.
+info : Writing lock file to disk. Path: c:\projects\sadconsolegame\obj\project.assets.json
+log  : Restore completed in 8.06 sec for c:\projects\sadconsolegame\sadconsolegame.csproj.
+</code></pre>
+<h2 id="create-the-game">Create the game</h2>
+<p>The preceding command added a reference to SadConsole, but we need to recode the startup of your game to launch SadConsole instead of MonoGame.</p>
+<p>The MonoGame template adds a <code>Game1.cs</code> file, this is not needed as we'll be recoding how the game starts up. You can delete this file with either the following shell command: <code>del Game1.cs</code> or <code>rm Game1.cs</code>.</p>
+<p>Next, use your favorite editor and edit the <code>Program.cs</code> file. Change the <code>using</code> directives at the top of the file to the following:</p>
+<pre><code class="lang-csharp">using System;
+using SadConsole;
+using Microsoft.Xna.Framework;
+using Console = SadConsole.Console;
+</code></pre>
+<p>Next, change the code inside of the <code>Main</code> method from:</p>
+<pre><code class="lang-csharp">static void Main()
+{
+    using (var game = new Game1())
+        game.Run();
+}
+</code></pre>
+<p>to</p>
+<pre><code class="lang-csharp">static void Main()
+{
+    // Setup the engine and create the main window.
+    SadConsole.Game.Create(80, 25);
+
+    // Hook the start event so we can add consoles to the system.
+    SadConsole.Game.OnInitialize = Init;
+
+    // Start the game.
+    SadConsole.Game.Instance.Run();
+    SadConsole.Game.Instance.Dispose();
+}
+</code></pre>
+<p>Next, add the <code>Init</code> method referenced by the preceding code. This method is used to setup your starting console. This code should be added after <code>static void Main()</code></p>
+<pre><code class="lang-csharp">static void Init()
+{
+    var console = new Console(80, 25);
+    console.FillWithRandomGarbage();
+    console.Fill(new Rectangle(3, 3, 23, 3), Color.Violet, Color.Black, 0, 0);
+    console.Print(4, 4, &quot;Hello from SadConsole&quot;);
+
+    SadConsole.Global.CurrentScreen = console;
+}
+</code></pre>
+<p>Now, run the game again with <code>dotnet run</code> from your shell, and you'll see the following:</p>
+<p><img src="images/new-core-hello-window.png" alt="a new console in sadconsole with hello text"></p>
+<p>The final <code>Program.cs</code> file should look like the following:</p>
+<pre><code class="lang-csharp">using System;
+using SadConsole;
+using Microsoft.Xna.Framework;
+using Console = SadConsole.Console;
+
+namespace sadconsolegame
+{
+    public static class Program
+    {
+        [STAThread]
+        static void Main()
+        {
+            // Setup the engine and create the main window.
+            SadConsole.Game.Create(80, 25);
+
+            // Hook the start event so we can add consoles to the system.
+            SadConsole.Game.OnInitialize = Init;
+
+            // Start the game.
+            SadConsole.Game.Instance.Run();
+            SadConsole.Game.Instance.Dispose();
+        }
+
+        static void Init()
+        {
+            var console = new Console(80, 25);
+            console.FillWithRandomGarbage();
+            console.Fill(new Rectangle(3, 3, 23, 3), Color.Violet, Color.Black, 0, 0);
+            console.Print(4, 4, &quot;Hello from SadConsole&quot;);
+
+            SadConsole.Global.CurrentScreen = console;
+        }
+    }
+}
+</code></pre>
+<h2 id="next-steps">Next steps</h2>
+<p>Now that you have the project created and working, check out the <a href="index.html">existing tutorials</a>. These will walk you through the basics.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>title: How to create an Entity
+layout: docpage
+comments: false
+searcharchive: true </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="title: How to create an Entity
+layout: docpage
+comments: false
+searcharchive: true ">
+    <meta name="generator" content="docfx 2.40.11.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/dracula.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" src="../../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="title-how-to-create-an-entitylayout-docpagecomments-falsesearcharchive-true">title: How to create an Entity
+layout: docpage
+comments: false
+searcharchive: true</h2>
+
+<blockquote>
+<p><strong>NOTE</strong><br>
+This article was written for version 7 of SadConsole.</p>
+</blockquote>
+<p>The <code>SadConsole.Entities.Entity</code> type provides a simple way to independently track text objects.</p>
+<p>Entities are very similar to consoles, but they have a different purpose. Where a console provides features related to typing, mouse handling, and a virtual cursor, the <code>Entity</code> type provides simple animation management. By default, the entity doesn't do anything with the keyboard or mouse.</p>
+<h1 id="animation">Animation</h1>
+<p>Entities are positioned objects that do not have a width or height. However, when an entity is drawn, it draws a <code>SadConsole.Surfaces.Animated</code> object, which does have a width and height. This is defined by the <code>Entity.Animation</code> property.</p>
+<h2 id="frames">Frames</h2>
+<p>The animation is made up of individual frames. When you call the <code>SadConsole.Surfaces.Animated.CreateFrame</code> method, you're returned a <code>SadConsole.Surfaces.BasicNoDraw</code> type which represents the surface array of cells. You can edit that animation frame as you would any other surface or console in SadConsole. Every time you call <code>CreateFrame</code>, you create a new frame in the animation. When you're finished, you have multiple frames that make up the animation.</p>
+<p>The total amount of time it takes to play all frames is in seconds, and is set with the <code>Animated.AnimationDuration</code> property.</p>
+<h1 id="example">Example</h1>
+<p>The following example demonstrates how to create a basic animation and add it to an entity.</p>
+<p>First, declare a variable to hold our entity.</p>
+<pre><code class="lang-csharp">private SadConsole.Entities.Entity fallingText;
+</code></pre>
+<p>Next, initialize the entity, create an animation, attach the animation to the entity, and position the entity.</p>
+<pre><code class="lang-csharp">// Height of 5, one line for each frame
+var animation = new SadConsole.Surfaces.Animated(&quot;default&quot;, 24, 5);
+
+for (var line = 0; line &lt; 5; line++)
+{
+    // use the default animation built into the object
+    var frame = animation.CreateFrame();
+    frame.Fill(Color.Purple, Color.DarkGray, 0, null);
+    frame.Print(1, line, &quot;Hello World!&quot;);
+}
+
+animation.AnimationDuration = 2;
+animation.Repeat = true;
+animation.Start();
+
+// Create the new entity
+var fallingTextEntity = new SadConsole.Entities.Entity(animation);
+fallingTextEntity.Position = new Point(1, 1);
+
+// Add the entity to the current screen so we can preview it
+Global.CurrentScreen.Children.Add(fallingTextEntity);
+</code></pre>
+<p>You should see the following animation:</p>
+<p><img src="images/falling-text.gif" alt="animated entity"></p>
+<p>Next, read through <a href="display-entity-on-console-viewport.html">this</a> tutorial to understand how to draw an entity with a console.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

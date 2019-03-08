@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Create your first console </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Create your first console ">
+    <meta name="generator" content="docfx 2.40.11.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/dracula.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" src="../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="create-your-first-console">Create your first console</h1>
+
+<p>A console that you use in your program can be created in two ways:</p>
+<ol>
+<li>Create a new instance of the built in <code>SadConsole.Console</code> type.</li>
+<li>Inherit from <code>SadConsole.Console</code> to create a new type.</li>
+</ol>
+<h2 id="using-the-default-console-class">Using the default console class</h2>
+<p>When you create a <code>SadConsole.Console</code> class instance, you are getting all of the basic functionality by default. However, the console will be blank. This means that you will have to print all of the things you want on the console after you create it.</p>
+<p>The following example shows the basic steps to create a console that has some text on it. You can use this in your <code>Init()</code> method (or whatever it is named for you) in your <code>program.cs</code> file.</p>
+<pre><code class="lang-csharp">var defaultConsole = new SadConsole.Console(80, 25);
+defaultConsole.Print(0, 0, &quot;WELCOME TO THE CONSOLE - PLEASE BEGIN TYPING&quot;);
+defaultConsole.Cursor.IsVisible = true;
+defaultConsole.Cursor.Position = new Point(0, 2);
+
+SadConsole.Global.CurrentScreen = defaultConsole;
+SadConsole.Global.FocusedConsoles.Set(defaultConsole);
+</code></pre>
+<p>First, A new console is created with 80 cells horizontally by 25 cells vertical. When you call the <code>Print</code> method on a console, you can tell it the <strong>X,Y</strong> coordinates of where to print, and then what to print. In this example we printed at <strong>0,0</strong> and the text <strong>WELCOME TO THE CONSOLE - PLEASE BEGIN TYPING</strong>.</p>
+<p>After that code, the <code>Cursor.IsVisible</code> is called. This displays the text cursor on the console. Each console has a text cursor but it is invisible by default. The cursor is then positioned to <strong>0,2</strong>.</p>
+<p>The last two lines of the code above set the console as the <code>CurrentScreen</code>, which displays it. The <code>CurrentScreen</code> is always the object that is drawn and processed by SadConsole. Then, the <code>FocusedConsoles.Set</code> method is called and we pass in the console we created. The focused console always receives keyboard input. The console, when focused, responds to keyboard input by default and starts printing. A visible cursor helps you to know where the next key press is going print.</p>
+<p><img src="../images/how-to-create-and-print-on-a-console/first-console.png" alt="first console created"></p>
+<p>If you leave the cursor invisible, and do not focus the console, it will become non-interactive.</p>
+<h2 id="creating-a-new-console-type">Creating a new console type</h2>
+<p>If you want to create a console that looks the same each time it is created, you can create a new class type that inherits from <code>SadConsole.Console</code>.</p>
+<p>For example, this creates a new console type that fills the console with a shaded background, and then prints a title at the top. By default, the console is <strong>26x6</strong> in cells, so it looks like a nice little panel.</p>
+<pre><code class="lang-csharp">using Microsoft.Xna.Framework;
+
+using SadConsole;
+using System;
+using Console = SadConsole.Console;
+
+namespace MyProject
+{
+    class TitleConsole : Console
+    {
+        public TitleConsole(string title)
+            : base(25, 6)
+        {
+            Fill(Color.White, Color.Black, 176);
+            Print(0, 0, title.Align(HorizontalAlignment.Center, Width), Color.Black, Color.Yellow);
+        }
+    }
+}
+</code></pre>
+<p>To use the console, you can create a new instance of it, providing a title, and then position the console on the screen.</p>
+<pre><code class="lang-csharp">SadConsole.Global.CurrentScreen = new SadConsole.ContainerConsole();
+SadConsole.Global.CurrentScreen.Children.Add(new TitleConsole(&quot;Player Inventory&quot;) { Position = new Point(1, 1) });
+SadConsole.Global.CurrentScreen.Children.Add(new TitleConsole(&quot;Game World&quot;) { Position = new Point(1, 8) });
+SadConsole.Global.CurrentScreen.Children.Add(new TitleConsole(&quot;Status Panel&quot;) { Position = new Point(1, 15) });
+</code></pre>
+<p>Notice that the <code>SadConsole.Global.CurrentScreen</code> is set to a <code>SadConsole.ContainerConsole</code> type. This is a special console that does not draw itself, cannot be sized, and only contains child objects. All console types in SadConsole can actually contain child consoles. If you run that code, you'll see the following screen.</p>
+<p><img src="../images/how-to-create-and-print-on-a-console/second-console.png" alt="first console created"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Thraka/thraka.github.io/blob/source/articles/how-to-create-a-console.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>title: NuGet Starter for MonoGame
+layout: docpage
+comments: false
+searcharchive: true </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="title: NuGet Starter for MonoGame
+layout: docpage
+comments: false
+searcharchive: true ">
+    <meta name="generator" content="docfx 2.40.11.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/dracula.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" src="../../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="title-nuget-starter-for-monogamelayout-docpagecomments-falsesearcharchive-true">title: NuGet Starter for MonoGame
+layout: docpage
+comments: false
+searcharchive: true</h2>
+
+<blockquote>
+<p><strong>NOTE</strong><br>
+This article was written for version 7 of SadConsole.</p>
+</blockquote>
+<p>This article describes how to setup SadConsole with your new project, after you've installed the <a href="https://www.nuget.org/packages/SadConsole/">SadConsole NuGet</a> package. If you have not yet created a project, start with the <a href="create-a-new-sadconsole-project.html">Create a new SadConsole project</a> article.</p>
+<hr>
+<p>Thank you for choosing <strong>SadConsole</strong>!</p>
+<p>If you added this NuGet package from:</p>
+<ol>
+<li><p>An empty .NET project template.</p>
+<p>Setup is pretty easy at this point. Follow <a href="#setup-sadconsole">the directions</a> below.</p>
+</li>
+<li><p>A new <strong>MonoGame Game</strong> project template.</p>
+<p>This way is only recommended when you're going to be making a MonoGame game that you would like to use parts of SadConsole with it. For more information, see the <a href="monogame-template.html">MonoGame Template</a> article.</p>
+</li>
+<li><p>A <strong>Console App</strong> or <strong>Windows Forms App</strong> project template.</p>
+<p>First, delete the <strong>program.cs</strong> or <strong>form1.cs</strong> files from your project. Follow <a href="#setup-sadconsole">the directions</a> below. There is less mess if you create an empty .NET project instead of a Console/Forms app. If you can, delete your current project and start with the <a href="create-a-new-sadconsole-project.html">Create a new SadConsole project</a> article.</p>
+</li>
+</ol>
+<blockquote>
+<h3 id="important"><strong>IMPORTANT</strong></h3>
+<p>If you're using <strong>Linux</strong>, NuGet may not setup your project correctly. Look at the folder containing your project. Add any <strong>.font</strong> and <strong>.png</strong> as project references and set them to <strong>Copy to output folder</strong>.</p>
+</blockquote>
+<h2 id="setup-sadconsole">Setup SadConsole</h2>
+<p>With your project created in Visual Studio and the <a href="https://www.nuget.org/packages/SadConsole/">SadConsole NuGet</a> package added, do the following:</p>
+<ol>
+<li><p>In the <strong>Solution Explorer</strong>, right-click on the project, and click <strong>Manage NuGet Packages</strong>.</p>
+<p><img src="images/project-manage-nuget-packages.png" alt="manage nuget package for sadconsole"></p>
+</li>
+<li><p>Search for and install a <em>MonoGame.Framework</em> package. You can use the desired platform.</p>
+<ul>
+<li>If you're making a Windows &amp; Linux app, choose <a href="https://www.nuget.org/packages/MonoGame.Framework.DesktopGL/">MonoGame.Framework.DesktopGL</a></li>
+<li>If you're making a Windows app, choose either <a href="https://www.nuget.org/packages/MonoGame.Framework.WindowsDX/">MonoGame.Framework.WindowsDX</a> or <a href="https://www.nuget.org/packages/MonoGame.Framework.DesktopGL/">MonoGame.Framework.DesktopGL</a></li>
+<li>If you're making a UWP app, choose <a href="https://www.nuget.org/packages/MonoGame.Framework.WindowsUniversal/">MonoGame.Framework.WindowsUniversal</a></li>
+<li>If you're making an Android app, choose <a href="https://www.nuget.org/packages/MonoGame.Framework.Android/">MonoGame.Framework.Android</a></li>
+</ul>
+<blockquote>
+<h3 id="important-1"><strong>IMPORTANT</strong></h3>
+<p>If you chose the <strong>DesktopGL</strong> library, MonoGame does not provide you a required file, a copy of <strong>SDL2.dll</strong>. You need to add this to your project. I've provided a copy until MonoGame fixes this problem. There is a copy <a href="https://github.com/Thraka/SadConsole/raw/master/src/DemoProject/DesktopGL/SDL2.dll">here</a>.</p>
+<ol>
+<li>Download this file and copy it to the root of your project.</li>
+<li>Right-click the <strong>Project</strong> &gt; <strong>Add</strong> &gt; <strong>Existing item...</strong>.</li>
+<li>Navigate to the dll file and select it.</li>
+<li>Select the file in the <strong>Solution explorer</strong> and in the <strong>Properties</strong> pane, set <strong>Copy to Output Directory</strong> to <strong>Copy if newer</strong>.</li>
+</ol>
+<p>If you get a <strong>System.BadImageFormatException</strong> error, try downloading the 32-bit version of SDL2.dll from <a href="https://www.libsdl.org/download-2.0.php">https://www.libsdl.org/download-2.0.php</a></p>
+</blockquote>
+</li>
+<li><p>If needed, use the <strong>Manage NuGet Packages</strong> window to update SadConsole to the latest release.</p>
+<p><img src="images/project-update-sadconsole.png" alt="update sadconsole reference"></p>
+</li>
+<li><p>Rename <em>program-example.cs</em> to <em>program.cs</em>.</p>
+<p>If you have an existing <em>program.cs</em> file, delete it.</p>
+<p>The <strong>SadConsole.Starter</strong> NuGet package that was <a href="create-a-new-sadconsole-project.html">installed previously</a> should have added a <em>program-example.cs</em> file to your project. Right-click the file and choose <strong>Rename</strong>. Set the name to <em>program.cs</em>.</p>
+<p><img src="images/project-rename-program.png" alt="rename program-example.cs for sadconsole"></p>
+</li>
+<li><p>Change the namespace declared in the <em>program.cs</em> file to your project namespace.</p>
+<ol>
+<li><p>In the <strong>Solution Explorer</strong>, right-click on the project, and choose <strong>Properties</strong>.</p>
+</li>
+<li><p>Copy the text in the <strong>Default namespace</strong> box.</p>
+<p><img src="images/project-get-namespace.png" alt="get default namespace for sadconsole"></p>
+</li>
+<li><p>Open the <em>program.cs</em> file and change <code>namespace MyProject</code> to <code>namespace the-text-you-copied-from-properties</code></p>
+<p><img src="images/project-set-namespace.png" alt="set default namespace for sadconsole"></p>
+</li>
+<li><p>Save the file.</p>
+</li>
+</ol>
+</li>
+<li><p>Change the <strong>Output type</strong> and <strong>Startup object</strong></p>
+<ol>
+<li><p>Back in the project properties window, set the <strong>Output type</strong> to <strong>Windows Application</strong>.</p>
+</li>
+<li><p>Set the <strong>Startup object</strong> to your program class where you changed the namespace.</p>
+<p><img src="images/project-set-output.png" alt="set the output type and startup object for sadconsole"></p>
+</li>
+</ol>
+</li>
+<li><p>Press F5 to run.</p>
+</li>
+</ol>
+<h2 id="next-steps">Next steps</h2>
+<p>Now that you have the project created and working, check out the <a href="index.html">existing tutorials</a>. These will walk you through the basics.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>title: Basic font information
+layout: docpage
+comments: false
+searcharchive: true </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="title: Basic font information
+layout: docpage
+comments: false
+searcharchive: true ">
+    <meta name="generator" content="docfx 2.40.11.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/dracula.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" src="../../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="title-basic-font-informationlayout-docpagecomments-falsesearcharchive-true">title: Basic font information
+layout: docpage
+comments: false
+searcharchive: true</h2>
+
+<blockquote>
+<p><strong>NOTE</strong><br>
+This article was written for version 7 of SadConsole.</p>
+</blockquote>
+<p>Because of the way the system works, you use &quot;tile sets&quot; that map to character codes. Therefore, the &quot;tile set&quot; you use is a set of indexed graphics or, as is the default with SadConsole, a &quot;tile set&quot; of font characters.</p>
+<p><img src="images/font-sample.png" alt="font sample"></p>
+<blockquote>
+<p><strong>NOTE</strong><br>
+Normally the background of the font texture is transparent, not black. It is black just for example purposes.</p>
+</blockquote>
+<p>Each graphical font has a special config file that tells SadConsole how to read it. Regardless of how the font is configured, it is always used in the same way. The font is broken down into cells which are referenced by index. This works by starting at index 0 for the top-left cell, and moving right, counting up from 0. Once the index reaches the end of the line, it moves to the next line continuing to count.</p>
+<p><img src="images/how-font-works.png" alt="font indexing"></p>
+<p>This is how you write to the console. The <code>0</code> character on the keyboard is character code 48, which also happens to be the index in the font file that character <code>0</code> is placed. By default, all of the characters represented in the font file are placed in their matching character index. Character <code>A</code> (code 65) is placed at index 65, while character <code>z</code> (code 122) is placed at index 122, and so on.</p>
+<h2 id="fontmaster">FontMaster</h2>
+<p>When a font is loaded, a <code>SadConsole.FontMaster</code> object is created. This is used to generate font objects used throughout SadConsole. There are 6 sizes of fonts per font master, each relative to the existing font.</p>
+<ul>
+<li>Quarter</li>
+<li>Half</li>
+<li>One</li>
+<li>Two</li>
+<li>Three</li>
+<li>Four</li>
+</ul>
+<p>For example, if you have a font is made up of <em>4x8</em> characters and you generate a <em>Two</em> variation of the font, the rendering output will display the characters x2 of the original, <em>8x16</em> in size. If you generate a <em>Quarter</em> variation of that font, you would end up with x0.25` the original, <em>1x4</em> in size.</p>
+<h1 id="change-the-font-of-a-console">Change the font of a console</h1>
+<p>The <code>Font</code> property of a console or surface determines how each character will look when rendered. After you've loaded a font, you can easily use that font with any console. By default, all consoles created will use the <code>SadConsole.Global.FontDefault</code> font.</p>
+<pre><code class="lang-csharp">var myConsole = new SadConsole.Console(10, 10);
+</code></pre>
+<p>Load a new font with <code>SadConsole.Global.LoadFont</code>. This adds the font into the system.</p>
+<pre><code class="lang-csharp">SadConsole.FontMaster fontMaster = SadConsole.Global.LoadFont(&quot;filename.font&quot;);
+</code></pre>
+<p>Set the font on the text surface that the console is using to the new font.</p>
+<pre><code class="lang-csharp">myConsole.Font = fontMaster.GetFont(SadConsole.Font.FontSizes.One);
+</code></pre>
+<p>You can use a double sized font (x2 on both axis) by changing the <code>GetFont</code> call.</p>
+<pre><code class="lang-csharp">myConsole.Font = fontMaster.GetFont(SadConsole.Font.FontSizes.Two);
+</code></pre>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

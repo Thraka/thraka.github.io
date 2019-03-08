@@ -1,0 +1,321 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>title: How to make a scrolling Console
+layout: docpage
+comments: false
+searcharchive: true </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="title: How to make a scrolling Console
+layout: docpage
+comments: false
+searcharchive: true ">
+    <meta name="generator" content="docfx 2.40.11.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/dracula.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" src="../../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="title-how-to-make-a-scrolling-consolelayout-docpagecomments-falsesearcharchive-true">title: How to make a scrolling Console
+layout: docpage
+comments: false
+searcharchive: true</h2>
+
+<blockquote>
+<p><strong>NOTE</strong><br>
+This article was written for version 7 of SadConsole.</p>
+</blockquote>
+<p>Because a console already supports the concept of a view port, you can combine it with a scroll bar to control what is shown on the screen. These two items would effectively create a user controlled scrolling console. You could have this become a map or even a more traditional &quot;console&quot; where the user scrolls up/down to see the history.</p>
+<p>This article will show how to create a scrollable-history console.</p>
+<h2 id="three-consoles">Three consoles</h2>
+<p>We're using three types of consoles to make a user-scrollable console: a normal <code>Console</code> which is the main display, a <code>ControlsConsole</code> to host the scroll bar, and a <code>ConsoleContainer</code> to group it all together.</p>
+<p>Since the <code>ConsoleContainer</code> groups the main console and the scrolling part together, it will represent our new <code>ScrollingConsole</code> class. This class will define:</p>
+<ol>
+<li>The <strong>width</strong>/<strong>height</strong> of the console. (Displayble portion of the console)</li>
+<li>The <strong>buffer</strong> height of the console. (Max height of the console; scrollable area)</li>
+<li>The controls console to host a scroll bar control.</li>
+<li>How much of the buffer has been used.</li>
+</ol>
+<pre><code class="lang-csharp">class ScrollingConsole: SadConsole.ConsoleContainer
+{
+    SadConsole.Console mainConsole;                 // The main console that is typed into
+    SadConsole.ControlsConsole controlsHost;        // The scroll bar host
+    SadConsole.Controls.ScrollBar scrollBar;        // The scroll bar
+
+    int scrollingCounter;   // This is a counter to indicate how much buffer is used
+
+    public ScrollingConsole(int width, int height, int bufferHeight)
+    {
+        UseKeyboard = true;
+        UseMouse = true;
+        controlsHost = new ControlsConsole(1, height);
+
+        mainConsole = new Console(width - 1, bufferHeight);
+        mainConsole.ViewPort = new Rectangle(0, 0, width - 1, height);
+        mainConsole.Cursor.IsVisible = true;
+
+        scrollBar = SadConsole.Controls.ScrollBar.Create(SadConsole.Orientation.Vertical, height);
+        scrollBar.IsEnabled = false;
+        scrollBar.ValueChanged += ScrollBar_ValueChanged;
+
+        controlsHost.Add(scrollBar);
+        controlsHost.Position = new Point(1 + mainConsole.Width, Position.Y);
+
+        Children.Add(mainConsole);
+        Children.Add(controlsHost);
+
+        scrollingCounter = 0;
+    }
+
+    private void ScrollBar_ValueChanged(object sender, EventArgs e)
+    {
+        // Set the visible area of the console based on where the scroll bar is
+        mainConsole.ViewPort = new Rectangle(0, scrollBar.Value, mainConsole.Width, mainConsole.ViewPort.Height);
+    }
+
+}
+</code></pre>
+<p>The code above does a few things. First it creates the main console that will be scrolled (<code>mainConsole</code>), setting the view area and height buffer. Then it creates the scroll bar (<code>scrollBar</code>) and a controls console (<code>controlsHost</code>) to hold it. These two consoles are added to the current base class, <code>ConsoleContainer</code> with the <code>Children.Add</code> method.</p>
+<h2 id="handling-the-input">Handling the input</h2>
+<p>Our class, <code>ScrollingConsole</code>, is the main console we add to <code>SadConsole.Global.CurrentScreen</code> (or to some other parent) so that it receives input. When it gets input, it will be forwarded to one of the child consoles. The <code>mainConsole</code> object will receive the keyboard input and the <code>controlsHost</code> will receive mouse input. Keyboard input is used to type in the <code>mainConsole</code>, and mouse input is used to move the scroll bar.</p>
+<pre><code class="lang-csharp">class ScrollingConsole: SadConsole.ConsoleContainer
+{
+    ...
+
+    public override bool ProcessKeyboard(Keyboard state)
+    {
+        // Send keyboard input to the main console
+        return mainConsole.ProcessKeyboard(state);
+    }
+
+    public override bool ProcessMouse(MouseConsoleState state)
+    {
+        // Check the scroll bar for mouse info first. If mouse not handled by scroll bar, then..
+
+        // Create a mouse state based on the controlsHost
+        if (!controlsHost.ProcessMouse(new MouseConsoleState(controlsHost, state.Mouse)))
+        {
+            // Process this console normally.
+            return mainConsole.ProcessMouse(state);
+        }
+
+        return false;
+    }
+
+}
+</code></pre>
+<p>Next we need to monitor how many times the console gets scrolled from input. This increases our <code>scrollingCounter</code> variable and modifies the scroll bar's maximum to allow scrolling to the correct areas.</p>
+<pre><code class="lang-csharp">class ScrollingConsole: SadConsole.ConsoleContainer
+{
+    ...
+
+    public override void Update(TimeSpan delta)
+    {
+        base.Update(delta);
+
+        // If we detect that this console has shifted the data up for any reason (like the virtual cursor reached the
+        // bottom of the entire text surface, OR we reached the bottom of the render area, we need to adjust the 
+        // scroll bar and follow the cursor
+        if (mainConsole.TimesShiftedUp != 0 | mainConsole.Cursor.Position.Y &gt;= mainConsole.ViewPort.Height + scrollingCounter)
+        {
+            // Once the buffer has finally been filled enough to need scrolling (a single screen's worth), turn on the scroll bar
+            scrollBar.IsEnabled = true;
+
+            // Make sure we've never scrolled the entire size of the buffer
+            if (scrollingCounter &lt; mainConsole.Height - mainConsole.ViewPort.Height)
+                // Record how much we've scrolled to enable how far back the bar can see
+                scrollingCounter += mainConsole.TimesShiftedUp != 0 ? mainConsole.TimesShiftedUp : 1;
+
+            scrollBar.Maximum = (mainConsole.Height + scrollingCounter) - mainConsole.Height;
+
+            // This will follow the cursor since we move the render area in the event.
+            scrollBar.Value = scrollingCounter;
+
+            // Reset the shift amount.
+            mainConsole.TimesShiftedUp = 0;
+        }
+    }
+
+}
+</code></pre>
+<p>And that's it. The console now has the ability to scroll the designated height buffer. Here is the code to the entire class.</p>
+<h2 id="finished-class">Finished class</h2>
+<pre><code class="lang-csharp">class ScrollingConsole : SadConsole.ConsoleContainer
+{
+    SadConsole.Console mainConsole;                 // The main console that is typed into
+    SadConsole.ControlsConsole controlsHost;        // The scroll bar host
+    SadConsole.Controls.ScrollBar scrollBar;        // The scroll bar
+
+    int scrollingCounter;   // This is a counter to indicate how much buffer is used
+
+    public ScrollingConsole(int width, int height, int bufferHeight)
+    {
+        UseKeyboard = true;
+        UseMouse = true;
+        controlsHost = new ControlsConsole(1, height);
+
+        mainConsole = new Console(width - 1, bufferHeight);
+        mainConsole.ViewPort = new Rectangle(0, 0, width - 1, height);
+        mainConsole.Cursor.IsVisible = true;
+
+        scrollBar = SadConsole.Controls.ScrollBar.Create(SadConsole.Orientation.Vertical, height);
+        scrollBar.IsEnabled = false;
+        scrollBar.ValueChanged += ScrollBar_ValueChanged;
+
+        controlsHost.Add(scrollBar);
+        controlsHost.Position = new Point(1 + mainConsole.Width, Position.Y);
+
+        Children.Add(mainConsole);
+        Children.Add(controlsHost);
+
+        scrollingCounter = 0;
+    }
+
+    private void ScrollBar_ValueChanged(object sender, EventArgs e)
+    {
+        // Set the visible area of the console based on where the scroll bar is
+        mainConsole.ViewPort = new Rectangle(0, scrollBar.Value, mainConsole.Width, mainConsole.ViewPort.Height);
+    }
+
+    public override bool ProcessKeyboard(Keyboard state)
+    {
+        // Send keyboard input to the main console
+        return mainConsole.ProcessKeyboard(state);
+    }
+
+    public override bool ProcessMouse(MouseConsoleState state)
+    {
+        // Check the scroll bar for mouse info first. If mouse not handled by scroll bar, then..
+
+        // Create a mouse state based on the controlsHost
+        if (!controlsHost.ProcessMouse(new MouseConsoleState(controlsHost, state.Mouse)))
+        {
+            // Process this console normally.
+            return mainConsole.ProcessMouse(state);
+        }
+
+        return false;
+    }
+
+    public override void Update(TimeSpan delta)
+    {
+        base.Update(delta);
+
+        // If we detect that this console has shifted the data up for any reason (like the virtual cursor reached the
+        // bottom of the entire text surface, OR we reached the bottom of the render area, we need to adjust the 
+        // scroll bar and follow the cursor
+        if (mainConsole.TimesShiftedUp != 0 | mainConsole.Cursor.Position.Y &gt;= mainConsole.ViewPort.Height + scrollingCounter)
+        {
+            // Once the buffer has finally been filled enough to need scrolling (a single screen's worth), turn on the scroll bar
+            scrollBar.IsEnabled = true;
+
+            // Make sure we've never scrolled the entire size of the buffer
+            if (scrollingCounter &lt; mainConsole.Height - mainConsole.ViewPort.Height)
+                // Record how much we've scrolled to enable how far back the bar can see
+                scrollingCounter += mainConsole.TimesShiftedUp != 0 ? mainConsole.TimesShiftedUp : 1;
+
+            scrollBar.Maximum = (mainConsole.Height + scrollingCounter) - mainConsole.Height;
+
+            // This will follow the cursor since we move the render area in the event.
+            scrollBar.Value = scrollingCounter;
+
+            // Reset the shift amount.
+            mainConsole.TimesShiftedUp = 0;
+        }
+    }
+}
+</code></pre>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>What is a Console? </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="What is a Console? ">
+    <meta name="generator" content="docfx 2.40.11.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/dracula.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" src="../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="what-is-a-console">What is a Console?</h1>
+
+<p>The <code>SadConsole.Console</code> type is the main type of object you'll be interacting with in SadConsole. It represents a grid of cells that you can manipulate. It also has a bunch of functionality that makes it so that you can use it like a terminal. It is not exactly meant to emulate a complete terminal, but it has some similar capabilities. The console also provides keyboard and mouse input processing. A <code>Cursor</code> object is provided that emulates a terminal cursor.</p>
+<p>Each cell in the console is a <code>SadConsole.Cell</code> object. A <code>Cell</code> is a glyph with a foreground and background color. The console itself provides methods for printing text. Other methods such as shifting the entire surface in a direction, setting the background color of a single cell, or drawing a box shape, are provided. SadConsole has two main functions that are performed on consoles as the game loop runs:</p>
+<ol>
+<li>Update</li>
+<li>Draw</li>
+</ol>
+<p>Intermixed in that process are all sorts of other things, input management, texture caching for performance, screen position calculations, etc.</p>
+<p>The following types are the objects that are related to console.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SadConsole.CellSurface</td>
+<td>A <code>CellSurface</code> is the base class for <code>Console</code>. It represents a collection of cells that can be printed to.</td>
+</tr>
+<tr>
+<td>SadConsole.Console</td>
+<td>Provides keyboard, mouse, virtual cursor support. Renders the cell data to the screen.</td>
+</tr>
+<tr>
+<td>SadConsole.ContainerConsole</td>
+<td>A special console that does not but contain other consoles. This disables all rendering and is a <strong>1x1</strong> in size. It shouldn't be used like a console.</td>
+</tr>
+<tr>
+<td>SadConsole.ScrollingConsole</td>
+<td>The same as a normal <code>Console</code> but provides a <code>ViewPort</code> property to allow displaying a subsection of the console.</td>
+</tr>
+<tr>
+<td>SadConsole.LayeredConsole</td>
+<td>Inherits from <code>ScrollingConsole</code>, but provides multiple layers.</td>
+</tr>
+<tr>
+<td>SadConsole.ControlsConsole</td>
+<td>Inherits from <code>ScrollingConsole</code>, but adds a GUI-like control system.</td>
+</tr>
+<tr>
+<td>SadConsole.AnimatedConsole</td>
+<td>Inherits from <code>Console</code> and allows you to store multiple frames of surfaces. Provides a play system to play back the animation to the screen.</td>
+</tr>
+<tr>
+<td>SadConsole.Entities.Entity</td>
+<td>Inherits from <code>Console</code> and allows you to store multiple <code>SadConsole.AnimatedConsole</code> animations.</td>
+</tr>
+</tbody>
+</table>
+<p>For more information about printing on a console, see <a href="how-to-create-a-console.html">How to create a console</a>.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Thraka/thraka.github.io/blob/source/articles/what-is-a-console.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
