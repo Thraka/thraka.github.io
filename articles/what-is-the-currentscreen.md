@@ -56,7 +56,7 @@ If you compare this screenshot with the previous, you'll notice that `console2` 
 
 ![two example consoles](~/images/what-is-the-currentscreen/parented-consoles.png)
 
-```plaintext
+```console
 Global.CurrentScreen [Pos: (0,0) Drawn: (0,0)]
 │
 ├───console1 [Pos: (3,3) Drawn: (3,3)]
