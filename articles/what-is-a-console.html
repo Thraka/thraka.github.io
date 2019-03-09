@@ -70,13 +70,8 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="what-is-a-console">What is a Console?</h1>
 
-<p>The <code>SadConsole.Console</code> type is the main type of object you'll be interacting with in SadConsole. It represents a grid of cells that you can manipulate. It also has a bunch of functionality that makes it so that you can use it like a terminal. It is not exactly meant to emulate a complete terminal, but it has some similar capabilities. The console also provides keyboard and mouse input processing. A <code>Cursor</code> object is provided that emulates a terminal cursor.</p>
-<p>Each cell in the console is a <code>SadConsole.Cell</code> object. A <code>Cell</code> is a glyph with a foreground and background color. The console itself provides methods for printing text. Other methods such as shifting the entire surface in a direction, setting the background color of a single cell, or drawing a box shape, are provided. SadConsole has two main functions that are performed on consoles as the game loop runs:</p>
-<ol>
-<li>Update</li>
-<li>Draw</li>
-</ol>
-<p>Intermixed in that process are all sorts of other things, input management, texture caching for performance, screen position calculations, etc.</p>
+<p>The <a class="xref" href="../api/SadConsole.Console.html">Console</a> is the main type of object in SadConsole. It's sized by width and height which is made up a grid of cells. Each <a class="xref" href="../api/SadConsole.Cell.html">Cell</a> in the console is made up of a glyph character, a foreground color, and a background color. Console's let you print to them and even provide a <a class="xref" href="../api/SadConsole.Console.html#SadConsole_Console_Cursor">Cursor</a> property to allow to use the console like a terminal.</p>
+<h2 id="types">Types</h2>
 <p>The following types are the objects that are related to console.</p>
 <table>
 <thead>
@@ -87,40 +82,51 @@
 </thead>
 <tbody>
 <tr>
-<td>SadConsole.CellSurface</td>
+<td><a class="xref" href="../api/SadConsole.CellSurface.html">CellSurface</a></td>
 <td>A <code>CellSurface</code> is the base class for <code>Console</code>. It represents a collection of cells that can be printed to.</td>
 </tr>
 <tr>
-<td>SadConsole.Console</td>
+<td><a class="xref" href="../api/SadConsole.Console.html">Console</a></td>
 <td>Provides keyboard, mouse, virtual cursor support. Renders the cell data to the screen.</td>
 </tr>
 <tr>
-<td>SadConsole.ContainerConsole</td>
+<td><a class="xref" href="../api/SadConsole.ContainerConsole.html">ContainerConsole</a></td>
 <td>A special console that does not but contain other consoles. This disables all rendering and is a <strong>1x1</strong> in size. It shouldn't be used like a console.</td>
 </tr>
 <tr>
-<td>SadConsole.ScrollingConsole</td>
+<td><a class="xref" href="../api/SadConsole.ScrollingConsole.html">ScrollingConsole</a></td>
 <td>The same as a normal <code>Console</code> but provides a <code>ViewPort</code> property to allow displaying a subsection of the console.</td>
 </tr>
 <tr>
-<td>SadConsole.LayeredConsole</td>
+<td><a class="xref" href="../api/SadConsole.LayeredConsole.html">LayeredConsole</a></td>
 <td>Inherits from <code>ScrollingConsole</code>, but provides multiple layers.</td>
 </tr>
 <tr>
-<td>SadConsole.ControlsConsole</td>
+<td><a class="xref" href="../api/SadConsole.ControlsConsole.html">ControlsConsole</a></td>
 <td>Inherits from <code>ScrollingConsole</code>, but adds a GUI-like control system.</td>
 </tr>
 <tr>
-<td>SadConsole.AnimatedConsole</td>
+<td><a class="xref" href="../api/SadConsole.AnimatedConsole.html">AnimatedConsole</a></td>
 <td>Inherits from <code>Console</code> and allows you to store multiple frames of surfaces. Provides a play system to play back the animation to the screen.</td>
 </tr>
 <tr>
-<td>SadConsole.Entities.Entity</td>
+<td><a class="xref" href="../api/SadConsole.Entities.Entity.html">Entity</a></td>
 <td>Inherits from <code>Console</code> and allows you to store multiple <code>SadConsole.AnimatedConsole</code> animations.</td>
 </tr>
 </tbody>
 </table>
-<p>For more information about printing on a console, see <a href="how-to-create-a-console.html">How to create a console</a>.</p>
+<h2 id="using-a-console">Using a console</h2>
+<p>When a console is created, the width and height are specified. The console starts out blank and then you can <a href="how-to-draw-on-a-console.html">change individual cells</a> or <a href="how-to-draw-on-a-console.html#printing">print text</a> on the console.</p>
+<p>The following code creates a console and sets it as the <a class="xref" href="../api/SadConsole.Global.html#SadConsole_Global_CurrentScreen">CurrentScreen</a>.</p>
+<pre><code class="lang-csharp">var defaultConsole = new SadConsole.Console(80, 25);
+defaultConsole.Print(0, 0, &quot;WELCOME TO THE CONSOLE - PLEASE BEGIN TYPING&quot;);
+defaultConsole.Cursor.IsVisible = true;
+defaultConsole.Cursor.Position = new Point(0, 2);
+
+SadConsole.Global.CurrentScreen = defaultConsole;
+SadConsole.Global.FocusedConsoles.Set(defaultConsole);
+</code></pre>
+<p>For more information, see <a href="how-to-create-a-console.html">How to create a console</a>.</p>
 </article>
           </div>
           

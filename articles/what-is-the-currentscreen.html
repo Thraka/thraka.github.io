@@ -70,15 +70,15 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="what-is-sadconsoleglobalcurrentscreen">What is SadConsole.Global.CurrentScreen?</h1>
 
-<p>SadConsole uses the <code>SadConsole.Global.CurrentScreen</code> property to determine what objects are going to be drawn and processed each frame. The current screen starts out as a <code>ContainerConsole</code>, which is a dead console that doesn't render anything. However, all <code>Console</code> types allows you to add other <code>Console</code> types as children. If you add a console to the <code>SadConsole.Global.CurrentScreen.Children</code> collection, then when <code>SadConsole.Global.CurrentScreen</code> is processed by the game engine, all children are also processed. So even though the <code>CurrentScreen</code> is a <code>ContainerConsole</code> and has nothing to render for itself, the children will still be rendered.</p>
-<p>In general, a <code>Console</code> type handles the following:</p>
+<p>SadConsole uses the <a class="xref" href="../api/SadConsole.Global.html#SadConsole_Global_CurrentScreen">CurrentScreen</a> property to determine what objects are going to be drawn and processed each frame. The current screen starts out as a <a class="xref" href="../api/SadConsole.ContainerConsole.html">ContainerConsole</a>, which is a dead console that doesn't render anything. However, all <a class="xref" href="../api/SadConsole.Console.html">Console</a> types allows you to add other <a class="xref" href="../api/SadConsole.Console.html">Console</a> types as children. If you add a console to the @SadConsole.Global.CurrentScreen.Children collection, then when <a class="xref" href="../api/SadConsole.Global.html#SadConsole_Global_CurrentScreen">CurrentScreen</a> is processed by the game engine, all children are also processed. So even though the <a class="xref" href="../api/SadConsole.Global.html#SadConsole_Global_CurrentScreen">CurrentScreen</a> is a <a class="xref" href="../api/SadConsole.ContainerConsole.html">ContainerConsole</a> and has nothing to render for itself, the children will still be rendered.</p>
+<p>In general, a <a class="xref" href="../api/SadConsole.Console.html">Console</a> type handles the following:</p>
 <ol>
 <li>Positioning</li>
 <li>Visibility</li>
 <li>Game loop processing for <em>Update</em> and <em>Draw</em>.</li>
-<li>Parent-child relationship with other <code>Console</code> types.</li>
+<li>Parent-child relationship with other <a class="xref" href="../api/SadConsole.Console.html">Console</a> types.</li>
 </ol>
-<p>You can add what you want to the current screen to get it in the system. For example, this code would add two small consoles to the <code>CurrentScreen</code>:</p>
+<p>Child objects you added to the current screen become processed by SadConsole each frame. For example, this code would add two small consoles to the <a class="xref" href="../api/SadConsole.Global.html#SadConsole_Global_CurrentScreen">CurrentScreen</a> which would be rendered:</p>
 <pre><code class="lang-csharp">var console1 = new SadConsole.Console(10, 4);
 console1.Fill(Color.DarkBlue, Color.LightGray, 0);
 console1.Print(1, 1, &quot;Hello!&quot;);
@@ -94,7 +94,7 @@ SadConsole.Global.CurrentScreen.Children.Add(console2);
 </code></pre>
 <p><img src="../images/what-is-the-currentscreen/two-consoles.png" alt="two example consoles"></p>
 <p>At this point, the object hierarchy in current screen looks like the following:</p>
-<pre><code>Global.CurrentScreen
+<pre><code class="lang-console">Global.CurrentScreen
 │
 ├───console1
 └───console2
@@ -103,7 +103,7 @@ SadConsole.Global.CurrentScreen.Children.Add(console2);
 <pre><code class="lang-csharp">console1.Children.Add(console2);
 Global.CurrentScreen.Children.Add(console1);
 </code></pre>
-<pre><code>Global.CurrentScreen
+<pre><code class="lang-console">Global.CurrentScreen
 │
 └───console1
     │
@@ -111,13 +111,13 @@ Global.CurrentScreen.Children.Add(console1);
 </code></pre>
 <p>If you compare this screenshot with the previous, you'll notice that <code>console2</code> is positioned in a slightly different place than before. That is because the position of where something is drawn is based on its parents position. Here are the position settings with both consoles added directly to the current screen:</p>
 <p><img src="../images/what-is-the-currentscreen/parented-consoles.png" alt="two example consoles"></p>
-<pre><code>Global.CurrentScreen [Pos: (0,0) Drawn: (0,0)]
+<pre><code class="lang-console">Global.CurrentScreen [Pos: (0,0) Drawn: (0,0)]
 │
 ├───console1 [Pos: (3,3) Drawn: (3,3)]
 └───console2 [Pos: (14,4) Drawn: (14,4)]
 </code></pre>
 <p>Since <code>CurrentScreen</code> is positioned at <strong>(0,0)</strong> and it's the root console (it has no parent), it's drawn at its position. Any child consoles would be positioned relative to (0,0), and therefore, drawn where they were positioned. If, as in the second code example above, we changed the parent of <code>console2</code> from <code>CurrentScreen</code> to <code>console1</code>, this would draw <code>console2</code> at a different place:</p>
-<pre><code>Global.CurrentScreen [Pos: (0,0) Drawn: (0,0)]
+<pre><code class="lang-console">Global.CurrentScreen [Pos: (0,0) Drawn: (0,0)]
 │
 └───console1 [Pos: (3,3) Drawn: (3,3)]
     │

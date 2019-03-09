@@ -41,7 +41,7 @@ $(function () {
   // window.addEventListener('content-update', contentUpdate);
 
   function breakText() {
-    $(".xref").addClass("text-break");
+    //$(".xref").addClass("text-break");
     var texts = $(".text-break");
     texts.each(function () {
       $(this).breakWord();

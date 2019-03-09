@@ -26,7 +26,24 @@ foant-family: DOS,SimHei,Monaco,Menlo,Consolas,'Courier New';
 */
 
 
-
+:root {
+  --color-black: #000;
+  --color-black-bright: #555;
+  --color-blue: #0000b4;
+  --color-blue-bright: #55f;
+  --color-green: #0a0;
+  --color-green-bright: #0f0;
+  --color-cyan: #077;
+  --color-cyan-bright: #0ff;
+  --color-red: #700;
+  --color-red-bright: #f55;
+  --color-magenta: #a0a;
+  --color-magenta-bright: #f5f;
+  --color-yellow: #a50;
+  --color-yellow-bright: #ff5;
+  --color-white: #aaa;
+  --color-white-bright: #fff;
+}
 
 @font-face {
   font-family: 'Hack';
@@ -69,26 +86,26 @@ body {
   font-size: 14px;
   line-height: 18px;
   font-family: Hack;
-  background-color: #000084;
-  color: #bbb;
+  background-color: var(--color-blue);
+  color: var(--color-white);
 }
 
 body .toc{
-  background-color: #000084;
+  background-color: var(--color-blue);
   overflow-x: hidden;
 }
 
 .footer {
-  background-color: #0000b4;
+  background-color: var(--color-blue);
 }
 
 .navbar-default {
-  background-color: #000084;
-  border-color: #000084;
+  background-color: var(--color-blue);
+  border-color: var(--color-blue);
 }
 
 .navbar-inverse {
-  background-color: black;
+  background-color: var(--color-black);
   border-color: #080808;
 }
 
@@ -102,19 +119,19 @@ body .toc{
 }
 
 .sidetoc {
-  background-color: #000084;
+  background-color: var(--color-blue);
   border-left: 0px solid #e7e7e7;
   border-right: 0px solid #e7e7e7;
 }
 
 .sidefilter {
-  background-color: #000084;
+  background-color: var(--color-blue);
   border-left: 0px solid #e7e7e7;
   border-right: 0px solid #e7e7e7;
 }
 
 .sidenav, .fixed_header, .toc  {
-  background-color: #000084;
+  background-color: var(--color-blue);
 }
 
 .toc .level1 > li {
@@ -129,21 +146,21 @@ body .toc{
 }
 
 .toc .nav > li > a {
-  color: #080;
+  color: var(--color-green);
   margin-bottom: 3px;
 }
 
 .toc .nav > li.active > a {
-  color: #5f5;
+  color: var(--color-green-bright);
 }
 .toc .nav > li.active > a:hover,
 .toc .nav > li.active > a:focus {
-  color: #5f5;
+  color: var(--color-green-bright);
 }
 
 .toc .nav > li > a:hover,
 .toc .nav > li > a:focus {
-  color: #5f5;
+  color: var(--color-green-bright);
 }
 
 .sideaffix {
@@ -157,11 +174,11 @@ body .toc{
 }
 
 strong {
-  color: rgb(255, 85, 85);
+  color: var(--color-red-bright);
   font-weight: normal;
 }
 em {
-  color: fuchsia;
+  color: var(--color-purple-bright);
   font-weight: normal;
   font-style: normal;
 }
@@ -181,7 +198,7 @@ code {
   padding: 0px 0px;
   background: inherit;
   font-size: 14px;
-  color: rgb(85, 255, 255);
+  color: var(--color-cyan-bright);
 }
 
 pre code {
@@ -206,21 +223,21 @@ pre code {
 
 h1 {
   font-size: 24px;
-  color: white;
+  color: var(--color-white-bright);
 }
 
 h2::before {
   content: "\2500[";
-  color: #5ff;
+  color: var(--color-cyan-bright);
 }
 h2 {
   font-size: 18px;
-  color: #5f5;
+  color: var(--color-green-bright);
 }
 h2::after {
   /*content: " ]\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\a0\2500\a0\B7";*/
   content: "]\2500";
-  color: #5ff;
+  color: var(--color-cyan-bright);
 }
 
 .alert {
@@ -229,7 +246,7 @@ h2::after {
 
 .alert-warning {
   color: inherit;
-  background-color: #5d0000;
+  background-color: var(--color-red);
   border-color: inherit;
 }
 
@@ -241,11 +258,11 @@ h2::after {
       text-transform: uppercase;
       font-weight: normal;
       margin-top: 0;
-      color: red;
+      color: var(--color-red-bright);
     }
 
 .alert-info {
-  color: black;
+  color: var(--color-black);
   background-color: #bbb;
   border-color: black;
 }
@@ -258,13 +275,13 @@ h2::after {
       text-transform: uppercase;
       font-weight: normal;
       margin-top: 0;
-      color: bbb;
+      color: var(--color-black);
     }
 
 .alert-danger {
-  color:inherit;
-  background-color: #176f6f;
-  border-color: #5ff;
+  color: var(--color-white-bright);
+  background-color: var(--color-cyan);
+  border-color: var(--color-cyan-bright);
 }
 
     .alert-danger h5:before {
@@ -275,7 +292,7 @@ h2::after {
       text-transform: uppercase;
       font-weight: normal;
       margin-top: 0;
-      color: white;
+      color: var(--color-white-bright);
     }
 
 
@@ -303,7 +320,7 @@ h2::after {
 }
 .affix ul > li.active > a,
 .affix ul > li.active > a:before {
-  color: #5f5;
+  color: var(--color-green-bright);
 }
 .affix ul > li > a {
   padding: 5px 12px;
@@ -317,7 +334,7 @@ h2::after {
 }
 .affix > ul > li.active > a,
 .affix > ul > li.active > a:before {
-  color: #5f5;
+  color: var(--color-green-bright);
   font-weight: normal;
 }
 .affix ul ul > li > a:before {
@@ -340,11 +357,18 @@ h2::after {
   font-size: 14px;
 }
 
-article h4 {
+.h4, h4 {
   color: fuchsia;
-  border-bottom: 2px solid #5ff;
+  /*border-bottom: 2px solid var(--color-cyan-bright);*/
+  border-bottom: unset;
   padding-bottom: 0.2em;
   font-size: 16px;
+}
+
+.h3, h3 {
+  font-size: 16px;
+  color: var(--color-green-bright);
+  text-decoration: underline;
 }
 
 .anchorjs-link {
@@ -370,6 +394,10 @@ a.disable:hover {
   text-decoration: none;
   cursor: default;
   color: #000000;
+}
+
+.sideaffix > div.contribution > ul > li > a.contribution-link:hover {
+  background-color: var(--color-yellow);
 }
 
 .table td,.table th{background-color:inherit!important}
