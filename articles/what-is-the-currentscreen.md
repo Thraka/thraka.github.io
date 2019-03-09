@@ -1,15 +1,15 @@
 # What is SadConsole.Global.CurrentScreen?
 
-SadConsole uses the `SadConsole.Global.CurrentScreen` property to determine what objects are going to be drawn and processed each frame. The current screen starts out as a `ContainerConsole`, which is a dead console that doesn't render anything. However, all `Console` types allows you to add other `Console` types as children. If you add a console to the `SadConsole.Global.CurrentScreen.Children` collection, then when `SadConsole.Global.CurrentScreen` is processed by the game engine, all children are also processed. So even though the `CurrentScreen` is a `ContainerConsole` and has nothing to render for itself, the children will still be rendered.
+SadConsole uses the @SadConsole.Global.CurrentScreen property to determine what objects are going to be drawn and processed each frame. The current screen starts out as a @SadConsole.ContainerConsole, which is a dead console that doesn't render anything. However, all @SadConsole.Console types allows you to add other @SadConsole.Console types as children. If you add a console to the @SadConsole.Global.CurrentScreen.Children collection, then when @SadConsole.Global.CurrentScreen is processed by the game engine, all children are also processed. So even though the @SadConsole.Global.CurrentScreen is a @SadConsole.ContainerConsole and has nothing to render for itself, the children will still be rendered.
 
-In general, a `Console` type handles the following:
+In general, a @SadConsole.Console type handles the following:
 
 01. Positioning
 01. Visibility
 01. Game loop processing for *Update* and *Draw*.
-01. Parent-child relationship with other `Console` types.
+01. Parent-child relationship with other @SadConsole.Console types.
 
-You can add what you want to the current screen to get it in the system. For example, this code would add two small consoles to the `CurrentScreen`:
+Child objects you added to the current screen become processed by SadConsole each frame. For example, this code would add two small consoles to the @SadConsole.Global.CurrentScreen which would be rendered:
 
 ```csharp
 var console1 = new SadConsole.Console(10, 4);
@@ -30,7 +30,7 @@ SadConsole.Global.CurrentScreen.Children.Add(console2);
 
 At this point, the object hierarchy in current screen looks like the following:
 
-```
+```console
 Global.CurrentScreen
 │
 ├───console1
@@ -44,7 +44,7 @@ console1.Children.Add(console2);
 Global.CurrentScreen.Children.Add(console1);
 ```
 
-```
+```console
 Global.CurrentScreen
 │
 └───console1
@@ -56,7 +56,7 @@ If you compare this screenshot with the previous, you'll notice that `console2` 
 
 ![two example consoles](~/images/what-is-the-currentscreen/parented-consoles.png)
 
-```
+```plaintext
 Global.CurrentScreen [Pos: (0,0) Drawn: (0,0)]
 │
 ├───console1 [Pos: (3,3) Drawn: (3,3)]
@@ -65,7 +65,7 @@ Global.CurrentScreen [Pos: (0,0) Drawn: (0,0)]
 
 Since `CurrentScreen` is positioned at **(0,0)** and it's the root console (it has no parent), it's drawn at its position. Any child consoles would be positioned relative to (0,0), and therefore, drawn where they were positioned. If, as in the second code example above, we changed the parent of `console2` from `CurrentScreen` to `console1`, this would draw `console2` at a different place:
 
-```
+```console
 Global.CurrentScreen [Pos: (0,0) Drawn: (0,0)]
 │
 └───console1 [Pos: (3,3) Drawn: (3,3)]
