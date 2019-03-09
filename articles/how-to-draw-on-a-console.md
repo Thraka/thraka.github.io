@@ -4,11 +4,11 @@ Each console provides methods to change cell colors, glyphs, print text, draw bo
 
 The `SadConsole.Console` is broken up into multiple cells, all arranged in a grid. Each cell can change its foreground and background color and the character glyph it is currently showing.
 
-### Color
+## Color
 
 The foreground or the background of a cell can be colored. When the background is colored, it fills the entire cell with that color. When the foreground is colored, it changes the color of the character glyph being displayed in that cell.
 
-#### Background
+### Background
 
 You can set or get the background color of a cell by using its **x,y** coordinates and the `SetBackground` or `GetBackground` method.
 
@@ -20,7 +20,7 @@ console.SetBackground(10, 10, Microsoft.Xna.Framework.Color.White);
 var color1 = console.GetBackground(10, 10);
 ```
 
-#### Foreground
+### Foreground
 
 You can set or get the foreground color of a cell by using its **x,y** coordinates and the `SetForeground` or `GetForeground` method. However, if the character glyph of the cell is (and by default it is) blank, you will not see any foreground coloring.
 
@@ -32,10 +32,10 @@ console.SetForeground(10, 10, Microsoft.Xna.Framework.Color.Blue);
 var color1 = console.GetForeground(10, 10);
 ```
 
-#### Character
+## Character
 The character displayed on a cell can be changed by using its **x,y** coordinates and calling the `SetGlyph` method. It works much the same as the color does. You can get or set the character in a cell. The overloads for the `SetGlyph` method also allow you to provide foreground and background colors if you want.
 
-##### Set/Get a character using int
+### Set/Get a character using int
 
 ```csharp
 // Set the character to index 1 on the font sheet, a smiley face.
@@ -45,7 +45,7 @@ console.SetGlyph(10, 10, 1);
 int character = console.GetGlyph(10, 10);
 ```
 
-##### Set a character using System.Char
+### Set a character using System.Char
 
 .NET easiy converts between the `char` type and the `int` type. 
 
@@ -54,19 +54,19 @@ char character = 'B';
 console.SetGlyph(10, 10, character);
 ```
 
-##### Set a character along with a foreground color
+### Set a character along with a foreground color
 
 ```csharp
 console.SetGlyph(10, 10, 13, Color.Purple);
 ```
 
-##### Set a character along with a foreground and background color
+### Set a character along with a foreground and background color
 
 ```csharp
 console.SetGlyph(10, 10, 13, Color.Purple, Color.Green);
 ```
 
-#### Working with strings
+## Printing
 Setting the glyph cell-by-cell is not very efficient when you have a string you want to print. The console provides a way to print an entire string.
 
 ```csharp

@@ -1,5 +1,7 @@
 # Create your first console
 
+The @SadConsole.Console is the main type of object in SadConsole. It's sized by width and height which is made up a grid of cells. Consoles can be created at anytime and are only drawn to the screen when they are added to the @SadConsole.Global.CurrentScreen object. For more information about consoles, see [What is a console?](what-is-a-console.md)
+
 A console that you use in your program can be created in two ways:
 
 01. Create a new instance of the built in `SadConsole.Console` type.
