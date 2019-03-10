@@ -81,7 +81,7 @@ private static void PrintHeader()
             color = color.GetRandomColor(SadConsole.Global.Random);
         }
     }
-    
+
     counter = 0;
     color = startingColor;
     for (int y = 0; y < RootDynamicConsole.Height; y++)
