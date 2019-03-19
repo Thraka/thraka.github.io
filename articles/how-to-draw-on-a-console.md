@@ -60,7 +60,7 @@ console.SetGlyph(10, 10, character);
 console.SetGlyph(10, 10, 13, Color.Purple);
 ```
 
-### Set a character along with a foreground and background color
+### Set a character with fore/back color
 
 ```csharp
 console.SetGlyph(10, 10, 13, Color.Purple, Color.Green);
