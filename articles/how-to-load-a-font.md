@@ -16,9 +16,9 @@ SadConsole stores fonts in the <xref:SadConsole.Global.Fonts?displayProperty=ful
 var fontMaster = SadConsole.Global.LoadFont("fonts/IBM.font");
 ```
 
-The code above loads the font and returns the <xref:SadConsole.Global.FontMaster> object. By calling <xref:SadConsole.Global.LoadFont(System.String)> the font was also added to the <xref:SadConsole.Global.Fonts?displayProperty=fullName> dictionary.
+The code above loads the font and returns the <xref:SadConsole.FontMaster?displayProperty=fullName> object. By calling <xref:SadConsole.Global.LoadFont(System.String)> the font was also added to the <xref:SadConsole.Global.Fonts?displayProperty=fullName> dictionary.
 
-The <xref:SadConsole.Global.FontMaster> instance is used to generate a font that can be used by a console.
+The <xref:SadConsole.FontMaster> instance is used to generate a font that can be used by a console.
 
 ```csharp
 var normalSizedFont = fontMaster.GetFont(SadConsole.Font.FontSizes.One);

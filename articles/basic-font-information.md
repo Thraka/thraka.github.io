@@ -2,16 +2,18 @@
 
 Because of the way the SadConsole is designed, you use "tile sets" (a sprite sheet) that maps individual tiles to character codes. Therefore, the "tile set" you use is a set of indexed graphics, or, as is the default with SadConsole, a "tile set" of font characters.
 
-Fonts are made up of two pieces, the graphic file and the font config file.
+Fonts are made up of two pieces, the graphic file and the font config file. Since SadConsole uses MonoGame, the graphic file can be any image format that MonoGame will load. In general, SadConsole uses **png** files.
 
 ## Graphics
+
+The graphic file of the font must use a transparent background, *not* a solid color background. The glyphs in the font graphic should use a pure white color `(255, 255,255)`. There must be a solid-filled glyph in the graphic file..
 
 Here is an example of the standard font graphic included in SadConsole.
 
 ![font sample](../images/basic-font-information/font-sample.png)
 
 >[!NOTE]
->Normally the background of the font texture is transparent, not black. It is black for this article.
+>Normally the background of the font texture is transparent, not black. In this article it is black so that you can see the glyphs.
 
 The font is broken down into cells which are referenced by index. Index 0 represents the top-left cell, and moving right, counts up from 0. Once the index reaches the end of the line, it moves to the next line continuing to count.
 
