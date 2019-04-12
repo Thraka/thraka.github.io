@@ -71,13 +71,14 @@
 <h1 id="basic-font-information">Basic font information</h1>
 
 <p>Because of the way the SadConsole is designed, you use &quot;tile sets&quot; (a sprite sheet) that maps individual tiles to character codes. Therefore, the &quot;tile set&quot; you use is a set of indexed graphics, or, as is the default with SadConsole, a &quot;tile set&quot; of font characters.</p>
-<p>Fonts are made up of two pieces, the graphic file and the font config file.</p>
+<p>Fonts are made up of two pieces, the graphic file and the font config file. Since SadConsole uses MonoGame, the graphic file can be any image format that MonoGame will load. In general, SadConsole uses <strong>png</strong> files.</p>
 <h2 id="graphics">Graphics</h2>
+<p>The graphic file of the font must use a transparent background, <em>not</em> a solid color background. The glyphs in the font graphic should use a pure white color <code>(255, 255,255)</code>. There must be a solid-filled glyph in the graphic file..</p>
 <p>Here is an example of the standard font graphic included in SadConsole.</p>
 <p><img src="../images/basic-font-information/font-sample.png" alt="font sample"></p>
 <div class="NOTE">
 <h5>Note</h5>
-<p>Normally the background of the font texture is transparent, not black. It is black for this article.</p>
+<p>Normally the background of the font texture is transparent, not black. In this article it is black so that you can see the glyphs.</p>
 </div>
 <p>The font is broken down into cells which are referenced by index. Index 0 represents the top-left cell, and moving right, counts up from 0. Once the index reaches the end of the line, it moves to the next line continuing to count.</p>
 <p><img src="../images/basic-font-information/how-font-works.png" alt="font indexing"></p>
