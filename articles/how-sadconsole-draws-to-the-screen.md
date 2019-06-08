@@ -1,4 +1,4 @@
-# How does drawing work?
+# How does drawing work
 
 When SadConsole draws a dirty surface, it does not draw it directly to the screen. Each surface (a Console is a surface) has a <xref:SadConsole.Console.LastRenderResult> property (which is a texture) that represents the last drawn state of the surface. When SadConsole is ready to draw the screen, all of the visible surfaces are gathered together (using their <xref:SadConsole.Console.LastRenderResult> value) and drawn on a final texture, <xref:SadConsole.Global.RenderOutput>. This texture is then drawn to the screen.
 

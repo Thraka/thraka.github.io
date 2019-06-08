@@ -1,14 +1,19 @@
 # Create a new SadConsole .NET Core project
 
-This page describes how to create a new project based on SadConsole Standard using .NET Core 2.2. 
+This page describes how to create a new project based on SadConsole Standard using .NET Core 2.2.
 
-.NET Core includes easy ways to create a project, add references, and build/compile, without any sort of editor. This tutorial will show you how to create a new project using the .NET Core SDK. You can then open that project with your editor or IDE of choice.
+The .NET Core SDK includes easy ways to create a project, add references, and build/compile, without any sort of editor. This tutorial will show you how to create a new project using the .NET Core SDK. You can then open that project with your editor or IDE of choice.
 
 SadConsole uses MonoGame 3.7+.
 
+You can also [create a new project in Visual Studio](getting-started-sadconsole-core-visualstudio.md).
+
 ## Prerequisites
 
-[Download and install the .NET Core 2.2 SDK](https://dotnet.microsoft.com/download/dotnet-core/2.2). You can use .NET Core 2.0 through 2.2, or the 3.0 preview. To see what versions you have, run `dotnet --info`. If this command fails, download the .NET Core SDK. 
+[Download and install the .NET Core 2.2 SDK](https://dotnet.microsoft.com/download/dotnet-core/2.2). You can use .NET Core 2.0 through 2.2, or the 3.0 preview. To see what versions you have, run `dotnet --info`. If this command fails, download the .NET Core SDK.
+
+>[!NOTE]
+>.NET Core 3.0 allows you to hide the console window that is automatically generated with a .NET Core app.
 
 ## Create your working folder
 
@@ -54,24 +59,24 @@ The preceding command will display a window with the default background for Mono
 
 ## Add reference to SadConsole
 
-Back in the shell, type the following command to add the [SadConsole.Standard NuGet](https://www.nuget.org/packages/SadConsole.Standard/) project to your game.
+Back in the shell, type the following command to add the [SadConsole NuGet](https://www.nuget.org/packages/SadConsole/) project to your game.
 
 ```shell
-dotnet add package SadConsole.Standard
+dotnet add package SadConsole
 ```
 
 You should see output similar to the following:
 
 ```shell
-info : Adding PackageReference for package 'SadConsole.Standard' into project 'c:\projects\sadconsolegame\sadconsolegame.csproj'.
+info : Adding PackageReference for package 'SadConsole' into project 'c:\projects\sadconsolegame\sadconsolegame.csproj'.
 log  : Restoring packages for c:\projects\sadconsolegame\sadconsolegame.csproj...
-info :   GET https://api.nuget.org/v3-flatcontainer/sadconsole.standard/index.json
-info :   GET https://dotnetmyget.blob.core.windows.net/artifacts/roslyn/nuget/v3/flatcontainer/sadconsole.standard/index.json
-info :   NotFound https://dotnetmyget.blob.core.windows.net/artifacts/roslyn/nuget/v3/flatcontainer/sadconsole.standard/index.json 3421ms
-info :   OK https://api.nuget.org/v3-flatcontainer/sadconsole.standard/index.json 7716ms
-log  : Installing SadConsole.Standard 8.0.0.
-info : Package 'SadConsole.Standard' is compatible with all the specified frameworks in project 'c:\projects\sadconsolegame\sadconsolegame.csproj'.
-info : PackageReference for package 'SadConsole.Standard' version '8.0.0' added to file 'c:\projects\sadconsolegame\sadconsolegame.csproj'.
+info :   GET https://api.nuget.org/v3-flatcontainer/SadConsole/index.json
+info :   GET https://dotnetmyget.blob.core.windows.net/artifacts/roslyn/nuget/v3/flatcontainer/SadConsole/index.json
+info :   NotFound https://dotnetmyget.blob.core.windows.net/artifacts/roslyn/nuget/v3/flatcontainer/SadConsole/index.json 3421ms
+info :   OK https://api.nuget.org/v3-flatcontainer/SadConsole/index.json 7716ms
+log  : Installing SadConsole 8.0.0.
+info : Package 'SadConsole' is compatible with all the specified frameworks in project 'c:\projects\sadconsolegame\sadconsolegame.csproj'.
+info : PackageReference for package 'SadConsole' version '8.0.0' added to file 'c:\projects\sadconsolegame\sadconsolegame.csproj'.
 info : Committing restore...
 log  : Generating MSBuild file c:\projects\sadconsolegame\obj\sadconsolegame.csproj.nuget.g.targets.
 info : Writing lock file to disk. Path: c:\projects\sadconsolegame\obj\project.assets.json
@@ -80,7 +85,7 @@ log  : Restore completed in 8.06 sec for c:\projects\sadconsolegame\sadconsolega
 
 ## Create the game
 
-The preceding command added a reference to SadConsole, but we need to recode the startup of your game to launch SadConsole instead of MonoGame. 
+The preceding command added a reference to SadConsole, but we need to recode the startup of your game to launch SadConsole instead of MonoGame.
 
 The MonoGame template adds a `Game1.cs` file, this is not needed as we'll be recoding how the game starts up. You can delete this file with either the following shell command: `del Game1.cs` or `rm Game1.cs`.
 
