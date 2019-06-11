@@ -171,7 +171,7 @@ static void Init()
 
 If you notice the last line, the `console` variable (the one with all the random colors) is still assigned as the current screen. However, the lines above it have created a second console and attached it to the first console. Let's look at that code line by line.
 
-01. First, a second console is created and assigned to the `childConsole` variable. This one is smaller in size, and if you notice, it's the same size as the black box we created in the previous section of the tutorial: 25 x 3.
+01. First, a second console is created and assigned to the `childConsole` variable. This one is smaller in size, and if you notice, it's just about the same size as the black box we created in the previous section of the tutorial: 25 x 3.
 
     ```csharp
     var childConsole = new Console(25, 3);
@@ -238,7 +238,7 @@ You now have a blank console, which really, you won't be able to tell that it ex
     console.SetBackground(2, 2, Color.DarkGray);
     ```
 
-    Set the glyph of a cell. This changes the character displayed in the cell. The glyph is based on the character code in the font file. For more information about how a font sheet is put together and how the glyph index works, see [Basic Font Information](~\articles\basic-font-information.md).
+    Set the glyph of a cell. This changes the character displayed in the cell. The glyph is based on the character code in the font file. For more information about how a font sheet is put together and how the glyph index works, see [Basic Font Information](~/articles/basic-font-information.md).
 
     ```csharp
     // X, Y, Glyph index
@@ -249,7 +249,7 @@ You now have a blank console, which really, you won't be able to tell that it ex
 
     ```csharp
     // X, Y, Color
-    console.SetBackground(2, 2, Color.DarkBlue);
+    console.SetForeground(2, 2, Color.DarkBlue);
     ```
 
     Change the mirror of a cell. Each cell is initially set to `None` which represents un-mirrored. You can set the mirror to `None`, `FlipHorizontally`, and `FlipVertically`.
@@ -261,7 +261,7 @@ You now have a blank console, which really, you won't be able to tell that it ex
 
 02. Draw shapes on the console.
 
-    Draw a Line. Simply sets the colors and glyph of all cells that fall in the path of a line. The line is made from a starting coordinate an ending coordinate.
+    Draw a Line. Simply sets the colors and glyph of all cells that fall in the path of a line. The line is made from a starting coordinate to the ending coordinate.
 
     ```csharp
     // Start XY, End XY, Foreground color, Background color, Glyph character
