@@ -205,7 +205,7 @@ namespace SadConsoleGame
 </code></pre>
 <p>If you notice the last line, the <code>console</code> variable (the one with all the random colors) is still assigned as the current screen. However, the lines above it have created a second console and attached it to the first console. Let's look at that code line by line.</p>
 <ol>
-<li><p>First, a second console is created and assigned to the <code>childConsole</code> variable. This one is smaller in size, and if you notice, it's the same size as the black box we created in the previous section of the tutorial: 25 x 3.</p>
+<li><p>First, a second console is created and assigned to the <code>childConsole</code> variable. This one is smaller in size, and if you notice, it's just about the same size as the black box we created in the previous section of the tutorial: 25 x 3.</p>
 <pre><code class="lang-csharp">var childConsole = new Console(25, 3);
 </code></pre>
 </li>
@@ -252,13 +252,13 @@ console.Position = new Point(4, 4);
 <pre><code class="lang-csharp">// X, Y, Color
 console.SetBackground(2, 2, Color.DarkGray);
 </code></pre>
-<p>Set the glyph of a cell. This changes the character displayed in the cell. The glyph is based on the character code in the font file. For more information about how a font sheet is put together and how the glyph index works, see <a href="%7E%5Carticles%5Cbasic-font-information.md">Basic Font Information</a>.</p>
+<p>Set the glyph of a cell. This changes the character displayed in the cell. The glyph is based on the character code in the font file. For more information about how a font sheet is put together and how the glyph index works, see <a href="../../basic-font-information.html">Basic Font Information</a>.</p>
 <pre><code class="lang-csharp">// X, Y, Glyph index
 console.SetGlyph(2, 2, 1);
 </code></pre>
 <p>Set the foreground color of a cell. A glyph is displayed in the color of the foreground of the cell. So by changing the foreground color, you change the color of the glyph. If the glyph is set to <code>0</code>, it is blank and you won't see any character symbol and any foreground color for that cell.</p>
 <pre><code class="lang-csharp">// X, Y, Color
-console.SetBackground(2, 2, Color.DarkBlue);
+console.SetForeground(2, 2, Color.DarkBlue);
 </code></pre>
 <p>Change the mirror of a cell. Each cell is initially set to <code>None</code> which represents un-mirrored. You can set the mirror to <code>None</code>, <code>FlipHorizontally</code>, and <code>FlipVertically</code>.</p>
 <pre><code class="lang-csharp">// X, Y, Mirror set
@@ -266,7 +266,7 @@ console.SetMirror(2, 2, Microsoft.Xna.Framework.Graphics.SpriteEffects.FlipVerti
 </code></pre>
 </li>
 <li><p>Draw shapes on the console.</p>
-<p>Draw a Line. Simply sets the colors and glyph of all cells that fall in the path of a line. The line is made from a starting coordinate an ending coordinate.</p>
+<p>Draw a Line. Simply sets the colors and glyph of all cells that fall in the path of a line. The line is made from a starting coordinate to the ending coordinate.</p>
 <pre><code class="lang-csharp">// Start XY, End XY, Foreground color, Background color, Glyph character
 console.DrawLine(new Point(2, 4), new Point(20, 6), Color.BlueViolet, Color.White, 4);
 </code></pre>
