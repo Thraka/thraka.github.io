@@ -284,7 +284,7 @@ You now have a blank console, which really, you won't be able to tell that it ex
 
 You've now explored some of the basics of SadConsole. Keep playing around with these commands. The next part of this series will explore keyboard and mouse input.
 
-This tutorial series is in progress. The next part of the series has not yet been published.
+- [Part 2: Input](part-2-input.md)
 
 [csharp-static]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/static
 [csharp-using]:  https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using
