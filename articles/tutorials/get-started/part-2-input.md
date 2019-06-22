@@ -23,7 +23,7 @@ static void Init()
 
 SadConsole includes a keyboard processing system that reacts to a console that is focused. You can have as many consoles as you want on the screen but only a single console can be set as the "focused" console. By default, no console is focused.
 
-Once you focus a console, it will begin to react to keyboard keys being pressed. Test it out. In your `Init()` method, add the the line `console.IsFocused = true` to set the blank console as focused. When you run the program, start typing on your keyboard. You'll see the keys being printed. This is because every console has a cursor. It is currently hidden though. Add the following code to show it: `console.Cursor.IsVisible = true`. Run your program again, you'll see a blinking cursor which you can move around with the arrow keys and it will output what you type.
+Once you focus a console, it will begin to react to keyboard keys being pressed. Test it out. In your `Init()` method, add the the line `console.IsFocused = true` to set the blank console as focused. When you run the program, start typing on your keyboard. You'll see the characters being printed. This is because every console has a cursor. It is visibly hidden though. Add the following code to show it: `console.Cursor.IsVisible = true`. Run your program again, you'll see a blinking cursor which you can move around with the arrow keys and it will output what you type. The <kbd>BACKSPACE</kbd> key only erases the current line.
 
 ```csharp
 static void Init()
@@ -38,8 +38,6 @@ static void Init()
 ```
 
 You can easily disable the cursor completely with `console.Cursor.IsEnabled = false`. This will make the cursor skip processing keyboard information sent to it by the console the cursor is hosted on.
-
-The keyboard is only ever processed by a console that is focused. Only one console can ever be focused at a time. By default, there is no focused console. Very related to the keyboard, is the cursor. Every console has a cursor but it is disabled by default.
 
 ## Keyboard component
 
@@ -77,7 +75,7 @@ The component system provides an easy way to customize a `Console` without havin
     }
     ```
 
-    The `handled` parameter is declared as an `out` parameter. This means that it must be assigned a value before the method code ends. Here we set it to `false` to signal that we're not handling the keyboard at this time. Let's change that though.
+    The `handled` parameter is declared as an `out` parameter. This means that it must be assigned a value before the method code ends. Here we set it to `false` to signal that we're not handling the keyboard at this time.
 
     To test the keyboard processing, let's watch for the <kbd>SPACE</kbd> key being pressed. When it is pressed, we'll cycle the background color of the console with a random color.
 
@@ -107,11 +105,11 @@ The component system provides an easy way to customize a `Console` without havin
     }
     ```
 
-Run the program and start typing sentences. You'll see both keyboard processors working. First, each time you press the <kbd>SPACE</kbd> character, the background color of the console changes. Second, the cursor is still enabled and is also watching the keyboard and responding to key presses.
+Run the program and start typing sentences. You'll see both keyboard processors working. First, each time you press the <kbd>SPACE</kbd> character, the background color of the console changes. Second, the cursor is still enabled and is also watching the keyboard and responding to key presses. Notice that when you press <kbd>SPACE</kbd>, the background changes, the cursor moves, and there is a black spot where the cursor used to be. This happens because of the order of events.
 
-In SadConsole, when the console is processing the keyboard, it first checks for any `KeyboardComponent` that was added to the `Components` collection and calls `ProcessKeyboard` on it. If the `ProcessKeyboard` call sets `handled = true` then it will instantly stop processing any other component and will not process the cursor. Try this out. back in the *MyKeyboardComponent.cs* file, set `handled = true` and run your game again.
+In SadConsole, when the console is processing the keyboard, it first checks for any `KeyboardComponent` that was added to the `Components` collection and calls `ProcessKeyboard` on it. If the `ProcessKeyboard` call sets `handled = true` then it will instantly stop processing any other component and will not process the cursor. Our code has `handled = false` so the cursor is processed **after** we change the background. And the cursor is set to print a black background on each character typed. Let's cause our component to halt processing the keyboard. Back in the *MyKeyboardComponent.cs* file, set `handled = true` and run your game again.
 
-You'll notice that the cursor doesn't move and print, however, it is still visible. Your component though works as intended and recolors the console every time you press the <kbd>SPACE</kbd> key. The final code for your component should look like the following:
+You'll notice that the cursor doesn't move and print, however, it is still visible. Your component works as intended and recolors the console every time you press the <kbd>SPACE</kbd> key. The final code for your component should look like the following:
 
 ```csharp
 using SadConsole.Components;
@@ -153,7 +151,7 @@ static void Init()
 
 The `KeyboardComponent.ProcessKeyboard()` method has two important parameters passed to it. First, the `console` parameter is passed which contains a reference to the console that the component is currently attached to. Second, the `info` parameter holds information about the keyboard state.
 
-you can use the `info` parameter to query the state of the keyboard. In our example we used it to check the `IsKeyPressed()` method which returns us `true` when the specified key is pressed, and `false` when it is not. There is also the `IsKeyUp()` and `IsKeyDown()` methods which do what they say. Experiment with these other methods. For example, try changing the code to always change the background of the console while the <kbd>S</kbd> key is **not** being pressed, so that it stops changing color when the key is being held down.
+you can use the `info` parameter to query the state of the keyboard. In our example we used it to check the `IsKeyPressed()` method which returns us `true` when the specified key is pressed, and `false` when it is not. There is also the `IsKeyUp()` and `IsKeyDown()` methods which represent the state of the key being up or down. A key "press" in SadConsole represents a single key event being triggered that game frame. If the key is held down, it will reappear as pressed over and over with a delay between when it appears. This mimics how your keyboard works with your operating system. Experiment with these other methods. For example, try changing the code to always change the background of the console while the <kbd>S</kbd> key is **not** being pressed, so that it stops changing color when the key is being held down. If you suffer from seizures, don't do this, the flashing colors may hurt you.
 
 ## Mouse
 
