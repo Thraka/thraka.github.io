@@ -86,7 +86,7 @@
 </code></pre>
 <h2 id="keyboard">Keyboard</h2>
 <p>SadConsole includes a keyboard processing system that reacts to a console that is focused. You can have as many consoles as you want on the screen but only a single console can be set as the &quot;focused&quot; console. By default, no console is focused.</p>
-<p>Once you focus a console, it will begin to react to keyboard keys being pressed. Test it out. In your <code>Init()</code> method, add the the line <code>console.IsFocused = true</code> to set the blank console as focused. When you run the program, start typing on your keyboard. You'll see the keys being printed. This is because every console has a cursor. It is currently hidden though. Add the following code to show it: <code>console.Cursor.IsVisible = true</code>. Run your program again, you'll see a blinking cursor which you can move around with the arrow keys and it will output what you type.</p>
+<p>Once you focus a console, it will begin to react to keyboard keys being pressed. Test it out. In your <code>Init()</code> method, add the the line <code>console.IsFocused = true</code> to set the blank console as focused. When you run the program, start typing on your keyboard. You'll see the characters being printed. This is because every console has a cursor. It is visibly hidden though. Add the following code to show it: <code>console.Cursor.IsVisible = true</code>. Run your program again, you'll see a blinking cursor which you can move around with the arrow keys and it will output what you type. The <kbd>BACKSPACE</kbd> key only erases the current line.</p>
 <pre><code class="lang-csharp">static void Init()
 {
     var console = new Console(80, 25);
@@ -98,7 +98,6 @@
 }
 </code></pre>
 <p>You can easily disable the cursor completely with <code>console.Cursor.IsEnabled = false</code>. This will make the cursor skip processing keyboard information sent to it by the console the cursor is hosted on.</p>
-<p>The keyboard is only ever processed by a console that is focused. Only one console can ever be focused at a time. By default, there is no focused console. Very related to the keyboard, is the cursor. Every console has a cursor but it is disabled by default.</p>
 <h2 id="keyboard-component">Keyboard component</h2>
 <p>There are two ways to customize keyboard processing of a console. The first way is by creating a new <code>KeyboardComponent</code> that has the logic for the keyboard and then attaching it to a console. The second way is to create a new class that inherits from <code>Console</code> and replaces the existing code with new code. We'll focus on using a component.</p>
 <p>The component system provides an easy way to customize a <code>Console</code> without having to create a whole new console type.</p>
@@ -125,7 +124,7 @@ using Microsoft.Xna.Framework;
     }
 }
 </code></pre>
-<p>The <code>handled</code> parameter is declared as an <code>out</code> parameter. This means that it must be assigned a value before the method code ends. Here we set it to <code>false</code> to signal that we're not handling the keyboard at this time. Let's change that though.</p>
+<p>The <code>handled</code> parameter is declared as an <code>out</code> parameter. This means that it must be assigned a value before the method code ends. Here we set it to <code>false</code> to signal that we're not handling the keyboard at this time.</p>
 <p>To test the keyboard processing, let's watch for the <kbd>SPACE</kbd> key being pressed. When it is pressed, we'll cycle the background color of the console with a random color.</p>
 </li>
 <li><p>Add this <code>if</code> statement to the <code>ProcessKeyboard()</code> method of the component. Do not set <code>handled = true;</code> just yet. Let's leave that as <code>false</code>.</p>
@@ -150,9 +149,9 @@ using Microsoft.Xna.Framework;
 </code></pre>
 </li>
 </ol>
-<p>Run the program and start typing sentences. You'll see both keyboard processors working. First, each time you press the <kbd>SPACE</kbd> character, the background color of the console changes. Second, the cursor is still enabled and is also watching the keyboard and responding to key presses.</p>
-<p>In SadConsole, when the console is processing the keyboard, it first checks for any <code>KeyboardComponent</code> that was added to the <code>Components</code> collection and calls <code>ProcessKeyboard</code> on it. If the <code>ProcessKeyboard</code> call sets <code>handled = true</code> then it will instantly stop processing any other component and will not process the cursor. Try this out. back in the <em>MyKeyboardComponent.cs</em> file, set <code>handled = true</code> and run your game again.</p>
-<p>You'll notice that the cursor doesn't move and print, however, it is still visible. Your component though works as intended and recolors the console every time you press the <kbd>SPACE</kbd> key. The final code for your component should look like the following:</p>
+<p>Run the program and start typing sentences. You'll see both keyboard processors working. First, each time you press the <kbd>SPACE</kbd> character, the background color of the console changes. Second, the cursor is still enabled and is also watching the keyboard and responding to key presses. Notice that when you press <kbd>SPACE</kbd>, the background changes, the cursor moves, and there is a black spot where the cursor used to be. This happens because of the order of events.</p>
+<p>In SadConsole, when the console is processing the keyboard, it first checks for any <code>KeyboardComponent</code> that was added to the <code>Components</code> collection and calls <code>ProcessKeyboard</code> on it. If the <code>ProcessKeyboard</code> call sets <code>handled = true</code> then it will instantly stop processing any other component and will not process the cursor. Our code has <code>handled = false</code> so the cursor is processed <strong>after</strong> we change the background. And the cursor is set to print a black background on each character typed. Let's cause our component to halt processing the keyboard. Back in the <em>MyKeyboardComponent.cs</em> file, set <code>handled = true</code> and run your game again.</p>
+<p>You'll notice that the cursor doesn't move and print, however, it is still visible. Your component works as intended and recolors the console every time you press the <kbd>SPACE</kbd> key. The final code for your component should look like the following:</p>
 <pre><code class="lang-csharp">using SadConsole.Components;
 using SadConsole.Input;
 using Microsoft.Xna.Framework;
@@ -186,7 +185,7 @@ namespace SadConsoleGame
 </code></pre>
 <h3 id="processkeyboard-parameters">ProcessKeyboard parameters</h3>
 <p>The <code>KeyboardComponent.ProcessKeyboard()</code> method has two important parameters passed to it. First, the <code>console</code> parameter is passed which contains a reference to the console that the component is currently attached to. Second, the <code>info</code> parameter holds information about the keyboard state.</p>
-<p>you can use the <code>info</code> parameter to query the state of the keyboard. In our example we used it to check the <code>IsKeyPressed()</code> method which returns us <code>true</code> when the specified key is pressed, and <code>false</code> when it is not. There is also the <code>IsKeyUp()</code> and <code>IsKeyDown()</code> methods which do what they say. Experiment with these other methods. For example, try changing the code to always change the background of the console while the <kbd>S</kbd> key is <strong>not</strong> being pressed, so that it stops changing color when the key is being held down.</p>
+<p>you can use the <code>info</code> parameter to query the state of the keyboard. In our example we used it to check the <code>IsKeyPressed()</code> method which returns us <code>true</code> when the specified key is pressed, and <code>false</code> when it is not. There is also the <code>IsKeyUp()</code> and <code>IsKeyDown()</code> methods which represent the state of the key being up or down. A key &quot;press&quot; in SadConsole represents a single key event being triggered that game frame. If the key is held down, it will reappear as pressed over and over with a delay between when it appears. This mimics how your keyboard works with your operating system. Experiment with these other methods. For example, try changing the code to always change the background of the console while the <kbd>S</kbd> key is <strong>not</strong> being pressed, so that it stops changing color when the key is being held down. If you suffer from seizures, don't do this, the flashing colors may hurt you.</p>
 <h2 id="mouse">Mouse</h2>
 <p>SadConsole includes a mouse processing system that is always watching the mouse. Unlike keyboard processing, the mouse is processed on a console even if that console is unfocused. Whenever you move your mouse on top of a console, the <code>ProcessMouse()</code> method of that console is run, which controls a lot of different things.</p>
 <p>Much like the keyboard, there are actually three ways to customize the mouse on a console. You can use the same component system as the keyboard, but with a <code>MouseComponent</code> instead, create a new console class that overrides the <code>ProcessMouse()</code> method, or use the events the console provides related to the mouse.</p>

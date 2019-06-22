@@ -80,26 +80,70 @@
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">Timer</span></div>
+    <div class="level1"><a class="xref" href="SadConsole.Components.UpdateConsoleComponent.html">UpdateConsoleComponent</a></div>
+    <div class="level2"><span class="xref">Timer</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="SadConsole.Components.IConsoleComponent.html">IConsoleComponent</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="SadConsole.Components.UpdateConsoleComponent.html#SadConsole_Components_UpdateConsoleComponent_OnAdded_SadConsole_Console_">UpdateConsoleComponent.OnAdded(Console)</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Components.UpdateConsoleComponent.html#SadConsole_Components_UpdateConsoleComponent_OnRemoved_SadConsole_Console_">UpdateConsoleComponent.OnRemoved(Console)</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Components.UpdateConsoleComponent.html#SadConsole_Components_UpdateConsoleComponent_SadConsole_Components_IConsoleComponent_Draw_SadConsole_Console_System_TimeSpan_">UpdateConsoleComponent.IConsoleComponent.Draw(Console, TimeSpan)</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Components.UpdateConsoleComponent.html#SadConsole_Components_UpdateConsoleComponent_SadConsole_Components_IConsoleComponent_ProcessKeyboard_SadConsole_Console_SadConsole_Input_Keyboard_System_Boolean__">UpdateConsoleComponent.IConsoleComponent.ProcessKeyboard(Console, Keyboard, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Components.UpdateConsoleComponent.html#SadConsole_Components_UpdateConsoleComponent_SadConsole_Components_IConsoleComponent_ProcessMouse_SadConsole_Console_SadConsole_Input_MouseConsoleState_System_Boolean__">UpdateConsoleComponent.IConsoleComponent.ProcessMouse(Console, MouseConsoleState, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Components.UpdateConsoleComponent.html#SadConsole_Components_UpdateConsoleComponent_SadConsole_Components_IConsoleComponent_Update_SadConsole_Console_System_TimeSpan_">UpdateConsoleComponent.IConsoleComponent.Update(Console, TimeSpan)</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Components.UpdateConsoleComponent.html#SadConsole_Components_UpdateConsoleComponent_SortOrder">UpdateConsoleComponent.SortOrder</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Components.UpdateConsoleComponent.html#SadConsole_Components_UpdateConsoleComponent_SadConsole_Components_IConsoleComponent_SortOrder">UpdateConsoleComponent.IConsoleComponent.SortOrder</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Components.UpdateConsoleComponent.html#SadConsole_Components_UpdateConsoleComponent_SadConsole_Components_IConsoleComponent_IsUpdate">UpdateConsoleComponent.IConsoleComponent.IsUpdate</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Components.UpdateConsoleComponent.html#SadConsole_Components_UpdateConsoleComponent_SadConsole_Components_IConsoleComponent_IsDraw">UpdateConsoleComponent.IConsoleComponent.IsDraw</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Components.UpdateConsoleComponent.html#SadConsole_Components_UpdateConsoleComponent_SadConsole_Components_IConsoleComponent_IsMouse">UpdateConsoleComponent.IConsoleComponent.IsMouse</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Components.UpdateConsoleComponent.html#SadConsole_Components_UpdateConsoleComponent_SadConsole_Components_IConsoleComponent_IsKeyboard">UpdateConsoleComponent.IConsoleComponent.IsKeyboard</a>
+    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="SadConsole.html">SadConsole</a></h6>
   <h6><strong>Assembly</strong>: SadConsole.dll</h6>
   <h5 id="SadConsole_Timer_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Timer : Object</code></pre>
+    <pre><code class="lang-csharp hljs">public class Timer : UpdateConsoleComponent, IConsoleComponent</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
   
   
   <a id="SadConsole_Timer__ctor_" data-uid="SadConsole.Timer.#ctor*"></a>
-  <h4 id="SadConsole_Timer__ctor_System_Double_System_Action_SadConsole_Timer_System_Double__" data-uid="SadConsole.Timer.#ctor(System.Double,System.Action{SadConsole.Timer,System.Double})">Timer(Double, Action&lt;Timer, Double&gt;)</h4>
+  <h4 id="SadConsole_Timer__ctor_System_TimeSpan_" data-uid="SadConsole.Timer.#ctor(System.TimeSpan)">Timer(TimeSpan)</h4>
   <div class="markdown level1 summary"><p>Creates a new timer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Timer(double triggerTime, Action&lt;Timer, double&gt; callback)</code></pre>
+    <pre><code class="lang-csharp hljs">public Timer(TimeSpan triggerTime)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -112,43 +156,10 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Double</span></td>
+        <td><span class="xref">System.TimeSpan</span></td>
         <td><span class="parametername">triggerTime</span></td>
-        <td><p>How many milliseconds to trigger the callback.</p>
+        <td><p>Duration of the timer.</p>
 </td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<a class="xref" href="SadConsole.Timer.html">Timer</a>, <span class="xref">System.Double</span>&gt;</td>
-        <td><span class="parametername">callback</span></td>
-        <td><p>The callback that is called when the trigger time has passed.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="fields">Fields
-  </h3>
-  
-  
-  <h4 id="SadConsole_Timer_TriggeredCallback" data-uid="SadConsole.Timer.TriggeredCallback">TriggeredCallback</h4>
-  <div class="markdown level1 summary"><p>Callback to trigger when the time elapses.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Action&lt;Timer, double&gt; TriggeredCallback</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<a class="xref" href="SadConsole.Timer.html">Timer</a>, <span class="xref">System.Double</span>&gt;</td>
-        <td></td>
       </tr>
     </tbody>
   </table>
@@ -156,14 +167,14 @@
   </h3>
   
   
-  <a id="SadConsole_Timer_IsOff_" data-uid="SadConsole.Timer.IsOff*"></a>
-  <h4 id="SadConsole_Timer_IsOff" data-uid="SadConsole.Timer.IsOff">IsOff</h4>
+  <a id="SadConsole_Timer_IsPaused_" data-uid="SadConsole.Timer.IsPaused*"></a>
+  <h4 id="SadConsole_Timer_IsPaused" data-uid="SadConsole.Timer.IsPaused">IsPaused</h4>
   <div class="markdown level1 summary"><p>When true, the timer does not count time.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsOff { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsPaused { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -215,7 +226,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public double TimerAmount { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public TimeSpan TimerAmount { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -227,7 +238,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Double</span></td>
+        <td><span class="xref">System.TimeSpan</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -238,7 +249,7 @@
   
   <a id="SadConsole_Timer_Restart_" data-uid="SadConsole.Timer.Restart*"></a>
   <h4 id="SadConsole_Timer_Restart" data-uid="SadConsole.Timer.Restart">Restart()</h4>
-  <div class="markdown level1 summary"><p>Restarts the timer; sets <a class="xref" href="SadConsole.Timer.html#SadConsole_Timer_IsOff">IsOff</a> to false.</p>
+  <div class="markdown level1 summary"><p>Restarts the timer; sets <a class="xref" href="SadConsole.Timer.html#SadConsole_Timer_IsPaused">IsPaused</a> to false.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -248,13 +259,13 @@
   
   
   <a id="SadConsole_Timer_Update_" data-uid="SadConsole.Timer.Update*"></a>
-  <h4 id="SadConsole_Timer_Update_System_Double_" data-uid="SadConsole.Timer.Update(System.Double)">Update(Double)</h4>
+  <h4 id="SadConsole_Timer_Update_SadConsole_Console_System_TimeSpan_" data-uid="SadConsole.Timer.Update(SadConsole.Console,System.TimeSpan)">Update(Console, TimeSpan)</h4>
   <div class="markdown level1 summary"><p>Updates the timer with the time since the last call.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Update(double timeElapsed)</code></pre>
+    <pre><code class="lang-csharp hljs">public override void Update(Console console, TimeSpan delta)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -267,12 +278,77 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Double</span></td>
-        <td><span class="parametername">timeElapsed</span></td>
+        <td><a class="xref" href="SadConsole.Console.html">Console</a></td>
+        <td><span class="parametername">console</span></td>
+        <td><p>The parent object.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.TimeSpan</span></td>
+        <td><span class="parametername">delta</span></td>
+        <td><p>The time since the last frame update.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="SadConsole.Components.UpdateConsoleComponent.html#SadConsole_Components_UpdateConsoleComponent_Update_SadConsole_Console_System_TimeSpan_">UpdateConsoleComponent.Update(Console, TimeSpan)</a></div>
+  <h3 id="events">Events
+  </h3>
+  
+  
+  <h4 id="SadConsole_Timer_TimerElapsed" data-uid="SadConsole.Timer.TimerElapsed">TimerElapsed</h4>
+  <div class="markdown level1 summary"><p>Called when the timer elapses.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler TimerElapsed</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.EventHandler</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
+  
+  
+  <h4 id="SadConsole_Timer_TimerRestart" data-uid="SadConsole.Timer.TimerRestart">TimerRestart</h4>
+  <div class="markdown level1 summary"><p>Called when the timer restarts.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler TimerRestart</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.EventHandler</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="SadConsole.Components.IConsoleComponent.html">IConsoleComponent</a>
+  </div>
 </article>
           </div>
           
