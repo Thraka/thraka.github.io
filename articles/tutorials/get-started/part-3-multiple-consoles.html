@@ -1,0 +1,286 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Get Started (3) - Learning about consoles </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Get Started (3) - Learning about consoles ">
+    <meta name="generator" content="docfx 2.40.11.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/dracula.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" src="../../../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="get-started-3---learning-about-consoles">Get Started (3) - Learning about consoles</h1>
+
+<p>In this part of the tutorial you'll learn how to use multiple consoles. Consoles can be attached to other consoles. Consoles can even share cell data between them.</p>
+<p>Previous articles in this tutorial:</p>
+<ul>
+<li><a href="drawing-on-a-console.html">Part 1: Drawing on a console</a></li>
+<li><a href="part-2-input.html">Part 2: Keyboard and Mouse</a></li>
+</ul>
+<h2 id="prep">Prep</h2>
+<p>Reset the <code>Init()</code> method back to a clean state. Whenever the tutorial talks about resetting the <code>Init()</code> method back to a clean state, it means to replace your existing code with the following code:</p>
+<pre><code class="lang-csharp">static void Init()
+{
+    var console = new Console(80, 25);
+
+    SadConsole.Global.CurrentScreen = console;
+}
+</code></pre>
+<h2 id="currentscreen">CurrentScreen</h2>
+<p>When the term <strong>CurrentScreen</strong> is used, it represents the variable <code>SadConsole.Global.CurrentScreen</code>. The <strong>CurrentScreen</strong> is the object that is drawn on the screen. Any console you create will never be shown unless you get it into the <strong>CurrentScreen</strong> collection. There are two ways of getting your console to draw, either set your console <em>as</em> the <strong>CurrentScreen</strong>, or add it as a child of the <strong>CurrentScreen</strong>.</p>
+<p>When you start SadConsole, the <strong>CurrentScreen</strong> is initialized to an empty console that fits the window. Therefor, you can use that console just like you would any other. Try each variation of the <code>Init</code> method below:</p>
+<pre><code class="lang-csharp">static void Init()
+{
+    SadConsole.Global.CurrentScreen.Print(1, 1, &quot;Hello!&quot;);
+    SadConsole.Global.CurrentScreen.SetGlyph(1, 6, '.');
+}
+</code></pre>
+<p>The <strong>CurrentScreen</strong> can be replaced by any console:</p>
+<pre><code class="lang-csharp">static void Init()
+{
+    SadConsole.Global.CurrentScreen = new SadConsole.Console(10, 10);
+}
+</code></pre>
+<h2 id="parents-and-children">Parents and Children</h2>
+<p>Consoles can act as a parent for other consoles. Once a console is parented to another, it appears in the parent's <code>Children</code> collection. When you either set the <code>Parent</code> of one console to another, or add a console directly to the <code>Children</code> collection of another, the parent-child relationship is established between the two consoles.</p>
+<pre><code class="lang-csharp">static void Init()
+{
+    var consoleParent = new Console(30, 4);
+    var consoleChild = new Console(25, 4);
+
+    consoleParent.Position = new Point(0, 5);
+    consoleParent.Fill(null, Color.DarkBlue, null);
+    consoleParent.Print(1, 1, $&quot;I'm the root parent&quot;);
+
+    consoleChild.Position = new Point(32, 0);
+    consoleChild.Fill(null, Color.DarkGray, null);
+    consoleChild.Print(1, 1, &quot;I'm a child with a child&quot;);
+    consoleChild.Parent = consoleParent;
+
+    SadConsole.Global.CurrentScreen = consoleParent;
+}
+</code></pre>
+<p><img src="images/part-3-children-1.png" alt="console with child attached"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>You can use the <code>Parent</code> property directly instead of calling <code>consoleParent.Children.Add</code>:</p>
+<pre><code class="lang-csharp">consoleChild.Parent = consoleParent;
+</code></pre>
+</div>
+<h2 id="offset-positions">Offset positions</h2>
+<p>A console's position is always based on its parent's position. If the console has no parent, then the position is always based on the top-left coordinate (<em>0,0</em>) of the game window.</p>
+<p>Using the code from the previous section, change the parent console's position along the Y-axis. The child console will move with the parent along the Y-axis.</p>
+<pre><code class="lang-csharp">consoleParent.Position = new Point(0, 5);
+</code></pre>
+<p><img src="images/part-3-children-2-offset.png" alt="console with child attached in a different position"></p>
+<h2 id="add-another-child">Add another child</h2>
+<p>Console's can have many children, but they can only have a single parent. The children of a console can also have their own children too. Replace your <code>Init</code> code with the following:</p>
+<pre><code class="lang-csharp">static void Init()
+{
+    var consoleParent = new Console(30, 4);
+    var consoleChild = new Console(25, 4);
+    var consoleChild2 = new Console(25, 4);
+
+    consoleParent.Position = new Point(0, 5);
+    consoleParent.Fill(null, Color.DarkBlue, null);
+    consoleParent.Print(1, 1, $&quot;I'm the root parent&quot;);
+
+    consoleChild.Position = new Point(32, 0);
+    consoleChild.Fill(null, Color.DarkGray, null);
+    consoleChild.Print(1, 1, &quot;I'm a child with a child&quot;);
+    consoleChild.Parent = consoleParent;
+
+    consoleChild2.Position = new Point(0, 5);
+    consoleChild2.Fill(null, Color.DarkGreen, null);
+    consoleChild2.Print(1, 1, &quot;I'm a child&quot;);
+    consoleChild2.Parent = consoleChild;
+
+    SadConsole.Global.CurrentScreen = consoleParent;
+}
+</code></pre>
+<p>Here is what the console parent-child relationship looks like:</p>
+<pre><code class="lang-undefined">consoleParent
+└───consoleChild
+    └───consoleChild2
+</code></pre>
+<p>There are some minor differences from the previous code. First, the <code>consoleChild2</code> variable is created and assigned as a child of <code>consoleChild</code>. Second, the <code>consoleChild2</code> is set to position <em>0,5</em>, which is relative to it's parent's calculated position of <em>32,0</em>. Once the <code>consoleParent</code> is repositioned to <em>0,5</em>, all children down the chain are also repositioned.</p>
+<p><img src="images/part-3-children-3-multiple.png" alt="console with multiple children in the chain"></p>
+<h2 id="demonstration">Demonstration</h2>
+<p>As a way to visualize how parenting works and how it is related to positioning, let's hook the mouse up the root console. Just like in <a href="part-2-input.html">part 2 of this series</a>, we'll create a new mouse component to handle the code for this example.</p>
+<ol>
+<li><p>Add a new class to your project. In Visual Studio in the Solution Explorer pane, right-click the <strong>project</strong> &gt; <strong>Add</strong> &gt; <strong>Class</strong> and name the class <em>MouseMoveComponent.cs</em> and click <strong>Add</strong>.</p>
+</li>
+<li><p>Open up the <em>MouseMoveComponent.cs</em> in the editor and add these three <code>using</code> statements to the top of the file:</p>
+<pre><code class="lang-csharp">using SadConsole.Components;
+using SadConsole.Input;
+using Microsoft.Xna.Framework;
+</code></pre>
+</li>
+<li><p>Next, inherit from the <code>MouseConsoleComponent</code> class. This class is contained in the <code>SadConsole.Components</code> namespace which we just imported.</p>
+<pre><code class="lang-csharp">class MouseMoveComponent: MouseConsoleComponent
+</code></pre>
+</li>
+<li><p>The <code>MouseConsoleComponent</code> class requires that you implement the <code>ProcessMouse</code> method. In this example, the code will do three things:</p>
+<ol>
+<li>Check that the mouse is over the game window.</li>
+<li>Move the console this component is attached to, to the same position the mouse is on the screen.</li>
+<li>Flag this component as handling the mouse so nothing else processes the mouse.</li>
+</ol>
+<pre><code class="lang-csharp">public override void ProcessMouse(SadConsole.Console console, MouseConsoleState state, out bool handled)
+{
+    if (state.Mouse.IsOnScreen)
+        console.Position = state.WorldCellPosition;
+
+    handled = true;
+}
+</code></pre>
+<p>The <code>state.WorldCellPosition</code> represents what cell the mouse is over according to the game world (0,0 being the top-left of the window).</p>
+</li>
+<li><p>Next, add the component to your console in the <code>Init()</code> method of the <em>program.cs</em> file, adding it to the <code>consoleParent</code>.</p>
+<pre><code class="lang-csharp">consoleParent.Components.Add(new MouseMoveComponent());
+</code></pre>
+</li>
+</ol>
+<p>Try running your game now. You'll see the parent console moves to where ever the mouse is and the child consoles follow.</p>
+<p><img src="images/part-3-mouse-move-1.gif" alt="moving a console with your mouse"></p>
+<p>Next, let's change the parent of <code>consoleChild2</code> to that of the <code>CurrentScreen</code> when the mouse is clicked.</p>
+<ol>
+<li><p>Create another <code>MouseConsoleComponent</code> in your project. Name the file <strong>ChangeParentComponent.cs</strong> and make sure the name of the class is <code>ChangeParentComponent</code>. Paste in the following code:</p>
+<pre><code class="lang-csharp">using SadConsole.Components;
+using SadConsole.Input;
+
+namespace SadConsoleGame
+{
+    class ChangeParentComponent : MouseConsoleComponent
+    {
+        public override void ProcessMouse(SadConsole.Console console, MouseConsoleState state, out bool handled)
+        {
+            if (state.Mouse.RightClicked)
+            {
+                console.Parent = SadConsole.Global.CurrentScreen;
+                console.Components.Remove(this);
+            }
+
+            handled = false;
+        }
+    }
+}
+</code></pre>
+<p>This mouse component operates similarly to the one previously created. The differences being that it detects the right mouse being clicked and changes the parent of the console this component is running on. Then, it removes itself from the console.</p>
+</li>
+<li><p>Next, add the component to your console in the <code>Init()</code> method of the <em>program.cs</em> file, adding it to the <code>consoleChild2</code>.</p>
+<pre><code class="lang-csharp">consoleChild2.Components.Add(new ChangeParentComponent());
+</code></pre>
+</li>
+</ol>
+<p>Try running your game now. You'll see the parent console moves to where ever the mouse is while the children follow. When the mouse is right-clicked, the <code>consoleChild2</code> changes its parent to the <strong>CurrentScreen</strong>. Even though the console is visually drawn in a new place, the position of the console is still set to (<em>0,5</em>).</p>
+<p><img src="images/part-3-mouse-move-2.gif" alt="moving a console with your mouse and changing the parent"></p>
+<p>After the parent changes, the console parent-child relationship looks like this:</p>
+<pre><code class="lang-plaintext">consoleParent
+├───consoleChild
+└───consoleChild2
+</code></pre>
+<h2 id="conclusion">Conclusion</h2>
+<p>Now you understand a bit more about parenting works. The next part of the series will explore creating characters on a console and moving them around with the keyboard.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>This tutorial series is in progress. The next part of the series has not yet been published.</p>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Thraka/thraka.github.io/blob/source/articles/tutorials/get-started/part-3-multiple-consoles.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>
