@@ -101,7 +101,7 @@
 }
 </code></pre>
 <h2 id="parents-and-children">Parents and Children</h2>
-<p>Consoles can act as a parent for other consoles. Once a console is parented to another, it appears in the parent's <code>Children</code> collection. When you either set the <code>Parent</code> of one console to another, or add a console directly to the <code>Children</code> collection of another, the parent-child relationship is established between the two consoles.</p>
+<p>Consoles can act as a parent for other consoles. Once a console is parented to another, it appears in the parent's <code>Children</code> collection. When you set the <code>Parent</code> of one console to another or add a console directly to the <code>Children</code> collection of another, the parent-child relationship is established between the two consoles.</p>
 <pre><code class="lang-csharp">static void Init()
 {
     var consoleParent = new Console(30, 4);
@@ -122,8 +122,8 @@
 <p><img src="images/part-3-children-1.png" alt="console with child attached"></p>
 <div class="NOTE">
 <h5>Note</h5>
-<p>You can use the <code>Parent</code> property directly instead of calling <code>consoleParent.Children.Add</code>:</p>
-<pre><code class="lang-csharp">consoleChild.Parent = consoleParent;
+<p>You can use the <code>consoleParent.Children</code> collection property directly instead of <code>consoleChild.Parent</code>:</p>
+<pre><code class="lang-csharp">consoleParent.Children.Add(consoleChild);
 </code></pre>
 </div>
 <h2 id="offset-positions">Offset positions</h2>
