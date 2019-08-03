@@ -1,3 +1,8 @@
+---
+description: Learn how to get started with SadConsole by drawing on a console. Also, learn a few basics about nesting consoles.
+ms.date: 06/09/2019
+---
+
 # Get Started (1) - Draw on a console
 
 Welcome to the start of the Getting Started with SadConsole tutorial series. This series will outline how to use the basic parts of SadConsole from the perspective of a new developer.
@@ -8,7 +13,7 @@ To complete this series, complete the following:
 
 01. Either [Visual Studio](https://visualstudio.microsoft.com/vs/) or [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/).
 
-    * Make sure that you install the **.NET Core cross-platform development** workload. When you install Visual Studio, select it from the list of components. If you've already installed visual Visual Studio, run the *Visual Studio Installer* app and modify your installation.
+    - Make sure that you install the **.NET Core cross-platform development** workload. When you install Visual Studio, select it from the list of components. If you've already installed visual Visual Studio, run the *Visual Studio Installer* app and modify your installation.
 
 01. A brand new SadConsole project in Visual Studio.
 
