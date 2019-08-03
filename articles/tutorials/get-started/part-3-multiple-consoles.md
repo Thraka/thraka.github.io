@@ -50,7 +50,7 @@ static void Init()
 
 ## Parents and Children
 
-Consoles can act as a parent for other consoles. Once a console is parented to another, it appears in the parent's `Children` collection. When you either set the `Parent` of one console to another, or add a console directly to the `Children` collection of another, the parent-child relationship is established between the two consoles.
+Consoles can act as a parent for other consoles. Once a console is parented to another, it appears in the parent's `Children` collection. When you set the `Parent` of one console to another or add a console directly to the `Children` collection of another, the parent-child relationship is established between the two consoles.
 
 ```csharp
 static void Init()
@@ -74,10 +74,10 @@ static void Init()
 ![console with child attached](images/part-3-children-1.png)
 
 >[!Note]
->You can use the `Parent` property directly instead of calling `consoleParent.Children.Add`:
+>You can use the `consoleParent.Children` collection property directly instead of `consoleChild.Parent`:
 >
 >```csharp
->consoleChild.Parent = consoleParent;
+>consoleParent.Children.Add(consoleChild);
 >```
 
 ## Offset positions
