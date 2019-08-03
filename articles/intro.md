@@ -1,11 +1,17 @@
 # Introduction to SadConsole
 
-SadConsole is pretty simple to get up and running. If you're working with the starter project included in the source code, you can tweak that to test out engine features. 
+SadConsole is pretty simple to get up and running. If you're working with the starter project included in the source code, you can tweak that to test out engine features.
 
 * [New project for .NET Core](getting-started-sadconsole-core-standard.md)
 * [New project for .NET Framework](getting-started-with-sadconsole-framework.md)
 
 If you are migrating an existing project from Version 7 to Version 8, read the [upgrade guide](upgrade-version-7-to-8.md).
+
+## Tutorial
+
+* [Part 1 - Draw on a console](tutorials/get-started/drawing-on-a-console.md)
+* [Part 2 - Keyboard and Mouse](tutorials/get-started/part-2-input.md)
+* [Part 3 - Multiple consoles](tutorials/get-started/part-3-multiple-consoles.md)
 
 ## Basics
 
@@ -23,3 +29,4 @@ Knowing more about how SadConsole works can help you think your way out of a pro
 * [What is a Console?](what-is-a-console.md)
 * [How fonts work](basic-font-information.md)
 * [How does SadConsole draw?](how-sadconsole-draws-to-the-screen.md)
+* [Use the string parser](string-parser.md)
