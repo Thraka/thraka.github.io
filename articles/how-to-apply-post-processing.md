@@ -38,6 +38,7 @@ After this, you'll need to have your constructor load in the shader you want to 
 
 ### Loading a Shader
 *Method 1: MonoGame Content Pipeline*
+
 To load your content via. the MonoGame Content Pipeline, you can create a simple `.mgcb` and include the shader as a file. Once this is done, you can set up a content manager and load the shader like so:
 
 ```
@@ -45,6 +46,7 @@ effect = Content.Load<Effect> ("myEffect");
 ```
 
 *Method 2: 2MGFX and Manual Inclusion*
+
 First, you'll need to compile your `.fx` shader using *2MGFX*, a free tool included in every MonoGame install. The default location for this is in the MonoGame MSBuild folder, located at `Program Files (x86)\MSBuild\MonoGame\Tools`.
 
 > Note: Make sure you're compiling for the correct platform, either DesktopGL or DirectX_11, otherwise your shader will not compile properly, or fail to load.
@@ -111,6 +113,7 @@ Running the game, your shader should now be applied, permitting your parameters 
 
 ## Troubleshooting
 **I'm just seeing a black screen, what should I do?**
+
 Has the shader been applied between the `Begin` and `Draw` methods? Is the shader broken? 
 
 Another possible issue is the parameters of the shader. Make sure any size or output parameters are set in the `Draw` function, and based on SadConsole's actual dimensions. Also make sure that your static properties are configured properly.
