@@ -102,11 +102,12 @@ Global.SpriteBatch.Draw(Global.RenderOutput, Global.RenderRect, Color.White);
 Global.SpriteBatch.End();
 ```
 
-### Adding the Component
+### Adding the Component, Removing Default Draw
 
-Now that your custom renderer is completely set up, you can add it as a component to the game instance. Somewhere in your SadConsole initialization code, you can add an instance of your class to the `SadConsole.Game.Instance.Components` collection.
+Now that your custom renderer is completely set up, you can add it as a component to the game instance. Somewhere in your SadConsole initialization code, you can add an instance of your class to the `SadConsole.Game.Instance.Components` collection. You also need to turn `Settings.DoFinalDraw` off, so SadConsole isn't also drawing to the screen.
 
 ```
+Settings.DoFinalDraw = false;
 Game.Instance.Components.Add(new MyCustomPPFX());
 ```
 Running the game, your shader should now be applied, permitting your parameters and configuration were correct.
