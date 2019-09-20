@@ -53,7 +53,7 @@ First, you'll need to compile your `.fx` shader using *2MGFX*, a free tool inclu
 
 Once this is done, you can include the compiled file as a resource in your assembly, as is done so [here,]([https://stackoverflow.com/questions/433171/how-to-embed-a-text-file-in-a-net-assembly](https://stackoverflow.com/questions/433171/how-to-embed-a-text-file-in-a-net-assembly)) and then load the effect from raw bytes, like so:
 
-```
+```csharp
 Effect myEffect = new Effect(SadConsole.Global.GraphicsDevice, Resources.MyEffect);
 ```
 
