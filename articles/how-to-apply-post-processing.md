@@ -14,9 +14,7 @@ To do this, you attach a new `DrawableGameComponent` to SadConsole's game instan
 
 This `DrawableGameComponent` should then access SadConsole's final render surface, and apply whatever custom draw code is needed.
 
-## Method
-
-### Setting up the Class
+## Setting up the class
 To begin with, you'll need to create a new class that inherits from MonoGame's `DrawableGameComponent`, and override the constructor and "Draw" functions so that you can draw to screen.
 
 ```csharp
@@ -42,7 +40,7 @@ After this, you'll need to have your constructor load in the shader you want to 
  
  The MonoGame Content Pipeline is arguably easier, however requires you to have the pipeline available for changes.
 
-### Loading a Shader
+## Loading a shader
 *Method 1: MonoGame Content Pipeline*
 
 To load your content via. the MonoGame Content Pipeline, you can create a simple `.mgcb` and include the shader as a file. Once this is done, you can set up a content manager and load the shader like so:
@@ -64,7 +62,7 @@ Once this is done, you can include the compiled file as a resource in your assem
 Effect myEffect = new Effect(SadConsole.Global.GraphicsDevice, Resources.MyEffect);
 ```
 
-### Configuring the Class
+## Configuring the class
 Once you've successfully loaded the shader in your constructor, it should look something like this:
 
 ```csharp
@@ -109,7 +107,7 @@ Global.SpriteBatch.Draw(Global.RenderOutput, Global.RenderRect, Color.White);
 Global.SpriteBatch.End();
 ```
 
-### Adding the Component, Removing Default Draw
+## Adding the component, removing default draw
 
 Now that your custom renderer is completely set up, you can add it as a component to the game instance. Somewhere in your SadConsole initialization code, you can add an instance of your class to the `SadConsole.Game.Instance.Components` collection. You also need to turn `Settings.DoFinalDraw` off, so SadConsole isn't also drawing to the screen.
 
