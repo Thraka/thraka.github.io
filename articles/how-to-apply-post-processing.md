@@ -41,7 +41,7 @@ After this, you'll need to have your constructor load in the shader you want to 
 
 To load your content via. the MonoGame Content Pipeline, you can create a simple `.mgcb` and include the shader as a file. Once this is done, you can set up a content manager and load the shader like so:
 
-```
+```csharp
 effect = Content.Load<Effect> ("myEffect");
 ```
 
