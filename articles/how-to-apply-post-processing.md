@@ -13,7 +13,7 @@ This `DrawableGameComponent` should then access SadConsole's final render surfac
 ### Setting up the Class
 To begin with, you'll need to create a new class that inherits from MonoGame's `DrawableGameComponent`, and override the constructor and "Draw" functions so that you can draw to screen.
 
-```
+```csharp
 public class MyCustomPPFX : DrawableGameComponent
 {
     public MyCustomPPFX() : base(SadConsole.Game.Instance) 
