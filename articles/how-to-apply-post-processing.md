@@ -60,7 +60,7 @@ Effect myEffect = new Effect(SadConsole.Global.GraphicsDevice, Resources.MyEffec
 ### Configuring the Class
 Once you've successfully loaded the shader in your constructor, it should look something like this:
 
-```
+```csharp
 //Load the shader into memory.
 myShader = new Effect(SadConsole.Global.GraphicsDevice, Resources.MyShader);
 ```
