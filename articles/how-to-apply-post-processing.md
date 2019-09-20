@@ -1,3 +1,9 @@
+---
+description: Learn how to add and apply a shader to the screen in SadConsole.
+ms.date: 09/20/2019
+author: c272
+---
+
 # Post Processing in SadConsole
 
 Sometimes you may want to apply a shader or graphical effect to your game when drawing, which this article will explain how to do. 
@@ -49,7 +55,8 @@ effect = Content.Load<Effect> ("myEffect");
 
 First, you'll need to compile your `.fx` shader using *2MGFX*, a free tool included in every MonoGame install. The default location for this is in the MonoGame MSBuild folder, located at `Program Files (x86)\MSBuild\MonoGame\Tools`.
 
-> Note: Make sure you're compiling for the correct platform, either DesktopGL or DirectX_11, otherwise your shader will not compile properly, or fail to load.
+> [!NOTE]
+> Make sure you're compiling for the correct platform, either DesktopGL or DirectX_11, otherwise your shader will not compile properly, or fail to load.
 
 Once this is done, you can include the compiled file as a resource in your assembly, as is done so [here,]([https://stackoverflow.com/questions/433171/how-to-embed-a-text-file-in-a-net-assembly](https://stackoverflow.com/questions/433171/how-to-embed-a-text-file-in-a-net-assembly)) and then load the effect from raw bytes, like so:
 
@@ -67,7 +74,7 @@ myShader = new Effect(SadConsole.Global.GraphicsDevice, Resources.MyShader);
 
 Now you need to set the draw order of your `DrawableGameComponent` to be **6 or higher**, so it draws *after* SadConsole's finished doing its rendering.
 
-```
+```csharp
 //Set the draw order to 6, so we draw AFTER SadConsole.
 DrawOrder = 6;
 
@@ -77,7 +84,7 @@ myShader = new Effect(SadConsole.Global.GraphicsDevice, Resources.MyShader);
 
 With the `DrawOrder` properly set, all that's left to do is configure the shader's parameters, and then include the `Draw` code. The first step is done on a shader-by-shader basis, however this is what the code looks like in the [SadConsole Shader Example]([https://github.com/SadConsole/SadConsole/blob/master/src/DemoProject/SharedCode/ShaderRendererTesting.cs](https://github.com/SadConsole/SadConsole/blob/master/src/DemoProject/SharedCode/ShaderRendererTesting.cs)):
 
-```
+```csharp
 public override void Draw(GameTime gameTime)
 {
 	// Respect the draw flag for sadconsole
@@ -92,7 +99,7 @@ public override void Draw(GameTime gameTime)
 
 You'll need to configure any static values for your shader in your constructor after you've loaded it, as well. Finally, the `Draw` code. First you begin the rendering of the `SpriteBatch`, apply your shader, draw the spritebatch, and then end. Here's an example of that, again from the example:
 
-```
+```csharp
 Global.SpriteBatch.Begin(SpriteSortMode.Immediate, BlendState.NonPremultiplied, SamplerState.PointClamp, DepthStencilState.DepthRead, RasterizerState.CullNone);
 
 //Apply the shader before draw, but after begin.
@@ -106,7 +113,7 @@ Global.SpriteBatch.End();
 
 Now that your custom renderer is completely set up, you can add it as a component to the game instance. Somewhere in your SadConsole initialization code, you can add an instance of your class to the `SadConsole.Game.Instance.Components` collection. You also need to turn `Settings.DoFinalDraw` off, so SadConsole isn't also drawing to the screen.
 
-```
+```csharp
 Settings.DoFinalDraw = false;
 Game.Instance.Components.Add(new MyCustomPPFX());
 ```
