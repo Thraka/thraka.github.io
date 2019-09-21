@@ -286,6 +286,15 @@
       <a class="xref" href="SadConsole.CellSurface.html#SadConsole_CellSurface_ShiftLeft_System_Int32_System_Boolean_">CellSurface.ShiftLeft(Int32, Boolean)</a>
     </div>
     <div>
+      <a class="xref" href="SadConsole.CellSurface.html#SadConsole_CellSurface_Erase_System_Int32_System_Int32_System_Int32_">CellSurface.Erase(Int32, Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.CellSurface.html#SadConsole_CellSurface_Erase_System_Int32_System_Int32_">CellSurface.Erase(Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.CellSurface.html#SadConsole_CellSurface_Erase">CellSurface.Erase()</a>
+    </div>
+    <div>
       <a class="xref" href="SadConsole.CellSurface.html#SadConsole_CellSurface_Clear">CellSurface.Clear()</a>
     </div>
     <div>
@@ -358,6 +367,9 @@
       <a class="xref" href="SadConsole.CellSurface.html#SadConsole_CellSurface_GetPointFromIndex_System_Int32_">CellSurface.GetPointFromIndex(Int32)</a>
     </div>
     <div>
+      <a class="xref" href="SadConsole.CellSurface.html#SadConsole_CellSurface_CreateLine_System_Int32_">CellSurface.CreateLine(Int32)</a>
+    </div>
+    <div>
       <a class="xref" href="SadConsole.CellSurface.html#SadConsole_CellSurface_ValidateLineStyle_System_Int32____">CellSurface.ValidateLineStyle(Int32[])</a>
     </div>
     <div>
@@ -386,6 +398,9 @@
     </div>
     <div>
       <a class="xref" href="SadConsole.CellSurface.html#SadConsole_CellSurface_Effects">CellSurface.Effects</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.CellSurface.html#SadConsole_CellSurface_EraseGlyph">CellSurface.EraseGlyph</a>
     </div>
     <div>
       <a class="xref" href="SadConsole.CellSurface.html#SadConsole_CellSurface_DirtyChanged">CellSurface.DirtyChanged</a>
@@ -627,6 +642,31 @@
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected List&lt;IConsoleComponent&gt; ComponentsDraw</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="SadConsole.Components.IConsoleComponent.html">IConsoleComponent</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SadConsole_Console_ComponentsEmpty" data-uid="SadConsole.Console.ComponentsEmpty">ComponentsEmpty</h4>
+  <div class="markdown level1 summary"><p>A filtered list from <a class="xref" href="SadConsole.Console.html#SadConsole_Console_Components">Components</a> that is not set for update, draw, mouse, or keyboard.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected List&lt;IConsoleComponent&gt; ComponentsEmpty</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1492,6 +1532,94 @@
       <tr>
         <td><a class="xref" href="SadConsole.Console.html">Console</a></td>
         <td><p>A new console.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SadConsole_Console_GetComponent_" data-uid="SadConsole.Console.GetComponent*"></a>
+  <h4 id="SadConsole_Console_GetComponent__1" data-uid="SadConsole.Console.GetComponent``1">GetComponent&lt;TComponent&gt;()</h4>
+  <div class="markdown level1 summary"><p>Gets the first component of the specified type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IConsoleComponent GetComponent&lt;TComponent&gt;()
+    where TComponent : IConsoleComponent</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.Components.IConsoleComponent.html">IConsoleComponent</a></td>
+        <td><p>The component if found, otherwise null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TComponent</span></td>
+        <td><p>THe component to find</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SadConsole_Console_GetComponents_" data-uid="SadConsole.Console.GetComponents*"></a>
+  <h4 id="SadConsole_Console_GetComponents__1" data-uid="SadConsole.Console.GetComponents``1">GetComponents&lt;TComponent&gt;()</h4>
+  <div class="markdown level1 summary"><p>Gets components of the specified types.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;IConsoleComponent&gt; GetComponents&lt;TComponent&gt;()
+    where TComponent : IConsoleComponent</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="SadConsole.Components.IConsoleComponent.html">IConsoleComponent</a>&gt;</td>
+        <td><p>The components found.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TComponent</span></td>
+        <td><p>THe component to find</p>
 </td>
       </tr>
     </tbody>

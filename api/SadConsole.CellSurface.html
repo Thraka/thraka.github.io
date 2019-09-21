@@ -508,6 +508,32 @@
   </table>
   
   
+  <a id="SadConsole_CellSurface_EraseGlyph_" data-uid="SadConsole.CellSurface.EraseGlyph*"></a>
+  <h4 id="SadConsole_CellSurface_EraseGlyph" data-uid="SadConsole.CellSurface.EraseGlyph">EraseGlyph</h4>
+  <div class="markdown level1 summary"><p>The glyph used by the <a class="xref" href="SadConsole.CellSurface.html#SadConsole_CellSurface_Erase_System_Int32_System_Int32_System_Int32_">Erase(Int32, Int32, Int32)</a> method. Defaults to 0.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int EraseGlyph { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="SadConsole_CellSurface_Height_" data-uid="SadConsole.CellSurface.Height*"></a>
   <h4 id="SadConsole_CellSurface_Height" data-uid="SadConsole.CellSurface.Height">Height</h4>
   <div class="markdown level1 summary"><p>How many cells high the surface is.</p>
@@ -805,7 +831,8 @@
       <tr>
         <td><span class="xref">Microsoft.Xna.Framework.Rectangle</span></td>
         <td><span class="parametername">area</span></td>
-        <td></td>
+        <td><p>The area to clear.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1202,6 +1229,51 @@
   </table>
   
   
+  <a id="SadConsole_CellSurface_CreateLine_" data-uid="SadConsole.CellSurface.CreateLine*"></a>
+  <h4 id="SadConsole_CellSurface_CreateLine_System_Int32_" data-uid="SadConsole.CellSurface.CreateLine(System.Int32)">CreateLine(Int32)</h4>
+  <div class="markdown level1 summary"><p>Creates an array of glyphs that can be used as a connected line.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int[] CreateLine(int singleGlyph)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">singleGlyph</span></td>
+        <td><p>The glyph to use for the connected line array.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span>[]</td>
+        <td><p>An array of glyphs.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="SadConsole_CellSurface_DrawBox_" data-uid="SadConsole.CellSurface.DrawBox*"></a>
   <h4 id="SadConsole_CellSurface_DrawBox_Microsoft_Xna_Framework_Rectangle_SadConsole_Cell_SadConsole_Cell_System_Int32___" data-uid="SadConsole.CellSurface.DrawBox(Microsoft.Xna.Framework.Rectangle,SadConsole.Cell,SadConsole.Cell,System.Int32[])">DrawBox(Rectangle, Cell, Cell, Int32[])</h4>
   <div class="markdown level1 summary"><p>Draws a box.</p>
@@ -1359,6 +1431,118 @@
   </table>
   <h5 id="SadConsole_CellSurface_DrawLine_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point_System_Nullable_Microsoft_Xna_Framework_Color__System_Nullable_Microsoft_Xna_Framework_Color__System_Nullable_System_Int32___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>If no foreground, background, or glyph are specified, then the list of affected cells are returned but nothing is drawn.</p>
+</div>
+  
+  
+  <a id="SadConsole_CellSurface_Erase_" data-uid="SadConsole.CellSurface.Erase*"></a>
+  <h4 id="SadConsole_CellSurface_Erase" data-uid="SadConsole.CellSurface.Erase">Erase()</h4>
+  <div class="markdown level1 summary"><p>Erases all cells which clears the glyph, mirror, and decorators.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Erase()</code></pre>
+  </div>
+  <h5 id="SadConsole_CellSurface_Erase_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>All cells have <a class="xref" href="SadConsole.Cell.html#SadConsole_Cell_Glyph">Glyph</a> set to <a class="xref" href="SadConsole.CellSurface.html#SadConsole_CellSurface_EraseGlyph">EraseGlyph</a>, the <a class="xref" href="SadConsole.Cell.html#SadConsole_Cell_Decorators">Decorators</a> array reset, and the <a class="xref" href="SadConsole.Cell.html#SadConsole_Cell_Mirror">Mirror</a> set to <span class="xref">Microsoft.Xna.Framework.Graphics.SpriteEffects.None</span>.</p>
+</div>
+  
+  
+  <a id="SadConsole_CellSurface_Erase_" data-uid="SadConsole.CellSurface.Erase*"></a>
+  <h4 id="SadConsole_CellSurface_Erase_System_Int32_System_Int32_" data-uid="SadConsole.CellSurface.Erase(System.Int32,System.Int32)">Erase(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Clears the glyph, mirror, and decorators, for the specified cell.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Erase(int x, int y)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">x</span></td>
+        <td><p>The x position.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">y</span></td>
+        <td><p>The y position.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="SadConsole_CellSurface_Erase_System_Int32_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The cell altered by this method has the <a class="xref" href="SadConsole.Cell.html#SadConsole_Cell_Glyph">Glyph</a> set to <a class="xref" href="SadConsole.CellSurface.html#SadConsole_CellSurface_EraseGlyph">EraseGlyph</a>, the <a class="xref" href="SadConsole.Cell.html#SadConsole_Cell_Decorators">Decorators</a> array reset, and the <a class="xref" href="SadConsole.Cell.html#SadConsole_Cell_Mirror">Mirror</a> set to <span class="xref">Microsoft.Xna.Framework.Graphics.SpriteEffects.None</span>.</p>
+</div>
+  
+  
+  <a id="SadConsole_CellSurface_Erase_" data-uid="SadConsole.CellSurface.Erase*"></a>
+  <h4 id="SadConsole_CellSurface_Erase_System_Int32_System_Int32_System_Int32_" data-uid="SadConsole.CellSurface.Erase(System.Int32,System.Int32,System.Int32)">Erase(Int32, Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Starting at the specified coordinate, clears the glyph, mirror, and decorators, for the specified count of cells.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Cell[] Erase(int x, int y, int count)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">x</span></td>
+        <td><p>The x position.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">y</span></td>
+        <td><p>The y position.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">count</span></td>
+        <td><p>The count of glyphs to erase.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.Cell.html">Cell</a>[]</td>
+        <td><p>The cells processed by this method.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="SadConsole_CellSurface_Erase_System_Int32_System_Int32_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Cells altered by this method has the <a class="xref" href="SadConsole.Cell.html#SadConsole_Cell_Glyph">Glyph</a> set to <a class="xref" href="SadConsole.CellSurface.html#SadConsole_CellSurface_EraseGlyph">EraseGlyph</a>, the <a class="xref" href="SadConsole.Cell.html#SadConsole_Cell_Decorators">Decorators</a> array reset, and the <a class="xref" href="SadConsole.Cell.html#SadConsole_Cell_Mirror">Mirror</a> set to <span class="xref">Microsoft.Xna.Framework.Graphics.SpriteEffects.None</span>.</p>
 </div>
   
   
