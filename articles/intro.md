@@ -1,3 +1,7 @@
+---
+redirect_from: "/docs/"
+---
+
 # Introduction to SadConsole
 
 SadConsole is pretty simple to get up and running. If you're working with the starter project included in the source code, you can tweak that to test out engine features.

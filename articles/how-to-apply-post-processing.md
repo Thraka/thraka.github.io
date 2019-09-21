@@ -22,47 +22,51 @@ public class MyCustomPPFX : DrawableGameComponent
 {
     public MyCustomPPFX() : base(SadConsole.Game.Instance) 
     {
-        //...
-	}
+        // ...
+    }
 
     //When we need to draw to the screen, it's done here.
     public override void Draw(GameTime gameTime)
     {
 
-	}
+    }
 }
 ```
 
 After this, you'll need to have your constructor load in the shader you want to use. This can be done through two methods:
 
- 1. The MonoGame Content Pipeline
- 2. 2MGFX (Manual Inclusion)
- 
- The MonoGame Content Pipeline is arguably easier, however requires you to have the pipeline available for changes.
+01. The MonoGame Content Pipeline
+01. 2MGFX (Manual Inclusion)
+
+The MonoGame Content Pipeline is arguably easier, however requires you to have the pipeline available for changes.
 
 ## Loading a shader
-*Method 1: MonoGame Content Pipeline*
 
-To load your content via. the MonoGame Content Pipeline, you can create a simple `.mgcb` and include the shader as a file. Once this is done, you can set up a content manager and load the shader like so:
+There are two ways of loading your shader, either through the MonoGame Content Pipeline, or through the 2MGFX tool.
 
-```csharp
-effect = Content.Load<Effect> ("myEffect");
-```
+- **Method 1: MonoGame Content Pipeline**
 
-*Method 2: 2MGFX and Manual Inclusion*
+  To load your content via. the MonoGame Content Pipeline, you can create a simple `.mgcb` and include the shader as a file. Once this is done, you can set up a content manager and load the shader like so:
+  
+  ```csharp
+  effect = Content.Load<Effect> ("myEffect");
+  ```
 
-First, you'll need to compile your `.fx` shader using *2MGFX*, a free tool included in every MonoGame install. The default location for this is in the MonoGame MSBuild folder, located at `Program Files (x86)\MSBuild\MonoGame\Tools`.
-
-> [!NOTE]
-> Make sure you're compiling for the correct platform, either DesktopGL or DirectX_11, otherwise your shader will not compile properly, or fail to load.
-
-Once this is done, you can include the compiled file as a resource in your assembly, as is done so [here,]([https://stackoverflow.com/questions/433171/how-to-embed-a-text-file-in-a-net-assembly](https://stackoverflow.com/questions/433171/how-to-embed-a-text-file-in-a-net-assembly)) and then load the effect from raw bytes, like so:
-
-```csharp
-Effect myEffect = new Effect(SadConsole.Global.GraphicsDevice, Resources.MyEffect);
-```
+- **Method 2: 2MGFX and Manual Inclusion**
+    
+  First, you'll need to compile your `.fx` shader using *2MGFX*, a free tool included in every MonoGame install. The default location for this is in the MonoGame MSBuild folder, located at `Program Files (x86)\MSBuild\MonoGame\Tools`.
+  
+  > [!NOTE]
+  > Make sure you're compiling for the correct platform, either DesktopGL or DirectX_11, otherwise your shader will not compile properly, or fail to load.
+  
+  Once this is done, you can include the compiled file as a resource in your assembly, as is demonstrated in [this StackOverflow question](https://stackoverflow.com/questions/433171/how-to-embed-a-text-file-in-a-net-assembly). Next, load the effect from raw bytes, like so:
+  
+  ```csharp
+  Effect myEffect = new Effect(SadConsole.Global.GraphicsDevice, Resources.MyEffect);
+  ```
 
 ## Configuring the class
+
 Once you've successfully loaded the shader in your constructor, it should look something like this:
 
 ```csharp
@@ -80,18 +84,18 @@ DrawOrder = 6;
 myShader = new Effect(SadConsole.Global.GraphicsDevice, Resources.MyShader);
 ```
 
-With the `DrawOrder` properly set, all that's left to do is configure the shader's parameters, and then include the `Draw` code. The first step is done on a shader-by-shader basis, however this is what the code looks like in the [SadConsole Shader Example]([https://github.com/SadConsole/SadConsole/blob/master/src/DemoProject/SharedCode/ShaderRendererTesting.cs](https://github.com/SadConsole/SadConsole/blob/master/src/DemoProject/SharedCode/ShaderRendererTesting.cs)):
+With the `DrawOrder` properly set, all that's left to do is configure the shader's parameters, and then include the `Draw` code. The first step is done on a shader-by-shader basis, however this is what the code looks like in the [SadConsole Shader Example](https://github.com/SadConsole/SadConsole/blob/master/src/DemoProject/SharedCode/ShaderRendererTesting.cs):
 
 ```csharp
 public override void Draw(GameTime gameTime)
 {
-	// Respect the draw flag for sadconsole
-	if (Settings.DoDraw)
-	{
-		spriteEffect.Parameters["textureSize"].SetValue(new Vector2(Global.RenderOutput.Width, Global.RenderOutput.Height));
-		spriteEffect.Parameters["videoSize"].SetValue(new Vector2(Global.RenderOutput.Width, Global.RenderOutput.Height));
-		spriteEffect.Parameters["outputSize"].SetValue(new Vector2(Global.RenderRect.Width, Global.RenderRect.Height));
-	}
+    // Respect the draw flag for sadconsole
+    if (Settings.DoDraw)
+    {
+        spriteEffect.Parameters["textureSize"].SetValue(new Vector2(Global.RenderOutput.Width, Global.RenderOutput.Height));
+        spriteEffect.Parameters["videoSize"].SetValue(new Vector2(Global.RenderOutput.Width, Global.RenderOutput.Height));
+        spriteEffect.Parameters["outputSize"].SetValue(new Vector2(Global.RenderRect.Width, Global.RenderRect.Height));
+    }
 }
 ```
 
@@ -118,6 +122,7 @@ Game.Instance.Components.Add(new MyCustomPPFX());
 Running the game, your shader should now be applied, permitting your parameters and configuration were correct.
 
 ## Troubleshooting
+
 **I'm just seeing a black screen, what should I do?**
 
 Has the shader been applied between the `Begin` and `Draw` methods? Is the shader broken? 
