@@ -1,4 +1,9 @@
-# How to use Graphical Tiles
+---
+description: Learn how to add a graphical font tileset to SadConsole.
+ms.date: 10/10/2019
+---
+
+# How to use Graphical Tiles in SadConsole
 
 ![screenshot of sadconsole with graphical tiles](~/images/graphical-tiles.png)
 
