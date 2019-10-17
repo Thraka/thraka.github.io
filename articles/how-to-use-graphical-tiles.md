@@ -23,7 +23,7 @@ Next, create an empty spritesheet in your graphical editing software of choice. 
 
 Hide the grid and export the file into your project, under the `Fonts` directory. Next, create the `.font` metadata file. Here's a sample:
 
-```
+```json
 {
     "FilePath": "MyCustomFont_16x16.png",
     "GlyphHeight": 16,
