@@ -4,7 +4,7 @@
 
 SadConsole supports graphical tiles! It's recommended that you have at least something basic drawn on-screen (eg. character, floor, walls) before adding graphics, but you can do this at any stage of development. As you can see from the screenshot, you can mix graphical tiles with regular fonts.
 
-## How Graphical Tiles Work
+## How graphical tiles work
 
 If you read the [basic font information](~/articles/basic-font-information.md) tutorial, you'll see that SadConsole uses simple PNG images for fonts. We can leverage this by creating a font image that uses regular graphical tiles as a spritesheet, instead of ASCII characters.
 
