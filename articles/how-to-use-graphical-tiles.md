@@ -5,11 +5,11 @@ ms.date: 10/10/2019
 
 # How to use Graphical Tiles in SadConsole
 
-![screenshot of sadconsole with graphical tiles](~/images/graphical-tiles.png)
-
 SadConsole supports graphical tiles! It's recommended that you have at least something basic drawn on-screen (eg. character, floor, walls) before adding graphics, but you can do this at any stage of development. As you can see from the screenshot, you can mix graphical tiles with regular fonts.
 
-## How graphical tiles work
+![screenshot of sadconsole with graphical tiles](~/images/graphical-tiles.png)
+
+## How Graphical Tiles Work
 
 If you read the [basic font information](basic-font-information.md) tutorial, you'll see that SadConsole uses simple PNG images for fonts. We can leverage this by creating a font image that uses regular graphical tiles as a spritesheet, instead of ASCII characters.
 
@@ -38,11 +38,16 @@ Replace the font sizes and the filename with appropriate values. Note the `Solid
 
 ## Using the Spritesheet Font In-Game
 
-Somewhere in your game console constructor, set the font:
+Somewhere in your game constructor, load the font:
 
 ```
-var fontMaster = SadConsole.Global.LoadFont("Fonts/MyCustomFont.font");
-var normalSizedFont = fontMaster.GetFont(SadConsole.Font.FontSizes.One);
+SadConsole.Global.LoadFont("Fonts/MyCustomFont.font");
+```
+
+This loads the font and caches it in the `Global.Fonts` collection with the name `MyCustomFont`. You can then load it by adding this code to your console:
+
+```
+var normalSizedFont = SadConsole.Global.Fonts["MyCustomFont"].GetFont(SadConsole.Font.FontSizes.One);
 this.Font = normalSizedFont;
 ```
 
