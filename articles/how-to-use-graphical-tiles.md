@@ -47,7 +47,7 @@ Since SadConsole limits you to one font per console, you need to create sub-cons
 
 ## Coloring Sprites
 
-To colour your sprites, simply specify a `Color` in your `SetGlyph` calls. By default, your font image uses white, so your images will render white. If you specify a color to `SetGlyph`, SadConsole will multiply that colour by the spritesheet colour when it draws.
+To color your sprites, simply specify a `Color` in your `SetGlyph` calls. By default, your font image uses white, so your images will render white. If you specify a color to `SetGlyph`, SadConsole will multiply that color by the spritesheet color when it draws.
 
 You can use this for effects; just be aware that drawing pixels in your spritesheet in a color other than white, will restrict what colors they can appear with in-game.
 
