@@ -8,7 +8,7 @@ SadConsole supports graphical tiles! It's recommended that you have at least som
 
 If you read the [basic font information](basic-font-information.md) tutorial, you'll see that SadConsole uses simple PNG images for fonts. We can leverage this by creating a font image that uses regular graphical tiles as a spritesheet, instead of ASCII characters.
 
-When you substitue graphics, pay attention to the position in the font file. With an ASCII font, writing the `@` glyph renders the `@` image; in the spriesheet, it'll render whatever image occupies that same cell in the spritesheet.
+When you substitute graphics, pay attention to the positions in the font file. With an ASCII font, writing the `@` glyph (index 64) on a console renders the `@` image (index 64); in the spritesheet, it'll render whatever image occupies that same cell index in the spritesheet.
 
 ## Creating the Font Spritesheet
 
