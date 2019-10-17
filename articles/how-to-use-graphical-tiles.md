@@ -45,7 +45,7 @@ You're done! Any calls to `SetGlyph` will use the image from your custom font sp
 
 Since SadConsole limits you to one font per console, you need to create sub-consoles for anything you want to render normally, such as a status bar, sub-menu, etc.
 
-## Colouring Sprites
+## Coloring Sprites
 
 To colour your sprites, simply specify a `Color` in your `SetGlyph` calls. By default, your font image uses white, so your images will render white. If you specify a color to `SetGlyph`, SadConsole will multiply that colour by the spritesheet colour when it draws.
 
