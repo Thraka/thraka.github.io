@@ -8,7 +8,7 @@ The following types are the objects that are related to console.
 
 | Type | Function |
 | ---- | -------- |
-| <xref:SadConsole.CellSurface> | A `CellSurface` is the base class for `Console`. It represents a collection of cells that can be printed to. |
+| [test method](xref:sadconsole.cellsurface#methods) | A `CellSurface` is the base class for `Console`. It represents a collection of cells that can be printed to. |
 | <xref:SadConsole.Console> | Provides keyboard, mouse, virtual cursor support. Renders the cell data to the screen. |
 | <xref:SadConsole.ContainerConsole> | A special console that does not but contain other consoles. This disables all rendering and is a **1x1** in size. It shouldn't be used like a console. |
 | <xref:SadConsole.ScrollingConsole> | The same as a normal `Console` but provides a `ViewPort` property to allow displaying a subsection of the console. |
