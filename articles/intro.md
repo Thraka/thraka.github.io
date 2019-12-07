@@ -16,6 +16,7 @@ If you are migrating an existing project from Version 7 to Version 8, read the [
 * [Part 1 - Draw on a console](tutorials/get-started/drawing-on-a-console.md)
 * [Part 2 - Keyboard and Mouse](tutorials/get-started/part-2-input.md)
 * [Part 3 - Multiple consoles](tutorials/get-started/part-3-multiple-consoles.md)
+* [Part 4 - Movable character](tutorials/get-started/part-4-movable-characters.md)
 
 ## Basics
 

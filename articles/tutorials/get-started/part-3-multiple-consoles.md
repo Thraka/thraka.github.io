@@ -231,4 +231,4 @@ consoleParent
 
 Now you understand a bit more about parenting works. The next part of the series will explore creating characters on a console and moving them around with the keyboard.
 
-- [Part 4: Movable character](part-3-multiple-consoles.md)
+- [Part 4: Movable character](part-4-movable-characters.md)
