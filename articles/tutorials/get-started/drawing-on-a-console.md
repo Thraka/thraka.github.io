@@ -3,7 +3,7 @@ description: Learn how to get started with SadConsole by drawing on a console. A
 ms.date: 06/09/2019
 ---
 
-# Get Started (1) - Draw on a console
+# Get Started 1 - Draw on a console
 
 Welcome to the start of the Getting Started with SadConsole tutorial series. This series will outline how to use the basic parts of SadConsole from the perspective of a new developer.
 

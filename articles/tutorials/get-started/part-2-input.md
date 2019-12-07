@@ -3,7 +3,7 @@ description: Learn how to get started with SadConsole by using input features. L
 ms.date: 06/20/2019
 ---
 
-# Get Started (2) - Learning about input
+# Get Started 2 - Learning about input
 
 In this part of the tutorial we'll explore how input works in SadConsole. Input is made up of both keyboard and mouse processing. SadConsole does not provide any input processing for gamepads and joysticks. However, MonoGame provides gamepad and joystick processing, which SadConsole is built on.
 

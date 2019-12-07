@@ -3,7 +3,7 @@ description: Learn how to get started with SadConsole by using multiple consoles
 ms.date: 08/03/2019
 ---
 
-# Get Started (3) - Learning about consoles
+# Get Started 3 - Learning about consoles
 
 In this part of the tutorial you'll learn how to use multiple consoles. Consoles can be attached to other consoles. Consoles can even share cell data between them.
 
@@ -231,5 +231,4 @@ consoleParent
 
 Now you understand a bit more about parenting works. The next part of the series will explore creating characters on a console and moving them around with the keyboard.
 
->[!NOTE]
->This tutorial series is in progress. The next part of the series has not yet been published.
+- [Part 4: Movable character](part-3-multiple-consoles.md)
