@@ -87,7 +87,19 @@
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="SadConsole.Themes.ThemeBase.html#SadConsole_Themes_ThemeBase_Colors">ThemeBase.Colors</a>
+      <a class="xref" href="SadConsole.Themes.ThemeStates.html#SadConsole_Themes_ThemeStates_SetForeground_Microsoft_Xna_Framework_Color_">ThemeStates.SetForeground(Color)</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Themes.ThemeStates.html#SadConsole_Themes_ThemeStates_SetBackground_Microsoft_Xna_Framework_Color_">ThemeStates.SetBackground(Color)</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Themes.ThemeStates.html#SadConsole_Themes_ThemeStates_SetGlyph_System_Int32_">ThemeStates.SetGlyph(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Themes.ThemeStates.html#SadConsole_Themes_ThemeStates_SetMirror_Microsoft_Xna_Framework_Graphics_SpriteEffects_">ThemeStates.SetMirror(SpriteEffects)</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Themes.ThemeStates.html#SadConsole_Themes_ThemeStates_GetStateAppearance_SadConsole_Controls_ControlStates_">ThemeStates.GetStateAppearance(ControlStates)</a>
     </div>
     <div>
       <a class="xref" href="SadConsole.Themes.ThemeStates.html#SadConsole_Themes_ThemeStates_Normal">ThemeStates.Normal</a>
@@ -106,21 +118,6 @@
     </div>
     <div>
       <a class="xref" href="SadConsole.Themes.ThemeStates.html#SadConsole_Themes_ThemeStates_MouseDown">ThemeStates.MouseDown</a>
-    </div>
-    <div>
-      <a class="xref" href="SadConsole.Themes.ThemeStates.html#SadConsole_Themes_ThemeStates_SetForeground_Microsoft_Xna_Framework_Color_">ThemeStates.SetForeground(Color)</a>
-    </div>
-    <div>
-      <a class="xref" href="SadConsole.Themes.ThemeStates.html#SadConsole_Themes_ThemeStates_SetBackground_Microsoft_Xna_Framework_Color_">ThemeStates.SetBackground(Color)</a>
-    </div>
-    <div>
-      <a class="xref" href="SadConsole.Themes.ThemeStates.html#SadConsole_Themes_ThemeStates_SetGlyph_System_Int32_">ThemeStates.SetGlyph(Int32)</a>
-    </div>
-    <div>
-      <a class="xref" href="SadConsole.Themes.ThemeStates.html#SadConsole_Themes_ThemeStates_SetMirror_Microsoft_Xna_Framework_Graphics_SpriteEffects_">ThemeStates.SetMirror(SpriteEffects)</a>
-    </div>
-    <div>
-      <a class="xref" href="SadConsole.Themes.ThemeStates.html#SadConsole_Themes_ThemeStates_GetStateAppearance_SadConsole_Controls_ControlStates_">ThemeStates.GetStateAppearance(ControlStates)</a>
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="SadConsole.Themes.html">SadConsole.Themes</a></h6>
@@ -142,19 +139,20 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ProgressBarTheme()</code></pre>
   </div>
-  <h3 id="fields">Fields
+  <h3 id="properties">Properties
   </h3>
   
   
+  <a id="SadConsole_Themes_ProgressBarTheme_Background_" data-uid="SadConsole.Themes.ProgressBarTheme.Background*"></a>
   <h4 id="SadConsole_Themes_ProgressBarTheme_Background" data-uid="SadConsole.Themes.ProgressBarTheme.Background">Background</h4>
   <div class="markdown level1 summary"><p>The theme of the unprogressed part of the bar.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ThemeStates Background</code></pre>
+    <pre><code class="lang-csharp hljs">public ThemeStates Background { get; protected set; }</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -171,15 +169,16 @@
   </table>
   
   
+  <a id="SadConsole_Themes_ProgressBarTheme_Foreground_" data-uid="SadConsole.Themes.ProgressBarTheme.Foreground*"></a>
   <h4 id="SadConsole_Themes_ProgressBarTheme_Foreground" data-uid="SadConsole.Themes.ProgressBarTheme.Foreground">Foreground</h4>
   <div class="markdown level1 summary"><p>The theme of the progressed part of the bar.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ThemeStates Foreground</code></pre>
+    <pre><code class="lang-csharp hljs">public ThemeStates Foreground { get; protected set; }</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -259,13 +258,12 @@
   
   
   <a id="SadConsole_Themes_ProgressBarTheme_RefreshTheme_" data-uid="SadConsole.Themes.ProgressBarTheme.RefreshTheme*"></a>
-  <h4 id="SadConsole_Themes_ProgressBarTheme_RefreshTheme_SadConsole_Themes_Colors_" data-uid="SadConsole.Themes.ProgressBarTheme.RefreshTheme(SadConsole.Themes.Colors)">RefreshTheme(Colors)</h4>
-  <div class="markdown level1 summary"><p>Reloads the theme values based on the colors provided.</p>
-</div>
+  <h4 id="SadConsole_Themes_ProgressBarTheme_RefreshTheme_SadConsole_Themes_Colors_SadConsole_Controls_ControlBase_" data-uid="SadConsole.Themes.ProgressBarTheme.RefreshTheme(SadConsole.Themes.Colors,SadConsole.Controls.ControlBase)">RefreshTheme(Colors, ControlBase)</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override void RefreshTheme(Colors themeColors)</code></pre>
+    <pre><code class="lang-csharp hljs">public override void RefreshTheme(Colors themeColors, ControlBase control)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -280,13 +278,17 @@
       <tr>
         <td><a class="xref" href="SadConsole.Themes.Colors.html">Colors</a></td>
         <td><span class="parametername">themeColors</span></td>
-        <td><p>The colors to create the theme with.</p>
-</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SadConsole.Controls.ControlBase.html">ControlBase</a></td>
+        <td><span class="parametername">control</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="SadConsole.Themes.ThemeStates.html#SadConsole_Themes_ThemeStates_RefreshTheme_SadConsole_Themes_Colors_">ThemeStates.RefreshTheme(Colors)</a></div>
+  <div><a class="xref" href="SadConsole.Themes.ThemeStates.html#SadConsole_Themes_ThemeStates_RefreshTheme_SadConsole_Themes_Colors_SadConsole_Controls_ControlBase_">ThemeStates.RefreshTheme(Colors, ControlBase)</a></div>
   
   
   <a id="SadConsole_Themes_ProgressBarTheme_UpdateAndDraw_" data-uid="SadConsole.Themes.ProgressBarTheme.UpdateAndDraw*"></a>
