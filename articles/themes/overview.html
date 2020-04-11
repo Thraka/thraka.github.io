@@ -306,8 +306,19 @@ Global.CurrentScreen = console;
 </tbody>
 </table>
 <p>By changing the base color definitions (such as <a class="xref" href="../../api/SadConsole.Themes.Colors.html#SadConsole_Themes_Colors_Text">Text</a>) and calling <a class="xref" href="../../api/SadConsole.Themes.Colors.html#SadConsole_Themes_Colors_RebuildAppearances">SadConsole.Themes.Colors.RebuildAppearances()</a>, all of the <code>Appearance*</code> properties will be rebuilt.</p>
+<h2 id="how-to-set-colors-for-a-console">How to: Set colors for a console</h2>
 <p>The following code creates new colors used by the console host and it's controls:</p>
-<pre><code class="lang-csharp">var colors = SadConsole.Themes.Colors.CreateDefault();
+<pre><code class="lang-csharp">var console = new SadConsole.ControlsConsole(50, 30)
+{
+    new SadConsole.Controls.Button(7, 1)
+    {
+        Text = &quot;Click&quot;,
+        Position = new Point(5, 5)
+    }
+};
+
+// Create a new set of colors
+var colors = SadConsole.Themes.Colors.CreateDefault();
 colors.ControlBack = Color.DarkGray;
 colors.ControlBackLight = (colors.ControlBack * 1.3f).FillAlpha();
 colors.ControlBackSelected = Color.LightGray;
@@ -316,10 +327,43 @@ colors.Text = Color.Black;
 
 colors.RebuildAppearances();
 
+// Apply the colors to a console
 console.ThemeColors = colors;
+
+// code to show the console
+Global.CurrentScreen = console;
 </code></pre>
 <p>There are more properties to set on the <code>colors</code> object to fully rebuild all control states. The limited set above was provided just to demonstrate changing the colors. Refer to the table previously listed.</p>
-<p><img src="images/overview/color-adjust.png" alt="SadConsole three buttons on a ControlsConsole with the Button3dTheme applied to a single control"></p>
+<p><img src="images/overview/color-adjust.png" alt="SadConsole ControlsConsole using a different color scheme"></p>
+<h2 id="how-to-set-colors-for-a-control">How to: Set colors for a control</h2>
+<p>That same code can be used to apply colors to an individual control. Instead of applying it to the control host, apply the colors to an individual control. Here is the same code as section above, but with the colors applied to a single control.</p>
+<pre><code class="lang-csharp">var console = new SadConsole.ControlsConsole(50, 30)
+{
+    new SadConsole.Controls.Button(7, 1)
+    {
+        Text = &quot;Click&quot;,
+        Position = new Point(5, 5)
+    }
+};
+
+// Create a new set of colors
+var colors = SadConsole.Themes.Colors.CreateDefault();
+colors.ControlBack = Color.DarkGray;
+colors.ControlBackLight = (colors.ControlBack * 1.3f).FillAlpha();
+colors.ControlBackSelected = Color.LightGray;
+colors.ControlBackDark = (colors.ControlBack * 0.7f).FillAlpha();
+colors.Text = Color.Black;
+
+colors.RebuildAppearances();
+
+// Apply the colors to the button (first control) on the console
+console.Controls[0].ThemeColors = colors;
+
+// code to show the console
+Global.CurrentScreen = console;
+</code></pre>
+<p>There are more properties to set on the <code>colors</code> object to fully rebuild all control states. The limited set above was provided just to demonstrate changing the colors. Refer to the table previously listed.</p>
+<p><img src="images/overview/color-adjust-control.png" alt="SadConsole ControlsConsole using a different color scheme on a control"></p>
 </article>
           </div>
           
