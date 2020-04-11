@@ -24,7 +24,6 @@ Once you have a basic SadConsole project up-and-running, use these tutorials to 
 
 * [Create your first Console](how-to-create-a-console.md)
 * [How to draw and print on a Console](how-to-draw-on-a-console.md)
-* [How to change the font size of a console](basic-font-information.md#change-the-font-of-a-console)
 
 ## Concepts
 
@@ -35,3 +34,4 @@ Knowing more about how SadConsole works can help you think your way out of a pro
 * [How fonts work](basic-font-information.md)
 * [How does SadConsole draw?](how-sadconsole-draws-to-the-screen.md)
 * [Use the string parser](string-parser.md)
+* [Themes](themes/overview.md)

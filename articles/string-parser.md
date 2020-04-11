@@ -81,7 +81,7 @@ Syntax: `[c:r|recolor f|b:color[:count]]`
 | Parameter Position | Optional | Description |
 | ------------------ | -------- | ----------- |
 | 1                  | False    | Picks color area.<br>f = foreground<br>b = background |
-| 2                  | False    | Chooses the color to use. See [color selection](#color-selection) down below for more information. |
+| 2                  | False    | Chooses the color to use. See [color parameters](#color-parameters) down below for more information. |
 | 3                  | True     | Amount of characters to affect. If omitted, goes on indefinitely. |
 
 ### Examples
@@ -155,7 +155,7 @@ Syntax: `[c:g f|b:color[:color]:count]`
 | Parameter Position | Optional | Description |
 | ------------------ | -------- | ----------- |
 | 1                  | False    | <br>f = apply gradient to the foreground<br>b = apply gradient to the background |
-| 2                  | False    | The color step to apply to the gradient. Repeat as many times as needed. See [color selection](#color-selection) down below for more information. |
+| 2                  | False    | The color step to apply to the gradient. Repeat as many times as needed. See [color parameters](#color-parameters) down below for more information. |
 | Last               | False    | How many characters for the gradient to apply to |
 
 ### Examples
@@ -320,4 +320,4 @@ Now we can trigger this with the print function: `console.Print(2, 2, "my text i
 [cu]: #command-undo
 [cb]: #command-blink
 [cg]: #command-gradient
-[csg]: #command-glyph
+[csg]: #command-set-glyph
