@@ -267,9 +267,21 @@ All control themes use some basic appearance settings by default, and these are 
 
 By changing the base color definitions (such as <xref:SadConsole.Themes.Colors.Text>) and calling <xref:SadConsole.Themes.Colors.RebuildAppearances?displayProperty=fullName>, all of the `Appearance*` properties will be rebuilt.
 
+## How to: Set colors for a console
+
 The following code creates new colors used by the console host and it's controls:
 
 ```csharp
+var console = new SadConsole.ControlsConsole(50, 30)
+{
+    new SadConsole.Controls.Button(7, 1)
+    {
+        Text = "Click",
+        Position = new Point(5, 5)
+    }
+};
+
+// Create a new set of colors
 var colors = SadConsole.Themes.Colors.CreateDefault();
 colors.ControlBack = Color.DarkGray;
 colors.ControlBackLight = (colors.ControlBack * 1.3f).FillAlpha();
@@ -279,9 +291,48 @@ colors.Text = Color.Black;
 
 colors.RebuildAppearances();
 
+// Apply the colors to a console
 console.ThemeColors = colors;
+
+// code to show the console
+Global.CurrentScreen = console;
 ```
 
 There are more properties to set on the `colors` object to fully rebuild all control states. The limited set above was provided just to demonstrate changing the colors. Refer to the table previously listed.
 
-![SadConsole three buttons on a ControlsConsole with the Button3dTheme applied to a single control](images/overview/color-adjust.png)
+![SadConsole ControlsConsole using a different color scheme](images/overview/color-adjust.png)
+
+## How to: Set colors for a control
+
+That same code can be used to apply colors to an individual control. Instead of applying it to the control host, apply the colors to an individual control. Here is the same code as section above, but with the colors applied to a single control.
+
+```csharp
+var console = new SadConsole.ControlsConsole(50, 30)
+{
+    new SadConsole.Controls.Button(7, 1)
+    {
+        Text = "Click",
+        Position = new Point(5, 5)
+    }
+};
+
+// Create a new set of colors
+var colors = SadConsole.Themes.Colors.CreateDefault();
+colors.ControlBack = Color.DarkGray;
+colors.ControlBackLight = (colors.ControlBack * 1.3f).FillAlpha();
+colors.ControlBackSelected = Color.LightGray;
+colors.ControlBackDark = (colors.ControlBack * 0.7f).FillAlpha();
+colors.Text = Color.Black;
+
+colors.RebuildAppearances();
+
+// Apply the colors to the button (first control) on the console
+console.Controls[0].ThemeColors = colors;
+
+// code to show the console
+Global.CurrentScreen = console;
+```
+
+There are more properties to set on the `colors` object to fully rebuild all control states. The limited set above was provided just to demonstrate changing the colors. Refer to the table previously listed.
+
+![SadConsole ControlsConsole using a different color scheme on a control](images/overview/color-adjust-control.png)
