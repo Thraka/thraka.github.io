@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ControlsConsole
    ">
-    <meta name="generator" content="docfx 2.40.11.0">
+    <meta name="generator" content="docfx 2.52.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -1234,7 +1234,7 @@
   
   <a id="SadConsole_ControlsConsole_Invalidate_" data-uid="SadConsole.ControlsConsole.Invalidate*"></a>
   <h4 id="SadConsole_ControlsConsole_Invalidate" data-uid="SadConsole.ControlsConsole.Invalidate">Invalidate()</h4>
-  <div class="markdown level1 summary"><p>Signals that the console should be considered dirty and reapplies the <a class="xref" href="SadConsole.ControlsConsole.html#SadConsole_ControlsConsole_Theme">Theme</a>. When overridden, call this method first.</p>
+  <div class="markdown level1 summary"><p>Signals that the console should be considered dirty and draws <a class="xref" href="SadConsole.ControlsConsole.html#SadConsole_ControlsConsole_Theme">Theme</a>, calls the customizable <a class="xref" href="SadConsole.ControlsConsole.html#SadConsole_ControlsConsole_Invalidate">Invalidate()</a> method, then rasies the <a class="xref" href="SadConsole.ControlsConsole.html#SadConsole_ControlsConsole_Invalidated">Invalidated</a> event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1280,6 +1280,17 @@
   </div>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="SadConsole.Console.html#SadConsole_Console_OnFocusLost">Console.OnFocusLost()</a></div>
+  
+  
+  <a id="SadConsole_ControlsConsole_OnInvalidate_" data-uid="SadConsole.ControlsConsole.OnInvalidate*"></a>
+  <h4 id="SadConsole_ControlsConsole_OnInvalidate" data-uid="SadConsole.ControlsConsole.OnInvalidate">OnInvalidate()</h4>
+  <div class="markdown level1 summary"><p>Called by <a class="xref" href="SadConsole.ControlsConsole.html#SadConsole_ControlsConsole_OnInvalidate">OnInvalidate()</a> as a way to customize drawing on teh console.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnInvalidate()</code></pre>
+  </div>
   
   
   <a id="SadConsole_ControlsConsole_OnMouseExit_" data-uid="SadConsole.ControlsConsole.OnMouseExit*"></a>
@@ -1433,6 +1444,17 @@
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="SadConsole.Console.html#SadConsole_Console_ProcessMouse_SadConsole_Input_MouseConsoleState_">Console.ProcessMouse(MouseConsoleState)</a></div>
+  
+  
+  <a id="SadConsole_ControlsConsole_RaiseInvalidated_" data-uid="SadConsole.ControlsConsole.RaiseInvalidated*"></a>
+  <h4 id="SadConsole_ControlsConsole_RaiseInvalidated" data-uid="SadConsole.ControlsConsole.RaiseInvalidated">RaiseInvalidated()</h4>
+  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SadConsole.ControlsConsole.html#SadConsole_ControlsConsole_Invalidated">Invalidated</a> event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void RaiseInvalidated()</code></pre>
+  </div>
   
   
   <a id="SadConsole_ControlsConsole_ReleaseControl_" data-uid="SadConsole.ControlsConsole.ReleaseControl*"></a>
@@ -1601,6 +1623,33 @@
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="SadConsole.Console.html#SadConsole_Console_Update_System_TimeSpan_">Console.Update(TimeSpan)</a></div>
+  <h3 id="events">Events
+  </h3>
+  
+  
+  <h4 id="SadConsole_ControlsConsole_Invalidated" data-uid="SadConsole.ControlsConsole.Invalidated">Invalidated</h4>
+  <div class="markdown level1 summary"><p>Raised when the console has been redrawn.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler Invalidated</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.EventHandler</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="implements">Implements</h3>
   <div>
       <span class="xref">System.Collections.Generic.IEnumerable&lt;&gt;</span>
