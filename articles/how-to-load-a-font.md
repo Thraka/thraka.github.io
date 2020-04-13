@@ -61,7 +61,7 @@ myConsole.Font = fontMaster.GetFont(SadConsole.Font.FontSizes.Two);
 
 All consoles automatically use the default font defined by the <xref:SadConsole.Global.FontDefault?displayProperty=fullName> property. Unless changed, SadConsole loads this font from a font embedded in the library. The font defaults to **1x** in size.
 
-You can use the existing default font and generate a different size from it. Each font contains reference to the <xref:SadConsole.FontMaster> through the <xref:SadConsole.Console.Font.Master> property. Simply generate a new font from the master and assign it back to the `FontDefault` property.
+You can use the existing default font and generate a different size from it. Each font contains reference to the <xref:SadConsole.FontMaster> through the <xref:SadConsole.Font.Master> property. Simply generate a new font from the master and assign it back to the `FontDefault` property.
 
 ```csharp
 SadConsole.Global.FontDefault = SadConsole.Global.FontDefault.Master.GetFont(Font.FontSizes.Two);
