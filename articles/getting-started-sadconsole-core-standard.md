@@ -1,19 +1,21 @@
 # Create a new SadConsole .NET Core project
 
-This page describes how to create a new project based on SadConsole Standard using .NET Core 2.2.
+This page describes how to create a new project based on SadConsole Standard using .NET Core 3.1.
 
 The .NET Core SDK includes easy ways to create a project, add references, and build/compile, without any sort of editor. This tutorial will show you how to create a new project using the .NET Core SDK. You can then open that project with your editor or IDE of choice.
 
 SadConsole uses MonoGame 3.7+.
 
+It may be easier to create a new project using the .NET Core SadConsole templates. For more information, see [Create a new SadConsole .NET Core project with the SadConsole templates](getting-started-sadconsole-core-cli-template.md).
+
 You can also [create a new project in Visual Studio](getting-started-sadconsole-core-visualstudio.md).
 
 ## Prerequisites
 
-[Download and install the .NET Core 2.2 SDK](https://dotnet.microsoft.com/download/dotnet-core/2.2). You can use .NET Core 2.0 through 2.2, or the 3.0 preview. To see what versions you have, run `dotnet --info`. If this command fails, download the .NET Core SDK.
+[Download and install the .NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1). You can use .NET Core 2.1 or .NET Core 3.1. To see what versions you have, run `dotnet --info`. If this command fails, your install may have failed, you don't have .NET Core, or it's not added to your terminal path variable.
 
 >[!NOTE]
->.NET Core 3.0 allows you to hide the console window that is automatically generated with a .NET Core app.
+>.NET Core 3.1 allows you to hide the console window that is automatically generated with a .NET Core app.
 
 ## Create your working folder
 
@@ -26,7 +28,7 @@ mkdir sadconsolegame
 cd sadconsolegame
 ```
 
-It's highly likely that those commands work on every operating system, or it will be very similar.
+It's highly likely that those commands work on every operating system, in the case that they don't, they'll be similar to this. Please refer to any documentation related to your operating system.
 
 >[!WARNING]
 >The folder name you use (in this example sadconsolegame) cannot be **sadconsole**. The default behavior for .NET Core is to create a project file named the same as the folder, and then the *output* file will be the same name as the project. This will cause a clash.
