@@ -1,6 +1,6 @@
 ---
 description: Learn how the themes of SadConsole work.
-ms.date: 04/07/2020
+ms.date: 04/22/2020
 ---
 
 # Overview - Control Themes
@@ -107,7 +107,9 @@ class MyConsole : SadConsole.ControlsConsole
     {
         base.Invalidate();
 
-        Print(1, 1, "Hello World", Theme.Colors.Green, Theme.Colors.GreenDark);
+        var colors = ThemeColors ?? Library.Default.Colors;
+
+        Print(1, 1, "Hello World", colors.Green, colors.GreenDark);
     }
 }
 
@@ -118,7 +120,7 @@ Global.CurrentScreen = new MyConsole(20, 10);
 
 ![console that has been invalidated to show a new theme](images/overview/invalidate.png)
 
-Note that the blue background of the console displayed above was taken from the theme colors, and automatically applied by the theme.
+Note that the blue background of the console displayed above was taken from the theme colors, and automatically applied by the theme when `base.Invalidate` is called.
 
 ## Host theme
 
@@ -173,6 +175,8 @@ Global.CurrentScreen.Children.Add(new ControlsConsole(20, 10) { Position = new P
 ## Control themes
 
 Control themes operate very similarly to the host console themes. The difference, though, is that when a control is created, it runs the <xref:SadConsole.Themes.Library.GetControlTheme(System.Type)?displayProperty=fullName> method to assign a theme to the control.
+
+Control themes don't define their own colors. Colors are supplied at drawing time by the control itself. When the theme is drawn, the theme checks the <xref:SadConsole.Controls.ControlBase.ThemeColors> property of the control. If there aren't any colors defined by the control the control host is checked for colors. If no colors are defined by the control host, finally, the <xref:SadConsole.Themes.Library.Colors> property of the default library is used.
 
 The <xref:SadConsole.Themes> namespace contains a theme object for each control defined by SadConsole. And each theme type uses a common base class, <xref:SadConsole.Themes.ThemeBase?displayProperty=fullName> which inherits from <xref:SadConsole.Themes.ThemeStates?displayProperty=fullName>. The `ThemeStates` class provides a cell template for each state a control can be put into. Usually the state of the control is set by interacting with it, like focusing, moving the mouse over it, and clicking.
 
