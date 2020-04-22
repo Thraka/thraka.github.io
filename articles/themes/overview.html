@@ -151,7 +151,9 @@ Global.CurrentScreen = console;
     {
         base.Invalidate();
 
-        Print(1, 1, &quot;Hello World&quot;, Theme.Colors.Green, Theme.Colors.GreenDark);
+        var colors = ThemeColors ?? Library.Default.Colors;
+
+        Print(1, 1, &quot;Hello World&quot;, colors.Green, colors.GreenDark);
     }
 }
 
@@ -160,7 +162,7 @@ Global.CurrentScreen = console;
 Global.CurrentScreen = new MyConsole(20, 10);
 </code></pre>
 <p><img src="images/overview/invalidate.png" alt="console that has been invalidated to show a new theme"></p>
-<p>Note that the blue background of the console displayed above was taken from the theme colors, and automatically applied by the theme.</p>
+<p>Note that the blue background of the console displayed above was taken from the theme colors, and automatically applied by the theme when <code>base.Invalidate</code> is called.</p>
 <h2 id="host-theme">Host theme</h2>
 <p>You can create a new theme and apply it to a console. The theme is the first thing that the console draws. Let's create a new <a class="xref" href="../../api/SadConsole.Themes.ControlsConsoleTheme.html">SadConsole.Themes.ControlsConsoleTheme</a> object.</p>
 <pre><code class="lang-csharp">class MyTheme: SadConsole.Themes.ControlsConsoleTheme
@@ -199,6 +201,7 @@ Global.CurrentScreen.Children.Add(new ControlsConsole(20, 10) { Position = new P
 <p><img src="images/overview/single-console-theme.png" alt="SadConsole ControlsConsole with a new theme"></p>
 <h2 id="control-themes">Control themes</h2>
 <p>Control themes operate very similarly to the host console themes. The difference, though, is that when a control is created, it runs the <a class="xref" href="../../api/SadConsole.Themes.Library.html#SadConsole_Themes_Library_GetControlTheme_System_Type_">SadConsole.Themes.Library.GetControlTheme(System.Type)</a> method to assign a theme to the control.</p>
+<p>Control themes don't define their own colors. Colors are supplied at drawing time by the control itself. When the theme is drawn, the theme checks the <a class="xref" href="../../api/SadConsole.Controls.ControlBase.html#SadConsole_Controls_ControlBase_ThemeColors">ThemeColors</a> property of the control. If there aren't any colors defined by the control the control host is checked for colors. If no colors are defined by the control host, finally, the <a class="xref" href="../../api/SadConsole.Themes.Library.html#SadConsole_Themes_Library_Colors">Colors</a> property of the default library is used.</p>
 <p>The <a class="xref" href="../../api/SadConsole.Themes.html">SadConsole.Themes</a> namespace contains a theme object for each control defined by SadConsole. And each theme type uses a common base class, <a class="xref" href="../../api/SadConsole.Themes.ThemeBase.html">SadConsole.Themes.ThemeBase</a> which inherits from <a class="xref" href="../../api/SadConsole.Themes.ThemeStates.html">SadConsole.Themes.ThemeStates</a>. The <code>ThemeStates</code> class provides a cell template for each state a control can be put into. Usually the state of the control is set by interacting with it, like focusing, moving the mouse over it, and clicking.</p>
 <p>The <code>ThemeBase</code> class provides logic for theme and control:</p>
 <ol>
