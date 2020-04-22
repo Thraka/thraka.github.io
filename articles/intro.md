@@ -6,7 +6,7 @@ redirect_from: "/docs/"
 
 SadConsole is pretty simple to get up and running. If you're working with the starter project included in the source code, you can tweak that to test out engine features.
 
-* [New project for .NET Core](getting-started-sadconsole-core-standard.md)
+* [New project for .NET Core](getting-started-sadconsole-core-cli-template.md)
 * [New project for .NET Framework](getting-started-with-sadconsole-framework.md)
 
 If you are migrating an existing project from Version 7 to Version 8, read the [upgrade guide](upgrade-version-7-to-8.md).

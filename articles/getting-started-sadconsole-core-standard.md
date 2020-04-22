@@ -14,9 +14,6 @@ You can also [create a new project in Visual Studio](getting-started-sadconsole-
 
 [Download and install the .NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1). You can use .NET Core 2.1 or .NET Core 3.1. To see what versions you have, run `dotnet --info`. If this command fails, your install may have failed, you don't have .NET Core, or it's not added to your terminal path variable.
 
->[!NOTE]
->.NET Core 3.1 allows you to hide the console window that is automatically generated with a .NET Core app.
-
 ## Create your working folder
 
 After you have a .NET Core SDK installed, open up a command shell. If you're unsure how to do that, search the internet for a tutorial.
