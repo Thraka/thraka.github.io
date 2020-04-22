@@ -1,10 +1,10 @@
 # Create a new SadConsole .NET Core project
 
-This page describes how to create a new project based on SadConsole Standard using .NET Core 2.2 and Visual Studio.
+This page describes how to create a new project based on SadConsole Standard using .NET Core 3.1 and Visual Studio.
 
 SadConsole uses MonoGame 3.7+.
 
-You can also [create a new project in the .NET SDK CLI](getting-started-sadconsole-core-standard.md).
+It may be easier to create a new project using the .NET Core SadConsole templates. For more information, see [Create a new SadConsole .NET Core project with the SadConsole templates](getting-started-sadconsole-core-cli-template.md). You can open the project created from that tutorial with Visual Studio.
 
 ## Prerequisites
 
@@ -12,9 +12,6 @@ You can also [create a new project in the .NET SDK CLI](getting-started-sadconso
 02. During install, make sure that you select the **.NET Core cross-platform development** workload.
 
     - If you have already installed Visual Studio, you can run the **Visual Studio Installer** that was added to your computer, and modify your installation to add the **.NET Core cross-platform development** workload.
-
->[!NOTE]
->.NET Core 3.0 allows you to hide the console window that is automatically generated with a .NET Core app. I would choose that as the target framework. Visual Studio 2017 does not support .NET Core 3.0.
 
 ## Create a new project
 

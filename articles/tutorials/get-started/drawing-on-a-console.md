@@ -9,17 +9,9 @@ Welcome to the start of the Getting Started with SadConsole tutorial series. Thi
 
 ## Prerequisites
 
-To complete this series, complete the following:
+To start this tutorial you'll need to have created a SadConsole project. It is recommended that you use the [SadConsole templates for .NET Core](../../getting-started-sadconsole-core-cli-template.md) which works for Windows, Linux, and macOS.
 
-01. Either [Visual Studio](https://visualstudio.microsoft.com/vs/) or [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/).
-
-    - Make sure that you install the **.NET Core cross-platform development** workload. When you install Visual Studio, select it from the list of components. If you've already installed visual Visual Studio, run the *Visual Studio Installer* app and modify your installation.
-
-01. A brand new SadConsole project in Visual Studio.
-
-    For more information, see the [Create a new SadConsole .NET Core project in Visual Studio](../../getting-started-sadconsole-core-visualstudio.md) tutorial.
-
-    If you prefer, you can create a project with the dotnet SDK and use any editor you want. For more information, see [Create a new SadConsole .NET Core project with .NET Core](../../getting-started-sadconsole-core-standard.md).
+Alternatively, you can create a project with [Visual Studio and .NET Framework](../../getting-started-with-sadconsole-framework.md).
 
 > [!WARNING]
 > Because of the added complexity, I do not recommend that you create a MonoGame project using the MonoGame Visual Studio templates.
