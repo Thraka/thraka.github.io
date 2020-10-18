@@ -7,8 +7,6 @@ ms.date: 04/22/2020
 
 This page describes how to create a new project with the SadConsole templates hosted on [NuGet](https://www.nuget.org/packages/SadConsole.Templates/). This template creates a .NET Core project. The .NET Core SDK includes easy ways to create a project, add references, and build/compile, with or without an editor.
 
-If you don't want to install and use the SadConsole templates, you can create a new project with the MonoGame for .NET Core template. For more information, see [Create a new SadConsole .NET Core project](getting-started-sadconsole-core-standard.md).
-
 You can also [create a new project in Visual Studio](getting-started-sadconsole-core-visualstudio.md).
 
 ## Prerequisites

@@ -1,6 +1,6 @@
 # Create a new MonoGame project
 
-This article describes how to use SadConsole from a Visual Studio MonoGame template. It is generally easier to create a game with either a [new blank .NET project](getting-started-with-sadconsole-framework.md) or a [.NET Core project](getting-started-sadconsole-core-standard.md).
+This article describes how to use SadConsole from a Visual Studio MonoGame template. It is generally easier to create a game with [Create a new SadConsole .NET Core project with the SadConsole templates](getting-started-sadconsole-core-cli-template.md) and then open that project in Visual Studio.
 
 - If you're using a MonoGame template to create a new project, which auto-generated your `game1` code file, continue to read this article. 
 - If you do not have the MonoGame SDK installed, you should create a new blank .NET project by following the directions in the [Create a new SadConsole project](getting-started-with-sadconsole-framework.md) article.

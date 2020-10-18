@@ -2,7 +2,7 @@
 
 This article describes how to setup SadConsole with a new project in Visual Studio.
 
-It is recommended that you use .NET Core to create your SadConsole game. To do so, follow the [.NET Core](getting-started-sadconsole-core-standard.md) tutorial.
+It is recommended that you use .NET Core to create your SadConsole game. To do so, follow the [.NET Core](getting-started-sadconsole-core-cli-template.md) tutorial.
 
 First, create a new project in Visual Studio. Depending on your version, some dialogs will look different. If you are not familiar with Visual Studio, follow the Microsoft documentation on [how to create a Visual Studio project](https://docs.microsoft.com/visualstudio/ide/creating-solutions-and-projects?view=vs-2017#to-create-a-project-from-a-project-template).
 
