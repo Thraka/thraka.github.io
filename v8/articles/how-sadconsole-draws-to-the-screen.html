@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>How does drawing work </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="How does drawing work ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/dracula.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="/">
+                <img id="logo" src="../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="how-does-drawing-work">How does drawing work</h1>
+
+<p>When SadConsole draws a dirty surface, it does not draw it directly to the screen. Each surface (a Console is a surface) has a <a class="xref" href="../api/SadConsole.Console.html#SadConsole_Console_LastRenderResult">LastRenderResult</a> property (which is a texture) that represents the last drawn state of the surface. When SadConsole is ready to draw the screen, all of the visible surfaces are gathered together (using their <a class="xref" href="../api/SadConsole.Console.html#SadConsole_Console_LastRenderResult">LastRenderResult</a> value) and drawn on a final texture, <a class="xref" href="../api/SadConsole.Global.html#SadConsole_Global_RenderOutput">RenderOutput</a>. This texture is then drawn to the screen.</p>
+<h2 id="cached-textures">Cached textures</h2>
+<p>As stated above, each surface creates a texture that represents the final look of the console-surface. A <a class="xref" href="../api/SadConsole.Renderers.IRenderer.html">IRenderer</a> object is responsible for this. When the renderer processes a surface, it first checks if the <a class="xref" href="../api/SadConsole.CellSurface.html#SadConsole_CellSurface_IsDirty">IsDirty</a> property is set to <code>true</code>. If so, it updates the cached texture with the latest state of the surface.</p>
+<p>This is very efficient because there is less to render to the screen each frame. A 100x100 console has about 20,000 sprite-draws each frame. If a surface doesn't change very often, this is a lot of wasted time for your GPU. By caching each draw to a texture, a single draw call is required each frame instead of all 20,000 individual draws. Once the 100x100 surface becomes dirty, then you would have the 20,000 individual draw calls that single dirty frame.</p>
+<h2 id="final-draw">Final draw</h2>
+<p>Now that we know how surfaces are predrawn, let's break down the code used to draw SadConsole. SadConsole is implemented as a MonoGame component, <a class="xref" href="../api/SadConsole.Game.SadConsoleGameComponent.html">Game.SadConsoleGameComponent</a> here is the <a class="xref" href="../api/SadConsole.Game.SadConsoleGameComponent.html#SadConsole_Game_SadConsoleGameComponent_Draw_Microsoft_Xna_Framework_GameTime_">Draw(GameTime)</a> method.</p>
+<pre><code class="lang-csharp">public override void Draw(GameTime gameTime)
+{
+    if (Settings.DoDraw)
+    {
+        var oldViewPort = GraphicsDevice.Viewport;
+        Global.GameTimeRender = gameTime;
+        Global.GameTimeElapsedRender = gameTime.ElapsedGameTime.TotalSeconds;
+
+        // Clear draw calls for next run
+        Global.DrawCalls.Clear();
+
+        // Make sure all items in the screen are drawn. (Build a list of draw calls)
+        Global.CurrentScreen?.Draw(gameTime.ElapsedGameTime);
+
+        SadConsole.Game.OnDraw?.Invoke(gameTime);
+</code></pre>
+<p>The above code resets all of the previous frame's draw calls. The <a class="xref" href="../api/SadConsole.Global.html#SadConsole_Global_CurrentScreen">CurrentScreen</a> has <a class="xref" href="../api/SadConsole.Console.html#SadConsole_Console_Draw_System_TimeSpan_">Draw(TimeSpan)</a> called on it which should build a new list of draw calls. A callback is then invoked.</p>
+<pre><code class="lang-csharp">        // Render to the global output texture
+        GraphicsDevice.SetRenderTarget(Global.RenderOutput);
+        GraphicsDevice.Clear(Settings.ClearColor);
+
+        // Render each draw call
+        Global.SpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp, DepthStencilState.DepthRead, RasterizerState.CullNone);
+        foreach (var call in Global.DrawCalls)
+        {
+            call.Draw();
+        }
+
+        Global.SpriteBatch.End();
+        GraphicsDevice.SetRenderTarget(null);
+</code></pre>
+<p>The above code tells the graphics device to draw to the final rendered texture. Each draw call is then then run. Afterwards, the graphics device is reset to draw to the screen.</p>
+<pre><code class="lang-csharp">        GraphicsDevice.Viewport = oldViewPort;
+
+        // If we're going to draw to the screen, do it.
+        if (Settings.DoFinalDraw)
+        {
+            Global.SpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, SamplerState.PointClamp, DepthStencilState.DepthRead, RasterizerState.CullNone);
+            Global.SpriteBatch.Draw(Global.RenderOutput, Global.RenderRect, Color.White);
+            Global.SpriteBatch.End();
+        }
+    }
+}
+</code></pre>
+<p>Finally, if the <a class="xref" href="../api/SadConsole.Settings.html#SadConsole_Settings_DoFinalDraw">DoFinalDraw</a> is <code>true</code>, the final render texture is then drawn to the screen. Why does this <code>DoFinalDraw</code> gate exist? This allows you to integrate SadConsole into an existing game. For example, if you had a 3D FPS where the player can walk up to and use a computer in the game, you can use SadConsole to process and draw. Then that final texture created by SadConsole could be mapped to the 3D computer object.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

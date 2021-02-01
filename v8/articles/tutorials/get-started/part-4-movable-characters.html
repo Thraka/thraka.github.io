@@ -1,0 +1,389 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Get Started 4 - Moving a character </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Get Started 4 - Moving a character ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/dracula.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="/">
+                <img id="logo" src="../../../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="get-started-4---moving-a-character">Get Started 4 - Moving a character</h1>
+
+<p>In this part of the tutorial you'll learn how to use multiple consoles. Consoles can be attached to other consoles. Consoles can even share cell data between them.</p>
+<p>Previous articles in this tutorial:</p>
+<ul>
+<li><a href="drawing-on-a-console.html">Part 1: Drawing on a console</a></li>
+<li><a href="part-2-input.html">Part 2: Keyboard and Mouse</a></li>
+<li><a href="part-3-multiple-consoles.html">Part 3: Learning about consoles</a></li>
+</ul>
+<h2 id="prep">Prep</h2>
+<p>Reset the <code>Init()</code> method back to a clean state. Whenever the tutorial talks about resetting the <code>Init()</code> method back to a clean state, it means to replace your existing code with the following code:</p>
+<pre><code class="lang-csharp">static void Init()
+{
+    var console = new Console(80, 25);
+
+    SadConsole.Global.CurrentScreen = console;
+}
+</code></pre>
+<h2 id="create-a-screen-for-the-map">Create a &quot;screen&quot; for the map</h2>
+<p>When making a game, it's good to think about how you'll group up functionality together. We can call this concept a <strong>screen</strong>. A <strong>screen</strong> represents a specific aspect of your game, as it's displayed on the game window. For example, your <em>starting screen</em> would be your game menu, with all animated objects, buttons, and things to create a new game, load a game, configure the game. The <em>game screen</em> may represent the screen the user sees while they are playing the game, a status console, message console, and map console. Grouping the parts of your game into screens is a good way to lay out your game.</p>
+<p>Let's create a single screen that, in this tutorial, will represent the game map and player character. Add a new class file to your project named <em>MapScreen.cs</em> and make sure the class is named <code>MapScreen</code>. Inherit from <code>ContainerConsole</code>. Don't forget to import the <code>SadConsole</code> namespace and specify that the type <code>Console</code> is mapped to <code>SadConsole.Console</code>. Both the <code>System</code> and <code>SadConsole</code> namespaces define a type named <em>Console</em> and this fixes the conflict.</p>
+<pre><code class="lang-csharp">using System;
+using System.Collections.Generic;
+using SadConsole;
+using Console = SadConsole.Console;
+
+namespace SadConsoleGame
+{
+    class MapScreen: ContainerConsole
+    {
+    }
+}
+</code></pre>
+<p>Setup the program's <code>Init</code> method to set the <code>MapScreen</code> type as the current screen.</p>
+<pre><code class="lang-csharp">static void Init()
+{
+    Global.CurrentScreen = new MapScreen();
+}
+</code></pre>
+<h2 id="create-a-map-console">Create a map console</h2>
+<p>Create a new console in the <code>MapScreen</code> type named <code>MapConsole</code>. This is a get-only property that will be set in the constructor of the container console.</p>
+<pre><code class="lang-csharp">namespace SadConsoleGame
+{
+    class MapScreen: ContainerConsole
+    {
+        public Console MapConsole { get; }
+    }
+}
+</code></pre>
+<p>Add a constructor to the <code>MapScreen</code> that initializes the <code>MapConsole</code> property. This constructor will size the map console to the game window.</p>
+<pre><code class="lang-csharp">class MapScreen: ContainerConsole
+{
+    public Console MapConsole { get; }
+
+    public MapScreen()
+    {
+        var mapConsoleWidth = (int)((Global.RenderWidth / Global.FontDefault.Size.X) * 1.0);
+        var mapConsoleHeight = (int)((Global.RenderHeight / Global.FontDefault.Size.Y) * 1.0);
+
+        // Setup the map
+        MapConsole = new Console(mapConsoleWidth, mapConsoleHeight);
+        MapConsole.DrawBox(new Microsoft.Xna.Framework.Rectangle(0, 0, MapConsole.Width, MapConsole.Height), new Cell(Color.White, Color.DarkGray, 0));
+        MapConsole.Parent = this;
+    }
+}
+</code></pre>
+<p>The code above creates two variables to help size the console. Right now this doesn't do anything except fill 100% of the console. The way this code works is the <code>Global.RenderWidth</code> (or height) is divided by the size of the default font. This gives you the amount of cells that fit on the window horizontally (<code>RenderWidth / Size.X</code>) or vertically (<code>RenderHeight / Size.Y</code>). This is then multiplied by a percentage where <strong>1.0</strong> represents 100% and <strong>0.0</strong> represents 0%. To get the console to only use 50% of the game window, you would use <code>* 0.50</code>.</p>
+<p>The <code>MapConsole</code> is created to the size specified by the <code>mapConsoleWidth</code> and <code>mapConsoleHeight</code> variables. A box is then drawn on the console and it is assigned to as a child of the <code>ContainerConsole</code>. You can now run the game and see that you have a visible box the size of the window.</p>
+<p><img src="images/part-4-first-console.png" alt="example console in a container"></p>
+<p>Remove the <code>MapConsole.DrawBox</code> line from your code. This was only there so you can see your console on the screen and how the sizing worked.</p>
+<h2 id="add-a-movable-glyph">Add a movable glyph</h2>
+<p>Now that we have a console to represent a map, let's look at how we can get a glyph on the screen that can move around. First though, import the <code>Microsoft.Xna.Framework</code> namespace.</p>
+<pre><code class="lang-csharp">using Microsoft.Xna.Framework;
+</code></pre>
+<p>Next, add two properties to the <code>MapScreen</code> class. These will track the player controlled with the keyboard, and set the glyph by which the player is represented. First, add the <code>PlayerGlyph</code> property to represent the player's physical appearance. We'll configure the default appearance later.</p>
+<pre><code class="lang-csharp">class MapScreen: ContainerConsole
+{
+    public Console MapConsole { get; }
+
+    public Cell PlayerGlyph { get; set; }
+}
+</code></pre>
+<p>Next, add a private field named <code>_playerPosition</code> and a public property named <code>PlayerPosition</code> to expose that field. Leave the <strong>set</strong> blank for now, but set it to <strong>private</strong> scope. The player position is represented by a <code>Point</code> type which contains the X,Y coordinates of the player.</p>
+<pre><code class="lang-csharp">class MapScreen: ContainerConsole
+{
+    public Console MapConsole { get; }
+
+    public int PlayerGlyph { get; set; } = 1;
+
+    private Point _playerPosition;
+    public Point PlayerPosition
+    {
+        get =&gt; _playerPosition;
+        private set
+        {
+
+        }
+    }
+}
+</code></pre>
+<p>For <strong>set</strong> let's explain what we want to do when a new value comes in.</p>
+<ol>
+<li>Erase the cell on the console where the player is located.</li>
+<li>Set the position to the new value.</li>
+<li>Set the glyph of the player in the new position.</li>
+</ol>
+<p>The <code>PlayerGlyph.CopyAppearanceTo</code> call bellow copies the cell representing the player to the map at the position of the player, effectively drawing the player on the console.</p>
+<pre><code class="lang-csharp">public Point PlayerPosition
+{
+    get =&gt; _playerPosition;
+    private set
+    {
+        MapConsole.Clear(_playerPosition.X, _playerPosition.Y);
+        _playerPosition = value;
+        PlayerGlyph.CopyAppearanceTo(MapConsole[_playerPosition.X, _playerPosition.Y]);
+    }
+}
+</code></pre>
+<p>Update the <code>MapScreen</code> constructor to set the player's default appearance and position, then, draw the player for the first time. This is the only time you should access the <code>_playerPosition</code> field outside of the <code>PlayerPosition</code> property.</p>
+<pre><code class="lang-csharp">public MapScreen()
+{
+    var mapConsoleWidth = (int)((Global.RenderWidth / Global.FontDefault.Size.X) * 1.0);
+    var mapConsoleHeight = (int)((Global.RenderHeight / Global.FontDefault.Size.Y) * 1.0);
+
+    // Setup map
+    MapConsole = new Console(mapConsoleWidth, mapConsoleHeight);
+    MapConsole.DrawBox(new Microsoft.Xna.Framework.Rectangle(0, 0, MapConsole.Width, MapConsole.Height), new Cell(Color.White, Color.DarkGray, 0));
+    MapConsole.Parent = this;
+
+    // Setup player
+    PlayerGlyph = new Cell(Color.White, Color.Black, 1);
+    _playerPosition = new Point(4, 4);
+    PlayerGlyph.CopyAppearanceTo(MapConsole[_playerPosition.X, _playerPosition.Y]);
+}
+</code></pre>
+<p>Run the game and you'll see that the player is printed on the console.</p>
+<p><img src="images/part-4-console-with-player.png" alt="player on the screen"></p>
+<h2 id="keyboard-input">Keyboard input</h2>
+<p>Now, let's hook the keyboard input of the container console. If the <code>MapScreen</code> is focused, keyboard input is sent to it. First, override the <code>ProcessKeyboard</code> method.</p>
+<pre><code class="lang-csharp">public override bool ProcessKeyboard(Keyboard info)
+{
+
+}
+</code></pre>
+<p>The <code>info</code> parameter returns you information about the keyboard. You can use this parameter to test the keyboard for keys that are pressed and even ones that aren't. We need to detect when the keyboard arrow keys are pressed and then move the player. However, we also need to detect if the player moved as a result of the keyboard.</p>
+<pre><code class="lang-csharp">public override bool ProcessKeyboard(Keyboard info)
+{
+    Point newPlayerPosition = PlayerPosition;
+
+    if (info.IsKeyPressed(Microsoft.Xna.Framework.Input.Keys.Up))
+        newPlayerPosition += SadConsole.Directions.North;
+    else if (info.IsKeyPressed(Microsoft.Xna.Framework.Input.Keys.Down))
+        newPlayerPosition += SadConsole.Directions.South;
+
+    if (info.IsKeyPressed(Microsoft.Xna.Framework.Input.Keys.Left))
+        newPlayerPosition += SadConsole.Directions.West;
+    else if (info.IsKeyPressed(Microsoft.Xna.Framework.Input.Keys.Right))
+        newPlayerPosition += SadConsole.Directions.East;
+
+    if (newPlayerPosition != PlayerPosition)
+    {
+        PlayerPosition = newPlayerPosition;
+        return true;
+    }
+
+    return false;
+}
+</code></pre>
+<p>Explaining the code above:</p>
+<ul>
+<li>The player's position is stored in a variable named <code>newPlayerPosition</code>. We can then use this to detect if the player actually moved. At first, the positions match.</li>
+<li>Uses the <code>info.IsKeyPressed</code> method to detect if a key is being pressed. it's used for the <strong>Up/Down/Left/Right</strong> arrow keys.</li>
+<li>If a key was pressed, adjust the <code>newPlayerPosition</code> variable in the appropriate direction.<br>
+Notice that the horizontal and vertical movements are grouped separately. This lets the user press both at the same time and move diagonally. For example, you can press <strong>UP+LEFT</strong> for example, but because of the way the <code>if</code> statements are composed, you can never push <strong>UP+DOWN</strong> at the same time.</li>
+<li>Test <code>newPlayerPosition</code> with the players current position to determine if the players new position is different.</li>
+<li>If the position has changed, set the <code>PlayerPosition</code> to the new position and return <code>true</code>.</li>
+</ul>
+<p>The reason for returning <code>true</code> or <code>false</code> in the <code>ProcessKeyboard</code> method is to indicate to the object that called this method that we did indeed handle the keyboard and nothing else should handle the keyboard.</p>
+<p>If you run the game now, you'll notice that the arrow keys do not move the player. This is because the screen is not yet set as the focused object. Modify the <code>Init</code> method in the <em>program.cs</em> file to focus the console.</p>
+<pre><code class="lang-csharp">static void Init()
+{
+    Global.CurrentScreen = new MapScreen();
+    Global.CurrentScreen.IsFocused = true;
+}
+</code></pre>
+<p>Now if you run the game, you'll be able to move the player. Try two things:</p>
+<ol>
+<li>Move the player into the border.</li>
+<li>Move the player outside the bounds of the screen.</li>
+</ol>
+<p><img src="images/part-4-move-player.gif" alt="move player on map"></p>
+<p>Notice that when the player moves on the border, the border is erased. Also, if you move outside of the bounds of the map, the game crashes. We'll need to protect the user from these conditions.</p>
+<h2 id="better-player-movement">Better player movement</h2>
+<p>The first thing we want to do is to store the map cell the player is about to move on top of, since this clears the map cell. Create a new private field in the <code>MapScreen</code> class named <code>_playerPositionMapGlyph</code>.</p>
+<pre><code class="lang-csharp">class MapScreen: ContainerConsole
+{
+    private Point _playerPosition;
+    private Cell _playerPositionMapGlyph;
+</code></pre>
+<p>Next, modify the <code>PlayerPosition.set</code> property to do the following:</p>
+<ol>
+<li>Copy the appearance of the cell the player is about to move on.</li>
+<li>Set the position to the new value.</li>
+<li>Draw the player at the new position.</li>
+<li>Restore the appearance of the map cell where the player moved from.</li>
+</ol>
+<pre><code class="lang-csharp">public Point PlayerPosition
+{
+    get =&gt; _playerPosition;
+    private set
+    {
+        // Restore map cell
+        _playerPositionMapGlyph.CopyAppearanceTo(MapConsole[_playerPosition.X, _playerPosition.Y]);
+        // Move player
+        _playerPosition = value;
+        // Save map cell
+        _playerPositionMapGlyph.CopyAppearanceFrom(MapConsole[_playerPosition.X, _playerPosition.Y]);
+        // Draw player
+        PlayerGlyph.CopyAppearanceTo(MapConsole[_playerPosition.X, _playerPosition.Y]);
+        // Redraw the map
+        MapConsole.IsDirty = true;
+    }
+}
+</code></pre>
+<p>Notice that there is a new line, <code>MapConsole.IsDirty = true;</code>. Previously we didn't need this line because we called the method <code>MapConsole.Clear</code> when the player moved. The <code>Clear</code> method automatically set the <code>IsDirty</code> flag on the console. However, since we're using cells to directly copy to and from each other, this flag does not get set. This flag informs the console that it needs to redraw itself.</p>
+<p>We also need to seed the <code>_playerPositionMapGlyph</code> field in the class constructor before we set the default position of the player. Notice the usage of <code>_playerPositionMapGlyph</code> in the following code.</p>
+<pre><code class="lang-csharp">public MapScreen()
+{
+    var mapConsoleWidth = (int)((Global.RenderWidth / Global.FontDefault.Size.X) * 1.0);
+    var mapConsoleHeight = (int)((Global.RenderHeight / Global.FontDefault.Size.Y) * 1.0);
+
+    // Setup map
+    MapConsole = new Console(mapConsoleWidth, mapConsoleHeight);
+    MapConsole.DrawBox(new Microsoft.Xna.Framework.Rectangle(0, 0, MapConsole.Width, MapConsole.Height), new Cell(Color.White, Color.DarkGray, 0));
+    MapConsole.Parent = this;
+
+    // Setup player
+    PlayerGlyph = new Cell(Color.White, Color.Black, 1);
+    _playerPosition = new Point(4, 4);
+    _playerPositionMapGlyph = new Cell();
+    _playerPositionMapGlyph.CopyAppearanceFrom(MapConsole[_playerPosition.X, _playerPosition.Y]);
+    PlayerGlyph.CopyAppearanceTo(MapConsole[_playerPosition.X, _playerPosition.Y]);
+}
+</code></pre>
+<p>If you run the game you'll notice that the player does not erase the cells after leaving them.</p>
+<p><img src="images/part-4-move-player-2.gif" alt="move player on map"></p>
+<h2 id="player-bounds">Player bounds</h2>
+<p>We don't want the player to move outside of the map bounds, so we'll need to test for that when the player tries to move, and prevent the movement.</p>
+<p>Modify the <code>PlayerPosition.set</code> property to do the following:</p>
+<ol>
+<li>Check if the new position of the player is outside the map bounds.</li>
+<li>If so, return.</li>
+</ol>
+<pre><code class="lang-csharp">public Point PlayerPosition
+{
+    get =&gt; _playerPosition;
+    private set
+    {
+        // Test new position
+        if (value.X &lt; 0 || value.X &gt;= MapConsole.Width ||
+            value.Y &lt; 0 || value.Y &gt;= MapConsole.Height)
+            return;
+
+        // Restore map cell
+        _playerPositionMapGlyph.CopyAppearanceTo(MapConsole[_playerPosition.X, _playerPosition.Y]);
+        // Move player
+        _playerPosition = value;
+        // Save map cell
+        _playerPositionMapGlyph.CopyAppearanceFrom(MapConsole[_playerPosition.X, _playerPosition.Y]);
+        // Draw player
+        PlayerGlyph.CopyAppearanceTo(MapConsole[_playerPosition.X, _playerPosition.Y]);
+        // Redraw the map
+        MapConsole.IsDirty = true;
+    }
+}
+</code></pre>
+<h2 id="conclusion">Conclusion</h2>
+<p>You now have an object that can be moved around the screen. There was some extra work in it to make sure that the object didn't erase parse of the map. This is a bit how old console programs worked. However, SadConsole is a lot more robust and powerful than a standard console. The next part of the tutorial will demonstrate how to convert the player into a separate game object that is drawn on top of the console in a new layer.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>This tutorial series is in progress. The next part of the series has not yet been published.</p>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

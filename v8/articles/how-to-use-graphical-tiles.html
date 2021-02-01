@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>How to use graphical tiles in SadConsole </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="How to use graphical tiles in SadConsole ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/dracula.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="/">
+                <img id="logo" src="../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="how-to-use-graphical-tiles-in-sadconsole">How to use graphical tiles in SadConsole</h1>
+
+<p>SadConsole supports graphical tiles! It's recommended that you have at least something basic drawn on-screen (eg. character, floor, walls) before adding graphics, but you can do this at any stage of development. As you can see from the screenshot, you can mix graphical tiles with regular fonts.</p>
+<p><img src="../images/graphical-tiles.png" alt="screenshot of sadconsole with graphical tiles"></p>
+<h2 id="how-graphical-tiles-work">How graphical tiles work</h2>
+<p>If you read the <a href="basic-font-information.html">basic font information</a> article, you'll see that SadConsole uses simple <em>png</em> images for fonts. We can leverage this by creating a font image that uses regular graphical tiles as a spritesheet, instead of ASCII characters.</p>
+<p>When you substitute graphics, pay attention to the positions in the font file. With an ASCII font, writing the <code>@</code> glyph (index 64) on a console renders the <code>@</code> image (index 64); in the spritesheet, it'll render whatever image occupies that same cell index in the spritesheet.</p>
+<h2 id="creating-the-font-spritesheet">Creating the font spritesheet</h2>
+<p>To start out, obtain or create the images you need. You can also use the excellent <a href="https://kenney.nl/assets/bit-pack">1-bit Pack</a> by Kenney, which includes numerous high-quality sprites.</p>
+<p>Next, create an empty spritesheet in your graphical editing software of choice. Ideally, include a grid, so you can easily distinguish tiles. Draw or copy/paste a few characters into the appropriate positions. If you're not sure which cell corresponds to which character, you can refer to the existing font files, such as the <code>IBM_8x16.png</code> file.</p>
+<p>Hide the grid and export the file into your project, under the <code>Fonts</code> directory. Next, create the <code>.font</code> metadata file. Here's a sample:</p>
+<pre><code class="lang-json">{
+    &quot;FilePath&quot;: &quot;MyCustomFont_16x16.png&quot;,
+    &quot;GlyphHeight&quot;: 16,
+    &quot;GlyphPadding&quot;: 0,
+    &quot;GlyphWidth&quot;: 16,
+    &quot;Name&quot;: &quot;MyCustomFont&quot;,
+    &quot;SolidGlyphIndex&quot;: 219
+}
+</code></pre>
+<p>Replace the <code>GlyphHeight</code> and <code>GlyphWidth</code> values with the pixel sizes of the cells in your spritesheet. Make sure the <code>FilePath</code> value is the name of the spritesheet PNG.
+There are two special requirements for your spritesheet:</p>
+<ol>
+<li><p>The <code>SolidGlyphIndex</code> setting in your font definition file must point to an index in your spritesheet that is completely filled with the color white. This is used for background coloring of cells.</p>
+</li>
+<li><p>Index 0 (the first cell) in your spritesheet must be completely transparent. this is used to create empty cells.</p>
+</li>
+</ol>
+<h2 id="using-the-spritesheet-font">Using the spritesheet Font</h2>
+<p>Somewhere in your game constructor, load the font:</p>
+<pre><code class="lang-csharp">SadConsole.Global.LoadFont(&quot;Fonts/MyCustomFont.font&quot;);
+</code></pre>
+<p>This loads the font and caches it in the <code>Global.Fonts</code> collection with the name <code>MyCustomFont</code>. You can then load it by adding this code to your console:</p>
+<pre><code class="lang-csharp">var normalSizedFont = SadConsole.Global.Fonts[&quot;MyCustomFont&quot;].GetFont(SadConsole.Font.FontSizes.One);
+this.Font = normalSizedFont;
+</code></pre>
+<p>You're done! Any calls to <code>SetGlyph</code> will use the image from your custom font spritesheet. You can also change the enumeration value of <code>SadConsole.Font.FontSizes</code> to a different value (eg. <code>Two</code> or <code>Quarter</code>) to zoom your game in/out or to render at a different size than the sprite image size.</p>
+<p>Since SadConsole limits you to one font per console, you need to create sub-consoles for anything you want to render normally, such as a status bar, sub-menu, etc.</p>
+<h2 id="coloring-sprites">Coloring sprites</h2>
+<p>To color your sprites, simply specify a <code>Color</code> in your <code>SetGlyph</code> calls. By default, your font image uses white, so your images will render white. If you specify a color to <code>SetGlyph</code>, SadConsole will multiply that color by the spritesheet color when it draws.</p>
+<p>You can use this for effects; just be aware that drawing pixels in your spritesheet in a color other than white, will restrict what colors they can appear with in-game.</p>
+<p>If you prefer full-color sprites instead, simply colour them as desired within the spritesheet, and always render them as white when you call <code>SetGlyph</code>. They will appear exactly as they do in the spritesheet, colors and all.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

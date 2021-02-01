@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>How to draw on a Console </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="How to draw on a Console ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/dracula.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="/">
+                <img id="logo" src="../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="how-to-draw-on-a-console">How to draw on a Console</h1>
+
+<p>Each console provides methods to change cell colors, glyphs, print text, draw boxes, and other types of drawing. This article shows you different ways to interact with the cells of a console.</p>
+<p>The <code>SadConsole.Console</code> is broken up into multiple cells, all arranged in a grid. Each cell can change its foreground and background color and the character glyph it is currently showing.</p>
+<h2 id="color">Color</h2>
+<p>The foreground or the background of a cell can be colored. When the background is colored, it fills the entire cell with that color. When the foreground is colored, it changes the color of the character glyph being displayed in that cell.</p>
+<h3 id="background">Background</h3>
+<p>You can set or get the background color of a cell by using its <strong>x,y</strong> coordinates and the <code>SetBackground</code> or <code>GetBackground</code> method.</p>
+<pre><code class="lang-csharp">// Set the background
+console.SetBackground(10, 10, Microsoft.Xna.Framework.Color.White);
+
+// Get the background
+var color1 = console.GetBackground(10, 10);
+</code></pre>
+<h3 id="foreground">Foreground</h3>
+<p>You can set or get the foreground color of a cell by using its <strong>x,y</strong> coordinates and the <code>SetForeground</code> or <code>GetForeground</code> method. However, if the character glyph of the cell is (and by default it is) blank, you will not see any foreground coloring.</p>
+<pre><code class="lang-csharp">// Set the foreground
+console.SetForeground(10, 10, Microsoft.Xna.Framework.Color.Blue);
+
+// Get the foreground
+var color1 = console.GetForeground(10, 10);
+</code></pre>
+<h2 id="character">Character</h2>
+<p>The character displayed on a cell can be changed by using its <strong>x,y</strong> coordinates and calling the <code>SetGlyph</code> method. It works much the same as the color does. You can get or set the character in a cell. The overloads for the <code>SetGlyph</code> method also allow you to provide foreground and background colors if you want.</p>
+<h3 id="setget-a-character-using-int">Set/Get a character using int</h3>
+<pre><code class="lang-csharp">// Set the character to index 1 on the font sheet, a smiley face.
+console.SetGlyph(10, 10, 1);
+
+// Get the character glyph at 10,10
+int character = console.GetGlyph(10, 10);
+</code></pre>
+<h3 id="set-a-character-using-systemchar">Set a character using System.Char</h3>
+<p>.NET easiy converts between the <code>char</code> type and the <code>int</code> type.</p>
+<pre><code class="lang-csharp">char character = 'B';
+console.SetGlyph(10, 10, character);
+</code></pre>
+<h3 id="set-a-character-along-with-a-foreground-color">Set a character along with a foreground color</h3>
+<pre><code class="lang-csharp">console.SetGlyph(10, 10, 13, Color.Purple);
+</code></pre>
+<h3 id="set-a-character-with-foreback-color">Set a character with fore/back color</h3>
+<pre><code class="lang-csharp">console.SetGlyph(10, 10, 13, Color.Purple, Color.Green);
+</code></pre>
+<h2 id="printing">Printing</h2>
+<p>Setting the glyph cell-by-cell is not very efficient when you have a string you want to print. The console provides a way to print an entire string.</p>
+<pre><code class="lang-csharp">console.Print(2, 0, &quot;This will be printed at coordinates 2,0&quot;);
+</code></pre>
+<p>Additionally, you can read the characters back from a console into a string. This uses an <strong>x,y</strong> location for the start of the string, and then the length of the string to read. For example, the previous code example printed a string at 2,0 that was 39 characters long, to read that string back out of the console and into a variable, you would use:</p>
+<pre><code class="lang-csharp">string text = console.GetString(2, 0, 39);
+</code></pre>
+<p>Using the <code>Print</code> statement on a console will parse each character in the string, as it is, and print it on the surface. That means that if your string has control characters, such as a new line command <code>\r\n</code>, these characters will also be printed. The console has a <code>Cursor</code> property that helps with this. By using <code>Console.Cursor.Print</code>, SadConsole parses your string and respects control codes. It also breaks up words so that they don't split across lines.</p>
+<pre><code class="lang-csharp">console.Cursor.Position = new Point(2, 0);
+console.Cursor.Print(&quot;This will be printed at 2,0&quot;);
+</code></pre>
+<p>Here is an example of printing with and without the cursor. The console used here is <strong>80x25</strong> in size.</p>
+<pre><code class="lang-csharp">console.Print(2, 2, &quot;PRINTING WITHOUT THE CURSOR&quot;, Color.Black, Color.White);
+console.Print(2, 4, &quot;This will be printed at coordinates 2,0&quot;);
+console.Print(2, 6, &quot;This text has a carriage return and line feed\r\ncharacter in it&quot;);
+console.Print(63, 8, &quot;This text will wrap to the next line.&quot;);
+
+console.Print(2, 12, &quot;PRINTING WITH THE CURSOR&quot;, Color.Black, Color.White);
+console.Cursor.Move(new Point(2, 14)).Print(&quot;This will be printed at coordinates 2,14&quot;);
+console.Cursor.Move(new Point(2, 16)).Print(&quot;This text has a carriage return and line feed\r\ncharacter in it&quot;);
+console.Cursor.Move(new Point(63, 18)).Print(&quot;This text will wrap to the next line.&quot;);
+</code></pre>
+<p><img src="../images/how-to-draw-on-a-console/with-or-without-cursor.png" alt="printing with and without a cursor"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Create a new .NET Framework project </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Create a new .NET Framework project ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/dracula.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="/">
+                <img id="logo" src="../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="create-a-new-net-framework-project">Create a new .NET Framework project</h1>
+
+<p>This article describes how to setup SadConsole with a new project in Visual Studio.</p>
+<p>It is recommended that you use .NET Core to create your SadConsole game. To do so, follow the <a href="getting-started-sadconsole-core-cli-template.html">.NET Core</a> tutorial.</p>
+<p>First, create a new project in Visual Studio. Depending on your version, some dialogs will look different. If you are not familiar with Visual Studio, follow the Microsoft documentation on <a href="https://docs.microsoft.com/visualstudio/ide/creating-solutions-and-projects?view=vs-2017#to-create-a-project-from-a-project-template">how to create a Visual Studio project</a>.</p>
+<h2 id="create-a-new-net-project">Create a new .NET project</h2>
+<p>Using Visual Studio, create a new project. It is recommended that you create a new <strong>Empty Project (.NET Framework)</strong> and target the latest version of .NET, or at a minimum, <strong>4.6.1</strong>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If you are going to use the <strong>MonoGame Game</strong> project template, read the <a href="getting-started-with-monogame-template.html">MonoGame Template</a> tutorial.</p>
+</div>
+<h2 id="setup-sadconsole">Setup SadConsole</h2>
+<p>With your project created in Visual Studio, do the following:</p>
+<ol>
+<li><p>In the <strong>Solution Explorer</strong>, right-click on the project you created and click <strong>Manage NuGet Packages</strong>.</p>
+<p><img src="../images/project-manage-nuget-packages.png" alt="manage nuget package for sadconsole"></p>
+</li>
+<li><p>Search for and install a <em>MonoGame.Framework</em> package. You can use the desired platform.</p>
+<ul>
+<li>If you're making a Windows &amp; Linux game, choose <a href="https://www.nuget.org/packages/MonoGame.Framework.DesktopGL/">MonoGame.Framework.DesktopGL</a></li>
+<li>If you're making a Windows game, choose either <a href="https://www.nuget.org/packages/MonoGame.Framework.WindowsDX/">MonoGame.Framework.WindowsDX</a> or <a href="https://www.nuget.org/packages/MonoGame.Framework.DesktopGL/">MonoGame.Framework.DesktopGL</a></li>
+<li>If you're making a UWP game, choose <a href="https://www.nuget.org/packages/MonoGame.Framework.WindowsUniversal/">MonoGame.Framework.WindowsUniversal</a></li>
+<li>If you're making an Android game, choose <a href="https://www.nuget.org/packages/MonoGame.Framework.Android/">MonoGame.Framework.Android</a></li>
+</ul>
+</li>
+<li><p>Search for and install the <strong>SadConsole</strong> package.</p>
+</li>
+<li><p>In the <strong>Solution Explorer</strong>, right-click on the project and click <strong>Properties</strong>.</p>
+<ol>
+<li><p>Set the <strong>Output type</strong> to <strong>Windows Application</strong>.</p>
+</li>
+<li><p>Set the <strong>Startup Object</strong> to your the class defined by your program.</p>
+<p><img src="../images/project-set-output.png" alt="set the output type and startup object for sadconsole"></p>
+</li>
+</ol>
+</li>
+<li><p>Open up your <strong>program.cs</strong> file.</p>
+</li>
+<li><p>Change the <code>using</code> statements at the top of your code file to the following.</p>
+<pre><code class="lang-csharp">using System;
+using SadConsole;
+using Microsoft.Xna.Framework;
+using Console = SadConsole.Console;
+</code></pre>
+</li>
+<li><p>Replace the <code>Main</code> method with the following code.</p>
+<pre><code class="lang-csharp">
+static void Main()
+{
+    // Setup the engine and create the main window.
+    SadConsole.Game.Create(80, 25);
+
+    // Hook the start event so we can add consoles to the system.
+    SadConsole.Game.OnInitialize = Init;
+
+    // Start the game.
+    SadConsole.Game.Instance.Run();
+    SadConsole.Game.Instance.Dispose();
+}
+</code></pre>
+</li>
+<li><p>Next, add the <code>Init</code> method referenced by the preceding code. This method is used to setup your starting console. This code should be added after <code>static void Main()</code> block.</p>
+<pre><code class="lang-csharp">static void Init()
+{
+    var console = new Console(80, 25);
+    console.FillWithRandomGarbage();
+    console.Fill(new Rectangle(3, 3, 23, 3), Color.Violet, Color.Black, 0, 0);
+    console.Print(4, 4, &quot;Hello from SadConsole&quot;);
+
+    SadConsole.Global.CurrentScreen = console;
+}
+</code></pre>
+</li>
+<li><p>Press <strong>F5</strong> to run your game. You should see the following.</p>
+<p><img src="../images/new-core-hello-window.png" alt="a new console in sadconsole with hello text"></p>
+</li>
+</ol>
+<p>Success! You now have a basic SadConsole game running. The code in your <strong>program.cs</strong> file should look like the following:</p>
+<pre><code class="lang-csharp">using System;
+using SadConsole;
+using Microsoft.Xna.Framework;
+using Console = SadConsole.Console;
+
+namespace MySadConsoleProject
+{
+    class Program
+    {
+        static void Main()
+        {
+            // Setup the engine and create the main window.
+            SadConsole.Game.Create(80, 25);
+
+            // Hook the start event so we can add consoles to the system.
+            SadConsole.Game.OnInitialize = Init;
+
+            // Start the game.
+            SadConsole.Game.Instance.Run();
+            SadConsole.Game.Instance.Dispose();
+        }
+
+        static void Init()
+        {
+            var console = new Console(80, 25);
+            console.FillWithRandomGarbage();
+            console.Fill(new Rectangle(3, 3, 23, 3), Color.Violet, Color.Black, 0, 0);
+            console.Print(4, 4, &quot;Hello from SadConsole&quot;);
+
+            SadConsole.Global.CurrentScreen = console;
+        }
+    }
+}
+</code></pre>
+<p>If you're using Visual Basic, your code would look like the following:</p>
+<pre><code class="lang-vb">Imports Console = SadConsole.Console
+Imports Microsoft.Xna.Framework
+
+Module Module1
+
+    Sub Main()
+
+        ' Setup the engine And create the main window.
+        SadConsole.Game.Create(80, 25)
+
+        ' Hook the start event so we can add consoles to the system.
+        SadConsole.Game.OnInitialize = AddressOf Init
+
+        ' Start the game.
+        SadConsole.Game.Instance.Run()
+        SadConsole.Game.Instance.Dispose()
+
+    End Sub
+
+    Sub Init()
+
+        Dim Console = New Console(80, 25)
+
+        Console.FillWithRandomGarbage()
+        Console.Fill(New Rectangle(3, 3, 23, 3), Color.Violet, Color.Black, 0, 0)
+        Console.Print(4, 4, &quot;Hello from SadConsole&quot;)
+
+        SadConsole.Global.CurrentScreen = Console
+
+    End Sub
+
+End Module
+</code></pre>
+<h2 id="next-steps">Next steps</h2>
+<p>Now that you have the project created and working, check out the <a href="intro.html">existing tutorials</a>. These will walk you through the basics.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
