@@ -86,7 +86,7 @@
       <div class="level2"><a class="xref" href="SadConsole.UI.Controls.ColorBar.html">ColorBar</a></div>
       <div class="level2"><a class="xref" href="SadConsole.UI.Controls.ColorPicker.html">ColorPicker</a></div>
       <div class="level2"><a class="xref" href="SadConsole.UI.Controls.CompositeControl.html">CompositeControl</a></div>
-      <div class="level2"><a class="xref" href="SadConsole.UI.Controls.DrawingSurface.html">DrawingSurface</a></div>
+      <div class="level2"><a class="xref" href="SadConsole.UI.Controls.DrawingArea.html">DrawingArea</a></div>
       <div class="level2"><a class="xref" href="SadConsole.UI.Controls.HueBar.html">HueBar</a></div>
       <div class="level2"><a class="xref" href="SadConsole.UI.Controls.Label.html">Label</a></div>
       <div class="level2"><a class="xref" href="SadConsole.UI.Controls.Panel.html">Panel</a></div>
@@ -345,14 +345,14 @@
   </table>
   
   
-  <a id="SadConsole_UI_Controls_ControlBase_EnableWidthHeightChange_" data-uid="SadConsole.UI.Controls.ControlBase.EnableWidthHeightChange*"></a>
-  <h4 id="SadConsole_UI_Controls_ControlBase_EnableWidthHeightChange" data-uid="SadConsole.UI.Controls.ControlBase.EnableWidthHeightChange">EnableWidthHeightChange</h4>
-  <div class="markdown level1 summary"><p>When <span class="xref">false</span>, causes the <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_Width">Width</a> and <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_Height">Height</a> properties to throw an exception when set; otherwise <span class="xref">true</span> to allow size changes.</p>
+  <a id="SadConsole_UI_Controls_ControlBase_CanResize_" data-uid="SadConsole.UI.Controls.ControlBase.CanResize*"></a>
+  <h4 id="SadConsole_UI_Controls_ControlBase_CanResize" data-uid="SadConsole.UI.Controls.ControlBase.CanResize">CanResize</h4>
+  <div class="markdown level1 summary"><p>When <span class="xref">true</span>, indicates that this control can be resized with the <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_Resize_System_Int32_System_Int32_">Resize(Int32, Int32)</a> method; otherwise <span class="xref">false</span>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool EnableWidthHeightChange { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool CanResize { get; protected set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -404,7 +404,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int Height { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int Height { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -529,7 +529,7 @@
   
   <a id="SadConsole_UI_Controls_ControlBase_IsMouseButtonStateClean_" data-uid="SadConsole.UI.Controls.ControlBase.IsMouseButtonStateClean*"></a>
   <h4 id="SadConsole_UI_Controls_ControlBase_IsMouseButtonStateClean" data-uid="SadConsole.UI.Controls.ControlBase.IsMouseButtonStateClean">IsMouseButtonStateClean</h4>
-  <div class="markdown level1 summary"><p>When <span class="xref">true</span>, indicates the mouse button state can be relied on; othwerise <span class="xref">false</span>.</p>
+  <div class="markdown level1 summary"><p>When <span class="xref">true</span>, indicates the mouse button state has only been set with this control and not another; othwerise <span class="xref">false</span>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -901,7 +901,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int Width { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int Width { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1384,6 +1384,51 @@
       </tr>
     </tbody>
   </table>
+  
+  
+  <a id="SadConsole_UI_Controls_ControlBase_Resize_" data-uid="SadConsole.UI.Controls.ControlBase.Resize*"></a>
+  <h4 id="SadConsole_UI_Controls_ControlBase_Resize_System_Int32_System_Int32_" data-uid="SadConsole.UI.Controls.ControlBase.Resize(System.Int32,System.Int32)">Resize(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Resizes the control if the <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_CanResize">CanResize</a> property is <span class="xref">true</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Resize(int width, int height)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">width</span></td>
+        <td><p>The desired width of the control.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">height</span></td>
+        <td><p>The desired height of the control.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="SadConsole_UI_Controls_ControlBase_Resize_System_Int32_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>When overriding this method, to perhaps restrct the requested size, make sure to do the following:</p>
+<ul>
+<li>Check if the <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_CanResize">CanResize</a> property allows resizing. If it doesn't, throw a <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a>.</li>
+<li>The <span class="xref">SadConsole.UI.Controls.ControlBase._width</span> and <span class="xref">SadConsole.UI.Controls.ControlBase._height</span> variables of the control are set to the values provided.</li>
+<li>The <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_MouseArea">MouseArea</a> property to the same width and height values provided. Generally the theme will adjust this if needed, but it might ignore this so you'll need to set it.</li>
+<li>The <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_Theme">Theme</a>, if set, is reattached by calling <a class="xref" href="SadConsole.UI.Themes.ThemeBase.html#SadConsole_UI_Themes_ThemeBase_Attached_SadConsole_UI_Controls_ControlBase_">Attached(ControlBase)</a>.</li>
+<li>Set <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_IsDirty">IsDirty</a> to <span class="xref">true</span>.</li>
+</ul>
+</div>
   
   
   <a id="SadConsole_UI_Controls_ControlBase_SetThemeColors_" data-uid="SadConsole.UI.Controls.ControlBase.SetThemeColors*"></a>

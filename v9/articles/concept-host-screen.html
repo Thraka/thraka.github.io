@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Overview of GameHost.Screen </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Overview of GameHost.Screen ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/dracula.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="/">
+                <img id="logo" src="../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="sadconsole-gamehostscreen-property">SadConsole <strong>GameHost.Screen</strong> Property</h1>
+
+<p>The <a class="xref" href="../api/SadConsole.GameHost.html#SadConsole_GameHost_Screen">GameHost.Screen</a> property is one of the most important properties in SadConsole. The <code>Screen</code> determines what is visible on the screen and what's processed by the keyboard and mouse.</p>
+<p>When SadConsole starts, the host automatically create a <a class="xref" href="../api/SadConsole.Console.html">SadConsole.Console</a> and assigns it to the <code>Screen</code> property. You can use this console or replace it with your own. For more information about hosts, see <a href="concept-host.html">SadConsole Game Host Overview</a>.</p>
+<h2 id="what-does-the-screen-represent">What does the Screen represent?</h2>
+<p>The <code>GameHost.Screen</code> object represents the consoles and surfaces that are displayed to the user. There is a single root object, the <code>GameHost.Screen</code>, and all other objects are a child of this object.</p>
+<p>There is no limit to the children an object can have, nor is there a limit to how deep the parent-child relationship can be.</p>
+<h2 id="input-processing">Input processing</h2>
+<p>Each <strong>Update</strong> frame, SadConsole performs many operations. One of which is to process input. The input processor handles keyboard and mouse state. Mouse related input events are continually processed on the object under the mouse cursor. Keyboard processing is different, only the object currently <em>focused</em> is provided keyboard input.</p>
+<h3 id="mouse">Mouse</h3>
+<p>Mouse input scans the <a class="xref" href="../api/SadConsole.GameHost.html#SadConsole_GameHost_Screen">GameHost.Screen</a> object hierarchy and determines which object the mouse is over. That object's <a class="xref" href="../api/SadConsole.IScreenObject.html#SadConsole_IScreenObject_ProcessMouse_SadConsole_Input_MouseScreenObjectState_">ProcessMouse(MouseScreenObjectState)</a> method is called. If that object is going to handle the mouse, which it will unless it's been disabled. More mouse related events are raised on the object when it's processing the mouse, such as <a class="xref" href="../api/SadConsole.IScreenSurface.html#SadConsole_IScreenSurface_MouseEnter">MouseEnter</a> and <a class="xref" href="../api/SadConsole.IScreenSurface.html#SadConsole_IScreenSurface_MouseButtonClicked">MouseButtonClicked</a>.</p>
+<h3 id="keyboard">Keyboard</h3>
+<p>Keyboard input is always sent to the object that is &quot;focused.&quot; An object is considered focused when its <a class="xref" href="../api/SadConsole.IScreenObject.html#SadConsole_IScreenObject_IsFocused">IsFocused</a> property is set to <code>true</code> and it's the top-most object of the <a class="xref" href="../api/SadConsole.GameHost.html#SadConsole_GameHost_FocusedScreenObjects">GameHost.FocusedScreenObjects</a> collection.</p>
+<h2 id="default-screen">Default screen</h2>
+<p>The <a class="xref" href="../api/SadConsole.GameHost.html#SadConsole_GameHost_Screen">GameHost.Screen</a> starts as a <a class="xref" href="../api/SadConsole.Console.html">Console</a> instance that's sized to the game window. This is the dimensions you passed to the &lt;xref:SadConsole.GameHost.Create%2A&gt; method. Reference to this object is stored, and can be used, in the &lt;xref:SadConsole.Game.StartingConsole?displayProperty=nameWithType&gt;.</p>
+<h2 id="use-the-startingconsole-object">Use the StartingConsole object</h2>
+<p>The default console screen is accessible by the &lt;xref:SadConsole.Game.StartingConsole?displayProperty=nameWithType&gt; property. You can use this to get started with SadConsole and not worry about creating a console that fills the screen:</p>
+<pre><code class="lang-csharp">private static void Init()
+{
+    SadConsole.Game.Instance.StartingConsole.FillWithRandomGarbage(SadConsole.Game.Instance.StartingConsole.Font);
+    SadConsole.Game.Instance.StartingConsole.Fill(new Rectangle(3, 3, 23, 3), Color.Violet, Color.Black, 0, 0);
+    SadConsole.Game.Instance.StartingConsole.Print(4, 4, &quot;Hello from SadConsole&quot;);
+}
+</code></pre>
+<h2 id="how-to-replace-the-screen">How to replace the Screen</h2>
+<p>If you're going to replace the starting screen with your own object, make sure to tell SadConsole that you're not going to be using it anymore. After you assign your own object to the the <a class="xref" href="../api/SadConsole.GameHost.html#SadConsole_GameHost_Screen">Screen</a> property, call the <a class="xref" href="../api/SadConsole.GameHost.html#SadConsole_GameHost_DestroyDefaultStartingConsole_">DestroyDefaultStartingConsole</a> method.</p>
+<pre><code class="lang-csharp">private static void Init()
+{
+    var myNewObject = new ScreenObject();
+
+    Game.Instance.Screen = myNewObject;
+    Game.Instance.DestroyDefaultStartingConsole();
+}
+</code></pre>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

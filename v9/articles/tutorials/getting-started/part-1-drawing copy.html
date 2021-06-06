@@ -1,0 +1,301 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Get Started 1 - Draw on a console </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Get Started 1 - Draw on a console ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/dracula.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="/">
+                <img id="logo" src="../../../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="get-started-1---draw-on-a-console">Get Started 1 - Draw on a console</h1>
+
+<p>Welcome to the start of the Getting Started with SadConsole tutorial series. This series will outline how to use the basic parts of SadConsole from the perspective of a new developer.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>To start this tutorial you'll need to have created a SadConsole project. It is recommended that you use the <a href="../../getting-started-cli.html">Create a new SadConsole .NET project with the SadConsole templates</a> which works for Windows, Linux, and macOS.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Because of the added complexity, I do not recommend that you create a MonoGame project using the MonoGame Visual Studio templates.</p>
+</div>
+<h2 id="sync-your-code-to-mine">Sync your code to mine</h2>
+<p>The previous section leads you to material that helps you create a SadConsole project. To ensure that we start off with the same material, make your <em>program.cs</em> file look like the following:</p>
+<pre><code class="lang-csharp">using System;
+using SadConsole;
+using SadRogue.Primitives;
+using Console = SadConsole.Console;
+
+namespace SadConsoleGame
+{
+    public static class Program
+    {
+        static void Main()
+        {
+            // Setup the engine and create the main window.
+            Game.Create(80, 25);
+
+            // Hook the start event so we can add consoles to the system.
+            Game.Instance.OnStart = Init;
+
+            // Start the game.
+            Game.Instance.Run();
+            Game.Instance.Dispose();
+        }
+
+        static void Init()
+        {
+            Game.Instance.StartingConsole.FillWithRandomGarbage(SadConsole.Game.Instance.StartingConsole.Font);
+            Game.Instance.StartingConsole.Fill(new Rectangle(3, 3, 23, 3), Color.Violet, Color.Black, 0, Mirror.None);
+            Game.Instance.StartingConsole.Print(4, 4, &quot;Hello from SadConsole&quot;);
+        }
+    }
+}
+</code></pre>
+<p>You should be able to run this code and see the following output. You can run your program by pressing the <kbd>F5</kbd> key. If you're using the terminal, run <code>dotnet run</code>:</p>
+<p><img src="images/new-core-hello-window.png" alt="a new console in sadconsole with hello text"></p>
+<p>One other thing to do. Make sure the namespace you're using is <code>SadConsoleGame</code>. You can change the default namespace in the project properties in Visual Studio, or you can (in Visual Studio 2019) double-click the <em>sadconsolegame.csproj</em> file to open it and make sure the <code>&lt;RootNamespace&gt;</code> is set to <code>SadConsoleGame</code>. If it is missing, add it.</p>
+<p>Additionally, the <code>&lt;TargetFramework&gt;</code> value should be set to <code>net5.0</code>.</p>
+<pre><code class="lang-xml">&lt;Project Sdk=&quot;Microsoft.NET.Sdk&quot;&gt;
+
+  &lt;PropertyGroup&gt;
+    &lt;OutputType&gt;WinExe&lt;/OutputType&gt;
+    &lt;TargetFramework&gt;net5.0&lt;/TargetFramework&gt;
+    &lt;RootNamespace&gt;SadConsoleGame&lt;/RootNamespace&gt;
+  &lt;/PropertyGroup&gt;
+
+</code></pre>
+<h2 id="exploring-the-sample-code">Exploring the sample code</h2>
+<p>The <code>static void Init()</code> method created in the previous section provides a simple place to easily explore and play with SadConsole without creating any real game code. The <code>Init</code> method is declared as <a href="https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/static"><code>static</code></a> which means that you don't have to create an instance of a type to access this method. This method was provided to SadConsole in the code at the start of the program. This is a hook where you can provide some extra initialization code for your game, such as creating all the startup variables and objects.</p>
+<p>At the very top of the program are <a href="https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/using"><code>using</code></a> statements which imports common SadConsole types into your programming space. Don't worry about those for now, but think of it like this: Just like how a house is located at an address in a neighborhood, so too are object types. SadConsole types have an &quot;address&quot; that identify where they are located. The <code>using</code> statements are used in two ways:</p>
+<ol>
+<li><p><code>using SadRogue.Primitives;</code></p>
+<p>To access a type in that namespace, such as the <code>Point</code> type which contains X,Y coordinates, you normally would have to type it out completely: <code>var myPoint = new SadRogue.Primitives.Point(10, 10)</code>. When the namespace is referenced in the <code>using</code> statement, every type in that namespace is imported into the code file directly. So you no longer have to type the namespace and can simply use <code>var myPoint = new Point(10, 10)</code>.</p>
+</li>
+<li><p><code>using Console = SadConsole.Console;</code></p>
+<p>This works bit like the previous <code>using</code> except that instead of importing a all the types in the namespace, it only imports a single type. That type is renamed to the  and maps a new type to it. It just so happens in this case it's using the same name, <code>Console</code>. You could, for example, map <code>SadConsole.Console</code> to <code>AConsole</code> with <code>using AConsole = SadConsole.Console;</code>. This avoids a problem where there are two <code>Console</code> types. One comes from the <code>System</code> namespace, which you generally import, and from <code>SadConsole</code>. Forcing <code>Console</code> to represent the <code>SadConsole.Console</code> type avoids any common mistakes you may run into.</p>
+</li>
+</ol>
+<p>Let's explore the <code>Init</code> method's code.</p>
+<pre><code class="lang-csharp">static void Init()
+{
+    Game.Instance.StartingConsole.FillWithRandomGarbage(SadConsole.Game.Instance.StartingConsole.Font);
+    Game.Instance.StartingConsole.Fill(new Rectangle(3, 3, 23, 3), Color.Violet, Color.Black, 0, Mirror.None);
+    Game.Instance.StartingConsole.Print(4, 4, &quot;Hello from SadConsole&quot;);
+}
+</code></pre>
+<ol>
+<li><p>This code is accessing the default starting console. You provided the size of the starting console when you created the SadConsole game. The first code line fills the console with some garbage, that is, random characters and colors.</p>
+<pre><code class="lang-csharp">Game.Instance.StartingConsole.FillWithRandomGarbage(SadConsole.Game.Instance.StartingConsole.Font);
+</code></pre>
+</li>
+<li><p>The next line fills a rectangle region with some color to create a box.</p>
+<pre><code class="lang-csharp">Game.Instance.StartingConsole.Fill(new Rectangle(3, 3, 23, 3), Color.Violet, Color.Black, 0, Mirror.None);
+</code></pre>
+<p>The parameters are as follows:</p>
+<ul>
+<li>Region to fill: Position X, Position Y, Width, Height: <code>new Rectangle(3, 3, 23, 3)</code></li>
+<li>The foreground color to use for each character in the region: <code>Color.Violet</code></li>
+<li>The background color to use for each character in the region: <code>Color.Black</code></li>
+<li>The glyph character to fill, <code>0</code> represents an empty character.</li>
+<li>The mirror setting for the glyph. You can mirror them horizontally or vertically. Because the <code>FillWithRandomGarbage</code> randomizes the mirror, this needs needs to be cleared for our box.</li>
+</ul>
+</li>
+<li><p>The last line prints some text as position 4, 4. This position is inside the box. The text will have the same foreground and background as the <code>Fill</code> command set, which is <strong>Violet</strong> and <strong>Black</strong>, respectively.</p>
+<pre><code class="lang-csharp">console.Fill(new Rectangle(3, 3, 23, 3), Color.Violet, Color.Black, 0, 0);
+//Fill: (Region, Foreground, Background, Glyph character, Glyph mirror setting)
+</code></pre>
+</li>
+<li><p>The last draw command in this example is the <code>Print</code> command. This prints a string at a specific X, Y coordinates.</p>
+<pre><code class="lang-csharp">Game.Instance.StartingConsole.Print(4, 4, &quot;Hello from SadConsole&quot;);
+</code></pre>
+</li>
+</ol>
+<p>Play around with these methods. Try filling in some other boxes, changing the colors, and printing different strings to different areas. You can remove the <code>FillWithRandomGarbage</code> line if you would like while playing around.</p>
+<h2 id="more-drawing">More drawing</h2>
+<p>Let's add some more code to the <code>Init</code> method to draw more things to the screen. However, simplify the access to <code>Game.Instance.StartingConsole</code> by assigning it to a variable named <code>startingConsole</code>, this will make it easier to write code that interacts with it. You can copy/paste this code over your existing code so that you're in sync with the article:</p>
+<pre><code class="lang-csharp">private static void Init()
+{
+    var startingConsole = Game.Instance.StartingConsole;
+
+    startingConsole.FillWithRandomGarbage(SadConsole.Game.Instance.StartingConsole.Font);
+    startingConsole.Fill(new Rectangle(3, 3, 23, 3), Color.Violet, Color.Black, 0, Mirror.None);
+    startingConsole.Print(4, 4, &quot;Hello from SadConsole&quot;);
+}
+</code></pre>
+<h3 id="shapes">Shapes</h3>
+<p>Previously we used <code>Fill</code> to fill in a rectangular region. With SadConsole you can draw shapes such as a rectangle or an ellipsis. This works similar to <code>Fill</code> but gives you more control over the drawing. For example, you can apply a border to the box you draw, with <code>Fill</code>, you cannot do that.</p>
+<h4 id="box">Box</h4>
+<p>After the <code>Print</code> line that prints <em>&quot;Hello from SadConsole&quot;</em>, add the following to draw a box around it:</p>
+<pre><code class="lang-csharp">startingConsole.DrawBox(new Rectangle(3, 3, 23, 3), new ColoredGlyph(Color.Violet, Color.Black, 176));
+</code></pre>
+<p><img src="images/part1-shapes-1.png" alt="box shape in sadconsole"></p>
+<p>The <code>DrawBox</code> method takes a region and a <code>ColoredGlyph</code> for the border. A <code>ColoredGlyph</code> type represents a foreground color, a background color, a glyph character, all in a single type. This glyph is what gets drawn as the border of the box. A <code>ColoredGlyph</code> is also used to specify the fill of the shape, but we're going to omit that for now.</p>
+<p>The <code>DrawBox</code> method breaks down into the following parameters:</p>
+<ul>
+<li><strong>Rectangle</strong>: This is the region to draw box in.</li>
+<li><strong>Border style</strong>: The style of border applied to the box.</li>
+<li><strong>Fill style</strong>: (optional) The style to fill the area inside the border.</li>
+</ul>
+<p>With <code>DrawBox</code> you can also specify that you want to use a line style for the box instead of the glyph character provided.</p>
+<pre><code class="lang-csharp">startingConsole.DrawBox(new Rectangle(3, 3, 23, 3), new ColoredGlyph(Color.Violet, Color.Black), connectedLineStyle: ICellSurface.ConnectedLineThin);
+</code></pre>
+<p><img src="images/part1-shapes-2.png" alt="line shape in sadconsole"></p>
+<p>The <code>connectedLineStyle:</code> parameter is a &quot;named&quot; parameter. There are many different parameter combinations for <code>DrawBox</code> and we're just skipping other optional parameters and specifying that the border should use a line style. When a line style is provided, it overrides whatever glyph character you provide for the border parameter and only uses the foreground and background colors. There are a few line styles but I'll just mention two of them:</p>
+<ul>
+<li><code>ICellSurface.ConnectedLineThin</code>: A thin single line.</li>
+<li><code>ICellSurface.ConnectedLineThick</code>: A thick double line.</li>
+</ul>
+<p>Try the <strong>Thick</strong> line style to see how it looks.</p>
+<h4 id="circle">Circle</h4>
+<p>Next, let's draw a circle, it follows roughly the same pattern:</p>
+<pre><code class="lang-csharp">startingConsole.DrawCircle(new Rectangle(5, 8, 16, 8), new ColoredGlyph(Color.Violet, Color.Black, 176), new ColoredGlyph(Color.White, Color.Black));
+</code></pre>
+<p>As with <code>DrawBox</code>, the <code>DrawCircle</code> fill setting is optional. The code above is using a black background to fill the box.</p>
+<p>Run your game and you'll see the following screen:</p>
+<p><img src="images/part1-shapes-3.png" alt="circle shape in sadconsole"></p>
+<h4 id="line">Line</h4>
+<p>The line shape is probably the simplest. There is no fill to worry about, you simply set the starting point of the line, the ending point, and then what glyph and colors to use when drawing the line.</p>
+<p>However, before we drawn a line, let's remove the <code>FillWithRandomGarbage</code> code line. All of this visual noise will make it hard to see something as small as a line. After removing that code line, add the following line to the end of your code:</p>
+<pre><code class="lang-csharp">startingConsole.DrawLine(new Point(60, 5), new Point(66, 20), '$', Color.AnsiBlue, Color.AnsiBlueBright, Mirror.None);
+</code></pre>
+<p>Your <code>Init</code> method should look like the following:</p>
+<pre><code class="lang-csharp">private static void Init()
+{
+    var startingConsole = Game.Instance.StartingConsole;
+
+    startingConsole.Fill(new Rectangle(3, 3, 23, 3), Color.Violet, Color.Black, 0, Mirror.None);
+    startingConsole.Print(4, 4, &quot;Hello from SadConsole&quot;);
+
+    startingConsole.DrawBox(new Rectangle(3, 3, 23, 3), new ColoredGlyph(Color.Violet, Color.Black), connectedLineStyle: ICellSurface.ConnectedLineThin);
+    startingConsole.DrawCircle(new Rectangle(5, 8, 16, 8), new ColoredGlyph(Color.Violet, Color.Black, 176), new ColoredGlyph(Color.White, Color.Black));
+
+    startingConsole.DrawLine(new Point(60, 5), new Point(66, 20), '$', Color.AnsiBlue, Color.AnsiBlueBright, Mirror.None);
+}
+</code></pre>
+<p>Run your game and you'll see the following screen:</p>
+<p><img src="images/part1-shapes-4.png" alt="line shape in sadconsole"></p>
+<h2 id="other-basics">Other basics</h2>
+<p>There are a few other commands you can use to change a console. We learned that the <code>Print</code> method works at a specific position and prints out a string with a foreground and background, but, you can also work with individual cells. You can adjust the foreground color, the background color, the glyph, or the glyph mirror setting of any cell in the console, by referring to its X,Y coordinate.</p>
+<ul>
+<li><p>Set the foreground color of a cell. A glyph is displayed in the color of the foreground of the cell. So by changing the foreground color, you change the color of the glyph. If the glyph is set to <code>0</code>, it's blank and you won't see any character symbol nor the foreground color for that cell. In our example, this alters the <em>S</em> in <em>SadConsole</em>.</p>
+<pre><code class="lang-csharp">// X, Y, Color
+startingConsole.SetForeground(15, 4, Color.DarkGreen);
+</code></pre>
+</li>
+<li><p>Set the background of a cell. This fills the cell with a specific color. In our example, this alters the <em>C</em> in <em>SadConsole</em>.</p>
+<pre><code class="lang-csharp">// X, Y, Color
+startingConsole.SetBackground(18, 4, Color.DarkCyan);
+</code></pre>
+</li>
+<li><p>Set the glyph of a cell. This changes the character displayed in the cell. The glyph is based on the character index in the font file. In our example, this alters the <em>H</em> in <em>Hello</em>.</p>
+<pre><code class="lang-csharp">// X, Y, Glyph index
+startingConsole.SetGlyph(4, 4, '@');
+</code></pre>
+</li>
+<li><p>Change the mirror of a cell. Each cell is initially set to <code>None</code> which represents un-mirrored. You can set the mirror to <code>None</code>, <code>Horizontal</code>, or <code>Vertical</code>. In our example, this alters the <em>f</em> in <em>from</em>.</p>
+<pre><code class="lang-csharp">// X, Y, Mirror set
+console.startingConsole.SetMirror(10, 4, Mirror.Vertical);
+</code></pre>
+</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>You've now explored some of the basics of SadConsole. Keep experimenting with these commands. The next part of this series will explore the screen layout system built into SadConsole and keyboard/mouse input handling.</p>
+<ul>
+<li><a href="part-2-input.md">Part 2: Input</a></li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>
