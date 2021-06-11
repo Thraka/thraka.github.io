@@ -1,6 +1,6 @@
 ## Welcome to SadConsole
 
-[![Join us on Discord](https://img.shields.io/discord/501465397518925843.svg?label=discord)][discord] [![NuGet](https://img.shields.io/nuget/v/SadConsole.svg)][nuget] [![Join us on Reddit](https://img.shields.io/badge/reddit-SadConsole-red.svg)][reddit]
+[![Join us on Discord (Primary)](https://img.shields.io/discord/501465397518925843.svg?label=discord)][discord] [![NuGet](https://img.shields.io/nuget/v/SadConsole.svg)][nuget] [![Join us on Reddit](https://img.shields.io/badge/reddit-SadConsole-red.svg)][reddit]
 
 
 
@@ -39,5 +39,5 @@ SadConsole uses NuGet for its .NET dependencies.
 [DemoProject](https://github.com/SadConsole/SadConsole/tree/master/src/DemoProject/SharedCode) shows how to use SadConsole in a multi-platform environment and demonstrates various things you can do with SadConsole.
 
 [nuget]: http://www.nuget.org/packages/SadConsole/
-[discord]: https://discord.gg/mttxqAs
+[discord]: https://discord.gg/pAFNKYjczM
 [reddit]: http://reddit.com/r/sadconsole

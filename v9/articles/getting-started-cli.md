@@ -53,10 +53,9 @@ You should see output similar to the following:
 ```shell
 Templates                                Short Name                 Language      Tags
 --------------------------------------------------------------------------------------------------------------
-SadConsole v9 Game (MonoGame)            sadconsole9mg              [C#]          Console/Roguelike/SadConsole
-SadConsole v9 Game (SFML)                sadconsole9sfml            [C#]          Console/Roguelike/SadConsole
-SadConsole v9 Console Class              sadconsole9console         [C#]          Console/SadConsole
-SadConsole v9 Font Definition            sadconsole9font            [C#]          SadConsole
+SadConsole Game (MonoGame)            sadconsole-mg              [C#]          Console/Roguelike/SadConsole
+SadConsole Game (SFML)                sadconsole-sfml            [C#]          Console/Roguelike/SadConsole
+SadConsole Console Class              scconsole                  [C#]          Console/SadConsole
 ```
 
 The `Game (MonoGame)` template creates a SadConsle game that uses [MonoGame](https://www.monogame.net/) and the `Game (SFML)` template creates a game that uses [SFML](https://www.sfml-dev.org/). MonoGame and SFML are the backend renderers for SadConsole. In general, the code you use for SadConsole doesn't care which rendering system you use. However, as your game progresses, which renderer you choose is very important. Currently, it's recommended that you use the MonoGame renderer as it has the following benefits:
