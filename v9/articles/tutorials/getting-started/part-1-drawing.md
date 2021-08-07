@@ -68,6 +68,7 @@ Additionally, the `<TargetFramework>` value should be set to `net5.0`.
     <RootNamespace>SadConsoleGame</RootNamespace>
   </PropertyGroup>
 
+</Project>
 ```
 
 ## Exploring the sample code
@@ -147,28 +148,29 @@ Previously we used `Fill` to fill in a rectangular region. With SadConsole you c
 After the `Print` line that prints _"Hello from SadConsole"_, add the following to draw a box around it:
 
 ```csharp
-startingConsole.DrawBox(new Rectangle(3, 3, 23, 3), new ColoredGlyph(Color.Violet, Color.Black, 176));
+startingConsole.DrawBox(new Rectangle(3, 3, 23, 3), ShapeParameters.CreateBorder(new ColoredGlyph(Color.Violet, Color.Black, 176)));
 ```
 
 ![box shape in sadconsole](images/part1-shapes-1.png)
 
-The `DrawBox` method takes a region and a `ColoredGlyph` for the border. A `ColoredGlyph` type represents a foreground color, a background color, a glyph character, all in a single type. This glyph is what gets drawn as the border of the box. A `ColoredGlyph` is also used to specify the fill of the shape, but we're going to omit that for now.
+The `DrawBox` method takes a region and a `ShapeParameters` object. The `ShapeParameters` object defines the style in which to create a shape, and in this case, the box. We're using it in a simple mode, which is just providing a `ColoredGlyph` for the border. A `ColoredGlyph` type represents a foreground color, a background color, a glyph character, all in a single type. This glyph is what gets drawn as the border of the box. A `ColoredGlyph` is also used to specify the fill of the shape, but we're going to omit that for now.
 
 The `DrawBox` method breaks down into the following parameters:
 
 - **Rectangle**: This is the region to draw box in.
-- **Border style**: The style of border applied to the box.
-- **Fill style**: (optional) The style to fill the area inside the border.
+- **Shape Parameters**: The style of border and fill settings that are applied to the box.
 
 With `DrawBox` you can also specify that you want to use a line style for the box instead of the glyph character provided.
 
 ```csharp
-startingConsole.DrawBox(new Rectangle(3, 3, 23, 3), new ColoredGlyph(Color.Violet, Color.Black), connectedLineStyle: ICellSurface.ConnectedLineThin);
+startingConsole.DrawBox(new Rectangle(3, 3, 23, 3),
+                        ShapeParameters.CreateStyledBox(ICellSurface.ConnectedLineThin,
+                                                        new ColoredGlyph(Color.Violet, Color.Black)));
 ```
 
 ![line shape in sadconsole](images/part1-shapes-2.png)
 
-The `connectedLineStyle:` parameter is a "named" parameter. There are many different parameter combinations for `DrawBox` and we're just skipping other optional parameters and specifying that the border should use a line style. When a line style is provided, it overrides whatever glyph character you provide for the border parameter and only uses the foreground and background colors. There are a few line styles but I'll just mention two of them:
+`ShapeParameters` can describe many different ways to create the box. While the `ShapeParameters.CreateBorder` method used a `ColoredGlyph` to set the foreground, background, and symbol used to draw the whole border, `ShapeParameters.CreateStyledBox` instead uses a _connected line style_ for the symbols used to draw the box. A `ColoredGlyph` is still used to set the foreground and background of the border. There are a few line styles, and you can create your own, but we'll name two of the most likely used styles:
 
 - `ICellSurface.ConnectedLineThin`: A thin single line.
 - `ICellSurface.ConnectedLineThick`: A thick double line.
@@ -180,10 +182,12 @@ Try the **Thick** line style to see how it looks.
 Next, let's draw a circle, it follows roughly the same pattern:
 
 ```csharp
-startingConsole.DrawCircle(new Rectangle(5, 8, 16, 8), new ColoredGlyph(Color.Violet, Color.Black, 176), new ColoredGlyph(Color.White, Color.Black));
+startingConsole.DrawCircle(new Rectangle(5, 8, 16, 8), 
+                           ShapeParameters.CreateFilled(new ColoredGlyph(Color.Violet, Color.Black, 176),
+                                                        new ColoredGlyph(Color.White, Color.Black)));
 ```
 
-As with `DrawBox`, the `DrawCircle` fill setting is optional. The code above is using a black background to fill the box.
+The code above is using a black background to fill the box.
 
 Run your game and you'll see the following screen:
 
@@ -209,8 +213,13 @@ private static void Init()
     startingConsole.Fill(new Rectangle(3, 3, 23, 3), Color.Violet, Color.Black, 0, Mirror.None);
     startingConsole.Print(4, 4, "Hello from SadConsole");
 
-    startingConsole.DrawBox(new Rectangle(3, 3, 23, 3), new ColoredGlyph(Color.Violet, Color.Black), connectedLineStyle: ICellSurface.ConnectedLineThin);
-    startingConsole.DrawCircle(new Rectangle(5, 8, 16, 8), new ColoredGlyph(Color.Violet, Color.Black, 176), new ColoredGlyph(Color.White, Color.Black));
+    startingConsole.DrawBox(new Rectangle(3, 3, 23, 3),
+                            ShapeParameters.CreateStyledBox(ICellSurface.ConnectedLineThin,
+                                                            new ColoredGlyph(Color.Violet, Color.Black)));
+
+    startingConsole.DrawCircle(new Rectangle(5, 8, 16, 8), 
+                               ShapeParameters.CreateFilled(new ColoredGlyph(Color.Violet, Color.Black, 176),
+                                                            new ColoredGlyph(Color.White, Color.Black)));
 
     startingConsole.DrawLine(new Point(60, 5), new Point(66, 20), '$', Color.AnsiBlue, Color.AnsiBlueBright, Mirror.None);
 }
@@ -252,15 +261,11 @@ There are a few other methods you can use to change a console. We learned that t
   console.startingConsole.SetMirror(10, 4, Mirror.Vertical);
   ```
 
-## Part 2 coming soon...
-
-<!--
 ## Conclusion
 
-You've now explored some of the basics of SadConsole. Keep experimenting with these methods. The next part of this series will explore the screen layout system built into SadConsole and keyboard/mouse input handling.
+You've now explored some of the basics of SadConsole. The `Game.Instance.StartingConsole` is a console you can use to quickly prototype and experiment. Keep experimenting with these methods. The next part of this series will explore the Console cursor and the screen layout system built into SadConsole.
 
-- [Part 2: Input](part-2-input.md)
+- [Part 2: Cursor and Layout](part-2-cursor-layout.md)
 
--->
 [csharp-static]: https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/static
 [csharp-using]:  https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/using
