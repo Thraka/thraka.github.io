@@ -127,10 +127,10 @@
       <a class="xref" href="SadConsole.ScreenObject.html#SadConsole_ScreenObject_GetSadComponent__1">ScreenObject.GetSadComponent&lt;TComponent&gt;()</a>
     </div>
     <div>
-      <a class="xref" href="SadConsole.ScreenObject.html#SadConsole_ScreenObject_SadComponentAdded_SadConsole_Components_IComponent_">ScreenObject.SadComponentAdded(IComponent)</a>
+      <a class="xref" href="SadConsole.ScreenObject.html#SadConsole_ScreenObject_OnSadComponentAdded_SadConsole_Components_IComponent_">ScreenObject.OnSadComponentAdded(IComponent)</a>
     </div>
     <div>
-      <a class="xref" href="SadConsole.ScreenObject.html#SadConsole_ScreenObject_SadComponentRemoved_SadConsole_Components_IComponent_">ScreenObject.SadComponentRemoved(IComponent)</a>
+      <a class="xref" href="SadConsole.ScreenObject.html#SadConsole_ScreenObject_OnSadComponentRemoved_SadConsole_Components_IComponent_">ScreenObject.OnSadComponentRemoved(IComponent)</a>
     </div>
     <div>
       <a class="xref" href="SadConsole.ScreenObject.html#SadConsole_ScreenObject_HasSadComponent__1___0__">ScreenObject.HasSadComponent&lt;TComponent&gt;(TComponent)</a>
@@ -152,6 +152,15 @@
     </div>
     <div>
       <a class="xref" href="SadConsole.ScreenObject.html#SadConsole_ScreenObject_OnSerializingMethod_System_Runtime_Serialization_StreamingContext_">ScreenObject.OnSerializingMethod(StreamingContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.ScreenObject.html#SadConsole_ScreenObject_Components_FilterAddItem_SadConsole_Components_IComponent_System_Collections_Generic_List_SadConsole_Components_IComponent__System_Collections_Generic_List_SadConsole_Components_IComponent__System_Collections_Generic_List_SadConsole_Components_IComponent__System_Collections_Generic_List_SadConsole_Components_IComponent__System_Collections_Generic_List_SadConsole_Components_IComponent__">ScreenObject.Components_FilterAddItem(IComponent, List&lt;IComponent&gt;, List&lt;IComponent&gt;, List&lt;IComponent&gt;, List&lt;IComponent&gt;, List&lt;IComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.ScreenObject.html#SadConsole_ScreenObject_Components_FilterRemoveItem_SadConsole_Components_IComponent_System_Collections_Generic_List_SadConsole_Components_IComponent__System_Collections_Generic_List_SadConsole_Components_IComponent__System_Collections_Generic_List_SadConsole_Components_IComponent__System_Collections_Generic_List_SadConsole_Components_IComponent__System_Collections_Generic_List_SadConsole_Components_IComponent__">ScreenObject.Components_FilterRemoveItem(IComponent, List&lt;IComponent&gt;, List&lt;IComponent&gt;, List&lt;IComponent&gt;, List&lt;IComponent&gt;, List&lt;IComponent&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.ScreenObject.html#SadConsole_ScreenObject_Components_Sort_System_Collections_Generic_List_SadConsole_Components_IComponent__System_Collections_Generic_List_SadConsole_Components_IComponent__System_Collections_Generic_List_SadConsole_Components_IComponent__System_Collections_Generic_List_SadConsole_Components_IComponent__System_Collections_Generic_List_SadConsole_Components_IComponent__">ScreenObject.Components_Sort(List&lt;IComponent&gt;, List&lt;IComponent&gt;, List&lt;IComponent&gt;, List&lt;IComponent&gt;, List&lt;IComponent&gt;)</a>
     </div>
     <div>
       <a class="xref" href="SadConsole.ScreenObject.html#SadConsole_ScreenObject_SadComponents">ScreenObject.SadComponents</a>
@@ -798,7 +807,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ICellSurface Surface { get; protected set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public ICellSurface Surface { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -897,6 +906,17 @@
   </h3>
   
   
+  <a id="SadConsole_ScreenSurface_CallOnHostUpdated_" data-uid="SadConsole.ScreenSurface.CallOnHostUpdated*"></a>
+  <h4 id="SadConsole_ScreenSurface_CallOnHostUpdated" data-uid="SadConsole.ScreenSurface.CallOnHostUpdated">CallOnHostUpdated()</h4>
+  <div class="markdown level1 summary"><p>Calls the OnHostUpdated method on components, renderer, and rendersteps.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CallOnHostUpdated()</code></pre>
+  </div>
+  
+  
   <a id="SadConsole_ScreenSurface_Dispose_" data-uid="SadConsole.ScreenSurface.Dispose*"></a>
   <h4 id="SadConsole_ScreenSurface_Dispose" data-uid="SadConsole.ScreenSurface.Dispose">Dispose()</h4>
   <div class="markdown level1 summary"></div>
@@ -983,7 +1003,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void OnFontChanged(IFont oldFont, Point oldFontSize)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual void OnFontChanged(IFont oldFont, Point oldFontSize)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1145,7 +1165,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void OnRendererChanged()</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual void OnRendererChanged()</code></pre>
   </div>
   
   
@@ -1185,7 +1205,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void OnSurfaceChanged(ICellSurface oldSurface)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual void OnSurfaceChanged(ICellSurface oldSurface)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">

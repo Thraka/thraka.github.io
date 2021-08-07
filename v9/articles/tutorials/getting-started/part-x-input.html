@@ -75,6 +75,41 @@
 <ul>
 <li><a href="drawing-on-a-console.md">Part 1: Drawing on a console</a></li>
 </ul>
+<p>Try moving the cursor and typing behind the surface. To further demonstrate how this surface is on top of the console, lets add a mouse handler to the console that moves the child surface around.</p>
+<p>First, import the <code>SadConsole.Quick</code> namespace. This adds a method to all screen object types that allow you to easily add an input handler. At the top of your code file, add a using statement to import this namespace:</p>
+<pre><code class="lang-csharp">using SadConsole.Quick;
+</code></pre>
+<p>Back in the <code>Init</code> method, call the <code>console1.WithMouse</code> method and pass it a lambda expression to handle the mouse event. A lambda expression is explained in detail in the <a href="https://docs.microsoft.com/dotnet/csharp/language-reference/operators/lambda-expressions">official documentation</a>. Lambda expressions allow you to create anonymous functions. These functions only exist where you've declared them. They can be assigned to a variable or passed to a method, like we're doing with the <code>WithMouse</code> method.</p>
+<pre><code class="lang-csharp">// Mouse for console1: Bring console1 to the front and focus. Also,
+// move the surfaceObject child around.
+console1.WithMouse((con1, mouse) =&gt;
+                    {
+                        bool handled = false;
+
+                        return handled;
+                    });
+</code></pre>
+<p>The <code>(con1, mouse)</code> part of the lambda expression are the input variables to the expression. In this case, the lambda expression is associated with the mouse input, so the variables <code>con1</code> represents the surface object the mouse is being processed on, and <code>mouse</code> represents the mouse data provided by SadConsole.</p>
+<p>All mouse functions return a <code>true</code> or <code>false</code> value to indicate that they handled the mouse and they don't want anyone else to do anything with the mouse input. We're defaulting to <code>false</code> for now, as that lets the normal mouse processing of the</p>
+<pre><code class="lang-csharp">// Mouse for console1: Bring console1 to the front and focus. Also,
+// move the surfaceObject child around.
+console1.WithMouse((con1, mouse) =&gt;
+                    {
+                        bool handled = false;
+
+                        // Is the mouse currently on top of this screen object (in this case, the con1 console)
+                        // and is the left button of the mouse held down
+                        if (mouse.IsOnScreenObject &amp;&amp; mouse.Mouse.LeftButtonDown)
+                        {
+                            con1.Parent.Children.MoveToTop(con1);
+                            con1.IsFocused = true;
+                            surfaceObject.Position = mouse.CellPosition - (2, 1);
+                            handled = true;
+                        }
+
+                        return handled;
+                    });
+</code></pre>
 <h2 id="prep">Prep</h2>
 <p>Reset the <code>Init()</code> method back to a clean state. Whenever the tutorial talks about resetting the <code>Init()</code> method back to a clean state, it means to replace your existing code with the following code:</p>
 <pre><code class="lang-csharp">static void Init()

@@ -166,7 +166,7 @@
   
   <a id="SadConsole_Components_Cursor_ApplyCursorEffect_" data-uid="SadConsole.Components.Cursor.ApplyCursorEffect*"></a>
   <h4 id="SadConsole_Components_Cursor_ApplyCursorEffect" data-uid="SadConsole.Components.Cursor.ApplyCursorEffect">ApplyCursorEffect</h4>
-  <div class="markdown level1 summary"><p>When <span class="xref">false</span>, prevents the <a class="xref" href="SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_CursorEffect">CursorEffect</a> from being applied.</p>
+  <div class="markdown level1 summary"><p>When <span class="xref">false</span>, prevents the <a class="xref" href="SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_CursorRenderEffect">CursorRenderEffect</a> from being applied.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -242,32 +242,6 @@
   </table>
   
   
-  <a id="SadConsole_Components_Cursor_CursorEffect_" data-uid="SadConsole.Components.Cursor.CursorEffect*"></a>
-  <h4 id="SadConsole_Components_Cursor_CursorEffect" data-uid="SadConsole.Components.Cursor.CursorEffect">CursorEffect</h4>
-  <div class="markdown level1 summary"><p>This is the cursor visible effect, like blinking.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ICellEffect CursorEffect { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SadConsole.Effects.ICellEffect.html">ICellEffect</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
   <a id="SadConsole_Components_Cursor_CursorGlyph_" data-uid="SadConsole.Components.Cursor.CursorGlyph*"></a>
   <h4 id="SadConsole_Components_Cursor_CursorGlyph" data-uid="SadConsole.Components.Cursor.CursorGlyph">CursorGlyph</h4>
   <div class="markdown level1 summary"><p>Sets the glyph used in rendering. A shortcut to <a class="xref" href="SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_CursorRenderCell">CursorRenderCell</a>.</p>
@@ -301,7 +275,33 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ColoredGlyph CursorRenderCell { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public ColoredGlyphState CursorRenderCell { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.ColoredGlyphState.html">ColoredGlyphState</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SadConsole_Components_Cursor_CursorRenderCellActiveState_" data-uid="SadConsole.Components.Cursor.CursorRenderCellActiveState*"></a>
+  <h4 id="SadConsole_Components_Cursor_CursorRenderCellActiveState" data-uid="SadConsole.Components.Cursor.CursorRenderCellActiveState">CursorRenderCellActiveState</h4>
+  <div class="markdown level1 summary"><p>Used in rendering. The cell after the effect has been applied.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ColoredGlyph CursorRenderCellActiveState { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -314,6 +314,32 @@
     <tbody>
       <tr>
         <td><a class="xref" href="SadConsole.ColoredGlyph.html">ColoredGlyph</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SadConsole_Components_Cursor_CursorRenderEffect_" data-uid="SadConsole.Components.Cursor.CursorRenderEffect*"></a>
+  <h4 id="SadConsole_Components_Cursor_CursorRenderEffect" data-uid="SadConsole.Components.Cursor.CursorRenderEffect">CursorRenderEffect</h4>
+  <div class="markdown level1 summary"><p>This is the cursor visible effect, like blinking.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICellEffect CursorRenderEffect { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.Effects.ICellEffect.html">ICellEffect</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -470,6 +496,32 @@
     <tbody>
       <tr>
         <td><a class="xref" href="SadConsole.ColoredGlyph.html">ColoredGlyph</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SadConsole_Components_Cursor_PrintAppearanceMatchesHost_" data-uid="SadConsole.Components.Cursor.PrintAppearanceMatchesHost*"></a>
+  <h4 id="SadConsole_Components_Cursor_PrintAppearanceMatchesHost" data-uid="SadConsole.Components.Cursor.PrintAppearanceMatchesHost">PrintAppearanceMatchesHost</h4>
+  <div class="markdown level1 summary"><p>When <span class="xref">true</span>, printing will use the host's <a class="xref" href="SadConsole.ICellSurface.html#SadConsole_ICellSurface_DefaultForeground">DefaultForeground</a> and <a class="xref" href="SadConsole.ICellSurface.html#SadConsole_ICellSurface_DefaultBackground">DefaultBackground</a> color properties.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool PrintAppearanceMatchesHost { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -707,35 +759,6 @@
       <tr>
         <td><a class="xref" href="SadConsole.Components.Cursor.html">Cursor</a></td>
         <td><p>The current cursor object.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="SadConsole_Components_Cursor_ChangeTarget_" data-uid="SadConsole.Components.Cursor.ChangeTarget*"></a>
-  <h4 id="SadConsole_Components_Cursor_ChangeTarget_SadConsole_IScreenSurface_" data-uid="SadConsole.Components.Cursor.ChangeTarget(SadConsole.IScreenSurface)">ChangeTarget(IScreenSurface)</h4>
-  <div class="markdown level1 summary"><p>Changes the target of the cursor. Careful, may desync the host if this component is added to one.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void ChangeTarget(IScreenSurface surface)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SadConsole.IScreenSurface.html">IScreenSurface</a></td>
-        <td><span class="parametername">surface</span></td>
-        <td><p>The target surface</p>
 </td>
       </tr>
     </tbody>
@@ -1175,7 +1198,7 @@
   
   <a id="SadConsole_Components_Cursor_RestartCursorEffect_" data-uid="SadConsole.Components.Cursor.RestartCursorEffect*"></a>
   <h4 id="SadConsole_Components_Cursor_RestartCursorEffect" data-uid="SadConsole.Components.Cursor.RestartCursorEffect">RestartCursorEffect()</h4>
-  <div class="markdown level1 summary"><p>Clones and reassigns <a class="xref" href="SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_CursorEffect">CursorEffect</a> to restart it.</p>
+  <div class="markdown level1 summary"><p>Clones and reassigns <a class="xref" href="SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_CursorRenderEffect">CursorRenderEffect</a> to restart it.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1516,6 +1539,33 @@
       </tr>
     </tbody>
   </table>
+  <h3 id="events">Events
+  </h3>
+  
+  
+  <h4 id="SadConsole_Components_Cursor_KeyboardPreview" data-uid="SadConsole.Components.Cursor.KeyboardPreview">KeyboardPreview</h4>
+  <div class="markdown level1 summary"><p>Raised when the keyboard is processing keys. Each key is sent to this event and can be cancelled</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;KeyboardHandledKeyEventArgs&gt; KeyboardPreview</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SadConsole.Input.KeyboardHandledKeyEventArgs.html">KeyboardHandledKeyEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="eii">Explicit Interface Implementations
   </h3>
   
@@ -1627,6 +1677,33 @@
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">void IComponent.OnAdded(IScreenObject host)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.IScreenObject.html">IScreenObject</a></td>
+        <td><span class="parametername">host</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SadConsole_Components_Cursor_SadConsole_Components_IComponent_OnHostUpdated_" data-uid="SadConsole.Components.Cursor.SadConsole#Components#IComponent#OnHostUpdated*"></a>
+  <h4 id="SadConsole_Components_Cursor_SadConsole_Components_IComponent_OnHostUpdated_SadConsole_IScreenObject_" data-uid="SadConsole.Components.Cursor.SadConsole#Components#IComponent#OnHostUpdated(SadConsole.IScreenObject)">IComponent.OnHostUpdated(IScreenObject)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void IComponent.OnHostUpdated(IScreenObject host)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
