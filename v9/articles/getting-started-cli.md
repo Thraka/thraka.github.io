@@ -22,17 +22,7 @@ It's very simple to create a project this way, and then afterwords, use your fav
 
 After you have a .NET SDK installed, open up a terminal. If you're unsure how to do that, search the internet for a tutorial.
 
-Once you have a terminal open, navigate to the folder you want to code in. This tutorial just assumes you're in an empty folder waiting to input commands. For example, I opened a terminal on Windows and ran the following commands:
-
-```shell
-mkdir sadconsolegame
-cd sadconsolegame
-```
-
-It's highly likely that those commands work on every operating system, in the case that they don't, they'll be similar to this. Please refer to any documentation related to your operating system.
-
->[!WARNING]
->The folder name you use (in this example _sadconsolegame_) can't be **sadconsole**. The default behavior for .NET is to create a project file named the same as the folder, and then the *output* file will be the same name as the project. This will cause a clash with the _SadConsole.dll_ library.
+Once you have a terminal open, navigate to the folder where you'll keep your code. This tutorial just assumes you're in an empty folder waiting to input commands. For example, I already have a coding folder where I store my projects. In my terminal I navigated to my _C:\Code\Fun_ folder, and I'm waiting to input the next series of commands from this article.
 
 ## Install the templates
 
@@ -71,7 +61,7 @@ SFML is cross-platform, but it takes more work on your side to get that working.
 Your terminal should be in the game directory you created at the start of this article. Create your project using the `dotnet new` command:
 
 ```shell
-dotnet new sadconsole9mg
+dotnet new sadconsole-mg -n SadConsoleGame
 ```
 
 This command generates a small example game that you can then customize. Run the game with `dotnet run` from your terminal, and you'll see the following:
