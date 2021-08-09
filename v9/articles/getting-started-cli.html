@@ -81,15 +81,7 @@
 </ul>
 <h2 id="create-your-working-folder">Create your working folder</h2>
 <p>After you have a .NET SDK installed, open up a terminal. If you're unsure how to do that, search the internet for a tutorial.</p>
-<p>Once you have a terminal open, navigate to the folder you want to code in. This tutorial just assumes you're in an empty folder waiting to input commands. For example, I opened a terminal on Windows and ran the following commands:</p>
-<pre><code class="lang-shell">mkdir sadconsolegame
-cd sadconsolegame
-</code></pre>
-<p>It's highly likely that those commands work on every operating system, in the case that they don't, they'll be similar to this. Please refer to any documentation related to your operating system.</p>
-<div class="WARNING">
-<h5>Warning</h5>
-<p>The folder name you use (in this example <em>sadconsolegame</em>) can't be <strong>sadconsole</strong>. The default behavior for .NET is to create a project file named the same as the folder, and then the <em>output</em> file will be the same name as the project. This will cause a clash with the <em>SadConsole.dll</em> library.</p>
-</div>
+<p>Once you have a terminal open, navigate to the folder where you'll keep your code. This tutorial just assumes you're in an empty folder waiting to input commands. For example, I already have a coding folder where I store my projects. In my terminal I navigated to my <em>C:\Code\Fun</em> folder, and I'm waiting to input the next series of commands from this article.</p>
 <h2 id="install-the-templates">Install the templates</h2>
 <p>Next, install the SadConsole templates:</p>
 <pre><code class="lang-shell">dotnet new --install SadConsole.Templates
@@ -113,7 +105,7 @@ SadConsole Console Class              scconsole                  [C#]          C
 <p>SFML is cross-platform, but it takes more work on your side to get that working. It may have a better framerate though, but I wouldn't worry about that until you run into some problem. Regarding framerates, both renderers perform pretty much the same, you may not even see a difference between the two.</p>
 <h2 id="create-a-project">Create a project</h2>
 <p>Your terminal should be in the game directory you created at the start of this article. Create your project using the <code>dotnet new</code> command:</p>
-<pre><code class="lang-shell">dotnet new sadconsole9mg
+<pre><code class="lang-shell">dotnet new sadconsole-mg -n SadConsoleGame
 </code></pre>
 <p>This command generates a small example game that you can then customize. Run the game with <code>dotnet run</code> from your terminal, and you'll see the following:</p>
 <p><img src="images/getting-started-cli/hello-window.png" alt="a new console in sadconsole with hello text"></p>
