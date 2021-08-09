@@ -1,11 +1,15 @@
 ---
 description: Learn how to get started with SadConsole by using the cursor. Also, learn a few basics about nesting and parenting consoles.
-ms.date: 07/16/2021
+ms.date: 08/07/2021
 ---
 
 # Get Started 2 - Cursors and parenting
 
 This article is the 2nd in the series of Getting Started tutorials for SadConsole. In this article you'll learn how to use the `Cursor` object to write on a `Console`. SadConsole can also display more than one console, you'll also learn how to have multiple consoles on the screen.
+
+Previous articles in this tutorial:
+
+- [Get Started 1 - Draw on a console](part-1-drawing.md)
 
 ## Prerequisites
 
@@ -295,6 +299,3 @@ When you run the program and you can both consoles. You can click and interact w
 Now you have both a working console and a non-console surface. You've explored how SadConsole uses the Cursor object to let you type, emulating a terminal. You also learned how to parent one object to another. The next part of this series will explore more about the keyboard and mouse input.
 
 - Part 3: Input -- Not written, coming soon!
-
-[csharp-static]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/static
-[csharp-using]:  https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using
