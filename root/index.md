@@ -36,7 +36,7 @@ Here are some of the features SadConsole supports.
 SadConsole uses NuGet for its .NET dependencies.
 
 ## Demo Project
-[DemoProject](https://github.com/SadConsole/SadConsole/tree/master/src/DemoProject/SharedCode) shows how to use SadConsole in a multi-platform environment and demonstrates various things you can do with SadConsole.
+[DemoProject](https://github.com/Thraka/SadConsole/tree/master/Samples/MainSample) shows how to use SadConsole in a multi-platform environment and demonstrates various things you can do with SadConsole.
 
 [nuget]: http://www.nuget.org/packages/SadConsole/
 [discord]: https://discord.gg/pAFNKYjczM
