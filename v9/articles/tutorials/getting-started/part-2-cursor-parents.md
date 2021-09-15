@@ -52,9 +52,9 @@ The `SadConsole.Console` type is the basic type you use to get data on the scree
 
 When you run a terminal program, such as _cmd.exe_ or _bash_, you're presented with a blinking cursor, letting you know its ready for you to type something. When the programs you run communicate back to you, that cursor prints things to the screen:
 
-TODO: ANIMATED GIF OF A TERMINAL
+![demonstrating a powershell and cmd terminal](images/part-2-cursor-parents/terminal.gif)
 
-SadConsole provides a cursor system as way to show users where text is about to be written, where they should use the keyboard to type, or just as a convienent way to draw to a console. You can chain cursor commands into a series of actions 
+SadConsole provides a cursor system as way to show users where text is about to be written, where they should use the keyboard to type, or just as a convenient way to draw to a console. You can chain cursor commands into a series of actions:
 
 01. Move the cursor to position 20,21
 01. Print the text "Kato is my favorite dog"
@@ -67,6 +67,7 @@ Replace the `Init` code with the following and run your program:
 ```csharp
 static void Init()
 {
+    Game.Instance.StartingConsole.Cursor.PrintAppearanceMatchesHost = false;
     Game.Instance.StartingConsole.Cursor
         .Move(0, 21)
         .Print("Kato is my favorite dog")
@@ -81,6 +82,7 @@ The code causes the cursor to do things, but you don't _see_ a cursor on the scr
 ```csharp
 static void Init()
 {
+    Game.Instance.StartingConsole.Cursor.PrintAppearanceMatchesHost = false;
     Game.Instance.StartingConsole.Cursor
         .Move(0, 21)
         .Print("Kato is my favorite dog")
@@ -102,6 +104,7 @@ To enable the cursor, set the `IsEnabled` property to `true`.
 ```csharp
 static void Init()
 {
+    Game.Instance.StartingConsole.Cursor.PrintAppearanceMatchesHost = false;
     Game.Instance.StartingConsole.Cursor
         .Move(0, 21)
         .Print("Kato is my favorite dog")
@@ -120,7 +123,7 @@ Now when you run the program you'll see that the cursor is blinking, and when yo
 
 SadConsole has a framework in place that lets you create more than one console and display them at the same time. SadConsole provides a generic object that allows parenting but doesn't display anything itself: `ScreenObject`.
 
-The starting screen, though, is a `Console`, so we'll need to get rid of that and start over. Let's create a new `ScreenObject` that will host a few consoles. 
+The starting screen, though, is a `Console`, so we'll need to get rid of that and start over. Let's create a new `ScreenObject` that will host a few consoles.
 
 First, erase all the code in the `Init` method:
 

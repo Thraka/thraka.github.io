@@ -16,14 +16,15 @@ To start this tutorial you'll need to have created a SadConsole project. It is r
 
 ## Sync your code to mine
 
-The previous section leads you to material that helps you create a SadConsole project. For this tutoiral, make sure the default namespace is `SadConsoleGame`. If you need to learn more about namespaces, visit the CSharp reference article. You can force the namespace by adding the following setting to the _game.csproj_ between the first and last nodes:
+The previous section leads you to material that helps you create a SadConsole project. For this tutorial, make sure the default namespace is `SadConsoleGame`. If you need to learn more about namespaces, visit the CSharp reference article. You can force the namespace by adding the `<RootNamespace>` setting to the `<PropertyGroup>` node in the project file (the file with the _.csproj_ extension):
 
 ```xml
-
+<PropertyGroup>
+  <OutputType>Exe</OutputType>
+  <TargetFramework>net5.0</TargetFramework>
+  <RootNamespace>SadConsoleGame</RootNamespace>
+</PropertyGroup>
 ```
-
-
-
 
 To ensure that we start off with the same material, make your *program.cs* file look like the following:
 
