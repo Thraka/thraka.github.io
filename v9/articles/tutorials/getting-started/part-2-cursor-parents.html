@@ -109,8 +109,8 @@ namespace SadConsoleGame
 <h2 id="use-the-cursor">Use the Cursor</h2>
 <p>The <code>SadConsole.Console</code> type is the basic type you use to get data on the screen. As you learned in the previous part of this tutorial series, you can use methods like <code>SetGlyph</code>, <code>SetForeground</code>, and even <code>Print</code>, to draw on the console. There is another way to write to the user, something the user and yourself may be more used to, and that's the console cursor.</p>
 <p>When you run a terminal program, such as <em>cmd.exe</em> or <em>bash</em>, you're presented with a blinking cursor, letting you know its ready for you to type something. When the programs you run communicate back to you, that cursor prints things to the screen:</p>
-<p>TODO: ANIMATED GIF OF A TERMINAL</p>
-<p>SadConsole provides a cursor system as way to show users where text is about to be written, where they should use the keyboard to type, or just as a convienent way to draw to a console. You can chain cursor commands into a series of actions</p>
+<p><img src="images/part-2-cursor-parents/terminal.gif" alt="demonstrating a powershell and cmd terminal"></p>
+<p>SadConsole provides a cursor system as way to show users where text is about to be written, where they should use the keyboard to type, or just as a convenient way to draw to a console. You can chain cursor commands into a series of actions:</p>
 <ol>
 <li>Move the cursor to position 20,21</li>
 <li>Print the text &quot;Kato is my favorite dog&quot;</li>
@@ -121,6 +121,7 @@ namespace SadConsoleGame
 <p>Replace the <code>Init</code> code with the following and run your program:</p>
 <pre><code class="lang-csharp">static void Init()
 {
+    Game.Instance.StartingConsole.Cursor.PrintAppearanceMatchesHost = false;
     Game.Instance.StartingConsole.Cursor
         .Move(0, 21)
         .Print(&quot;Kato is my favorite dog&quot;)
@@ -132,6 +133,7 @@ namespace SadConsoleGame
 <p>The code causes the cursor to do things, but you don't <em>see</em> a cursor on the screen. By default, the cursor is invisible and inactive. To show the cursor, change the <code>IsVisible</code> property to <code>true</code>.</p>
 <pre><code class="lang-csharp">static void Init()
 {
+    Game.Instance.StartingConsole.Cursor.PrintAppearanceMatchesHost = false;
     Game.Instance.StartingConsole.Cursor
         .Move(0, 21)
         .Print(&quot;Kato is my favorite dog&quot;)
@@ -150,6 +152,7 @@ namespace SadConsoleGame
 <p>To enable the cursor, set the <code>IsEnabled</code> property to <code>true</code>.</p>
 <pre><code class="lang-csharp">static void Init()
 {
+    Game.Instance.StartingConsole.Cursor.PrintAppearanceMatchesHost = false;
     Game.Instance.StartingConsole.Cursor
         .Move(0, 21)
         .Print(&quot;Kato is my favorite dog&quot;)
