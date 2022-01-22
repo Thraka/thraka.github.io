@@ -149,10 +149,12 @@ static void Init()
 }
 ```
 
+The previous code you used at the start of this article used the `Game.Instance.StartingConsole` property, and now you're using the `Game.Instance.Screen` property, conceptually known as the "current screen." When SadConsole starts up, the `Game.Instance.Screen` property is assigned to the `StartingConsole` property, so they are the same object. The current screen is the `StartingConsole`. The current screen is the object that is processed by SadConsole every game frame. It represents what is on the screen visually and what game logic is run.
+
 If you run the game now, nothing will be displayed. A `ScreenObject` is just a container that lets you add multiple child objects to it, but it itself doesn't draw anything. You can do this same thing with a `Console`, but the console would also want to draw something and use resources. So when you have a container that doesn't need to draw anything directly, `ScreenObject` is the object you want to use.
 
 > [!IMPORTANT]
-> Because you've replaced the `Game.Instance.Screen` property and you've destroyed the starting console, `Game.Instance.StartingConsole`can no longer be used.
+> Because you've replaced the `Game.Instance.Screen` property and you've destroyed the starting console, `Game.Instance.StartingConsole`can no longer be used. Destroying the starting console is important when you're no longer using it, as it frees up computer and video card memory.
 
 ## First child console
 
@@ -301,4 +303,4 @@ When you run the program and you can both consoles. You can click and interact w
 
 Now you have both a working console and a non-console surface. You've explored how SadConsole uses the Cursor object to let you type, emulating a terminal. You also learned how to parent one object to another. The next part of this series will explore more about the keyboard and mouse input.
 
-- Part 3: Input -- Not written, coming soon!
+- [Part 3: Input](part-3-input.md)

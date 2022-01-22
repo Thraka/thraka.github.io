@@ -1,5 +1,4 @@
 ---
-title: Create a new project
 description: Create a SadConsole project with the SadConsole templates.
 ms.date: 02/05/2021
 ---
@@ -8,15 +7,15 @@ ms.date: 02/05/2021
 
 This page describes how to create a new project with the SadConsole templates hosted on [NuGet](https://www.nuget.org/packages/SadConsole.Templates/). This template creates a .NET project. The .NET SDK includes easy ways to create a project, add references, and build/compile, with or without an editor.
 
-It's very simple to create a project this way, and then afterwords, use your favorite editor such as Visual Studio. If you prefer, you can create a [new SadConsole project with Visual Studio](getting-started-visualstudio.md).
+If you're using Visual Studio, follow these steps until told to use Visual Studio.
 
 ## Prerequisites
 
-- [Download and install the .NET 5.0 (or later) SDK](https://dotnet.microsoft.com/download/dotnet-core/5.0).
+- [Download and install the .NET 6.0 (or later) SDK](https://dotnet.microsoft.com/download/dotnet-core/6.0).
 
   To see what versions you have, run `dotnet --info`. If this command fails, your install may have failed, you don't have .NET Core, or it's not added to your terminal path variable.
 
-  You can use .NET Core 3.1 if you would like.
+  You can use .NET Core 3.1 or .NET 5.0 if you would like.
 
 ## Create your working folder
 
@@ -48,15 +47,19 @@ SadConsole Game (SFML)                sadconsole-sfml            [C#]          C
 SadConsole Console Class              scconsole                  [C#]          Console/SadConsole
 ```
 
-The `Game (MonoGame)` template creates a SadConsle game that uses [MonoGame](https://www.monogame.net/) and the `Game (SFML)` template creates a game that uses [SFML](https://www.sfml-dev.org/). MonoGame and SFML are the backend renderers for SadConsole. In general, the code you use for SadConsole doesn't care which rendering system you use. However, as your game progresses, which renderer you choose is very important. Currently, it's recommended that you use the MonoGame renderer as it has the following benefits:
+The `SadConsole Game (MonoGame)` template creates a SadConsle game that uses [MonoGame](https://www.monogame.net/) and the `SadConsole Game (SFML)` template creates a game that uses [SFML](https://www.sfml-dev.org/). MonoGame and SFML are the backend renderers for SadConsole. In general, the code you use for SadConsole doesn't care which rendering system you use. However, as your game progresses, which renderer you choose is very important. Currently, it's recommended that you use the MonoGame renderer as it has the following benefits:
 
 - Easier cross-platform targeting.
 - Supports 3D rendering: models, scenes, etc.
 - Built for .NET coding
 
-SFML is cross-platform, but it takes more work on your side to get that working. It may have a better framerate though, but I wouldn't worry about that until you run into some problem. Regarding framerates, both renderers perform pretty much the same, you may not even see a difference between the two.
+SFML is cross-platform, but it takes more work on your side to get that working.
 
-## Create a project
+## Using Visual Studio
+
+This section is important if you're planning on using Visual Studio to create the project. Visual Studio 2022 automatically imports .NET templates you installed in the previous section. If you want to create a project using Visual Studio, see [Create a new SadConsole project with Visual Studio](getting-started-visualstudio.md).
+
+## Create a project via CLI
 
 Your terminal should be in the game directory you created at the start of this article. Create your project using the `dotnet new` command:
 
@@ -72,4 +75,4 @@ Use your favorite IDE or editor to open your newly created project, something li
 
 ## Next steps
 
-Now that you have the project created and working, check out the [other articles](index.md). These will walk you through the basics.
+Now that you have the project created and working, check out the [Get Started 1 - Draw on a console](tutorials/getting-started/part-1-drawing.md) tutorial.
