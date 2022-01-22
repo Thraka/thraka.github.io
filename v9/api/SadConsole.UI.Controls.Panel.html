@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Panel
    ">
-    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -86,8 +86,10 @@
   <div classs="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="SadConsole.UI.Controls.IContainer.html">IContainer</a></div>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a>&gt;</div>
     <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a>&gt;</div>
     <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;<a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a>&gt;</div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -252,7 +254,7 @@
   <h6><strong>Assembly</strong>: SadConsole.dll</h6>
   <h5 id="SadConsole_UI_Controls_Panel_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Panel : ControlBase, IContainer, IEnumerable&lt;ControlBase&gt;, IEnumerable</code></pre>
+    <pre><code class="lang-csharp hljs">public class Panel : ControlBase, IContainer, IReadOnlyList&lt;ControlBase&gt;, IEnumerable&lt;ControlBase&gt;, IEnumerable, IReadOnlyCollection&lt;ControlBase&gt;</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -321,6 +323,31 @@
   </table>
   
   
+  <a id="SadConsole_UI_Controls_Panel_Count_" data-uid="SadConsole.UI.Controls.Panel.Count*"></a>
+  <h4 id="SadConsole_UI_Controls_Panel_Count" data-uid="SadConsole.UI.Controls.Panel.Count">Count</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="SadConsole_UI_Controls_Panel_Host_" data-uid="SadConsole.UI.Controls.Panel.Host*"></a>
   <h4 id="SadConsole_UI_Controls_Panel_Host" data-uid="SadConsole.UI.Controls.Panel.Host">Host</h4>
   <div class="markdown level1 summary"><p>The host owning this container.</p>
@@ -341,6 +368,48 @@
     <tbody>
       <tr>
         <td><a class="xref" href="SadConsole.UI.ControlHost.html">ControlHost</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SadConsole_UI_Controls_Panel_Item_" data-uid="SadConsole.UI.Controls.Panel.Item*"></a>
+  <h4 id="SadConsole_UI_Controls_Panel_Item_System_Int32_" data-uid="SadConsole.UI.Controls.Panel.Item(System.Int32)">Item[Int32]</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ControlBase this[int index] { get; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -565,7 +634,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td><p>Always returns false.</p>
+        <td><p>True when the control is enabled, set to use the mouse and the mouse is over it, otherwise false.</p>
 </td>
       </tr>
     </tbody>
@@ -652,10 +721,16 @@
       <a class="xref" href="SadConsole.UI.Controls.IContainer.html">IContainer</a>
   </div>
   <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">System.Collections.Generic.IReadOnlyList&lt;T&gt;</a>
+  </div>
+  <div>
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">System.Collections.Generic.IEnumerable&lt;T&gt;</a>
   </div>
   <div>
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerable">System.Collections.IEnumerable</a>
+  </div>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">System.Collections.Generic.IReadOnlyCollection&lt;T&gt;</a>
   </div>
 </article>
           </div>

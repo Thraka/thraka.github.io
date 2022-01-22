@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class BlinkGlyph
    ">
-    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -134,14 +134,14 @@
   </h3>
   
   
-  <a id="SadConsole_Effects_BlinkGlyph_BlinkSpeed_" data-uid="SadConsole.Effects.BlinkGlyph.BlinkSpeed*"></a>
-  <h4 id="SadConsole_Effects_BlinkGlyph_BlinkSpeed" data-uid="SadConsole.Effects.BlinkGlyph.BlinkSpeed">BlinkSpeed</h4>
-  <div class="markdown level1 summary"><p>In seconds, how fast the fade in and fade out each are</p>
+  <a id="SadConsole_Effects_BlinkGlyph_BlinkCount_" data-uid="SadConsole.Effects.BlinkGlyph.BlinkCount*"></a>
+  <h4 id="SadConsole_Effects_BlinkGlyph_BlinkCount" data-uid="SadConsole.Effects.BlinkGlyph.BlinkCount">BlinkCount</h4>
+  <div class="markdown level1 summary"><p>How many times to blink. The value of -1 represents forever.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public double BlinkSpeed { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int BlinkCount { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -153,7 +153,59 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.double">Double</a></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SadConsole_Effects_BlinkGlyph_BlinkSpeed_" data-uid="SadConsole.Effects.BlinkGlyph.BlinkSpeed*"></a>
+  <h4 id="SadConsole_Effects_BlinkGlyph_BlinkSpeed" data-uid="SadConsole.Effects.BlinkGlyph.BlinkSpeed">BlinkSpeed</h4>
+  <div class="markdown level1 summary"><p>In seconds, how fast the fade in and fade out each are</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan BlinkSpeed { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SadConsole_Effects_BlinkGlyph_Duration_" data-uid="SadConsole.Effects.BlinkGlyph.Duration*"></a>
+  <h4 id="SadConsole_Effects_BlinkGlyph_Duration" data-uid="SadConsole.Effects.BlinkGlyph.Duration">Duration</h4>
+  <div class="markdown level1 summary"><p>The total duraction this effect will run for, before being flagged as finished. <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue">MaxValue</a> represents forever.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan Duration { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -308,13 +360,13 @@
   
   
   <a id="SadConsole_Effects_BlinkGlyph_Update_" data-uid="SadConsole.Effects.BlinkGlyph.Update*"></a>
-  <h4 id="SadConsole_Effects_BlinkGlyph_Update_System_Double_" data-uid="SadConsole.Effects.BlinkGlyph.Update(System.Double)">Update(Double)</h4>
+  <h4 id="SadConsole_Effects_BlinkGlyph_Update_System_TimeSpan_" data-uid="SadConsole.Effects.BlinkGlyph.Update(System.TimeSpan)">Update(TimeSpan)</h4>
   <div class="markdown level1 summary"><p>Updates the state of the effect.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override void Update(double gameTimeSeconds)</code></pre>
+    <pre><code class="lang-csharp hljs">public override void Update(TimeSpan delta)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -327,15 +379,15 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.double">Double</a></td>
-        <td><span class="parametername">gameTimeSeconds</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
+        <td><span class="parametername">delta</span></td>
         <td><p>Time since the last call to this effect.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="SadConsole.Effects.CellEffectBase.html#SadConsole_Effects_CellEffectBase_Update_System_Double_">CellEffectBase.Update(Double)</a></div>
+  <div><a class="xref" href="SadConsole.Effects.CellEffectBase.html#SadConsole_Effects_CellEffectBase_Update_System_TimeSpan_">CellEffectBase.Update(TimeSpan)</a></div>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="SadConsole.Effects.ICellEffect.html">ICellEffect</a>

@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Create a new SadConsole .NET project with Visual Studio </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Create a new SadConsole .NET project with Visual Studio ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/dracula.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="/">
+                <img id="logo" src="../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="create-a-new-sadconsole-net-project-with-visual-studio">Create a new SadConsole .NET project with Visual Studio</h1>
+
+<p>This page describes how to create a new project based on SadConsole Standard using .NET 6.0 and Visual Studio.</p>
+<p>Before using Visual Studio, you'll need to install the SadConsole project templates. The first few sections of the <a href="getting-started-cli.html">Create a new SadConsole .NET project with the SadConsole templates</a>. article describes how to do this. Follow those instructions and then come back to this article.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ol>
+<li><p><a href="https://visualstudio.microsoft.com/vs/">Download and install Visual Studio 2022</a>.</p>
+</li>
+<li><p>During install, make sure that you select the <strong>.NET Core cross-platform development</strong> workload.</p>
+<ul>
+<li>If you have already installed Visual Studio, you can run the <strong>Visual Studio Installer</strong> that was added to your computer, and modify your installation to add the <strong>.NET Core cross-platform development</strong> workload.</li>
+</ul>
+</li>
+<li><p>Install the SadConsole templates with the dotnet command: <code>dotnet new --install SadConsole.Templates</code>. For more information, see <a href="getting-started-cli.html">Create a new SadConsole .NET project with the SadConsole templates</a></p>
+</li>
+</ol>
+<h2 id="create-a-new-project">Create a new project</h2>
+<p>Start Visual Studio.</p>
+<ol>
+<li><p>In the <em>Create a new project</em> dialog, type <strong>sadconsole</strong> into the search box and select the <strong>SadConsole Game (MonoGame)</strong> project template.</p>
+<p><img src="images/getting-started-visualstudio/template.png" alt="create a new sadconsole project in visual studio"></p>
+<p>The <code>SadConsole Game (MonoGame)</code> template creates a SadConsole game that uses <a href="https://www.monogame.net/">MonoGame</a> and the <code>SadConsole Game (SFML)</code> template creates a game that uses <a href="https://www.sfml-dev.org/">SFML</a>. MonoGame and SFML are the backend renderers for SadConsole. In general, the code you use for SadConsole doesn't care which rendering system you use. However, as your game progresses, which renderer you choose is very important. Currently, it's recommended that you use the MonoGame renderer as it has the following benefits:</p>
+<ul>
+<li>Easier cross-platform targeting.</li>
+<li>Supports 3D rendering: models, scenes, etc.</li>
+<li>Built for .NET coding</li>
+</ul>
+<p>SFML is cross-platform, but it takes more work on your side to get that working.</p>
+</li>
+<li><p>Press <em>Next</em> and then set the <em>Project name</em> to <strong>SadConsoleExample</strong> and choose a <em>location</em> on your computer to save the project.</p>
+</li>
+</ol>
+<p>Congratulations, you have a new project! Press <kbd>F5</kbd> to run the game:</p>
+<p><img src="images/getting-started-visualstudio/hello-window.png" alt="a new console in sadconsole with hello text"></p>
+<h2 id="creating-a-project-without-a-template">Creating a project without a template</h2>
+<p>If you want to create a project without using the SadConsole templates, it's also pretty easy to do.</p>
+<ol>
+<li><p>Create a new C# or VB.NET project. Follow the wizard to set the name of the project and where you're going to save it. Choose .NET version 6.0.</p>
+</li>
+<li><p>Next, add the NuGet SadConsole MonoGame renderer package to the project.</p>
+<ol>
+<li>In the <em>Solution Explorer</em>, right-click on the project and select <em>Manage NuGet Packages</em>. This will display the NuGet package manager.</li>
+<li>Search for <em>SadConsole</em> and install the <code>SadConsole.Host.MonoGame</code> package to your project.</li>
+</ol>
+</li>
+</ol>
+<p>Congratulations, you have all of the required libraries to start creating a SadConsole game!</p>
+<h3 id="create-the-game">Create the game</h3>
+<p>You need to change the startup code that was automatically generated for your project.</p>
+<p>In the <em>Solution Explorer</em> pane, double-click the <em>Program.cs</em> file to open it. You should see a very simple console application that we will change:</p>
+<pre><code class="lang-csharp">using System;
+
+namespace SadConsoleExample
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(&quot;Hello World!&quot;);
+        }
+    }
+}
+</code></pre>
+<p>Change this code to:</p>
+<pre><code class="lang-csharp">using System;
+using SadConsole;
+using SadRogue.Primitives;
+using Console = SadConsole.Console;
+
+namespace SadConsoleGame
+{
+    public static class Program
+    {
+        static void Main()
+        {
+            // Setup the engine and create the main window.
+            Game.Create(80, 25);
+
+            // Hook the start event so we can add consoles to the system.
+            Game.Instance.OnStart = Init;
+
+            // Start the game.
+            Game.Instance.Run();
+            Game.Instance.Dispose();
+        }
+
+        static void Init()
+        {
+            Game.Instance.StartingConsole.FillWithRandomGarbage(SadConsole.Game.Instance.StartingConsole.Font);
+            Game.Instance.StartingConsole.Fill(new Rectangle(3, 3, 23, 3), Color.Violet, Color.Black, 0, Mirror.None);
+            Game.Instance.StartingConsole.Print(4, 4, &quot;Hello from SadConsole&quot;);
+        }
+    }
+}
+</code></pre>
+<p>Press the <kbd>F5</kbd> key to run your SadConsole program. You should be presented with the following screen:</p>
+<p><img src="images/getting-started-visualstudio/hello-window.png" alt="a new console in sadconsole with hello text"></p>
+<h2 id="next-steps">Next steps</h2>
+<p>Now that you have the project created and working, check out the <a href="tutorials/getting-started/part-1-drawing.html">Get Started 1 - Draw on a console</a> tutorial.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

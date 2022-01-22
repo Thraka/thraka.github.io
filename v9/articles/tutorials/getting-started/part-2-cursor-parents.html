@@ -8,7 +8,7 @@
     <title>Get Started 2 - Cursors and parenting </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Get Started 2 - Cursors and parenting ">
-    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../../../favicon.ico">
     <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
@@ -187,10 +187,11 @@ namespace SadConsoleGame
     Game.Instance.DestroyDefaultStartingConsole();
 }
 </code></pre>
+<p>The previous code you used at the start of this article used the <code>Game.Instance.StartingConsole</code> property, and now you're using the <code>Game.Instance.Screen</code> property, conceptually known as the &quot;current screen.&quot; When SadConsole starts up, the <code>Game.Instance.Screen</code> property is assigned to the <code>StartingConsole</code> property, so they are the same object. The current screen is the <code>StartingConsole</code>. The current screen is the object that is processed by SadConsole every game frame. It represents what is on the screen visually and what game logic is run.</p>
 <p>If you run the game now, nothing will be displayed. A <code>ScreenObject</code> is just a container that lets you add multiple child objects to it, but it itself doesn't draw anything. You can do this same thing with a <code>Console</code>, but the console would also want to draw something and use resources. So when you have a container that doesn't need to draw anything directly, <code>ScreenObject</code> is the object you want to use.</p>
 <div class="IMPORTANT">
 <h5>Important</h5>
-<p>Because you've replaced the <code>Game.Instance.Screen</code> property and you've destroyed the starting console, <code>Game.Instance.StartingConsole</code>can no longer be used.</p>
+<p>Because you've replaced the <code>Game.Instance.Screen</code> property and you've destroyed the starting console, <code>Game.Instance.StartingConsole</code>can no longer be used. Destroying the starting console is important when you're no longer using it, as it frees up computer and video card memory.</p>
 </div>
 <h2 id="first-child-console">First child console</h2>
 <p>The first console we'll create is on the top-left of the screen. It won't take up the whole screen, and it'll use a different background color so that it can be distinguished from the second console we'll soon create.</p>
@@ -300,7 +301,7 @@ container.Children.Add(console1);
 <h2 id="conclusion">Conclusion</h2>
 <p>Now you have both a working console and a non-console surface. You've explored how SadConsole uses the Cursor object to let you type, emulating a terminal. You also learned how to parent one object to another. The next part of this series will explore more about the keyboard and mouse input.</p>
 <ul>
-<li>Part 3: Input -- Not written, coming soon!</li>
+<li><a href="part-3-input.html">Part 3: Input</a></li>
 </ul>
 </article>
           </div>

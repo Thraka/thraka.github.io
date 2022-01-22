@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Get Started 3 - Learning about input </title>
+    <title>Get Started 3 - Input </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Get Started 3 - Learning about input ">
-    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="title" content="Get Started 3 - Input ">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../../../favicon.ico">
     <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
@@ -68,25 +68,49 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="get-started-3---learning-about-input">Get Started 3 - Learning about input</h1>
+<h1 id="get-started-3---input">Get Started 3 - Input</h1>
 
-<p>In this part of the tutorial we'll explore how input works in SadConsole. Input is made up of both keyboard and mouse processing. SadConsole does not provide any input processing for gamepads and joysticks. However, MonoGame provides gamepad and joystick processing, which SadConsole is built on.</p>
+<p>In this part of the tutorial we'll explore how input works in SadConsole. You'll learn how to create a basic map with a player that you can use the mouse and keyboard to interact with.</p>
+<p>Input is made up of both keyboard and mouse processing. SadConsole does not provide any input processing for gamepads and joysticks. However, MonoGame provides gamepad and joystick processing, which SadConsole is built on.</p>
 <p>Previous articles in this tutorial:</p>
 <ul>
 <li><a href="part-1-drawing.html">Get Started 1 - Draw on a console</a></li>
 <li><a href="part-2-cursor-parents.html">Get Started 2 - Cursors and parenting</a></li>
 </ul>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>This part of the tutorial series will begin similar to the last, with a clean <code>Init</code> method. Replace the <code>Init</code> code with the following:</p>
-<pre><code class="lang-csharp">static void Init()
-{
+<p>To start this tutorial you'll need to have created a SadConsole project, one that was created by int the previous tutorial in this series. However, you may have been experimenting with your code, trying new things out. To make sure that you start this tutorial with the same code, copy and paste the following code into your <em>program.cs</em>:</p>
+<pre><code class="lang-csharp">using System;
+using SadConsole;
+using SadRogue.Primitives;
+using Console = SadConsole.Console;
 
+namespace SadConsoleGame
+{
+    public static class Program
+    {
+        static void Main()
+        {
+            // Setup the engine and create the main window.
+            Game.Create(120, 38);
+
+            // Hook the start event so we can add consoles to the system.
+            Game.Instance.OnStart = Init;
+
+            // Start the game.
+            Game.Instance.Run();
+            Game.Instance.Dispose();
+        }
+
+        static void Init()
+        {
+
+        }
+    }
 }
 </code></pre>
-<p>In the previous tutorial article, the starting console was destroyed and replaced with a new one. This part of the series will do that again, but it's going to expand a bit on the design. We're going to start designing a simple game that will add a bit more structure to the design.</p>
-<p>Don't discount the starting console though, it's really good for prototyping and testing things small things out. If you're going for a single traditional console with a cursor, and that's all, it's good too. Because we aren't going to use the starting console, we'll again need to provide a new object. Instead of creating and designing the object in the <code>Init</code> method like we did in the last tutorial article, we'll design a new class to represent the root screen that the game processes.</p>
+<p>There is one change in the preceding code from the previous parts of the tutorial: the screen size is bigger at <em>120 x 38</em>. This gives you a window roughly 33% bigger than before.</p>
 <h2 id="game-structure">Game structure</h2>
-<p>First, let's create a new root console. This console will represent the play field that the player will walk around on. Add a new class to your project (look up how to do that in your development environment tool if you don't know how) named <em>RootScreen.cs</em>. Replace the content with the following:</p>
+<p>First, let's create a new root object. This object will represent game scene which includes the map and a status pane. The player character will move around the map. Add a new class to your project (look up how to do that in your development environment tool's documentation if you don't know how) named <em>RootScreen.cs</em>. Replace the content with the following:</p>
 <pre><code class="lang-csharp">using SadConsole;
 using SadConsole.Input;
 using SadRogue.Primitives;
@@ -103,7 +127,7 @@ namespace SadConsoleGame
     }
 }
 </code></pre>
-<p>Next, use this class as the object processed by SadConsole in the <code>Init</code> method:</p>
+<p>Next, use this class in the <em>program.cs</em> as the object processed by SadConsole in the <code>Init</code> method:</p>
 <pre><code class="lang-csharp">private static void Init()
 {
     Game.Instance.Screen = new RootScreen();
@@ -113,44 +137,7 @@ namespace SadConsoleGame
     Game.Instance.DestroyDefaultStartingConsole();
 }
 </code></pre>
-<p>Notice that the <code>RootScreen</code> object is a <code>ScreenObject</code>, not a <code>Console</code>. The <code>ScreenObject</code> is the base type of everything you can put on the screen and that is processed by SadConsole. It doesn't have a surface to draw, it just exists. The object has no width or height, so the mouse can't really be used to detect entering or leaving, or even movement within the object. The <code>ScreenObject</code> is useful as a container to group objects together and for processing. We'll use this one as the root scene that will collectively show the map and other things, like a status pane. For now though, just the map.</p>
-<h2 id="game-object">Game object</h2>
-<p>The game will have a player-controlled object, along with other non-player characters (NPC) on the map. Create a class to represent this object, named <code>GameObject</code>. Add a new class file to your project named <em>GameObject.cs</em> and past the following code:</p>
-<pre><code class="lang-csharp">using SadConsole;
-using SadRogue.Primitives;
-
-namespace SadConsoleGame
-{
-    public class GameObject
-    {
-        public Point Position { get; private set; }
-
-        public ColoredGlyph Appearance { get; set; }
-
-        public GameObject(ColoredGlyph appearance, Point position, IScreenSurface hostingSurface)
-        {
-            Appearance = appearance;
-            Position = position;
-            DrawGameObject(hostingSurface);
-        }
-
-        private void DrawGameObject(IScreenSurface screenSurface)
-        {
-            Appearance.CopyAppearanceTo(screenSurface.Surface[Position]);
-        }
-    }
-}
-</code></pre>
-<p>Let's dive into this code. First, the class has two properties:</p>
-<ul>
-<li><p><code>Position</code></p>
-<p>This is a <code>Point</code> type from the <code>SadRogue.Primitives</code> namespace. It represents a location, and in this case, the location of our game object on the map.</p>
-</li>
-<li><p><code>Appearance</code></p>
-<p>The appearance of the game object is a <code>ColoredGlyph</code>, which represents the foreground color, background color, and glyph character. When the object is drawn to the map, this is what it looks liked.</p>
-</li>
-</ul>
-<p>Next, the constructor of the object requires the appearance and position of the object, but also a surface. Why would you provide the surface? To draw the object! When the object is created, we're instantly drawing it to the screen through the <code>DrawGameObject</code> method. This uses the <code>Appearance.CopyAppearanceTo</code> method to draw the object. This copies the foreground color, background color, glyph character, and glyph mirror setting, to the specific cell on the surface. In this case we're doing that based on the position of the object.</p>
+<p>Notice that the <code>RootScreen</code> object is derived from <code>ScreenObject</code>, not <code>Console</code>. The <code>ScreenObject</code> is the base type of everything you can set as the &quot;current screen,&quot; the <code>Game.Instance.Screen</code> property. This property is processed by SadConsole every game frame. Even though <code>ScreenObject</code> doesn't have anything to render to the screen,  it's still processed and acts like a logical, invisible, container. The object has no width or height, so the mouse can't really be used to detect entering or leaving, or even movement within the object. The <code>ScreenObject</code> is useful as a container to group objects together and for processing. We'll use this one as the root scene that will show the map and other screen elements.</p>
 <h2 id="create-a-basic-map">Create a basic map</h2>
 <p>Back in the <em>RootScreen.cs</em> file, add a new field to the class to represent the map:</p>
 <pre><code class="lang-csharp">public class RootScreen: ScreenObject
@@ -180,10 +167,10 @@ namespace SadConsoleGame
 <p>Notice two things about the <code>_map</code> variable:</p>
 <ol>
 <li><p>It's a <code>ScreenSurface</code> and not a <code>Console</code>.</p>
-<p>The map isn't going to use a cursor object to print and collect input from the user, so we don't need a full console object. The majority of the time when you create objects in SadConsole that don't need a cursor, you'll probably use <code>ScreenSurface</code>.</p>
+<p>The map isn't going to use a cursor object to print and collect input from the user, so we don't need a full console object. The majority of the time when you create objects in SadConsole that don't need a cursor, you'll probably just use a <code>ScreenSurface</code>.</p>
 </li>
 <li><p>The width and height of the object is set to the <code>Game.Instance.ScreenCellsX</code> and <code>Game.Instance.ScreenCellsY</code> variables, respectively.</p>
-<p><code>ScreenCellsX/Y</code> represent how many cells in the default font size, the SadConsole game can fit on the screen. This makes it easy to create a surface that fills the window. For the <code>Y</code> height though, we're trimming off <em>5</em> from the bottom, which is where we'll put our status console later.</p>
+<p><code>ScreenCellsX/Y</code> represent how many cells in the default font size the SadConsole game can fit on the screen. These are from the width and height values passed to the <code>Game.Create</code> method at the start of the game. This makes it easy to create a surface that fills the window. For the <code>Y</code> height though, we're trimming off <em>5</em> from the bottom. This leaves some space at the bottom of the screen to add a status console later.</p>
 </li>
 </ol>
 <p>Next, lets add some background to the map. Instead of using the <code>FillWithRandomGarbage</code> method that we previously used, we'll draw a gradient. The background doesn't really represent anything, but it will make it easier to see our objects and demonstrate some key concepts.</p>
@@ -198,7 +185,7 @@ namespace SadConsoleGame
                             _map.Surface.Width / 3, 
                             45, 
                             _map.Surface.Area, 
-                            new ColorGradient(colors, colorStops), 
+                            new Gradient(colors, colorStops), 
                             (x, y, color) =&gt; _map.Surface[x, y].Background = color);
 }
 </code></pre>
@@ -213,11 +200,59 @@ namespace SadConsoleGame
     Children.Add(_map);
 }
 </code></pre>
-<p>The way the gradient algorithm works is by calculating each X,Y of an area, and providing a color that maps to it. What you do with that information is up to you. In this example we colored the background of each cell based on what the algorithm gave us. The <code>FontSize</code> used helps make sure we represent each cell in the surface we're going to operate on. In this case, we're using information from the <code>_map</code> surface. The amount of colors in the gradient and the amount of steps must match for the gradient to work. The following diagram may help understand how this is put together, but it's not really important at this point:</p>
+<p>The way the gradient algorithm works is by calculating each X,Y of an area, and providing a color that maps to it. What you do with that information is up to you. In this example we colored the background of each cell based on what the algorithm gave us. The amount of colors in the gradient and the amount of steps must match for the gradient to work. The following diagram may help understand how this is put together, but it's not really important at this point:</p>
+<p>The <code>FontSize</code> used helps stretch the gradient evenly over the surface. The default font used by SadConsole has a 2:1 ratio in width to height. The following image illustrates how the gradient is laid out, it uses a smaller window for the purpose of the illustration:</p>
 <p><img src="images/part-3-input/gradient.png" alt="SadConsole gradient diagram"></p>
-<p>Now though, there is a background that we can place objects on. Next, we need a player object.</p>
+<p>Now that there is a background that we can place objects on, let's create and place a player object.</p>
+<h2 id="game-object">Game object</h2>
+<p>The game will have a player-controlled object, along with other non-player characters (NPC) on the map. Create a new type named <code>GameObject</code>. Add a new class file to your project named <em>GameObject.cs</em> and paste the following code:</p>
+<pre><code class="lang-csharp">using SadConsole;
+using SadRogue.Primitives;
+
+namespace SadConsoleGame
+{
+    public class GameObject
+    {
+        public Point Position { get; private set; }
+
+        public ColoredGlyph Appearance { get; set; }
+
+        public GameObject(ColoredGlyph appearance, Point position, IScreenSurface hostingSurface)
+        {
+            Appearance = appearance;
+            Position = position;
+            DrawGameObject(hostingSurface);
+        }
+
+        private void DrawGameObject(IScreenSurface screenSurface)
+        {
+            Appearance.CopyAppearanceTo(screenSurface.Surface[Position]);
+            screenSurface.IsDirty = true;
+        }
+    }
+}
+</code></pre>
+<p>Let's dive into this code. First, the class has two properties:</p>
+<ul>
+<li><p><code>Position</code></p>
+<p>This is a <code>Point</code> type from the <code>SadRogue.Primitives</code> namespace. It represents a location, and in this case, the position of our game object on the map.</p>
+</li>
+<li><p><code>Appearance</code></p>
+<p>The appearance of the game object is a <code>ColoredGlyph</code>, which represents a foreground color, background color, and glyph character combination. When the object is drawn to the map, this is what it looks like.</p>
+</li>
+</ul>
+<p>The constructor of the object requires the appearance and position of the object, but also a surface. Why would you provide the surface? To draw the object! When the object is created, we're instantly drawing it to the surface by calling the <code>DrawGameObject</code> method from the constructor. <code>DrawGameObject</code> uses the <code>Appearance.CopyAppearanceTo</code> method to draw the object. This method copies all of the settings in the appearance to a specific cell on the surface. Lastly, after copying the appearance of the object, the surface is marked as dirty so that it will redraw itself.</p>
+<p>Most of the time when you draw on a surface using methods like <code>SetGlyph</code>, <code>SetForeground</code> or <code>Print</code>, those methods mark the surface as dirty for you. In the case of the preceding code, we're editing a cell of the surface directly by using the <code>CopyAppearanceTo</code> method, which doesn't automatically mark the surface as dirty.</p>
+<h3 id="code-to-move-the-object">Code to move the object</h3>
+<p>Add another method to the <code>GameObject</code> class named <code>Move</code>. This method will handle repositioning the object and then drawing it on the surface.</p>
+<pre><code class="lang-csharp">public void Move(Point newPosition, IScreenSurface screenSurface)
+{ 
+    Position = newPosition;
+    DrawGameObject(screenSurface);
+}
+</code></pre>
 <h2 id="player-game-object">Player game object</h2>
-<p>We have the <code>GameObject</code> type created, so this can be used to represent the player. In the <em>RootScreen.cs</em> file, add a new field to the class to represent the controlled player object:</p>
+<p>Now that the <code>GameObject</code> type has been created, it can be used to represent the player. In the <em>RootScreen.cs</em> file, add a new field to the class to represent the controlled player object:</p>
 <pre><code class="lang-csharp">public class RootScreen: ScreenObject
 {
     private ScreenSurface _map;
@@ -242,286 +277,104 @@ namespace SadConsoleGame
 <p><img src="images/part-3-input/smileyface.png" alt="Smiley face glyph 2"></p>
 <p>Now that you have a player on the screen, you'll need to get the keyboard working.</p>
 <h2 id="keyboard">Keyboard</h2>
-<p>When working
-The previous tutorial article had you working with the <code>Cursor</code> object. This object is great for getting input from the user, and doing some nice pretty printing to simulate something typing to the console, but it's generally not used as a game concept unless you're creating an interactive fiction game, commonly refered to as a text adventure. One of the most common things people will do with the keyboard is hook it up so that it moves a character around on the screen.</p>
-<p>. Add a new class MoveTargetComponent which is keyboard handler
-.</p>
-<p>First, import the <code>SadConsole.Quick</code> namespace. This adds some extension methods to all screen object types that allow you to easily add an input handler. Extension methods are extra function methods that are added to existing objects. At the top of your code file, add a using statement to import this namespace:</p>
-<pre><code class="lang-csharp">using SadConsole.Quick;
-</code></pre>
-<p>With the <code>SadConsole.Quick</code> namespace imported, you can now call the <code>WithMouse</code> and <code>WithKeyboard</code> extension methods. These methos make it easy to add some input handlers to existing objects.</p>
-<p>Back in the <code>Init</code> method, call the <code>console1.WithMouse</code> method and pass it a lambda expression to handle the mouse event. A lambda expression is explained in detail in the <a href="https://docs.microsoft.com/dotnet/csharp/language-reference/operators/lambda-expressions">official documentation</a>. Lambda expressions allow you to create anonymous functions. These functions only exist where you've declared them. They can be assigned to a variable or passed to a method, like we're doing with the <code>WithMouse</code> method.</p>
-<pre><code class="lang-csharp">// Mouse for console1: Bring console1 to the front and focus. Also,
-// move the surfaceObject child around.
-console1.WithMouse((con1, mouse) =&gt;
-                    {
-                        bool handled = false;
-
-                        return handled;
-                    });
-</code></pre>
-<p>The <code>(con1, mouse)</code> part of the lambda expression are the input variables to the expression. In this case, the lambda expression is associated with the mouse input, so the variables <code>con1</code> represents the surface object the mouse is being processed on, and <code>mouse</code> represents the mouse data provided by SadConsole.</p>
-<p>All mouse functions return a <code>true</code> or <code>false</code> value to indicate that they handled the mouse and they don't want anyone else to do anything with the mouse input. We're defaulting to <code>false</code> for now, as that lets the normal mouse processing of the</p>
-<pre><code class="lang-csharp">// Mouse for console1: Bring console1 to the front and focus. Also,
-// move the surfaceObject child around.
-console1.WithMouse((con1, mouse) =&gt;
-                    {
-                        bool handled = false;
-
-                        // Is the mouse currently on top of this screen object (in this case, the con1 console)
-                        // and is the left button of the mouse held down
-                        if (mouse.IsOnScreenObject &amp;&amp; mouse.Mouse.LeftButtonDown)
-                        {
-                            con1.Parent.Children.MoveToTop(con1);
-                            con1.IsFocused = true;
-                            surfaceObject.Position = mouse.CellPosition - (2, 1);
-                            handled = true;
-                        }
-
-                        return handled;
-                    });
-</code></pre>
-<h2 id="prep">Prep</h2>
-<p>Reset the <code>Init()</code> method back to a clean state. Whenever the tutorial talks about resetting the <code>Init()</code> method back to a clean state, it means to replace your existing code with the following code:</p>
-<pre><code class="lang-csharp">static void Init()
+<p>The previous tutorial article had you working with the <code>Cursor</code> object. The console was focused and the cursor accepted input and typed on the screen. While the cursor is great for getting input from the user to typing things on to the screen, it's generally not used for normal game interaction. One of the most common things people will do with the keyboard is hook it up so that it moves a character around on the screen.</p>
+<p>Open the <em>RootScreen.cs</em> file.</p>
+<p>SadConsole sends keyboard input to the object that is focused. For our scene to process the keyboard, we'll want to do two things:</p>
+<ol>
+<li><p>Focus the object.</p>
+<p>The <code>RootScreen</code> object was already focused earlier in this article, in the <code>Init</code> method. If you want to change which object directly receives keyboard input, focus it. Things like popup windows will focus themselves for keyboard input, and then when hidden, restore focus to the previously focused object.</p>
+</li>
+<li><p>Override the <code>ProcessKeyboard</code> method in the <code>RootScreen</code> class:</p>
+<pre><code class="lang-csharp">public override bool ProcessKeyboard(Keyboard keyboard)
 {
-    var console = new Console(80, 25);
-
-    SadConsole.Global.CurrentScreen = console;
+    return base.ProcessKeyboard(keyboard);
 }
 </code></pre>
-<h2 id="keyboard-component">Keyboard component</h2>
-<p>There are two ways to customize keyboard processing of a console. The first way is by creating a new <code>KeyboardComponent</code> that has the logic for the keyboard and then attaching it to a console. The second way is to create a new class that inherits from <code>Console</code> and replaces the existing code with new code. We'll focus on using a component.</p>
-<p>The component system provides an easy way to customize a <code>Console</code> without having to create a whole new console type.</p>
-<ol>
-<li><p>Add a new class to your project. In Visual Studio in the Solution Explorer pane, right-click the <strong>project</strong> &gt; <strong>Add</strong> &gt; <strong>Class</strong> and name the class <em>MyKeyboardComponent.cs</em> and click <strong>Add</strong>.</p>
-<p><img src="images/add-new-class.png" alt="add a new class"></p>
+<p>This method is called every game frame when the object is focused. The <code>base.ProcessKeyboard</code> call allows the screen object to do its normal keyboard processing, which is processing any keyboard-based components added to the object. You'll learn more about components later.</p>
 </li>
-<li><p>Open up the <em>MyKeyboardComponent.cs</em> in the editor and add these three <code>using</code> statements to the top of the file:</p>
-<pre><code class="lang-csharp">using SadConsole.Components;
-using SadConsole.Input;
-using Microsoft.Xna.Framework;
-</code></pre>
-</li>
-<li><p>Next, inherit from the <code>KeyboardConsoleComponent</code> class. This class is contained in the <code>SadConsole.Components</code> namespace which we just imported.</p>
-<pre><code class="lang-csharp">class MyKeyboardComponent: KeyboardConsoleComponent
-</code></pre>
-</li>
-<li><p>The <code>KeyboardConsoleComponent</code> class requires that you implement some functionality before you can actually use it, the <code>ProcessKeyboard</code> method. Here is that method added to the class:</p>
-<pre><code class="lang-csharp">class MyKeyboardComponent : KeyboardConsoleComponent
+</ol>
+<p>Next, we'll update the keyboard code to move our player-controlled object around. Remember, the player object has a <code>Position</code> property. We simply have to check if a direction key is pressed, and then change the <code>Position</code> property to move the object.</p>
+<p>The <code>keyboard</code> parameter passed to the <code>ProcessKeyboard</code> method contains the current state of the keyboard, and any changes to it from the previous game frame. This parameter is used to test if a key is pressed, a key's state (up or down), or if a key was just released.</p>
+<p>Change the <code>ProcessKeyboard</code> method to the following code:</p>
+<pre><code class="lang-csharp">public override bool ProcessKeyboard(Keyboard keyboard)
 {
-    public override void ProcessKeyboard(SadConsole.Console console, Keyboard info, out bool handled)
+    bool handled = false;
+
+    if (keyboard.IsKeyPressed(Keys.Up))
     {
-        handled = false;
+        _controlledObject.Move(_controlledObject.Position + Direction.Up, _map);
+        handled = true;
     }
-}
-</code></pre>
-<p>The <code>handled</code> parameter is declared as an <code>out</code> parameter. This means that it must be assigned a value before the method code ends. Here we set it to <code>false</code> to signal that we're not handling the keyboard at this time.</p>
-<p>To test the keyboard processing, let's watch for the <kbd>SPACE</kbd> key being pressed. When it is pressed, we'll cycle the background color of the console with a random color.</p>
-</li>
-<li><p>Add this <code>if</code> statement to the <code>ProcessKeyboard()</code> method of the component. Do not set <code>handled = true;</code> just yet. Let's leave that as <code>false</code>.</p>
-<pre><code class="lang-csharp">if (info.IsKeyPressed(Microsoft.Xna.Framework.Input.Keys.Space))
-{
-    console.DefaultBackground = Color.White.GetRandomColor(SadConsole.Global.Random);
-    console.Clear();
-}
-</code></pre>
-<p>What that code above does is detect the <kbd>SPACE</kbd> key and then change the default background of the console to a different color. The default background of a console does not instantly reset all the cells to the appropriate color or anything, so you must call the <code>Clear</code> method. The <code>GetRandomColor</code> call may look weird. This is due to the nature of extension methods in C#. <code>GetRandomColor</code> is provided by SadConsole and attached to any color <em>instance</em> variable. So in this case we get the <em>White</em> color and use that to call <code>GetRandomColor</code>. The <em>White</em> color however is not actually used.</p>
-</li>
-<li><p>Back in your <code>program.cs</code> file, change the <code>Init()</code> method to add the component to the <code>console</code> variable.</p>
-<pre><code class="lang-csharp">static void Init()
-{
-    var console = new Console(80, 25);
-    console.IsFocused = true;
-    console.Cursor.IsVisible = true;
-    console.Components.Add(new MyKeyboardComponent());
-
-    SadConsole.Global.CurrentScreen = console;
-}
-</code></pre>
-</li>
-</ol>
-<p>Run the program and start typing sentences. You'll see both keyboard processors working. First, each time you press the <kbd>SPACE</kbd> character, the background color of the console changes. Second, the cursor is still enabled and is also watching the keyboard and responding to key presses. Notice that when you press <kbd>SPACE</kbd>, the background changes, the cursor moves, and there is a black spot where the cursor used to be. This happens because of the order of events.</p>
-<p>In SadConsole, when the console is processing the keyboard, it first checks for any <code>KeyboardComponent</code> that was added to the <code>Components</code> collection and calls <code>ProcessKeyboard</code> on it. If the <code>ProcessKeyboard</code> call sets <code>handled = true</code> then it will instantly stop processing any other component and will not process the cursor. Our code has <code>handled = false</code> so the cursor is processed <strong>after</strong> we change the background. And the cursor is set to print a black background on each character typed. Let's cause our component to halt processing the keyboard. Back in the <em>MyKeyboardComponent.cs</em> file, set <code>handled = true</code> and run your game again.</p>
-<p>You'll notice that the cursor doesn't move and print, however, it is still visible. Your component works as intended and recolors the console every time you press the <kbd>SPACE</kbd> key. The final code for your component should look like the following:</p>
-<pre><code class="lang-csharp">using SadConsole.Components;
-using SadConsole.Input;
-using Microsoft.Xna.Framework;
-
-namespace SadConsoleGame
-{
-    class MyKeyboardComponent : KeyboardConsoleComponent
+    else if (keyboard.IsKeyPressed(Keys.Down))
     {
-        public override void ProcessKeyboard(SadConsole.Console console, Keyboard info, out bool handled)
-        {
-            if (info.IsKeyPressed(Microsoft.Xna.Framework.Input.Keys.Space))
-            {
-                console.DefaultBackground = Color.White.GetRandomColor(SadConsole.Global.Random);
-                console.Clear();
-            }
-
-            handled = true;
-        }
+        _controlledObject.Move(_controlledObject.Position + Direction.Down, _map);
+        handled = true;
     }
-}
-</code></pre>
-<p>You can hide the visible cursor by removing the line in <em>program.cs</em> that set the cursor to visible. Your final code for <code>Init()</code> method in the <em>program.cs</em> file should look like the following:</p>
-<pre><code class="lang-csharp">static void Init()
-{
-    var console = new Console(80, 25);
-    console.IsFocused = true;
-    console.Components.Add(new MyKeyboardComponent());
 
-    SadConsole.Global.CurrentScreen = console;
+    return handled;
 }
 </code></pre>
-<h3 id="processkeyboard-parameters">ProcessKeyboard parameters</h3>
-<p>The <code>KeyboardComponent.ProcessKeyboard()</code> method has two important parameters passed to it. First, the <code>console</code> parameter is passed which contains a reference to the console that the component is currently attached to. Second, the <code>info</code> parameter holds information about the keyboard state.</p>
-<p>you can use the <code>info</code> parameter to query the state of the keyboard. In our example we used it to check the <code>IsKeyPressed()</code> method which returns us <code>true</code> when the specified key is pressed, and <code>false</code> when it is not. There is also the <code>IsKeyUp()</code> and <code>IsKeyDown()</code> methods which represent the state of the key being up or down. A key &quot;press&quot; in SadConsole represents a single key event being triggered that game frame. If the key is held down, it will reappear as pressed over and over with a delay between when it appears. This mimics how your keyboard works with your operating system. Experiment with these other methods. For example, try changing the code to always change the background of the console while the <kbd>S</kbd> key is <strong>not</strong> being pressed, so that it stops changing color when the key is being held down. If you suffer from seizures, don't do this, the flashing colors may hurt you.</p>
-<h2 id="mouse">Mouse</h2>
-<p>SadConsole includes a mouse processing system that is always watching the mouse. Unlike keyboard processing, the mouse is processed on a console even if that console is unfocused. Whenever you move your mouse on top of a console, the <code>ProcessMouse()</code> method of that console is run, which controls a lot of different things.</p>
-<p>Much like the keyboard, there are actually three ways to customize the mouse on a console. You can use the same component system as the keyboard, but with a <code>MouseComponent</code> instead, create a new console class that overrides the <code>ProcessMouse()</code> method, or use the events the console provides related to the mouse.</p>
-<h2 id="mouse-events">Mouse Events</h2>
-<p>Consoles provide three different events related to the mouse movement:</p>
-<ul>
-<li><p><strong>Console.MouseEnter</strong><br>
-This event is raised whenever the mouse enters the bounds of a console.</p>
-</li>
-<li><p><strong>Console.MouseExit</strong><br>
-This event is raised whenever the mouse leaves the bounds of a console.</p>
-</li>
-<li><p><strong>Console.MouseMove</strong><br>
-After a mouse has entered a console, the <code>MouseMove</code> event is raised over-and-over while the mouse moves around the console.</p>
-</li>
-</ul>
-<p>As an example of using the mouse events, let's write some code that prints out the state of the mouse as it moves around the console.</p>
+<p>Let's look at this code:</p>
 <ol>
-<li><p>First, in your <code>Init()</code> method, add a new line that adds a callback to the <code>MouseMove</code> event.</p>
-<pre><code class="lang-csharp">console.MouseMove += Console_MouseMove;
-</code></pre>
-<p>The <code>+=</code> operator attaches the method named <code>Console_MouseMove</code> to the <code>MouseMove</code> event of the console. This method doesn't exist so it will give you an error right now. The signature of the method (the types of parameters) must match what is expected by the event.</p>
+<li><p>The <code>handled</code> is used to indicate that we did in fact process the keyboard, and this value is returned at the end of the method. This value is important when you want to prevent other objects from processing the keyboard after you did.</p>
 </li>
-<li><p>Add a new method below the <code>Init()</code> method named <code>Console_MouseMove</code> with the following signature.</p>
-<pre><code class="lang-csharp">private static void Console_MouseMove(object sender, SadConsole.Input.MouseEventArgs e)
-{
-
-}
-</code></pre>
-</li>
-<li><p>If you run your game, you won't see anything happen. So let's add some code to the method. First, the <code>sender</code> is always the console that raised the <code>MouseMove</code> event. However, because of the common event pattern, this is sent as an <code>object</code> type and we'll need to cast it to a <code>Console</code>.</p>
-<pre><code class="lang-csharp">var console = (Console)sender;
-</code></pre>
-</li>
-<li><p>Next, the <code>e</code> parameter contains information about the mouse. Let's print the mouse location at the top-left of the console.</p>
-<pre><code class="lang-csharp">console.Print(1, 1, $&quot;Mouse moving at {e.MouseState.CellPosition}          &quot;);
-</code></pre>
-<p>Run the game now. You'll see that as you move the mouse around the screen, the position is printed.</p>
-</li>
-<li><p>Next, let's print a message when the mouse button is down.</p>
-<pre><code class="lang-csharp">if (e.MouseState.Mouse.LeftButtonDown)
-    console.Print(1, 2, $&quot;Left button is down&quot;);
-else
-    console.Print(1, 2, $&quot;                   &quot;);
-</code></pre>
+<li><p>Both the <code>Keys.Up</code> and <code>Keys.Down</code> values are checked with the <a class="xref" href="../../../api/SadConsole.Input.Keyboard.html#SadConsole_Input_Keyboard_IsKeyPressed_SadConsole_Input_Keys_"><code>keyboard.IsKeyPressed</code></a> method. These share the same set of <code>if</code> statements to make it so that you can't push both <kbd>Up</kbd> and <kbd>Down</kbd> at the same time.</p>
 </li>
 </ol>
-<p>Here is the final code for the method:</p>
-<pre><code class="lang-csharp">private static void Console_MouseMove(object sender, SadConsole.Input.MouseEventArgs e)
+<h3 id="more-movement">More movement</h3>
+<p>Next, add pretty much the same code to the <code>ProcessKeyboard</code> method, right after the checks for up and down. This code will handle left and right movement:</p>
+<pre><code class="lang-csharp">if (keyboard.IsKeyPressed(Keys.Left))
 {
-    var console = (Console)sender;
-
-    console.Print(1, 1, $&quot;Mouse moving at {e.MouseState.CellPosition}          &quot;);
-
-    if (e.MouseState.Mouse.LeftButtonDown)
-        console.Print(1, 2, $&quot;Left button is down&quot;);
-    else
-        console.Print(1, 2, $&quot;                   &quot;);
+    _controlledObject.Move(_controlledObject.Position + Direction.Left, _map);
+    handled = true;
+}
+else if (keyboard.IsKeyPressed(Keys.Right))
+{
+    _controlledObject.Move(_controlledObject.Position + Direction.Right, _map);
+    handled = true;
 }
 </code></pre>
-<p>You may have noticed that there is a print statement with a bunch of spaces. Once the text about the left mouse button being down is printed, it will remain unless we clear the console or in the case of the <code>else</code> statement, print a bunch of blank characters over it.</p>
-<p>The <code>Init()</code> method looks like this, with the event being hooked.</p>
-<pre><code class="lang-csharp">static void Init()
+<p>Now run the game and try moving the character around the screen:</p>
+<p><img src="images/part-3-input/move-player.gif" alt="Moving the player"></p>
+<p>Notice that you can move the character around the map, but the character is leaving a trail behind it. This is because when the character moves we copy the appearance of the character to the new position on the surface directly, which changes what is on the surface. We don't restore what used to be on the surface.</p>
+<h3 id="cleaner-movement-on-the-map">Cleaner movement on the map</h3>
+<p>There are a few different ways of solving the problem of leaving a trail behind the player, but for this part of the tutorial we'll fix it in a simple way. When a game object is moved to a position on the map, store that cell appearance in the game object. When the game object is moved to another position, restore the cell appearance.</p>
+<p>For this code you're going to edit the <em>GameObject.cs</em> file.</p>
+<p>First, add a private variable named <code>_mapAppearance</code> to the class, below the existing properties. This variable will store the map's cell appearance before our character moves to that cell.</p>
+<pre><code class="lang-csharp">private ColoredGlyph _mapAppearance = new ColoredGlyph();
+</code></pre>
+<p>In the constructor, the game object is initially placed on the map. Copy the cell of the map before drawing the object:</p>
+<pre><code class="lang-csharp">public GameObject(ColoredGlyph appearance, Point position, IScreenSurface hostingSurface)
 {
-    var console = new Console(80, 25);
-    console.IsFocused = true;
-    console.Components.Add(new MyKeyboardComponent());
+    Appearance = appearance;
+    Position = position;
 
-    console.MouseMove += Console_MouseMove;
+    // Store the map cell
+    hostingSurface.Surface[position].CopyAppearanceTo(_mapAppearance);
 
-    SadConsole.Global.CurrentScreen = console;
+    // draw the object
+    DrawGameObject(hostingSurface);
 }
 </code></pre>
-<p>Next, let's try doing the same but with a component.</p>
-<h2 id="mouse-component">Mouse component</h2>
-<p>Use a mouse input component to customize the mouse input of a console in a reusable way. There is one drawback to using a component though, you attach to the console in a low-level way and you have to do all the processing logic yourself. Doing so means that you don't get the individual events for mouse enter, exit, and move.</p>
-<p>Since the component hooks into the start of the console's <code>ProcessMouse()</code> method, if you set <code>handled = true</code> on this, the events for the mouse will never trigger, you effectively provide your own mouse processing logic. If you still want all of the normal mouse processing to happen, set <code>handled = false</code> instead.</p>
-<p>Let's try a mouse component. Reset your <code>Init()</code> code to a clean state.</p>
-<ol>
-<li><p>Add a new class to your project. In Visual Studio in the Solution Explorer pane, right-click the <strong>project</strong> &gt; <strong>Add</strong> &gt; <strong>Class</strong> and name the class <em>MyMouseComponent.cs</em> and click <strong>Add</strong>.</p>
-</li>
-<li><p>Open up the <em>MyMouseComponent.cs</em> in the editor and add these three <code>using</code> statements to the top of the file:</p>
-<pre><code class="lang-csharp">using SadConsole.Components;
-using SadConsole.Input;
-using Microsoft.Xna.Framework;
-</code></pre>
-</li>
-<li><p>Next, inherit from the <code>MouseConsoleComponent</code> class. This class is contained in the <code>SadConsole.Components</code> namespace which we just imported.</p>
-<pre><code class="lang-csharp">class MyMouseComponent: MouseConsoleComponent
-</code></pre>
-</li>
-<li><p>The <code>MouseConsoleComponent</code> class requires that you implement some functionality before you can actually use it, the <code>ProcessMouse</code> method. Here is that method added to the class:</p>
-<pre><code class="lang-csharp">class MyMouseComponent : MouseConsoleComponent
-{
-    public override void ProcessMouse(SadConsole.Console console, MouseConsoleState state, out bool handled)
-    {
-        handled = false;
-    }
-}
-</code></pre>
-</li>
-</ol>
-<p>As a good test of this component, let's recolor the console cells as the mouse moves around. The <code>state</code> parameter contains the state of the mouse as it's related to the <code>console</code>. So as an example, <code>state.IsOnConsole</code> is <code>true</code> or <code>false</code> as it relates to the passed in <code>console</code> parameter. Further, any other console and cell information provided by the mouse state are related to the passed in <code>console</code> parameter.</p>
-<p>Let's modify the <code>ProcessMouse</code> code to recolor the background of a cell as the mouse moves around.</p>
-<ol>
-<li><p>In your <code>MyMouseComponent</code> code, replace the <code>ProcessMouse()</code> method with the following code.</p>
-<pre><code class="lang-csharp">public override void ProcessMouse(SadConsole.Console console, MouseConsoleState state, out bool handled)
-{
-    if (state.IsOnConsole)
-        console.SetBackground(state.CellPosition.X, state.CellPosition.Y, Color.White.GetRandomColor(SadConsole.Global.Random));
+<p>Modify the <code>Move</code> method to restore the old cell and store the new position cell of the map:</p>
+<pre><code class="lang-csharp">public void Move(Point newPosition, IScreenSurface screenSurface)
+{ 
+    // Restore the old cell
+    _mapAppearance.CopyAppearanceTo(screenSurface.Surface[Position]);
 
-    handled = false;
-}
-</code></pre>
-<p>This code uses the <code>state.CellPosition</code> values to determine what cell the mouse is currently on, when the <code>state.IsOnConsole</code> value is <code>true</code>. Then, a random color is assigned to the background of the cell.</p>
-</li>
-<li><p>Next, add the component to your console in the <code>Init()</code> method of the <em>program.cs</em> file, like you did with the keyboard component.</p>
-<pre><code class="lang-csharp">static void Init()
-{
-    var console = new Console(80, 25);
-    console.Components.Add(new MyMouseComponent());
+    // Store the map cell of the new position
+    screenSurface.Surface[newPosition].CopyAppearanceTo(_mapAppearance);
 
-    SadConsole.Global.CurrentScreen = console;
+    Position = newPosition;
+    DrawGameObject(screenSurface);
 }
 </code></pre>
-<p>Try running your game now. You'll see the background change colors as the mouse moves around.</p>
-</li>
-</ol>
-<p>Back in the <code>ProcessMouse()</code> method, the <code>handled = false</code> code was not changed to <code>true</code>, which means all the normal mouse events for the console will work as intended. Try adding back the event so that both the event code and the component code runs at the same time, then test your game again.</p>
-<pre><code class="lang-csharp">static void Init()
-{
-    var console = new Console(80, 25);
-    console.Components.Add(new MyMouseComponent());
-    console.MouseMove += Console_MouseMove;
-
-    SadConsole.Global.CurrentScreen = console;
-}
-</code></pre>
-<p>Change the <code>handled</code> value to <code>true</code> and run your game again. Notice how when you run it this time, the event never fires.</p>
-<p>As a test, try changing the component code to do different things if the left or right mouse button is pressed. Explore the mouse component!</p>
+<p>Run the game and now you'll see that there is no trail left behind the player:</p>
+<p><img src="images/part-3-input/move-player-clean.gif" alt="Moving the player"></p>
 <h2 id="conclusion">Conclusion</h2>
-<p>Now you understand a bit more about how input works. These are just the basics, there is a lot more you can do with input, but that will be explored when we get into the user interface controls provided by SadConsole. The next part of the series will explore creating multiple consoles and displaying them together.</p>
+<p>Now you understand a bit more about how input works, and you have a basic map and game object. These are just the basics, there is a lot more you can do with input, but that will be explored when we get into the user interface controls provided by SadConsole. The next part of the tutorial series will explore creating creating more map objects and displaying feedback to the user.</p>
 <ul>
-<li><a href="part-3-multiple-consoles.md">Part 3: Learning about consoles</a></li>
+<li>Part 4: Not yet created...</li>
 </ul>
 </article>
           </div>

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ColoredString
    ">
-    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -197,7 +197,7 @@
   
   <a id="SadConsole_ColoredString__ctor_" data-uid="SadConsole.ColoredString.#ctor*"></a>
   <h4 id="SadConsole_ColoredString__ctor_System_String_" data-uid="SadConsole.ColoredString.#ctor(System.String)">ColoredString(String)</h4>
-  <div class="markdown level1 summary"><p>Creates a new instance of the ColoredString class with the specified string value. Calls <a class="xref" href="SadConsole.ColoredString.html#SadConsole_ColoredString_Parse_System_String_System_Int32_SadConsole_ICellSurface_SadConsole_StringParser_ParseCommandStacks_">Parse(String, Int32, ICellSurface, ParseCommandStacks)</a> first to process the string.</p>
+  <div class="markdown level1 summary"><p>Creates a new instance of the ColoredString class with the specified string value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -260,13 +260,13 @@
   
   
   <a id="SadConsole_ColoredString__ctor_" data-uid="SadConsole.ColoredString.#ctor*"></a>
-  <h4 id="SadConsole_ColoredString__ctor_System_String_SadRogue_Primitives_Color_SadRogue_Primitives_Color_SadConsole_Mirror_" data-uid="SadConsole.ColoredString.#ctor(System.String,SadRogue.Primitives.Color,SadRogue.Primitives.Color,SadConsole.Mirror)">ColoredString(String, Color, Color, Mirror)</h4>
+  <h4 id="SadConsole_ColoredString__ctor_System_String_SadRogue_Primitives_Color_SadRogue_Primitives_Color_SadConsole_Mirror_SadConsole_CellDecorator___" data-uid="SadConsole.ColoredString.#ctor(System.String,SadRogue.Primitives.Color,SadRogue.Primitives.Color,SadConsole.Mirror,SadConsole.CellDecorator[])">ColoredString(String, Color, Color, Mirror, CellDecorator[])</h4>
   <div class="markdown level1 summary"><p>Creates a new instance of the ColoredString class with the specified string value, foreground and background colors, and a cell effect.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ColoredString(string value, Color foreground, Color background, Mirror mirror)</code></pre>
+    <pre><code class="lang-csharp hljs">public ColoredString(string value, Color foreground, Color background, Mirror mirror, CellDecorator[] decorators = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -302,46 +302,28 @@
         <td><p>The mirror for each character.</p>
 </td>
       </tr>
+      <tr>
+        <td><a class="xref" href="SadConsole.CellDecorator.html">CellDecorator</a>[]</td>
+        <td><span class="parametername">decorators</span></td>
+        <td><p>The decorators to apply to each character.</p>
+</td>
+      </tr>
     </tbody>
   </table>
-  <h3 id="fields">Fields
+  <h3 id="properties">Properties
   </h3>
   
   
-  <h4 id="SadConsole_ColoredString_CustomProcessor" data-uid="SadConsole.ColoredString.CustomProcessor">CustomProcessor</h4>
-  <div class="markdown level1 summary"><p>Custom processor called if any built in command is not triggerd. Signature is (&quot;command&quot;, &quot;sub command&quot;, existing glyphs, text surface, associated editor, command stacks).</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Func&lt;string, string, ColoredString.ColoredGlyphEffect[], ICellSurface, ParseCommandStacks, ParseCommandBase&gt; CustomProcessor</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-6">Func</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="SadConsole.ColoredString.ColoredGlyphEffect.html">ColoredString.ColoredGlyphEffect</a>[], <a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a>, <a class="xref" href="SadConsole.StringParser.ParseCommandStacks.html">ParseCommandStacks</a>, <a class="xref" href="SadConsole.StringParser.ParseCommandBase.html">ParseCommandBase</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+  <a id="SadConsole_ColoredString_IgnoreBackground_" data-uid="SadConsole.ColoredString.IgnoreBackground*"></a>
   <h4 id="SadConsole_ColoredString_IgnoreBackground" data-uid="SadConsole.ColoredString.IgnoreBackground">IgnoreBackground</h4>
   <div class="markdown level1 summary"><p>When true, instructs a caller to not render the background color.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IgnoreBackground</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IgnoreBackground { get; set; }</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -358,15 +340,42 @@
   </table>
   
   
+  <a id="SadConsole_ColoredString_IgnoreDecorators_" data-uid="SadConsole.ColoredString.IgnoreDecorators*"></a>
+  <h4 id="SadConsole_ColoredString_IgnoreDecorators" data-uid="SadConsole.ColoredString.IgnoreDecorators">IgnoreDecorators</h4>
+  <div class="markdown level1 summary"><p>When true, instructs a caller to not render the mirror state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IgnoreDecorators { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SadConsole_ColoredString_IgnoreEffect_" data-uid="SadConsole.ColoredString.IgnoreEffect*"></a>
   <h4 id="SadConsole_ColoredString_IgnoreEffect" data-uid="SadConsole.ColoredString.IgnoreEffect">IgnoreEffect</h4>
   <div class="markdown level1 summary"><p>When true, instructs a caller to not render the effect.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IgnoreEffect</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IgnoreEffect { get; set; }</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -383,15 +392,16 @@
   </table>
   
   
+  <a id="SadConsole_ColoredString_IgnoreForeground_" data-uid="SadConsole.ColoredString.IgnoreForeground*"></a>
   <h4 id="SadConsole_ColoredString_IgnoreForeground" data-uid="SadConsole.ColoredString.IgnoreForeground">IgnoreForeground</h4>
   <div class="markdown level1 summary"><p>When true, instructs a caller to not render the foreground color.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IgnoreForeground</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IgnoreForeground { get; set; }</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -408,15 +418,16 @@
   </table>
   
   
+  <a id="SadConsole_ColoredString_IgnoreGlyph_" data-uid="SadConsole.ColoredString.IgnoreGlyph*"></a>
   <h4 id="SadConsole_ColoredString_IgnoreGlyph" data-uid="SadConsole.ColoredString.IgnoreGlyph">IgnoreGlyph</h4>
   <div class="markdown level1 summary"><p>When true, instructs a caller to not render the glyphs of the string.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IgnoreGlyph</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IgnoreGlyph { get; set; }</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -433,15 +444,16 @@
   </table>
   
   
+  <a id="SadConsole_ColoredString_IgnoreMirror_" data-uid="SadConsole.ColoredString.IgnoreMirror*"></a>
   <h4 id="SadConsole_ColoredString_IgnoreMirror" data-uid="SadConsole.ColoredString.IgnoreMirror">IgnoreMirror</h4>
   <div class="markdown level1 summary"><p>When true, instructs a caller to not render the mirror state.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IgnoreMirror</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IgnoreMirror { get; set; }</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -456,8 +468,6 @@
       </tr>
     </tbody>
   </table>
-  <h3 id="properties">Properties
-  </h3>
   
   
   <a id="SadConsole_ColoredString_Item_" data-uid="SadConsole.ColoredString.Item*"></a>
@@ -531,9 +541,35 @@
   </table>
   
   
+  <a id="SadConsole_ColoredString_Parser_" data-uid="SadConsole.ColoredString.Parser*"></a>
+  <h4 id="SadConsole_ColoredString_Parser" data-uid="SadConsole.ColoredString.Parser">Parser</h4>
+  <div class="markdown level1 summary"><p>The string parser to use for transforming strings into <a class="xref" href="SadConsole.ColoredString.html">ColoredString</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IParser Parser { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.StringParser.IParser.html">IParser</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="SadConsole_ColoredString_String_" data-uid="SadConsole.ColoredString.String*"></a>
   <h4 id="SadConsole_ColoredString_String" data-uid="SadConsole.ColoredString.String">String</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the characters represneting this string. When set, first processes the string through <a class="xref" href="SadConsole.ColoredString.html#SadConsole_ColoredString_Parse_System_String_System_Int32_SadConsole_ICellSurface_SadConsole_StringParser_ParseCommandStacks_">Parse(String, Int32, ICellSurface, ParseCommandStacks)</a>.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the characters representing this string. When set, first processes the string through <a class="xref" href="SadConsole.StringParser.IParser.html#SadConsole_StringParser_IParser_Parse_System_ReadOnlySpan_System_Char__System_Int32_SadConsole_ICellSurface_SadConsole_StringParser_ParseCommandStacks_">Parse(ReadOnlySpan&lt;Char&gt;, Int32, ICellSurface, ParseCommandStacks)</a> method from <a class="xref" href="SadConsole.ColoredString.html#SadConsole_ColoredString_Parser">Parser</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -666,7 +702,7 @@
   
   <a id="SadConsole_ColoredString_Parse_" data-uid="SadConsole.ColoredString.Parse*"></a>
   <h4 id="SadConsole_ColoredString_Parse_System_String_System_Int32_SadConsole_ICellSurface_SadConsole_StringParser_ParseCommandStacks_" data-uid="SadConsole.ColoredString.Parse(System.String,System.Int32,SadConsole.ICellSurface,SadConsole.StringParser.ParseCommandStacks)">Parse(String, Int32, ICellSurface, ParseCommandStacks)</h4>
-  <div class="markdown level1 summary"><p>Creates a colored string by parsing commands embedded in the string.</p>
+  <div class="markdown level1 summary"><p>This method is obsolete. Use <a class="xref" href="SadConsole.ColoredString.html#SadConsole_ColoredString_Parser">Parser</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -686,26 +722,22 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
         <td><span class="parametername">value</span></td>
-        <td><p>The string to parse.</p>
-</td>
+        <td></td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
         <td><span class="parametername">surfaceIndex</span></td>
-        <td><p>Index of where this string will be printed.</p>
-</td>
+        <td></td>
       </tr>
       <tr>
         <td><a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a></td>
         <td><span class="parametername">surface</span></td>
-        <td><p>The surface the string will be printed to.</p>
-</td>
+        <td></td>
       </tr>
       <tr>
         <td><a class="xref" href="SadConsole.StringParser.ParseCommandStacks.html">ParseCommandStacks</a></td>
         <td><span class="parametername">initialBehaviors</span></td>
-        <td><p>Any initial defaults.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -720,8 +752,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="SadConsole.ColoredString.html">ColoredString</a></td>
-        <td><p>The finalized string.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -750,6 +781,35 @@
         <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></td>
         <td><span class="parametername">color</span></td>
         <td><p>The color to apply.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SadConsole_ColoredString_SetDecorators_" data-uid="SadConsole.ColoredString.SetDecorators*"></a>
+  <h4 id="SadConsole_ColoredString_SetDecorators_SadConsole_CellDecorator___" data-uid="SadConsole.ColoredString.SetDecorators(SadConsole.CellDecorator[])">SetDecorators(CellDecorator[])</h4>
+  <div class="markdown level1 summary"><p>Applies the decorators to each character in the colored string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetDecorators(CellDecorator[] decorators)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.CellDecorator.html">CellDecorator</a>[]</td>
+        <td><span class="parametername">decorators</span></td>
+        <td><p>The decorators.</p>
 </td>
       </tr>
     </tbody>
@@ -837,6 +897,35 @@
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
         <td><span class="parametername">glyph</span></td>
         <td><p>The glyph to apply.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SadConsole_ColoredString_SetMirror_" data-uid="SadConsole.ColoredString.SetMirror*"></a>
+  <h4 id="SadConsole_ColoredString_SetMirror_SadConsole_Mirror_" data-uid="SadConsole.ColoredString.SetMirror(SadConsole.Mirror)">SetMirror(Mirror)</h4>
+  <div class="markdown level1 summary"><p>Applies the mirror value to each character in the colored string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetMirror(Mirror mirror)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.Mirror.html">Mirror</a></td>
+        <td><span class="parametername">mirror</span></td>
+        <td><p>The mirror mode.</p>
 </td>
       </tr>
     </tbody>

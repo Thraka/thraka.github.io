@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ScrollBar
    ">
-    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -585,7 +585,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td><p>Always returns false.</p>
+        <td><p>True when the control is enabled, set to use the mouse and the mouse is over it, otherwise false.</p>
 </td>
       </tr>
     </tbody>
@@ -630,11 +630,11 @@
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_Resize_System_Int32_System_Int32_">ControlBase.Resize(Int32, Int32)</a></div>
   <h5 id="SadConsole_UI_Controls_ScrollBar_Resize_System_Int32_System_Int32__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>When overriding this method, to perhaps restrct the requested size, make sure to do the following:</p>
+  <div class="markdown level1 remarks"><p>When overriding this method, to perhaps restrict the requested size, make sure to do the following:</p>
 <ul>
-<li>Check if the <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_CanResize">CanResize</a> property allows resizing. If it doesn't, throw a <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a>.</li>
+<li>Check if the <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_CanResize">CanResize</a> property allows resizing. If it doesn't, throw an <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a>.</li>
 <li>The <span class="xref">SadConsole.UI.Controls.ControlBase._width</span> and <span class="xref">SadConsole.UI.Controls.ControlBase._height</span> variables of the control are set to the values provided.</li>
-<li>The <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_MouseArea">MouseArea</a> property to the same width and height values provided. Generally the theme will adjust this if needed, but it might ignore this so you'll need to set it.</li>
+<li>The <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_MouseArea">MouseArea</a> property is set to the same width and height as values provided. Generally the theme will adjust this if needed, but it might ignore this so you'll need to set it.</li>
 <li>The <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_Theme">Theme</a>, if set, is reattached by calling <a class="xref" href="SadConsole.UI.Themes.ThemeBase.html#SadConsole_UI_Themes_ThemeBase_Attached_SadConsole_UI_Controls_ControlBase_">Attached(ControlBase)</a>.</li>
 <li>Set <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_IsDirty">IsDirty</a> to <span class="xref">true</span>.</li>
 </ul>

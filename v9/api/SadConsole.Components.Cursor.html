@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Cursor
    ">
-    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -192,7 +192,7 @@
   
   <a id="SadConsole_Components_Cursor_AutomaticallyShiftRowsUp_" data-uid="SadConsole.Components.Cursor.AutomaticallyShiftRowsUp*"></a>
   <h4 id="SadConsole_Components_Cursor_AutomaticallyShiftRowsUp" data-uid="SadConsole.Components.Cursor.AutomaticallyShiftRowsUp">AutomaticallyShiftRowsUp</h4>
-  <div class="markdown level1 summary"><p>Indicates that the when the cursor goes past the last cell of the console, that the rows should be shifted up when the cursor is automatically reset to the next line.</p>
+  <div class="markdown level1 summary"><p>Indicates that when the cursor goes past the last cell of the console, that the rows should be shifted up when the cursor is automatically reset to the next line.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -348,7 +348,7 @@
   
   <a id="SadConsole_Components_Cursor_DisableWordBreak_" data-uid="SadConsole.Components.Cursor.DisableWordBreak*"></a>
   <h4 id="SadConsole_Components_Cursor_DisableWordBreak" data-uid="SadConsole.Components.Cursor.DisableWordBreak">DisableWordBreak</h4>
-  <div class="markdown level1 summary"><p>When true, prevents the any print method from breaking words up by spaces when wrapping lines.</p>
+  <div class="markdown level1 summary"><p>When true, prevents any print method from breaking words up by spaces when wrapping lines.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -432,6 +432,32 @@
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool MouseClickReposition { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SadConsole_Components_Cursor_MouseClickRepositionHandlesMouse_" data-uid="SadConsole.Components.Cursor.MouseClickRepositionHandlesMouse*"></a>
+  <h4 id="SadConsole_Components_Cursor_MouseClickRepositionHandlesMouse" data-uid="SadConsole.Components.Cursor.MouseClickRepositionHandlesMouse">MouseClickRepositionHandlesMouse</h4>
+  <div class="markdown level1 summary"><p>When <span class="xref">true</span>, returns a handled status from the mouse processor when the <a class="xref" href="SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_MouseClickReposition">MouseClickReposition</a> is enabled. This prevents further left-mouse processing on the host.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool MouseClickRepositionHandlesMouse { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -686,7 +712,7 @@
   
   <a id="SadConsole_Components_Cursor_UseStringParser_" data-uid="SadConsole.Components.Cursor.UseStringParser*"></a>
   <h4 id="SadConsole_Components_Cursor_UseStringParser" data-uid="SadConsole.Components.Cursor.UseStringParser">UseStringParser</h4>
-  <div class="markdown level1 summary"><p>Calls <a class="xref" href="SadConsole.ColoredString.html#SadConsole_ColoredString_Parse_System_String_System_Int32_SadConsole_ICellSurface_SadConsole_StringParser_ParseCommandStacks_">Parse(String, Int32, ICellSurface, ParseCommandStacks)</a> to create a colored string when using <a class="xref" href="SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_Print_System_String_">Print(String)</a> or <a class="xref" href="SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_Print_System_String_SadConsole_ColoredGlyph_SadConsole_Effects_ICellEffect_">Print(String, ColoredGlyph, ICellEffect)</a>.</p>
+  <div class="markdown level1 summary"><p>Indicates this cursor should process te string through the <a class="xref" href="SadConsole.StringParser.IParser.html#SadConsole_StringParser_IParser_Parse_System_ReadOnlySpan_System_Char__System_Int32_SadConsole_ICellSurface_SadConsole_StringParser_ParseCommandStacks_">Parse(ReadOnlySpan&lt;Char&gt;, Int32, ICellSurface, ParseCommandStacks)</a> method from <a class="xref" href="SadConsole.ColoredString.html#SadConsole_ColoredString_Parser">Parser</a> to create a colored string when using <a class="xref" href="SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_Print_System_String_">Print(String)</a> or <a class="xref" href="SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_Print_System_String_SadConsole_ColoredGlyph_SadConsole_Effects_ICellEffect_">Print(String, ColoredGlyph, ICellEffect)</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1173,7 +1199,7 @@
       <tr>
         <td><a class="xref" href="SadConsole.Effects.ICellEffect.html">ICellEffect</a></td>
         <td><span class="parametername">templateEffect</span></td>
-        <td><p>Effect to apply to the text as its printed.</p>
+        <td><p>Effect to apply to the text as its printed. Can be <span class="xref">null</span>.</p>
 </td>
       </tr>
     </tbody>

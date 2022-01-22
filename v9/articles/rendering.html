@@ -8,7 +8,7 @@
     <title>How does drawing work </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="How does drawing work ">
-    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -70,6 +70,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="how-does-drawing-work">How does drawing work</h1>
 
+<p>PORTED FROM v8 NOT YET UPDATED</p>
 <p>When SadConsole draws a dirty surface, it does not draw it directly to the screen. Each surface (a Console is a surface) has a &lt;xref:SadConsole.Console.LastRenderResult&gt; property (which is a texture) that represents the last drawn state of the surface. When SadConsole is ready to draw the screen, all of the visible surfaces are gathered together (using their &lt;xref:SadConsole.Console.LastRenderResult&gt; value) and drawn on a final texture, &lt;xref:SadConsole.Global.RenderOutput&gt;. This texture is then drawn to the screen.</p>
 <h2 id="cached-textures">Cached textures</h2>
 <p>As stated above, each surface creates a texture that represents the final look of the console-surface. A <a class="xref" href="../api/SadConsole.Renderers.IRenderer.html">IRenderer</a> object is responsible for this. When the renderer processes a surface, it first checks if the <a class="xref" href="../api/SadConsole.CellSurface.html#SadConsole_CellSurface_IsDirty">IsDirty</a> property is set to <code>true</code>. If so, it updates the cached texture with the latest state of the surface.</p>

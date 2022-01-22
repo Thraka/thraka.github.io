@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Interface ICellEffect
    ">
-    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -193,12 +193,12 @@
   
   <a id="SadConsole_Effects_ICellEffect_StartDelay_" data-uid="SadConsole.Effects.ICellEffect.StartDelay*"></a>
   <h4 id="SadConsole_Effects_ICellEffect_StartDelay" data-uid="SadConsole.Effects.ICellEffect.StartDelay">StartDelay</h4>
-  <div class="markdown level1 summary"><p>A delay applied to the effect only when it first runs.</p>
+  <div class="markdown level1 summary"><p>A delay applied to the effect only when it first runs or is restarted.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">double StartDelay { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">TimeSpan StartDelay { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -210,7 +210,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.double">Double</a></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -308,13 +308,13 @@
   
   
   <a id="SadConsole_Effects_ICellEffect_Update_" data-uid="SadConsole.Effects.ICellEffect.Update*"></a>
-  <h4 id="SadConsole_Effects_ICellEffect_Update_System_Double_" data-uid="SadConsole.Effects.ICellEffect.Update(System.Double)">Update(Double)</h4>
+  <h4 id="SadConsole_Effects_ICellEffect_Update_System_TimeSpan_" data-uid="SadConsole.Effects.ICellEffect.Update(System.TimeSpan)">Update(TimeSpan)</h4>
   <div class="markdown level1 summary"><p>Updates the state of the effect.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void Update(double gameTimeSeconds)</code></pre>
+    <pre><code class="lang-csharp hljs">void Update(TimeSpan delta)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -327,8 +327,8 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.double">Double</a></td>
-        <td><span class="parametername">gameTimeSeconds</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
+        <td><span class="parametername">delta</span></td>
         <td><p>Time since the last call to this effect.</p>
 </td>
       </tr>

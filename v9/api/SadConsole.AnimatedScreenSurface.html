@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class AnimatedScreenSurface
    ">
-    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -586,7 +586,7 @@
   
   <a id="SadConsole_AnimatedScreenSurface_CurrentFrame_" data-uid="SadConsole.AnimatedScreenSurface.CurrentFrame*"></a>
   <h4 id="SadConsole_AnimatedScreenSurface_CurrentFrame" data-uid="SadConsole.AnimatedScreenSurface.CurrentFrame">CurrentFrame</h4>
-  <div class="markdown level1 summary"><p>Gets the currently frame being animated.</p>
+  <div class="markdown level1 summary"><p>Gets the current frame being animated.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -972,6 +972,116 @@
       </tr>
     </tbody>
   </table>
+  
+  
+  <a id="SadConsole_AnimatedScreenSurface_FromImage_" data-uid="SadConsole.AnimatedScreenSurface.FromImage*"></a>
+  <h4 id="SadConsole_AnimatedScreenSurface_FromImage_System_String_System_String_SadRogue_Primitives_Point_System_Single_System_Nullable_SadRogue_Primitives_Point__System_Nullable_SadRogue_Primitives_Point__SadConsole_IFont_System_Action_SadConsole_ColoredGlyph__SadConsole_TextureConvertMode_SadConsole_TextureConvertForegroundStyle_SadConsole_TextureConvertBackgroundStyle_" data-uid="SadConsole.AnimatedScreenSurface.FromImage(System.String,System.String,SadRogue.Primitives.Point,System.Single,System.Nullable{SadRogue.Primitives.Point},System.Nullable{SadRogue.Primitives.Point},SadConsole.IFont,System.Action{SadConsole.ColoredGlyph},SadConsole.TextureConvertMode,SadConsole.TextureConvertForegroundStyle,SadConsole.TextureConvertBackgroundStyle)">FromImage(String, String, Point, Single, Nullable&lt;Point&gt;, Nullable&lt;Point&gt;, IFont, Action&lt;ColoredGlyph&gt;, TextureConvertMode, TextureConvertForegroundStyle, TextureConvertBackgroundStyle)</h4>
+  <div class="markdown level1 summary"><p>Converts an image file containing frames to an instance of <a class="xref" href="SadConsole.AnimatedScreenSurface.html">AnimatedScreenSurface</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static AnimatedScreenSurface FromImage(string name, string filePath, Point frameLayout, float frameDuration, Nullable&lt;Point&gt; pixelPadding = null, Nullable&lt;Point&gt; frameStartAndFinish = null, IFont font = null, Action&lt;ColoredGlyph&gt; action = null, TextureConvertMode convertMode, TextureConvertForegroundStyle convertForegroundStyle, TextureConvertBackgroundStyle convertBackgroundStyle)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Name for the animation.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">filePath</span></td>
+        <td><p>File path to the image file.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Point.html">Point</a></td>
+        <td><span class="parametername">frameLayout</span></td>
+        <td><p>Layout of frames in the image file: X number of columns, Y number of rows.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.single">Single</a></td>
+        <td><span class="parametername">frameDuration</span></td>
+        <td><p>Duration for a frame in the animation.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Point.html">Point</a>&gt;</td>
+        <td><span class="parametername">pixelPadding</span></td>
+        <td><p>Pixel padding separating frames: X between the columns, Y between the rows.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Point.html">Point</a>&gt;</td>
+        <td><span class="parametername">frameStartAndFinish</span></td>
+        <td><p>Limits the number of frames copied to the animation. X first frame index, Y last frame index.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SadConsole.IFont.html">IFont</a></td>
+        <td><span class="parametername">font</span></td>
+        <td><p><a class="xref" href="SadConsole.IFont.html">IFont</a> to be used when creating the <a class="xref" href="SadConsole.AnimatedScreenSurface.html">AnimatedScreenSurface</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="SadConsole.ColoredGlyph.html">ColoredGlyph</a>&gt;</td>
+        <td><span class="parametername">action</span></td>
+        <td><p>Callback that will be applied to each <a class="xref" href="SadConsole.ColoredGlyph.html">ColoredGlyph</a> when creating a frame.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SadConsole.TextureConvertMode.html">TextureConvertMode</a></td>
+        <td><span class="parametername">convertMode</span></td>
+        <td><p>The mode used when converting the texture to a surface.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SadConsole.TextureConvertForegroundStyle.html">TextureConvertForegroundStyle</a></td>
+        <td><span class="parametername">convertForegroundStyle</span></td>
+        <td><p>The style to use when <code data-dev-comment-type="paramref" class="paramref">convertMode</code> is <a class="xref" href="SadConsole.TextureConvertMode.html#SadConsole_TextureConvertMode_Foreground">Foreground</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SadConsole.TextureConvertBackgroundStyle.html">TextureConvertBackgroundStyle</a></td>
+        <td><span class="parametername">convertBackgroundStyle</span></td>
+        <td><p>The style to use when <code data-dev-comment-type="paramref" class="paramref">convertMode</code> is <a class="xref" href="SadConsole.TextureConvertMode.html#SadConsole_TextureConvertMode_Background">Background</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.AnimatedScreenSurface.html">AnimatedScreenSurface</a></td>
+        <td><p>An instance of <a class="xref" href="SadConsole.AnimatedScreenSurface.html">AnimatedScreenSurface</a> with converted frames.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="SadConsole_AnimatedScreenSurface_FromImage_System_String_System_String_SadRogue_Primitives_Point_System_Single_System_Nullable_SadRogue_Primitives_Point__System_Nullable_SadRogue_Primitives_Point__SadConsole_IFont_System_Action_SadConsole_ColoredGlyph__SadConsole_TextureConvertMode_SadConsole_TextureConvertForegroundStyle_SadConsole_TextureConvertBackgroundStyle__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method assumes the image file contains only frames and optional padding between the frames, no border space.</p>
+<p>Frame count is calculated by multiplying rows and columns from the frame layout. It can by limited by specifying frame start and finish indexes.</p>
+<p>Frame size and the subsequent AnimatedScreenSurface size is calculated from the size of the image file, number of frames, padding and the font size ratio.</p>
+</div>
   
   
   <a id="SadConsole_AnimatedScreenSurface_Load_" data-uid="SadConsole.AnimatedScreenSurface.Load*"></a>

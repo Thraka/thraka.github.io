@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ColoredGlyph
    ">
-    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -311,7 +311,7 @@
   
   <a id="SadConsole_ColoredGlyph__ctor_" data-uid="SadConsole.ColoredGlyph.#ctor*"></a>
   <h4 id="SadConsole_ColoredGlyph__ctor_SadRogue_Primitives_Color_SadRogue_Primitives_Color_System_Int32_SadConsole_Mirror_System_Boolean_SadConsole_CellDecorator___" data-uid="SadConsole.ColoredGlyph.#ctor(SadRogue.Primitives.Color,SadRogue.Primitives.Color,System.Int32,SadConsole.Mirror,System.Boolean,SadConsole.CellDecorator[])">ColoredGlyph(Color, Color, Int32, Mirror, Boolean, CellDecorator[])</h4>
-  <div class="markdown level1 summary"><p>Creates a cell with the specified foreground, background, glyph, and mirror effect.</p>
+  <div class="markdown level1 summary"><p>Creates a cell with the specified foreground, background, glyph, mirror effect, visibility and decorators.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -582,7 +582,7 @@
   
   <a id="SadConsole_ColoredGlyph_Clear_" data-uid="SadConsole.ColoredGlyph.Clear*"></a>
   <h4 id="SadConsole_ColoredGlyph_Clear" data-uid="SadConsole.ColoredGlyph.Clear">Clear()</h4>
-  <div class="markdown level1 summary"><p>Resets the foreground, background, glyph, and mirror effect.</p>
+  <div class="markdown level1 summary"><p>Resets the foreground, background, glyph, mirror effect and decorators.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -619,13 +619,13 @@
   
   
   <a id="SadConsole_ColoredGlyph_CopyAppearanceFrom_" data-uid="SadConsole.ColoredGlyph.CopyAppearanceFrom*"></a>
-  <h4 id="SadConsole_ColoredGlyph_CopyAppearanceFrom_SadConsole_ColoredGlyph_" data-uid="SadConsole.ColoredGlyph.CopyAppearanceFrom(SadConsole.ColoredGlyph)">CopyAppearanceFrom(ColoredGlyph)</h4>
-  <div class="markdown level1 summary"><p>Sets the foreground, background, glyph, and mirror effect to the same as the specified cell.</p>
+  <h4 id="SadConsole_ColoredGlyph_CopyAppearanceFrom_SadConsole_ColoredGlyph_System_Boolean_" data-uid="SadConsole.ColoredGlyph.CopyAppearanceFrom(SadConsole.ColoredGlyph,System.Boolean)">CopyAppearanceFrom(ColoredGlyph, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Sets the foreground, background, glyph, mirror effect and decorators to the same as the specified cell.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void CopyAppearanceFrom(ColoredGlyph cell)</code></pre>
+    <pre><code class="lang-csharp hljs">public void CopyAppearanceFrom(ColoredGlyph cell, bool deepCopy = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -643,18 +643,25 @@
         <td><p>The target cell to copy from.</p>
 </td>
       </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">deepCopy</span></td>
+        <td><p>Whether to perform a deep copy.  Decorators are copied to a new array when true; when false, the old
+decorator array reference is moved directly.</p>
+</td>
+      </tr>
     </tbody>
   </table>
   
   
   <a id="SadConsole_ColoredGlyph_CopyAppearanceTo_" data-uid="SadConsole.ColoredGlyph.CopyAppearanceTo*"></a>
-  <h4 id="SadConsole_ColoredGlyph_CopyAppearanceTo_SadConsole_ColoredGlyph_" data-uid="SadConsole.ColoredGlyph.CopyAppearanceTo(SadConsole.ColoredGlyph)">CopyAppearanceTo(ColoredGlyph)</h4>
-  <div class="markdown level1 summary"><p>Copies the visual appearance to the specified cell. This includes foreground, background, glyph, and mirror effect.</p>
+  <h4 id="SadConsole_ColoredGlyph_CopyAppearanceTo_SadConsole_ColoredGlyph_System_Boolean_" data-uid="SadConsole.ColoredGlyph.CopyAppearanceTo(SadConsole.ColoredGlyph,System.Boolean)">CopyAppearanceTo(ColoredGlyph, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Copies the visual appearance to the specified cell. This includes foreground, background, glyph, mirror effect and decorators.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void CopyAppearanceTo(ColoredGlyph cell)</code></pre>
+    <pre><code class="lang-csharp hljs">public void CopyAppearanceTo(ColoredGlyph cell, bool deepCopy = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -670,6 +677,13 @@
         <td><a class="xref" href="SadConsole.ColoredGlyph.html">ColoredGlyph</a></td>
         <td><span class="parametername">cell</span></td>
         <td><p>The target cell to copy to.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">deepCopy</span></td>
+        <td><p>Whether to perform a deep copy.  Decorators are copied to a new array when true; when false, the old
+decorator array reference is moved directly.</p>
 </td>
       </tr>
     </tbody>

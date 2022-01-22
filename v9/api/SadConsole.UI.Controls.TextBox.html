@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class TextBox
    ">
-    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -884,11 +884,11 @@
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_Resize_System_Int32_System_Int32_">ControlBase.Resize(Int32, Int32)</a></div>
   <h5 id="SadConsole_UI_Controls_TextBox_Resize_System_Int32_System_Int32__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>When overriding this method, to perhaps restrct the requested size, make sure to do the following:</p>
+  <div class="markdown level1 remarks"><p>When overriding this method, to perhaps restrict the requested size, make sure to do the following:</p>
 <ul>
-<li>Check if the <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_CanResize">CanResize</a> property allows resizing. If it doesn't, throw a <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a>.</li>
+<li>Check if the <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_CanResize">CanResize</a> property allows resizing. If it doesn't, throw an <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a>.</li>
 <li>The <span class="xref">SadConsole.UI.Controls.ControlBase._width</span> and <span class="xref">SadConsole.UI.Controls.ControlBase._height</span> variables of the control are set to the values provided.</li>
-<li>The <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_MouseArea">MouseArea</a> property to the same width and height values provided. Generally the theme will adjust this if needed, but it might ignore this so you'll need to set it.</li>
+<li>The <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_MouseArea">MouseArea</a> property is set to the same width and height as values provided. Generally the theme will adjust this if needed, but it might ignore this so you'll need to set it.</li>
 <li>The <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_Theme">Theme</a>, if set, is reattached by calling <a class="xref" href="SadConsole.UI.Themes.ThemeBase.html#SadConsole_UI_Themes_ThemeBase_Attached_SadConsole_UI_Controls_ControlBase_">Attached(ControlBase)</a>.</li>
 <li>Set <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_IsDirty">IsDirty</a> to <span class="xref">true</span>.</li>
 </ul>
@@ -917,6 +917,81 @@
   </div>
   <h3 id="events">Events
   </h3>
+  
+  
+  <h4 id="SadConsole_UI_Controls_TextBox_EditingTextChanged" data-uid="SadConsole.UI.Controls.TextBox.EditingTextChanged">EditingTextChanged</h4>
+  <div class="markdown level1 summary"><p>Raised when the <a class="xref" href="SadConsole.UI.Controls.TextBox.html#SadConsole_UI_Controls_TextBox_EditingText">EditingText</a> property changes while the textbox is being typed in.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler EditingTextChanged</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.eventhandler">EventHandler</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SadConsole_UI_Controls_TextBox_EditModeEnter" data-uid="SadConsole.UI.Controls.TextBox.EditModeEnter">EditModeEnter</h4>
+  <div class="markdown level1 summary"><p>Raised when the <a class="xref" href="SadConsole.UI.Controls.TextBox.html#SadConsole_UI_Controls_TextBox_DisableKeyboard">DisableKeyboard</a> property changes to <span class="xref">true</span>, causing the textbox to accept keyboard input.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler EditModeEnter</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.eventhandler">EventHandler</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SadConsole_UI_Controls_TextBox_EditModeExit" data-uid="SadConsole.UI.Controls.TextBox.EditModeExit">EditModeExit</h4>
+  <div class="markdown level1 summary"><p>Raised when the <a class="xref" href="SadConsole.UI.Controls.TextBox.html#SadConsole_UI_Controls_TextBox_DisableKeyboard">DisableKeyboard</a> property changes to <span class="xref">false</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler EditModeExit</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.eventhandler">EventHandler</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <h4 id="SadConsole_UI_Controls_TextBox_KeyPressed" data-uid="SadConsole.UI.Controls.TextBox.KeyPressed">KeyPressed</h4>
