@@ -13,9 +13,7 @@ If you're using Visual Studio, follow these steps until told to use Visual Studi
 
 - [Download and install the .NET 6.0 (or later) SDK](https://dotnet.microsoft.com/download/dotnet-core/6.0).
 
-  To see what versions you have, run `dotnet --info`. If this command fails, your install may have failed, you don't have .NET Core, or it's not added to your terminal path variable.
-
-  You can use .NET Core 3.1 or .NET 5.0 if you would like.
+  To see what versions you have, run `dotnet --info`. If this command fails, your install may have failed, you don't have .NET, or it's not added to your terminal path variable.
 
 ## Create your working folder
 

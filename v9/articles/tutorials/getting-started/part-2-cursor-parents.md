@@ -1,5 +1,5 @@
 ---
-description: Learn how to get started with SadConsole by using the cursor. Also, learn a few basics about nesting and parenting consoles.
+description: Part 2 of the getting started series. In this part you'll learn how to use the Cursor object and how nesting and parenting consoles works.
 ms.date: 08/07/2021
 ---
 
@@ -273,11 +273,11 @@ There are two new properties and a new method being called here:
 
 01. `console2.MoveToFrontOnMouseClick = true;`
 
-    The draw order of the objects is based on where they are in the children collection of the parent, specified by the `Children` property. Whichever object is added last becomes the top-most drawn object. Whichever object is first in this collection is the back-most drawn object. Changing focus to the objects, though, doesn't change their draw order. This property responds to the mouse click and moves the object to the top of the collection (last in the collection) to make it appear on top of everything else.
+    The draw order of the objects is based on where they are in the children collection of the parent, specified by the `Children` property. Whichever object is added last becomes the top-most drawn object. Whichever object is first in this collection is the back-most drawn object. Changing focus to the objects, though, doesn't change their draw order. This property responds to the mouse click and moves the object to the top (last in the collection).
 
 01. `container.Children.MoveToBottom(console2);`
 
-    Because we created `console2` after `console1` and added it to the `container` after `console`, it's the top-most object drawn. However, we want the experience to be that `console1` is the first console you interact with. There are two ways of doing this, either move `console2` to the bottom of the draw order (which this code does), or simply add both consoles after creating them, in the order you want them drawn. For example, remove the existing `container.Children.Add` method calls for both consoles, and add this to the end of the code routine:
+    Because we created `console2` after `console1` and added it to the `container` after `console`, it's the top-most object drawn (last in the collection). However, we want the experience to be that `console1` is the first console you interact with. There are two ways of doing this, either move `console2` to the bottom of the draw order (which this code does), or simply add both consoles after creating them, in the order you want them drawn. For example, remove the existing `container.Children.Add` method calls for both consoles, and add this to the end of the code routine:
 
     ```csharp
     container.Children.Add(console2);
@@ -290,12 +290,12 @@ Right now the object hierarchy of `Game.Instance.Screen` is:
 
 ```text
 - container
-  - console2   <-- Moved to the 'bottom'
-  - console1   <-- Top-most child of container
-    - surfaceObject
+  - console2   <-- first in the collection, drawn first, below others
+  - console1   <-- last in the collection, drawn last, on top of others
+    - surfaceObject  <-- as a child of console1, drawn on top of it
 ```
 
-When you run the program and you can both consoles. You can click and interact with both.
+When you run the program and you can see and interact with both consoles.
 
 ![console with child surface](images/part-2-cursor-parents/two-consoles.png)
 

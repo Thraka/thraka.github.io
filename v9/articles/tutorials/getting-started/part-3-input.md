@@ -1,5 +1,5 @@
 ---
-description: Learn how to get started with SadConsole by responding to keyboard input and moving a player object around the screen.
+description: Part 3 of the getting started series. Learn how to create a basic map object and how to handle keyboard input.
 ms.date: 01/22/2022
 ---
 
@@ -274,20 +274,20 @@ Open the _RootScreen.cs_ file.
 
 SadConsole sends keyboard input to the object that is focused. For our scene to process the keyboard, we'll want to do two things:
 
-01. Focus the object.
+- Focus the object.
 
-    The `RootScreen` object was already focused earlier in this article, in the `Init` method. If you want to change which object directly receives keyboard input, focus it. Things like popup windows will focus themselves for keyboard input, and then when hidden, restore focus to the previously focused object.
+  The `RootScreen` object was already focused earlier in this article, in the `Init` method. If you want to change which object directly receives keyboard input, focus it. Things like popup windows will focus themselves for keyboard input, and then when hidden, restore focus to the previously focused object.
 
-01. Override the `ProcessKeyboard` method in the `RootScreen` class:
+- Override the `ProcessKeyboard` method in the `RootScreen` class:
 
-    ```csharp
-    public override bool ProcessKeyboard(Keyboard keyboard)
-    {
-        return base.ProcessKeyboard(keyboard);
-    }
-    ```
+  ```csharp
+  public override bool ProcessKeyboard(Keyboard keyboard)
+  {
+      return base.ProcessKeyboard(keyboard);
+  }
+  ```
 
-    This method is called every game frame when the object is focused. The `base.ProcessKeyboard` call allows the screen object to do its normal keyboard processing, which is processing any keyboard-based components added to the object. You'll learn more about components later.
+  This method is called every game frame when the object is focused. The `base.ProcessKeyboard` call allows the screen object to do its normal keyboard processing, which is processing any keyboard-based components added to the object. You'll learn more about components later.
 
 Next, we'll update the keyboard code to move our player-controlled object around. Remember, the player object has a `Position` property. We simply have to check if a direction key is pressed, and then change the `Position` property to move the object.
 
@@ -317,9 +317,9 @@ public override bool ProcessKeyboard(Keyboard keyboard)
 
 Let's look at this code:
 
-01. The `handled` is used to indicate that we did in fact process the keyboard, and this value is returned at the end of the method. This value is important when you want to prevent other objects from processing the keyboard after you did.
+- The `handled` is used to indicate that we did in fact process the keyboard, and this value is returned at the end of the method. This value is important when you want to prevent other objects from processing the keyboard after you did.
 
-01. Both the `Keys.Up` and `Keys.Down` values are checked with the [`keyboard.IsKeyPressed`](xref:SadConsole.Input.Keyboard.IsKeyPressed(SadConsole.Input.Keys)) method. These share the same set of `if` statements to make it so that you can't push both <kbd>Up</kbd> and <kbd>Down</kbd> at the same time.
+- Both the `Keys.Up` and `Keys.Down` values are checked with the [`keyboard.IsKeyPressed`](xref:SadConsole.Input.Keyboard.IsKeyPressed(SadConsole.Input.Keys)) method. These share the same set of `if` statements to make it so that you can't push both <kbd>Up</kbd> and <kbd>Down</kbd> at the same time.
 
 ### More movement
 
@@ -394,6 +394,6 @@ Run the game and now you'll see that there is no trail left behind the player:
 
 ## Conclusion
 
-Now you understand a bit more about how input works, and you have a basic map and game object. These are just the basics, there is a lot more you can do with input, but that will be explored when we get into the user interface controls provided by SadConsole. The next part of the tutorial series will explore creating creating more map objects and displaying feedback to the user.
+Now you understand a bit more about how input works, and you have a basic map and game object. These are just the basics, there is a lot more you can do with input, but that will be explored when we get into the user interface controls provided by SadConsole. The next part of the tutorial series will explore creating more map objects and displaying feedback to the user.
 
-- Part 4: Not yet created...
+- [Get Started 4 - A proper map](part-4-mapobject.md)

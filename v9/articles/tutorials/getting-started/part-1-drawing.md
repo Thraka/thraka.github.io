@@ -1,5 +1,5 @@
 ---
-description: Learn how to get started with SadConsole by drawing on a console. Also, learn a few basics about nesting consoles.
+description: Learn how to get started with SadConsole by drawing on a console.
 ms.date: 06/07/2021
 ---
 
@@ -12,7 +12,7 @@ Welcome to the start of the Getting Started with SadConsole tutorial series. Thi
 To start this tutorial you'll need to have created a SadConsole project. It is recommended that you use the [Create a new SadConsole .NET project with the SadConsole templates](../../getting-started-cli.md) which works for Windows, Linux, and macOS.
 
 > [!WARNING]
-> Because of the added complexity, I do not recommend that you create a MonoGame project using the MonoGame Visual Studio templates.
+> Because of the added complexity, I don't recommend that you create a MonoGame project using the MonoGame Visual Studio templates.
 
 ## Sync your code to mine
 
@@ -63,7 +63,7 @@ namespace SadConsoleGame
 
 You should be able to run this code and see the following output. You can run your program by pressing the <kbd>F5</kbd> key. If you're using the terminal, run `dotnet run`:
 
-![a new console in sadconsole with hello text](images/new-core-hello-window.png)
+![a new console in sadconsole with hello text](images/part-1-drawing/new-core-hello-window.png)
 
 One other thing to do. Make sure the namespace you're using is `SadConsoleGame`. You can change the default namespace in the project properties in Visual Studio, or you can (in Visual Studio 2019) double-click the *sadconsolegame.csproj* file to open it and make sure the `<RootNamespace>` is set to `SadConsoleGame`. If it is missing, add it.
 
@@ -161,7 +161,7 @@ After the `Print` line that prints _"Hello from SadConsole"_, add the following 
 startingConsole.DrawBox(new Rectangle(3, 3, 23, 3), ShapeParameters.CreateBorder(new ColoredGlyph(Color.Violet, Color.Black, 176)));
 ```
 
-![box shape in sadconsole](images/part1-shapes-1.png)
+![box shape in sadconsole](images/part-1-drawing/part1-shapes-1.png)
 
 The `DrawBox` method takes a region and a `ShapeParameters` object. The `ShapeParameters` object defines the style in which to create a shape, and in this case, the box. We're using it in a simple mode, which is just providing a `ColoredGlyph` for the border. A `ColoredGlyph` type represents a foreground color, a background color, a glyph character, all in a single type. This glyph is what gets drawn as the border of the box. A `ColoredGlyph` is also used to specify the fill of the shape, but we're going to omit that for now.
 
@@ -178,7 +178,7 @@ startingConsole.DrawBox(new Rectangle(3, 3, 23, 3),
                                                         new ColoredGlyph(Color.Violet, Color.Black)));
 ```
 
-![line shape in sadconsole](images/part1-shapes-2.png)
+![line shape in sadconsole](images/part-1-drawing/part1-shapes-2.png)
 
 `ShapeParameters` can describe many different ways to create the box. While the `ShapeParameters.CreateBorder` method used a `ColoredGlyph` to set the foreground, background, and symbol used to draw the whole border, `ShapeParameters.CreateStyledBox` instead uses a _connected line style_ for the symbols used to draw the box. A `ColoredGlyph` is still used to set the foreground and background of the border. There are a few line styles, and you can create your own, but we'll name two of the most likely used styles:
 
@@ -201,7 +201,7 @@ The code above is using a black background to fill the box.
 
 Run your game and you'll see the following screen:
 
-![circle shape in sadconsole](images/part1-shapes-3.png)
+![circle shape in sadconsole](images/part-1-drawing/part1-shapes-3.png)
 
 #### Line
 
@@ -237,7 +237,7 @@ private static void Init()
 
 Run your game and you'll see the following screen:
 
-![line shape in sadconsole](images/part1-shapes-4.png)
+![line shape in sadconsole](images/part-1-drawing/part1-shapes-4.png)
 
 ## Other basics
 
