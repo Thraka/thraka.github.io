@@ -1,15 +1,15 @@
 ﻿<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Get Started 3 - Input </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Get Started 3 - Input ">
-    <meta name="generator" content="docfx 2.58.9.0">
-    
+    <meta name="generator" content="docfx ">
+  
     <link rel="shortcut icon" href="../../../favicon.ico">
     <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
     <link rel="stylesheet" href="../../../styles/docfx.css">
@@ -17,14 +17,14 @@
     <link rel="stylesheet" href="../../../styles/main.css">
     <meta property="docfx:navrel" content="../../../toc.html">
     <meta property="docfx:tocrel" content="../../toc.html">
-    
-    
-    
+  
+  
+  
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -34,7 +34,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="/">
                 <img id="logo" src="../../../images/SadConsoleLogo.gif" alt="">
               </a>
@@ -48,7 +48,7 @@
             </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -58,7 +58,7 @@
         </div>
       </header>
       <div role="main" class="container body-content hide-when-search">
-        
+
         <div class="sidenav hide-when-search">
           <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
@@ -280,7 +280,7 @@ namespace SadConsoleGame
 <p>The previous tutorial article had you working with the <code>Cursor</code> object. The console was focused and the cursor accepted input and typed on the screen. While the cursor is great for getting input from the user to typing things on to the screen, it's generally not used for normal game interaction. One of the most common things people will do with the keyboard is hook it up so that it moves a character around on the screen.</p>
 <p>Open the <em>RootScreen.cs</em> file.</p>
 <p>SadConsole sends keyboard input to the object that is focused. For our scene to process the keyboard, we'll want to do two things:</p>
-<ol>
+<ul>
 <li><p>Focus the object.</p>
 <p>The <code>RootScreen</code> object was already focused earlier in this article, in the <code>Init</code> method. If you want to change which object directly receives keyboard input, focus it. Things like popup windows will focus themselves for keyboard input, and then when hidden, restore focus to the previously focused object.</p>
 </li>
@@ -292,7 +292,7 @@ namespace SadConsoleGame
 </code></pre>
 <p>This method is called every game frame when the object is focused. The <code>base.ProcessKeyboard</code> call allows the screen object to do its normal keyboard processing, which is processing any keyboard-based components added to the object. You'll learn more about components later.</p>
 </li>
-</ol>
+</ul>
 <p>Next, we'll update the keyboard code to move our player-controlled object around. Remember, the player object has a <code>Position</code> property. We simply have to check if a direction key is pressed, and then change the <code>Position</code> property to move the object.</p>
 <p>The <code>keyboard</code> parameter passed to the <code>ProcessKeyboard</code> method contains the current state of the keyboard, and any changes to it from the previous game frame. This parameter is used to test if a key is pressed, a key's state (up or down), or if a key was just released.</p>
 <p>Change the <code>ProcessKeyboard</code> method to the following code:</p>
@@ -315,12 +315,12 @@ namespace SadConsoleGame
 }
 </code></pre>
 <p>Let's look at this code:</p>
-<ol>
+<ul>
 <li><p>The <code>handled</code> is used to indicate that we did in fact process the keyboard, and this value is returned at the end of the method. This value is important when you want to prevent other objects from processing the keyboard after you did.</p>
 </li>
 <li><p>Both the <code>Keys.Up</code> and <code>Keys.Down</code> values are checked with the <a class="xref" href="../../../api/SadConsole.Input.Keyboard.html#SadConsole_Input_Keyboard_IsKeyPressed_SadConsole_Input_Keys_"><code>keyboard.IsKeyPressed</code></a> method. These share the same set of <code>if</code> statements to make it so that you can't push both <kbd>Up</kbd> and <kbd>Down</kbd> at the same time.</p>
 </li>
-</ol>
+</ul>
 <h3 id="more-movement">More movement</h3>
 <p>Next, add pretty much the same code to the <code>ProcessKeyboard</code> method, right after the checks for up and down. This code will handle left and right movement:</p>
 <pre><code class="lang-csharp">if (keyboard.IsKeyPressed(Keys.Left))
@@ -372,13 +372,13 @@ else if (keyboard.IsKeyPressed(Keys.Right))
 <p>Run the game and now you'll see that there is no trail left behind the player:</p>
 <p><img src="images/part-3-input/move-player-clean.gif" alt="Moving the player"></p>
 <h2 id="conclusion">Conclusion</h2>
-<p>Now you understand a bit more about how input works, and you have a basic map and game object. These are just the basics, there is a lot more you can do with input, but that will be explored when we get into the user interface controls provided by SadConsole. The next part of the tutorial series will explore creating creating more map objects and displaying feedback to the user.</p>
+<p>Now you understand a bit more about how input works, and you have a basic map and game object. These are just the basics, there is a lot more you can do with input, but that will be explored when we get into the user interface controls provided by SadConsole. The next part of the tutorial series will explore creating more map objects and displaying feedback to the user.</p>
 <ul>
-<li>Part 4: Not yet created...</li>
+<li><a href="part-4-mapobject.html">Get Started 4 - A proper map</a></li>
 </ul>
 </article>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
@@ -393,7 +393,7 @@ else if (keyboard.IsKeyPressed(Keys.Right))
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -401,13 +401,13 @@ else if (keyboard.IsKeyPressed(Keys.Right))
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>
     </div>
-    
+
     <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../../styles/main.js"></script>

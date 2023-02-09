@@ -1,15 +1,15 @@
 ﻿<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Get Started 2 - Cursors and parenting </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Get Started 2 - Cursors and parenting ">
-    <meta name="generator" content="docfx 2.58.9.0">
-    
+    <meta name="generator" content="docfx ">
+  
     <link rel="shortcut icon" href="../../../favicon.ico">
     <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
     <link rel="stylesheet" href="../../../styles/docfx.css">
@@ -17,14 +17,14 @@
     <link rel="stylesheet" href="../../../styles/main.css">
     <meta property="docfx:navrel" content="../../../toc.html">
     <meta property="docfx:tocrel" content="../../toc.html">
-    
-    
-    
+  
+  
+  
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -34,7 +34,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="/">
                 <img id="logo" src="../../../images/SadConsoleLogo.gif" alt="">
               </a>
@@ -48,7 +48,7 @@
             </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -58,7 +58,7 @@
         </div>
       </header>
       <div role="main" class="container body-content hide-when-search">
-        
+
         <div class="sidenav hide-when-search">
           <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
@@ -280,10 +280,10 @@ container.Children.MoveToBottom(console2);
 <p>Remember, only the <strong>focused</strong> object receives keyboard input. If we want the second console to receive that keyboard input, we need to remove focus from the first console and give it to the second. Normally you do this with <code>target.IsFocused = true</code>. SadConsole can detect when the mouse is clicked on a surface and automatically give it focus, which is what this code does. Set that property on <code>console1</code> also. You'll be able to click back and forth between both consoles and type on them.</p>
 </li>
 <li><p><code>console2.MoveToFrontOnMouseClick = true;</code></p>
-<p>The draw order of the objects is based on where they are in the children collection of the parent, specified by the <code>Children</code> property. Whichever object is added last becomes the top-most drawn object. Whichever object is first in this collection is the back-most drawn object. Changing focus to the objects, though, doesn't change their draw order. This property responds to the mouse click and moves the object to the top of the collection (last in the collection) to make it appear on top of everything else.</p>
+<p>The draw order of the objects is based on where they are in the children collection of the parent, specified by the <code>Children</code> property. Whichever object is added last becomes the top-most drawn object. Whichever object is first in this collection is the back-most drawn object. Changing focus to the objects, though, doesn't change their draw order. This property responds to the mouse click and moves the object to the top (last in the collection).</p>
 </li>
 <li><p><code>container.Children.MoveToBottom(console2);</code></p>
-<p>Because we created <code>console2</code> after <code>console1</code> and added it to the <code>container</code> after <code>console</code>, it's the top-most object drawn. However, we want the experience to be that <code>console1</code> is the first console you interact with. There are two ways of doing this, either move <code>console2</code> to the bottom of the draw order (which this code does), or simply add both consoles after creating them, in the order you want them drawn. For example, remove the existing <code>container.Children.Add</code> method calls for both consoles, and add this to the end of the code routine:</p>
+<p>Because we created <code>console2</code> after <code>console1</code> and added it to the <code>container</code> after <code>console</code>, it's the top-most object drawn (last in the collection). However, we want the experience to be that <code>console1</code> is the first console you interact with. There are two ways of doing this, either move <code>console2</code> to the bottom of the draw order (which this code does), or simply add both consoles after creating them, in the order you want them drawn. For example, remove the existing <code>container.Children.Add</code> method calls for both consoles, and add this to the end of the code routine:</p>
 <pre><code class="lang-csharp">container.Children.Add(console2);
 container.Children.Add(console1);
 </code></pre>
@@ -292,11 +292,11 @@ container.Children.Add(console1);
 </ol>
 <p>Right now the object hierarchy of <code>Game.Instance.Screen</code> is:</p>
 <pre><code class="lang-text">- container
-  - console2   &lt;-- Moved to the 'bottom'
-  - console1   &lt;-- Top-most child of container
-    - surfaceObject
+  - console2   &lt;-- first in the collection, drawn first, below others
+  - console1   &lt;-- last in the collection, drawn last, on top of others
+    - surfaceObject  &lt;-- as a child of console1, drawn on top of it
 </code></pre>
-<p>When you run the program and you can both consoles. You can click and interact with both.</p>
+<p>When you run the program and you can see and interact with both consoles.</p>
 <p><img src="images/part-2-cursor-parents/two-consoles.png" alt="console with child surface"></p>
 <h2 id="conclusion">Conclusion</h2>
 <p>Now you have both a working console and a non-console surface. You've explored how SadConsole uses the Cursor object to let you type, emulating a terminal. You also learned how to parent one object to another. The next part of this series will explore more about the keyboard and mouse input.</p>
@@ -305,7 +305,7 @@ container.Children.Add(console1);
 </ul>
 </article>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
@@ -320,7 +320,7 @@ container.Children.Add(console1);
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -328,13 +328,13 @@ container.Children.Add(console1);
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>
     </div>
-    
+
     <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../../styles/main.js"></script>

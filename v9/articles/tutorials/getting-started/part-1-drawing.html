@@ -1,15 +1,15 @@
 ﻿<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Get Started 1 - Draw on a console </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Get Started 1 - Draw on a console ">
-    <meta name="generator" content="docfx 2.58.9.0">
-    
+    <meta name="generator" content="docfx ">
+  
     <link rel="shortcut icon" href="../../../favicon.ico">
     <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
     <link rel="stylesheet" href="../../../styles/docfx.css">
@@ -17,14 +17,14 @@
     <link rel="stylesheet" href="../../../styles/main.css">
     <meta property="docfx:navrel" content="../../../toc.html">
     <meta property="docfx:tocrel" content="../../toc.html">
-    
-    
-    
+  
+  
+  
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -34,7 +34,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="/">
                 <img id="logo" src="../../../images/SadConsoleLogo.gif" alt="">
               </a>
@@ -48,7 +48,7 @@
             </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -58,7 +58,7 @@
         </div>
       </header>
       <div role="main" class="container body-content hide-when-search">
-        
+
         <div class="sidenav hide-when-search">
           <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
@@ -75,7 +75,7 @@
 <p>To start this tutorial you'll need to have created a SadConsole project. It is recommended that you use the <a href="../../getting-started-cli.html">Create a new SadConsole .NET project with the SadConsole templates</a> which works for Windows, Linux, and macOS.</p>
 <div class="WARNING">
 <h5>Warning</h5>
-<p>Because of the added complexity, I do not recommend that you create a MonoGame project using the MonoGame Visual Studio templates.</p>
+<p>Because of the added complexity, I don't recommend that you create a MonoGame project using the MonoGame Visual Studio templates.</p>
 </div>
 <h2 id="sync-your-code-to-mine">Sync your code to mine</h2>
 <p>The previous section leads you to material that helps you create a SadConsole project. For this tutorial, make sure the default namespace is <code>SadConsoleGame</code>. If you need to learn more about namespaces, visit the CSharp reference article. You can force the namespace by adding the <code>&lt;RootNamespace&gt;</code> setting to the <code>&lt;PropertyGroup&gt;</code> node in the project file (the file with the <em>.csproj</em> extension):</p>
@@ -118,7 +118,7 @@ namespace SadConsoleGame
 }
 </code></pre>
 <p>You should be able to run this code and see the following output. You can run your program by pressing the <kbd>F5</kbd> key. If you're using the terminal, run <code>dotnet run</code>:</p>
-<p><img src="images/new-core-hello-window.png" alt="a new console in sadconsole with hello text"></p>
+<p><img src="images/part-1-drawing/new-core-hello-window.png" alt="a new console in sadconsole with hello text"></p>
 <p>One other thing to do. Make sure the namespace you're using is <code>SadConsoleGame</code>. You can change the default namespace in the project properties in Visual Studio, or you can (in Visual Studio 2019) double-click the <em>sadconsolegame.csproj</em> file to open it and make sure the <code>&lt;RootNamespace&gt;</code> is set to <code>SadConsoleGame</code>. If it is missing, add it.</p>
 <p>Additionally, the <code>&lt;TargetFramework&gt;</code> value should be set to <code>net5.0</code>.</p>
 <pre><code class="lang-xml">&lt;Project Sdk=&quot;Microsoft.NET.Sdk&quot;&gt;
@@ -190,7 +190,7 @@ namespace SadConsoleGame
 <p>After the <code>Print</code> line that prints <em>&quot;Hello from SadConsole&quot;</em>, add the following to draw a box around it:</p>
 <pre><code class="lang-csharp">startingConsole.DrawBox(new Rectangle(3, 3, 23, 3), ShapeParameters.CreateBorder(new ColoredGlyph(Color.Violet, Color.Black, 176)));
 </code></pre>
-<p><img src="images/part1-shapes-1.png" alt="box shape in sadconsole"></p>
+<p><img src="images/part-1-drawing/part1-shapes-1.png" alt="box shape in sadconsole"></p>
 <p>The <code>DrawBox</code> method takes a region and a <code>ShapeParameters</code> object. The <code>ShapeParameters</code> object defines the style in which to create a shape, and in this case, the box. We're using it in a simple mode, which is just providing a <code>ColoredGlyph</code> for the border. A <code>ColoredGlyph</code> type represents a foreground color, a background color, a glyph character, all in a single type. This glyph is what gets drawn as the border of the box. A <code>ColoredGlyph</code> is also used to specify the fill of the shape, but we're going to omit that for now.</p>
 <p>The <code>DrawBox</code> method breaks down into the following parameters:</p>
 <ul>
@@ -202,7 +202,7 @@ namespace SadConsoleGame
                         ShapeParameters.CreateStyledBox(ICellSurface.ConnectedLineThin,
                                                         new ColoredGlyph(Color.Violet, Color.Black)));
 </code></pre>
-<p><img src="images/part1-shapes-2.png" alt="line shape in sadconsole"></p>
+<p><img src="images/part-1-drawing/part1-shapes-2.png" alt="line shape in sadconsole"></p>
 <p><code>ShapeParameters</code> can describe many different ways to create the box. While the <code>ShapeParameters.CreateBorder</code> method used a <code>ColoredGlyph</code> to set the foreground, background, and symbol used to draw the whole border, <code>ShapeParameters.CreateStyledBox</code> instead uses a <em>connected line style</em> for the symbols used to draw the box. A <code>ColoredGlyph</code> is still used to set the foreground and background of the border. There are a few line styles, and you can create your own, but we'll name two of the most likely used styles:</p>
 <ul>
 <li><code>ICellSurface.ConnectedLineThin</code>: A thin single line.</li>
@@ -217,7 +217,7 @@ namespace SadConsoleGame
 </code></pre>
 <p>The code above is using a black background to fill the box.</p>
 <p>Run your game and you'll see the following screen:</p>
-<p><img src="images/part1-shapes-3.png" alt="circle shape in sadconsole"></p>
+<p><img src="images/part-1-drawing/part1-shapes-3.png" alt="circle shape in sadconsole"></p>
 <h4 id="line">Line</h4>
 <p>The line shape is probably the simplest. There is no fill to worry about, you simply set the starting point of the line, the ending point, and then what glyph and colors to use when drawing the line.</p>
 <p>However, before we drawn a line, let's remove the <code>FillWithRandomGarbage</code> code line. All of this visual noise will make it hard to see something as small as a line. After removing that code line, add the following line to the end of your code:</p>
@@ -243,7 +243,7 @@ namespace SadConsoleGame
 }
 </code></pre>
 <p>Run your game and you'll see the following screen:</p>
-<p><img src="images/part1-shapes-4.png" alt="line shape in sadconsole"></p>
+<p><img src="images/part-1-drawing/part1-shapes-4.png" alt="line shape in sadconsole"></p>
 <h2 id="other-basics">Other basics</h2>
 <p>There are a few other methods you can use to change a console. We learned that the <code>Print</code> method works at a specific position and prints out a string with a foreground and background, but, you can also work with individual cells. You can adjust the foreground color, the background color, the glyph, or the glyph mirror setting of any cell in the console, by referring to its X,Y coordinate.</p>
 <ul>
@@ -275,7 +275,7 @@ console.startingConsole.SetMirror(10, 4, Mirror.Vertical);
 </ul>
 </article>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
@@ -290,7 +290,7 @@ console.startingConsole.SetMirror(10, 4, Mirror.Vertical);
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -298,13 +298,13 @@ console.startingConsole.SetMirror(10, 4, Mirror.Vertical);
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>
     </div>
-    
+
     <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../../../styles/docfx.js"></script>
     <script type="text/javascript" src="../../../styles/main.js"></script>
