@@ -1,0 +1,263 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Get Started 5 - More objects </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Get Started 5 - More objects ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/dracula.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  
+  
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="/">
+                <img id="logo" src="../../../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="get-started-5---more-objects">Get Started 5 - More objects</h1>
+
+<p>In this part of the tutorial you learn how to add different types of map objects that can react differently to the player touching them.</p>
+<p>Previous articles in this tutorial:</p>
+<ul>
+<li><a href="part-2-cursor-parents.html">Get Started 2 - Cursors and parenting</a></li>
+<li><a href="part-3-input.html">Get Started 3 - Input</a></li>
+<li><a href="part-4-mapobject.html">Get Started 4 - A proper map</a></li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>This part of the tutorial continues where the previous one left off. If you don't have your code handy, you can download it from <a href="projects/Part4.zip">here</a> and follow along.</p>
+<h2 id="concrete-types">Concrete types</h2>
+<p>The <code>GameObject</code> type represents a thing that can be positioned and drawn on the map. However, it doesn't really &quot;do&quot; anything. Let's create two new classes, one for <strong>monster</strong> and one for <strong>treasure</strong>. Both will inherit from <code>GameObject</code> and override the <code>Touched</code> method.</p>
+<h3 id="treasure">Treasure</h3>
+<p>To create the treasure class, perform the following:</p>
+<ol>
+<li><p>Add a new class to the project, named <em>Treasure.cs</em>.</p>
+</li>
+<li><p>Open the code file and replace the code with the following snippet:</p>
+<pre><code class="lang-csharp">using SadConsole;
+using SadRogue.Primitives;
+
+namespace SadConsoleGame
+{
+    internal class Treasure: GameObject
+    {
+
+    }
+}
+</code></pre>
+</li>
+<li><p>In the class declaration, add a new constructor that calls the base class's constructor. This sets the appearance of the &quot;monster&quot; object.</p>
+<pre><code class="lang-csharp">public Treasure(Point position, IScreenSurface hostingSurface)
+    : base(new ColoredGlyph(Color.Yellow, Color.Black, 'v'), position, hostingSurface)
+{
+
+}
+</code></pre>
+<p>Unlike instantiating a normal <code>GameObject</code> type, where you must specify how the game object looks, <code>Treasure</code> always looks like &quot;treasure&quot; in the game. This is because the constructor for <code>Treasure</code> specifies the <code>ColoredGlyph</code> used by the game object. Any other defaults (though they're aren't any yet) could be specified in the constructor.</p>
+</li>
+<li><p>Next, add the code for the <code>Touched</code> method.</p>
+<pre><code class="lang-csharp">public override bool Touched(GameObject source, Map map)
+{
+    // Is the player the one that touched us?
+    if (source == map.UserControlledObject)
+    {
+        map.RemoveMapObject(this);
+        return true;
+    }
+
+    return false;
+}
+</code></pre>
+<p>The previous code checks if the player, the <code>UserControlledObject</code> is the one that touched this treasure. If it was, the object is removed from the map and <code>true</code> is returned, which lets the player move into that space.</p>
+</li>
+</ol>
+<p>Treasure is finished, but the <code>RemoveMapObject</code> method on the map doesn't exist, we'll create that after the <code>Monster</code> type is created.</p>
+<h3 id="monster">Monster</h3>
+<p>To create the monster class, perform the following:</p>
+<ol>
+<li><p>Add a new class to the project, named <em>Monster.cs</em>.</p>
+</li>
+<li><p>Open the code file and replace the code with the following snippet:</p>
+<pre><code class="lang-csharp">using SadConsole;
+using SadRogue.Primitives;
+
+namespace SadConsoleGame
+{
+    internal class Monster: GameObject
+    {
+
+    }
+}
+</code></pre>
+</li>
+<li><p>In the class declaration, add a new constructor that calls the base class's constructor. This sets the appearance of the &quot;monster&quot; object.</p>
+<pre><code class="lang-csharp">public Monster(Point position, IScreenSurface hostingSurface)
+    : base(new ColoredGlyph(Color.Red, Color.Black, 'M'), position, hostingSurface)
+{
+
+}
+</code></pre>
+<p>Just like <code>Treasure</code>, <code>Monster</code> specifies the <code>ColoredGlyph</code> for every <code>Monster</code> type. You can introduce variation later, but for now, they'll all be <code>M</code> on the screen.</p>
+</li>
+<li><p>Next, add the code for the <code>Touched</code> method.</p>
+<pre><code class="lang-csharp">public override bool Touched(GameObject source, Map map)
+{
+    return base.Touched(source, map);
+}
+</code></pre>
+</li>
+</ol>
+<h2 id="update-the-map-with-removemapobject">Update the map with RemoveMapObject</h2>
+<p>The map needs to expose the ability to remove an object from itself. This will be the <code>RemoveMapObject</code> method.</p>
+<ol>
+<li><p>Open the <em>Map.cs</em> file.</p>
+</li>
+<li><p>Add the following code:</p>
+<pre><code class="lang-csharp">public void RemoveMapObject(GameObject mapObject)
+{
+    if (_mapObjects.Contains(mapObject))
+    {
+        _mapObjects.Remove(mapObject);
+        mapObject.RestoreMap(this);
+    }
+}
+</code></pre>
+</li>
+</ol>
+<p>This code checks if the game object is actually associated with the map, and if it is, removes it from the map. There is another method used here though, <code>mapObject.RestoreMap</code>. When a game object is moved, it restores the map space before drawing itself to the new map space. We need to expose that capability so that when a game object is removed from the map, it can restore the map's space.</p>
+<h2 id="update-the-game-object-with-restoremap">Update the game object with RestoreMap</h2>
+<p>Next, add the <code>RestoreMap</code> method to the <code>GameObject</code> class. This lets external objects, such as the map, tell the game object to fill back in the old map space.</p>
+<ol>
+<li><p>Open the <em>GameObject.cs</em> file.</p>
+</li>
+<li><p>Add the following code:</p>
+<pre><code class="lang-csharp">public void RestoreMap(Map map) =&gt;
+    _mapAppearance.CopyAppearanceTo(map.SurfaceObject.Surface[Position]);
+</code></pre>
+</li>
+</ol>
+<h2 id="run-the-game">Run the game</h2>
+<p>Before you run the game, to test out touching the treasure, lets add more monsters and treasure to the map. The map has two methods, <code>CreateTreasure</code> and <code>CreateMonster</code>, which are both called once in the map's constructor. Lets call it five times instead, which makes the map a little more populated.</p>
+<ol>
+<li><p>Open the <em>Map.cs</em> file.</p>
+</li>
+<li><p>Find the <code>Map</code> constructor and add a <code>for</code> loop that runs five times.</p>
+<pre><code class="lang-csharp">public Map(int mapWidth, int mapHeight)
+{
+    _mapObjects = new List&lt;GameObject&gt;();
+    _mapSurface = new ScreenSurface(mapWidth, mapHeight);
+    _mapSurface.UseMouse = false;
+
+    FillBackground();
+
+    UserControlledObject = new GameObject(new ColoredGlyph(Color.White, Color.Black, 2), _mapSurface.Surface.Area.Center, _mapSurface);
+
+    for (int i = 0; i &lt; 5; i++)
+    {
+        CreateTreasure();
+        CreateMonster();
+    }
+}
+
+</code></pre>
+</li>
+<li><p>Run the game.</p>
+</li>
+</ol>
+<p>Now you'll see that there are multiple treasure objects. Walk the player into them and notice that they disappear. Do the same with monsters and notice that they remain.</p>
+<p><img src="images/part-5-more-objects/treasure_pickup.gif" alt="Player moving around and picking up treasure."></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>As you can see, the game is starting to come together, there are game objects and a map object that ties everything together. In the next part of the series, you'll explore how to add more consoles to the screen to present status and information to the player.</p>
+<ul>
+<li>Part 6 - .... Not yet ready</li>
+</ul>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

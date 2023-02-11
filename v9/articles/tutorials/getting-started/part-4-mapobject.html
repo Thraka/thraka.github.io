@@ -319,8 +319,8 @@ namespace SadConsoleGame
         }
 
         // If the code reaches here, we've got a good position, create the game object.
-        GameObject treasure = new GameObject(new ColoredGlyph(Color.Red, Color.Black, 'M'), randomPosition, _mapSurface);
-        _mapObjects.Add(treasure);
+        GameObject monster = new GameObject(new ColoredGlyph(Color.Red, Color.Black, 'M'), randomPosition, _mapSurface);
+        _mapObjects.Add(monster);
         break;
     }
 }
@@ -352,7 +352,7 @@ namespace SadConsoleGame
 <li><p>Open the <em>GameObject.cs</em> file.</p>
 </li>
 <li><p>Add a new method named <code>Touched</code> which is called when another game object touches the current one:</p>
-<pre><code class="lang-csharp">public virtual bool Touched(GameObject source)
+<pre><code class="lang-csharp">public virtual bool Touched(GameObject source, Map map)
 {
     return false;
 }
@@ -418,7 +418,7 @@ namespace SadConsoleGame
     if (map.TryGetMapObject(newPosition, out GameObject foundObject))
     {
         // We touched the other object, but they won't allow us to move into the space
-        if (!foundObject.Touched(this))
+        if (!foundObject.Touched(this, map))
             return false;
     }
 
@@ -438,9 +438,9 @@ namespace SadConsoleGame
 </ol>
 <p>Now try running the game. When you move the player character to the same position as another game object, it restricts you from moving into that position.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>After all of these updates, your game is starting to take shape. In the next part of the tutorial, we'll explore how to create new types based on <code>GameObject</code> that know how to react to the <code>Touch</code> method.</p>
+<p>After all of these updates, your game is starting to take shape. In the next part of the tutorial, we'll explore how to create new types based on <code>GameObject</code> that know how to react to the <code>Touched</code> method.</p>
 <ul>
-<li>Part 5 - .... Not yet ready</li>
+<li><a href="part-5-more-objects.html">Get Started 5 - More objects</a></li>
 </ul>
 </article>
           </div>
