@@ -1,5 +1,6 @@
 ﻿using SadConsole;
 using SadRogue.Primitives;
+using System;
 using System.Collections.Generic;
 
 namespace SadConsoleGame
@@ -20,11 +21,14 @@ namespace SadConsoleGame
             _mapSurface.UseMouse = false;
 
             FillBackground();
-         
+
             UserControlledObject = new GameObject(new ColoredGlyph(Color.White, Color.Black, 2), _mapSurface.Surface.Area.Center, _mapSurface);
 
-            CreateTreasure();
-            CreateMonster();
+            for (int i = 0; i < 5; i++)
+            {
+                CreateTreasure();
+                CreateMonster();
+            }
         }
 
         private void FillBackground()
@@ -58,7 +62,7 @@ namespace SadConsoleGame
                 }
 
                 // If the code reaches here, we've got a good position, create the game object.
-                GameObject treasure = new GameObject(new ColoredGlyph(Color.Yellow, Color.Black, 'v'), randomPosition, _mapSurface);
+                Treasure treasure = new Treasure(randomPosition, _mapSurface);
                 _mapObjects.Add(treasure);
                 break;
             }
@@ -81,7 +85,7 @@ namespace SadConsoleGame
                 }
 
                 // If the code reaches here, we've got a good position, create the game object.
-                GameObject monster = new GameObject(new ColoredGlyph(Color.Red, Color.Black, 'M'), randomPosition, _mapSurface);
+                Monster monster = new Monster(randomPosition, _mapSurface);
                 _mapObjects.Add(monster);
                 break;
             }
@@ -101,6 +105,15 @@ namespace SadConsoleGame
 
             gameObject = null;
             return false;
+        }
+
+        public void RemoveMapObject(GameObject mapObject)
+        {
+            if (_mapObjects.Contains(mapObject))
+            {
+                _mapObjects.Remove(mapObject);
+                mapObject.RestoreMap(this);
+            }
         }
     }
 }

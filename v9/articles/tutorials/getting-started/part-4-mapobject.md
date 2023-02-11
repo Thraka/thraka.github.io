@@ -15,7 +15,7 @@ Previous articles in this tutorial:
 
 ## Prerequisites
 
-This part of the tutorial continues where the previous one left off. If you don't have your code handy, you can download it from [here][code_download] and follow along.
+This part of the tutorial continues where the previous one left off. If you don't have your code handy, you can download it from [here][code_download_3] and follow along.
 
 ## Bounds checking
 
@@ -281,8 +281,8 @@ Similar to the treasure, let's add a method to create a monster object:
             }
     
             // If the code reaches here, we've got a good position, create the game object.
-            GameObject treasure = new GameObject(new ColoredGlyph(Color.Red, Color.Black, 'M'), randomPosition, _mapSurface);
-            _mapObjects.Add(treasure);
+            GameObject monster = new GameObject(new ColoredGlyph(Color.Red, Color.Black, 'M'), randomPosition, _mapSurface);
+            _mapObjects.Add(monster);
             break;
         }
     }
@@ -320,7 +320,7 @@ Now that we have multiple game objects, we need to handle collision between obje
 01. Add a new method named `Touched` which is called when another game object touches the current one:
 
     ```csharp
-    public virtual bool Touched(GameObject source)
+    public virtual bool Touched(GameObject source, Map map)
     {
         return false;
     }
@@ -397,7 +397,7 @@ Now that we have multiple game objects, we need to handle collision between obje
         if (map.TryGetMapObject(newPosition, out GameObject foundObject))
         {
             // We touched the other object, but they won't allow us to move into the space
-            if (!foundObject.Touched(this))
+            if (!foundObject.Touched(this, map))
                 return false;
         }
     
@@ -418,8 +418,8 @@ Now try running the game. When you move the player character to the same positio
 
 ## Conclusion
 
-After all of these updates, your game is starting to take shape. In the next part of the tutorial, we'll explore how to create new types based on `GameObject` that know how to react to the `Touch` method.
+After all of these updates, your game is starting to take shape. In the next part of the tutorial, we'll explore how to create new types based on `GameObject` that know how to react to the `Touched` method.
 
-- Part 5 - .... Not yet ready
+- [Get Started 5 - More objects](part-5-more-objects.md)
 
-[code_download]: http://none
+[code_download_3]: projects/Part3.zip
