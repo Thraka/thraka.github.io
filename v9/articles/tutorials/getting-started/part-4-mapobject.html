@@ -124,6 +124,7 @@
 <pre><code class="lang-csharp">using SadConsole;
 using SadRogue.Primitives;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SadConsoleGame
 {
@@ -258,12 +259,9 @@ namespace SadConsoleGame
         Point randomPosition = new Point(Game.Instance.Random.Next(0, _mapSurface.Surface.Width),
                                             Game.Instance.Random.Next(0, _mapSurface.Surface.Height));
 
-        // Check if any object is already positioned there.
-        foreach (var obj in _mapObjects)
-        {
-            if (obj.Position == randomPosition)
-                continue;
-        }
+        // Check if any object is already positioned there, repeat the loop if found
+        bool foundObject = _mapObjects.Any(obj =&gt; obj.Position == randomPosition);
+        if (foundObject) continue;
 
         // If the code reaches here, we've got a good position, create the game object.
         GameObject treasure = new GameObject(new ColoredGlyph(Color.Yellow, Color.Black, 'v'), randomPosition, _mapSurface);
@@ -311,12 +309,9 @@ namespace SadConsoleGame
         Point randomPosition = new Point(Game.Instance.Random.Next(0, _mapSurface.Surface.Width),
                                             Game.Instance.Random.Next(0, _mapSurface.Surface.Height));
 
-        // Check if any object is already positioned there.
-        foreach (var obj in _mapObjects)
-        {
-            if (obj.Position == randomPosition)
-                continue;
-        }
+        // Check if any object is already positioned there, repeat the loop if found
+        bool foundObject = _mapObjects.Any(obj =&gt; obj.Position == randomPosition);
+        if (foundObject) continue;
 
         // If the code reaches here, we've got a good position, create the game object.
         GameObject monster = new GameObject(new ColoredGlyph(Color.Red, Color.Black, 'M'), randomPosition, _mapSurface);
@@ -440,7 +435,8 @@ namespace SadConsoleGame
 <h2 id="conclusion">Conclusion</h2>
 <p>After all of these updates, your game is starting to take shape. In the next part of the tutorial, we'll explore how to create new types based on <code>GameObject</code> that know how to react to the <code>Touched</code> method.</p>
 <ul>
-<li><a href="part-5-more-objects.html">Get Started 5 - More objects</a></li>
+<li><a href="part-5-more-objects.html">Next: Get Started 5 - More objects</a></li>
+<li><a href="projects/Part4.zip">Download the code for this part of the tutorial</a></li>
 </ul>
 </article>
           </div>
