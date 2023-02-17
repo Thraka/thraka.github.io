@@ -15,7 +15,7 @@ Previous articles in this tutorial:
 
 ## Prerequisites
 
-This part of the tutorial continues where the previous one left off. If you don't have your code handy, you can download it from [here][code_download_4] and follow along.
+This part of the tutorial continues where the previous one left off. If you don't have your code handy, you can download it from [here][code_download_previous] and follow along.
 
 ## Concrete types
 
@@ -181,6 +181,8 @@ Now you'll see that there are multiple treasure objects. Walk the player into th
 
 As you can see, the game is starting to come together, there are game objects and a map object that ties everything together. In the next part of the series, you'll explore how to add more consoles to the screen to present status and information to the player.
 
-- Part 6 - .... Not yet ready
+- Next: Get Started 6 - .... Not yet ready
+- [Download the code for this part of the tutorial][code_download_current]
 
-[code_download_4]: projects/Part4.zip
+[code_download_previous]: projects/Part4.zip
+[code_download_current]: projects/Part5.zip

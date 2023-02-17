@@ -15,7 +15,7 @@ Previous articles in this tutorial:
 
 ## Prerequisites
 
-This part of the tutorial continues where the previous one left off. If you don't have your code handy, you can download it from [here][code_download_3] and follow along.
+This part of the tutorial continues where the previous one left off. If you don't have your code handy, you can download it from [here][code_download_previous] and follow along.
 
 ## Bounds checking
 
@@ -71,6 +71,7 @@ Add a new class to your project named _Map.cs_. We're going to move all of the m
 using SadConsole;
 using SadRogue.Primitives;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SadConsoleGame
 {
@@ -215,14 +216,11 @@ Now that the map can contain other objects, lets create a treasure object.
             // Get a random position
             Point randomPosition = new Point(Game.Instance.Random.Next(0, _mapSurface.Surface.Width),
                                                 Game.Instance.Random.Next(0, _mapSurface.Surface.Height));
-    
-            // Check if any object is already positioned there.
-            foreach (var obj in _mapObjects)
-            {
-                if (obj.Position == randomPosition)
-                    continue;
-            }
-    
+
+            // Check if any object is already positioned there, repeat the loop if found
+            bool foundObject = _mapObjects.Any(obj => obj.Position == randomPosition);
+            if (foundObject) continue;
+
             // If the code reaches here, we've got a good position, create the game object.
             GameObject treasure = new GameObject(new ColoredGlyph(Color.Yellow, Color.Black, 'v'), randomPosition, _mapSurface);
             _mapObjects.Add(treasure);
@@ -272,14 +270,11 @@ Similar to the treasure, let's add a method to create a monster object:
             // Get a random position
             Point randomPosition = new Point(Game.Instance.Random.Next(0, _mapSurface.Surface.Width),
                                                 Game.Instance.Random.Next(0, _mapSurface.Surface.Height));
-    
-            // Check if any object is already positioned there.
-            foreach (var obj in _mapObjects)
-            {
-                if (obj.Position == randomPosition)
-                    continue;
-            }
-    
+
+            // Check if any object is already positioned there, repeat the loop if found
+            bool foundObject = _mapObjects.Any(obj => obj.Position == randomPosition);
+            if (foundObject) continue;
+
             // If the code reaches here, we've got a good position, create the game object.
             GameObject monster = new GameObject(new ColoredGlyph(Color.Red, Color.Black, 'M'), randomPosition, _mapSurface);
             _mapObjects.Add(monster);
@@ -420,6 +415,8 @@ Now try running the game. When you move the player character to the same positio
 
 After all of these updates, your game is starting to take shape. In the next part of the tutorial, we'll explore how to create new types based on `GameObject` that know how to react to the `Touched` method.
 
-- [Get Started 5 - More objects](part-5-more-objects.md)
+- [Next: Get Started 5 - More objects](part-5-more-objects.md)
+- [Download the code for this part of the tutorial][code_download_current]
 
-[code_download_3]: projects/Part3.zip
+[code_download_previous]: projects/Part3.zip
+[code_download_current]: projects/Part4.zip

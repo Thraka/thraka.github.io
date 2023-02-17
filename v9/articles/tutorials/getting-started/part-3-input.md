@@ -396,4 +396,7 @@ Run the game and now you'll see that there is no trail left behind the player:
 
 Now you understand a bit more about how input works, and you have a basic map and game object. These are just the basics, there is a lot more you can do with input, but that will be explored when we get into the user interface controls provided by SadConsole. The next part of the tutorial series will explore creating more map objects and displaying feedback to the user.
 
-- [Get Started 4 - A proper map](part-4-mapobject.md)
+- [Next: Get Started 4 - A proper map](part-4-mapobject.md)
+- [Download the code for this part of the tutorial][code_download_current]
+
+[code_download_current]: projects/Part3.zip

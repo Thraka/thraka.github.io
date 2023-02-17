@@ -275,7 +275,7 @@ There are a few other methods you can use to change a console. We learned that t
 
 You've now explored some of the basics of SadConsole. The `Game.Instance.StartingConsole` is a console you can use to quickly prototype and experiment. Keep experimenting with these methods. The next part of this series will explore the Console cursor and the screen layout system built into SadConsole.
 
-- [Part 2: Cursor and parenting](part-2-cursor-parents.md)
+- [Next: Get Started 2 - Cursor and parenting](part-2-cursor-parents.md)
 
 [csharp-static]: https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/static
 [csharp-using]:  https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/using

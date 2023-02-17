@@ -303,4 +303,4 @@ When you run the program and you can see and interact with both consoles.
 
 Now you have both a working console and a non-console surface. You've explored how SadConsole uses the Cursor object to let you type, emulating a terminal. You also learned how to parent one object to another. The next part of this series will explore more about the keyboard and mouse input.
 
-- [Part 3: Input](part-3-input.md)
+- [Next: Get Started 2 - Input](part-3-input.md)

@@ -1,7 +1,7 @@
 ﻿using SadConsole;
 using SadRogue.Primitives;
-using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SadConsoleGame
 {
@@ -54,15 +54,12 @@ namespace SadConsoleGame
                 Point randomPosition = new Point(Game.Instance.Random.Next(0, _mapSurface.Surface.Width),
                                                  Game.Instance.Random.Next(0, _mapSurface.Surface.Height));
 
-                // Check if any object is already positioned there.
-                foreach (var obj in _mapObjects)
-                {
-                    if (obj.Position == randomPosition)
-                        continue;
-                }
+                // Check if any object is already positioned there, repeat the loop if found
+                bool foundObject = _mapObjects.Any(obj => obj.Position == randomPosition);
+                if (foundObject) continue;
 
                 // If the code reaches here, we've got a good position, create the game object.
-                Treasure treasure = new Treasure(randomPosition, _mapSurface);
+                GameObject treasure = new GameObject(new ColoredGlyph(Color.Yellow, Color.Black, 'v'), randomPosition, _mapSurface);
                 _mapObjects.Add(treasure);
                 break;
             }
@@ -77,15 +74,12 @@ namespace SadConsoleGame
                 Point randomPosition = new Point(Game.Instance.Random.Next(0, _mapSurface.Surface.Width),
                                                  Game.Instance.Random.Next(0, _mapSurface.Surface.Height));
 
-                // Check if any object is already positioned there.
-                foreach (var obj in _mapObjects)
-                {
-                    if (obj.Position == randomPosition)
-                        continue;
-                }
+                // Check if any object is already positioned there, repeat the loop if found
+                bool foundObject = _mapObjects.Any(obj => obj.Position == randomPosition);
+                if (foundObject) continue;
 
                 // If the code reaches here, we've got a good position, create the game object.
-                Monster monster = new Monster(randomPosition, _mapSurface);
+                GameObject monster = new GameObject(new ColoredGlyph(Color.Red, Color.Black, 'M'), randomPosition, _mapSurface);
                 _mapObjects.Add(monster);
                 break;
             }
