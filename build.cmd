@@ -1,2 +1,1 @@
-docfx .\v9\docfx.json
-docfx .\root\docfx.json
+docfx build .\root\docfx.json
