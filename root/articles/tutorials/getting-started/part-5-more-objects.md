@@ -1,6 +1,6 @@
 ---
 description: Part 5 of the getting started series. This article explores creating more objects to put on the game map. The objects have code that reacts to the player touching them.
-ms.date: 02/11/2023
+ms.date: 09/04/2023
 ---
 
 # Get Started 5 - More objects
@@ -29,15 +29,11 @@ To create the treasure class, perform the following:
 01. Open the code file and replace the code with the following snippet:
 
     ```csharp
-    using SadConsole;
-    using SadRogue.Primitives;
+    namespace SadConsoleGame;
     
-    namespace SadConsoleGame
+    internal class Treasure: GameObject
     {
-        internal class Treasure: GameObject
-        {
     
-        }
     }
     ```
 
@@ -53,7 +49,7 @@ To create the treasure class, perform the following:
 
     Unlike instantiating a normal `GameObject` type, where you must specify how the game object looks, `Treasure` always looks like "treasure" in the game. This is because the constructor for `Treasure` specifies the `ColoredGlyph` used by the game object. Any other defaults (though they're aren't any yet) could be specified in the constructor.
 
-01. Next, add the code for the `Touched` method. 
+01. Next, add the code for the `Touched` method. Note that the `map.RemoveMapObject` method doesn't yet exist. 
 
     ```csharp
     public override bool Touched(GameObject source, Map map)
@@ -79,21 +75,17 @@ To create the monster class, perform the following:
 
 01. Add a new class to the project, named _Monster.cs_.
 01. Open the code file and replace the code with the following snippet:
-
+    
     ```csharp
-    using SadConsole;
-    using SadRogue.Primitives;
+    namespace SadConsoleGame;
     
-    namespace SadConsoleGame
+    internal class Monster : GameObject
     {
-        internal class Monster: GameObject
-        {
     
-        }
     }
     ```
 
-01. In the class declaration, add a new constructor that calls the base class's constructor. This sets the appearance of the "monster" object.
+01. In the class declaration, add a new constructor that calls the base class's constructor.
 
     ```csharp
     public Monster(Point position, IScreenSurface hostingSurface)
@@ -146,9 +138,46 @@ Next, add the `RestoreMap` method to the `GameObject` class. This lets external 
         _mapAppearance.CopyAppearanceTo(map.SurfaceObject.Surface[Position]);
     ```
 
+    This code uses another modern C# technique, the `=>` expression operator. When you declare a method and only have a single code statement, you can omit the `{ }` block and use the expression operator to infer the single code statement as the body of the method.
+
+## Use the new treasure and monster classes
+
+The map has the `CreateTreasure` and `CreateMonster` methods, but they currently use the`GameObject` class. These two methods need to be modified to use the concrete types.
+
+01. Open the _Map.cs_ file.
+01. Change the code in the `CreateTreasure` method. Alter the type used when creating the treasure instance:
+
+    From:
+    
+    ```csharp
+    GameObject treasure = new GameObject(new ColoredGlyph(Color.Yellow, Color.Black, 'v'), randomPosition, _mapSurface);
+    ```
+    
+    To:
+    
+    ```csharp
+    Treasure treasure = new Treasure(randomPosition, _mapSurface);
+    ```
+    
+    Note that the constructor parameters changed. The `Treaasure` type doesn't require a `ColoredGlyph` to describe how it looks.
+
+01. Next, change the code in the `CcreateMonster` method in the same way as `CreateTreasure`:
+
+    From:
+    
+    ```csharp
+    GameObject monster = new GameObject(new ColoredGlyph(Color.Red, Color.Black, 'M'), randomPosition, _mapSurface);
+    ```
+    
+    To:
+    
+    ```csharp
+    Monster monster = new Monster(randomPosition, _mapSurface);
+    ```
+
 ## Run the game
 
-Before you run the game, to test out touching the treasure, lets add more monsters and treasure to the map. The map has two methods, `CreateTreasure` and `CreateMonster`, which are both called once in the map's constructor. Lets call it five times instead, which makes the map a little more populated.
+Before you run the game to test out touching the treasure and monster, let's add more monsters and treasure to the map. The map has two methods, `CreateTreasure` and `CreateMonster`, which are both called once in the map's constructor. Lets call it five times instead, which makes the map a little more populated.
 
 01. Open the _Map.cs_ file.
 01. Find the `Map` constructor and add a `for` loop that runs five times.
@@ -170,6 +199,7 @@ Before you run the game, to test out touching the treasure, lets add more monste
             CreateMonster();
         }
     }
+    ```
 
 01. Run the game.
 

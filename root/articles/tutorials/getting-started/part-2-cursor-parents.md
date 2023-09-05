@@ -1,6 +1,6 @@
 ---
 description: Part 2 of the getting started series. In this part you'll learn how to use the Cursor object and how nesting and parenting consoles works.
-ms.date: 08/07/2021
+ms.date: 09/04/2023
 ---
 
 # Get Started 2 - Cursors and parenting
@@ -13,42 +13,32 @@ Previous articles in this tutorial:
 
 ## Prerequisites
 
-To start this tutorial you'll need to have created a SadConsole project, one that was created by following the previous tutorial in this series. However, you may have been experimenting with your code, trying new things out. To make sure that you start this tutorial with the same code, copy and paste the following code into your *program.cs*:
+To start this part of the tutorial you'll need to have created a SadConsole project, one that was created by following the previous tutorial in this series. However, you may have been experimenting with your code. To make sure that you start this tutorial with the same code, copy and paste the following code into your _program.cs_:
 
 ```csharp
-using System;
-using SadConsole;
-using SadRogue.Primitives;
-using Console = SadConsole.Console;
+Settings.WindowTitle = "My SadConsole Game";
 
-namespace SadConsoleGame
+Game.Configuration gameStartup = new Game.Configuration()
+    .SetScreenSize(90, 30)
+    .OnStart(Startup)
+    ;
+
+Game.Create(gameStartup);
+Game.Instance.Run();
+Game.Instance.Dispose();
+
+static void Startup()
 {
-    public static class Program
-    {
-        static void Main()
-        {
-            // Setup the engine and create the main window.
-            Game.Create(80, 25);
+    if (Game.Instance.StartingConsole is null)
+        throw new NullReferenceException("Unsure why. If you used a game config with SetStartingScreen, it destroys the StartingConsole object.");
 
-            // Hook the start event so we can add consoles to the system.
-            Game.Instance.OnStart = Init;
-
-            // Start the game.
-            Game.Instance.Run();
-            Game.Instance.Dispose();
-        }
-
-        static void Init()
-        {
-
-        }
-    }
+    Console startingConsole = Game.Instance.StartingConsole;
 }
 ```
 
 ## Use the Cursor
 
-The `SadConsole.Console` type is the basic type you use to get data on the screen. As you learned in the previous part of this tutorial series, you can use methods like `SetGlyph`, `SetForeground`, and even `Print`, to draw on the console. There is another way to write to the user, something the user and yourself may be more used to, and that's the console cursor.
+The `SadConsole.Console` type is the basic type you use to get data on the screen. As you learned in the previous part of this tutorial series, you can use methods like `SetGlyph`, `SetForeground`, and even `Print`, to draw on the console. There is another way to write to the console, something the you may be more used to, and that's the console cursor.
 
 When you run a terminal program, such as _cmd.exe_ or _bash_, you're presented with a blinking cursor, letting you know its ready for you to type something. When the programs you run communicate back to you, that cursor prints things to the screen:
 
@@ -56,19 +46,27 @@ When you run a terminal program, such as _cmd.exe_ or _bash_, you're presented w
 
 SadConsole provides a cursor system as way to show users where text is about to be written, where they should use the keyboard to type, or just as a convenient way to draw to a console. You can chain cursor commands into a series of actions:
 
+01. Match the printing style of the cursor to the host console.
 01. Move the cursor to position 20,21
 01. Print the text "Kato is my favorite dog"
 01. Change the print color to Green
 01. Move the cursor to a new line
 01. Print the text "No, Birdie is my favorite dog"
 
-Replace the `Init` code with the following and run your program:
+Replace the `Startup` code with the following and run your program:
 
 ```csharp
-static void Init()
+static void Startup()
 {
-    Game.Instance.StartingConsole.Cursor.PrintAppearanceMatchesHost = false;
-    Game.Instance.StartingConsole.Cursor
+    if (Game.Instance.StartingConsole is null)
+        throw new NullReferenceException("Unsure why. If you used a game config with SetStartingScreen, it destroys the StartingConsole object.");
+
+    Console startingConsole = Game.Instance.StartingConsole;
+
+    startingConsole.Cursor.PrintAppearanceMatchesHost = false;
+
+    startingConsole.Cursor
+        .SetPrintAppearanceToHost()
         .Move(0, 21)
         .Print("Kato is my favorite dog")
         .SetPrintAppearance(Color.Green)
@@ -77,43 +75,59 @@ static void Init()
 }
 ```
 
-The code causes the cursor to do things, but you don't _see_ a cursor on the screen. By default, the cursor is invisible and inactive. To show the cursor, change the `IsVisible` property to `true`.
+The first thing the code does is alter the cursor's look. By default, the cursor always prints text in the style of the console that hosts the cursor. Once `Cursor.PrintAppearanceMatchesHost` is set to `false`, the `Cursor.PrintAppearance` property is used to color the printing. This defaults to a **Black** background and **White** foreground.
+
+The code causes the cursor to do things, but you don't _see_ a cursor on the screen. By default, the cursor is invisible and doesn't respond to the keyboard. To show the cursor, change the `IsVisible` property to `true`.
 
 ```csharp
-static void Init()
+static void Startup()
 {
-    Game.Instance.StartingConsole.Cursor.PrintAppearanceMatchesHost = false;
-    Game.Instance.StartingConsole.Cursor
+    if (Game.Instance.StartingConsole is null)
+        throw new NullReferenceException("Unsure why. If you used a game config with SetStartingScreen, it destroys the StartingConsole object.");
+
+    Console startingConsole = Game.Instance.StartingConsole;
+
+    startingConsole.Cursor.PrintAppearanceMatchesHost = false;
+
+    startingConsole.Cursor
+        .SetPrintAppearanceToHost()
         .Move(0, 21)
         .Print("Kato is my favorite dog")
         .SetPrintAppearance(Color.Green)
         .NewLine()
         .Print("No, Birdie is my favorite dog");
 
-    Game.Instance.StartingConsole.Cursor.IsVisible = true;
+    startingConsole.Cursor.IsVisible = true;
 }
 ```
 
 Run your program and you'll see the cursor blinking. When you type though, nothing happens. The cursor is currently visible, but it's not been enabled yet. To make your cursor respond to keyboard events, there are two conditions that must be satisfied:
 
-01. The console must be focused (you can use `theConsole.IsFocused = true` to focus the console).
+01. The console must be focused (you can use `startingConsole.IsFocused = true` to focus the console). By default, the "starting console" is already focused.
 01. The cursor must be enabled.
 
 To enable the cursor, set the `IsEnabled` property to `true`.
 
 ```csharp
-static void Init()
+static void Startup()
 {
-    Game.Instance.StartingConsole.Cursor.PrintAppearanceMatchesHost = false;
-    Game.Instance.StartingConsole.Cursor
+    if (Game.Instance.StartingConsole is null)
+        throw new NullReferenceException("Unsure why. If you used a game config with SetStartingScreen, it destroys the StartingConsole object.");
+
+    Console startingConsole = Game.Instance.StartingConsole;
+
+    startingConsole.Cursor.PrintAppearanceMatchesHost = false;
+
+    startingConsole.Cursor
+        .SetPrintAppearanceToHost()
         .Move(0, 21)
         .Print("Kato is my favorite dog")
         .SetPrintAppearance(Color.Green)
         .NewLine()
         .Print("No, Birdie is my favorite dog");
 
-    Game.Instance.StartingConsole.Cursor.IsVisible = true;
-    Game.Instance.StartingConsole.Cursor.IsEnabled = true;
+    startingConsole.Cursor.IsVisible = true;
+    startingConsole.Cursor.IsEnabled = true;
 }
 ```
 
@@ -123,12 +137,12 @@ Now when you run the program you'll see that the cursor is blinking, and when yo
 
 SadConsole has a framework in place that lets you create more than one console and display them at the same time. SadConsole provides a generic object that allows parenting but doesn't display anything itself: `ScreenObject`.
 
-The starting screen, though, is a `Console`, so we'll need to get rid of that and start over. Let's create a new `ScreenObject` that will host a few consoles.
+The starting screen is a `Console`, so we'll need to get rid of that and start over if we want a base container object. Let's create a new `ScreenObject` that will host a few consoles.
 
-First, erase all the code in the `Init` method:
+Second, erase all the code in the `Startup` method:
 
 ```csharp
-static void Init()
+static void Startup()
 {
 
 }
@@ -141,7 +155,7 @@ Now, do the following:
 01. Finally, destroy the original `Game.Instance.StartingConsole` with the `DestroyDefaultStartingConsole` method.
 
 ```csharp
-static void Init()
+static void Startup()
 {
     ScreenObject container = new ScreenObject();
     Game.Instance.Screen = container;
@@ -151,29 +165,29 @@ static void Init()
 
 The previous code you used at the start of this article used the `Game.Instance.StartingConsole` property, and now you're using the `Game.Instance.Screen` property, conceptually known as the "current screen." When SadConsole starts up, the `Game.Instance.Screen` property is assigned to the `StartingConsole` property, so they are the same object. The current screen is the `StartingConsole`. The current screen is the object that is processed by SadConsole every game frame. It represents what is on the screen visually and what game logic is run.
 
-If you run the game now, nothing will be displayed. A `ScreenObject` is just a container that lets you add multiple child objects to it, but it itself doesn't draw anything. You can do this same thing with a `Console`, but the console would also want to draw something and use resources. So when you have a container that doesn't need to draw anything directly, `ScreenObject` is the object you want to use.
+If you run the game now, nothing will be displayed. A `ScreenObject` is just a container that lets you add multiple child objects to it, but it itself doesn't draw anything. You can do this same thing with a `Console`, but the console would also want to draw something and use resources. So when you have a container that doesn't need to draw anything directly, `ScreenObject` is the type you want to use.
 
 > [!IMPORTANT]
-> Because you've replaced the `Game.Instance.Screen` property and you've destroyed the starting console, `Game.Instance.StartingConsole`can no longer be used. Destroying the starting console is important when you're no longer using it, as it frees up computer and video card memory.
+> Because you've replaced the `Game.Instance.Screen` property and you've destroyed the starting console, `Game.Instance.StartingConsole`can no longer be used. Destroying the starting console is important when you're no longer using it, as it frees up video card memory.
 
 ## First child console
 
-The first console we'll create is on the top-left of the screen. It won't take up the whole screen, and it'll use a different background color so that it can be distinguished from the second console we'll soon create.
+The first console we'll create will be displayed on the top-left part of the screen. It won't take up the whole screen, and it'll use a unique background color so that it can be distinguished from the second console we'll soon create.
 
 ```csharp
-static void Init()
+static void Startup()
 {
     ScreenObject container = new ScreenObject();
     Game.Instance.Screen = container;
     Game.Instance.DestroyDefaultStartingConsole();
 
     // First console
-    Console console1 = new Console(60, 14);
-    console1.Position = new Point(3, 2);
-    console1.DefaultBackground = Color.AnsiCyan;
+    Console console1 = new(60, 14);
+    console1.Position = (3, 2);
+    console1.Surface.DefaultBackground = Color.AnsiCyan;
     console1.Clear();
     console1.Print(1, 1, "Type on me!");
-    console1.Cursor.Position = new Point(1, 2);
+    console1.Cursor.Position = (1, 2);
     console1.Cursor.IsEnabled = true;
     console1.Cursor.IsVisible = true;
     console1.Cursor.MouseClickReposition = true;
@@ -185,23 +199,28 @@ static void Init()
 
 The code above introduces a few new concepts you may be unfamiliar with:
 
-01. `console1.DefaultBackground` and `console1.Clear`
+01. `console1.Position = (3, 2);`
 
-    Each console and surface in SadConsole has a `DefaultBackground` and `DefaultForeground` property. The background property is the most important of the two. This controls the "fill" color used on each cell. SadConsole has some optimization built into it based on this property. You'll always want to set the `DefaultBackground` property to match your most used background color of a console.
+    `container` is the root object, which doesn't draw anything because it's a `ScreenObject`, however, it contains a single child: `console1`, added by the last line of the code: `container.Children.Add(console1)`. `console1` draws something on the screen because it's a console. Children are positioned relative to their parent. In this case, `console1` is positioned at _(x3,y2)_ of its parent, `container` which is at _(x0,y0)_. The final drawing position of `console1` is calculated using the formula `self.Position + parent.Position`. Because `container` is the root object and is positioned at _(x0,y0)_, which is the top-left of the game window, so `console` is drawn at _(x3, y2)_ on the window. If `container` was moved to _(x1, y1)_, `console` would be drawn at _(x4, y3)_.
+
+    The way positions are calculated differently between objects that have a surfaces versus those that are containers. This is explained later.
+    
+    > [!TIP]
+    > The position is a `Point` type. Instead of using `new Point(3, 2)`, the `Point` type supports interpreting `(3, 2)` as a `Point`. You can use that syntax anywhere you need a `Point`.
+
+01. `console1.Surface.DefaultBackground` and `console1.Clear`
+
+    Each console (which is made up of a surface) has a `DefaultBackground` and `DefaultForeground` property. The background property is the most important of the two. This controls the "fill" color used on each cell. SadConsole has some optimization built into it based on this property. You'll always want to set the `DefaultBackground` property to match your most used background color of a console. Any cell whose background matches the `DefaultBackground`, is optimized by skipping its own background drawing.
 
     The `console1.Clear` method is called to reset every cell to the new default background color. In our case, this makes sure every cell is colored with a **Cyan** background.
 
-01. `console1.IsFocused = true`
-
-    Previously when you were using the starting console, it was automatically focused, so you didn't have to worry about that. Only the focused console receives keyboard input. If the `container` was focused, `console1` still wouldn't receive keyboard input, even though it's a child object. This is a common mistake developers make with SadConsole, they forget to **Focus** the console or object to receive keyboard input. 
-
 01. `console1.Cursor.MouseClickReposition = true`
 
-    This allows the mouse input to move the cursor for you. When you click on the console, the cursor will reposition itself to wherever the mouse is.
+    This allows the mouse input to move the cursor for you. When you click on the console, the cursor will reposition itself to wherever the mouse was clicked.
 
-01. `console1.Position = new Point(3, 2);`
+01. `console1.IsFocused = true`
 
-    `container` is the root object, which doesn't draw anything because it's a `ScreenObject`, however, it contains a single child: `console1`. This object will draw something on the screen because it's a console. Children are positioned relative to their parent. In this case, `console1` is positioned at _(x3,y2)_ of its parent, `container` which is at _(x0,y0)_. The final drawing position of `console1` is calculated using the formula `self.Position + parent.Position`. Because `container` is the root object, _(x0,y0)_ represents the top-left of the game window and `console` is drawn at _(x3, y2)_ on the window. If `container` was moved to _(x1, y1)_, `console` would be drawn at _(x4, y3)_.
+    Previously when you were using the starting console, it was automatically focused, so you didn't have to worry about that. Only the focused object receives keyboard input. If the `container` was focused, `console1` still wouldn't receive keyboard input, even though it's a child object. This is a common mistake developers make with SadConsole, they forget to **Focus** the console or object to receive keyboard input. 
 
 When you run the code, you'll see a screen similar to the following, try typing with the keyboard and clicking the mouse:
 
@@ -209,22 +228,25 @@ When you run the code, you'll see a screen similar to the following, try typing 
 
 ## Add a child to the first console
 
-When children are added to a parent, they draw on top of those parents. Right now the object hierarchy of `Game.Instance.Screen` (which is what is processed and drawn to the game window by SadConsole):
+When children are added to a parent, they draw on top of those parents. Right now the object hierarchy of `Game.Instance.Screen` consists of two objects.
 
 ```text
 - container
   - console1
 ```
 
-Let's add another object to the hierarchy. Instead of a `Console` though, add a `ScreenSurface`. A `ScreenSurface` is pretty similar to a `Console`, with only with a few minor differences. First, a console automatically has a `Cursor` object. Second, you interact with the visual surface of a console directly, with commands like `console.Print` or `console.SetGlyph`. A `ScreenSurface` doesn't contain a cursor (though one could be added), and the surface is accessed through the `screenSurface.Surface` property. To interact with a screen surface's surface, you use `screenSurface.Surface.Print` and `screenSurface.Surface.SetGlyph`.
+> [!NOTE]
+> `Game.Instance.Screen` is what is processed and drawn by SadConsole.
 
-This surface is going to be a child of the console. It will be drawn on top of the console, however, we'll not allow it to gain focus or process any input:
+Let's add another object to the hierarchy. Instead of a `Console` though, add a `ScreenSurface`. A `ScreenSurface` is pretty similar to a `Console`, with only with one minor difference, the console has a built-in `Cursor`. A `ScreenSurface` doesn't contain a cursor, though one could be added.
+
+This surface is going to be a child of the console. It will be drawn on top of the console, however, we'll not allow it to gain focus or process any input. Add this code after the previous code.
 
 ```csharp
 // Add a child surface
-ScreenSurface surfaceObject = new ScreenSurface(5, 3);
+ScreenSurface surfaceObject = new(5, 3);
 surfaceObject.Surface.FillWithRandomGarbage(surfaceObject.Font);
-surfaceObject.Position = console1.Area.Center - (surfaceObject.Surface.Area.Size / 2);
+surfaceObject.Position = console1.Surface.Area.Center - (surfaceObject.Surface.Area.Size / 2);
 surfaceObject.UseMouse = false;
 
 console1.Children.Add(surfaceObject);
@@ -246,7 +268,7 @@ Try moving the cursor and typing behind `surfaceObject`.
 
 ## Second child console
 
-The final thing we'll do in this tutorial article is add a second console. This console will be a duplicate of the first, but with a different background color. This demonstrates changing focus between consoles and objects.
+The final thing we'll do is add a second console. This console will be a duplicate of the first, but with a different background color. This demonstrates changing focus between consoles and objects.
 
 ```csharp
 // Second console
@@ -273,11 +295,11 @@ There are two new properties and a new method being called here:
 
 01. `console2.MoveToFrontOnMouseClick = true;`
 
-    The draw order of the objects is based on where they are in the children collection of the parent, specified by the `Children` property. Whichever object is added last becomes the top-most drawn object. Whichever object is first in this collection is the back-most drawn object. Changing focus to the objects, though, doesn't change their draw order. This property responds to the mouse click and moves the object to the top (last in the collection).
+    This property responds to the mouse click and moves the object to the top, last in the collection. The draw order of the objects is based on where they are in the `Children` collection. Whichever object is added last becomes the top-most drawn object. Whichever object is first in this collection is the back-most drawn object. Changing an object's focus doesn't affect drawing order.
 
 01. `container.Children.MoveToBottom(console2);`
 
-    Because we created `console2` after `console1` and added it to the `container` after `console`, it's the top-most object drawn (last in the collection). However, we want the experience to be that `console1` is the first console you interact with. There are two ways of doing this, either move `console2` to the bottom of the draw order (which this code does), or simply add both consoles after creating them, in the order you want them drawn. For example, remove the existing `container.Children.Add` method calls for both consoles, and add this to the end of the code routine:
+    Because we added `console2` to the `container` after `console1` was added, `console2` is the top-most object drawn, being the last in the collection. However, we want the experience to be that `console1` is the first console you interact with. There are two ways of doing this. First, the code above solved this problem by forcibly moving `console2` to the bottom of the collection. The second way is just adding the consoles in the order you want them to appear, with the last item added being the top-most. For example, remove the existing `container.Children.Add` method calls for both consoles, and add this to the end of the code routine:
 
     ```csharp
     container.Children.Add(console2);
@@ -299,8 +321,17 @@ When you run the program and you can see and interact with both consoles.
 
 ![console with child surface](images/part-2-cursor-parents/two-consoles.png)
 
+When interacting with the game, try clicking on the different consoles. You'll notice a few problems:
+
+- After you click on `console2` (Red) it's moved to the front and if you click on `console1` (Cyan) ...
+  - `console1` stays in the background instead of moving to the foreground.
+  - If you type, `console2` still responds to the keyboard, even though you clicked on `console1`.
+- When you click on `console2` (Red), the cursor isn't moved to the position of the mouse like with `console1`.
+
+These behavior differences are from a few properties that are set differently between `console1` and `console2`. Can you fix those bugs? Try and see if you can!
+
 ## Conclusion
 
-Now you have both a working console and a non-console surface. You've explored how SadConsole uses the Cursor object to let you type, emulating a terminal. You also learned how to parent one object to another. The next part of this series will explore more about the keyboard and mouse input.
+Now you have both a working console and a non-console surface. You've explored how SadConsole uses the Cursor object to let you type, emulating a terminal. You also learned how to parent one object to another and move items within the parent's `Children` collection. The next part of this series will explore more about the keyboard and mouse input.
 
 - [Next: Get Started 2 - Input](part-3-input.md)
