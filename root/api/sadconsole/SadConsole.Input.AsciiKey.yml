@@ -1,0 +1,1257 @@
+### YamlMime:ManagedReference
+items:
+- uid: SadConsole.Input.AsciiKey
+  commentId: T:SadConsole.Input.AsciiKey
+  id: AsciiKey
+  parent: SadConsole.Input
+  children:
+  - SadConsole.Input.AsciiKey.CapsLockedKeys
+  - SadConsole.Input.AsciiKey.Character
+  - SadConsole.Input.AsciiKey.Equals(System.Object)
+  - SadConsole.Input.AsciiKey.Fill(SadConsole.Input.Keys,System.Boolean,SadConsole.Input.IKeyboardState)
+  - SadConsole.Input.AsciiKey.Get(SadConsole.Input.Keys,SadConsole.Input.IKeyboardState)
+  - SadConsole.Input.AsciiKey.Get(SadConsole.Input.Keys,System.Boolean,SadConsole.Input.IKeyboardState)
+  - SadConsole.Input.AsciiKey.GetHashCode
+  - SadConsole.Input.AsciiKey.Key
+  - SadConsole.Input.AsciiKey.KeyRemapping
+  - SadConsole.Input.AsciiKey.NumberKeyMappings
+  - SadConsole.Input.AsciiKey.PostInitialDelay
+  - SadConsole.Input.AsciiKey.ShiftKeyMappings
+  - SadConsole.Input.AsciiKey.TimeHeld
+  - SadConsole.Input.AsciiKey.op_Equality(SadConsole.Input.AsciiKey,SadConsole.Input.AsciiKey)
+  - SadConsole.Input.AsciiKey.op_Equality(SadConsole.Input.AsciiKey,SadConsole.Input.Keys)
+  - SadConsole.Input.AsciiKey.op_Equality(SadConsole.Input.Keys,SadConsole.Input.AsciiKey)
+  - SadConsole.Input.AsciiKey.op_Inequality(SadConsole.Input.AsciiKey,SadConsole.Input.AsciiKey)
+  - SadConsole.Input.AsciiKey.op_Inequality(SadConsole.Input.AsciiKey,SadConsole.Input.Keys)
+  - SadConsole.Input.AsciiKey.op_Inequality(SadConsole.Input.Keys,SadConsole.Input.AsciiKey)
+  langs:
+  - csharp
+  - vb
+  name: AsciiKey
+  nameWithType: AsciiKey
+  fullName: SadConsole.Input.AsciiKey
+  type: Struct
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Input
+  summary: Represents the state of a single key.
+  example: []
+  syntax:
+    content: public struct AsciiKey
+    content.vb: Public Structure AsciiKey
+  inheritedMembers:
+  - System.ValueType.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: SadConsole.Input.AsciiKey.CapsLockedKeys
+  commentId: F:SadConsole.Input.AsciiKey.CapsLockedKeys
+  id: CapsLockedKeys
+  parent: SadConsole.Input.AsciiKey
+  langs:
+  - csharp
+  - vb
+  name: CapsLockedKeys
+  nameWithType: AsciiKey.CapsLockedKeys
+  fullName: SadConsole.Input.AsciiKey.CapsLockedKeys
+  type: Field
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Input
+  summary: List of <xref href="SadConsole.Input.Keys" data-throw-if-not-resolved="false"></xref> to consider as shifted when capslock is on.
+  example: []
+  syntax:
+    content: public static readonly List<Keys> CapsLockedKeys
+    return:
+      type: System.Collections.Generic.List{SadConsole.Input.Keys}
+    content.vb: Public Shared ReadOnly CapsLockedKeys As List(Of Keys)
+- uid: SadConsole.Input.AsciiKey.ShiftKeyMappings
+  commentId: F:SadConsole.Input.AsciiKey.ShiftKeyMappings
+  id: ShiftKeyMappings
+  parent: SadConsole.Input.AsciiKey
+  langs:
+  - csharp
+  - vb
+  name: ShiftKeyMappings
+  nameWithType: AsciiKey.ShiftKeyMappings
+  fullName: SadConsole.Input.AsciiKey.ShiftKeyMappings
+  type: Field
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Input
+  summary: A dictionary that is keyed off of a <xref href="SadConsole.Input.Keys" data-throw-if-not-resolved="false"></xref> and associates that key with a character in a shifted and unshifted state.
+  example: []
+  syntax:
+    content: public static readonly Dictionary<Keys, AsciiKey.ShiftedCharacterMapping> ShiftKeyMappings
+    return:
+      type: System.Collections.Generic.Dictionary{SadConsole.Input.Keys,SadConsole.Input.AsciiKey.ShiftedCharacterMapping}
+    content.vb: Public Shared ReadOnly ShiftKeyMappings As Dictionary(Of Keys, AsciiKey.ShiftedCharacterMapping)
+- uid: SadConsole.Input.AsciiKey.NumberKeyMappings
+  commentId: F:SadConsole.Input.AsciiKey.NumberKeyMappings
+  id: NumberKeyMappings
+  parent: SadConsole.Input.AsciiKey
+  langs:
+  - csharp
+  - vb
+  name: NumberKeyMappings
+  nameWithType: AsciiKey.NumberKeyMappings
+  fullName: SadConsole.Input.AsciiKey.NumberKeyMappings
+  type: Field
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Input
+  summary: Dictionary that maps <xref href="SadConsole.Input.Keys" data-throw-if-not-resolved="false"></xref> usually triggered by the numberpad with a character and non-numpad key.
+  example: []
+  syntax:
+    content: public static readonly Dictionary<Keys, AsciiKey.CharacterKeyMapping> NumberKeyMappings
+    return:
+      type: System.Collections.Generic.Dictionary{SadConsole.Input.Keys,SadConsole.Input.AsciiKey.CharacterKeyMapping}
+    content.vb: Public Shared ReadOnly NumberKeyMappings As Dictionary(Of Keys, AsciiKey.CharacterKeyMapping)
+- uid: SadConsole.Input.AsciiKey.KeyRemapping
+  commentId: F:SadConsole.Input.AsciiKey.KeyRemapping
+  id: KeyRemapping
+  parent: SadConsole.Input.AsciiKey
+  langs:
+  - csharp
+  - vb
+  name: KeyRemapping
+  nameWithType: AsciiKey.KeyRemapping
+  fullName: SadConsole.Input.AsciiKey.KeyRemapping
+  type: Field
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Input
+  summary: Remaps any incoming key to a combination of character and key.
+  example: []
+  syntax:
+    content: public static readonly Dictionary<Keys, Keys> KeyRemapping
+    return:
+      type: System.Collections.Generic.Dictionary{SadConsole.Input.Keys,SadConsole.Input.Keys}
+    content.vb: Public Shared ReadOnly KeyRemapping As Dictionary(Of Keys, Keys)
+- uid: SadConsole.Input.AsciiKey.Key
+  commentId: F:SadConsole.Input.AsciiKey.Key
+  id: Key
+  parent: SadConsole.Input.AsciiKey
+  langs:
+  - csharp
+  - vb
+  name: Key
+  nameWithType: AsciiKey.Key
+  fullName: SadConsole.Input.AsciiKey.Key
+  type: Field
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Input
+  summary: The key from MonoGame or XNA.
+  example: []
+  syntax:
+    content: public Keys Key
+    return:
+      type: SadConsole.Input.Keys
+    content.vb: Public Key As Keys
+- uid: SadConsole.Input.AsciiKey.Character
+  commentId: F:SadConsole.Input.AsciiKey.Character
+  id: Character
+  parent: SadConsole.Input.AsciiKey
+  langs:
+  - csharp
+  - vb
+  name: Character
+  nameWithType: AsciiKey.Character
+  fullName: SadConsole.Input.AsciiKey.Character
+  type: Field
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Input
+  summary: The keyboard character of the key.
+  example: []
+  syntax:
+    content: public char Character
+    return:
+      type: System.Char
+    content.vb: Public Character As Char
+- uid: SadConsole.Input.AsciiKey.TimeHeld
+  commentId: F:SadConsole.Input.AsciiKey.TimeHeld
+  id: TimeHeld
+  parent: SadConsole.Input.AsciiKey
+  langs:
+  - csharp
+  - vb
+  name: TimeHeld
+  nameWithType: AsciiKey.TimeHeld
+  fullName: SadConsole.Input.AsciiKey.TimeHeld
+  type: Field
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Input
+  summary: Total time the key has been held.
+  example: []
+  syntax:
+    content: public float TimeHeld
+    return:
+      type: System.Single
+    content.vb: Public TimeHeld As Single
+- uid: SadConsole.Input.AsciiKey.PostInitialDelay
+  commentId: F:SadConsole.Input.AsciiKey.PostInitialDelay
+  id: PostInitialDelay
+  parent: SadConsole.Input.AsciiKey
+  langs:
+  - csharp
+  - vb
+  name: PostInitialDelay
+  nameWithType: AsciiKey.PostInitialDelay
+  fullName: SadConsole.Input.AsciiKey.PostInitialDelay
+  type: Field
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Input
+  summary: Tracks if the key was previously held when calculating the <xref href="SadConsole.Input.Keyboard.InitialRepeatDelay" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool PostInitialDelay
+    return:
+      type: System.Boolean
+    content.vb: Public PostInitialDelay As Boolean
+- uid: SadConsole.Input.AsciiKey.Fill(SadConsole.Input.Keys,System.Boolean,SadConsole.Input.IKeyboardState)
+  commentId: M:SadConsole.Input.AsciiKey.Fill(SadConsole.Input.Keys,System.Boolean,SadConsole.Input.IKeyboardState)
+  id: Fill(SadConsole.Input.Keys,System.Boolean,SadConsole.Input.IKeyboardState)
+  parent: SadConsole.Input.AsciiKey
+  langs:
+  - csharp
+  - vb
+  name: Fill(Keys, bool, IKeyboardState)
+  nameWithType: AsciiKey.Fill(Keys, bool, IKeyboardState)
+  fullName: SadConsole.Input.AsciiKey.Fill(SadConsole.Input.Keys, bool, SadConsole.Input.IKeyboardState)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Input
+  summary: Fills out the fields based on the key.
+  example: []
+  syntax:
+    content: public void Fill(Keys key, bool shiftPressed, IKeyboardState state)
+    parameters:
+    - id: key
+      type: SadConsole.Input.Keys
+      description: The key.
+    - id: shiftPressed
+      type: System.Boolean
+      description: Helps identify which <xref href="SadConsole.Input.AsciiKey.Character" data-throw-if-not-resolved="false"></xref> to use while the key is pressed.
+    - id: state
+      type: SadConsole.Input.IKeyboardState
+      description: Keyboard state to read from.
+    content.vb: Public Sub Fill(key As Keys, shiftPressed As Boolean, state As IKeyboardState)
+  overload: SadConsole.Input.AsciiKey.Fill*
+  nameWithType.vb: AsciiKey.Fill(Keys, Boolean, IKeyboardState)
+  fullName.vb: SadConsole.Input.AsciiKey.Fill(SadConsole.Input.Keys, Boolean, SadConsole.Input.IKeyboardState)
+  name.vb: Fill(Keys, Boolean, IKeyboardState)
+- uid: SadConsole.Input.AsciiKey.Get(SadConsole.Input.Keys,SadConsole.Input.IKeyboardState)
+  commentId: M:SadConsole.Input.AsciiKey.Get(SadConsole.Input.Keys,SadConsole.Input.IKeyboardState)
+  id: Get(SadConsole.Input.Keys,SadConsole.Input.IKeyboardState)
+  parent: SadConsole.Input.AsciiKey
+  langs:
+  - csharp
+  - vb
+  name: Get(Keys, IKeyboardState)
+  nameWithType: AsciiKey.Get(Keys, IKeyboardState)
+  fullName: SadConsole.Input.AsciiKey.Get(SadConsole.Input.Keys, SadConsole.Input.IKeyboardState)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Input
+  summary: Shortcut to get the <xref href="SadConsole.Input.AsciiKey" data-throw-if-not-resolved="false"></xref> for a specific MonoGame/XNA <xref href="SadConsole.Input.Keys" data-throw-if-not-resolved="false"></xref> type. Shift is considered not pressed.
+  example: []
+  syntax:
+    content: public static AsciiKey Get(Keys key, IKeyboardState state)
+    parameters:
+    - id: key
+      type: SadConsole.Input.Keys
+      description: The key.
+    - id: state
+      type: SadConsole.Input.IKeyboardState
+      description: Keyboar state to read from.
+    return:
+      type: SadConsole.Input.AsciiKey
+      description: The <xref href="SadConsole.Input.AsciiKey" data-throw-if-not-resolved="false"></xref> of the <xref href="SadConsole.Input.Keys" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Shared Function [Get](key As Keys, state As IKeyboardState) As AsciiKey
+  overload: SadConsole.Input.AsciiKey.Get*
+- uid: SadConsole.Input.AsciiKey.Get(SadConsole.Input.Keys,System.Boolean,SadConsole.Input.IKeyboardState)
+  commentId: M:SadConsole.Input.AsciiKey.Get(SadConsole.Input.Keys,System.Boolean,SadConsole.Input.IKeyboardState)
+  id: Get(SadConsole.Input.Keys,System.Boolean,SadConsole.Input.IKeyboardState)
+  parent: SadConsole.Input.AsciiKey
+  langs:
+  - csharp
+  - vb
+  name: Get(Keys, bool, IKeyboardState)
+  nameWithType: AsciiKey.Get(Keys, bool, IKeyboardState)
+  fullName: SadConsole.Input.AsciiKey.Get(SadConsole.Input.Keys, bool, SadConsole.Input.IKeyboardState)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Input
+  summary: Shortcut to get the <xref href="SadConsole.Input.AsciiKey" data-throw-if-not-resolved="false"></xref> for a specific MonoGame/XNA <xref href="SadConsole.Input.Keys" data-throw-if-not-resolved="false"></xref> type.
+  example: []
+  syntax:
+    content: public static AsciiKey Get(Keys key, bool shiftPressed, IKeyboardState state)
+    parameters:
+    - id: key
+      type: SadConsole.Input.Keys
+      description: The key.
+    - id: shiftPressed
+      type: System.Boolean
+      description: If shift should be considered pressed or not.
+    - id: state
+      type: SadConsole.Input.IKeyboardState
+      description: Keyboar state to read from.
+    return:
+      type: SadConsole.Input.AsciiKey
+      description: The <xref href="SadConsole.Input.AsciiKey" data-throw-if-not-resolved="false"></xref> of the <xref href="SadConsole.Input.Keys" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Shared Function [Get](key As Keys, shiftPressed As Boolean, state As IKeyboardState) As AsciiKey
+  overload: SadConsole.Input.AsciiKey.Get*
+  nameWithType.vb: AsciiKey.Get(Keys, Boolean, IKeyboardState)
+  fullName.vb: SadConsole.Input.AsciiKey.Get(SadConsole.Input.Keys, Boolean, SadConsole.Input.IKeyboardState)
+  name.vb: Get(Keys, Boolean, IKeyboardState)
+- uid: SadConsole.Input.AsciiKey.op_Equality(SadConsole.Input.AsciiKey,SadConsole.Input.AsciiKey)
+  commentId: M:SadConsole.Input.AsciiKey.op_Equality(SadConsole.Input.AsciiKey,SadConsole.Input.AsciiKey)
+  id: op_Equality(SadConsole.Input.AsciiKey,SadConsole.Input.AsciiKey)
+  parent: SadConsole.Input.AsciiKey
+  langs:
+  - csharp
+  - vb
+  name: operator ==(AsciiKey, AsciiKey)
+  nameWithType: AsciiKey.operator ==(AsciiKey, AsciiKey)
+  fullName: SadConsole.Input.AsciiKey.operator ==(SadConsole.Input.AsciiKey, SadConsole.Input.AsciiKey)
+  type: Operator
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Input
+  summary: Checks if the two <xref href="SadConsole.Input.AsciiKey" data-throw-if-not-resolved="false"></xref> types use the same <xref href="SadConsole.Input.AsciiKey.Key" data-throw-if-not-resolved="false"></xref> if the <xref href="SadConsole.Input.AsciiKey.Character" data-throw-if-not-resolved="false"></xref> is 0. If the <xref href="SadConsole.Input.AsciiKey.Character" data-throw-if-not-resolved="false"></xref> is not 0, the <xref href="SadConsole.Input.AsciiKey.Character" data-throw-if-not-resolved="false"></xref> is compared.
+  example: []
+  syntax:
+    content: public static bool operator ==(AsciiKey left, AsciiKey right)
+    parameters:
+    - id: left
+      type: SadConsole.Input.AsciiKey
+      description: First item to compare.
+    - id: right
+      type: SadConsole.Input.AsciiKey
+      description: Second item to compare.
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Shared Operator =(left As AsciiKey, right As AsciiKey) As Boolean
+  overload: SadConsole.Input.AsciiKey.op_Equality*
+  nameWithType.vb: AsciiKey.=(AsciiKey, AsciiKey)
+  fullName.vb: SadConsole.Input.AsciiKey.=(SadConsole.Input.AsciiKey, SadConsole.Input.AsciiKey)
+  name.vb: =(AsciiKey, AsciiKey)
+- uid: SadConsole.Input.AsciiKey.GetHashCode
+  commentId: M:SadConsole.Input.AsciiKey.GetHashCode
+  id: GetHashCode
+  parent: SadConsole.Input.AsciiKey
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: AsciiKey.GetHashCode()
+  fullName: SadConsole.Input.AsciiKey.GetHashCode()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Input
+  summary: Gets a hashcode based on the key and character.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: ''
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: SadConsole.Input.AsciiKey.GetHashCode*
+- uid: SadConsole.Input.AsciiKey.op_Inequality(SadConsole.Input.AsciiKey,SadConsole.Input.AsciiKey)
+  commentId: M:SadConsole.Input.AsciiKey.op_Inequality(SadConsole.Input.AsciiKey,SadConsole.Input.AsciiKey)
+  id: op_Inequality(SadConsole.Input.AsciiKey,SadConsole.Input.AsciiKey)
+  parent: SadConsole.Input.AsciiKey
+  langs:
+  - csharp
+  - vb
+  name: operator !=(AsciiKey, AsciiKey)
+  nameWithType: AsciiKey.operator !=(AsciiKey, AsciiKey)
+  fullName: SadConsole.Input.AsciiKey.operator !=(SadConsole.Input.AsciiKey, SadConsole.Input.AsciiKey)
+  type: Operator
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Input
+  summary: Compares if the <xref href="SadConsole.Input.AsciiKey.Character" data-throw-if-not-resolved="false"></xref> field of two <xref href="SadConsole.Input.AsciiKey" data-throw-if-not-resolved="false"></xref> instances are the same.
+  example: []
+  syntax:
+    content: public static bool operator !=(AsciiKey left, AsciiKey right)
+    parameters:
+    - id: left
+      type: SadConsole.Input.AsciiKey
+      description: First item to compare.
+    - id: right
+      type: SadConsole.Input.AsciiKey
+      description: Second item to compare.
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Shared Operator <>(left As AsciiKey, right As AsciiKey) As Boolean
+  overload: SadConsole.Input.AsciiKey.op_Inequality*
+  nameWithType.vb: AsciiKey.<>(AsciiKey, AsciiKey)
+  fullName.vb: SadConsole.Input.AsciiKey.<>(SadConsole.Input.AsciiKey, SadConsole.Input.AsciiKey)
+  name.vb: <>(AsciiKey, AsciiKey)
+- uid: SadConsole.Input.AsciiKey.op_Equality(SadConsole.Input.AsciiKey,SadConsole.Input.Keys)
+  commentId: M:SadConsole.Input.AsciiKey.op_Equality(SadConsole.Input.AsciiKey,SadConsole.Input.Keys)
+  id: op_Equality(SadConsole.Input.AsciiKey,SadConsole.Input.Keys)
+  parent: SadConsole.Input.AsciiKey
+  langs:
+  - csharp
+  - vb
+  name: operator ==(AsciiKey, Keys)
+  nameWithType: AsciiKey.operator ==(AsciiKey, Keys)
+  fullName: SadConsole.Input.AsciiKey.operator ==(SadConsole.Input.AsciiKey, SadConsole.Input.Keys)
+  type: Operator
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Input
+  summary: Checks if the a <xref href="SadConsole.Input.AsciiKey" data-throw-if-not-resolved="false"></xref> type uses the indicated <xref href="SadConsole.Input.AsciiKey.Key" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static bool operator ==(AsciiKey left, Keys right)
+    parameters:
+    - id: left
+      type: SadConsole.Input.AsciiKey
+      description: The <xref href="SadConsole.Input.AsciiKey" data-throw-if-not-resolved="false"></xref> to compare.
+    - id: right
+      type: SadConsole.Input.Keys
+      description: The <xref href="SadConsole.Input.AsciiKey.Key" data-throw-if-not-resolved="false"></xref> to compare.
+    return:
+      type: System.Boolean
+      description: True when <xref href="SadConsole.Input.AsciiKey.Key" data-throw-if-not-resolved="false"></xref> matches.
+    content.vb: Public Shared Operator =(left As AsciiKey, right As Keys) As Boolean
+  overload: SadConsole.Input.AsciiKey.op_Equality*
+  nameWithType.vb: AsciiKey.=(AsciiKey, Keys)
+  fullName.vb: SadConsole.Input.AsciiKey.=(SadConsole.Input.AsciiKey, SadConsole.Input.Keys)
+  name.vb: =(AsciiKey, Keys)
+- uid: SadConsole.Input.AsciiKey.op_Inequality(SadConsole.Input.AsciiKey,SadConsole.Input.Keys)
+  commentId: M:SadConsole.Input.AsciiKey.op_Inequality(SadConsole.Input.AsciiKey,SadConsole.Input.Keys)
+  id: op_Inequality(SadConsole.Input.AsciiKey,SadConsole.Input.Keys)
+  parent: SadConsole.Input.AsciiKey
+  langs:
+  - csharp
+  - vb
+  name: operator !=(AsciiKey, Keys)
+  nameWithType: AsciiKey.operator !=(AsciiKey, Keys)
+  fullName: SadConsole.Input.AsciiKey.operator !=(SadConsole.Input.AsciiKey, SadConsole.Input.Keys)
+  type: Operator
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Input
+  summary: Checks if the a <xref href="SadConsole.Input.AsciiKey" data-throw-if-not-resolved="false"></xref> type does not use the indicated <xref href="SadConsole.Input.AsciiKey.Key" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static bool operator !=(AsciiKey left, Keys right)
+    parameters:
+    - id: left
+      type: SadConsole.Input.AsciiKey
+      description: The <xref href="SadConsole.Input.AsciiKey" data-throw-if-not-resolved="false"></xref> to compare.
+    - id: right
+      type: SadConsole.Input.Keys
+      description: The <xref href="SadConsole.Input.AsciiKey.Key" data-throw-if-not-resolved="false"></xref> to compare.
+    return:
+      type: System.Boolean
+      description: True when <xref href="SadConsole.Input.AsciiKey.Key" data-throw-if-not-resolved="false"></xref> does not match.
+    content.vb: Public Shared Operator <>(left As AsciiKey, right As Keys) As Boolean
+  overload: SadConsole.Input.AsciiKey.op_Inequality*
+  nameWithType.vb: AsciiKey.<>(AsciiKey, Keys)
+  fullName.vb: SadConsole.Input.AsciiKey.<>(SadConsole.Input.AsciiKey, SadConsole.Input.Keys)
+  name.vb: <>(AsciiKey, Keys)
+- uid: SadConsole.Input.AsciiKey.op_Equality(SadConsole.Input.Keys,SadConsole.Input.AsciiKey)
+  commentId: M:SadConsole.Input.AsciiKey.op_Equality(SadConsole.Input.Keys,SadConsole.Input.AsciiKey)
+  id: op_Equality(SadConsole.Input.Keys,SadConsole.Input.AsciiKey)
+  parent: SadConsole.Input.AsciiKey
+  langs:
+  - csharp
+  - vb
+  name: operator ==(Keys, AsciiKey)
+  nameWithType: AsciiKey.operator ==(Keys, AsciiKey)
+  fullName: SadConsole.Input.AsciiKey.operator ==(SadConsole.Input.Keys, SadConsole.Input.AsciiKey)
+  type: Operator
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Input
+  summary: Checks if the a <xref href="SadConsole.Input.AsciiKey" data-throw-if-not-resolved="false"></xref> type uses the indicated <xref href="SadConsole.Input.AsciiKey.Key" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static bool operator ==(Keys left, AsciiKey right)
+    parameters:
+    - id: left
+      type: SadConsole.Input.Keys
+      description: The <xref href="SadConsole.Input.AsciiKey.Key" data-throw-if-not-resolved="false"></xref> to compare.
+    - id: right
+      type: SadConsole.Input.AsciiKey
+      description: The <xref href="SadConsole.Input.AsciiKey" data-throw-if-not-resolved="false"></xref> to compare.
+    return:
+      type: System.Boolean
+      description: True when <xref href="SadConsole.Input.AsciiKey.Key" data-throw-if-not-resolved="false"></xref> matches.
+    content.vb: Public Shared Operator =(left As Keys, right As AsciiKey) As Boolean
+  overload: SadConsole.Input.AsciiKey.op_Equality*
+  nameWithType.vb: AsciiKey.=(Keys, AsciiKey)
+  fullName.vb: SadConsole.Input.AsciiKey.=(SadConsole.Input.Keys, SadConsole.Input.AsciiKey)
+  name.vb: =(Keys, AsciiKey)
+- uid: SadConsole.Input.AsciiKey.op_Inequality(SadConsole.Input.Keys,SadConsole.Input.AsciiKey)
+  commentId: M:SadConsole.Input.AsciiKey.op_Inequality(SadConsole.Input.Keys,SadConsole.Input.AsciiKey)
+  id: op_Inequality(SadConsole.Input.Keys,SadConsole.Input.AsciiKey)
+  parent: SadConsole.Input.AsciiKey
+  langs:
+  - csharp
+  - vb
+  name: operator !=(Keys, AsciiKey)
+  nameWithType: AsciiKey.operator !=(Keys, AsciiKey)
+  fullName: SadConsole.Input.AsciiKey.operator !=(SadConsole.Input.Keys, SadConsole.Input.AsciiKey)
+  type: Operator
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Input
+  summary: Checks if the a <xref href="SadConsole.Input.AsciiKey" data-throw-if-not-resolved="false"></xref> type does not use the indicated <xref href="SadConsole.Input.AsciiKey.Key" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static bool operator !=(Keys left, AsciiKey right)
+    parameters:
+    - id: left
+      type: SadConsole.Input.Keys
+      description: The <xref href="SadConsole.Input.AsciiKey.Key" data-throw-if-not-resolved="false"></xref> to compare.
+    - id: right
+      type: SadConsole.Input.AsciiKey
+      description: The <xref href="SadConsole.Input.AsciiKey" data-throw-if-not-resolved="false"></xref> to compare.
+    return:
+      type: System.Boolean
+      description: True when <xref href="SadConsole.Input.AsciiKey.Key" data-throw-if-not-resolved="false"></xref> does not match.
+    content.vb: Public Shared Operator <>(left As Keys, right As AsciiKey) As Boolean
+  overload: SadConsole.Input.AsciiKey.op_Inequality*
+  nameWithType.vb: AsciiKey.<>(Keys, AsciiKey)
+  fullName.vb: SadConsole.Input.AsciiKey.<>(SadConsole.Input.Keys, SadConsole.Input.AsciiKey)
+  name.vb: <>(Keys, AsciiKey)
+- uid: SadConsole.Input.AsciiKey.Equals(System.Object)
+  commentId: M:SadConsole.Input.AsciiKey.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: SadConsole.Input.AsciiKey
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: AsciiKey.Equals(object?)
+  fullName: SadConsole.Input.AsciiKey.Equals(object?)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Input
+  summary: Compares references.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: ''
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: SadConsole.Input.AsciiKey.Equals*
+  nameWithType.vb: AsciiKey.Equals(Object)
+  fullName.vb: SadConsole.Input.AsciiKey.Equals(Object)
+  name.vb: Equals(Object)
+references:
+- uid: SadConsole.Input
+  commentId: N:SadConsole.Input
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Input
+  nameWithType: SadConsole.Input
+  fullName: SadConsole.Input
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Input
+    name: Input
+    isExternal: true
+    href: SadConsole.Input.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Input
+    name: Input
+    isExternal: true
+    href: SadConsole.Input.html
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SadConsole.Input.Keys
+  commentId: T:SadConsole.Input.Keys
+  parent: SadConsole.Input
+  isExternal: true
+  href: SadConsole.Input.Keys.html
+  name: Keys
+  nameWithType: Keys
+  fullName: SadConsole.Input.Keys
+- uid: System.Collections.Generic.List{SadConsole.Input.Keys}
+  commentId: T:System.Collections.Generic.List{SadConsole.Input.Keys}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Keys>
+  nameWithType: List<Keys>
+  fullName: System.Collections.Generic.List<SadConsole.Input.Keys>
+  nameWithType.vb: List(Of Keys)
+  fullName.vb: System.Collections.Generic.List(Of SadConsole.Input.Keys)
+  name.vb: List(Of Keys)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: SadConsole.Input.Keys
+    name: Keys
+    isExternal: true
+    href: SadConsole.Input.Keys.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Input.Keys
+    name: Keys
+    isExternal: true
+    href: SadConsole.Input.Keys.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.Generic.Dictionary{SadConsole.Input.Keys,SadConsole.Input.AsciiKey.ShiftedCharacterMapping}
+  commentId: T:System.Collections.Generic.Dictionary{SadConsole.Input.Keys,SadConsole.Input.AsciiKey.ShiftedCharacterMapping}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<Keys, AsciiKey.ShiftedCharacterMapping>
+  nameWithType: Dictionary<Keys, AsciiKey.ShiftedCharacterMapping>
+  fullName: System.Collections.Generic.Dictionary<SadConsole.Input.Keys, SadConsole.Input.AsciiKey.ShiftedCharacterMapping>
+  nameWithType.vb: Dictionary(Of Keys, AsciiKey.ShiftedCharacterMapping)
+  fullName.vb: System.Collections.Generic.Dictionary(Of SadConsole.Input.Keys, SadConsole.Input.AsciiKey.ShiftedCharacterMapping)
+  name.vb: Dictionary(Of Keys, AsciiKey.ShiftedCharacterMapping)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: SadConsole.Input.Keys
+    name: Keys
+    isExternal: true
+    href: SadConsole.Input.Keys.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Input.AsciiKey
+    name: AsciiKey
+    isExternal: true
+    href: SadConsole.Input.AsciiKey.html
+  - name: .
+  - uid: SadConsole.Input.AsciiKey.ShiftedCharacterMapping
+    name: ShiftedCharacterMapping
+    isExternal: true
+    href: SadConsole.Input.AsciiKey.ShiftedCharacterMapping.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Input.Keys
+    name: Keys
+    isExternal: true
+    href: SadConsole.Input.Keys.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Input.AsciiKey
+    name: AsciiKey
+    isExternal: true
+    href: SadConsole.Input.AsciiKey.html
+  - name: .
+  - uid: SadConsole.Input.AsciiKey.ShiftedCharacterMapping
+    name: ShiftedCharacterMapping
+    isExternal: true
+    href: SadConsole.Input.AsciiKey.ShiftedCharacterMapping.html
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic.Dictionary{SadConsole.Input.Keys,SadConsole.Input.AsciiKey.CharacterKeyMapping}
+  commentId: T:System.Collections.Generic.Dictionary{SadConsole.Input.Keys,SadConsole.Input.AsciiKey.CharacterKeyMapping}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<Keys, AsciiKey.CharacterKeyMapping>
+  nameWithType: Dictionary<Keys, AsciiKey.CharacterKeyMapping>
+  fullName: System.Collections.Generic.Dictionary<SadConsole.Input.Keys, SadConsole.Input.AsciiKey.CharacterKeyMapping>
+  nameWithType.vb: Dictionary(Of Keys, AsciiKey.CharacterKeyMapping)
+  fullName.vb: System.Collections.Generic.Dictionary(Of SadConsole.Input.Keys, SadConsole.Input.AsciiKey.CharacterKeyMapping)
+  name.vb: Dictionary(Of Keys, AsciiKey.CharacterKeyMapping)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: SadConsole.Input.Keys
+    name: Keys
+    isExternal: true
+    href: SadConsole.Input.Keys.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Input.AsciiKey
+    name: AsciiKey
+    isExternal: true
+    href: SadConsole.Input.AsciiKey.html
+  - name: .
+  - uid: SadConsole.Input.AsciiKey.CharacterKeyMapping
+    name: CharacterKeyMapping
+    isExternal: true
+    href: SadConsole.Input.AsciiKey.CharacterKeyMapping.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Input.Keys
+    name: Keys
+    isExternal: true
+    href: SadConsole.Input.Keys.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Input.AsciiKey
+    name: AsciiKey
+    isExternal: true
+    href: SadConsole.Input.AsciiKey.html
+  - name: .
+  - uid: SadConsole.Input.AsciiKey.CharacterKeyMapping
+    name: CharacterKeyMapping
+    isExternal: true
+    href: SadConsole.Input.AsciiKey.CharacterKeyMapping.html
+  - name: )
+- uid: System.Collections.Generic.Dictionary{SadConsole.Input.Keys,SadConsole.Input.Keys}
+  commentId: T:System.Collections.Generic.Dictionary{SadConsole.Input.Keys,SadConsole.Input.Keys}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<Keys, Keys>
+  nameWithType: Dictionary<Keys, Keys>
+  fullName: System.Collections.Generic.Dictionary<SadConsole.Input.Keys, SadConsole.Input.Keys>
+  nameWithType.vb: Dictionary(Of Keys, Keys)
+  fullName.vb: System.Collections.Generic.Dictionary(Of SadConsole.Input.Keys, SadConsole.Input.Keys)
+  name.vb: Dictionary(Of Keys, Keys)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: SadConsole.Input.Keys
+    name: Keys
+    isExternal: true
+    href: SadConsole.Input.Keys.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Input.Keys
+    name: Keys
+    isExternal: true
+    href: SadConsole.Input.Keys.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Input.Keys
+    name: Keys
+    isExternal: true
+    href: SadConsole.Input.Keys.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Input.Keys
+    name: Keys
+    isExternal: true
+    href: SadConsole.Input.Keys.html
+  - name: )
+- uid: System.Char
+  commentId: T:System.Char
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.char
+  name: char
+  nameWithType: char
+  fullName: char
+  nameWithType.vb: Char
+  fullName.vb: Char
+  name.vb: Char
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: SadConsole.Input.Keyboard.InitialRepeatDelay
+  commentId: F:SadConsole.Input.Keyboard.InitialRepeatDelay
+  isExternal: true
+  href: SadConsole.Input.Keyboard.html#SadConsole.Input.Keyboard.InitialRepeatDelay
+  name: InitialRepeatDelay
+  nameWithType: Keyboard.InitialRepeatDelay
+  fullName: SadConsole.Input.Keyboard.InitialRepeatDelay
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: SadConsole.Input.AsciiKey.Character
+  commentId: F:SadConsole.Input.AsciiKey.Character
+  isExternal: true
+  href: SadConsole.Input.AsciiKey.html#SadConsole.Input.AsciiKey.Character
+  name: Character
+  nameWithType: AsciiKey.Character
+  fullName: SadConsole.Input.AsciiKey.Character
+- uid: SadConsole.Input.AsciiKey.Fill*
+  commentId: Overload:SadConsole.Input.AsciiKey.Fill
+  isExternal: true
+  href: SadConsole.Input.AsciiKey.html#SadConsole.Input.AsciiKey.Fill(SadConsole.Input.Keys,System.Boolean,SadConsole.Input.IKeyboardState)
+  name: Fill
+  nameWithType: AsciiKey.Fill
+  fullName: SadConsole.Input.AsciiKey.Fill
+- uid: SadConsole.Input.IKeyboardState
+  commentId: T:SadConsole.Input.IKeyboardState
+  parent: SadConsole.Input
+  isExternal: true
+  href: SadConsole.Input.IKeyboardState.html
+  name: IKeyboardState
+  nameWithType: IKeyboardState
+  fullName: SadConsole.Input.IKeyboardState
+- uid: SadConsole.Input.AsciiKey
+  commentId: T:SadConsole.Input.AsciiKey
+  parent: SadConsole.Input
+  isExternal: true
+  href: SadConsole.Input.AsciiKey.html
+  name: AsciiKey
+  nameWithType: AsciiKey
+  fullName: SadConsole.Input.AsciiKey
+- uid: SadConsole.Input.AsciiKey.Get*
+  commentId: Overload:SadConsole.Input.AsciiKey.Get
+  isExternal: true
+  href: SadConsole.Input.AsciiKey.html#SadConsole.Input.AsciiKey.Get(SadConsole.Input.Keys,SadConsole.Input.IKeyboardState)
+  name: Get
+  nameWithType: AsciiKey.Get
+  fullName: SadConsole.Input.AsciiKey.Get
+- uid: SadConsole.Input.AsciiKey.Key
+  commentId: F:SadConsole.Input.AsciiKey.Key
+  isExternal: true
+  href: SadConsole.Input.AsciiKey.html#SadConsole.Input.AsciiKey.Key
+  name: Key
+  nameWithType: AsciiKey.Key
+  fullName: SadConsole.Input.AsciiKey.Key
+- uid: SadConsole.Input.AsciiKey.op_Equality*
+  commentId: Overload:SadConsole.Input.AsciiKey.op_Equality
+  isExternal: true
+  href: SadConsole.Input.AsciiKey.html#SadConsole.Input.AsciiKey.op_Equality(SadConsole.Input.AsciiKey,SadConsole.Input.AsciiKey)
+  name: operator ==
+  nameWithType: AsciiKey.operator ==
+  fullName: SadConsole.Input.AsciiKey.operator ==
+  nameWithType.vb: AsciiKey.=
+  fullName.vb: SadConsole.Input.AsciiKey.=
+  name.vb: =
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: SadConsole.Input.AsciiKey.op_Equality*
+    name: ==
+    isExternal: true
+    href: SadConsole.Input.AsciiKey.html#SadConsole.Input.AsciiKey.op_Equality(SadConsole.Input.AsciiKey,SadConsole.Input.AsciiKey)
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: SadConsole.Input.AsciiKey.GetHashCode*
+  commentId: Overload:SadConsole.Input.AsciiKey.GetHashCode
+  isExternal: true
+  href: SadConsole.Input.AsciiKey.html#SadConsole.Input.AsciiKey.GetHashCode
+  name: GetHashCode
+  nameWithType: AsciiKey.GetHashCode
+  fullName: SadConsole.Input.AsciiKey.GetHashCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: SadConsole.Input.AsciiKey.op_Inequality*
+  commentId: Overload:SadConsole.Input.AsciiKey.op_Inequality
+  isExternal: true
+  href: SadConsole.Input.AsciiKey.html#SadConsole.Input.AsciiKey.op_Inequality(SadConsole.Input.AsciiKey,SadConsole.Input.AsciiKey)
+  name: operator !=
+  nameWithType: AsciiKey.operator !=
+  fullName: SadConsole.Input.AsciiKey.operator !=
+  nameWithType.vb: AsciiKey.<>
+  fullName.vb: SadConsole.Input.AsciiKey.<>
+  name.vb: <>
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: SadConsole.Input.AsciiKey.op_Inequality*
+    name: '!='
+    isExternal: true
+    href: SadConsole.Input.AsciiKey.html#SadConsole.Input.AsciiKey.op_Inequality(SadConsole.Input.AsciiKey,SadConsole.Input.AsciiKey)
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: SadConsole.Input.AsciiKey.Equals*
+  commentId: Overload:SadConsole.Input.AsciiKey.Equals
+  isExternal: true
+  href: SadConsole.Input.AsciiKey.html#SadConsole.Input.AsciiKey.Equals(System.Object)
+  name: Equals
+  nameWithType: AsciiKey.Equals
+  fullName: SadConsole.Input.AsciiKey.Equals

@@ -1,0 +1,3078 @@
+### YamlMime:ManagedReference
+items:
+- uid: SadConsole.SplashScreens.SplashScreenManager
+  commentId: T:SadConsole.SplashScreens.SplashScreenManager
+  id: SplashScreenManager
+  parent: SadConsole.SplashScreens
+  children:
+  - SadConsole.SplashScreens.SplashScreenManager.CheckRun
+  - SadConsole.SplashScreens.SplashScreenManager.SplashScreenFinished
+  - SadConsole.SplashScreens.SplashScreenManager.Update(System.TimeSpan)
+  langs:
+  - csharp
+  - vb
+  name: SplashScreenManager
+  nameWithType: SplashScreenManager
+  fullName: SadConsole.SplashScreens.SplashScreenManager
+  type: Class
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.SplashScreens
+  summary: GameHost use only. Use the <xref href="SadConsole.SplashScreens.SplashScreenManager.CheckRun" data-throw-if-not-resolved="false"></xref> method to show any splash screens after <xref href="SadConsole.GameHost.OnStart" data-throw-if-not-resolved="false"></xref> was called.
+  example: []
+  syntax:
+    content: 'public class SplashScreenManager : ScreenObject, IScreenObject, IPositionable, IComponentHost'
+    content.vb: Public Class SplashScreenManager Inherits ScreenObject Implements IScreenObject, IPositionable, IComponentHost
+  inheritance:
+  - System.Object
+  - SadConsole.ScreenObject
+  implements:
+  - SadConsole.IScreenObject
+  - SadRogue.Primitives.IPositionable
+  - SadConsole.Components.IComponentHost
+  inheritedMembers:
+  - SadConsole.ScreenObject.ComponentsUpdate
+  - SadConsole.ScreenObject.ComponentsRender
+  - SadConsole.ScreenObject.ComponentsMouse
+  - SadConsole.ScreenObject.ComponentsKeyboard
+  - SadConsole.ScreenObject.ComponentsEmpty
+  - SadConsole.ScreenObject.Render(System.TimeSpan)
+  - SadConsole.ScreenObject.ProcessKeyboard(SadConsole.Input.Keyboard)
+  - SadConsole.ScreenObject.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
+  - SadConsole.ScreenObject.LostMouse(SadConsole.Input.MouseScreenObjectState)
+  - SadConsole.ScreenObject.OnFocusLost
+  - SadConsole.ScreenObject.OnFocused
+  - SadConsole.ScreenObject.OnParentChanged(SadConsole.IScreenObject,SadConsole.IScreenObject)
+  - SadConsole.ScreenObject.OnPositionChanging(SadRogue.Primitives.Point,SadRogue.Primitives.Point)
+  - SadConsole.ScreenObject.OnPositionChanged(SadRogue.Primitives.Point,SadRogue.Primitives.Point)
+  - SadConsole.ScreenObject.OnVisibleChanged
+  - SadConsole.ScreenObject.OnEnabledChanged
+  - SadConsole.ScreenObject.UpdateAbsolutePosition
+  - SadConsole.ScreenObject.ToString
+  - SadConsole.ScreenObject.GetSadComponents``1
+  - SadConsole.ScreenObject.GetSadComponent``1
+  - SadConsole.ScreenObject.HasSadComponent``1({TComponent}@)
+  - SadConsole.ScreenObject.OnSadComponentAdded(SadConsole.Components.IComponent)
+  - SadConsole.ScreenObject.OnSadComponentRemoved(SadConsole.Components.IComponent)
+  - SadConsole.ScreenObject.SortComponents
+  - SadConsole.ScreenObject.Components_FilterAddItem(SadConsole.Components.IComponent,System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent})
+  - SadConsole.ScreenObject.Components_FilterRemoveItem(SadConsole.Components.IComponent,System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent})
+  - SadConsole.ScreenObject.Components_Sort(System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent})
+  - SadConsole.ScreenObject.OnSerializingMethod(System.Runtime.Serialization.StreamingContext)
+  - SadConsole.ScreenObject.SortOrder
+  - SadConsole.ScreenObject.Children
+  - SadConsole.ScreenObject.Parent
+  - SadConsole.ScreenObject.Position
+  - SadConsole.ScreenObject.AbsolutePosition
+  - SadConsole.ScreenObject.IgnoreParentPosition
+  - SadConsole.ScreenObject.IsVisible
+  - SadConsole.ScreenObject.IsEnabled
+  - SadConsole.ScreenObject.IsFocused
+  - SadConsole.ScreenObject.FocusedMode
+  - SadConsole.ScreenObject.IsExclusiveMouse
+  - SadConsole.ScreenObject.UseKeyboard
+  - SadConsole.ScreenObject.UseMouse
+  - SadConsole.ScreenObject.SadComponents
+  - SadConsole.ScreenObject.ParentChanged
+  - SadConsole.ScreenObject.PositionChanged
+  - SadConsole.ScreenObject.PositionChanging
+  - SadConsole.ScreenObject.IsVisibleChanged
+  - SadConsole.ScreenObject.IsEnabledChanged
+  - SadConsole.ScreenObject.FocusLost
+  - SadConsole.ScreenObject.Focused
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  extensionMethods:
+  - SadConsole.IScreenObject.SadConsole.Quick.Keyboard.RemoveKeyboardHook(System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
+  - SadConsole.IScreenObject.SadConsole.Quick.Keyboard.RemoveKeyboardHooks
+  - SadConsole.IScreenObject.SadConsole.Quick.Keyboard.WithKeyboard(System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
+  - SadConsole.IScreenObject.SadConsole.Quick.Mouse.RemoveMouseHook(System.Func{SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean})
+  - SadConsole.IScreenObject.SadConsole.Quick.Mouse.RemoveMouseHooks
+  - SadConsole.IScreenObject.SadConsole.Quick.Mouse.WithMouse(System.Func{SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean})
+  - SadConsole.IScreenObject.SadConsole.Quick.Update.RemoveUpdateHook(System.Action{SadConsole.IScreenObject,System.TimeSpan})
+  - SadConsole.IScreenObject.SadConsole.Quick.Update.RemoveUpdateHooks
+  - SadConsole.IScreenObject.SadConsole.Quick.Update.WithUpdate(System.Action{SadConsole.IScreenObject,System.TimeSpan})
+- uid: SadConsole.SplashScreens.SplashScreenManager.CheckRun
+  commentId: M:SadConsole.SplashScreens.SplashScreenManager.CheckRun
+  id: CheckRun
+  parent: SadConsole.SplashScreens.SplashScreenManager
+  langs:
+  - csharp
+  - vb
+  name: CheckRun()
+  nameWithType: SplashScreenManager.CheckRun()
+  fullName: SadConsole.SplashScreens.SplashScreenManager.CheckRun()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.SplashScreens
+  summary: Checks if any splash screens have been added with <see cref="!:GameHost.SetSplashScreens(ScreenSurface[])"></see>, if so, starts them.
+  example: []
+  syntax:
+    content: public static void CheckRun()
+    content.vb: Public Shared Sub CheckRun()
+  overload: SadConsole.SplashScreens.SplashScreenManager.CheckRun*
+- uid: SadConsole.SplashScreens.SplashScreenManager.Update(System.TimeSpan)
+  commentId: M:SadConsole.SplashScreens.SplashScreenManager.Update(System.TimeSpan)
+  id: Update(System.TimeSpan)
+  parent: SadConsole.SplashScreens.SplashScreenManager
+  langs:
+  - csharp
+  - vb
+  name: Update(TimeSpan)
+  nameWithType: SplashScreenManager.Update(TimeSpan)
+  fullName: SadConsole.SplashScreens.SplashScreenManager.Update(System.TimeSpan)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.SplashScreens
+  summary: Updates all <see cref="!:SadComponents"></see> and <xref href="SadConsole.IScreenObject.Children" data-throw-if-not-resolved="false"></xref>.
+  remarks: Only processes if <xref href="SadConsole.IScreenObject.IsEnabled" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
+  example: []
+  syntax:
+    content: public override void Update(TimeSpan delta)
+    parameters:
+    - id: delta
+      type: System.TimeSpan
+      description: The time that has elapsed since the last call.
+    content.vb: Public Overrides Sub Update(delta As TimeSpan)
+  overridden: SadConsole.ScreenObject.Update(System.TimeSpan)
+  overload: SadConsole.SplashScreens.SplashScreenManager.Update*
+- uid: SadConsole.SplashScreens.SplashScreenManager.SplashScreenFinished
+  commentId: E:SadConsole.SplashScreens.SplashScreenManager.SplashScreenFinished
+  id: SplashScreenFinished
+  parent: SadConsole.SplashScreens.SplashScreenManager
+  langs:
+  - csharp
+  - vb
+  name: SplashScreenFinished
+  nameWithType: SplashScreenManager.SplashScreenFinished
+  fullName: SadConsole.SplashScreens.SplashScreenManager.SplashScreenFinished
+  type: Event
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.SplashScreens
+  summary: Raised when all splash screens have finished.
+  example: []
+  syntax:
+    content: public static event EventHandler? SplashScreenFinished
+    return:
+      type: System.EventHandler
+    content.vb: Public Shared Event SplashScreenFinished As EventHandler
+references:
+- uid: SadConsole.SplashScreens.SplashScreenManager.CheckRun
+  commentId: M:SadConsole.SplashScreens.SplashScreenManager.CheckRun
+  isExternal: true
+  href: SadConsole.SplashScreens.SplashScreenManager.html#SadConsole.SplashScreens.SplashScreenManager.CheckRun
+  name: CheckRun()
+  nameWithType: SplashScreenManager.CheckRun()
+  fullName: SadConsole.SplashScreens.SplashScreenManager.CheckRun()
+  spec.csharp:
+  - uid: SadConsole.SplashScreens.SplashScreenManager.CheckRun
+    name: CheckRun
+    isExternal: true
+    href: SadConsole.SplashScreens.SplashScreenManager.html#SadConsole.SplashScreens.SplashScreenManager.CheckRun
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.SplashScreens.SplashScreenManager.CheckRun
+    name: CheckRun
+    isExternal: true
+    href: SadConsole.SplashScreens.SplashScreenManager.html#SadConsole.SplashScreens.SplashScreenManager.CheckRun
+  - name: (
+  - name: )
+- uid: SadConsole.GameHost.OnStart
+  commentId: F:SadConsole.GameHost.OnStart
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.OnStart
+  name: OnStart
+  nameWithType: GameHost.OnStart
+  fullName: SadConsole.GameHost.OnStart
+- uid: SadConsole.SplashScreens
+  commentId: N:SadConsole.SplashScreens
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.SplashScreens
+  nameWithType: SadConsole.SplashScreens
+  fullName: SadConsole.SplashScreens
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.SplashScreens
+    name: SplashScreens
+    isExternal: true
+    href: SadConsole.SplashScreens.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.SplashScreens
+    name: SplashScreens
+    isExternal: true
+    href: SadConsole.SplashScreens.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: SadConsole.ScreenObject
+  commentId: T:SadConsole.ScreenObject
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ScreenObject.html
+  name: ScreenObject
+  nameWithType: ScreenObject
+  fullName: SadConsole.ScreenObject
+- uid: SadConsole.IScreenObject
+  commentId: T:SadConsole.IScreenObject
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IScreenObject.html
+  name: IScreenObject
+  nameWithType: IScreenObject
+  fullName: SadConsole.IScreenObject
+- uid: SadRogue.Primitives.IPositionable
+  commentId: T:SadRogue.Primitives.IPositionable
+  parent: SadRogue.Primitives
+  isExternal: true
+  name: IPositionable
+  nameWithType: IPositionable
+  fullName: SadRogue.Primitives.IPositionable
+- uid: SadConsole.Components.IComponentHost
+  commentId: T:SadConsole.Components.IComponentHost
+  parent: SadConsole.Components
+  isExternal: true
+  href: SadConsole.Components.IComponentHost.html
+  name: IComponentHost
+  nameWithType: IComponentHost
+  fullName: SadConsole.Components.IComponentHost
+- uid: SadConsole.ScreenObject.ComponentsUpdate
+  commentId: F:SadConsole.ScreenObject.ComponentsUpdate
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.ComponentsUpdate
+  name: ComponentsUpdate
+  nameWithType: ScreenObject.ComponentsUpdate
+  fullName: SadConsole.ScreenObject.ComponentsUpdate
+- uid: SadConsole.ScreenObject.ComponentsRender
+  commentId: F:SadConsole.ScreenObject.ComponentsRender
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.ComponentsRender
+  name: ComponentsRender
+  nameWithType: ScreenObject.ComponentsRender
+  fullName: SadConsole.ScreenObject.ComponentsRender
+- uid: SadConsole.ScreenObject.ComponentsMouse
+  commentId: F:SadConsole.ScreenObject.ComponentsMouse
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.ComponentsMouse
+  name: ComponentsMouse
+  nameWithType: ScreenObject.ComponentsMouse
+  fullName: SadConsole.ScreenObject.ComponentsMouse
+- uid: SadConsole.ScreenObject.ComponentsKeyboard
+  commentId: F:SadConsole.ScreenObject.ComponentsKeyboard
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.ComponentsKeyboard
+  name: ComponentsKeyboard
+  nameWithType: ScreenObject.ComponentsKeyboard
+  fullName: SadConsole.ScreenObject.ComponentsKeyboard
+- uid: SadConsole.ScreenObject.ComponentsEmpty
+  commentId: F:SadConsole.ScreenObject.ComponentsEmpty
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.ComponentsEmpty
+  name: ComponentsEmpty
+  nameWithType: ScreenObject.ComponentsEmpty
+  fullName: SadConsole.ScreenObject.ComponentsEmpty
+- uid: SadConsole.ScreenObject.Render(System.TimeSpan)
+  commentId: M:SadConsole.ScreenObject.Render(System.TimeSpan)
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.Render(System.TimeSpan)
+  name: Render(TimeSpan)
+  nameWithType: ScreenObject.Render(TimeSpan)
+  fullName: SadConsole.ScreenObject.Render(System.TimeSpan)
+  spec.csharp:
+  - uid: SadConsole.ScreenObject.Render(System.TimeSpan)
+    name: Render
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.Render(System.TimeSpan)
+  - name: (
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ScreenObject.Render(System.TimeSpan)
+    name: Render
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.Render(System.TimeSpan)
+  - name: (
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+- uid: SadConsole.ScreenObject.ProcessKeyboard(SadConsole.Input.Keyboard)
+  commentId: M:SadConsole.ScreenObject.ProcessKeyboard(SadConsole.Input.Keyboard)
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.ProcessKeyboard(SadConsole.Input.Keyboard)
+  name: ProcessKeyboard(Keyboard)
+  nameWithType: ScreenObject.ProcessKeyboard(Keyboard)
+  fullName: SadConsole.ScreenObject.ProcessKeyboard(SadConsole.Input.Keyboard)
+  spec.csharp:
+  - uid: SadConsole.ScreenObject.ProcessKeyboard(SadConsole.Input.Keyboard)
+    name: ProcessKeyboard
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.ProcessKeyboard(SadConsole.Input.Keyboard)
+  - name: (
+  - uid: SadConsole.Input.Keyboard
+    name: Keyboard
+    isExternal: true
+    href: SadConsole.Input.Keyboard.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ScreenObject.ProcessKeyboard(SadConsole.Input.Keyboard)
+    name: ProcessKeyboard
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.ProcessKeyboard(SadConsole.Input.Keyboard)
+  - name: (
+  - uid: SadConsole.Input.Keyboard
+    name: Keyboard
+    isExternal: true
+    href: SadConsole.Input.Keyboard.html
+  - name: )
+- uid: SadConsole.ScreenObject.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
+  commentId: M:SadConsole.ScreenObject.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
+  name: ProcessMouse(MouseScreenObjectState)
+  nameWithType: ScreenObject.ProcessMouse(MouseScreenObjectState)
+  fullName: SadConsole.ScreenObject.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
+  spec.csharp:
+  - uid: SadConsole.ScreenObject.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
+    name: ProcessMouse
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
+  - name: (
+  - uid: SadConsole.Input.MouseScreenObjectState
+    name: MouseScreenObjectState
+    isExternal: true
+    href: SadConsole.Input.MouseScreenObjectState.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ScreenObject.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
+    name: ProcessMouse
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
+  - name: (
+  - uid: SadConsole.Input.MouseScreenObjectState
+    name: MouseScreenObjectState
+    isExternal: true
+    href: SadConsole.Input.MouseScreenObjectState.html
+  - name: )
+- uid: SadConsole.ScreenObject.LostMouse(SadConsole.Input.MouseScreenObjectState)
+  commentId: M:SadConsole.ScreenObject.LostMouse(SadConsole.Input.MouseScreenObjectState)
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.LostMouse(SadConsole.Input.MouseScreenObjectState)
+  name: LostMouse(MouseScreenObjectState)
+  nameWithType: ScreenObject.LostMouse(MouseScreenObjectState)
+  fullName: SadConsole.ScreenObject.LostMouse(SadConsole.Input.MouseScreenObjectState)
+  spec.csharp:
+  - uid: SadConsole.ScreenObject.LostMouse(SadConsole.Input.MouseScreenObjectState)
+    name: LostMouse
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.LostMouse(SadConsole.Input.MouseScreenObjectState)
+  - name: (
+  - uid: SadConsole.Input.MouseScreenObjectState
+    name: MouseScreenObjectState
+    isExternal: true
+    href: SadConsole.Input.MouseScreenObjectState.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ScreenObject.LostMouse(SadConsole.Input.MouseScreenObjectState)
+    name: LostMouse
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.LostMouse(SadConsole.Input.MouseScreenObjectState)
+  - name: (
+  - uid: SadConsole.Input.MouseScreenObjectState
+    name: MouseScreenObjectState
+    isExternal: true
+    href: SadConsole.Input.MouseScreenObjectState.html
+  - name: )
+- uid: SadConsole.ScreenObject.OnFocusLost
+  commentId: M:SadConsole.ScreenObject.OnFocusLost
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.OnFocusLost
+  name: OnFocusLost()
+  nameWithType: ScreenObject.OnFocusLost()
+  fullName: SadConsole.ScreenObject.OnFocusLost()
+  spec.csharp:
+  - uid: SadConsole.ScreenObject.OnFocusLost
+    name: OnFocusLost
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.OnFocusLost
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ScreenObject.OnFocusLost
+    name: OnFocusLost
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.OnFocusLost
+  - name: (
+  - name: )
+- uid: SadConsole.ScreenObject.OnFocused
+  commentId: M:SadConsole.ScreenObject.OnFocused
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.OnFocused
+  name: OnFocused()
+  nameWithType: ScreenObject.OnFocused()
+  fullName: SadConsole.ScreenObject.OnFocused()
+  spec.csharp:
+  - uid: SadConsole.ScreenObject.OnFocused
+    name: OnFocused
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.OnFocused
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ScreenObject.OnFocused
+    name: OnFocused
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.OnFocused
+  - name: (
+  - name: )
+- uid: SadConsole.ScreenObject.OnParentChanged(SadConsole.IScreenObject,SadConsole.IScreenObject)
+  commentId: M:SadConsole.ScreenObject.OnParentChanged(SadConsole.IScreenObject,SadConsole.IScreenObject)
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.OnParentChanged(SadConsole.IScreenObject,SadConsole.IScreenObject)
+  name: OnParentChanged(IScreenObject, IScreenObject)
+  nameWithType: ScreenObject.OnParentChanged(IScreenObject, IScreenObject)
+  fullName: SadConsole.ScreenObject.OnParentChanged(SadConsole.IScreenObject, SadConsole.IScreenObject)
+  spec.csharp:
+  - uid: SadConsole.ScreenObject.OnParentChanged(SadConsole.IScreenObject,SadConsole.IScreenObject)
+    name: OnParentChanged
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.OnParentChanged(SadConsole.IScreenObject,SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ScreenObject.OnParentChanged(SadConsole.IScreenObject,SadConsole.IScreenObject)
+    name: OnParentChanged
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.OnParentChanged(SadConsole.IScreenObject,SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+- uid: SadConsole.ScreenObject.OnPositionChanging(SadRogue.Primitives.Point,SadRogue.Primitives.Point)
+  commentId: M:SadConsole.ScreenObject.OnPositionChanging(SadRogue.Primitives.Point,SadRogue.Primitives.Point)
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.OnPositionChanging(SadRogue.Primitives.Point,SadRogue.Primitives.Point)
+  name: OnPositionChanging(Point, Point)
+  nameWithType: ScreenObject.OnPositionChanging(Point, Point)
+  fullName: SadConsole.ScreenObject.OnPositionChanging(SadRogue.Primitives.Point, SadRogue.Primitives.Point)
+  spec.csharp:
+  - uid: SadConsole.ScreenObject.OnPositionChanging(SadRogue.Primitives.Point,SadRogue.Primitives.Point)
+    name: OnPositionChanging
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.OnPositionChanging(SadRogue.Primitives.Point,SadRogue.Primitives.Point)
+  - name: (
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ScreenObject.OnPositionChanging(SadRogue.Primitives.Point,SadRogue.Primitives.Point)
+    name: OnPositionChanging
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.OnPositionChanging(SadRogue.Primitives.Point,SadRogue.Primitives.Point)
+  - name: (
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: )
+- uid: SadConsole.ScreenObject.OnPositionChanged(SadRogue.Primitives.Point,SadRogue.Primitives.Point)
+  commentId: M:SadConsole.ScreenObject.OnPositionChanged(SadRogue.Primitives.Point,SadRogue.Primitives.Point)
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.OnPositionChanged(SadRogue.Primitives.Point,SadRogue.Primitives.Point)
+  name: OnPositionChanged(Point, Point)
+  nameWithType: ScreenObject.OnPositionChanged(Point, Point)
+  fullName: SadConsole.ScreenObject.OnPositionChanged(SadRogue.Primitives.Point, SadRogue.Primitives.Point)
+  spec.csharp:
+  - uid: SadConsole.ScreenObject.OnPositionChanged(SadRogue.Primitives.Point,SadRogue.Primitives.Point)
+    name: OnPositionChanged
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.OnPositionChanged(SadRogue.Primitives.Point,SadRogue.Primitives.Point)
+  - name: (
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ScreenObject.OnPositionChanged(SadRogue.Primitives.Point,SadRogue.Primitives.Point)
+    name: OnPositionChanged
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.OnPositionChanged(SadRogue.Primitives.Point,SadRogue.Primitives.Point)
+  - name: (
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: )
+- uid: SadConsole.ScreenObject.OnVisibleChanged
+  commentId: M:SadConsole.ScreenObject.OnVisibleChanged
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.OnVisibleChanged
+  name: OnVisibleChanged()
+  nameWithType: ScreenObject.OnVisibleChanged()
+  fullName: SadConsole.ScreenObject.OnVisibleChanged()
+  spec.csharp:
+  - uid: SadConsole.ScreenObject.OnVisibleChanged
+    name: OnVisibleChanged
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.OnVisibleChanged
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ScreenObject.OnVisibleChanged
+    name: OnVisibleChanged
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.OnVisibleChanged
+  - name: (
+  - name: )
+- uid: SadConsole.ScreenObject.OnEnabledChanged
+  commentId: M:SadConsole.ScreenObject.OnEnabledChanged
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.OnEnabledChanged
+  name: OnEnabledChanged()
+  nameWithType: ScreenObject.OnEnabledChanged()
+  fullName: SadConsole.ScreenObject.OnEnabledChanged()
+  spec.csharp:
+  - uid: SadConsole.ScreenObject.OnEnabledChanged
+    name: OnEnabledChanged
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.OnEnabledChanged
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ScreenObject.OnEnabledChanged
+    name: OnEnabledChanged
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.OnEnabledChanged
+  - name: (
+  - name: )
+- uid: SadConsole.ScreenObject.UpdateAbsolutePosition
+  commentId: M:SadConsole.ScreenObject.UpdateAbsolutePosition
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.UpdateAbsolutePosition
+  name: UpdateAbsolutePosition()
+  nameWithType: ScreenObject.UpdateAbsolutePosition()
+  fullName: SadConsole.ScreenObject.UpdateAbsolutePosition()
+  spec.csharp:
+  - uid: SadConsole.ScreenObject.UpdateAbsolutePosition
+    name: UpdateAbsolutePosition
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.UpdateAbsolutePosition
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ScreenObject.UpdateAbsolutePosition
+    name: UpdateAbsolutePosition
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.UpdateAbsolutePosition
+  - name: (
+  - name: )
+- uid: SadConsole.ScreenObject.ToString
+  commentId: M:SadConsole.ScreenObject.ToString
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.ToString
+  name: ToString()
+  nameWithType: ScreenObject.ToString()
+  fullName: SadConsole.ScreenObject.ToString()
+  spec.csharp:
+  - uid: SadConsole.ScreenObject.ToString
+    name: ToString
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.ToString
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ScreenObject.ToString
+    name: ToString
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.ToString
+  - name: (
+  - name: )
+- uid: SadConsole.ScreenObject.GetSadComponents``1
+  commentId: M:SadConsole.ScreenObject.GetSadComponents``1
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.GetSadComponents``1
+  name: GetSadComponents<TComponent>()
+  nameWithType: ScreenObject.GetSadComponents<TComponent>()
+  fullName: SadConsole.ScreenObject.GetSadComponents<TComponent>()
+  nameWithType.vb: ScreenObject.GetSadComponents(Of TComponent)()
+  fullName.vb: SadConsole.ScreenObject.GetSadComponents(Of TComponent)()
+  name.vb: GetSadComponents(Of TComponent)()
+  spec.csharp:
+  - uid: SadConsole.ScreenObject.GetSadComponents``1
+    name: GetSadComponents
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.GetSadComponents``1
+  - name: <
+  - name: TComponent
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ScreenObject.GetSadComponents``1
+    name: GetSadComponents
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.GetSadComponents``1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TComponent
+  - name: )
+  - name: (
+  - name: )
+- uid: SadConsole.ScreenObject.GetSadComponent``1
+  commentId: M:SadConsole.ScreenObject.GetSadComponent``1
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.GetSadComponent``1
+  name: GetSadComponent<TComponent>()
+  nameWithType: ScreenObject.GetSadComponent<TComponent>()
+  fullName: SadConsole.ScreenObject.GetSadComponent<TComponent>()
+  nameWithType.vb: ScreenObject.GetSadComponent(Of TComponent)()
+  fullName.vb: SadConsole.ScreenObject.GetSadComponent(Of TComponent)()
+  name.vb: GetSadComponent(Of TComponent)()
+  spec.csharp:
+  - uid: SadConsole.ScreenObject.GetSadComponent``1
+    name: GetSadComponent
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.GetSadComponent``1
+  - name: <
+  - name: TComponent
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ScreenObject.GetSadComponent``1
+    name: GetSadComponent
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.GetSadComponent``1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TComponent
+  - name: )
+  - name: (
+  - name: )
+- uid: SadConsole.ScreenObject.HasSadComponent``1({TComponent}@)
+  commentId: M:SadConsole.ScreenObject.HasSadComponent``1(``0@)
+  parent: SadConsole.ScreenObject
+  definition: SadConsole.ScreenObject.HasSadComponent``1(``0@)
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.HasSadComponent``1(``0@)
+  name: HasSadComponent<TComponent>(out TComponent)
+  nameWithType: ScreenObject.HasSadComponent<TComponent>(out TComponent)
+  fullName: SadConsole.ScreenObject.HasSadComponent<TComponent>(out TComponent)
+  nameWithType.vb: ScreenObject.HasSadComponent(Of TComponent)(TComponent)
+  fullName.vb: SadConsole.ScreenObject.HasSadComponent(Of TComponent)(TComponent)
+  name.vb: HasSadComponent(Of TComponent)(TComponent)
+  spec.csharp:
+  - uid: SadConsole.ScreenObject.HasSadComponent``1(``0@)
+    name: HasSadComponent
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.HasSadComponent``1(``0@)
+  - name: <
+  - name: TComponent
+  - name: '>'
+  - name: (
+  - name: out
+  - name: " "
+  - name: TComponent
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ScreenObject.HasSadComponent``1(``0@)
+    name: HasSadComponent
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.HasSadComponent``1(``0@)
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TComponent
+  - name: )
+  - name: (
+  - name: TComponent
+  - name: )
+- uid: SadConsole.ScreenObject.OnSadComponentAdded(SadConsole.Components.IComponent)
+  commentId: M:SadConsole.ScreenObject.OnSadComponentAdded(SadConsole.Components.IComponent)
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.OnSadComponentAdded(SadConsole.Components.IComponent)
+  name: OnSadComponentAdded(IComponent)
+  nameWithType: ScreenObject.OnSadComponentAdded(IComponent)
+  fullName: SadConsole.ScreenObject.OnSadComponentAdded(SadConsole.Components.IComponent)
+  spec.csharp:
+  - uid: SadConsole.ScreenObject.OnSadComponentAdded(SadConsole.Components.IComponent)
+    name: OnSadComponentAdded
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.OnSadComponentAdded(SadConsole.Components.IComponent)
+  - name: (
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ScreenObject.OnSadComponentAdded(SadConsole.Components.IComponent)
+    name: OnSadComponentAdded
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.OnSadComponentAdded(SadConsole.Components.IComponent)
+  - name: (
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: )
+- uid: SadConsole.ScreenObject.OnSadComponentRemoved(SadConsole.Components.IComponent)
+  commentId: M:SadConsole.ScreenObject.OnSadComponentRemoved(SadConsole.Components.IComponent)
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.OnSadComponentRemoved(SadConsole.Components.IComponent)
+  name: OnSadComponentRemoved(IComponent)
+  nameWithType: ScreenObject.OnSadComponentRemoved(IComponent)
+  fullName: SadConsole.ScreenObject.OnSadComponentRemoved(SadConsole.Components.IComponent)
+  spec.csharp:
+  - uid: SadConsole.ScreenObject.OnSadComponentRemoved(SadConsole.Components.IComponent)
+    name: OnSadComponentRemoved
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.OnSadComponentRemoved(SadConsole.Components.IComponent)
+  - name: (
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ScreenObject.OnSadComponentRemoved(SadConsole.Components.IComponent)
+    name: OnSadComponentRemoved
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.OnSadComponentRemoved(SadConsole.Components.IComponent)
+  - name: (
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: )
+- uid: SadConsole.ScreenObject.SortComponents
+  commentId: M:SadConsole.ScreenObject.SortComponents
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.SortComponents
+  name: SortComponents()
+  nameWithType: ScreenObject.SortComponents()
+  fullName: SadConsole.ScreenObject.SortComponents()
+  spec.csharp:
+  - uid: SadConsole.ScreenObject.SortComponents
+    name: SortComponents
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.SortComponents
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ScreenObject.SortComponents
+    name: SortComponents
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.SortComponents
+  - name: (
+  - name: )
+- uid: SadConsole.ScreenObject.Components_FilterAddItem(SadConsole.Components.IComponent,System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent})
+  commentId: M:SadConsole.ScreenObject.Components_FilterAddItem(SadConsole.Components.IComponent,System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent})
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.Components_FilterAddItem(SadConsole.Components.IComponent,System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent})
+  name: Components_FilterAddItem(IComponent, List<IComponent>, List<IComponent>, List<IComponent>, List<IComponent>, List<IComponent>)
+  nameWithType: ScreenObject.Components_FilterAddItem(IComponent, List<IComponent>, List<IComponent>, List<IComponent>, List<IComponent>, List<IComponent>)
+  fullName: SadConsole.ScreenObject.Components_FilterAddItem(SadConsole.Components.IComponent, System.Collections.Generic.List<SadConsole.Components.IComponent>, System.Collections.Generic.List<SadConsole.Components.IComponent>, System.Collections.Generic.List<SadConsole.Components.IComponent>, System.Collections.Generic.List<SadConsole.Components.IComponent>, System.Collections.Generic.List<SadConsole.Components.IComponent>)
+  nameWithType.vb: ScreenObject.Components_FilterAddItem(IComponent, List(Of IComponent), List(Of IComponent), List(Of IComponent), List(Of IComponent), List(Of IComponent))
+  fullName.vb: SadConsole.ScreenObject.Components_FilterAddItem(SadConsole.Components.IComponent, System.Collections.Generic.List(Of SadConsole.Components.IComponent), System.Collections.Generic.List(Of SadConsole.Components.IComponent), System.Collections.Generic.List(Of SadConsole.Components.IComponent), System.Collections.Generic.List(Of SadConsole.Components.IComponent), System.Collections.Generic.List(Of SadConsole.Components.IComponent))
+  name.vb: Components_FilterAddItem(IComponent, List(Of IComponent), List(Of IComponent), List(Of IComponent), List(Of IComponent), List(Of IComponent))
+  spec.csharp:
+  - uid: SadConsole.ScreenObject.Components_FilterAddItem(SadConsole.Components.IComponent,System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent})
+    name: Components_FilterAddItem
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.Components_FilterAddItem(SadConsole.Components.IComponent,System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent})
+  - name: (
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ScreenObject.Components_FilterAddItem(SadConsole.Components.IComponent,System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent})
+    name: Components_FilterAddItem
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.Components_FilterAddItem(SadConsole.Components.IComponent,System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent})
+  - name: (
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: )
+  - name: )
+- uid: SadConsole.ScreenObject.Components_FilterRemoveItem(SadConsole.Components.IComponent,System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent})
+  commentId: M:SadConsole.ScreenObject.Components_FilterRemoveItem(SadConsole.Components.IComponent,System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent})
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.Components_FilterRemoveItem(SadConsole.Components.IComponent,System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent})
+  name: Components_FilterRemoveItem(IComponent, List<IComponent>, List<IComponent>, List<IComponent>, List<IComponent>, List<IComponent>)
+  nameWithType: ScreenObject.Components_FilterRemoveItem(IComponent, List<IComponent>, List<IComponent>, List<IComponent>, List<IComponent>, List<IComponent>)
+  fullName: SadConsole.ScreenObject.Components_FilterRemoveItem(SadConsole.Components.IComponent, System.Collections.Generic.List<SadConsole.Components.IComponent>, System.Collections.Generic.List<SadConsole.Components.IComponent>, System.Collections.Generic.List<SadConsole.Components.IComponent>, System.Collections.Generic.List<SadConsole.Components.IComponent>, System.Collections.Generic.List<SadConsole.Components.IComponent>)
+  nameWithType.vb: ScreenObject.Components_FilterRemoveItem(IComponent, List(Of IComponent), List(Of IComponent), List(Of IComponent), List(Of IComponent), List(Of IComponent))
+  fullName.vb: SadConsole.ScreenObject.Components_FilterRemoveItem(SadConsole.Components.IComponent, System.Collections.Generic.List(Of SadConsole.Components.IComponent), System.Collections.Generic.List(Of SadConsole.Components.IComponent), System.Collections.Generic.List(Of SadConsole.Components.IComponent), System.Collections.Generic.List(Of SadConsole.Components.IComponent), System.Collections.Generic.List(Of SadConsole.Components.IComponent))
+  name.vb: Components_FilterRemoveItem(IComponent, List(Of IComponent), List(Of IComponent), List(Of IComponent), List(Of IComponent), List(Of IComponent))
+  spec.csharp:
+  - uid: SadConsole.ScreenObject.Components_FilterRemoveItem(SadConsole.Components.IComponent,System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent})
+    name: Components_FilterRemoveItem
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.Components_FilterRemoveItem(SadConsole.Components.IComponent,System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent})
+  - name: (
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ScreenObject.Components_FilterRemoveItem(SadConsole.Components.IComponent,System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent})
+    name: Components_FilterRemoveItem
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.Components_FilterRemoveItem(SadConsole.Components.IComponent,System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent})
+  - name: (
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: )
+  - name: )
+- uid: SadConsole.ScreenObject.Components_Sort(System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent})
+  commentId: M:SadConsole.ScreenObject.Components_Sort(System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent})
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.Components_Sort(System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent})
+  name: Components_Sort(List<IComponent>, List<IComponent>, List<IComponent>, List<IComponent>, List<IComponent>)
+  nameWithType: ScreenObject.Components_Sort(List<IComponent>, List<IComponent>, List<IComponent>, List<IComponent>, List<IComponent>)
+  fullName: SadConsole.ScreenObject.Components_Sort(System.Collections.Generic.List<SadConsole.Components.IComponent>, System.Collections.Generic.List<SadConsole.Components.IComponent>, System.Collections.Generic.List<SadConsole.Components.IComponent>, System.Collections.Generic.List<SadConsole.Components.IComponent>, System.Collections.Generic.List<SadConsole.Components.IComponent>)
+  nameWithType.vb: ScreenObject.Components_Sort(List(Of IComponent), List(Of IComponent), List(Of IComponent), List(Of IComponent), List(Of IComponent))
+  fullName.vb: SadConsole.ScreenObject.Components_Sort(System.Collections.Generic.List(Of SadConsole.Components.IComponent), System.Collections.Generic.List(Of SadConsole.Components.IComponent), System.Collections.Generic.List(Of SadConsole.Components.IComponent), System.Collections.Generic.List(Of SadConsole.Components.IComponent), System.Collections.Generic.List(Of SadConsole.Components.IComponent))
+  name.vb: Components_Sort(List(Of IComponent), List(Of IComponent), List(Of IComponent), List(Of IComponent), List(Of IComponent))
+  spec.csharp:
+  - uid: SadConsole.ScreenObject.Components_Sort(System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent})
+    name: Components_Sort
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.Components_Sort(System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent})
+  - name: (
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ScreenObject.Components_Sort(System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent})
+    name: Components_Sort
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.Components_Sort(System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent},System.Collections.Generic.List{SadConsole.Components.IComponent})
+  - name: (
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
+    href: SadConsole.Components.IComponent.html
+  - name: )
+  - name: )
+- uid: SadConsole.ScreenObject.OnSerializingMethod(System.Runtime.Serialization.StreamingContext)
+  commentId: M:SadConsole.ScreenObject.OnSerializingMethod(System.Runtime.Serialization.StreamingContext)
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.OnSerializingMethod(System.Runtime.Serialization.StreamingContext)
+  name: OnSerializingMethod(StreamingContext)
+  nameWithType: ScreenObject.OnSerializingMethod(StreamingContext)
+  fullName: SadConsole.ScreenObject.OnSerializingMethod(System.Runtime.Serialization.StreamingContext)
+  spec.csharp:
+  - uid: SadConsole.ScreenObject.OnSerializingMethod(System.Runtime.Serialization.StreamingContext)
+    name: OnSerializingMethod
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.OnSerializingMethod(System.Runtime.Serialization.StreamingContext)
+  - name: (
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.streamingcontext
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ScreenObject.OnSerializingMethod(System.Runtime.Serialization.StreamingContext)
+    name: OnSerializingMethod
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.OnSerializingMethod(System.Runtime.Serialization.StreamingContext)
+  - name: (
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.streamingcontext
+  - name: )
+- uid: SadConsole.ScreenObject.SortOrder
+  commentId: P:SadConsole.ScreenObject.SortOrder
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.SortOrder
+  name: SortOrder
+  nameWithType: ScreenObject.SortOrder
+  fullName: SadConsole.ScreenObject.SortOrder
+- uid: SadConsole.ScreenObject.Children
+  commentId: P:SadConsole.ScreenObject.Children
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.Children
+  name: Children
+  nameWithType: ScreenObject.Children
+  fullName: SadConsole.ScreenObject.Children
+- uid: SadConsole.ScreenObject.Parent
+  commentId: P:SadConsole.ScreenObject.Parent
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.Parent
+  name: Parent
+  nameWithType: ScreenObject.Parent
+  fullName: SadConsole.ScreenObject.Parent
+- uid: SadConsole.ScreenObject.Position
+  commentId: P:SadConsole.ScreenObject.Position
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.Position
+  name: Position
+  nameWithType: ScreenObject.Position
+  fullName: SadConsole.ScreenObject.Position
+- uid: SadConsole.ScreenObject.AbsolutePosition
+  commentId: P:SadConsole.ScreenObject.AbsolutePosition
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.AbsolutePosition
+  name: AbsolutePosition
+  nameWithType: ScreenObject.AbsolutePosition
+  fullName: SadConsole.ScreenObject.AbsolutePosition
+- uid: SadConsole.ScreenObject.IgnoreParentPosition
+  commentId: P:SadConsole.ScreenObject.IgnoreParentPosition
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.IgnoreParentPosition
+  name: IgnoreParentPosition
+  nameWithType: ScreenObject.IgnoreParentPosition
+  fullName: SadConsole.ScreenObject.IgnoreParentPosition
+- uid: SadConsole.ScreenObject.IsVisible
+  commentId: P:SadConsole.ScreenObject.IsVisible
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.IsVisible
+  name: IsVisible
+  nameWithType: ScreenObject.IsVisible
+  fullName: SadConsole.ScreenObject.IsVisible
+- uid: SadConsole.ScreenObject.IsEnabled
+  commentId: P:SadConsole.ScreenObject.IsEnabled
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.IsEnabled
+  name: IsEnabled
+  nameWithType: ScreenObject.IsEnabled
+  fullName: SadConsole.ScreenObject.IsEnabled
+- uid: SadConsole.ScreenObject.IsFocused
+  commentId: P:SadConsole.ScreenObject.IsFocused
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.IsFocused
+  name: IsFocused
+  nameWithType: ScreenObject.IsFocused
+  fullName: SadConsole.ScreenObject.IsFocused
+- uid: SadConsole.ScreenObject.FocusedMode
+  commentId: P:SadConsole.ScreenObject.FocusedMode
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.FocusedMode
+  name: FocusedMode
+  nameWithType: ScreenObject.FocusedMode
+  fullName: SadConsole.ScreenObject.FocusedMode
+- uid: SadConsole.ScreenObject.IsExclusiveMouse
+  commentId: P:SadConsole.ScreenObject.IsExclusiveMouse
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.IsExclusiveMouse
+  name: IsExclusiveMouse
+  nameWithType: ScreenObject.IsExclusiveMouse
+  fullName: SadConsole.ScreenObject.IsExclusiveMouse
+- uid: SadConsole.ScreenObject.UseKeyboard
+  commentId: P:SadConsole.ScreenObject.UseKeyboard
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.UseKeyboard
+  name: UseKeyboard
+  nameWithType: ScreenObject.UseKeyboard
+  fullName: SadConsole.ScreenObject.UseKeyboard
+- uid: SadConsole.ScreenObject.UseMouse
+  commentId: P:SadConsole.ScreenObject.UseMouse
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.UseMouse
+  name: UseMouse
+  nameWithType: ScreenObject.UseMouse
+  fullName: SadConsole.ScreenObject.UseMouse
+- uid: SadConsole.ScreenObject.SadComponents
+  commentId: P:SadConsole.ScreenObject.SadComponents
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.SadComponents
+  name: SadComponents
+  nameWithType: ScreenObject.SadComponents
+  fullName: SadConsole.ScreenObject.SadComponents
+- uid: SadConsole.ScreenObject.ParentChanged
+  commentId: E:SadConsole.ScreenObject.ParentChanged
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.ParentChanged
+  name: ParentChanged
+  nameWithType: ScreenObject.ParentChanged
+  fullName: SadConsole.ScreenObject.ParentChanged
+- uid: SadConsole.ScreenObject.PositionChanged
+  commentId: E:SadConsole.ScreenObject.PositionChanged
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.PositionChanged
+  name: PositionChanged
+  nameWithType: ScreenObject.PositionChanged
+  fullName: SadConsole.ScreenObject.PositionChanged
+- uid: SadConsole.ScreenObject.PositionChanging
+  commentId: E:SadConsole.ScreenObject.PositionChanging
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.PositionChanging
+  name: PositionChanging
+  nameWithType: ScreenObject.PositionChanging
+  fullName: SadConsole.ScreenObject.PositionChanging
+- uid: SadConsole.ScreenObject.IsVisibleChanged
+  commentId: E:SadConsole.ScreenObject.IsVisibleChanged
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.IsVisibleChanged
+  name: IsVisibleChanged
+  nameWithType: ScreenObject.IsVisibleChanged
+  fullName: SadConsole.ScreenObject.IsVisibleChanged
+- uid: SadConsole.ScreenObject.IsEnabledChanged
+  commentId: E:SadConsole.ScreenObject.IsEnabledChanged
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.IsEnabledChanged
+  name: IsEnabledChanged
+  nameWithType: ScreenObject.IsEnabledChanged
+  fullName: SadConsole.ScreenObject.IsEnabledChanged
+- uid: SadConsole.ScreenObject.FocusLost
+  commentId: E:SadConsole.ScreenObject.FocusLost
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.FocusLost
+  name: FocusLost
+  nameWithType: ScreenObject.FocusLost
+  fullName: SadConsole.ScreenObject.FocusLost
+- uid: SadConsole.ScreenObject.Focused
+  commentId: E:SadConsole.ScreenObject.Focused
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.Focused
+  name: Focused
+  nameWithType: ScreenObject.Focused
+  fullName: SadConsole.ScreenObject.Focused
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: SadConsole.IScreenObject.SadConsole.Quick.Keyboard.RemoveKeyboardHook(System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
+  commentId: M:SadConsole.Quick.Keyboard.RemoveKeyboardHook(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
+  parent: SadConsole.Quick.Keyboard
+  definition: SadConsole.Quick.Keyboard.RemoveKeyboardHook(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
+  href: SadConsole.Quick.Keyboard.html#SadConsole.Quick.Keyboard.RemoveKeyboardHook(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
+  name: RemoveKeyboardHook(IScreenObject, Func<IScreenObject, Keyboard, bool>)
+  nameWithType: Keyboard.RemoveKeyboardHook(IScreenObject, Func<IScreenObject, Keyboard, bool>)
+  fullName: SadConsole.Quick.Keyboard.RemoveKeyboardHook(SadConsole.IScreenObject, System.Func<SadConsole.IScreenObject, SadConsole.Input.Keyboard, bool>)
+  nameWithType.vb: Keyboard.RemoveKeyboardHook(IScreenObject, Func(Of IScreenObject, Keyboard, Boolean))
+  fullName.vb: SadConsole.Quick.Keyboard.RemoveKeyboardHook(SadConsole.IScreenObject, System.Func(Of SadConsole.IScreenObject, SadConsole.Input.Keyboard, Boolean))
+  name.vb: RemoveKeyboardHook(IScreenObject, Func(Of IScreenObject, Keyboard, Boolean))
+  spec.csharp:
+  - uid: SadConsole.Quick.Keyboard.RemoveKeyboardHook(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
+    name: RemoveKeyboardHook
+    isExternal: true
+    href: SadConsole.Quick.Keyboard.html#SadConsole.Quick.Keyboard.RemoveKeyboardHook(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: <
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Input.Keyboard
+    name: Keyboard
+    isExternal: true
+    href: SadConsole.Input.Keyboard.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Quick.Keyboard.RemoveKeyboardHook(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
+    name: RemoveKeyboardHook
+    isExternal: true
+    href: SadConsole.Quick.Keyboard.html#SadConsole.Quick.Keyboard.RemoveKeyboardHook(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Input.Keyboard
+    name: Keyboard
+    isExternal: true
+    href: SadConsole.Input.Keyboard.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+- uid: SadConsole.IScreenObject.SadConsole.Quick.Keyboard.RemoveKeyboardHooks
+  commentId: M:SadConsole.Quick.Keyboard.RemoveKeyboardHooks(SadConsole.IScreenObject)
+  parent: SadConsole.Quick.Keyboard
+  definition: SadConsole.Quick.Keyboard.RemoveKeyboardHooks(SadConsole.IScreenObject)
+  href: SadConsole.Quick.Keyboard.html#SadConsole.Quick.Keyboard.RemoveKeyboardHooks(SadConsole.IScreenObject)
+  name: RemoveKeyboardHooks(IScreenObject)
+  nameWithType: Keyboard.RemoveKeyboardHooks(IScreenObject)
+  fullName: SadConsole.Quick.Keyboard.RemoveKeyboardHooks(SadConsole.IScreenObject)
+  spec.csharp:
+  - uid: SadConsole.Quick.Keyboard.RemoveKeyboardHooks(SadConsole.IScreenObject)
+    name: RemoveKeyboardHooks
+    isExternal: true
+    href: SadConsole.Quick.Keyboard.html#SadConsole.Quick.Keyboard.RemoveKeyboardHooks(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Quick.Keyboard.RemoveKeyboardHooks(SadConsole.IScreenObject)
+    name: RemoveKeyboardHooks
+    isExternal: true
+    href: SadConsole.Quick.Keyboard.html#SadConsole.Quick.Keyboard.RemoveKeyboardHooks(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+- uid: SadConsole.IScreenObject.SadConsole.Quick.Keyboard.WithKeyboard(System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
+  commentId: M:SadConsole.Quick.Keyboard.WithKeyboard(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
+  parent: SadConsole.Quick.Keyboard
+  definition: SadConsole.Quick.Keyboard.WithKeyboard(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
+  href: SadConsole.Quick.Keyboard.html#SadConsole.Quick.Keyboard.WithKeyboard(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
+  name: WithKeyboard(IScreenObject, Func<IScreenObject, Keyboard, bool>)
+  nameWithType: Keyboard.WithKeyboard(IScreenObject, Func<IScreenObject, Keyboard, bool>)
+  fullName: SadConsole.Quick.Keyboard.WithKeyboard(SadConsole.IScreenObject, System.Func<SadConsole.IScreenObject, SadConsole.Input.Keyboard, bool>)
+  nameWithType.vb: Keyboard.WithKeyboard(IScreenObject, Func(Of IScreenObject, Keyboard, Boolean))
+  fullName.vb: SadConsole.Quick.Keyboard.WithKeyboard(SadConsole.IScreenObject, System.Func(Of SadConsole.IScreenObject, SadConsole.Input.Keyboard, Boolean))
+  name.vb: WithKeyboard(IScreenObject, Func(Of IScreenObject, Keyboard, Boolean))
+  spec.csharp:
+  - uid: SadConsole.Quick.Keyboard.WithKeyboard(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
+    name: WithKeyboard
+    isExternal: true
+    href: SadConsole.Quick.Keyboard.html#SadConsole.Quick.Keyboard.WithKeyboard(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: <
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Input.Keyboard
+    name: Keyboard
+    isExternal: true
+    href: SadConsole.Input.Keyboard.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Quick.Keyboard.WithKeyboard(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
+    name: WithKeyboard
+    isExternal: true
+    href: SadConsole.Quick.Keyboard.html#SadConsole.Quick.Keyboard.WithKeyboard(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Input.Keyboard
+    name: Keyboard
+    isExternal: true
+    href: SadConsole.Input.Keyboard.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+- uid: SadConsole.IScreenObject.SadConsole.Quick.Mouse.RemoveMouseHook(System.Func{SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean})
+  commentId: M:SadConsole.Quick.Mouse.RemoveMouseHook(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean})
+  parent: SadConsole.Quick.Mouse
+  definition: SadConsole.Quick.Mouse.RemoveMouseHook(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean})
+  href: SadConsole.Quick.Mouse.html#SadConsole.Quick.Mouse.RemoveMouseHook(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean})
+  name: RemoveMouseHook(IScreenObject, Func<IScreenObject, MouseScreenObjectState, bool>)
+  nameWithType: Mouse.RemoveMouseHook(IScreenObject, Func<IScreenObject, MouseScreenObjectState, bool>)
+  fullName: SadConsole.Quick.Mouse.RemoveMouseHook(SadConsole.IScreenObject, System.Func<SadConsole.IScreenObject, SadConsole.Input.MouseScreenObjectState, bool>)
+  nameWithType.vb: Mouse.RemoveMouseHook(IScreenObject, Func(Of IScreenObject, MouseScreenObjectState, Boolean))
+  fullName.vb: SadConsole.Quick.Mouse.RemoveMouseHook(SadConsole.IScreenObject, System.Func(Of SadConsole.IScreenObject, SadConsole.Input.MouseScreenObjectState, Boolean))
+  name.vb: RemoveMouseHook(IScreenObject, Func(Of IScreenObject, MouseScreenObjectState, Boolean))
+  spec.csharp:
+  - uid: SadConsole.Quick.Mouse.RemoveMouseHook(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean})
+    name: RemoveMouseHook
+    isExternal: true
+    href: SadConsole.Quick.Mouse.html#SadConsole.Quick.Mouse.RemoveMouseHook(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean})
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: <
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Input.MouseScreenObjectState
+    name: MouseScreenObjectState
+    isExternal: true
+    href: SadConsole.Input.MouseScreenObjectState.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Quick.Mouse.RemoveMouseHook(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean})
+    name: RemoveMouseHook
+    isExternal: true
+    href: SadConsole.Quick.Mouse.html#SadConsole.Quick.Mouse.RemoveMouseHook(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean})
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Input.MouseScreenObjectState
+    name: MouseScreenObjectState
+    isExternal: true
+    href: SadConsole.Input.MouseScreenObjectState.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+- uid: SadConsole.IScreenObject.SadConsole.Quick.Mouse.RemoveMouseHooks
+  commentId: M:SadConsole.Quick.Mouse.RemoveMouseHooks(SadConsole.IScreenObject)
+  parent: SadConsole.Quick.Mouse
+  definition: SadConsole.Quick.Mouse.RemoveMouseHooks(SadConsole.IScreenObject)
+  href: SadConsole.Quick.Mouse.html#SadConsole.Quick.Mouse.RemoveMouseHooks(SadConsole.IScreenObject)
+  name: RemoveMouseHooks(IScreenObject)
+  nameWithType: Mouse.RemoveMouseHooks(IScreenObject)
+  fullName: SadConsole.Quick.Mouse.RemoveMouseHooks(SadConsole.IScreenObject)
+  spec.csharp:
+  - uid: SadConsole.Quick.Mouse.RemoveMouseHooks(SadConsole.IScreenObject)
+    name: RemoveMouseHooks
+    isExternal: true
+    href: SadConsole.Quick.Mouse.html#SadConsole.Quick.Mouse.RemoveMouseHooks(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Quick.Mouse.RemoveMouseHooks(SadConsole.IScreenObject)
+    name: RemoveMouseHooks
+    isExternal: true
+    href: SadConsole.Quick.Mouse.html#SadConsole.Quick.Mouse.RemoveMouseHooks(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+- uid: SadConsole.IScreenObject.SadConsole.Quick.Mouse.WithMouse(System.Func{SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean})
+  commentId: M:SadConsole.Quick.Mouse.WithMouse(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean})
+  parent: SadConsole.Quick.Mouse
+  definition: SadConsole.Quick.Mouse.WithMouse(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean})
+  href: SadConsole.Quick.Mouse.html#SadConsole.Quick.Mouse.WithMouse(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean})
+  name: WithMouse(IScreenObject, Func<IScreenObject, MouseScreenObjectState, bool>)
+  nameWithType: Mouse.WithMouse(IScreenObject, Func<IScreenObject, MouseScreenObjectState, bool>)
+  fullName: SadConsole.Quick.Mouse.WithMouse(SadConsole.IScreenObject, System.Func<SadConsole.IScreenObject, SadConsole.Input.MouseScreenObjectState, bool>)
+  nameWithType.vb: Mouse.WithMouse(IScreenObject, Func(Of IScreenObject, MouseScreenObjectState, Boolean))
+  fullName.vb: SadConsole.Quick.Mouse.WithMouse(SadConsole.IScreenObject, System.Func(Of SadConsole.IScreenObject, SadConsole.Input.MouseScreenObjectState, Boolean))
+  name.vb: WithMouse(IScreenObject, Func(Of IScreenObject, MouseScreenObjectState, Boolean))
+  spec.csharp:
+  - uid: SadConsole.Quick.Mouse.WithMouse(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean})
+    name: WithMouse
+    isExternal: true
+    href: SadConsole.Quick.Mouse.html#SadConsole.Quick.Mouse.WithMouse(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean})
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: <
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Input.MouseScreenObjectState
+    name: MouseScreenObjectState
+    isExternal: true
+    href: SadConsole.Input.MouseScreenObjectState.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Quick.Mouse.WithMouse(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean})
+    name: WithMouse
+    isExternal: true
+    href: SadConsole.Quick.Mouse.html#SadConsole.Quick.Mouse.WithMouse(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean})
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Input.MouseScreenObjectState
+    name: MouseScreenObjectState
+    isExternal: true
+    href: SadConsole.Input.MouseScreenObjectState.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+- uid: SadConsole.IScreenObject.SadConsole.Quick.Update.RemoveUpdateHook(System.Action{SadConsole.IScreenObject,System.TimeSpan})
+  commentId: M:SadConsole.Quick.Update.RemoveUpdateHook(SadConsole.IScreenObject,System.Action{SadConsole.IScreenObject,System.TimeSpan})
+  parent: SadConsole.Quick.Update
+  definition: SadConsole.Quick.Update.RemoveUpdateHook(SadConsole.IScreenObject,System.Action{SadConsole.IScreenObject,System.TimeSpan})
+  href: SadConsole.Quick.Update.html#SadConsole.Quick.Update.RemoveUpdateHook(SadConsole.IScreenObject,System.Action{SadConsole.IScreenObject,System.TimeSpan})
+  name: RemoveUpdateHook(IScreenObject, Action<IScreenObject, TimeSpan>)
+  nameWithType: Update.RemoveUpdateHook(IScreenObject, Action<IScreenObject, TimeSpan>)
+  fullName: SadConsole.Quick.Update.RemoveUpdateHook(SadConsole.IScreenObject, System.Action<SadConsole.IScreenObject, System.TimeSpan>)
+  nameWithType.vb: Update.RemoveUpdateHook(IScreenObject, Action(Of IScreenObject, TimeSpan))
+  fullName.vb: SadConsole.Quick.Update.RemoveUpdateHook(SadConsole.IScreenObject, System.Action(Of SadConsole.IScreenObject, System.TimeSpan))
+  name.vb: RemoveUpdateHook(IScreenObject, Action(Of IScreenObject, TimeSpan))
+  spec.csharp:
+  - uid: SadConsole.Quick.Update.RemoveUpdateHook(SadConsole.IScreenObject,System.Action{SadConsole.IScreenObject,System.TimeSpan})
+    name: RemoveUpdateHook
+    isExternal: true
+    href: SadConsole.Quick.Update.html#SadConsole.Quick.Update.RemoveUpdateHook(SadConsole.IScreenObject,System.Action{SadConsole.IScreenObject,System.TimeSpan})
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Quick.Update.RemoveUpdateHook(SadConsole.IScreenObject,System.Action{SadConsole.IScreenObject,System.TimeSpan})
+    name: RemoveUpdateHook
+    isExternal: true
+    href: SadConsole.Quick.Update.html#SadConsole.Quick.Update.RemoveUpdateHook(SadConsole.IScreenObject,System.Action{SadConsole.IScreenObject,System.TimeSpan})
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+  - name: )
+- uid: SadConsole.IScreenObject.SadConsole.Quick.Update.RemoveUpdateHooks
+  commentId: M:SadConsole.Quick.Update.RemoveUpdateHooks(SadConsole.IScreenObject)
+  parent: SadConsole.Quick.Update
+  definition: SadConsole.Quick.Update.RemoveUpdateHooks(SadConsole.IScreenObject)
+  href: SadConsole.Quick.Update.html#SadConsole.Quick.Update.RemoveUpdateHooks(SadConsole.IScreenObject)
+  name: RemoveUpdateHooks(IScreenObject)
+  nameWithType: Update.RemoveUpdateHooks(IScreenObject)
+  fullName: SadConsole.Quick.Update.RemoveUpdateHooks(SadConsole.IScreenObject)
+  spec.csharp:
+  - uid: SadConsole.Quick.Update.RemoveUpdateHooks(SadConsole.IScreenObject)
+    name: RemoveUpdateHooks
+    isExternal: true
+    href: SadConsole.Quick.Update.html#SadConsole.Quick.Update.RemoveUpdateHooks(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Quick.Update.RemoveUpdateHooks(SadConsole.IScreenObject)
+    name: RemoveUpdateHooks
+    isExternal: true
+    href: SadConsole.Quick.Update.html#SadConsole.Quick.Update.RemoveUpdateHooks(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+- uid: SadConsole.IScreenObject.SadConsole.Quick.Update.WithUpdate(System.Action{SadConsole.IScreenObject,System.TimeSpan})
+  commentId: M:SadConsole.Quick.Update.WithUpdate(SadConsole.IScreenObject,System.Action{SadConsole.IScreenObject,System.TimeSpan})
+  parent: SadConsole.Quick.Update
+  definition: SadConsole.Quick.Update.WithUpdate(SadConsole.IScreenObject,System.Action{SadConsole.IScreenObject,System.TimeSpan})
+  href: SadConsole.Quick.Update.html#SadConsole.Quick.Update.WithUpdate(SadConsole.IScreenObject,System.Action{SadConsole.IScreenObject,System.TimeSpan})
+  name: WithUpdate(IScreenObject, Action<IScreenObject, TimeSpan>)
+  nameWithType: Update.WithUpdate(IScreenObject, Action<IScreenObject, TimeSpan>)
+  fullName: SadConsole.Quick.Update.WithUpdate(SadConsole.IScreenObject, System.Action<SadConsole.IScreenObject, System.TimeSpan>)
+  nameWithType.vb: Update.WithUpdate(IScreenObject, Action(Of IScreenObject, TimeSpan))
+  fullName.vb: SadConsole.Quick.Update.WithUpdate(SadConsole.IScreenObject, System.Action(Of SadConsole.IScreenObject, System.TimeSpan))
+  name.vb: WithUpdate(IScreenObject, Action(Of IScreenObject, TimeSpan))
+  spec.csharp:
+  - uid: SadConsole.Quick.Update.WithUpdate(SadConsole.IScreenObject,System.Action{SadConsole.IScreenObject,System.TimeSpan})
+    name: WithUpdate
+    isExternal: true
+    href: SadConsole.Quick.Update.html#SadConsole.Quick.Update.WithUpdate(SadConsole.IScreenObject,System.Action{SadConsole.IScreenObject,System.TimeSpan})
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Quick.Update.WithUpdate(SadConsole.IScreenObject,System.Action{SadConsole.IScreenObject,System.TimeSpan})
+    name: WithUpdate
+    isExternal: true
+    href: SadConsole.Quick.Update.html#SadConsole.Quick.Update.WithUpdate(SadConsole.IScreenObject,System.Action{SadConsole.IScreenObject,System.TimeSpan})
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
+- uid: SadRogue.Primitives
+  commentId: N:SadRogue.Primitives
+  isExternal: true
+  href: SadRogue.html
+  name: SadRogue.Primitives
+  nameWithType: SadRogue.Primitives
+  fullName: SadRogue.Primitives
+  spec.csharp:
+  - uid: SadRogue
+    name: SadRogue
+    isExternal: true
+    href: SadRogue.html
+  - name: .
+  - uid: SadRogue.Primitives
+    name: Primitives
+    isExternal: true
+    href: SadRogue.Primitives.html
+  spec.vb:
+  - uid: SadRogue
+    name: SadRogue
+    isExternal: true
+    href: SadRogue.html
+  - name: .
+  - uid: SadRogue.Primitives
+    name: Primitives
+    isExternal: true
+    href: SadRogue.Primitives.html
+- uid: SadConsole.Components
+  commentId: N:SadConsole.Components
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Components
+  nameWithType: SadConsole.Components
+  fullName: SadConsole.Components
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Components
+    name: Components
+    isExternal: true
+    href: SadConsole.Components.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Components
+    name: Components
+    isExternal: true
+    href: SadConsole.Components.html
+- uid: SadConsole.ScreenObject.HasSadComponent``1(``0@)
+  commentId: M:SadConsole.ScreenObject.HasSadComponent``1(``0@)
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.HasSadComponent``1(``0@)
+  name: HasSadComponent<TComponent>(out TComponent)
+  nameWithType: ScreenObject.HasSadComponent<TComponent>(out TComponent)
+  fullName: SadConsole.ScreenObject.HasSadComponent<TComponent>(out TComponent)
+  nameWithType.vb: ScreenObject.HasSadComponent(Of TComponent)(TComponent)
+  fullName.vb: SadConsole.ScreenObject.HasSadComponent(Of TComponent)(TComponent)
+  name.vb: HasSadComponent(Of TComponent)(TComponent)
+  spec.csharp:
+  - uid: SadConsole.ScreenObject.HasSadComponent``1(``0@)
+    name: HasSadComponent
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.HasSadComponent``1(``0@)
+  - name: <
+  - name: TComponent
+  - name: '>'
+  - name: (
+  - name: out
+  - name: " "
+  - name: TComponent
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ScreenObject.HasSadComponent``1(``0@)
+    name: HasSadComponent
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.HasSadComponent``1(``0@)
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TComponent
+  - name: )
+  - name: (
+  - name: TComponent
+  - name: )
+- uid: SadConsole.Quick.Keyboard.RemoveKeyboardHook(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
+  commentId: M:SadConsole.Quick.Keyboard.RemoveKeyboardHook(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
+  isExternal: true
+  href: SadConsole.Quick.Keyboard.html#SadConsole.Quick.Keyboard.RemoveKeyboardHook(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
+  name: RemoveKeyboardHook(IScreenObject, Func<IScreenObject, Keyboard, bool>)
+  nameWithType: Keyboard.RemoveKeyboardHook(IScreenObject, Func<IScreenObject, Keyboard, bool>)
+  fullName: SadConsole.Quick.Keyboard.RemoveKeyboardHook(SadConsole.IScreenObject, System.Func<SadConsole.IScreenObject, SadConsole.Input.Keyboard, bool>)
+  nameWithType.vb: Keyboard.RemoveKeyboardHook(IScreenObject, Func(Of IScreenObject, Keyboard, Boolean))
+  fullName.vb: SadConsole.Quick.Keyboard.RemoveKeyboardHook(SadConsole.IScreenObject, System.Func(Of SadConsole.IScreenObject, SadConsole.Input.Keyboard, Boolean))
+  name.vb: RemoveKeyboardHook(IScreenObject, Func(Of IScreenObject, Keyboard, Boolean))
+  spec.csharp:
+  - uid: SadConsole.Quick.Keyboard.RemoveKeyboardHook(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
+    name: RemoveKeyboardHook
+    isExternal: true
+    href: SadConsole.Quick.Keyboard.html#SadConsole.Quick.Keyboard.RemoveKeyboardHook(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: <
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Input.Keyboard
+    name: Keyboard
+    isExternal: true
+    href: SadConsole.Input.Keyboard.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Quick.Keyboard.RemoveKeyboardHook(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
+    name: RemoveKeyboardHook
+    isExternal: true
+    href: SadConsole.Quick.Keyboard.html#SadConsole.Quick.Keyboard.RemoveKeyboardHook(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Input.Keyboard
+    name: Keyboard
+    isExternal: true
+    href: SadConsole.Input.Keyboard.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+- uid: SadConsole.Quick.Keyboard
+  commentId: T:SadConsole.Quick.Keyboard
+  parent: SadConsole.Quick
+  isExternal: true
+  href: SadConsole.Quick.Keyboard.html
+  name: Keyboard
+  nameWithType: Keyboard
+  fullName: SadConsole.Quick.Keyboard
+- uid: SadConsole.Quick.Keyboard.RemoveKeyboardHooks(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Quick.Keyboard.RemoveKeyboardHooks(SadConsole.IScreenObject)
+  isExternal: true
+  href: SadConsole.Quick.Keyboard.html#SadConsole.Quick.Keyboard.RemoveKeyboardHooks(SadConsole.IScreenObject)
+  name: RemoveKeyboardHooks(IScreenObject)
+  nameWithType: Keyboard.RemoveKeyboardHooks(IScreenObject)
+  fullName: SadConsole.Quick.Keyboard.RemoveKeyboardHooks(SadConsole.IScreenObject)
+  spec.csharp:
+  - uid: SadConsole.Quick.Keyboard.RemoveKeyboardHooks(SadConsole.IScreenObject)
+    name: RemoveKeyboardHooks
+    isExternal: true
+    href: SadConsole.Quick.Keyboard.html#SadConsole.Quick.Keyboard.RemoveKeyboardHooks(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Quick.Keyboard.RemoveKeyboardHooks(SadConsole.IScreenObject)
+    name: RemoveKeyboardHooks
+    isExternal: true
+    href: SadConsole.Quick.Keyboard.html#SadConsole.Quick.Keyboard.RemoveKeyboardHooks(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+- uid: SadConsole.Quick.Keyboard.WithKeyboard(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
+  commentId: M:SadConsole.Quick.Keyboard.WithKeyboard(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
+  isExternal: true
+  href: SadConsole.Quick.Keyboard.html#SadConsole.Quick.Keyboard.WithKeyboard(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
+  name: WithKeyboard(IScreenObject, Func<IScreenObject, Keyboard, bool>)
+  nameWithType: Keyboard.WithKeyboard(IScreenObject, Func<IScreenObject, Keyboard, bool>)
+  fullName: SadConsole.Quick.Keyboard.WithKeyboard(SadConsole.IScreenObject, System.Func<SadConsole.IScreenObject, SadConsole.Input.Keyboard, bool>)
+  nameWithType.vb: Keyboard.WithKeyboard(IScreenObject, Func(Of IScreenObject, Keyboard, Boolean))
+  fullName.vb: SadConsole.Quick.Keyboard.WithKeyboard(SadConsole.IScreenObject, System.Func(Of SadConsole.IScreenObject, SadConsole.Input.Keyboard, Boolean))
+  name.vb: WithKeyboard(IScreenObject, Func(Of IScreenObject, Keyboard, Boolean))
+  spec.csharp:
+  - uid: SadConsole.Quick.Keyboard.WithKeyboard(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
+    name: WithKeyboard
+    isExternal: true
+    href: SadConsole.Quick.Keyboard.html#SadConsole.Quick.Keyboard.WithKeyboard(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: <
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Input.Keyboard
+    name: Keyboard
+    isExternal: true
+    href: SadConsole.Input.Keyboard.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Quick.Keyboard.WithKeyboard(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
+    name: WithKeyboard
+    isExternal: true
+    href: SadConsole.Quick.Keyboard.html#SadConsole.Quick.Keyboard.WithKeyboard(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Input.Keyboard
+    name: Keyboard
+    isExternal: true
+    href: SadConsole.Input.Keyboard.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+- uid: SadConsole.Quick.Mouse.RemoveMouseHook(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean})
+  commentId: M:SadConsole.Quick.Mouse.RemoveMouseHook(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean})
+  isExternal: true
+  href: SadConsole.Quick.Mouse.html#SadConsole.Quick.Mouse.RemoveMouseHook(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean})
+  name: RemoveMouseHook(IScreenObject, Func<IScreenObject, MouseScreenObjectState, bool>)
+  nameWithType: Mouse.RemoveMouseHook(IScreenObject, Func<IScreenObject, MouseScreenObjectState, bool>)
+  fullName: SadConsole.Quick.Mouse.RemoveMouseHook(SadConsole.IScreenObject, System.Func<SadConsole.IScreenObject, SadConsole.Input.MouseScreenObjectState, bool>)
+  nameWithType.vb: Mouse.RemoveMouseHook(IScreenObject, Func(Of IScreenObject, MouseScreenObjectState, Boolean))
+  fullName.vb: SadConsole.Quick.Mouse.RemoveMouseHook(SadConsole.IScreenObject, System.Func(Of SadConsole.IScreenObject, SadConsole.Input.MouseScreenObjectState, Boolean))
+  name.vb: RemoveMouseHook(IScreenObject, Func(Of IScreenObject, MouseScreenObjectState, Boolean))
+  spec.csharp:
+  - uid: SadConsole.Quick.Mouse.RemoveMouseHook(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean})
+    name: RemoveMouseHook
+    isExternal: true
+    href: SadConsole.Quick.Mouse.html#SadConsole.Quick.Mouse.RemoveMouseHook(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean})
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: <
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Input.MouseScreenObjectState
+    name: MouseScreenObjectState
+    isExternal: true
+    href: SadConsole.Input.MouseScreenObjectState.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Quick.Mouse.RemoveMouseHook(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean})
+    name: RemoveMouseHook
+    isExternal: true
+    href: SadConsole.Quick.Mouse.html#SadConsole.Quick.Mouse.RemoveMouseHook(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean})
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Input.MouseScreenObjectState
+    name: MouseScreenObjectState
+    isExternal: true
+    href: SadConsole.Input.MouseScreenObjectState.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+- uid: SadConsole.Quick.Mouse
+  commentId: T:SadConsole.Quick.Mouse
+  parent: SadConsole.Quick
+  isExternal: true
+  href: SadConsole.Quick.Mouse.html
+  name: Mouse
+  nameWithType: Mouse
+  fullName: SadConsole.Quick.Mouse
+- uid: SadConsole.Quick.Mouse.RemoveMouseHooks(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Quick.Mouse.RemoveMouseHooks(SadConsole.IScreenObject)
+  isExternal: true
+  href: SadConsole.Quick.Mouse.html#SadConsole.Quick.Mouse.RemoveMouseHooks(SadConsole.IScreenObject)
+  name: RemoveMouseHooks(IScreenObject)
+  nameWithType: Mouse.RemoveMouseHooks(IScreenObject)
+  fullName: SadConsole.Quick.Mouse.RemoveMouseHooks(SadConsole.IScreenObject)
+  spec.csharp:
+  - uid: SadConsole.Quick.Mouse.RemoveMouseHooks(SadConsole.IScreenObject)
+    name: RemoveMouseHooks
+    isExternal: true
+    href: SadConsole.Quick.Mouse.html#SadConsole.Quick.Mouse.RemoveMouseHooks(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Quick.Mouse.RemoveMouseHooks(SadConsole.IScreenObject)
+    name: RemoveMouseHooks
+    isExternal: true
+    href: SadConsole.Quick.Mouse.html#SadConsole.Quick.Mouse.RemoveMouseHooks(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+- uid: SadConsole.Quick.Mouse.WithMouse(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean})
+  commentId: M:SadConsole.Quick.Mouse.WithMouse(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean})
+  isExternal: true
+  href: SadConsole.Quick.Mouse.html#SadConsole.Quick.Mouse.WithMouse(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean})
+  name: WithMouse(IScreenObject, Func<IScreenObject, MouseScreenObjectState, bool>)
+  nameWithType: Mouse.WithMouse(IScreenObject, Func<IScreenObject, MouseScreenObjectState, bool>)
+  fullName: SadConsole.Quick.Mouse.WithMouse(SadConsole.IScreenObject, System.Func<SadConsole.IScreenObject, SadConsole.Input.MouseScreenObjectState, bool>)
+  nameWithType.vb: Mouse.WithMouse(IScreenObject, Func(Of IScreenObject, MouseScreenObjectState, Boolean))
+  fullName.vb: SadConsole.Quick.Mouse.WithMouse(SadConsole.IScreenObject, System.Func(Of SadConsole.IScreenObject, SadConsole.Input.MouseScreenObjectState, Boolean))
+  name.vb: WithMouse(IScreenObject, Func(Of IScreenObject, MouseScreenObjectState, Boolean))
+  spec.csharp:
+  - uid: SadConsole.Quick.Mouse.WithMouse(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean})
+    name: WithMouse
+    isExternal: true
+    href: SadConsole.Quick.Mouse.html#SadConsole.Quick.Mouse.WithMouse(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean})
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: <
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Input.MouseScreenObjectState
+    name: MouseScreenObjectState
+    isExternal: true
+    href: SadConsole.Input.MouseScreenObjectState.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Quick.Mouse.WithMouse(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean})
+    name: WithMouse
+    isExternal: true
+    href: SadConsole.Quick.Mouse.html#SadConsole.Quick.Mouse.WithMouse(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean})
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Input.MouseScreenObjectState
+    name: MouseScreenObjectState
+    isExternal: true
+    href: SadConsole.Input.MouseScreenObjectState.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+- uid: SadConsole.Quick.Update.RemoveUpdateHook(SadConsole.IScreenObject,System.Action{SadConsole.IScreenObject,System.TimeSpan})
+  commentId: M:SadConsole.Quick.Update.RemoveUpdateHook(SadConsole.IScreenObject,System.Action{SadConsole.IScreenObject,System.TimeSpan})
+  isExternal: true
+  href: SadConsole.Quick.Update.html#SadConsole.Quick.Update.RemoveUpdateHook(SadConsole.IScreenObject,System.Action{SadConsole.IScreenObject,System.TimeSpan})
+  name: RemoveUpdateHook(IScreenObject, Action<IScreenObject, TimeSpan>)
+  nameWithType: Update.RemoveUpdateHook(IScreenObject, Action<IScreenObject, TimeSpan>)
+  fullName: SadConsole.Quick.Update.RemoveUpdateHook(SadConsole.IScreenObject, System.Action<SadConsole.IScreenObject, System.TimeSpan>)
+  nameWithType.vb: Update.RemoveUpdateHook(IScreenObject, Action(Of IScreenObject, TimeSpan))
+  fullName.vb: SadConsole.Quick.Update.RemoveUpdateHook(SadConsole.IScreenObject, System.Action(Of SadConsole.IScreenObject, System.TimeSpan))
+  name.vb: RemoveUpdateHook(IScreenObject, Action(Of IScreenObject, TimeSpan))
+  spec.csharp:
+  - uid: SadConsole.Quick.Update.RemoveUpdateHook(SadConsole.IScreenObject,System.Action{SadConsole.IScreenObject,System.TimeSpan})
+    name: RemoveUpdateHook
+    isExternal: true
+    href: SadConsole.Quick.Update.html#SadConsole.Quick.Update.RemoveUpdateHook(SadConsole.IScreenObject,System.Action{SadConsole.IScreenObject,System.TimeSpan})
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Quick.Update.RemoveUpdateHook(SadConsole.IScreenObject,System.Action{SadConsole.IScreenObject,System.TimeSpan})
+    name: RemoveUpdateHook
+    isExternal: true
+    href: SadConsole.Quick.Update.html#SadConsole.Quick.Update.RemoveUpdateHook(SadConsole.IScreenObject,System.Action{SadConsole.IScreenObject,System.TimeSpan})
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+  - name: )
+- uid: SadConsole.Quick.Update
+  commentId: T:SadConsole.Quick.Update
+  parent: SadConsole.Quick
+  isExternal: true
+  href: SadConsole.Quick.Update.html
+  name: Update
+  nameWithType: Update
+  fullName: SadConsole.Quick.Update
+- uid: SadConsole.Quick.Update.RemoveUpdateHooks(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Quick.Update.RemoveUpdateHooks(SadConsole.IScreenObject)
+  isExternal: true
+  href: SadConsole.Quick.Update.html#SadConsole.Quick.Update.RemoveUpdateHooks(SadConsole.IScreenObject)
+  name: RemoveUpdateHooks(IScreenObject)
+  nameWithType: Update.RemoveUpdateHooks(IScreenObject)
+  fullName: SadConsole.Quick.Update.RemoveUpdateHooks(SadConsole.IScreenObject)
+  spec.csharp:
+  - uid: SadConsole.Quick.Update.RemoveUpdateHooks(SadConsole.IScreenObject)
+    name: RemoveUpdateHooks
+    isExternal: true
+    href: SadConsole.Quick.Update.html#SadConsole.Quick.Update.RemoveUpdateHooks(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Quick.Update.RemoveUpdateHooks(SadConsole.IScreenObject)
+    name: RemoveUpdateHooks
+    isExternal: true
+    href: SadConsole.Quick.Update.html#SadConsole.Quick.Update.RemoveUpdateHooks(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+- uid: SadConsole.Quick.Update.WithUpdate(SadConsole.IScreenObject,System.Action{SadConsole.IScreenObject,System.TimeSpan})
+  commentId: M:SadConsole.Quick.Update.WithUpdate(SadConsole.IScreenObject,System.Action{SadConsole.IScreenObject,System.TimeSpan})
+  isExternal: true
+  href: SadConsole.Quick.Update.html#SadConsole.Quick.Update.WithUpdate(SadConsole.IScreenObject,System.Action{SadConsole.IScreenObject,System.TimeSpan})
+  name: WithUpdate(IScreenObject, Action<IScreenObject, TimeSpan>)
+  nameWithType: Update.WithUpdate(IScreenObject, Action<IScreenObject, TimeSpan>)
+  fullName: SadConsole.Quick.Update.WithUpdate(SadConsole.IScreenObject, System.Action<SadConsole.IScreenObject, System.TimeSpan>)
+  nameWithType.vb: Update.WithUpdate(IScreenObject, Action(Of IScreenObject, TimeSpan))
+  fullName.vb: SadConsole.Quick.Update.WithUpdate(SadConsole.IScreenObject, System.Action(Of SadConsole.IScreenObject, System.TimeSpan))
+  name.vb: WithUpdate(IScreenObject, Action(Of IScreenObject, TimeSpan))
+  spec.csharp:
+  - uid: SadConsole.Quick.Update.WithUpdate(SadConsole.IScreenObject,System.Action{SadConsole.IScreenObject,System.TimeSpan})
+    name: WithUpdate
+    isExternal: true
+    href: SadConsole.Quick.Update.html#SadConsole.Quick.Update.WithUpdate(SadConsole.IScreenObject,System.Action{SadConsole.IScreenObject,System.TimeSpan})
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Quick.Update.WithUpdate(SadConsole.IScreenObject,System.Action{SadConsole.IScreenObject,System.TimeSpan})
+    name: WithUpdate
+    isExternal: true
+    href: SadConsole.Quick.Update.html#SadConsole.Quick.Update.WithUpdate(SadConsole.IScreenObject,System.Action{SadConsole.IScreenObject,System.TimeSpan})
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+  - name: )
+- uid: SadConsole.Quick
+  commentId: N:SadConsole.Quick
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Quick
+  nameWithType: SadConsole.Quick
+  fullName: SadConsole.Quick
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Quick
+    name: Quick
+    isExternal: true
+    href: SadConsole.Quick.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Quick
+    name: Quick
+    isExternal: true
+    href: SadConsole.Quick.html
+- uid: SadConsole.SplashScreens.SplashScreenManager.CheckRun*
+  commentId: Overload:SadConsole.SplashScreens.SplashScreenManager.CheckRun
+  isExternal: true
+  href: SadConsole.SplashScreens.SplashScreenManager.html#SadConsole.SplashScreens.SplashScreenManager.CheckRun
+  name: CheckRun
+  nameWithType: SplashScreenManager.CheckRun
+  fullName: SadConsole.SplashScreens.SplashScreenManager.CheckRun
+- uid: SadConsole.IScreenObject.Children
+  commentId: P:SadConsole.IScreenObject.Children
+  parent: SadConsole.IScreenObject
+  isExternal: true
+  href: SadConsole.IScreenObject.html#SadConsole.IScreenObject.Children
+  name: Children
+  nameWithType: IScreenObject.Children
+  fullName: SadConsole.IScreenObject.Children
+- uid: SadConsole.IScreenObject.IsEnabled
+  commentId: P:SadConsole.IScreenObject.IsEnabled
+  parent: SadConsole.IScreenObject
+  isExternal: true
+  href: SadConsole.IScreenObject.html#SadConsole.IScreenObject.IsEnabled
+  name: IsEnabled
+  nameWithType: IScreenObject.IsEnabled
+  fullName: SadConsole.IScreenObject.IsEnabled
+- uid: SadConsole.ScreenObject.Update(System.TimeSpan)
+  commentId: M:SadConsole.ScreenObject.Update(System.TimeSpan)
+  parent: SadConsole.ScreenObject
+  isExternal: true
+  href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.Update(System.TimeSpan)
+  name: Update(TimeSpan)
+  nameWithType: ScreenObject.Update(TimeSpan)
+  fullName: SadConsole.ScreenObject.Update(System.TimeSpan)
+  spec.csharp:
+  - uid: SadConsole.ScreenObject.Update(System.TimeSpan)
+    name: Update
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.Update(System.TimeSpan)
+  - name: (
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ScreenObject.Update(System.TimeSpan)
+    name: Update
+    isExternal: true
+    href: SadConsole.ScreenObject.html#SadConsole.ScreenObject.Update(System.TimeSpan)
+  - name: (
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+- uid: SadConsole.SplashScreens.SplashScreenManager.Update*
+  commentId: Overload:SadConsole.SplashScreens.SplashScreenManager.Update
+  isExternal: true
+  href: SadConsole.SplashScreens.SplashScreenManager.html#SadConsole.SplashScreens.SplashScreenManager.Update(System.TimeSpan)
+  name: Update
+  nameWithType: SplashScreenManager.Update
+  fullName: SadConsole.SplashScreens.SplashScreenManager.Update
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+- uid: System.EventHandler
+  commentId: T:System.EventHandler
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler
+  name: EventHandler
+  nameWithType: EventHandler
+  fullName: System.EventHandler

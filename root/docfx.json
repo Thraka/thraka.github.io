@@ -4,11 +4,24 @@
       "src": [
         {
           "files": [
-            "src/**.dll"
+            "src/SadConsole.dll",
+            "src/SadConsole.Extended.dll"
           ]
         }
       ],
-      "dest": "api",
+      "dest": "api/sadconsole",
+      "disableGitFeatures": false,
+      "disableDefaultFilter": false
+    },
+    {
+      "src": [
+        {
+          "files": [
+            "src/SadConsole.Host.MonoGame.dll"
+          ]
+        }
+      ],
+      "dest": "api/monogame",
       "disableGitFeatures": false,
       "disableDefaultFilter": false
     }
@@ -17,8 +30,7 @@
     "content": [
       {
         "files": [
-          "api/**.yml",
-          "api/index.md"
+          "api/**.yml"
         ]
       },
       {
@@ -28,6 +40,13 @@
           "toc.yml",
           "*.md"
         ]
+      },
+      {
+        "files": [
+          "**/*.md"
+        ],
+        "src": "apidocs",
+        "dest": "api"
       }
     ],
     "resource": [
@@ -44,7 +63,6 @@
     "overwrite": [
       {
         "files": [
-          "apidoc/**.md"
         ],
         "exclude": [
           "obj/**",
@@ -69,7 +87,6 @@
     ],
     "xref": [
       "https://thesadrogue.github.io/TheSadRogue.Primitives/xrefmap.yml",
-      "https://sadconsole.com/xrefmap.yml"
     ],
     "postProcessors": [],
     "markdownEngineName": "markdig",

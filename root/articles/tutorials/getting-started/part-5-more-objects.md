@@ -47,7 +47,7 @@ To create the treasure class, perform the following:
     }
     ```
 
-    Unlike instantiating a normal `GameObject` type, where you must specify how the game object looks, `Treasure` always looks like "treasure" in the game. This is because the constructor for `Treasure` specifies the `ColoredGlyph` used by the game object. Any other defaults (though they're aren't any yet) could be specified in the constructor.
+    Unlike instantiating a normal `GameObject` type, where you must specify how the game object looks, `Treasure` always looks like "treasure" in the game. This is because the constructor for `Treasure` specifies the `ColoredGlyph` used by the game object. Any other defaults (though they aren't any yet) could be specified in the constructor.
 
 01. Next, add the code for the `Touched` method. Note that the `map.RemoveMapObject` method doesn't yet exist. 
 
@@ -177,7 +177,7 @@ The map has the `CreateTreasure` and `CreateMonster` methods, but they currently
 
 ## Run the game
 
-Before you run the game to test out touching the treasure and monster, let's add more monsters and treasure to the map. The map has two methods, `CreateTreasure` and `CreateMonster`, which are both called once in the map's constructor. Lets call it five times instead, which makes the map a little more populated.
+Before you run the game to test out touching the treasure and monster, let's add more monsters and treasure to the map. The map has two methods, `CreateTreasure` and `CreateMonster`, which are both called once in the map's constructor. Let's call it five times instead, which makes the map a little more populated.
 
 01. Open the _Map.cs_ file.
 01. Find the `Map` constructor and add a `for` loop that runs five times.

@@ -1,0 +1,1019 @@
+### YamlMime:ManagedReference
+items:
+- uid: SadConsole.Effects.Blink
+  commentId: T:SadConsole.Effects.Blink
+  id: Blink
+  parent: SadConsole.Effects
+  children:
+  - SadConsole.Effects.Blink.#ctor
+  - SadConsole.Effects.Blink.ApplyToCell(SadConsole.ColoredGlyphBase,SadConsole.ColoredGlyphBase)
+  - SadConsole.Effects.Blink.BlinkCount
+  - SadConsole.Effects.Blink.BlinkOutColor
+  - SadConsole.Effects.Blink.BlinkSpeed
+  - SadConsole.Effects.Blink.Clone
+  - SadConsole.Effects.Blink.Duration
+  - SadConsole.Effects.Blink.Restart
+  - SadConsole.Effects.Blink.ToString
+  - SadConsole.Effects.Blink.Update(System.TimeSpan)
+  - SadConsole.Effects.Blink.UseCellBackgroundColor
+  langs:
+  - csharp
+  - vb
+  name: Blink
+  nameWithType: Blink
+  fullName: SadConsole.Effects.Blink
+  type: Class
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Effects
+  summary: Switches between the normal foreground of a cell and a specified color for an amount of time, and then repeats.
+  example: []
+  syntax:
+    content: >-
+      [DataContract]
+
+      public class Blink : CellEffectBase, ICellEffect
+    content.vb: >-
+      <DataContract>
+
+      Public Class Blink Inherits CellEffectBase Implements ICellEffect
+  inheritance:
+  - System.Object
+  - SadConsole.Effects.CellEffectBase
+  implements:
+  - SadConsole.Effects.ICellEffect
+  inheritedMembers:
+  - SadConsole.Effects.CellEffectBase._delayFinished
+  - SadConsole.Effects.CellEffectBase._timeElapsed
+  - SadConsole.Effects.CellEffectBase.IsFinished
+  - SadConsole.Effects.CellEffectBase.CloneOnAdd
+  - SadConsole.Effects.CellEffectBase.StartDelay
+  - SadConsole.Effects.CellEffectBase.RemoveOnFinished
+  - SadConsole.Effects.CellEffectBase.RestoreCellOnRemoved
+  - SadConsole.Effects.CellEffectBase.RunEffectOnApply
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: System.Runtime.Serialization.DataContractAttribute
+    ctor: System.Runtime.Serialization.DataContractAttribute.#ctor
+    arguments: []
+- uid: SadConsole.Effects.Blink.#ctor
+  commentId: M:SadConsole.Effects.Blink.#ctor
+  id: '#ctor'
+  parent: SadConsole.Effects.Blink
+  langs:
+  - csharp
+  - vb
+  name: Blink()
+  nameWithType: Blink.Blink()
+  fullName: SadConsole.Effects.Blink.Blink()
+  type: Constructor
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Effects
+  summary: Creates a new instance of the blink effect.
+  example: []
+  syntax:
+    content: public Blink()
+    content.vb: Public Sub New()
+  overload: SadConsole.Effects.Blink.#ctor*
+  nameWithType.vb: Blink.New()
+  fullName.vb: SadConsole.Effects.Blink.New()
+  name.vb: New()
+- uid: SadConsole.Effects.Blink.ApplyToCell(SadConsole.ColoredGlyphBase,SadConsole.ColoredGlyphBase)
+  commentId: M:SadConsole.Effects.Blink.ApplyToCell(SadConsole.ColoredGlyphBase,SadConsole.ColoredGlyphBase)
+  id: ApplyToCell(SadConsole.ColoredGlyphBase,SadConsole.ColoredGlyphBase)
+  parent: SadConsole.Effects.Blink
+  langs:
+  - csharp
+  - vb
+  name: ApplyToCell(ColoredGlyphBase, ColoredGlyphBase)
+  nameWithType: Blink.ApplyToCell(ColoredGlyphBase, ColoredGlyphBase)
+  fullName: SadConsole.Effects.Blink.ApplyToCell(SadConsole.ColoredGlyphBase, SadConsole.ColoredGlyphBase)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Effects
+  summary: Applies the state of the effect to a cell.
+  example: []
+  syntax:
+    content: public override bool ApplyToCell(ColoredGlyphBase cell, ColoredGlyphBase originalState)
+    parameters:
+    - id: cell
+      type: SadConsole.ColoredGlyphBase
+      description: The surface cell using this effect.
+    - id: originalState
+      type: SadConsole.ColoredGlyphBase
+      description: The state of the cell prior to the effect being applied.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when this method modified the <code class="paramref">cell</code>; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overrides Function ApplyToCell(cell As ColoredGlyphBase, originalState As ColoredGlyphBase) As Boolean
+  overridden: SadConsole.Effects.CellEffectBase.ApplyToCell(SadConsole.ColoredGlyphBase,SadConsole.ColoredGlyphBase)
+  overload: SadConsole.Effects.Blink.ApplyToCell*
+- uid: SadConsole.Effects.Blink.Update(System.TimeSpan)
+  commentId: M:SadConsole.Effects.Blink.Update(System.TimeSpan)
+  id: Update(System.TimeSpan)
+  parent: SadConsole.Effects.Blink
+  langs:
+  - csharp
+  - vb
+  name: Update(TimeSpan)
+  nameWithType: Blink.Update(TimeSpan)
+  fullName: SadConsole.Effects.Blink.Update(System.TimeSpan)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Effects
+  summary: Updates the state of the effect.
+  example: []
+  syntax:
+    content: public override void Update(TimeSpan delta)
+    parameters:
+    - id: delta
+      type: System.TimeSpan
+      description: Time since the last call to this effect.
+    content.vb: Public Overrides Sub Update(delta As TimeSpan)
+  overridden: SadConsole.Effects.CellEffectBase.Update(System.TimeSpan)
+  overload: SadConsole.Effects.Blink.Update*
+- uid: SadConsole.Effects.Blink.Restart
+  commentId: M:SadConsole.Effects.Blink.Restart
+  id: Restart
+  parent: SadConsole.Effects.Blink
+  langs:
+  - csharp
+  - vb
+  name: Restart()
+  nameWithType: Blink.Restart()
+  fullName: SadConsole.Effects.Blink.Restart()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Effects
+  summary: Restarts the cell effect but does not reset it.
+  example: []
+  syntax:
+    content: public override void Restart()
+    content.vb: Public Overrides Sub Restart()
+  overridden: SadConsole.Effects.CellEffectBase.Restart
+  overload: SadConsole.Effects.Blink.Restart*
+- uid: SadConsole.Effects.Blink.Clone
+  commentId: M:SadConsole.Effects.Blink.Clone
+  id: Clone
+  parent: SadConsole.Effects.Blink
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: Blink.Clone()
+  fullName: SadConsole.Effects.Blink.Clone()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Effects
+  summary: Returns a duplicate of this effect.
+  example: []
+  syntax:
+    content: public override ICellEffect Clone()
+    return:
+      type: SadConsole.Effects.ICellEffect
+      description: A new copy of this effect.
+    content.vb: Public Overrides Function Clone() As ICellEffect
+  overridden: SadConsole.Effects.CellEffectBase.Clone
+  overload: SadConsole.Effects.Blink.Clone*
+- uid: SadConsole.Effects.Blink.ToString
+  commentId: M:SadConsole.Effects.Blink.ToString
+  id: ToString
+  parent: SadConsole.Effects.Blink
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Blink.ToString()
+  fullName: SadConsole.Effects.Blink.ToString()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Effects
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: SadConsole.Effects.Blink.ToString*
+- uid: SadConsole.Effects.Blink.BlinkSpeed
+  commentId: P:SadConsole.Effects.Blink.BlinkSpeed
+  id: BlinkSpeed
+  parent: SadConsole.Effects.Blink
+  langs:
+  - csharp
+  - vb
+  name: BlinkSpeed
+  nameWithType: Blink.BlinkSpeed
+  fullName: SadConsole.Effects.Blink.BlinkSpeed
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Effects
+  summary: How long it takes to transition from blinking in and out.
+  example: []
+  syntax:
+    content: >-
+      [DataMember]
+
+      public TimeSpan BlinkSpeed { get; set; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: >-
+      <DataMember>
+
+      Public Property BlinkSpeed As TimeSpan
+  overload: SadConsole.Effects.Blink.BlinkSpeed*
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: SadConsole.Effects.Blink.UseCellBackgroundColor
+  commentId: P:SadConsole.Effects.Blink.UseCellBackgroundColor
+  id: UseCellBackgroundColor
+  parent: SadConsole.Effects.Blink
+  langs:
+  - csharp
+  - vb
+  name: UseCellBackgroundColor
+  nameWithType: Blink.UseCellBackgroundColor
+  fullName: SadConsole.Effects.Blink.UseCellBackgroundColor
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Effects
+  summary: When true, uses the current cells background color for fading instead of the value of <xref href="SadConsole.Effects.Blink.BlinkOutColor" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: >-
+      [DataMember]
+
+      public bool UseCellBackgroundColor { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <DataMember>
+
+      Public Property UseCellBackgroundColor As Boolean
+  overload: SadConsole.Effects.Blink.UseCellBackgroundColor*
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: SadConsole.Effects.Blink.BlinkOutColor
+  commentId: P:SadConsole.Effects.Blink.BlinkOutColor
+  id: BlinkOutColor
+  parent: SadConsole.Effects.Blink
+  langs:
+  - csharp
+  - vb
+  name: BlinkOutColor
+  nameWithType: Blink.BlinkOutColor
+  fullName: SadConsole.Effects.Blink.BlinkOutColor
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Effects
+  summary: The color the foreground blinks to.
+  example: []
+  syntax:
+    content: >-
+      [DataMember]
+
+      public Color BlinkOutColor { get; set; }
+    parameters: []
+    return:
+      type: SadRogue.Primitives.Color
+    content.vb: >-
+      <DataMember>
+
+      Public Property BlinkOutColor As Color
+  overload: SadConsole.Effects.Blink.BlinkOutColor*
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: SadConsole.Effects.Blink.BlinkCount
+  commentId: P:SadConsole.Effects.Blink.BlinkCount
+  id: BlinkCount
+  parent: SadConsole.Effects.Blink
+  langs:
+  - csharp
+  - vb
+  name: BlinkCount
+  nameWithType: Blink.BlinkCount
+  fullName: SadConsole.Effects.Blink.BlinkCount
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Effects
+  summary: How many times to blink. The value of -1 represents forever.
+  example: []
+  syntax:
+    content: >-
+      [DataMember]
+
+      public int BlinkCount { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <DataMember>
+
+      Public Property BlinkCount As Integer
+  overload: SadConsole.Effects.Blink.BlinkCount*
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: SadConsole.Effects.Blink.Duration
+  commentId: P:SadConsole.Effects.Blink.Duration
+  id: Duration
+  parent: SadConsole.Effects.Blink
+  langs:
+  - csharp
+  - vb
+  name: Duration
+  nameWithType: Blink.Duration
+  fullName: SadConsole.Effects.Blink.Duration
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Effects
+  summary: The total duraction this effect will run for, before being flagged as finished. <xref href="System.TimeSpan.MaxValue" data-throw-if-not-resolved="false"></xref> represents forever.
+  example: []
+  syntax:
+    content: >-
+      [DataMember]
+
+      public TimeSpan Duration { get; set; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: >-
+      <DataMember>
+
+      Public Property Duration As TimeSpan
+  overload: SadConsole.Effects.Blink.Duration*
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+references:
+- uid: SadConsole.Effects
+  commentId: N:SadConsole.Effects
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Effects
+  nameWithType: SadConsole.Effects
+  fullName: SadConsole.Effects
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Effects
+    name: Effects
+    isExternal: true
+    href: SadConsole.Effects.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Effects
+    name: Effects
+    isExternal: true
+    href: SadConsole.Effects.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: SadConsole.Effects.CellEffectBase
+  commentId: T:SadConsole.Effects.CellEffectBase
+  parent: SadConsole.Effects
+  isExternal: true
+  href: SadConsole.Effects.CellEffectBase.html
+  name: CellEffectBase
+  nameWithType: CellEffectBase
+  fullName: SadConsole.Effects.CellEffectBase
+- uid: SadConsole.Effects.ICellEffect
+  commentId: T:SadConsole.Effects.ICellEffect
+  parent: SadConsole.Effects
+  isExternal: true
+  href: SadConsole.Effects.ICellEffect.html
+  name: ICellEffect
+  nameWithType: ICellEffect
+  fullName: SadConsole.Effects.ICellEffect
+- uid: SadConsole.Effects.CellEffectBase._delayFinished
+  commentId: F:SadConsole.Effects.CellEffectBase._delayFinished
+  parent: SadConsole.Effects.CellEffectBase
+  isExternal: true
+  href: SadConsole.Effects.CellEffectBase.html#SadConsole.Effects.CellEffectBase._delayFinished
+  name: _delayFinished
+  nameWithType: CellEffectBase._delayFinished
+  fullName: SadConsole.Effects.CellEffectBase._delayFinished
+- uid: SadConsole.Effects.CellEffectBase._timeElapsed
+  commentId: F:SadConsole.Effects.CellEffectBase._timeElapsed
+  parent: SadConsole.Effects.CellEffectBase
+  isExternal: true
+  href: SadConsole.Effects.CellEffectBase.html#SadConsole.Effects.CellEffectBase._timeElapsed
+  name: _timeElapsed
+  nameWithType: CellEffectBase._timeElapsed
+  fullName: SadConsole.Effects.CellEffectBase._timeElapsed
+- uid: SadConsole.Effects.CellEffectBase.IsFinished
+  commentId: P:SadConsole.Effects.CellEffectBase.IsFinished
+  parent: SadConsole.Effects.CellEffectBase
+  isExternal: true
+  href: SadConsole.Effects.CellEffectBase.html#SadConsole.Effects.CellEffectBase.IsFinished
+  name: IsFinished
+  nameWithType: CellEffectBase.IsFinished
+  fullName: SadConsole.Effects.CellEffectBase.IsFinished
+- uid: SadConsole.Effects.CellEffectBase.CloneOnAdd
+  commentId: P:SadConsole.Effects.CellEffectBase.CloneOnAdd
+  parent: SadConsole.Effects.CellEffectBase
+  isExternal: true
+  href: SadConsole.Effects.CellEffectBase.html#SadConsole.Effects.CellEffectBase.CloneOnAdd
+  name: CloneOnAdd
+  nameWithType: CellEffectBase.CloneOnAdd
+  fullName: SadConsole.Effects.CellEffectBase.CloneOnAdd
+- uid: SadConsole.Effects.CellEffectBase.StartDelay
+  commentId: P:SadConsole.Effects.CellEffectBase.StartDelay
+  parent: SadConsole.Effects.CellEffectBase
+  isExternal: true
+  href: SadConsole.Effects.CellEffectBase.html#SadConsole.Effects.CellEffectBase.StartDelay
+  name: StartDelay
+  nameWithType: CellEffectBase.StartDelay
+  fullName: SadConsole.Effects.CellEffectBase.StartDelay
+- uid: SadConsole.Effects.CellEffectBase.RemoveOnFinished
+  commentId: P:SadConsole.Effects.CellEffectBase.RemoveOnFinished
+  parent: SadConsole.Effects.CellEffectBase
+  isExternal: true
+  href: SadConsole.Effects.CellEffectBase.html#SadConsole.Effects.CellEffectBase.RemoveOnFinished
+  name: RemoveOnFinished
+  nameWithType: CellEffectBase.RemoveOnFinished
+  fullName: SadConsole.Effects.CellEffectBase.RemoveOnFinished
+- uid: SadConsole.Effects.CellEffectBase.RestoreCellOnRemoved
+  commentId: P:SadConsole.Effects.CellEffectBase.RestoreCellOnRemoved
+  parent: SadConsole.Effects.CellEffectBase
+  isExternal: true
+  href: SadConsole.Effects.CellEffectBase.html#SadConsole.Effects.CellEffectBase.RestoreCellOnRemoved
+  name: RestoreCellOnRemoved
+  nameWithType: CellEffectBase.RestoreCellOnRemoved
+  fullName: SadConsole.Effects.CellEffectBase.RestoreCellOnRemoved
+- uid: SadConsole.Effects.CellEffectBase.RunEffectOnApply
+  commentId: P:SadConsole.Effects.CellEffectBase.RunEffectOnApply
+  parent: SadConsole.Effects.CellEffectBase
+  isExternal: true
+  href: SadConsole.Effects.CellEffectBase.html#SadConsole.Effects.CellEffectBase.RunEffectOnApply
+  name: RunEffectOnApply
+  nameWithType: CellEffectBase.RunEffectOnApply
+  fullName: SadConsole.Effects.CellEffectBase.RunEffectOnApply
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SadConsole.Effects.Blink.#ctor*
+  commentId: Overload:SadConsole.Effects.Blink.#ctor
+  isExternal: true
+  href: SadConsole.Effects.Blink.html#SadConsole.Effects.Blink.#ctor
+  name: Blink
+  nameWithType: Blink.Blink
+  fullName: SadConsole.Effects.Blink.Blink
+  nameWithType.vb: Blink.New
+  fullName.vb: SadConsole.Effects.Blink.New
+  name.vb: New
+- uid: SadConsole.Effects.CellEffectBase.ApplyToCell(SadConsole.ColoredGlyphBase,SadConsole.ColoredGlyphBase)
+  commentId: M:SadConsole.Effects.CellEffectBase.ApplyToCell(SadConsole.ColoredGlyphBase,SadConsole.ColoredGlyphBase)
+  parent: SadConsole.Effects.CellEffectBase
+  isExternal: true
+  href: SadConsole.Effects.CellEffectBase.html#SadConsole.Effects.CellEffectBase.ApplyToCell(SadConsole.ColoredGlyphBase,SadConsole.ColoredGlyphBase)
+  name: ApplyToCell(ColoredGlyphBase, ColoredGlyphBase)
+  nameWithType: CellEffectBase.ApplyToCell(ColoredGlyphBase, ColoredGlyphBase)
+  fullName: SadConsole.Effects.CellEffectBase.ApplyToCell(SadConsole.ColoredGlyphBase, SadConsole.ColoredGlyphBase)
+  spec.csharp:
+  - uid: SadConsole.Effects.CellEffectBase.ApplyToCell(SadConsole.ColoredGlyphBase,SadConsole.ColoredGlyphBase)
+    name: ApplyToCell
+    isExternal: true
+    href: SadConsole.Effects.CellEffectBase.html#SadConsole.Effects.CellEffectBase.ApplyToCell(SadConsole.ColoredGlyphBase,SadConsole.ColoredGlyphBase)
+  - name: (
+  - uid: SadConsole.ColoredGlyphBase
+    name: ColoredGlyphBase
+    isExternal: true
+    href: SadConsole.ColoredGlyphBase.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.ColoredGlyphBase
+    name: ColoredGlyphBase
+    isExternal: true
+    href: SadConsole.ColoredGlyphBase.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Effects.CellEffectBase.ApplyToCell(SadConsole.ColoredGlyphBase,SadConsole.ColoredGlyphBase)
+    name: ApplyToCell
+    isExternal: true
+    href: SadConsole.Effects.CellEffectBase.html#SadConsole.Effects.CellEffectBase.ApplyToCell(SadConsole.ColoredGlyphBase,SadConsole.ColoredGlyphBase)
+  - name: (
+  - uid: SadConsole.ColoredGlyphBase
+    name: ColoredGlyphBase
+    isExternal: true
+    href: SadConsole.ColoredGlyphBase.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.ColoredGlyphBase
+    name: ColoredGlyphBase
+    isExternal: true
+    href: SadConsole.ColoredGlyphBase.html
+  - name: )
+- uid: SadConsole.Effects.Blink.ApplyToCell*
+  commentId: Overload:SadConsole.Effects.Blink.ApplyToCell
+  isExternal: true
+  href: SadConsole.Effects.Blink.html#SadConsole.Effects.Blink.ApplyToCell(SadConsole.ColoredGlyphBase,SadConsole.ColoredGlyphBase)
+  name: ApplyToCell
+  nameWithType: Blink.ApplyToCell
+  fullName: SadConsole.Effects.Blink.ApplyToCell
+- uid: SadConsole.ColoredGlyphBase
+  commentId: T:SadConsole.ColoredGlyphBase
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ColoredGlyphBase.html
+  name: ColoredGlyphBase
+  nameWithType: ColoredGlyphBase
+  fullName: SadConsole.ColoredGlyphBase
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
+- uid: SadConsole.Effects.CellEffectBase.Update(System.TimeSpan)
+  commentId: M:SadConsole.Effects.CellEffectBase.Update(System.TimeSpan)
+  parent: SadConsole.Effects.CellEffectBase
+  isExternal: true
+  href: SadConsole.Effects.CellEffectBase.html#SadConsole.Effects.CellEffectBase.Update(System.TimeSpan)
+  name: Update(TimeSpan)
+  nameWithType: CellEffectBase.Update(TimeSpan)
+  fullName: SadConsole.Effects.CellEffectBase.Update(System.TimeSpan)
+  spec.csharp:
+  - uid: SadConsole.Effects.CellEffectBase.Update(System.TimeSpan)
+    name: Update
+    isExternal: true
+    href: SadConsole.Effects.CellEffectBase.html#SadConsole.Effects.CellEffectBase.Update(System.TimeSpan)
+  - name: (
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Effects.CellEffectBase.Update(System.TimeSpan)
+    name: Update
+    isExternal: true
+    href: SadConsole.Effects.CellEffectBase.html#SadConsole.Effects.CellEffectBase.Update(System.TimeSpan)
+  - name: (
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+- uid: SadConsole.Effects.Blink.Update*
+  commentId: Overload:SadConsole.Effects.Blink.Update
+  isExternal: true
+  href: SadConsole.Effects.Blink.html#SadConsole.Effects.Blink.Update(System.TimeSpan)
+  name: Update
+  nameWithType: Blink.Update
+  fullName: SadConsole.Effects.Blink.Update
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+- uid: SadConsole.Effects.CellEffectBase.Restart
+  commentId: M:SadConsole.Effects.CellEffectBase.Restart
+  parent: SadConsole.Effects.CellEffectBase
+  isExternal: true
+  href: SadConsole.Effects.CellEffectBase.html#SadConsole.Effects.CellEffectBase.Restart
+  name: Restart()
+  nameWithType: CellEffectBase.Restart()
+  fullName: SadConsole.Effects.CellEffectBase.Restart()
+  spec.csharp:
+  - uid: SadConsole.Effects.CellEffectBase.Restart
+    name: Restart
+    isExternal: true
+    href: SadConsole.Effects.CellEffectBase.html#SadConsole.Effects.CellEffectBase.Restart
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Effects.CellEffectBase.Restart
+    name: Restart
+    isExternal: true
+    href: SadConsole.Effects.CellEffectBase.html#SadConsole.Effects.CellEffectBase.Restart
+  - name: (
+  - name: )
+- uid: SadConsole.Effects.Blink.Restart*
+  commentId: Overload:SadConsole.Effects.Blink.Restart
+  isExternal: true
+  href: SadConsole.Effects.Blink.html#SadConsole.Effects.Blink.Restart
+  name: Restart
+  nameWithType: Blink.Restart
+  fullName: SadConsole.Effects.Blink.Restart
+- uid: SadConsole.Effects.CellEffectBase.Clone
+  commentId: M:SadConsole.Effects.CellEffectBase.Clone
+  parent: SadConsole.Effects.CellEffectBase
+  isExternal: true
+  href: SadConsole.Effects.CellEffectBase.html#SadConsole.Effects.CellEffectBase.Clone
+  name: Clone()
+  nameWithType: CellEffectBase.Clone()
+  fullName: SadConsole.Effects.CellEffectBase.Clone()
+  spec.csharp:
+  - uid: SadConsole.Effects.CellEffectBase.Clone
+    name: Clone
+    isExternal: true
+    href: SadConsole.Effects.CellEffectBase.html#SadConsole.Effects.CellEffectBase.Clone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Effects.CellEffectBase.Clone
+    name: Clone
+    isExternal: true
+    href: SadConsole.Effects.CellEffectBase.html#SadConsole.Effects.CellEffectBase.Clone
+  - name: (
+  - name: )
+- uid: SadConsole.Effects.Blink.Clone*
+  commentId: Overload:SadConsole.Effects.Blink.Clone
+  isExternal: true
+  href: SadConsole.Effects.Blink.html#SadConsole.Effects.Blink.Clone
+  name: Clone
+  nameWithType: Blink.Clone
+  fullName: SadConsole.Effects.Blink.Clone
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: SadConsole.Effects.Blink.ToString*
+  commentId: Overload:SadConsole.Effects.Blink.ToString
+  isExternal: true
+  href: SadConsole.Effects.Blink.html#SadConsole.Effects.Blink.ToString
+  name: ToString
+  nameWithType: Blink.ToString
+  fullName: SadConsole.Effects.Blink.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: SadConsole.Effects.Blink.BlinkSpeed*
+  commentId: Overload:SadConsole.Effects.Blink.BlinkSpeed
+  isExternal: true
+  href: SadConsole.Effects.Blink.html#SadConsole.Effects.Blink.BlinkSpeed
+  name: BlinkSpeed
+  nameWithType: Blink.BlinkSpeed
+  fullName: SadConsole.Effects.Blink.BlinkSpeed
+- uid: SadConsole.Effects.Blink.BlinkOutColor
+  commentId: P:SadConsole.Effects.Blink.BlinkOutColor
+  isExternal: true
+  href: SadConsole.Effects.Blink.html#SadConsole.Effects.Blink.BlinkOutColor
+  name: BlinkOutColor
+  nameWithType: Blink.BlinkOutColor
+  fullName: SadConsole.Effects.Blink.BlinkOutColor
+- uid: SadConsole.Effects.Blink.UseCellBackgroundColor*
+  commentId: Overload:SadConsole.Effects.Blink.UseCellBackgroundColor
+  isExternal: true
+  href: SadConsole.Effects.Blink.html#SadConsole.Effects.Blink.UseCellBackgroundColor
+  name: UseCellBackgroundColor
+  nameWithType: Blink.UseCellBackgroundColor
+  fullName: SadConsole.Effects.Blink.UseCellBackgroundColor
+- uid: SadConsole.Effects.Blink.BlinkOutColor*
+  commentId: Overload:SadConsole.Effects.Blink.BlinkOutColor
+  isExternal: true
+  href: SadConsole.Effects.Blink.html#SadConsole.Effects.Blink.BlinkOutColor
+  name: BlinkOutColor
+  nameWithType: Blink.BlinkOutColor
+  fullName: SadConsole.Effects.Blink.BlinkOutColor
+- uid: SadRogue.Primitives.Color
+  commentId: T:SadRogue.Primitives.Color
+  parent: SadRogue.Primitives
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: SadRogue.Primitives.Color
+- uid: SadRogue.Primitives
+  commentId: N:SadRogue.Primitives
+  isExternal: true
+  href: SadRogue.html
+  name: SadRogue.Primitives
+  nameWithType: SadRogue.Primitives
+  fullName: SadRogue.Primitives
+  spec.csharp:
+  - uid: SadRogue
+    name: SadRogue
+    isExternal: true
+    href: SadRogue.html
+  - name: .
+  - uid: SadRogue.Primitives
+    name: Primitives
+    isExternal: true
+    href: SadRogue.Primitives.html
+  spec.vb:
+  - uid: SadRogue
+    name: SadRogue
+    isExternal: true
+    href: SadRogue.html
+  - name: .
+  - uid: SadRogue.Primitives
+    name: Primitives
+    isExternal: true
+    href: SadRogue.Primitives.html
+- uid: SadConsole.Effects.Blink.BlinkCount*
+  commentId: Overload:SadConsole.Effects.Blink.BlinkCount
+  isExternal: true
+  href: SadConsole.Effects.Blink.html#SadConsole.Effects.Blink.BlinkCount
+  name: BlinkCount
+  nameWithType: Blink.BlinkCount
+  fullName: SadConsole.Effects.Blink.BlinkCount
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.TimeSpan.MaxValue
+  commentId: F:System.TimeSpan.MaxValue
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan.maxvalue
+  name: MaxValue
+  nameWithType: TimeSpan.MaxValue
+  fullName: System.TimeSpan.MaxValue
+- uid: SadConsole.Effects.Blink.Duration*
+  commentId: Overload:SadConsole.Effects.Blink.Duration
+  isExternal: true
+  href: SadConsole.Effects.Blink.html#SadConsole.Effects.Blink.Duration
+  name: Duration
+  nameWithType: Blink.Duration
+  fullName: SadConsole.Effects.Blink.Duration

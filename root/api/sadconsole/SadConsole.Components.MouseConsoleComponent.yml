@@ -1,0 +1,672 @@
+### YamlMime:ManagedReference
+items:
+- uid: SadConsole.Components.MouseConsoleComponent
+  commentId: T:SadConsole.Components.MouseConsoleComponent
+  id: MouseConsoleComponent
+  parent: SadConsole.Components
+  children:
+  - SadConsole.Components.MouseConsoleComponent.#ctor
+  - SadConsole.Components.MouseConsoleComponent.OnAdded(SadConsole.IScreenObject)
+  - SadConsole.Components.MouseConsoleComponent.OnRemoved(SadConsole.IScreenObject)
+  - SadConsole.Components.MouseConsoleComponent.ProcessMouse(SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean@)
+  - SadConsole.Components.MouseConsoleComponent.SortOrder
+  langs:
+  - csharp
+  - vb
+  name: MouseConsoleComponent
+  nameWithType: MouseConsoleComponent
+  fullName: SadConsole.Components.MouseConsoleComponent
+  type: Class
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: A base class that implements <xref href="SadConsole.Components.IComponent.ProcessMouse(SadConsole.IScreenObject%2cSadConsole.Input.MouseScreenObjectState%2cSystem.Boolean%40)" data-throw-if-not-resolved="false"></xref> of <xref href="SadConsole.Components.IComponent" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public abstract class MouseConsoleComponent : IComponent'
+    content.vb: Public MustInherit Class MouseConsoleComponent Implements IComponent
+  inheritance:
+  - System.Object
+  implements:
+  - SadConsole.Components.IComponent
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: SadConsole.Components.MouseConsoleComponent.ProcessMouse(SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean@)
+  commentId: M:SadConsole.Components.MouseConsoleComponent.ProcessMouse(SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean@)
+  id: ProcessMouse(SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean@)
+  parent: SadConsole.Components.MouseConsoleComponent
+  langs:
+  - csharp
+  - vb
+  name: ProcessMouse(IScreenObject, MouseScreenObjectState, out bool)
+  nameWithType: MouseConsoleComponent.ProcessMouse(IScreenObject, MouseScreenObjectState, out bool)
+  fullName: SadConsole.Components.MouseConsoleComponent.ProcessMouse(SadConsole.IScreenObject, SadConsole.Input.MouseScreenObjectState, out bool)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: Called by a host when the mouse is being processed.
+  example: []
+  syntax:
+    content: public abstract void ProcessMouse(IScreenObject host, MouseScreenObjectState state, out bool handled)
+    parameters:
+    - id: host
+      type: SadConsole.IScreenObject
+      description: The host calling the component.
+    - id: state
+      type: SadConsole.Input.MouseScreenObjectState
+      description: The state of the mouse in relation to the console.
+    - id: handled
+      type: System.Boolean
+      description: When set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> informs the host caller that we handled the mouse and to stop others from handling.
+    content.vb: Public MustOverride Sub ProcessMouse(host As IScreenObject, state As MouseScreenObjectState, handled As Boolean)
+  overload: SadConsole.Components.MouseConsoleComponent.ProcessMouse*
+  implements:
+  - SadConsole.Components.IComponent.ProcessMouse(SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean@)
+  nameWithType.vb: MouseConsoleComponent.ProcessMouse(IScreenObject, MouseScreenObjectState, Boolean)
+  fullName.vb: SadConsole.Components.MouseConsoleComponent.ProcessMouse(SadConsole.IScreenObject, SadConsole.Input.MouseScreenObjectState, Boolean)
+  name.vb: ProcessMouse(IScreenObject, MouseScreenObjectState, Boolean)
+- uid: SadConsole.Components.MouseConsoleComponent.OnAdded(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Components.MouseConsoleComponent.OnAdded(SadConsole.IScreenObject)
+  id: OnAdded(SadConsole.IScreenObject)
+  parent: SadConsole.Components.MouseConsoleComponent
+  langs:
+  - csharp
+  - vb
+  name: OnAdded(IScreenObject)
+  nameWithType: MouseConsoleComponent.OnAdded(IScreenObject)
+  fullName: SadConsole.Components.MouseConsoleComponent.OnAdded(SadConsole.IScreenObject)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: Called when the component is added to a host.
+  example: []
+  syntax:
+    content: public virtual void OnAdded(IScreenObject host)
+    parameters:
+    - id: host
+      type: SadConsole.IScreenObject
+      description: The host that added the component.
+    content.vb: Public Overridable Sub OnAdded(host As IScreenObject)
+  overload: SadConsole.Components.MouseConsoleComponent.OnAdded*
+  implements:
+  - SadConsole.Components.IComponent.OnAdded(SadConsole.IScreenObject)
+- uid: SadConsole.Components.MouseConsoleComponent.OnRemoved(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Components.MouseConsoleComponent.OnRemoved(SadConsole.IScreenObject)
+  id: OnRemoved(SadConsole.IScreenObject)
+  parent: SadConsole.Components.MouseConsoleComponent
+  langs:
+  - csharp
+  - vb
+  name: OnRemoved(IScreenObject)
+  nameWithType: MouseConsoleComponent.OnRemoved(IScreenObject)
+  fullName: SadConsole.Components.MouseConsoleComponent.OnRemoved(SadConsole.IScreenObject)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: Called when the component is removed from the host.
+  example: []
+  syntax:
+    content: public virtual void OnRemoved(IScreenObject host)
+    parameters:
+    - id: host
+      type: SadConsole.IScreenObject
+      description: The host that removed the component.
+    content.vb: Public Overridable Sub OnRemoved(host As IScreenObject)
+  overload: SadConsole.Components.MouseConsoleComponent.OnRemoved*
+  implements:
+  - SadConsole.Components.IComponent.OnRemoved(SadConsole.IScreenObject)
+- uid: SadConsole.Components.MouseConsoleComponent.#ctor
+  commentId: M:SadConsole.Components.MouseConsoleComponent.#ctor
+  id: '#ctor'
+  parent: SadConsole.Components.MouseConsoleComponent
+  langs:
+  - csharp
+  - vb
+  name: MouseConsoleComponent()
+  nameWithType: MouseConsoleComponent.MouseConsoleComponent()
+  fullName: SadConsole.Components.MouseConsoleComponent.MouseConsoleComponent()
+  type: Constructor
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  syntax:
+    content: protected MouseConsoleComponent()
+    content.vb: Protected Sub New()
+  overload: SadConsole.Components.MouseConsoleComponent.#ctor*
+  nameWithType.vb: MouseConsoleComponent.New()
+  fullName.vb: SadConsole.Components.MouseConsoleComponent.New()
+  name.vb: New()
+- uid: SadConsole.Components.MouseConsoleComponent.SortOrder
+  commentId: P:SadConsole.Components.MouseConsoleComponent.SortOrder
+  id: SortOrder
+  parent: SadConsole.Components.MouseConsoleComponent
+  langs:
+  - csharp
+  - vb
+  name: SortOrder
+  nameWithType: MouseConsoleComponent.SortOrder
+  fullName: SadConsole.Components.MouseConsoleComponent.SortOrder
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: Indicates priority to other components.
+  example: []
+  syntax:
+    content: public uint SortOrder { get; set; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: Public Property SortOrder As UInteger
+  overload: SadConsole.Components.MouseConsoleComponent.SortOrder*
+references:
+- uid: SadConsole.Components.IComponent.ProcessMouse(SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean@)
+  commentId: M:SadConsole.Components.IComponent.ProcessMouse(SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean@)
+  parent: SadConsole.Components.IComponent
+  isExternal: true
+  href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.ProcessMouse(SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean@)
+  name: ProcessMouse(IScreenObject, MouseScreenObjectState, out bool)
+  nameWithType: IComponent.ProcessMouse(IScreenObject, MouseScreenObjectState, out bool)
+  fullName: SadConsole.Components.IComponent.ProcessMouse(SadConsole.IScreenObject, SadConsole.Input.MouseScreenObjectState, out bool)
+  nameWithType.vb: IComponent.ProcessMouse(IScreenObject, MouseScreenObjectState, Boolean)
+  fullName.vb: SadConsole.Components.IComponent.ProcessMouse(SadConsole.IScreenObject, SadConsole.Input.MouseScreenObjectState, Boolean)
+  name.vb: ProcessMouse(IScreenObject, MouseScreenObjectState, Boolean)
+  spec.csharp:
+  - uid: SadConsole.Components.IComponent.ProcessMouse(SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean@)
+    name: ProcessMouse
+    isExternal: true
+    href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.ProcessMouse(SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean@)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Input.MouseScreenObjectState
+    name: MouseScreenObjectState
+    isExternal: true
+    href: SadConsole.Input.MouseScreenObjectState.html
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.IComponent.ProcessMouse(SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean@)
+    name: ProcessMouse
+    isExternal: true
+    href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.ProcessMouse(SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean@)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Input.MouseScreenObjectState
+    name: MouseScreenObjectState
+    isExternal: true
+    href: SadConsole.Input.MouseScreenObjectState.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: SadConsole.Components.IComponent
+  commentId: T:SadConsole.Components.IComponent
+  parent: SadConsole.Components
+  isExternal: true
+  href: SadConsole.Components.IComponent.html
+  name: IComponent
+  nameWithType: IComponent
+  fullName: SadConsole.Components.IComponent
+- uid: SadConsole.Components
+  commentId: N:SadConsole.Components
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Components
+  nameWithType: SadConsole.Components
+  fullName: SadConsole.Components
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Components
+    name: Components
+    isExternal: true
+    href: SadConsole.Components.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Components
+    name: Components
+    isExternal: true
+    href: SadConsole.Components.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SadConsole.Components.MouseConsoleComponent.ProcessMouse*
+  commentId: Overload:SadConsole.Components.MouseConsoleComponent.ProcessMouse
+  isExternal: true
+  href: SadConsole.Components.MouseConsoleComponent.html#SadConsole.Components.MouseConsoleComponent.ProcessMouse(SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean@)
+  name: ProcessMouse
+  nameWithType: MouseConsoleComponent.ProcessMouse
+  fullName: SadConsole.Components.MouseConsoleComponent.ProcessMouse
+- uid: SadConsole.IScreenObject
+  commentId: T:SadConsole.IScreenObject
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IScreenObject.html
+  name: IScreenObject
+  nameWithType: IScreenObject
+  fullName: SadConsole.IScreenObject
+- uid: SadConsole.Input.MouseScreenObjectState
+  commentId: T:SadConsole.Input.MouseScreenObjectState
+  parent: SadConsole.Input
+  isExternal: true
+  href: SadConsole.Input.MouseScreenObjectState.html
+  name: MouseScreenObjectState
+  nameWithType: MouseScreenObjectState
+  fullName: SadConsole.Input.MouseScreenObjectState
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
+- uid: SadConsole.Input
+  commentId: N:SadConsole.Input
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Input
+  nameWithType: SadConsole.Input
+  fullName: SadConsole.Input
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Input
+    name: Input
+    isExternal: true
+    href: SadConsole.Input.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Input
+    name: Input
+    isExternal: true
+    href: SadConsole.Input.html
+- uid: SadConsole.Components.MouseConsoleComponent.OnAdded*
+  commentId: Overload:SadConsole.Components.MouseConsoleComponent.OnAdded
+  isExternal: true
+  href: SadConsole.Components.MouseConsoleComponent.html#SadConsole.Components.MouseConsoleComponent.OnAdded(SadConsole.IScreenObject)
+  name: OnAdded
+  nameWithType: MouseConsoleComponent.OnAdded
+  fullName: SadConsole.Components.MouseConsoleComponent.OnAdded
+- uid: SadConsole.Components.IComponent.OnAdded(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Components.IComponent.OnAdded(SadConsole.IScreenObject)
+  parent: SadConsole.Components.IComponent
+  isExternal: true
+  href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.OnAdded(SadConsole.IScreenObject)
+  name: OnAdded(IScreenObject)
+  nameWithType: IComponent.OnAdded(IScreenObject)
+  fullName: SadConsole.Components.IComponent.OnAdded(SadConsole.IScreenObject)
+  spec.csharp:
+  - uid: SadConsole.Components.IComponent.OnAdded(SadConsole.IScreenObject)
+    name: OnAdded
+    isExternal: true
+    href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.OnAdded(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.IComponent.OnAdded(SadConsole.IScreenObject)
+    name: OnAdded
+    isExternal: true
+    href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.OnAdded(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+- uid: SadConsole.Components.MouseConsoleComponent.OnRemoved*
+  commentId: Overload:SadConsole.Components.MouseConsoleComponent.OnRemoved
+  isExternal: true
+  href: SadConsole.Components.MouseConsoleComponent.html#SadConsole.Components.MouseConsoleComponent.OnRemoved(SadConsole.IScreenObject)
+  name: OnRemoved
+  nameWithType: MouseConsoleComponent.OnRemoved
+  fullName: SadConsole.Components.MouseConsoleComponent.OnRemoved
+- uid: SadConsole.Components.IComponent.OnRemoved(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Components.IComponent.OnRemoved(SadConsole.IScreenObject)
+  parent: SadConsole.Components.IComponent
+  isExternal: true
+  href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.OnRemoved(SadConsole.IScreenObject)
+  name: OnRemoved(IScreenObject)
+  nameWithType: IComponent.OnRemoved(IScreenObject)
+  fullName: SadConsole.Components.IComponent.OnRemoved(SadConsole.IScreenObject)
+  spec.csharp:
+  - uid: SadConsole.Components.IComponent.OnRemoved(SadConsole.IScreenObject)
+    name: OnRemoved
+    isExternal: true
+    href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.OnRemoved(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.IComponent.OnRemoved(SadConsole.IScreenObject)
+    name: OnRemoved
+    isExternal: true
+    href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.OnRemoved(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+- uid: SadConsole.Components.MouseConsoleComponent.#ctor*
+  commentId: Overload:SadConsole.Components.MouseConsoleComponent.#ctor
+  isExternal: true
+  href: SadConsole.Components.MouseConsoleComponent.html#SadConsole.Components.MouseConsoleComponent.#ctor
+  name: MouseConsoleComponent
+  nameWithType: MouseConsoleComponent.MouseConsoleComponent
+  fullName: SadConsole.Components.MouseConsoleComponent.MouseConsoleComponent
+  nameWithType.vb: MouseConsoleComponent.New
+  fullName.vb: SadConsole.Components.MouseConsoleComponent.New
+  name.vb: New
+- uid: SadConsole.Components.MouseConsoleComponent.SortOrder*
+  commentId: Overload:SadConsole.Components.MouseConsoleComponent.SortOrder
+  isExternal: true
+  href: SadConsole.Components.MouseConsoleComponent.html#SadConsole.Components.MouseConsoleComponent.SortOrder
+  name: SortOrder
+  nameWithType: MouseConsoleComponent.SortOrder
+  fullName: SadConsole.Components.MouseConsoleComponent.SortOrder
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger

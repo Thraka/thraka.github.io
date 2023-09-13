@@ -1,0 +1,704 @@
+### YamlMime:ManagedReference
+items:
+- uid: SadConsole.StringValidation
+  commentId: T:SadConsole.StringValidation
+  id: StringValidation
+  parent: SadConsole
+  children:
+  - SadConsole.StringValidation.All(SadConsole.StringValidation.Validator[])
+  - SadConsole.StringValidation.Decimal(System.String)
+  - SadConsole.StringValidation.Integer(System.String)
+  - SadConsole.StringValidation.LengthRange(System.Int32,System.Int32,System.String)
+  - SadConsole.StringValidation.Letters(System.String)
+  - SadConsole.StringValidation.None(System.String)
+  langs:
+  - csharp
+  - vb
+  name: StringValidation
+  nameWithType: StringValidation
+  fullName: SadConsole.StringValidation
+  type: Class
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Validates a string
+  example: []
+  syntax:
+    content: public static class StringValidation
+    content.vb: Public Module StringValidation
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: SadConsole.StringValidation.None(System.String)
+  commentId: M:SadConsole.StringValidation.None(System.String)
+  id: None(System.String)
+  parent: SadConsole.StringValidation
+  langs:
+  - csharp
+  - vb
+  name: None(string)
+  nameWithType: StringValidation.None(string)
+  fullName: SadConsole.StringValidation.None(string)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Always validates to true.
+  example: []
+  syntax:
+    content: public static StringValidation.Result None(string input)
+    parameters:
+    - id: input
+      type: System.String
+      description: The string to validate.
+    return:
+      type: SadConsole.StringValidation.Result
+      description: A positive validation result.
+    content.vb: Public Shared Function None(input As String) As StringValidation.Result
+  overload: SadConsole.StringValidation.None*
+  nameWithType.vb: StringValidation.None(String)
+  fullName.vb: SadConsole.StringValidation.None(String)
+  name.vb: None(String)
+- uid: SadConsole.StringValidation.Integer(System.String)
+  commentId: M:SadConsole.StringValidation.Integer(System.String)
+  id: Integer(System.String)
+  parent: SadConsole.StringValidation
+  langs:
+  - csharp
+  - vb
+  name: Integer(string)
+  nameWithType: StringValidation.Integer(string)
+  fullName: SadConsole.StringValidation.Integer(string)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Returns a <xref href="SadConsole.StringValidation.Validator" data-throw-if-not-resolved="false"></xref> delegate that validates whether or not a string can be parsed by the <xref href="System.Int64.TryParse(System.String%2cSystem.Int64%40)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static StringValidation.Validator Integer(string errorMessage)
+    parameters:
+    - id: errorMessage
+      type: System.String
+      description: A message to provide to the result if the validation fails.
+    return:
+      type: SadConsole.StringValidation.Validator
+      description: The validation result.
+    content.vb: Public Shared Function [Integer](errorMessage As String) As StringValidation.Validator
+  overload: SadConsole.StringValidation.Integer*
+  nameWithType.vb: StringValidation.Integer(String)
+  fullName.vb: SadConsole.StringValidation.Integer(String)
+  name.vb: Integer(String)
+- uid: SadConsole.StringValidation.Decimal(System.String)
+  commentId: M:SadConsole.StringValidation.Decimal(System.String)
+  id: Decimal(System.String)
+  parent: SadConsole.StringValidation
+  langs:
+  - csharp
+  - vb
+  name: Decimal(string)
+  nameWithType: StringValidation.Decimal(string)
+  fullName: SadConsole.StringValidation.Decimal(string)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Returns a <xref href="SadConsole.StringValidation.Validator" data-throw-if-not-resolved="false"></xref> delegate that validates whether or not a string can be parsed by the <xref href="System.Double.TryParse(System.String%2cSystem.Double%40)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static StringValidation.Validator Decimal(string errorMessage)
+    parameters:
+    - id: errorMessage
+      type: System.String
+      description: A message to provide to the result if the validation fails.
+    return:
+      type: SadConsole.StringValidation.Validator
+      description: The validation result.
+    content.vb: Public Shared Function [Decimal](errorMessage As String) As StringValidation.Validator
+  overload: SadConsole.StringValidation.Decimal*
+  nameWithType.vb: StringValidation.Decimal(String)
+  fullName.vb: SadConsole.StringValidation.Decimal(String)
+  name.vb: Decimal(String)
+- uid: SadConsole.StringValidation.LengthRange(System.Int32,System.Int32,System.String)
+  commentId: M:SadConsole.StringValidation.LengthRange(System.Int32,System.Int32,System.String)
+  id: LengthRange(System.Int32,System.Int32,System.String)
+  parent: SadConsole.StringValidation
+  langs:
+  - csharp
+  - vb
+  name: LengthRange(int, int, string)
+  nameWithType: StringValidation.LengthRange(int, int, string)
+  fullName: SadConsole.StringValidation.LengthRange(int, int, string)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Returns a <xref href="SadConsole.StringValidation.Validator" data-throw-if-not-resolved="false"></xref> delegate that validates whether or not a length of a string falls within the specified range.
+  example: []
+  syntax:
+    content: public static StringValidation.Validator LengthRange(int min, int max, string errorMessage)
+    parameters:
+    - id: min
+      type: System.Int32
+      description: ''
+    - id: max
+      type: System.Int32
+      description: ''
+    - id: errorMessage
+      type: System.String
+      description: A message to provide to the result if the validation fails.
+    return:
+      type: SadConsole.StringValidation.Validator
+      description: The validation result.
+    content.vb: Public Shared Function LengthRange(min As Integer, max As Integer, errorMessage As String) As StringValidation.Validator
+  overload: SadConsole.StringValidation.LengthRange*
+  nameWithType.vb: StringValidation.LengthRange(Integer, Integer, String)
+  fullName.vb: SadConsole.StringValidation.LengthRange(Integer, Integer, String)
+  name.vb: LengthRange(Integer, Integer, String)
+- uid: SadConsole.StringValidation.All(SadConsole.StringValidation.Validator[])
+  commentId: M:SadConsole.StringValidation.All(SadConsole.StringValidation.Validator[])
+  id: All(SadConsole.StringValidation.Validator[])
+  parent: SadConsole.StringValidation
+  langs:
+  - csharp
+  - vb
+  name: All(params Validator[])
+  nameWithType: StringValidation.All(params StringValidation.Validator[])
+  fullName: SadConsole.StringValidation.All(params SadConsole.StringValidation.Validator[])
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Uses multiple <xref href="SadConsole.StringValidation.Validator" data-throw-if-not-resolved="false"></xref> delegates to validate a string. All validators must pass.
+  example: []
+  syntax:
+    content: public static StringValidation.Validator All(params StringValidation.Validator[] validators)
+    parameters:
+    - id: validators
+      type: SadConsole.StringValidation.Validator[]
+      description: Each <xref href="SadConsole.StringValidation.Validator" data-throw-if-not-resolved="false"></xref> to use.
+    return:
+      type: SadConsole.StringValidation.Validator
+      description: When all validators pass, a successful result; otherwise, the failed result.
+    content.vb: Public Shared Function All(ParamArray validators As StringValidation.Validator()) As StringValidation.Validator
+  overload: SadConsole.StringValidation.All*
+  nameWithType.vb: StringValidation.All(ParamArray StringValidation.Validator())
+  fullName.vb: SadConsole.StringValidation.All(ParamArray SadConsole.StringValidation.Validator())
+  name.vb: All(ParamArray Validator())
+- uid: SadConsole.StringValidation.Letters(System.String)
+  commentId: M:SadConsole.StringValidation.Letters(System.String)
+  id: Letters(System.String)
+  parent: SadConsole.StringValidation
+  langs:
+  - csharp
+  - vb
+  name: Letters(string)
+  nameWithType: StringValidation.Letters(string)
+  fullName: SadConsole.StringValidation.Letters(string)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Returns a <xref href="SadConsole.StringValidation.Validator" data-throw-if-not-resolved="false"></xref> delegate that validates whether or not a string contains only letters.
+  example: []
+  syntax:
+    content: public static StringValidation.Validator Letters(string errorMessage)
+    parameters:
+    - id: errorMessage
+      type: System.String
+      description: A message to provide to the result if the validation fails.
+    return:
+      type: SadConsole.StringValidation.Validator
+      description: The validation result.
+    content.vb: Public Shared Function Letters(errorMessage As String) As StringValidation.Validator
+  overload: SadConsole.StringValidation.Letters*
+  nameWithType.vb: StringValidation.Letters(String)
+  fullName.vb: SadConsole.StringValidation.Letters(String)
+  name.vb: Letters(String)
+references:
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SadConsole.StringValidation.None*
+  commentId: Overload:SadConsole.StringValidation.None
+  isExternal: true
+  href: SadConsole.StringValidation.html#SadConsole.StringValidation.None(System.String)
+  name: None
+  nameWithType: StringValidation.None
+  fullName: SadConsole.StringValidation.None
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: SadConsole.StringValidation.Result
+  commentId: T:SadConsole.StringValidation.Result
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.StringValidation.html
+  name: StringValidation.Result
+  nameWithType: StringValidation.Result
+  fullName: SadConsole.StringValidation.Result
+  spec.csharp:
+  - uid: SadConsole.StringValidation
+    name: StringValidation
+    isExternal: true
+    href: SadConsole.StringValidation.html
+  - name: .
+  - uid: SadConsole.StringValidation.Result
+    name: Result
+    isExternal: true
+    href: SadConsole.StringValidation.Result.html
+  spec.vb:
+  - uid: SadConsole.StringValidation
+    name: StringValidation
+    isExternal: true
+    href: SadConsole.StringValidation.html
+  - name: .
+  - uid: SadConsole.StringValidation.Result
+    name: Result
+    isExternal: true
+    href: SadConsole.StringValidation.Result.html
+- uid: SadConsole.StringValidation.Validator
+  commentId: T:SadConsole.StringValidation.Validator
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.StringValidation.html
+  name: StringValidation.Validator
+  nameWithType: StringValidation.Validator
+  fullName: SadConsole.StringValidation.Validator
+  spec.csharp:
+  - uid: SadConsole.StringValidation
+    name: StringValidation
+    isExternal: true
+    href: SadConsole.StringValidation.html
+  - name: .
+  - uid: SadConsole.StringValidation.Validator
+    name: Validator
+    isExternal: true
+    href: SadConsole.StringValidation.Validator.html
+  spec.vb:
+  - uid: SadConsole.StringValidation
+    name: StringValidation
+    isExternal: true
+    href: SadConsole.StringValidation.html
+  - name: .
+  - uid: SadConsole.StringValidation.Validator
+    name: Validator
+    isExternal: true
+    href: SadConsole.StringValidation.Validator.html
+- uid: System.Int64.TryParse(System.String,System.Int64@)
+  commentId: M:System.Int64.TryParse(System.String,System.Int64@)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64.tryparse#system-int64-tryparse(system-string-system-int64@)
+  name: TryParse(string, out long)
+  nameWithType: long.TryParse(string, out long)
+  fullName: long.TryParse(string, out long)
+  nameWithType.vb: Long.TryParse(String, Long)
+  fullName.vb: Long.TryParse(String, Long)
+  name.vb: TryParse(String, Long)
+  spec.csharp:
+  - uid: System.Int64.TryParse(System.String,System.Int64@)
+    name: TryParse
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64.tryparse#system-int64-tryparse(system-string-system-int64@)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: System.Int64
+    name: long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: )
+  spec.vb:
+  - uid: System.Int64.TryParse(System.String,System.Int64@)
+    name: TryParse
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64.tryparse#system-int64-tryparse(system-string-system-int64@)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int64
+    name: Long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: )
+- uid: SadConsole.StringValidation.Integer*
+  commentId: Overload:SadConsole.StringValidation.Integer
+  isExternal: true
+  href: SadConsole.StringValidation.html#SadConsole.StringValidation.Integer(System.String)
+  name: Integer
+  nameWithType: StringValidation.Integer
+  fullName: SadConsole.StringValidation.Integer
+- uid: System.Double.TryParse(System.String,System.Double@)
+  commentId: M:System.Double.TryParse(System.String,System.Double@)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double.tryparse#system-double-tryparse(system-string-system-double@)
+  name: TryParse(string, out double)
+  nameWithType: double.TryParse(string, out double)
+  fullName: double.TryParse(string, out double)
+  nameWithType.vb: Double.TryParse(String, Double)
+  fullName.vb: Double.TryParse(String, Double)
+  name.vb: TryParse(String, Double)
+  spec.csharp:
+  - uid: System.Double.TryParse(System.String,System.Double@)
+    name: TryParse
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double.tryparse#system-double-tryparse(system-string-system-double@)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: )
+  spec.vb:
+  - uid: System.Double.TryParse(System.String,System.Double@)
+    name: TryParse
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double.tryparse#system-double-tryparse(system-string-system-double@)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: )
+- uid: SadConsole.StringValidation.Decimal*
+  commentId: Overload:SadConsole.StringValidation.Decimal
+  isExternal: true
+  href: SadConsole.StringValidation.html#SadConsole.StringValidation.Decimal(System.String)
+  name: Decimal
+  nameWithType: StringValidation.Decimal
+  fullName: SadConsole.StringValidation.Decimal
+- uid: SadConsole.StringValidation.LengthRange*
+  commentId: Overload:SadConsole.StringValidation.LengthRange
+  isExternal: true
+  href: SadConsole.StringValidation.html#SadConsole.StringValidation.LengthRange(System.Int32,System.Int32,System.String)
+  name: LengthRange
+  nameWithType: StringValidation.LengthRange
+  fullName: SadConsole.StringValidation.LengthRange
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: SadConsole.StringValidation.All*
+  commentId: Overload:SadConsole.StringValidation.All
+  isExternal: true
+  href: SadConsole.StringValidation.html#SadConsole.StringValidation.All(SadConsole.StringValidation.Validator[])
+  name: All
+  nameWithType: StringValidation.All
+  fullName: SadConsole.StringValidation.All
+- uid: SadConsole.StringValidation.Validator[]
+  isExternal: true
+  href: SadConsole.StringValidation.Validator.html
+  name: Validator[]
+  nameWithType: StringValidation.Validator[]
+  fullName: SadConsole.StringValidation.Validator[]
+  nameWithType.vb: StringValidation.Validator()
+  fullName.vb: SadConsole.StringValidation.Validator()
+  name.vb: Validator()
+  spec.csharp:
+  - uid: SadConsole.StringValidation.Validator
+    name: Validator
+    isExternal: true
+    href: SadConsole.StringValidation.Validator.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: SadConsole.StringValidation.Validator
+    name: Validator
+    isExternal: true
+    href: SadConsole.StringValidation.Validator.html
+  - name: (
+  - name: )
+- uid: SadConsole.StringValidation.Letters*
+  commentId: Overload:SadConsole.StringValidation.Letters
+  isExternal: true
+  href: SadConsole.StringValidation.html#SadConsole.StringValidation.Letters(System.String)
+  name: Letters
+  nameWithType: StringValidation.Letters
+  fullName: SadConsole.StringValidation.Letters

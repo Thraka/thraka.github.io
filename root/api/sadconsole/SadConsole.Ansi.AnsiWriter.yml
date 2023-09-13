@@ -1,0 +1,794 @@
+### YamlMime:ManagedReference
+items:
+- uid: SadConsole.Ansi.AnsiWriter
+  commentId: T:SadConsole.Ansi.AnsiWriter
+  id: AnsiWriter
+  parent: SadConsole.Ansi
+  children:
+  - SadConsole.Ansi.AnsiWriter.#ctor(SadConsole.Ansi.Document,SadConsole.ICellSurface)
+  - SadConsole.Ansi.AnsiWriter.AnsiDocument
+  - SadConsole.Ansi.AnsiWriter.AnsiInterpret(System.String)
+  - SadConsole.Ansi.AnsiWriter.AnsiReadLine(System.String,System.Boolean)
+  - SadConsole.Ansi.AnsiWriter.BlinkEffect
+  - SadConsole.Ansi.AnsiWriter.CharactersPerSecond
+  - SadConsole.Ansi.AnsiWriter.Cursor
+  - SadConsole.Ansi.AnsiWriter.Process(System.Double)
+  - SadConsole.Ansi.AnsiWriter.ReadEntireDocument
+  - SadConsole.Ansi.AnsiWriter.Restart
+  langs:
+  - csharp
+  - vb
+  name: AnsiWriter
+  nameWithType: AnsiWriter
+  fullName: SadConsole.Ansi.AnsiWriter
+  type: Class
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Ansi
+  summary: Writes a <xref href="SadConsole.Ansi.Document" data-throw-if-not-resolved="false"></xref> to a <xref href="SadConsole.ICellSurface" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public class AnsiWriter
+    content.vb: Public Class AnsiWriter
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: SadConsole.Ansi.AnsiWriter.#ctor(SadConsole.Ansi.Document,SadConsole.ICellSurface)
+  commentId: M:SadConsole.Ansi.AnsiWriter.#ctor(SadConsole.Ansi.Document,SadConsole.ICellSurface)
+  id: '#ctor(SadConsole.Ansi.Document,SadConsole.ICellSurface)'
+  parent: SadConsole.Ansi.AnsiWriter
+  langs:
+  - csharp
+  - vb
+  name: AnsiWriter(Document, ICellSurface)
+  nameWithType: AnsiWriter.AnsiWriter(Document, ICellSurface)
+  fullName: SadConsole.Ansi.AnsiWriter.AnsiWriter(SadConsole.Ansi.Document, SadConsole.ICellSurface)
+  type: Constructor
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Ansi
+  summary: Creates a new instance with the source document and target surface.
+  example: []
+  syntax:
+    content: public AnsiWriter(Document ansiDocument, ICellSurface editor)
+    parameters:
+    - id: ansiDocument
+      type: SadConsole.Ansi.Document
+      description: The source document containing ANSI commands.
+    - id: editor
+      type: SadConsole.ICellSurface
+      description: The surface to parse the ANSI to.
+    content.vb: Public Sub New(ansiDocument As Document, editor As ICellSurface)
+  overload: SadConsole.Ansi.AnsiWriter.#ctor*
+  nameWithType.vb: AnsiWriter.New(Document, ICellSurface)
+  fullName.vb: SadConsole.Ansi.AnsiWriter.New(SadConsole.Ansi.Document, SadConsole.ICellSurface)
+  name.vb: New(Document, ICellSurface)
+- uid: SadConsole.Ansi.AnsiWriter.Process(System.Double)
+  commentId: M:SadConsole.Ansi.AnsiWriter.Process(System.Double)
+  id: Process(System.Double)
+  parent: SadConsole.Ansi.AnsiWriter
+  langs:
+  - csharp
+  - vb
+  name: Process(double)
+  nameWithType: AnsiWriter.Process(double)
+  fullName: SadConsole.Ansi.AnsiWriter.Process(double)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Ansi
+  summary: Processes the document by the amount of time that has elapsed. If <xref href="SadConsole.Ansi.AnsiWriter.CharactersPerSecond" data-throw-if-not-resolved="false"></xref> is 0, time elapsed has no affect.
+  example: []
+  syntax:
+    content: public void Process(double timeElapsed)
+    parameters:
+    - id: timeElapsed
+      type: System.Double
+      description: The time in seconds.
+    content.vb: Public Sub Process(timeElapsed As Double)
+  overload: SadConsole.Ansi.AnsiWriter.Process*
+  nameWithType.vb: AnsiWriter.Process(Double)
+  fullName.vb: SadConsole.Ansi.AnsiWriter.Process(Double)
+  name.vb: Process(Double)
+- uid: SadConsole.Ansi.AnsiWriter.AnsiInterpret(System.String)
+  commentId: M:SadConsole.Ansi.AnsiWriter.AnsiInterpret(System.String)
+  id: AnsiInterpret(System.String)
+  parent: SadConsole.Ansi.AnsiWriter
+  langs:
+  - csharp
+  - vb
+  name: AnsiInterpret(string)
+  nameWithType: AnsiWriter.AnsiInterpret(string)
+  fullName: SadConsole.Ansi.AnsiWriter.AnsiInterpret(string)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Ansi
+  summary: Interprets an individual ansi code.
+  example: []
+  syntax:
+    content: public void AnsiInterpret(string code)
+    parameters:
+    - id: code
+      type: System.String
+      description: The ANSI.SYS code to read.
+    content.vb: Public Sub AnsiInterpret(code As String)
+  overload: SadConsole.Ansi.AnsiWriter.AnsiInterpret*
+  nameWithType.vb: AnsiWriter.AnsiInterpret(String)
+  fullName.vb: SadConsole.Ansi.AnsiWriter.AnsiInterpret(String)
+  name.vb: AnsiInterpret(String)
+- uid: SadConsole.Ansi.AnsiWriter.AnsiReadLine(System.String,System.Boolean)
+  commentId: M:SadConsole.Ansi.AnsiWriter.AnsiReadLine(System.String,System.Boolean)
+  id: AnsiReadLine(System.String,System.Boolean)
+  parent: SadConsole.Ansi.AnsiWriter
+  langs:
+  - csharp
+  - vb
+  name: AnsiReadLine(string, bool)
+  nameWithType: AnsiWriter.AnsiReadLine(string, bool)
+  fullName: SadConsole.Ansi.AnsiWriter.AnsiReadLine(string, bool)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Ansi
+  summary: Reads a line of ANSI.SYS code.
+  example: []
+  syntax:
+    content: public bool AnsiReadLine(string line, bool moreLines = false)
+    parameters:
+    - id: line
+      type: System.String
+      description: The line to read.
+    - id: moreLines
+      type: System.Boolean
+      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, calls <xref href="SadConsole.Components.Cursor.LineFeed" data-throw-if-not-resolved="false"></xref>; otherwise does nothing.
+    return:
+      type: System.Boolean
+      description: Returns false when character 26 is encountered; otherwise true.
+    content.vb: Public Function AnsiReadLine(line As String, moreLines As Boolean = False) As Boolean
+  overload: SadConsole.Ansi.AnsiWriter.AnsiReadLine*
+  nameWithType.vb: AnsiWriter.AnsiReadLine(String, Boolean)
+  fullName.vb: SadConsole.Ansi.AnsiWriter.AnsiReadLine(String, Boolean)
+  name.vb: AnsiReadLine(String, Boolean)
+- uid: SadConsole.Ansi.AnsiWriter.ReadEntireDocument
+  commentId: M:SadConsole.Ansi.AnsiWriter.ReadEntireDocument
+  id: ReadEntireDocument
+  parent: SadConsole.Ansi.AnsiWriter
+  langs:
+  - csharp
+  - vb
+  name: ReadEntireDocument()
+  nameWithType: AnsiWriter.ReadEntireDocument()
+  fullName: SadConsole.Ansi.AnsiWriter.ReadEntireDocument()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Ansi
+  summary: Loads an ansi file and parses it.
+  example: []
+  syntax:
+    content: public void ReadEntireDocument()
+    content.vb: Public Sub ReadEntireDocument()
+  overload: SadConsole.Ansi.AnsiWriter.ReadEntireDocument*
+- uid: SadConsole.Ansi.AnsiWriter.Restart
+  commentId: M:SadConsole.Ansi.AnsiWriter.Restart
+  id: Restart
+  parent: SadConsole.Ansi.AnsiWriter
+  langs:
+  - csharp
+  - vb
+  name: Restart()
+  nameWithType: AnsiWriter.Restart()
+  fullName: SadConsole.Ansi.AnsiWriter.Restart()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Ansi
+  summary: Moves the reader back to the start of the file so that the source can .
+  example: []
+  syntax:
+    content: public void Restart()
+    content.vb: Public Sub Restart()
+  overload: SadConsole.Ansi.AnsiWriter.Restart*
+- uid: SadConsole.Ansi.AnsiWriter.AnsiDocument
+  commentId: P:SadConsole.Ansi.AnsiWriter.AnsiDocument
+  id: AnsiDocument
+  parent: SadConsole.Ansi.AnsiWriter
+  langs:
+  - csharp
+  - vb
+  name: AnsiDocument
+  nameWithType: AnsiWriter.AnsiDocument
+  fullName: SadConsole.Ansi.AnsiWriter.AnsiDocument
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Ansi
+  summary: The document used to create this writer.
+  example: []
+  syntax:
+    content: public Document AnsiDocument { get; }
+    parameters: []
+    return:
+      type: SadConsole.Ansi.Document
+    content.vb: Public ReadOnly Property AnsiDocument As Document
+  overload: SadConsole.Ansi.AnsiWriter.AnsiDocument*
+- uid: SadConsole.Ansi.AnsiWriter.BlinkEffect
+  commentId: P:SadConsole.Ansi.AnsiWriter.BlinkEffect
+  id: BlinkEffect
+  parent: SadConsole.Ansi.AnsiWriter
+  langs:
+  - csharp
+  - vb
+  name: BlinkEffect
+  nameWithType: AnsiWriter.BlinkEffect
+  fullName: SadConsole.Ansi.AnsiWriter.BlinkEffect
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Ansi
+  summary: The blink effect to apply when the ansi document provides the ANSI blink command.
+  example: []
+  syntax:
+    content: public ICellEffect BlinkEffect { get; set; }
+    parameters: []
+    return:
+      type: SadConsole.Effects.ICellEffect
+    content.vb: Public Property BlinkEffect As ICellEffect
+  overload: SadConsole.Ansi.AnsiWriter.BlinkEffect*
+- uid: SadConsole.Ansi.AnsiWriter.Cursor
+  commentId: P:SadConsole.Ansi.AnsiWriter.Cursor
+  id: Cursor
+  parent: SadConsole.Ansi.AnsiWriter
+  langs:
+  - csharp
+  - vb
+  name: Cursor
+  nameWithType: AnsiWriter.Cursor
+  fullName: SadConsole.Ansi.AnsiWriter.Cursor
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Ansi
+  summary: The cursor used to write to the target <xref href="SadConsole.ICellSurface" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public Cursor Cursor { get; }
+    parameters: []
+    return:
+      type: SadConsole.Components.Cursor
+    content.vb: Public ReadOnly Property Cursor As Cursor
+  overload: SadConsole.Ansi.AnsiWriter.Cursor*
+- uid: SadConsole.Ansi.AnsiWriter.CharactersPerSecond
+  commentId: P:SadConsole.Ansi.AnsiWriter.CharactersPerSecond
+  id: CharactersPerSecond
+  parent: SadConsole.Ansi.AnsiWriter
+  langs:
+  - csharp
+  - vb
+  name: CharactersPerSecond
+  nameWithType: AnsiWriter.CharactersPerSecond
+  fullName: SadConsole.Ansi.AnsiWriter.CharactersPerSecond
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Ansi
+  summary: How many characters to process a second. When set to 0 reads the entire document at once.
+  example: []
+  syntax:
+    content: public int CharactersPerSecond { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property CharactersPerSecond As Integer
+  overload: SadConsole.Ansi.AnsiWriter.CharactersPerSecond*
+references:
+- uid: SadConsole.Ansi.Document
+  commentId: T:SadConsole.Ansi.Document
+  parent: SadConsole.Ansi
+  isExternal: true
+  href: SadConsole.Ansi.Document.html
+  name: Document
+  nameWithType: Document
+  fullName: SadConsole.Ansi.Document
+- uid: SadConsole.ICellSurface
+  commentId: T:SadConsole.ICellSurface
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ICellSurface.html
+  name: ICellSurface
+  nameWithType: ICellSurface
+  fullName: SadConsole.ICellSurface
+- uid: SadConsole.Ansi
+  commentId: N:SadConsole.Ansi
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Ansi
+  nameWithType: SadConsole.Ansi
+  fullName: SadConsole.Ansi
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Ansi
+    name: Ansi
+    isExternal: true
+    href: SadConsole.Ansi.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Ansi
+    name: Ansi
+    isExternal: true
+    href: SadConsole.Ansi.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SadConsole.Ansi.AnsiWriter.#ctor*
+  commentId: Overload:SadConsole.Ansi.AnsiWriter.#ctor
+  isExternal: true
+  href: SadConsole.Ansi.AnsiWriter.html#SadConsole.Ansi.AnsiWriter.#ctor(SadConsole.Ansi.Document,SadConsole.ICellSurface)
+  name: AnsiWriter
+  nameWithType: AnsiWriter.AnsiWriter
+  fullName: SadConsole.Ansi.AnsiWriter.AnsiWriter
+  nameWithType.vb: AnsiWriter.New
+  fullName.vb: SadConsole.Ansi.AnsiWriter.New
+  name.vb: New
+- uid: SadConsole.Ansi.AnsiWriter.CharactersPerSecond
+  commentId: P:SadConsole.Ansi.AnsiWriter.CharactersPerSecond
+  isExternal: true
+  href: SadConsole.Ansi.AnsiWriter.html#SadConsole.Ansi.AnsiWriter.CharactersPerSecond
+  name: CharactersPerSecond
+  nameWithType: AnsiWriter.CharactersPerSecond
+  fullName: SadConsole.Ansi.AnsiWriter.CharactersPerSecond
+- uid: SadConsole.Ansi.AnsiWriter.Process*
+  commentId: Overload:SadConsole.Ansi.AnsiWriter.Process
+  isExternal: true
+  href: SadConsole.Ansi.AnsiWriter.html#SadConsole.Ansi.AnsiWriter.Process(System.Double)
+  name: Process
+  nameWithType: AnsiWriter.Process
+  fullName: SadConsole.Ansi.AnsiWriter.Process
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: SadConsole.Ansi.AnsiWriter.AnsiInterpret*
+  commentId: Overload:SadConsole.Ansi.AnsiWriter.AnsiInterpret
+  isExternal: true
+  href: SadConsole.Ansi.AnsiWriter.html#SadConsole.Ansi.AnsiWriter.AnsiInterpret(System.String)
+  name: AnsiInterpret
+  nameWithType: AnsiWriter.AnsiInterpret
+  fullName: SadConsole.Ansi.AnsiWriter.AnsiInterpret
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: SadConsole.Components.Cursor.LineFeed
+  commentId: M:SadConsole.Components.Cursor.LineFeed
+  isExternal: true
+  href: SadConsole.Components.Cursor.html#SadConsole.Components.Cursor.LineFeed
+  name: LineFeed()
+  nameWithType: Cursor.LineFeed()
+  fullName: SadConsole.Components.Cursor.LineFeed()
+  spec.csharp:
+  - uid: SadConsole.Components.Cursor.LineFeed
+    name: LineFeed
+    isExternal: true
+    href: SadConsole.Components.Cursor.html#SadConsole.Components.Cursor.LineFeed
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.Cursor.LineFeed
+    name: LineFeed
+    isExternal: true
+    href: SadConsole.Components.Cursor.html#SadConsole.Components.Cursor.LineFeed
+  - name: (
+  - name: )
+- uid: SadConsole.Ansi.AnsiWriter.AnsiReadLine*
+  commentId: Overload:SadConsole.Ansi.AnsiWriter.AnsiReadLine
+  isExternal: true
+  href: SadConsole.Ansi.AnsiWriter.html#SadConsole.Ansi.AnsiWriter.AnsiReadLine(System.String,System.Boolean)
+  name: AnsiReadLine
+  nameWithType: AnsiWriter.AnsiReadLine
+  fullName: SadConsole.Ansi.AnsiWriter.AnsiReadLine
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: SadConsole.Ansi.AnsiWriter.ReadEntireDocument*
+  commentId: Overload:SadConsole.Ansi.AnsiWriter.ReadEntireDocument
+  isExternal: true
+  href: SadConsole.Ansi.AnsiWriter.html#SadConsole.Ansi.AnsiWriter.ReadEntireDocument
+  name: ReadEntireDocument
+  nameWithType: AnsiWriter.ReadEntireDocument
+  fullName: SadConsole.Ansi.AnsiWriter.ReadEntireDocument
+- uid: SadConsole.Ansi.AnsiWriter.Restart*
+  commentId: Overload:SadConsole.Ansi.AnsiWriter.Restart
+  isExternal: true
+  href: SadConsole.Ansi.AnsiWriter.html#SadConsole.Ansi.AnsiWriter.Restart
+  name: Restart
+  nameWithType: AnsiWriter.Restart
+  fullName: SadConsole.Ansi.AnsiWriter.Restart
+- uid: SadConsole.Ansi.AnsiWriter.AnsiDocument*
+  commentId: Overload:SadConsole.Ansi.AnsiWriter.AnsiDocument
+  isExternal: true
+  href: SadConsole.Ansi.AnsiWriter.html#SadConsole.Ansi.AnsiWriter.AnsiDocument
+  name: AnsiDocument
+  nameWithType: AnsiWriter.AnsiDocument
+  fullName: SadConsole.Ansi.AnsiWriter.AnsiDocument
+- uid: SadConsole.Ansi.AnsiWriter.BlinkEffect*
+  commentId: Overload:SadConsole.Ansi.AnsiWriter.BlinkEffect
+  isExternal: true
+  href: SadConsole.Ansi.AnsiWriter.html#SadConsole.Ansi.AnsiWriter.BlinkEffect
+  name: BlinkEffect
+  nameWithType: AnsiWriter.BlinkEffect
+  fullName: SadConsole.Ansi.AnsiWriter.BlinkEffect
+- uid: SadConsole.Effects.ICellEffect
+  commentId: T:SadConsole.Effects.ICellEffect
+  parent: SadConsole.Effects
+  isExternal: true
+  href: SadConsole.Effects.ICellEffect.html
+  name: ICellEffect
+  nameWithType: ICellEffect
+  fullName: SadConsole.Effects.ICellEffect
+- uid: SadConsole.Effects
+  commentId: N:SadConsole.Effects
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Effects
+  nameWithType: SadConsole.Effects
+  fullName: SadConsole.Effects
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Effects
+    name: Effects
+    isExternal: true
+    href: SadConsole.Effects.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Effects
+    name: Effects
+    isExternal: true
+    href: SadConsole.Effects.html
+- uid: SadConsole.Ansi.AnsiWriter.Cursor*
+  commentId: Overload:SadConsole.Ansi.AnsiWriter.Cursor
+  isExternal: true
+  href: SadConsole.Ansi.AnsiWriter.html#SadConsole.Ansi.AnsiWriter.Cursor
+  name: Cursor
+  nameWithType: AnsiWriter.Cursor
+  fullName: SadConsole.Ansi.AnsiWriter.Cursor
+- uid: SadConsole.Components.Cursor
+  commentId: T:SadConsole.Components.Cursor
+  parent: SadConsole.Components
+  isExternal: true
+  href: SadConsole.Components.Cursor.html
+  name: Cursor
+  nameWithType: Cursor
+  fullName: SadConsole.Components.Cursor
+- uid: SadConsole.Components
+  commentId: N:SadConsole.Components
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Components
+  nameWithType: SadConsole.Components
+  fullName: SadConsole.Components
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Components
+    name: Components
+    isExternal: true
+    href: SadConsole.Components.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Components
+    name: Components
+    isExternal: true
+    href: SadConsole.Components.html
+- uid: SadConsole.Ansi.AnsiWriter.CharactersPerSecond*
+  commentId: Overload:SadConsole.Ansi.AnsiWriter.CharactersPerSecond
+  isExternal: true
+  href: SadConsole.Ansi.AnsiWriter.html#SadConsole.Ansi.AnsiWriter.CharactersPerSecond
+  name: CharactersPerSecond
+  nameWithType: AnsiWriter.CharactersPerSecond
+  fullName: SadConsole.Ansi.AnsiWriter.CharactersPerSecond
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer

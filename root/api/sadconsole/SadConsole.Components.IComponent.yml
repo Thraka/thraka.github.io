@@ -1,0 +1,758 @@
+### YamlMime:ManagedReference
+items:
+- uid: SadConsole.Components.IComponent
+  commentId: T:SadConsole.Components.IComponent
+  id: IComponent
+  parent: SadConsole.Components
+  children:
+  - SadConsole.Components.IComponent.IsKeyboard
+  - SadConsole.Components.IComponent.IsMouse
+  - SadConsole.Components.IComponent.IsRender
+  - SadConsole.Components.IComponent.IsUpdate
+  - SadConsole.Components.IComponent.OnAdded(SadConsole.IScreenObject)
+  - SadConsole.Components.IComponent.OnHostUpdated(SadConsole.IScreenObject)
+  - SadConsole.Components.IComponent.OnRemoved(SadConsole.IScreenObject)
+  - SadConsole.Components.IComponent.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
+  - SadConsole.Components.IComponent.ProcessMouse(SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean@)
+  - SadConsole.Components.IComponent.Render(SadConsole.IScreenObject,System.TimeSpan)
+  - SadConsole.Components.IComponent.SortOrder
+  - SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  langs:
+  - csharp
+  - vb
+  name: IComponent
+  nameWithType: IComponent
+  fullName: SadConsole.Components.IComponent
+  type: Interface
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: A component that can be added to a <xref href="SadConsole.IScreenObject" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public interface IComponent
+    content.vb: Public Interface IComponent
+- uid: SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  commentId: M:SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  id: Update(SadConsole.IScreenObject,System.TimeSpan)
+  parent: SadConsole.Components.IComponent
+  langs:
+  - csharp
+  - vb
+  name: Update(IScreenObject, TimeSpan)
+  nameWithType: IComponent.Update(IScreenObject, TimeSpan)
+  fullName: SadConsole.Components.IComponent.Update(SadConsole.IScreenObject, System.TimeSpan)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: Called by a host on the update frame.
+  example: []
+  syntax:
+    content: void Update(IScreenObject host, TimeSpan delta)
+    parameters:
+    - id: host
+      type: SadConsole.IScreenObject
+      description: The host calling the component.
+    - id: delta
+      type: System.TimeSpan
+      description: The time that has elapsed from the last call to this component.
+    content.vb: Sub Update(host As IScreenObject, delta As TimeSpan)
+  overload: SadConsole.Components.IComponent.Update*
+- uid: SadConsole.Components.IComponent.Render(SadConsole.IScreenObject,System.TimeSpan)
+  commentId: M:SadConsole.Components.IComponent.Render(SadConsole.IScreenObject,System.TimeSpan)
+  id: Render(SadConsole.IScreenObject,System.TimeSpan)
+  parent: SadConsole.Components.IComponent
+  langs:
+  - csharp
+  - vb
+  name: Render(IScreenObject, TimeSpan)
+  nameWithType: IComponent.Render(IScreenObject, TimeSpan)
+  fullName: SadConsole.Components.IComponent.Render(SadConsole.IScreenObject, System.TimeSpan)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: Called by a host on the render frame.
+  example: []
+  syntax:
+    content: void Render(IScreenObject host, TimeSpan delta)
+    parameters:
+    - id: host
+      type: SadConsole.IScreenObject
+      description: The host calling the component.
+    - id: delta
+      type: System.TimeSpan
+      description: The time that has elapsed from the last call to this component.
+    content.vb: Sub Render(host As IScreenObject, delta As TimeSpan)
+  overload: SadConsole.Components.IComponent.Render*
+- uid: SadConsole.Components.IComponent.ProcessMouse(SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean@)
+  commentId: M:SadConsole.Components.IComponent.ProcessMouse(SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean@)
+  id: ProcessMouse(SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean@)
+  parent: SadConsole.Components.IComponent
+  langs:
+  - csharp
+  - vb
+  name: ProcessMouse(IScreenObject, MouseScreenObjectState, out bool)
+  nameWithType: IComponent.ProcessMouse(IScreenObject, MouseScreenObjectState, out bool)
+  fullName: SadConsole.Components.IComponent.ProcessMouse(SadConsole.IScreenObject, SadConsole.Input.MouseScreenObjectState, out bool)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: Called by a host when the mouse is being processed.
+  example: []
+  syntax:
+    content: void ProcessMouse(IScreenObject host, MouseScreenObjectState state, out bool handled)
+    parameters:
+    - id: host
+      type: SadConsole.IScreenObject
+      description: The host console.
+    - id: state
+      type: SadConsole.Input.MouseScreenObjectState
+      description: The mouse state.
+    - id: handled
+      type: System.Boolean
+      description: When set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> informs the host caller that we handled the mouse and to stop others from handling.
+    content.vb: Sub ProcessMouse(host As IScreenObject, state As MouseScreenObjectState, handled As Boolean)
+  overload: SadConsole.Components.IComponent.ProcessMouse*
+  nameWithType.vb: IComponent.ProcessMouse(IScreenObject, MouseScreenObjectState, Boolean)
+  fullName.vb: SadConsole.Components.IComponent.ProcessMouse(SadConsole.IScreenObject, SadConsole.Input.MouseScreenObjectState, Boolean)
+  name.vb: ProcessMouse(IScreenObject, MouseScreenObjectState, Boolean)
+- uid: SadConsole.Components.IComponent.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
+  commentId: M:SadConsole.Components.IComponent.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
+  id: ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
+  parent: SadConsole.Components.IComponent
+  langs:
+  - csharp
+  - vb
+  name: ProcessKeyboard(IScreenObject, Keyboard, out bool)
+  nameWithType: IComponent.ProcessKeyboard(IScreenObject, Keyboard, out bool)
+  fullName: SadConsole.Components.IComponent.ProcessKeyboard(SadConsole.IScreenObject, SadConsole.Input.Keyboard, out bool)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: Called by a host when the keyboard is being processed.
+  example: []
+  syntax:
+    content: void ProcessKeyboard(IScreenObject host, Keyboard keyboard, out bool handled)
+    parameters:
+    - id: host
+      type: SadConsole.IScreenObject
+      description: The host that added this component.
+    - id: keyboard
+      type: SadConsole.Input.Keyboard
+      description: The keyboard state.
+    - id: handled
+      type: System.Boolean
+      description: When set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> informs the host caller that we handled the mouse and to stop others from handling.
+    content.vb: Sub ProcessKeyboard(host As IScreenObject, keyboard As Keyboard, handled As Boolean)
+  overload: SadConsole.Components.IComponent.ProcessKeyboard*
+  nameWithType.vb: IComponent.ProcessKeyboard(IScreenObject, Keyboard, Boolean)
+  fullName.vb: SadConsole.Components.IComponent.ProcessKeyboard(SadConsole.IScreenObject, SadConsole.Input.Keyboard, Boolean)
+  name.vb: ProcessKeyboard(IScreenObject, Keyboard, Boolean)
+- uid: SadConsole.Components.IComponent.OnAdded(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Components.IComponent.OnAdded(SadConsole.IScreenObject)
+  id: OnAdded(SadConsole.IScreenObject)
+  parent: SadConsole.Components.IComponent
+  langs:
+  - csharp
+  - vb
+  name: OnAdded(IScreenObject)
+  nameWithType: IComponent.OnAdded(IScreenObject)
+  fullName: SadConsole.Components.IComponent.OnAdded(SadConsole.IScreenObject)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: Called when the component is added to a host.
+  example: []
+  syntax:
+    content: void OnAdded(IScreenObject host)
+    parameters:
+    - id: host
+      type: SadConsole.IScreenObject
+      description: The host that added the component.
+    content.vb: Sub OnAdded(host As IScreenObject)
+  overload: SadConsole.Components.IComponent.OnAdded*
+- uid: SadConsole.Components.IComponent.OnRemoved(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Components.IComponent.OnRemoved(SadConsole.IScreenObject)
+  id: OnRemoved(SadConsole.IScreenObject)
+  parent: SadConsole.Components.IComponent
+  langs:
+  - csharp
+  - vb
+  name: OnRemoved(IScreenObject)
+  nameWithType: IComponent.OnRemoved(IScreenObject)
+  fullName: SadConsole.Components.IComponent.OnRemoved(SadConsole.IScreenObject)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: Called when the component is removed from the host.
+  example: []
+  syntax:
+    content: void OnRemoved(IScreenObject host)
+    parameters:
+    - id: host
+      type: SadConsole.IScreenObject
+      description: The host that removed the component.
+    content.vb: Sub OnRemoved(host As IScreenObject)
+  overload: SadConsole.Components.IComponent.OnRemoved*
+- uid: SadConsole.Components.IComponent.OnHostUpdated(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Components.IComponent.OnHostUpdated(SadConsole.IScreenObject)
+  id: OnHostUpdated(SadConsole.IScreenObject)
+  parent: SadConsole.Components.IComponent
+  langs:
+  - csharp
+  - vb
+  name: OnHostUpdated(IScreenObject)
+  nameWithType: IComponent.OnHostUpdated(IScreenObject)
+  fullName: SadConsole.Components.IComponent.OnHostUpdated(SadConsole.IScreenObject)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: Called when various states in the host change.
+  example: []
+  syntax:
+    content: void OnHostUpdated(IScreenObject host)
+    parameters:
+    - id: host
+      type: SadConsole.IScreenObject
+      description: The host that uses this component.
+    content.vb: Sub OnHostUpdated(host As IScreenObject)
+  overload: SadConsole.Components.IComponent.OnHostUpdated*
+- uid: SadConsole.Components.IComponent.SortOrder
+  commentId: P:SadConsole.Components.IComponent.SortOrder
+  id: SortOrder
+  parent: SadConsole.Components.IComponent
+  langs:
+  - csharp
+  - vb
+  name: SortOrder
+  nameWithType: IComponent.SortOrder
+  fullName: SadConsole.Components.IComponent.SortOrder
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: Indicates priority to other components.
+  example: []
+  syntax:
+    content: uint SortOrder { get; }
+    parameters: []
+    return:
+      type: System.UInt32
+    content.vb: ReadOnly Property SortOrder As UInteger
+  overload: SadConsole.Components.IComponent.SortOrder*
+- uid: SadConsole.Components.IComponent.IsUpdate
+  commentId: P:SadConsole.Components.IComponent.IsUpdate
+  id: IsUpdate
+  parent: SadConsole.Components.IComponent
+  langs:
+  - csharp
+  - vb
+  name: IsUpdate
+  nameWithType: IComponent.IsUpdate
+  fullName: SadConsole.Components.IComponent.IsUpdate
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that this component calls the <xref href="SadConsole.Components.IComponent.Update(SadConsole.IScreenObject%2cSystem.TimeSpan)" data-throw-if-not-resolved="false"></xref> method.
+  example: []
+  syntax:
+    content: bool IsUpdate { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property IsUpdate As Boolean
+  overload: SadConsole.Components.IComponent.IsUpdate*
+- uid: SadConsole.Components.IComponent.IsRender
+  commentId: P:SadConsole.Components.IComponent.IsRender
+  id: IsRender
+  parent: SadConsole.Components.IComponent
+  langs:
+  - csharp
+  - vb
+  name: IsRender
+  nameWithType: IComponent.IsRender
+  fullName: SadConsole.Components.IComponent.IsRender
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that this component calls the <xref href="SadConsole.Components.IComponent.Render(SadConsole.IScreenObject%2cSystem.TimeSpan)" data-throw-if-not-resolved="false"></xref> method.
+  example: []
+  syntax:
+    content: bool IsRender { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property IsRender As Boolean
+  overload: SadConsole.Components.IComponent.IsRender*
+- uid: SadConsole.Components.IComponent.IsMouse
+  commentId: P:SadConsole.Components.IComponent.IsMouse
+  id: IsMouse
+  parent: SadConsole.Components.IComponent
+  langs:
+  - csharp
+  - vb
+  name: IsMouse
+  nameWithType: IComponent.IsMouse
+  fullName: SadConsole.Components.IComponent.IsMouse
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that this component calls the <xref href="SadConsole.Components.IComponent.ProcessMouse(SadConsole.IScreenObject%2cSadConsole.Input.MouseScreenObjectState%2cSystem.Boolean%40)" data-throw-if-not-resolved="false"></xref> method.
+  example: []
+  syntax:
+    content: bool IsMouse { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property IsMouse As Boolean
+  overload: SadConsole.Components.IComponent.IsMouse*
+- uid: SadConsole.Components.IComponent.IsKeyboard
+  commentId: P:SadConsole.Components.IComponent.IsKeyboard
+  id: IsKeyboard
+  parent: SadConsole.Components.IComponent
+  langs:
+  - csharp
+  - vb
+  name: IsKeyboard
+  nameWithType: IComponent.IsKeyboard
+  fullName: SadConsole.Components.IComponent.IsKeyboard
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that this component calls the <xref href="SadConsole.Components.IComponent.ProcessKeyboard(SadConsole.IScreenObject%2cSadConsole.Input.Keyboard%2cSystem.Boolean%40)" data-throw-if-not-resolved="false"></xref> method.
+  example: []
+  syntax:
+    content: bool IsKeyboard { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property IsKeyboard As Boolean
+  overload: SadConsole.Components.IComponent.IsKeyboard*
+references:
+- uid: SadConsole.IScreenObject
+  commentId: T:SadConsole.IScreenObject
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IScreenObject.html
+  name: IScreenObject
+  nameWithType: IScreenObject
+  fullName: SadConsole.IScreenObject
+- uid: SadConsole.Components
+  commentId: N:SadConsole.Components
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Components
+  nameWithType: SadConsole.Components
+  fullName: SadConsole.Components
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Components
+    name: Components
+    isExternal: true
+    href: SadConsole.Components.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Components
+    name: Components
+    isExternal: true
+    href: SadConsole.Components.html
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
+- uid: SadConsole.Components.IComponent.Update*
+  commentId: Overload:SadConsole.Components.IComponent.Update
+  isExternal: true
+  href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  name: Update
+  nameWithType: IComponent.Update
+  fullName: SadConsole.Components.IComponent.Update
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SadConsole.Components.IComponent.Render*
+  commentId: Overload:SadConsole.Components.IComponent.Render
+  isExternal: true
+  href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.Render(SadConsole.IScreenObject,System.TimeSpan)
+  name: Render
+  nameWithType: IComponent.Render
+  fullName: SadConsole.Components.IComponent.Render
+- uid: SadConsole.Components.IComponent.ProcessMouse*
+  commentId: Overload:SadConsole.Components.IComponent.ProcessMouse
+  isExternal: true
+  href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.ProcessMouse(SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean@)
+  name: ProcessMouse
+  nameWithType: IComponent.ProcessMouse
+  fullName: SadConsole.Components.IComponent.ProcessMouse
+- uid: SadConsole.Input.MouseScreenObjectState
+  commentId: T:SadConsole.Input.MouseScreenObjectState
+  parent: SadConsole.Input
+  isExternal: true
+  href: SadConsole.Input.MouseScreenObjectState.html
+  name: MouseScreenObjectState
+  nameWithType: MouseScreenObjectState
+  fullName: SadConsole.Input.MouseScreenObjectState
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: SadConsole.Input
+  commentId: N:SadConsole.Input
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Input
+  nameWithType: SadConsole.Input
+  fullName: SadConsole.Input
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Input
+    name: Input
+    isExternal: true
+    href: SadConsole.Input.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Input
+    name: Input
+    isExternal: true
+    href: SadConsole.Input.html
+- uid: SadConsole.Components.IComponent.ProcessKeyboard*
+  commentId: Overload:SadConsole.Components.IComponent.ProcessKeyboard
+  isExternal: true
+  href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
+  name: ProcessKeyboard
+  nameWithType: IComponent.ProcessKeyboard
+  fullName: SadConsole.Components.IComponent.ProcessKeyboard
+- uid: SadConsole.Input.Keyboard
+  commentId: T:SadConsole.Input.Keyboard
+  parent: SadConsole.Input
+  isExternal: true
+  href: SadConsole.Input.Keyboard.html
+  name: Keyboard
+  nameWithType: Keyboard
+  fullName: SadConsole.Input.Keyboard
+- uid: SadConsole.Components.IComponent.OnAdded*
+  commentId: Overload:SadConsole.Components.IComponent.OnAdded
+  isExternal: true
+  href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.OnAdded(SadConsole.IScreenObject)
+  name: OnAdded
+  nameWithType: IComponent.OnAdded
+  fullName: SadConsole.Components.IComponent.OnAdded
+- uid: SadConsole.Components.IComponent.OnRemoved*
+  commentId: Overload:SadConsole.Components.IComponent.OnRemoved
+  isExternal: true
+  href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.OnRemoved(SadConsole.IScreenObject)
+  name: OnRemoved
+  nameWithType: IComponent.OnRemoved
+  fullName: SadConsole.Components.IComponent.OnRemoved
+- uid: SadConsole.Components.IComponent.OnHostUpdated*
+  commentId: Overload:SadConsole.Components.IComponent.OnHostUpdated
+  isExternal: true
+  href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.OnHostUpdated(SadConsole.IScreenObject)
+  name: OnHostUpdated
+  nameWithType: IComponent.OnHostUpdated
+  fullName: SadConsole.Components.IComponent.OnHostUpdated
+- uid: SadConsole.Components.IComponent.SortOrder*
+  commentId: Overload:SadConsole.Components.IComponent.SortOrder
+  isExternal: true
+  href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.SortOrder
+  name: SortOrder
+  nameWithType: IComponent.SortOrder
+  fullName: SadConsole.Components.IComponent.SortOrder
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.uint32
+  name: uint
+  nameWithType: uint
+  fullName: uint
+  nameWithType.vb: UInteger
+  fullName.vb: UInteger
+  name.vb: UInteger
+- uid: SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  commentId: M:SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  parent: SadConsole.Components.IComponent
+  isExternal: true
+  href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  name: Update(IScreenObject, TimeSpan)
+  nameWithType: IComponent.Update(IScreenObject, TimeSpan)
+  fullName: SadConsole.Components.IComponent.Update(SadConsole.IScreenObject, System.TimeSpan)
+  spec.csharp:
+  - uid: SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+    name: Update
+    isExternal: true
+    href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+    name: Update
+    isExternal: true
+    href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+- uid: SadConsole.Components.IComponent.IsUpdate*
+  commentId: Overload:SadConsole.Components.IComponent.IsUpdate
+  isExternal: true
+  href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.IsUpdate
+  name: IsUpdate
+  nameWithType: IComponent.IsUpdate
+  fullName: SadConsole.Components.IComponent.IsUpdate
+- uid: SadConsole.Components.IComponent
+  commentId: T:SadConsole.Components.IComponent
+  parent: SadConsole.Components
+  isExternal: true
+  href: SadConsole.Components.IComponent.html
+  name: IComponent
+  nameWithType: IComponent
+  fullName: SadConsole.Components.IComponent
+- uid: SadConsole.Components.IComponent.Render(SadConsole.IScreenObject,System.TimeSpan)
+  commentId: M:SadConsole.Components.IComponent.Render(SadConsole.IScreenObject,System.TimeSpan)
+  parent: SadConsole.Components.IComponent
+  isExternal: true
+  href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.Render(SadConsole.IScreenObject,System.TimeSpan)
+  name: Render(IScreenObject, TimeSpan)
+  nameWithType: IComponent.Render(IScreenObject, TimeSpan)
+  fullName: SadConsole.Components.IComponent.Render(SadConsole.IScreenObject, System.TimeSpan)
+  spec.csharp:
+  - uid: SadConsole.Components.IComponent.Render(SadConsole.IScreenObject,System.TimeSpan)
+    name: Render
+    isExternal: true
+    href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.Render(SadConsole.IScreenObject,System.TimeSpan)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.IComponent.Render(SadConsole.IScreenObject,System.TimeSpan)
+    name: Render
+    isExternal: true
+    href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.Render(SadConsole.IScreenObject,System.TimeSpan)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+- uid: SadConsole.Components.IComponent.IsRender*
+  commentId: Overload:SadConsole.Components.IComponent.IsRender
+  isExternal: true
+  href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.IsRender
+  name: IsRender
+  nameWithType: IComponent.IsRender
+  fullName: SadConsole.Components.IComponent.IsRender
+- uid: SadConsole.Components.IComponent.ProcessMouse(SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean@)
+  commentId: M:SadConsole.Components.IComponent.ProcessMouse(SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean@)
+  parent: SadConsole.Components.IComponent
+  isExternal: true
+  href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.ProcessMouse(SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean@)
+  name: ProcessMouse(IScreenObject, MouseScreenObjectState, out bool)
+  nameWithType: IComponent.ProcessMouse(IScreenObject, MouseScreenObjectState, out bool)
+  fullName: SadConsole.Components.IComponent.ProcessMouse(SadConsole.IScreenObject, SadConsole.Input.MouseScreenObjectState, out bool)
+  nameWithType.vb: IComponent.ProcessMouse(IScreenObject, MouseScreenObjectState, Boolean)
+  fullName.vb: SadConsole.Components.IComponent.ProcessMouse(SadConsole.IScreenObject, SadConsole.Input.MouseScreenObjectState, Boolean)
+  name.vb: ProcessMouse(IScreenObject, MouseScreenObjectState, Boolean)
+  spec.csharp:
+  - uid: SadConsole.Components.IComponent.ProcessMouse(SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean@)
+    name: ProcessMouse
+    isExternal: true
+    href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.ProcessMouse(SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean@)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Input.MouseScreenObjectState
+    name: MouseScreenObjectState
+    isExternal: true
+    href: SadConsole.Input.MouseScreenObjectState.html
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.IComponent.ProcessMouse(SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean@)
+    name: ProcessMouse
+    isExternal: true
+    href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.ProcessMouse(SadConsole.IScreenObject,SadConsole.Input.MouseScreenObjectState,System.Boolean@)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Input.MouseScreenObjectState
+    name: MouseScreenObjectState
+    isExternal: true
+    href: SadConsole.Input.MouseScreenObjectState.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: SadConsole.Components.IComponent.IsMouse*
+  commentId: Overload:SadConsole.Components.IComponent.IsMouse
+  isExternal: true
+  href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.IsMouse
+  name: IsMouse
+  nameWithType: IComponent.IsMouse
+  fullName: SadConsole.Components.IComponent.IsMouse
+- uid: SadConsole.Components.IComponent.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
+  commentId: M:SadConsole.Components.IComponent.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
+  parent: SadConsole.Components.IComponent
+  isExternal: true
+  href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
+  name: ProcessKeyboard(IScreenObject, Keyboard, out bool)
+  nameWithType: IComponent.ProcessKeyboard(IScreenObject, Keyboard, out bool)
+  fullName: SadConsole.Components.IComponent.ProcessKeyboard(SadConsole.IScreenObject, SadConsole.Input.Keyboard, out bool)
+  nameWithType.vb: IComponent.ProcessKeyboard(IScreenObject, Keyboard, Boolean)
+  fullName.vb: SadConsole.Components.IComponent.ProcessKeyboard(SadConsole.IScreenObject, SadConsole.Input.Keyboard, Boolean)
+  name.vb: ProcessKeyboard(IScreenObject, Keyboard, Boolean)
+  spec.csharp:
+  - uid: SadConsole.Components.IComponent.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
+    name: ProcessKeyboard
+    isExternal: true
+    href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Input.Keyboard
+    name: Keyboard
+    isExternal: true
+    href: SadConsole.Input.Keyboard.html
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.IComponent.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
+    name: ProcessKeyboard
+    isExternal: true
+    href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Input.Keyboard
+    name: Keyboard
+    isExternal: true
+    href: SadConsole.Input.Keyboard.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: SadConsole.Components.IComponent.IsKeyboard*
+  commentId: Overload:SadConsole.Components.IComponent.IsKeyboard
+  isExternal: true
+  href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.IsKeyboard
+  name: IsKeyboard
+  nameWithType: IComponent.IsKeyboard
+  fullName: SadConsole.Components.IComponent.IsKeyboard

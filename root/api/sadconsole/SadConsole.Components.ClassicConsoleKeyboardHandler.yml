@@ -1,0 +1,952 @@
+### YamlMime:ManagedReference
+items:
+- uid: SadConsole.Components.ClassicConsoleKeyboardHandler
+  commentId: T:SadConsole.Components.ClassicConsoleKeyboardHandler
+  id: ClassicConsoleKeyboardHandler
+  parent: SadConsole.Components
+  children:
+  - SadConsole.Components.ClassicConsoleKeyboardHandler.#ctor(System.String)
+  - SadConsole.Components.ClassicConsoleKeyboardHandler.CursorLastY
+  - SadConsole.Components.ClassicConsoleKeyboardHandler.EnterPressedAction
+  - SadConsole.Components.ClassicConsoleKeyboardHandler.EraseGlyph
+  - SadConsole.Components.ClassicConsoleKeyboardHandler.OnAdded(SadConsole.IScreenObject)
+  - SadConsole.Components.ClassicConsoleKeyboardHandler.PrintPrompt
+  - SadConsole.Components.ClassicConsoleKeyboardHandler.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
+  - SadConsole.Components.ClassicConsoleKeyboardHandler.Prompt
+  - SadConsole.Components.ClassicConsoleKeyboardHandler.ReplaceEmptyGlyph
+  langs:
+  - csharp
+  - vb
+  name: ClassicConsoleKeyboardHandler
+  nameWithType: ClassicConsoleKeyboardHandler
+  fullName: SadConsole.Components.ClassicConsoleKeyboardHandler
+  type: Class
+  assemblies:
+  - SadConsole.Extended
+  namespace: SadConsole.Components
+  summary: A classic console/terminal prompt keyboard handler.
+  example: []
+  syntax:
+    content: 'public class ClassicConsoleKeyboardHandler : KeyboardConsoleComponent, IComponent'
+    content.vb: Public Class ClassicConsoleKeyboardHandler Inherits KeyboardConsoleComponent Implements IComponent
+  inheritance:
+  - System.Object
+  - SadConsole.Components.KeyboardConsoleComponent
+  implements:
+  - SadConsole.Components.IComponent
+  inheritedMembers:
+  - SadConsole.Components.KeyboardConsoleComponent.OnRemoved(SadConsole.IScreenObject)
+  - SadConsole.Components.KeyboardConsoleComponent.SortOrder
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: SadConsole.Components.ClassicConsoleKeyboardHandler.EnterPressedAction
+  commentId: F:SadConsole.Components.ClassicConsoleKeyboardHandler.EnterPressedAction
+  id: EnterPressedAction
+  parent: SadConsole.Components.ClassicConsoleKeyboardHandler
+  langs:
+  - csharp
+  - vb
+  name: EnterPressedAction
+  nameWithType: ClassicConsoleKeyboardHandler.EnterPressedAction
+  fullName: SadConsole.Components.ClassicConsoleKeyboardHandler.EnterPressedAction
+  type: Field
+  assemblies:
+  - SadConsole.Extended
+  namespace: SadConsole.Components
+  summary: This is a callback for the owner of this keyboard handler. The parameters are the component itself, the <xref href="SadConsole.Components.Cursor" data-throw-if-not-resolved="false"></xref> used by the handler, and the string input by the user. It's called when the user presses ENTER.
+  example: []
+  syntax:
+    content: public Action<ClassicConsoleKeyboardHandler, Cursor, string> EnterPressedAction
+    return:
+      type: System.Action{SadConsole.Components.ClassicConsoleKeyboardHandler,SadConsole.Components.Cursor,System.String}
+    content.vb: Public EnterPressedAction As Action(Of ClassicConsoleKeyboardHandler, Cursor, String)
+- uid: SadConsole.Components.ClassicConsoleKeyboardHandler.#ctor(System.String)
+  commentId: M:SadConsole.Components.ClassicConsoleKeyboardHandler.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: SadConsole.Components.ClassicConsoleKeyboardHandler
+  langs:
+  - csharp
+  - vb
+  name: ClassicConsoleKeyboardHandler(string)
+  nameWithType: ClassicConsoleKeyboardHandler.ClassicConsoleKeyboardHandler(string)
+  fullName: SadConsole.Components.ClassicConsoleKeyboardHandler.ClassicConsoleKeyboardHandler(string)
+  type: Constructor
+  assemblies:
+  - SadConsole.Extended
+  namespace: SadConsole.Components
+  summary: Creates the handler with the specified prompt.
+  example: []
+  syntax:
+    content: public ClassicConsoleKeyboardHandler(string prompt = "> ")
+    parameters:
+    - id: prompt
+      type: System.String
+      description: The prompt to display to the user.
+    content.vb: Public Sub New(prompt As String = "> ")
+  overload: SadConsole.Components.ClassicConsoleKeyboardHandler.#ctor*
+  nameWithType.vb: ClassicConsoleKeyboardHandler.New(String)
+  fullName.vb: SadConsole.Components.ClassicConsoleKeyboardHandler.New(String)
+  name.vb: New(String)
+- uid: SadConsole.Components.ClassicConsoleKeyboardHandler.OnAdded(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Components.ClassicConsoleKeyboardHandler.OnAdded(SadConsole.IScreenObject)
+  id: OnAdded(SadConsole.IScreenObject)
+  parent: SadConsole.Components.ClassicConsoleKeyboardHandler
+  langs:
+  - csharp
+  - vb
+  name: OnAdded(IScreenObject)
+  nameWithType: ClassicConsoleKeyboardHandler.OnAdded(IScreenObject)
+  fullName: SadConsole.Components.ClassicConsoleKeyboardHandler.OnAdded(SadConsole.IScreenObject)
+  type: Method
+  assemblies:
+  - SadConsole.Extended
+  namespace: SadConsole.Components
+  summary: Called when this component is added to an object with a cursor; caches reference to the cursor.
+  remarks: >-
+    Makes the cursor visible, disables word breaks and the string parser, and prints the prompt.
+
+
+    If the host is a <xref href="SadConsole.Console" data-throw-if-not-resolved="false"></xref>, it uses the <xref href="SadConsole.Components.ClassicConsoleKeyboardHandler._attachedCursor" data-throw-if-not-resolved="false"></xref> property, caching reference to it. You can't change the cursor reference unless you re-add this component. If the host is a <xref href="SadConsole.IScreenObject" data-throw-if-not-resolved="false"></xref>, the first instance of a cursor in the <see cref="!:IScreenObject.SadComponents"></see> collection is used. If there is no cursor, an exception is thrown.
+  example: []
+  syntax:
+    content: public override void OnAdded(IScreenObject host)
+    parameters:
+    - id: host
+      type: SadConsole.IScreenObject
+      description: The host object for the component.
+    content.vb: Public Overrides Sub OnAdded(host As IScreenObject)
+  overridden: SadConsole.Components.KeyboardConsoleComponent.OnAdded(SadConsole.IScreenObject)
+  overload: SadConsole.Components.ClassicConsoleKeyboardHandler.OnAdded*
+- uid: SadConsole.Components.ClassicConsoleKeyboardHandler.PrintPrompt
+  commentId: M:SadConsole.Components.ClassicConsoleKeyboardHandler.PrintPrompt
+  id: PrintPrompt
+  parent: SadConsole.Components.ClassicConsoleKeyboardHandler
+  langs:
+  - csharp
+  - vb
+  name: PrintPrompt()
+  nameWithType: ClassicConsoleKeyboardHandler.PrintPrompt()
+  fullName: SadConsole.Components.ClassicConsoleKeyboardHandler.PrintPrompt()
+  type: Method
+  assemblies:
+  - SadConsole.Extended
+  namespace: SadConsole.Components
+  summary: Prints the prompt and locks the cursor to the column that ends at the prompt.
+  example: []
+  syntax:
+    content: public void PrintPrompt()
+    content.vb: Public Sub PrintPrompt()
+  overload: SadConsole.Components.ClassicConsoleKeyboardHandler.PrintPrompt*
+- uid: SadConsole.Components.ClassicConsoleKeyboardHandler.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
+  commentId: M:SadConsole.Components.ClassicConsoleKeyboardHandler.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
+  id: ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
+  parent: SadConsole.Components.ClassicConsoleKeyboardHandler
+  langs:
+  - csharp
+  - vb
+  name: ProcessKeyboard(IScreenObject, Keyboard, out bool)
+  nameWithType: ClassicConsoleKeyboardHandler.ProcessKeyboard(IScreenObject, Keyboard, out bool)
+  fullName: SadConsole.Components.ClassicConsoleKeyboardHandler.ProcessKeyboard(SadConsole.IScreenObject, SadConsole.Input.Keyboard, out bool)
+  type: Method
+  assemblies:
+  - SadConsole.Extended
+  namespace: SadConsole.Components
+  summary: Called by a host when the keyboard is being processed.
+  example: []
+  syntax:
+    content: public override void ProcessKeyboard(IScreenObject consoleObject, Keyboard info, out bool handled)
+    parameters:
+    - id: consoleObject
+      type: SadConsole.IScreenObject
+    - id: info
+      type: SadConsole.Input.Keyboard
+    - id: handled
+      type: System.Boolean
+      description: When set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> informs the host caller that we handled the mouse and to stop others from handling.
+    content.vb: Public Overrides Sub ProcessKeyboard(consoleObject As IScreenObject, info As Keyboard, handled As Boolean)
+  overridden: SadConsole.Components.KeyboardConsoleComponent.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
+  overload: SadConsole.Components.ClassicConsoleKeyboardHandler.ProcessKeyboard*
+  nameWithType.vb: ClassicConsoleKeyboardHandler.ProcessKeyboard(IScreenObject, Keyboard, Boolean)
+  fullName.vb: SadConsole.Components.ClassicConsoleKeyboardHandler.ProcessKeyboard(SadConsole.IScreenObject, SadConsole.Input.Keyboard, Boolean)
+  name.vb: ProcessKeyboard(IScreenObject, Keyboard, Boolean)
+- uid: SadConsole.Components.ClassicConsoleKeyboardHandler.Prompt
+  commentId: P:SadConsole.Components.ClassicConsoleKeyboardHandler.Prompt
+  id: Prompt
+  parent: SadConsole.Components.ClassicConsoleKeyboardHandler
+  langs:
+  - csharp
+  - vb
+  name: Prompt
+  nameWithType: ClassicConsoleKeyboardHandler.Prompt
+  fullName: SadConsole.Components.ClassicConsoleKeyboardHandler.Prompt
+  type: Property
+  assemblies:
+  - SadConsole.Extended
+  namespace: SadConsole.Components
+  summary: The prompt to display to the user.
+  example: []
+  syntax:
+    content: public string Prompt { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Prompt As String
+  overload: SadConsole.Components.ClassicConsoleKeyboardHandler.Prompt*
+- uid: SadConsole.Components.ClassicConsoleKeyboardHandler.EraseGlyph
+  commentId: P:SadConsole.Components.ClassicConsoleKeyboardHandler.EraseGlyph
+  id: EraseGlyph
+  parent: SadConsole.Components.ClassicConsoleKeyboardHandler
+  langs:
+  - csharp
+  - vb
+  name: EraseGlyph
+  nameWithType: ClassicConsoleKeyboardHandler.EraseGlyph
+  fullName: SadConsole.Components.ClassicConsoleKeyboardHandler.EraseGlyph
+  type: Property
+  assemblies:
+  - SadConsole.Extended
+  namespace: SadConsole.Components
+  summary: The glyph to print when erasing a character, such as when the backspace key is pressed to erase a character.
+  example: []
+  syntax:
+    content: public char EraseGlyph { get; set; }
+    parameters: []
+    return:
+      type: System.Char
+    content.vb: Public Property EraseGlyph As Char
+  overload: SadConsole.Components.ClassicConsoleKeyboardHandler.EraseGlyph*
+- uid: SadConsole.Components.ClassicConsoleKeyboardHandler.ReplaceEmptyGlyph
+  commentId: P:SadConsole.Components.ClassicConsoleKeyboardHandler.ReplaceEmptyGlyph
+  id: ReplaceEmptyGlyph
+  parent: SadConsole.Components.ClassicConsoleKeyboardHandler
+  langs:
+  - csharp
+  - vb
+  name: ReplaceEmptyGlyph
+  nameWithType: ClassicConsoleKeyboardHandler.ReplaceEmptyGlyph
+  fullName: SadConsole.Components.ClassicConsoleKeyboardHandler.ReplaceEmptyGlyph
+  type: Property
+  assemblies:
+  - SadConsole.Extended
+  namespace: SadConsole.Components
+  summary: The glyph used to replace the empty characters that may be in the string sent to <xref href="SadConsole.Components.ClassicConsoleKeyboardHandler.EnterPressedAction" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public char ReplaceEmptyGlyph { get; set; }
+    parameters: []
+    return:
+      type: System.Char
+    content.vb: Public Property ReplaceEmptyGlyph As Char
+  overload: SadConsole.Components.ClassicConsoleKeyboardHandler.ReplaceEmptyGlyph*
+- uid: SadConsole.Components.ClassicConsoleKeyboardHandler.CursorLastY
+  commentId: P:SadConsole.Components.ClassicConsoleKeyboardHandler.CursorLastY
+  id: CursorLastY
+  parent: SadConsole.Components.ClassicConsoleKeyboardHandler
+  langs:
+  - csharp
+  - vb
+  name: CursorLastY
+  nameWithType: ClassicConsoleKeyboardHandler.CursorLastY
+  fullName: SadConsole.Components.ClassicConsoleKeyboardHandler.CursorLastY
+  type: Property
+  assemblies:
+  - SadConsole.Extended
+  namespace: SadConsole.Components
+  summary: This holds the row that the virtual cursor is starting from when someone is typing.
+  example: []
+  syntax:
+    content: public int CursorLastY { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property CursorLastY As Integer
+  overload: SadConsole.Components.ClassicConsoleKeyboardHandler.CursorLastY*
+references:
+- uid: SadConsole.Components
+  commentId: N:SadConsole.Components
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Components
+  nameWithType: SadConsole.Components
+  fullName: SadConsole.Components
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Components
+    name: Components
+    isExternal: true
+    href: SadConsole.Components.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Components
+    name: Components
+    isExternal: true
+    href: SadConsole.Components.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: SadConsole.Components.KeyboardConsoleComponent
+  commentId: T:SadConsole.Components.KeyboardConsoleComponent
+  parent: SadConsole.Components
+  isExternal: true
+  href: SadConsole.Components.KeyboardConsoleComponent.html
+  name: KeyboardConsoleComponent
+  nameWithType: KeyboardConsoleComponent
+  fullName: SadConsole.Components.KeyboardConsoleComponent
+- uid: SadConsole.Components.IComponent
+  commentId: T:SadConsole.Components.IComponent
+  parent: SadConsole.Components
+  isExternal: true
+  href: SadConsole.Components.IComponent.html
+  name: IComponent
+  nameWithType: IComponent
+  fullName: SadConsole.Components.IComponent
+- uid: SadConsole.Components.KeyboardConsoleComponent.OnRemoved(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Components.KeyboardConsoleComponent.OnRemoved(SadConsole.IScreenObject)
+  parent: SadConsole.Components.KeyboardConsoleComponent
+  isExternal: true
+  href: SadConsole.Components.KeyboardConsoleComponent.html#SadConsole.Components.KeyboardConsoleComponent.OnRemoved(SadConsole.IScreenObject)
+  name: OnRemoved(IScreenObject)
+  nameWithType: KeyboardConsoleComponent.OnRemoved(IScreenObject)
+  fullName: SadConsole.Components.KeyboardConsoleComponent.OnRemoved(SadConsole.IScreenObject)
+  spec.csharp:
+  - uid: SadConsole.Components.KeyboardConsoleComponent.OnRemoved(SadConsole.IScreenObject)
+    name: OnRemoved
+    isExternal: true
+    href: SadConsole.Components.KeyboardConsoleComponent.html#SadConsole.Components.KeyboardConsoleComponent.OnRemoved(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.KeyboardConsoleComponent.OnRemoved(SadConsole.IScreenObject)
+    name: OnRemoved
+    isExternal: true
+    href: SadConsole.Components.KeyboardConsoleComponent.html#SadConsole.Components.KeyboardConsoleComponent.OnRemoved(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+- uid: SadConsole.Components.KeyboardConsoleComponent.SortOrder
+  commentId: P:SadConsole.Components.KeyboardConsoleComponent.SortOrder
+  parent: SadConsole.Components.KeyboardConsoleComponent
+  isExternal: true
+  href: SadConsole.Components.KeyboardConsoleComponent.html#SadConsole.Components.KeyboardConsoleComponent.SortOrder
+  name: SortOrder
+  nameWithType: KeyboardConsoleComponent.SortOrder
+  fullName: SadConsole.Components.KeyboardConsoleComponent.SortOrder
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SadConsole.Components.Cursor
+  commentId: T:SadConsole.Components.Cursor
+  parent: SadConsole.Components
+  isExternal: true
+  href: SadConsole.Components.Cursor.html
+  name: Cursor
+  nameWithType: Cursor
+  fullName: SadConsole.Components.Cursor
+- uid: System.Action{SadConsole.Components.ClassicConsoleKeyboardHandler,SadConsole.Components.Cursor,System.String}
+  commentId: T:System.Action{SadConsole.Components.ClassicConsoleKeyboardHandler,SadConsole.Components.Cursor,System.String}
+  parent: System
+  definition: System.Action`3
+  href: https://learn.microsoft.com/dotnet/api/system.action-3
+  name: Action<ClassicConsoleKeyboardHandler, Cursor, string>
+  nameWithType: Action<ClassicConsoleKeyboardHandler, Cursor, string>
+  fullName: System.Action<SadConsole.Components.ClassicConsoleKeyboardHandler, SadConsole.Components.Cursor, string>
+  nameWithType.vb: Action(Of ClassicConsoleKeyboardHandler, Cursor, String)
+  fullName.vb: System.Action(Of SadConsole.Components.ClassicConsoleKeyboardHandler, SadConsole.Components.Cursor, String)
+  name.vb: Action(Of ClassicConsoleKeyboardHandler, Cursor, String)
+  spec.csharp:
+  - uid: System.Action`3
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-3
+  - name: <
+  - uid: SadConsole.Components.ClassicConsoleKeyboardHandler
+    name: ClassicConsoleKeyboardHandler
+    isExternal: true
+    href: SadConsole.Components.ClassicConsoleKeyboardHandler.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Components.Cursor
+    name: Cursor
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`3
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-3
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Components.ClassicConsoleKeyboardHandler
+    name: ClassicConsoleKeyboardHandler
+    isExternal: true
+    href: SadConsole.Components.ClassicConsoleKeyboardHandler.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Components.Cursor
+    name: Cursor
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Action`3
+  commentId: T:System.Action`3
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-3
+  name: Action<T1, T2, T3>
+  nameWithType: Action<T1, T2, T3>
+  fullName: System.Action<T1, T2, T3>
+  nameWithType.vb: Action(Of T1, T2, T3)
+  fullName.vb: System.Action(Of T1, T2, T3)
+  name.vb: Action(Of T1, T2, T3)
+  spec.csharp:
+  - uid: System.Action`3
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-3
+  - name: <
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`3
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-3
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: )
+- uid: SadConsole.Components.ClassicConsoleKeyboardHandler.#ctor*
+  commentId: Overload:SadConsole.Components.ClassicConsoleKeyboardHandler.#ctor
+  isExternal: true
+  href: SadConsole.Components.ClassicConsoleKeyboardHandler.html#SadConsole.Components.ClassicConsoleKeyboardHandler.#ctor(System.String)
+  name: ClassicConsoleKeyboardHandler
+  nameWithType: ClassicConsoleKeyboardHandler.ClassicConsoleKeyboardHandler
+  fullName: SadConsole.Components.ClassicConsoleKeyboardHandler.ClassicConsoleKeyboardHandler
+  nameWithType.vb: ClassicConsoleKeyboardHandler.New
+  fullName.vb: SadConsole.Components.ClassicConsoleKeyboardHandler.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: SadConsole.Console
+  commentId: T:SadConsole.Console
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.Console.html
+  name: Console
+  nameWithType: Console
+  fullName: SadConsole.Console
+- uid: SadConsole.Components.ClassicConsoleKeyboardHandler._attachedCursor
+  commentId: F:SadConsole.Components.ClassicConsoleKeyboardHandler._attachedCursor
+  isExternal: true
+- uid: SadConsole.IScreenObject
+  commentId: T:SadConsole.IScreenObject
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IScreenObject.html
+  name: IScreenObject
+  nameWithType: IScreenObject
+  fullName: SadConsole.IScreenObject
+- uid: SadConsole.Components.KeyboardConsoleComponent.OnAdded(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Components.KeyboardConsoleComponent.OnAdded(SadConsole.IScreenObject)
+  parent: SadConsole.Components.KeyboardConsoleComponent
+  isExternal: true
+  href: SadConsole.Components.KeyboardConsoleComponent.html#SadConsole.Components.KeyboardConsoleComponent.OnAdded(SadConsole.IScreenObject)
+  name: OnAdded(IScreenObject)
+  nameWithType: KeyboardConsoleComponent.OnAdded(IScreenObject)
+  fullName: SadConsole.Components.KeyboardConsoleComponent.OnAdded(SadConsole.IScreenObject)
+  spec.csharp:
+  - uid: SadConsole.Components.KeyboardConsoleComponent.OnAdded(SadConsole.IScreenObject)
+    name: OnAdded
+    isExternal: true
+    href: SadConsole.Components.KeyboardConsoleComponent.html#SadConsole.Components.KeyboardConsoleComponent.OnAdded(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.KeyboardConsoleComponent.OnAdded(SadConsole.IScreenObject)
+    name: OnAdded
+    isExternal: true
+    href: SadConsole.Components.KeyboardConsoleComponent.html#SadConsole.Components.KeyboardConsoleComponent.OnAdded(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+- uid: SadConsole.Components.ClassicConsoleKeyboardHandler.OnAdded*
+  commentId: Overload:SadConsole.Components.ClassicConsoleKeyboardHandler.OnAdded
+  isExternal: true
+  href: SadConsole.Components.ClassicConsoleKeyboardHandler.html#SadConsole.Components.ClassicConsoleKeyboardHandler.OnAdded(SadConsole.IScreenObject)
+  name: OnAdded
+  nameWithType: ClassicConsoleKeyboardHandler.OnAdded
+  fullName: SadConsole.Components.ClassicConsoleKeyboardHandler.OnAdded
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
+- uid: SadConsole.Components.ClassicConsoleKeyboardHandler.PrintPrompt*
+  commentId: Overload:SadConsole.Components.ClassicConsoleKeyboardHandler.PrintPrompt
+  isExternal: true
+  href: SadConsole.Components.ClassicConsoleKeyboardHandler.html#SadConsole.Components.ClassicConsoleKeyboardHandler.PrintPrompt
+  name: PrintPrompt
+  nameWithType: ClassicConsoleKeyboardHandler.PrintPrompt
+  fullName: SadConsole.Components.ClassicConsoleKeyboardHandler.PrintPrompt
+- uid: SadConsole.Components.KeyboardConsoleComponent.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
+  commentId: M:SadConsole.Components.KeyboardConsoleComponent.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
+  parent: SadConsole.Components.KeyboardConsoleComponent
+  isExternal: true
+  href: SadConsole.Components.KeyboardConsoleComponent.html#SadConsole.Components.KeyboardConsoleComponent.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
+  name: ProcessKeyboard(IScreenObject, Keyboard, out bool)
+  nameWithType: KeyboardConsoleComponent.ProcessKeyboard(IScreenObject, Keyboard, out bool)
+  fullName: SadConsole.Components.KeyboardConsoleComponent.ProcessKeyboard(SadConsole.IScreenObject, SadConsole.Input.Keyboard, out bool)
+  nameWithType.vb: KeyboardConsoleComponent.ProcessKeyboard(IScreenObject, Keyboard, Boolean)
+  fullName.vb: SadConsole.Components.KeyboardConsoleComponent.ProcessKeyboard(SadConsole.IScreenObject, SadConsole.Input.Keyboard, Boolean)
+  name.vb: ProcessKeyboard(IScreenObject, Keyboard, Boolean)
+  spec.csharp:
+  - uid: SadConsole.Components.KeyboardConsoleComponent.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
+    name: ProcessKeyboard
+    isExternal: true
+    href: SadConsole.Components.KeyboardConsoleComponent.html#SadConsole.Components.KeyboardConsoleComponent.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Input.Keyboard
+    name: Keyboard
+    isExternal: true
+    href: SadConsole.Input.Keyboard.html
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.KeyboardConsoleComponent.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
+    name: ProcessKeyboard
+    isExternal: true
+    href: SadConsole.Components.KeyboardConsoleComponent.html#SadConsole.Components.KeyboardConsoleComponent.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Input.Keyboard
+    name: Keyboard
+    isExternal: true
+    href: SadConsole.Input.Keyboard.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: SadConsole.Components.ClassicConsoleKeyboardHandler.ProcessKeyboard*
+  commentId: Overload:SadConsole.Components.ClassicConsoleKeyboardHandler.ProcessKeyboard
+  isExternal: true
+  href: SadConsole.Components.ClassicConsoleKeyboardHandler.html#SadConsole.Components.ClassicConsoleKeyboardHandler.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
+  name: ProcessKeyboard
+  nameWithType: ClassicConsoleKeyboardHandler.ProcessKeyboard
+  fullName: SadConsole.Components.ClassicConsoleKeyboardHandler.ProcessKeyboard
+- uid: SadConsole.Input.Keyboard
+  commentId: T:SadConsole.Input.Keyboard
+  parent: SadConsole.Input
+  isExternal: true
+  href: SadConsole.Input.Keyboard.html
+  name: Keyboard
+  nameWithType: Keyboard
+  fullName: SadConsole.Input.Keyboard
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: SadConsole.Input
+  commentId: N:SadConsole.Input
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Input
+  nameWithType: SadConsole.Input
+  fullName: SadConsole.Input
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Input
+    name: Input
+    isExternal: true
+    href: SadConsole.Input.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Input
+    name: Input
+    isExternal: true
+    href: SadConsole.Input.html
+- uid: SadConsole.Components.ClassicConsoleKeyboardHandler.Prompt*
+  commentId: Overload:SadConsole.Components.ClassicConsoleKeyboardHandler.Prompt
+  isExternal: true
+  href: SadConsole.Components.ClassicConsoleKeyboardHandler.html#SadConsole.Components.ClassicConsoleKeyboardHandler.Prompt
+  name: Prompt
+  nameWithType: ClassicConsoleKeyboardHandler.Prompt
+  fullName: SadConsole.Components.ClassicConsoleKeyboardHandler.Prompt
+- uid: SadConsole.Components.ClassicConsoleKeyboardHandler.EraseGlyph*
+  commentId: Overload:SadConsole.Components.ClassicConsoleKeyboardHandler.EraseGlyph
+  isExternal: true
+  href: SadConsole.Components.ClassicConsoleKeyboardHandler.html#SadConsole.Components.ClassicConsoleKeyboardHandler.EraseGlyph
+  name: EraseGlyph
+  nameWithType: ClassicConsoleKeyboardHandler.EraseGlyph
+  fullName: SadConsole.Components.ClassicConsoleKeyboardHandler.EraseGlyph
+- uid: System.Char
+  commentId: T:System.Char
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.char
+  name: char
+  nameWithType: char
+  fullName: char
+  nameWithType.vb: Char
+  fullName.vb: Char
+  name.vb: Char
+- uid: SadConsole.Components.ClassicConsoleKeyboardHandler.EnterPressedAction
+  commentId: F:SadConsole.Components.ClassicConsoleKeyboardHandler.EnterPressedAction
+  isExternal: true
+  href: SadConsole.Components.ClassicConsoleKeyboardHandler.html#SadConsole.Components.ClassicConsoleKeyboardHandler.EnterPressedAction
+  name: EnterPressedAction
+  nameWithType: ClassicConsoleKeyboardHandler.EnterPressedAction
+  fullName: SadConsole.Components.ClassicConsoleKeyboardHandler.EnterPressedAction
+- uid: SadConsole.Components.ClassicConsoleKeyboardHandler.ReplaceEmptyGlyph*
+  commentId: Overload:SadConsole.Components.ClassicConsoleKeyboardHandler.ReplaceEmptyGlyph
+  isExternal: true
+  href: SadConsole.Components.ClassicConsoleKeyboardHandler.html#SadConsole.Components.ClassicConsoleKeyboardHandler.ReplaceEmptyGlyph
+  name: ReplaceEmptyGlyph
+  nameWithType: ClassicConsoleKeyboardHandler.ReplaceEmptyGlyph
+  fullName: SadConsole.Components.ClassicConsoleKeyboardHandler.ReplaceEmptyGlyph
+- uid: SadConsole.Components.ClassicConsoleKeyboardHandler.CursorLastY*
+  commentId: Overload:SadConsole.Components.ClassicConsoleKeyboardHandler.CursorLastY
+  isExternal: true
+  href: SadConsole.Components.ClassicConsoleKeyboardHandler.html#SadConsole.Components.ClassicConsoleKeyboardHandler.CursorLastY
+  name: CursorLastY
+  nameWithType: ClassicConsoleKeyboardHandler.CursorLastY
+  fullName: SadConsole.Components.ClassicConsoleKeyboardHandler.CursorLastY
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer

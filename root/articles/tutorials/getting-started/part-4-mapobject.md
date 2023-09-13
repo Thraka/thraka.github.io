@@ -1,5 +1,5 @@
 ---
-description: Part 4 of the getting started series. This article explores creating a proper map object to hold all of the game objects. The game objects are updated with the capability to touch one another.
+description: Part 4 of the getting started series. This article explores creating a proper map object to hold all the game objects. The game objects are updated with the capability to touch one another.
 ms.date: 09/04/2023
 ---
 
@@ -19,7 +19,7 @@ This part of the tutorial continues where the previous one left off. If you don'
 
 ## Bounds checking
 
-Currently, the game crashes if you move the character off of the screen. To solve this, you need to make sure that the game object checks that the object is within the bounds of the map before it moves. You can do that in two places:
+Currently, the game crashes if you move the character off the screen. To solve this, you need to make sure that the game object checks that the object is within the bounds of the map before it moves. You can do that in two places:
 
 - Outside of the game object.
 
@@ -27,11 +27,11 @@ Currently, the game crashes if you move the character off of the screen. To solv
 
 - Inside the game object.
 
-  You can modify the `GameObject.Move` method to check for map bounds, returning a boolean value to indicate whether the move was successful or not. However, this means the `GameObject` needs access to the map data to understand the bounds of the map.
+  You can modify the `GameObject.Move` method to check for map bounds, returning a Boolean value to indicate whether the move was successful or not. However, this means the `GameObject` needs access to the map data to understand the bounds of the map.
 
 For now, the `GameObject.Move` method is receiving the map surface, so we can quickly check and see if the desired position is within the bounds of the surface. So it's logical that we check for the bounds of the map inside of the game object.
 
-01. Open the _GameObject.cs_ file
+01. Open the _GameObject.cs_ file.
 01. Find the `Move` method and change the return type from `void` to `bool`:
 
     ```csharp
@@ -66,7 +66,7 @@ Now, run the code and try moving the player object off the side of the screen. N
 Soon we'll add more game object types such as monsters and treasure. However, adding more game objects and logic presents a problem: where to store all that information. Currently, we've been working in the `RootScreen` class, which was composing the game screen for us. But with adding more game object types, managing the life of those, handling collisions, and things like that, we need a class that better represents the game map.
 
 01. Add a new class named _Map.cs_.
-01. Paste the following code. This code is all of the map related code from _RootScreen.cs_ to this new class, modified slightly.
+01. Paste the following code. This code is all the map related code from _RootScreen.cs_ to this new class, modified slightly.
 
     ```csharp
     using System.Diagnostics.CodeAnalysis;
@@ -321,7 +321,7 @@ Now that we have multiple game objects, we need to handle collision between obje
     }
     ```
 
-    Right now this method returns false. It's also created as `virtual` method, which is described later. The return value is going to indicate whether or not the `source` game object can move into the position of the current object. If `false` is returned, the `source` object can't, while `true` indicates that it can.
+    Right now this method returns false. It's also created as `virtual` method, which is described later. The return value is going to indicate whether the `source` game object can move into the position of the current object. If `false` is returned, the `source` object can't, while `true` indicates that it can.
 
 01. Update the `Move` method to use the `Map` as a parameter instead of the `IScreenSurface`. Rename the parameter from `screenSurface` to `map`
 
@@ -346,7 +346,7 @@ Now that we have multiple game objects, we need to handle collision between obje
     }
     ```
 
-    Next, the `Move` method needs to check the map for other objects at the target position. We could code the lookup here in `Move`, or we could update the map code itself. It's better to add this into the map itself, because other parts of the game are probably going to want to know if there's an object at that specific part of the map.
+    Next, the `Move` method needs to check the map for other objects at the target position. We could code the lookup here in `Move`, or we could update the map code itself. It's better to add this into the map itself because other parts of the game are probably going to want to know if there's an object at that specific part of the map.
 
 01. Open the _RootScreen.cs_ file.
 01. In the `ProcessKeyboard` method, change the references from `_map.SurfaceObject` to `_map`.
@@ -360,7 +360,7 @@ Now that we have multiple game objects, we need to handle collision between obje
     Change each `Move` method.
 
 01. Open the _Map.cs_ file.
-01. Add a new method named `TryGetMapObject`. This method is going to take a position, check if any game object is at that position, and return it if it's found. It's using the `TryGet` pattern, which returns a boolean to indicate whether or not it's successful, and when successful, returns the object in the `out` parameter.
+01. Add a new method named `TryGetMapObject`. This method is going to take a position, check if any game object is at that position, and return it if it's found. It's using the `TryGet` pattern, which returns a boolean to indicate whether it's successful, and when successful, returns the object in the `out` parameter.
 
     ```csharp
     public bool TryGetMapObject(Point position, [NotNullWhen(true)] out GameObject? gameObject)
@@ -380,9 +380,9 @@ Now that we have multiple game objects, we need to handle collision between obje
     }
     ```
     
-    There are two C# concepts you may not be familiar with that are introduced in this code. Modern C# projects are created [nullable aware][csharp-nullableaware]. This means that code assumes you're **not** going to use null, and that objects should always be assigned values. So when you do use null, you mark it as such. When you declare a variable with the modification `?` you're indicating that it _could_ be null.
+    There are two C# concepts you may not be familiar with that are introduced in this code. Modern C# projects are created [nullable aware][csharp-nullableaware]. This means that code assumes you're **not** going to use null, and that objects should always be assigned values. So, when you do use null, you mark it as such. When you declare a variable with the modification `?` you're indicating that it _could_ be null.
     
-    To help developers understand when null is expected, the `System.Diagnostics.CodeAnalysis` contains many attributes that help annotate your code with how null is expected. In this case, the `gameObject` parameter was marked with the `[NotNullWhen(true)]` attribute. Attributes are like metadata assigned to any sort of code declaration. The `NotNullWhen` attribute is reserved for method parameters, and indicates that when either `true` or `false` is returned, the parameter won't be null. In the case of this method, when `true` is returned, it's indicating that the `gameObject` parameter is going to containn an instance of the game object at that position. 
+    To help developers understand when null is expected, the `System.Diagnostics.CodeAnalysis` contains many attributes that help annotate your code with how null is expected. In this case, the `gameObject` parameter was marked with the `[NotNullWhen(true)]` attribute. Attributes are like metadata assigned to any sort of code declaration. The `NotNullWhen` attribute is reserved for method parameters and indicates that when either `true` or `false` is returned, the parameter won't be null. In the case of this method, when `true` is returned, it's indicating that the `gameObject` parameter is going to contain an instance of the game object at that position. 
 
 01. Back in _GameObject.cs_, update the `Move` method to check the map for any other object. If an object is found at that position, we want to **touch** it. If the **touch** test returns `false` it means that we can't move into that position, so the `Move` method must also return `false` to indicate that the movement failed.
 
@@ -417,7 +417,7 @@ Now try running the game. When you move the player character to the same positio
 
 ## Conclusion
 
-After all of these updates, your game is starting to take shape. In the next part of the tutorial, we'll explore how to create new types based on `GameObject` that know how to react to the `Touched` method.
+After all these updates, your game is starting to take shape. In the next part of the tutorial, we'll explore how to create new types based on `GameObject` that know how to react to the `Touched` method.
 
 - [Next: Get Started 5 - More objects](part-5-more-objects.md)
 - [Download the code for this part of the tutorial][code_download_current]

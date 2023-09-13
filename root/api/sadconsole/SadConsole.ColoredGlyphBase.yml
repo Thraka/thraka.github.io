@@ -1,0 +1,1160 @@
+### YamlMime:ManagedReference
+items:
+- uid: SadConsole.ColoredGlyphBase
+  commentId: T:SadConsole.ColoredGlyphBase
+  id: ColoredGlyphBase
+  parent: SadConsole
+  children:
+  - SadConsole.ColoredGlyphBase.#ctor
+  - SadConsole.ColoredGlyphBase.Background
+  - SadConsole.ColoredGlyphBase.Clear
+  - SadConsole.ColoredGlyphBase.Clone
+  - SadConsole.ColoredGlyphBase.CopyAppearanceFrom(SadConsole.ColoredGlyphBase,System.Boolean)
+  - SadConsole.ColoredGlyphBase.CopyAppearanceTo(SadConsole.ColoredGlyphBase,System.Boolean)
+  - SadConsole.ColoredGlyphBase.CreateArray(System.Int32)
+  - SadConsole.ColoredGlyphBase.Decorators
+  - SadConsole.ColoredGlyphBase.Foreground
+  - SadConsole.ColoredGlyphBase.Glyph
+  - SadConsole.ColoredGlyphBase.GlyphCharacter
+  - SadConsole.ColoredGlyphBase.IsDirty
+  - SadConsole.ColoredGlyphBase.IsDirtySet
+  - SadConsole.ColoredGlyphBase.IsVisible
+  - SadConsole.ColoredGlyphBase.Matches(SadConsole.ColoredGlyphBase)
+  - SadConsole.ColoredGlyphBase.Mirror
+  langs:
+  - csharp
+  - vb
+  name: ColoredGlyphBase
+  nameWithType: ColoredGlyphBase
+  fullName: SadConsole.ColoredGlyphBase
+  type: Class
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Represents an individual piece of a <xref href="SadConsole.ICellSurface" data-throw-if-not-resolved="false"></xref> containing a glyph, foreground color, background color, and a mirror effect.
+  example: []
+  syntax:
+    content: 'public abstract class ColoredGlyphBase : IMatchable<ColoredGlyphBase>'
+    content.vb: Public MustInherit Class ColoredGlyphBase Implements IMatchable(Of ColoredGlyphBase)
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - SadConsole.ColoredGlyph
+  implements:
+  - SadRogue.Primitives.IMatchable{SadConsole.ColoredGlyphBase}
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: SadConsole.ColoredGlyphBase.CopyAppearanceTo(SadConsole.ColoredGlyphBase,System.Boolean)
+  commentId: M:SadConsole.ColoredGlyphBase.CopyAppearanceTo(SadConsole.ColoredGlyphBase,System.Boolean)
+  id: CopyAppearanceTo(SadConsole.ColoredGlyphBase,System.Boolean)
+  parent: SadConsole.ColoredGlyphBase
+  langs:
+  - csharp
+  - vb
+  name: CopyAppearanceTo(ColoredGlyphBase, bool)
+  nameWithType: ColoredGlyphBase.CopyAppearanceTo(ColoredGlyphBase, bool)
+  fullName: SadConsole.ColoredGlyphBase.CopyAppearanceTo(SadConsole.ColoredGlyphBase, bool)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Copies the visual appearance to the specified cell. This includes foreground, background, glyph, mirror effect and decorators.
+  example: []
+  syntax:
+    content: public virtual void CopyAppearanceTo(ColoredGlyphBase cell, bool deepCopy = true)
+    parameters:
+    - id: cell
+      type: SadConsole.ColoredGlyphBase
+      description: The target cell to copy to.
+    - id: deepCopy
+      type: System.Boolean
+      description: >-
+        Whether to perform a deep copy.  Decorators are copied to a new array when true; when false, the old
+
+        decorator array reference is moved directly.
+    content.vb: Public Overridable Sub CopyAppearanceTo(cell As ColoredGlyphBase, deepCopy As Boolean = True)
+  overload: SadConsole.ColoredGlyphBase.CopyAppearanceTo*
+  nameWithType.vb: ColoredGlyphBase.CopyAppearanceTo(ColoredGlyphBase, Boolean)
+  fullName.vb: SadConsole.ColoredGlyphBase.CopyAppearanceTo(SadConsole.ColoredGlyphBase, Boolean)
+  name.vb: CopyAppearanceTo(ColoredGlyphBase, Boolean)
+- uid: SadConsole.ColoredGlyphBase.CopyAppearanceFrom(SadConsole.ColoredGlyphBase,System.Boolean)
+  commentId: M:SadConsole.ColoredGlyphBase.CopyAppearanceFrom(SadConsole.ColoredGlyphBase,System.Boolean)
+  id: CopyAppearanceFrom(SadConsole.ColoredGlyphBase,System.Boolean)
+  parent: SadConsole.ColoredGlyphBase
+  langs:
+  - csharp
+  - vb
+  name: CopyAppearanceFrom(ColoredGlyphBase, bool)
+  nameWithType: ColoredGlyphBase.CopyAppearanceFrom(ColoredGlyphBase, bool)
+  fullName: SadConsole.ColoredGlyphBase.CopyAppearanceFrom(SadConsole.ColoredGlyphBase, bool)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Sets the foreground, background, glyph, mirror effect and decorators to the same as the specified cell.
+  example: []
+  syntax:
+    content: public virtual void CopyAppearanceFrom(ColoredGlyphBase cell, bool deepCopy = true)
+    parameters:
+    - id: cell
+      type: SadConsole.ColoredGlyphBase
+      description: The target cell to copy from.
+    - id: deepCopy
+      type: System.Boolean
+      description: >-
+        Whether to perform a deep copy.  Decorators are copied to a new array when true; when false, the old
+
+        decorator array reference is moved directly.
+    content.vb: Public Overridable Sub CopyAppearanceFrom(cell As ColoredGlyphBase, deepCopy As Boolean = True)
+  overload: SadConsole.ColoredGlyphBase.CopyAppearanceFrom*
+  nameWithType.vb: ColoredGlyphBase.CopyAppearanceFrom(ColoredGlyphBase, Boolean)
+  fullName.vb: SadConsole.ColoredGlyphBase.CopyAppearanceFrom(SadConsole.ColoredGlyphBase, Boolean)
+  name.vb: CopyAppearanceFrom(ColoredGlyphBase, Boolean)
+- uid: SadConsole.ColoredGlyphBase.Clear
+  commentId: M:SadConsole.ColoredGlyphBase.Clear
+  id: Clear
+  parent: SadConsole.ColoredGlyphBase
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: ColoredGlyphBase.Clear()
+  fullName: SadConsole.ColoredGlyphBase.Clear()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Resets the foreground, background, glyph, mirror effect and decorators.
+  example: []
+  syntax:
+    content: public abstract void Clear()
+    content.vb: Public MustOverride Sub Clear()
+  overload: SadConsole.ColoredGlyphBase.Clear*
+- uid: SadConsole.ColoredGlyphBase.Clone
+  commentId: M:SadConsole.ColoredGlyphBase.Clone
+  id: Clone
+  parent: SadConsole.ColoredGlyphBase
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: ColoredGlyphBase.Clone()
+  fullName: SadConsole.ColoredGlyphBase.Clone()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Returns a new cell with the same properties as this one.
+  example: []
+  syntax:
+    content: public abstract ColoredGlyphBase Clone()
+    return:
+      type: SadConsole.ColoredGlyphBase
+      description: The new cell.
+    content.vb: Public MustOverride Function Clone() As ColoredGlyphBase
+  overload: SadConsole.ColoredGlyphBase.Clone*
+- uid: SadConsole.ColoredGlyphBase.Matches(SadConsole.ColoredGlyphBase)
+  commentId: M:SadConsole.ColoredGlyphBase.Matches(SadConsole.ColoredGlyphBase)
+  id: Matches(SadConsole.ColoredGlyphBase)
+  parent: SadConsole.ColoredGlyphBase
+  langs:
+  - csharp
+  - vb
+  name: Matches(ColoredGlyphBase?)
+  nameWithType: ColoredGlyphBase.Matches(ColoredGlyphBase?)
+  fullName: SadConsole.ColoredGlyphBase.Matches(SadConsole.ColoredGlyphBase?)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Checks if this <xref href="SadConsole.ColoredGlyph" data-throw-if-not-resolved="false"></xref> object's properties match another's.
+  example: []
+  syntax:
+    content: public bool Matches(ColoredGlyphBase? other)
+    parameters:
+    - id: other
+      type: SadConsole.ColoredGlyphBase
+      description: The other object to check.
+    return:
+      type: System.Boolean
+      description: Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the object's properties match; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Matches(other As ColoredGlyphBase) As Boolean
+  overload: SadConsole.ColoredGlyphBase.Matches*
+  implements:
+  - SadRogue.Primitives.IMatchable{SadConsole.ColoredGlyphBase}.Matches(SadConsole.ColoredGlyphBase)
+  nameWithType.vb: ColoredGlyphBase.Matches(ColoredGlyphBase)
+  fullName.vb: SadConsole.ColoredGlyphBase.Matches(SadConsole.ColoredGlyphBase)
+  name.vb: Matches(ColoredGlyphBase)
+- uid: SadConsole.ColoredGlyphBase.CreateArray(System.Int32)
+  commentId: M:SadConsole.ColoredGlyphBase.CreateArray(System.Int32)
+  id: CreateArray(System.Int32)
+  parent: SadConsole.ColoredGlyphBase
+  langs:
+  - csharp
+  - vb
+  name: CreateArray(int)
+  nameWithType: ColoredGlyphBase.CreateArray(int)
+  fullName: SadConsole.ColoredGlyphBase.CreateArray(int)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Creates an array of colored glyphs.
+  example: []
+  syntax:
+    content: public static ColoredGlyphBase[] CreateArray(int size)
+    parameters:
+    - id: size
+      type: System.Int32
+      description: ''
+    return:
+      type: SadConsole.ColoredGlyphBase[]
+      description: ''
+    content.vb: Public Shared Function CreateArray(size As Integer) As ColoredGlyphBase()
+  overload: SadConsole.ColoredGlyphBase.CreateArray*
+  nameWithType.vb: ColoredGlyphBase.CreateArray(Integer)
+  fullName.vb: SadConsole.ColoredGlyphBase.CreateArray(Integer)
+  name.vb: CreateArray(Integer)
+- uid: SadConsole.ColoredGlyphBase.#ctor
+  commentId: M:SadConsole.ColoredGlyphBase.#ctor
+  id: '#ctor'
+  parent: SadConsole.ColoredGlyphBase
+  langs:
+  - csharp
+  - vb
+  name: ColoredGlyphBase()
+  nameWithType: ColoredGlyphBase.ColoredGlyphBase()
+  fullName: SadConsole.ColoredGlyphBase.ColoredGlyphBase()
+  type: Constructor
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  syntax:
+    content: protected ColoredGlyphBase()
+    content.vb: Protected Sub New()
+  overload: SadConsole.ColoredGlyphBase.#ctor*
+  nameWithType.vb: ColoredGlyphBase.New()
+  fullName.vb: SadConsole.ColoredGlyphBase.New()
+  name.vb: New()
+- uid: SadConsole.ColoredGlyphBase.Decorators
+  commentId: P:SadConsole.ColoredGlyphBase.Decorators
+  id: Decorators
+  parent: SadConsole.ColoredGlyphBase
+  langs:
+  - csharp
+  - vb
+  name: Decorators
+  nameWithType: ColoredGlyphBase.Decorators
+  fullName: SadConsole.ColoredGlyphBase.Decorators
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Modifies the look of a cell with additional character.
+  example: []
+  syntax:
+    content: public List<CellDecorator>? Decorators { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{SadConsole.CellDecorator}
+    content.vb: Public Property Decorators As List(Of CellDecorator)
+  overload: SadConsole.ColoredGlyphBase.Decorators*
+- uid: SadConsole.ColoredGlyphBase.Foreground
+  commentId: P:SadConsole.ColoredGlyphBase.Foreground
+  id: Foreground
+  parent: SadConsole.ColoredGlyphBase
+  langs:
+  - csharp
+  - vb
+  name: Foreground
+  nameWithType: ColoredGlyphBase.Foreground
+  fullName: SadConsole.ColoredGlyphBase.Foreground
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: The foreground color of this cell.
+  example: []
+  syntax:
+    content: public Color Foreground { get; set; }
+    parameters: []
+    return:
+      type: SadRogue.Primitives.Color
+    content.vb: Public Property Foreground As Color
+  overload: SadConsole.ColoredGlyphBase.Foreground*
+- uid: SadConsole.ColoredGlyphBase.Background
+  commentId: P:SadConsole.ColoredGlyphBase.Background
+  id: Background
+  parent: SadConsole.ColoredGlyphBase
+  langs:
+  - csharp
+  - vb
+  name: Background
+  nameWithType: ColoredGlyphBase.Background
+  fullName: SadConsole.ColoredGlyphBase.Background
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: The background color of this cell.
+  example: []
+  syntax:
+    content: public Color Background { get; set; }
+    parameters: []
+    return:
+      type: SadRogue.Primitives.Color
+    content.vb: Public Property Background As Color
+  overload: SadConsole.ColoredGlyphBase.Background*
+- uid: SadConsole.ColoredGlyphBase.Glyph
+  commentId: P:SadConsole.ColoredGlyphBase.Glyph
+  id: Glyph
+  parent: SadConsole.ColoredGlyphBase
+  langs:
+  - csharp
+  - vb
+  name: Glyph
+  nameWithType: ColoredGlyphBase.Glyph
+  fullName: SadConsole.ColoredGlyphBase.Glyph
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: The glyph index from a font for this cell.
+  example: []
+  syntax:
+    content: public int Glyph { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Glyph As Integer
+  overload: SadConsole.ColoredGlyphBase.Glyph*
+- uid: SadConsole.ColoredGlyphBase.Mirror
+  commentId: P:SadConsole.ColoredGlyphBase.Mirror
+  id: Mirror
+  parent: SadConsole.ColoredGlyphBase
+  langs:
+  - csharp
+  - vb
+  name: Mirror
+  nameWithType: ColoredGlyphBase.Mirror
+  fullName: SadConsole.ColoredGlyphBase.Mirror
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: The mirror effect for this cell.
+  example: []
+  syntax:
+    content: public Mirror Mirror { get; set; }
+    parameters: []
+    return:
+      type: SadConsole.Mirror
+    content.vb: Public Property Mirror As Mirror
+  overload: SadConsole.ColoredGlyphBase.Mirror*
+- uid: SadConsole.ColoredGlyphBase.GlyphCharacter
+  commentId: P:SadConsole.ColoredGlyphBase.GlyphCharacter
+  id: GlyphCharacter
+  parent: SadConsole.ColoredGlyphBase
+  langs:
+  - csharp
+  - vb
+  name: GlyphCharacter
+  nameWithType: ColoredGlyphBase.GlyphCharacter
+  fullName: SadConsole.ColoredGlyphBase.GlyphCharacter
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: The glyph.
+  example: []
+  syntax:
+    content: >-
+      [IgnoreDataMember]
+
+      public char GlyphCharacter { get; set; }
+    parameters: []
+    return:
+      type: System.Char
+    content.vb: >-
+      <IgnoreDataMember>
+
+      Public Property GlyphCharacter As Char
+  overload: SadConsole.ColoredGlyphBase.GlyphCharacter*
+  attributes:
+  - type: System.Runtime.Serialization.IgnoreDataMemberAttribute
+    ctor: System.Runtime.Serialization.IgnoreDataMemberAttribute.#ctor
+    arguments: []
+- uid: SadConsole.ColoredGlyphBase.IsVisible
+  commentId: P:SadConsole.ColoredGlyphBase.IsVisible
+  id: IsVisible
+  parent: SadConsole.ColoredGlyphBase
+  langs:
+  - csharp
+  - vb
+  name: IsVisible
+  nameWithType: ColoredGlyphBase.IsVisible
+  fullName: SadConsole.ColoredGlyphBase.IsVisible
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when this cell should be drawn; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+  example: []
+  syntax:
+    content: public bool IsVisible { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsVisible As Boolean
+  overload: SadConsole.ColoredGlyphBase.IsVisible*
+- uid: SadConsole.ColoredGlyphBase.IsDirty
+  commentId: P:SadConsole.ColoredGlyphBase.IsDirty
+  id: IsDirty
+  parent: SadConsole.ColoredGlyphBase
+  langs:
+  - csharp
+  - vb
+  name: IsDirty
+  nameWithType: ColoredGlyphBase.IsDirty
+  fullName: SadConsole.ColoredGlyphBase.IsDirty
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when this cell needs to be redrawn; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+  example: []
+  syntax:
+    content: public bool IsDirty { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsDirty As Boolean
+  overload: SadConsole.ColoredGlyphBase.IsDirty*
+- uid: SadConsole.ColoredGlyphBase.IsDirtySet
+  commentId: E:SadConsole.ColoredGlyphBase.IsDirtySet
+  id: IsDirtySet
+  parent: SadConsole.ColoredGlyphBase
+  langs:
+  - csharp
+  - vb
+  name: IsDirtySet
+  nameWithType: ColoredGlyphBase.IsDirtySet
+  fullName: SadConsole.ColoredGlyphBase.IsDirtySet
+  type: Event
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: An event that is raised when the <xref href="SadConsole.ColoredGlyphBase.IsDirty" data-throw-if-not-resolved="false"></xref> property is set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
+  example: []
+  syntax:
+    content: public event EventHandler? IsDirtySet
+    return:
+      type: System.EventHandler
+    content.vb: Public Event IsDirtySet As EventHandler
+references:
+- uid: SadConsole.ICellSurface
+  commentId: T:SadConsole.ICellSurface
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ICellSurface.html
+  name: ICellSurface
+  nameWithType: ICellSurface
+  fullName: SadConsole.ICellSurface
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: SadRogue.Primitives.IMatchable{SadConsole.ColoredGlyphBase}
+  commentId: T:SadRogue.Primitives.IMatchable{SadConsole.ColoredGlyphBase}
+  parent: SadRogue.Primitives
+  definition: SadRogue.Primitives.IMatchable`1
+  href: SadConsole.ColoredGlyphBase.html
+  name: IMatchable<ColoredGlyphBase>
+  nameWithType: IMatchable<ColoredGlyphBase>
+  fullName: SadRogue.Primitives.IMatchable<SadConsole.ColoredGlyphBase>
+  nameWithType.vb: IMatchable(Of ColoredGlyphBase)
+  fullName.vb: SadRogue.Primitives.IMatchable(Of SadConsole.ColoredGlyphBase)
+  name.vb: IMatchable(Of ColoredGlyphBase)
+  spec.csharp:
+  - uid: SadRogue.Primitives.IMatchable`1
+    name: IMatchable
+    isExternal: true
+  - name: <
+  - uid: SadConsole.ColoredGlyphBase
+    name: ColoredGlyphBase
+    isExternal: true
+    href: SadConsole.ColoredGlyphBase.html
+  - name: '>'
+  spec.vb:
+  - uid: SadRogue.Primitives.IMatchable`1
+    name: IMatchable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.ColoredGlyphBase
+    name: ColoredGlyphBase
+    isExternal: true
+    href: SadConsole.ColoredGlyphBase.html
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SadRogue.Primitives.IMatchable`1
+  commentId: T:SadRogue.Primitives.IMatchable`1
+  isExternal: true
+  name: IMatchable<T>
+  nameWithType: IMatchable<T>
+  fullName: SadRogue.Primitives.IMatchable<T>
+  nameWithType.vb: IMatchable(Of T)
+  fullName.vb: SadRogue.Primitives.IMatchable(Of T)
+  name.vb: IMatchable(Of T)
+  spec.csharp:
+  - uid: SadRogue.Primitives.IMatchable`1
+    name: IMatchable
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: SadRogue.Primitives.IMatchable`1
+    name: IMatchable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: SadRogue.Primitives
+  commentId: N:SadRogue.Primitives
+  isExternal: true
+  href: SadRogue.html
+  name: SadRogue.Primitives
+  nameWithType: SadRogue.Primitives
+  fullName: SadRogue.Primitives
+  spec.csharp:
+  - uid: SadRogue
+    name: SadRogue
+    isExternal: true
+    href: SadRogue.html
+  - name: .
+  - uid: SadRogue.Primitives
+    name: Primitives
+    isExternal: true
+    href: SadRogue.Primitives.html
+  spec.vb:
+  - uid: SadRogue
+    name: SadRogue
+    isExternal: true
+    href: SadRogue.html
+  - name: .
+  - uid: SadRogue.Primitives
+    name: Primitives
+    isExternal: true
+    href: SadRogue.Primitives.html
+- uid: SadConsole.ColoredGlyphBase.CopyAppearanceTo*
+  commentId: Overload:SadConsole.ColoredGlyphBase.CopyAppearanceTo
+  isExternal: true
+  href: SadConsole.ColoredGlyphBase.html#SadConsole.ColoredGlyphBase.CopyAppearanceTo(SadConsole.ColoredGlyphBase,System.Boolean)
+  name: CopyAppearanceTo
+  nameWithType: ColoredGlyphBase.CopyAppearanceTo
+  fullName: SadConsole.ColoredGlyphBase.CopyAppearanceTo
+- uid: SadConsole.ColoredGlyphBase
+  commentId: T:SadConsole.ColoredGlyphBase
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ColoredGlyphBase.html
+  name: ColoredGlyphBase
+  nameWithType: ColoredGlyphBase
+  fullName: SadConsole.ColoredGlyphBase
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: SadConsole.ColoredGlyphBase.CopyAppearanceFrom*
+  commentId: Overload:SadConsole.ColoredGlyphBase.CopyAppearanceFrom
+  isExternal: true
+  href: SadConsole.ColoredGlyphBase.html#SadConsole.ColoredGlyphBase.CopyAppearanceFrom(SadConsole.ColoredGlyphBase,System.Boolean)
+  name: CopyAppearanceFrom
+  nameWithType: ColoredGlyphBase.CopyAppearanceFrom
+  fullName: SadConsole.ColoredGlyphBase.CopyAppearanceFrom
+- uid: SadConsole.ColoredGlyphBase.Clear*
+  commentId: Overload:SadConsole.ColoredGlyphBase.Clear
+  isExternal: true
+  href: SadConsole.ColoredGlyphBase.html#SadConsole.ColoredGlyphBase.Clear
+  name: Clear
+  nameWithType: ColoredGlyphBase.Clear
+  fullName: SadConsole.ColoredGlyphBase.Clear
+- uid: SadConsole.ColoredGlyphBase.Clone*
+  commentId: Overload:SadConsole.ColoredGlyphBase.Clone
+  isExternal: true
+  href: SadConsole.ColoredGlyphBase.html#SadConsole.ColoredGlyphBase.Clone
+  name: Clone
+  nameWithType: ColoredGlyphBase.Clone
+  fullName: SadConsole.ColoredGlyphBase.Clone
+- uid: SadConsole.ColoredGlyph
+  commentId: T:SadConsole.ColoredGlyph
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ColoredGlyph.html
+  name: ColoredGlyph
+  nameWithType: ColoredGlyph
+  fullName: SadConsole.ColoredGlyph
+- uid: SadConsole.ColoredGlyphBase.Matches*
+  commentId: Overload:SadConsole.ColoredGlyphBase.Matches
+  isExternal: true
+  href: SadConsole.ColoredGlyphBase.html#SadConsole.ColoredGlyphBase.Matches(SadConsole.ColoredGlyphBase)
+  name: Matches
+  nameWithType: ColoredGlyphBase.Matches
+  fullName: SadConsole.ColoredGlyphBase.Matches
+- uid: SadRogue.Primitives.IMatchable{SadConsole.ColoredGlyphBase}.Matches(SadConsole.ColoredGlyphBase)
+  commentId: M:SadRogue.Primitives.IMatchable{SadConsole.ColoredGlyphBase}.Matches(SadConsole.ColoredGlyphBase)
+  parent: SadRogue.Primitives.IMatchable{SadConsole.ColoredGlyphBase}
+  definition: SadRogue.Primitives.IMatchable`1.Matches(`0)
+  href: SadConsole.ColoredGlyphBase.html
+  name: Matches(ColoredGlyphBase)
+  nameWithType: IMatchable<ColoredGlyphBase>.Matches(ColoredGlyphBase)
+  fullName: SadRogue.Primitives.IMatchable<SadConsole.ColoredGlyphBase>.Matches(SadConsole.ColoredGlyphBase)
+  nameWithType.vb: IMatchable(Of ColoredGlyphBase).Matches(ColoredGlyphBase)
+  fullName.vb: SadRogue.Primitives.IMatchable(Of SadConsole.ColoredGlyphBase).Matches(SadConsole.ColoredGlyphBase)
+  spec.csharp:
+  - uid: SadRogue.Primitives.IMatchable{SadConsole.ColoredGlyphBase}.Matches(SadConsole.ColoredGlyphBase)
+    name: Matches
+    isExternal: true
+  - name: (
+  - uid: SadConsole.ColoredGlyphBase
+    name: ColoredGlyphBase
+    isExternal: true
+    href: SadConsole.ColoredGlyphBase.html
+  - name: )
+  spec.vb:
+  - uid: SadRogue.Primitives.IMatchable{SadConsole.ColoredGlyphBase}.Matches(SadConsole.ColoredGlyphBase)
+    name: Matches
+    isExternal: true
+  - name: (
+  - uid: SadConsole.ColoredGlyphBase
+    name: ColoredGlyphBase
+    isExternal: true
+    href: SadConsole.ColoredGlyphBase.html
+  - name: )
+- uid: SadRogue.Primitives.IMatchable`1.Matches(`0)
+  commentId: M:SadRogue.Primitives.IMatchable`1.Matches(`0)
+  isExternal: true
+  name: Matches(T)
+  nameWithType: IMatchable<T>.Matches(T)
+  fullName: SadRogue.Primitives.IMatchable<T>.Matches(T)
+  nameWithType.vb: IMatchable(Of T).Matches(T)
+  fullName.vb: SadRogue.Primitives.IMatchable(Of T).Matches(T)
+  spec.csharp:
+  - uid: SadRogue.Primitives.IMatchable`1.Matches(`0)
+    name: Matches
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: SadRogue.Primitives.IMatchable`1.Matches(`0)
+    name: Matches
+    isExternal: true
+  - name: (
+  - name: T
+  - name: )
+- uid: SadConsole.ColoredGlyphBase.CreateArray*
+  commentId: Overload:SadConsole.ColoredGlyphBase.CreateArray
+  isExternal: true
+  href: SadConsole.ColoredGlyphBase.html#SadConsole.ColoredGlyphBase.CreateArray(System.Int32)
+  name: CreateArray
+  nameWithType: ColoredGlyphBase.CreateArray
+  fullName: SadConsole.ColoredGlyphBase.CreateArray
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: SadConsole.ColoredGlyphBase[]
+  isExternal: true
+  href: SadConsole.ColoredGlyphBase.html
+  name: ColoredGlyphBase[]
+  nameWithType: ColoredGlyphBase[]
+  fullName: SadConsole.ColoredGlyphBase[]
+  nameWithType.vb: ColoredGlyphBase()
+  fullName.vb: SadConsole.ColoredGlyphBase()
+  name.vb: ColoredGlyphBase()
+  spec.csharp:
+  - uid: SadConsole.ColoredGlyphBase
+    name: ColoredGlyphBase
+    isExternal: true
+    href: SadConsole.ColoredGlyphBase.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: SadConsole.ColoredGlyphBase
+    name: ColoredGlyphBase
+    isExternal: true
+    href: SadConsole.ColoredGlyphBase.html
+  - name: (
+  - name: )
+- uid: SadConsole.ColoredGlyphBase.#ctor*
+  commentId: Overload:SadConsole.ColoredGlyphBase.#ctor
+  isExternal: true
+  href: SadConsole.ColoredGlyphBase.html#SadConsole.ColoredGlyphBase.#ctor
+  name: ColoredGlyphBase
+  nameWithType: ColoredGlyphBase.ColoredGlyphBase
+  fullName: SadConsole.ColoredGlyphBase.ColoredGlyphBase
+  nameWithType.vb: ColoredGlyphBase.New
+  fullName.vb: SadConsole.ColoredGlyphBase.New
+  name.vb: New
+- uid: SadConsole.ColoredGlyphBase.Decorators*
+  commentId: Overload:SadConsole.ColoredGlyphBase.Decorators
+  isExternal: true
+  href: SadConsole.ColoredGlyphBase.html#SadConsole.ColoredGlyphBase.Decorators
+  name: Decorators
+  nameWithType: ColoredGlyphBase.Decorators
+  fullName: SadConsole.ColoredGlyphBase.Decorators
+- uid: System.Collections.Generic.List{SadConsole.CellDecorator}
+  commentId: T:System.Collections.Generic.List{SadConsole.CellDecorator}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<CellDecorator>
+  nameWithType: List<CellDecorator>
+  fullName: System.Collections.Generic.List<SadConsole.CellDecorator>
+  nameWithType.vb: List(Of CellDecorator)
+  fullName.vb: System.Collections.Generic.List(Of SadConsole.CellDecorator)
+  name.vb: List(Of CellDecorator)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: SadConsole.CellDecorator
+    name: CellDecorator
+    isExternal: true
+    href: SadConsole.CellDecorator.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.CellDecorator
+    name: CellDecorator
+    isExternal: true
+    href: SadConsole.CellDecorator.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: SadConsole.ColoredGlyphBase.Foreground*
+  commentId: Overload:SadConsole.ColoredGlyphBase.Foreground
+  isExternal: true
+  href: SadConsole.ColoredGlyphBase.html#SadConsole.ColoredGlyphBase.Foreground
+  name: Foreground
+  nameWithType: ColoredGlyphBase.Foreground
+  fullName: SadConsole.ColoredGlyphBase.Foreground
+- uid: SadRogue.Primitives.Color
+  commentId: T:SadRogue.Primitives.Color
+  parent: SadRogue.Primitives
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: SadRogue.Primitives.Color
+- uid: SadConsole.ColoredGlyphBase.Background*
+  commentId: Overload:SadConsole.ColoredGlyphBase.Background
+  isExternal: true
+  href: SadConsole.ColoredGlyphBase.html#SadConsole.ColoredGlyphBase.Background
+  name: Background
+  nameWithType: ColoredGlyphBase.Background
+  fullName: SadConsole.ColoredGlyphBase.Background
+- uid: SadConsole.ColoredGlyphBase.Glyph*
+  commentId: Overload:SadConsole.ColoredGlyphBase.Glyph
+  isExternal: true
+  href: SadConsole.ColoredGlyphBase.html#SadConsole.ColoredGlyphBase.Glyph
+  name: Glyph
+  nameWithType: ColoredGlyphBase.Glyph
+  fullName: SadConsole.ColoredGlyphBase.Glyph
+- uid: SadConsole.ColoredGlyphBase.Mirror*
+  commentId: Overload:SadConsole.ColoredGlyphBase.Mirror
+  isExternal: true
+  href: SadConsole.ColoredGlyphBase.html#SadConsole.ColoredGlyphBase.Mirror
+  name: Mirror
+  nameWithType: ColoredGlyphBase.Mirror
+  fullName: SadConsole.ColoredGlyphBase.Mirror
+- uid: SadConsole.Mirror
+  commentId: T:SadConsole.Mirror
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.Mirror.html
+  name: Mirror
+  nameWithType: Mirror
+  fullName: SadConsole.Mirror
+- uid: SadConsole.ColoredGlyphBase.GlyphCharacter*
+  commentId: Overload:SadConsole.ColoredGlyphBase.GlyphCharacter
+  isExternal: true
+  href: SadConsole.ColoredGlyphBase.html#SadConsole.ColoredGlyphBase.GlyphCharacter
+  name: GlyphCharacter
+  nameWithType: ColoredGlyphBase.GlyphCharacter
+  fullName: SadConsole.ColoredGlyphBase.GlyphCharacter
+- uid: System.Char
+  commentId: T:System.Char
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.char
+  name: char
+  nameWithType: char
+  fullName: char
+  nameWithType.vb: Char
+  fullName.vb: Char
+  name.vb: Char
+- uid: SadConsole.ColoredGlyphBase.IsVisible*
+  commentId: Overload:SadConsole.ColoredGlyphBase.IsVisible
+  isExternal: true
+  href: SadConsole.ColoredGlyphBase.html#SadConsole.ColoredGlyphBase.IsVisible
+  name: IsVisible
+  nameWithType: ColoredGlyphBase.IsVisible
+  fullName: SadConsole.ColoredGlyphBase.IsVisible
+- uid: SadConsole.ColoredGlyphBase.IsDirty*
+  commentId: Overload:SadConsole.ColoredGlyphBase.IsDirty
+  isExternal: true
+  href: SadConsole.ColoredGlyphBase.html#SadConsole.ColoredGlyphBase.IsDirty
+  name: IsDirty
+  nameWithType: ColoredGlyphBase.IsDirty
+  fullName: SadConsole.ColoredGlyphBase.IsDirty
+- uid: SadConsole.ColoredGlyphBase.IsDirty
+  commentId: P:SadConsole.ColoredGlyphBase.IsDirty
+  parent: SadConsole.ColoredGlyphBase
+  isExternal: true
+  href: SadConsole.ColoredGlyphBase.html#SadConsole.ColoredGlyphBase.IsDirty
+  name: IsDirty
+  nameWithType: ColoredGlyphBase.IsDirty
+  fullName: SadConsole.ColoredGlyphBase.IsDirty
+- uid: System.EventHandler
+  commentId: T:System.EventHandler
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler
+  name: EventHandler
+  nameWithType: EventHandler
+  fullName: System.EventHandler

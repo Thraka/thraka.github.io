@@ -1,0 +1,915 @@
+### YamlMime:ManagedReference
+items:
+- uid: SadConsole.Instructions.CodeInstruction
+  commentId: T:SadConsole.Instructions.CodeInstruction
+  id: CodeInstruction
+  parent: SadConsole.Instructions
+  children:
+  - SadConsole.Instructions.CodeInstruction.#ctor(System.Func{SadConsole.IScreenObject,System.TimeSpan,System.Boolean})
+  - SadConsole.Instructions.CodeInstruction.ID
+  - SadConsole.Instructions.CodeInstruction.SetCallback(System.Func{SadConsole.IScreenObject,System.TimeSpan,System.Boolean})
+  - SadConsole.Instructions.CodeInstruction.Update(SadConsole.IScreenObject,System.TimeSpan)
+  langs:
+  - csharp
+  - vb
+  name: CodeInstruction
+  nameWithType: CodeInstruction
+  fullName: SadConsole.Instructions.CodeInstruction
+  type: Class
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Instructions
+  summary: An instruction with a code callback.
+  example: []
+  syntax:
+    content: 'public class CodeInstruction : InstructionBase, IComponent'
+    content.vb: Public Class CodeInstruction Inherits InstructionBase Implements IComponent
+  inheritance:
+  - System.Object
+  - SadConsole.Components.UpdateComponent
+  - SadConsole.Instructions.InstructionBase
+  implements:
+  - SadConsole.Components.IComponent
+  inheritedMembers:
+  - SadConsole.Instructions.InstructionBase.Reset
+  - SadConsole.Instructions.InstructionBase.Repeat
+  - SadConsole.Instructions.InstructionBase.OnFinished(SadConsole.IScreenObject)
+  - SadConsole.Instructions.InstructionBase.OnRepeating
+  - SadConsole.Instructions.InstructionBase.OnStarted
+  - SadConsole.Instructions.InstructionBase.RemoveOnFinished
+  - SadConsole.Instructions.InstructionBase.IsFinished
+  - SadConsole.Instructions.InstructionBase.RepeatCount
+  - SadConsole.Instructions.InstructionBase.Started
+  - SadConsole.Instructions.InstructionBase.Finished
+  - SadConsole.Instructions.InstructionBase.Repeating
+  - SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  - SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  - SadConsole.Components.UpdateComponent.SortOrder
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: SadConsole.Instructions.CodeInstruction.#ctor(System.Func{SadConsole.IScreenObject,System.TimeSpan,System.Boolean})
+  commentId: M:SadConsole.Instructions.CodeInstruction.#ctor(System.Func{SadConsole.IScreenObject,System.TimeSpan,System.Boolean})
+  id: '#ctor(System.Func{SadConsole.IScreenObject,System.TimeSpan,System.Boolean})'
+  parent: SadConsole.Instructions.CodeInstruction
+  langs:
+  - csharp
+  - vb
+  name: CodeInstruction(Func<IScreenObject, TimeSpan, bool>)
+  nameWithType: CodeInstruction.CodeInstruction(Func<IScreenObject, TimeSpan, bool>)
+  fullName: SadConsole.Instructions.CodeInstruction.CodeInstruction(System.Func<SadConsole.IScreenObject, System.TimeSpan, bool>)
+  type: Constructor
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Instructions
+  summary: Creates a new instruction with the specified callback.
+  example: []
+  syntax:
+    content: public CodeInstruction(Func<IScreenObject, TimeSpan, bool> callback)
+    parameters:
+    - id: callback
+      type: System.Func{SadConsole.IScreenObject,System.TimeSpan,System.Boolean}
+      description: The code invoked by this instruction. Return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> to set <xref href="SadConsole.Instructions.InstructionBase.IsFinished" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub New(callback As Func(Of IScreenObject, TimeSpan, Boolean))
+  overload: SadConsole.Instructions.CodeInstruction.#ctor*
+  nameWithType.vb: CodeInstruction.New(Func(Of IScreenObject, TimeSpan, Boolean))
+  fullName.vb: SadConsole.Instructions.CodeInstruction.New(System.Func(Of SadConsole.IScreenObject, System.TimeSpan, Boolean))
+  name.vb: New(Func(Of IScreenObject, TimeSpan, Boolean))
+- uid: SadConsole.Instructions.CodeInstruction.Update(SadConsole.IScreenObject,System.TimeSpan)
+  commentId: M:SadConsole.Instructions.CodeInstruction.Update(SadConsole.IScreenObject,System.TimeSpan)
+  id: Update(SadConsole.IScreenObject,System.TimeSpan)
+  parent: SadConsole.Instructions.CodeInstruction
+  langs:
+  - csharp
+  - vb
+  name: Update(IScreenObject, TimeSpan)
+  nameWithType: CodeInstruction.Update(IScreenObject, TimeSpan)
+  fullName: SadConsole.Instructions.CodeInstruction.Update(SadConsole.IScreenObject, System.TimeSpan)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Instructions
+  summary: Executes the instruction. This base class method should be called from derived classes. If the IsFinished property is set to true, will try to repeat if needed and will raise all appropriate events.
+  example: []
+  syntax:
+    content: public override void Update(IScreenObject componentHost, TimeSpan delta)
+    parameters:
+    - id: componentHost
+      type: SadConsole.IScreenObject
+      description: The object that hosts this instruction.
+    - id: delta
+      type: System.TimeSpan
+      description: The time that has elapsed since this method was last called.
+    content.vb: Public Overrides Sub Update(componentHost As IScreenObject, delta As TimeSpan)
+  overridden: SadConsole.Instructions.InstructionBase.Update(SadConsole.IScreenObject,System.TimeSpan)
+  overload: SadConsole.Instructions.CodeInstruction.Update*
+- uid: SadConsole.Instructions.CodeInstruction.SetCallback(System.Func{SadConsole.IScreenObject,System.TimeSpan,System.Boolean})
+  commentId: M:SadConsole.Instructions.CodeInstruction.SetCallback(System.Func{SadConsole.IScreenObject,System.TimeSpan,System.Boolean})
+  id: SetCallback(System.Func{SadConsole.IScreenObject,System.TimeSpan,System.Boolean})
+  parent: SadConsole.Instructions.CodeInstruction
+  langs:
+  - csharp
+  - vb
+  name: SetCallback(Func<IScreenObject, TimeSpan, bool>)
+  nameWithType: CodeInstruction.SetCallback(Func<IScreenObject, TimeSpan, bool>)
+  fullName: SadConsole.Instructions.CodeInstruction.SetCallback(System.Func<SadConsole.IScreenObject, System.TimeSpan, bool>)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Instructions
+  summary: Sets the callback used by the instruction.
+  example: []
+  syntax:
+    content: public void SetCallback(Func<IScreenObject, TimeSpan, bool> callback)
+    parameters:
+    - id: callback
+      type: System.Func{SadConsole.IScreenObject,System.TimeSpan,System.Boolean}
+      description: The code invoked by this instruction. Return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> to set <xref href="SadConsole.Instructions.InstructionBase.IsFinished" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub SetCallback(callback As Func(Of IScreenObject, TimeSpan, Boolean))
+  overload: SadConsole.Instructions.CodeInstruction.SetCallback*
+  nameWithType.vb: CodeInstruction.SetCallback(Func(Of IScreenObject, TimeSpan, Boolean))
+  fullName.vb: SadConsole.Instructions.CodeInstruction.SetCallback(System.Func(Of SadConsole.IScreenObject, System.TimeSpan, Boolean))
+  name.vb: SetCallback(Func(Of IScreenObject, TimeSpan, Boolean))
+- uid: SadConsole.Instructions.CodeInstruction.ID
+  commentId: P:SadConsole.Instructions.CodeInstruction.ID
+  id: ID
+  parent: SadConsole.Instructions.CodeInstruction
+  langs:
+  - csharp
+  - vb
+  name: ID
+  nameWithType: CodeInstruction.ID
+  fullName: SadConsole.Instructions.CodeInstruction.ID
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Instructions
+  summary: Friendly ID to help track what this code instruction was created from since it cannot be fully serialized.
+  example: []
+  syntax:
+    content: public string ID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ID As String
+  overload: SadConsole.Instructions.CodeInstruction.ID*
+references:
+- uid: SadConsole.Instructions
+  commentId: N:SadConsole.Instructions
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Instructions
+  nameWithType: SadConsole.Instructions
+  fullName: SadConsole.Instructions
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Instructions
+    name: Instructions
+    isExternal: true
+    href: SadConsole.Instructions.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Instructions
+    name: Instructions
+    isExternal: true
+    href: SadConsole.Instructions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: SadConsole.Components.UpdateComponent
+  commentId: T:SadConsole.Components.UpdateComponent
+  parent: SadConsole.Components
+  isExternal: true
+  href: SadConsole.Components.UpdateComponent.html
+  name: UpdateComponent
+  nameWithType: UpdateComponent
+  fullName: SadConsole.Components.UpdateComponent
+- uid: SadConsole.Instructions.InstructionBase
+  commentId: T:SadConsole.Instructions.InstructionBase
+  parent: SadConsole.Instructions
+  isExternal: true
+  href: SadConsole.Instructions.InstructionBase.html
+  name: InstructionBase
+  nameWithType: InstructionBase
+  fullName: SadConsole.Instructions.InstructionBase
+- uid: SadConsole.Components.IComponent
+  commentId: T:SadConsole.Components.IComponent
+  parent: SadConsole.Components
+  isExternal: true
+  href: SadConsole.Components.IComponent.html
+  name: IComponent
+  nameWithType: IComponent
+  fullName: SadConsole.Components.IComponent
+- uid: SadConsole.Instructions.InstructionBase.Reset
+  commentId: M:SadConsole.Instructions.InstructionBase.Reset
+  parent: SadConsole.Instructions.InstructionBase
+  isExternal: true
+  href: SadConsole.Instructions.InstructionBase.html#SadConsole.Instructions.InstructionBase.Reset
+  name: Reset()
+  nameWithType: InstructionBase.Reset()
+  fullName: SadConsole.Instructions.InstructionBase.Reset()
+  spec.csharp:
+  - uid: SadConsole.Instructions.InstructionBase.Reset
+    name: Reset
+    isExternal: true
+    href: SadConsole.Instructions.InstructionBase.html#SadConsole.Instructions.InstructionBase.Reset
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Instructions.InstructionBase.Reset
+    name: Reset
+    isExternal: true
+    href: SadConsole.Instructions.InstructionBase.html#SadConsole.Instructions.InstructionBase.Reset
+  - name: (
+  - name: )
+- uid: SadConsole.Instructions.InstructionBase.Repeat
+  commentId: M:SadConsole.Instructions.InstructionBase.Repeat
+  parent: SadConsole.Instructions.InstructionBase
+  isExternal: true
+  href: SadConsole.Instructions.InstructionBase.html#SadConsole.Instructions.InstructionBase.Repeat
+  name: Repeat()
+  nameWithType: InstructionBase.Repeat()
+  fullName: SadConsole.Instructions.InstructionBase.Repeat()
+  spec.csharp:
+  - uid: SadConsole.Instructions.InstructionBase.Repeat
+    name: Repeat
+    isExternal: true
+    href: SadConsole.Instructions.InstructionBase.html#SadConsole.Instructions.InstructionBase.Repeat
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Instructions.InstructionBase.Repeat
+    name: Repeat
+    isExternal: true
+    href: SadConsole.Instructions.InstructionBase.html#SadConsole.Instructions.InstructionBase.Repeat
+  - name: (
+  - name: )
+- uid: SadConsole.Instructions.InstructionBase.OnFinished(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Instructions.InstructionBase.OnFinished(SadConsole.IScreenObject)
+  parent: SadConsole.Instructions.InstructionBase
+  isExternal: true
+  href: SadConsole.Instructions.InstructionBase.html#SadConsole.Instructions.InstructionBase.OnFinished(SadConsole.IScreenObject)
+  name: OnFinished(IScreenObject)
+  nameWithType: InstructionBase.OnFinished(IScreenObject)
+  fullName: SadConsole.Instructions.InstructionBase.OnFinished(SadConsole.IScreenObject)
+  spec.csharp:
+  - uid: SadConsole.Instructions.InstructionBase.OnFinished(SadConsole.IScreenObject)
+    name: OnFinished
+    isExternal: true
+    href: SadConsole.Instructions.InstructionBase.html#SadConsole.Instructions.InstructionBase.OnFinished(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Instructions.InstructionBase.OnFinished(SadConsole.IScreenObject)
+    name: OnFinished
+    isExternal: true
+    href: SadConsole.Instructions.InstructionBase.html#SadConsole.Instructions.InstructionBase.OnFinished(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+- uid: SadConsole.Instructions.InstructionBase.OnRepeating
+  commentId: M:SadConsole.Instructions.InstructionBase.OnRepeating
+  parent: SadConsole.Instructions.InstructionBase
+  isExternal: true
+  href: SadConsole.Instructions.InstructionBase.html#SadConsole.Instructions.InstructionBase.OnRepeating
+  name: OnRepeating()
+  nameWithType: InstructionBase.OnRepeating()
+  fullName: SadConsole.Instructions.InstructionBase.OnRepeating()
+  spec.csharp:
+  - uid: SadConsole.Instructions.InstructionBase.OnRepeating
+    name: OnRepeating
+    isExternal: true
+    href: SadConsole.Instructions.InstructionBase.html#SadConsole.Instructions.InstructionBase.OnRepeating
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Instructions.InstructionBase.OnRepeating
+    name: OnRepeating
+    isExternal: true
+    href: SadConsole.Instructions.InstructionBase.html#SadConsole.Instructions.InstructionBase.OnRepeating
+  - name: (
+  - name: )
+- uid: SadConsole.Instructions.InstructionBase.OnStarted
+  commentId: M:SadConsole.Instructions.InstructionBase.OnStarted
+  parent: SadConsole.Instructions.InstructionBase
+  isExternal: true
+  href: SadConsole.Instructions.InstructionBase.html#SadConsole.Instructions.InstructionBase.OnStarted
+  name: OnStarted()
+  nameWithType: InstructionBase.OnStarted()
+  fullName: SadConsole.Instructions.InstructionBase.OnStarted()
+  spec.csharp:
+  - uid: SadConsole.Instructions.InstructionBase.OnStarted
+    name: OnStarted
+    isExternal: true
+    href: SadConsole.Instructions.InstructionBase.html#SadConsole.Instructions.InstructionBase.OnStarted
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Instructions.InstructionBase.OnStarted
+    name: OnStarted
+    isExternal: true
+    href: SadConsole.Instructions.InstructionBase.html#SadConsole.Instructions.InstructionBase.OnStarted
+  - name: (
+  - name: )
+- uid: SadConsole.Instructions.InstructionBase.RemoveOnFinished
+  commentId: P:SadConsole.Instructions.InstructionBase.RemoveOnFinished
+  parent: SadConsole.Instructions.InstructionBase
+  isExternal: true
+  href: SadConsole.Instructions.InstructionBase.html#SadConsole.Instructions.InstructionBase.RemoveOnFinished
+  name: RemoveOnFinished
+  nameWithType: InstructionBase.RemoveOnFinished
+  fullName: SadConsole.Instructions.InstructionBase.RemoveOnFinished
+- uid: SadConsole.Instructions.InstructionBase.IsFinished
+  commentId: P:SadConsole.Instructions.InstructionBase.IsFinished
+  parent: SadConsole.Instructions.InstructionBase
+  isExternal: true
+  href: SadConsole.Instructions.InstructionBase.html#SadConsole.Instructions.InstructionBase.IsFinished
+  name: IsFinished
+  nameWithType: InstructionBase.IsFinished
+  fullName: SadConsole.Instructions.InstructionBase.IsFinished
+- uid: SadConsole.Instructions.InstructionBase.RepeatCount
+  commentId: P:SadConsole.Instructions.InstructionBase.RepeatCount
+  parent: SadConsole.Instructions.InstructionBase
+  isExternal: true
+  href: SadConsole.Instructions.InstructionBase.html#SadConsole.Instructions.InstructionBase.RepeatCount
+  name: RepeatCount
+  nameWithType: InstructionBase.RepeatCount
+  fullName: SadConsole.Instructions.InstructionBase.RepeatCount
+- uid: SadConsole.Instructions.InstructionBase.Started
+  commentId: E:SadConsole.Instructions.InstructionBase.Started
+  parent: SadConsole.Instructions.InstructionBase
+  isExternal: true
+  href: SadConsole.Instructions.InstructionBase.html#SadConsole.Instructions.InstructionBase.Started
+  name: Started
+  nameWithType: InstructionBase.Started
+  fullName: SadConsole.Instructions.InstructionBase.Started
+- uid: SadConsole.Instructions.InstructionBase.Finished
+  commentId: E:SadConsole.Instructions.InstructionBase.Finished
+  parent: SadConsole.Instructions.InstructionBase
+  isExternal: true
+  href: SadConsole.Instructions.InstructionBase.html#SadConsole.Instructions.InstructionBase.Finished
+  name: Finished
+  nameWithType: InstructionBase.Finished
+  fullName: SadConsole.Instructions.InstructionBase.Finished
+- uid: SadConsole.Instructions.InstructionBase.Repeating
+  commentId: E:SadConsole.Instructions.InstructionBase.Repeating
+  parent: SadConsole.Instructions.InstructionBase
+  isExternal: true
+  href: SadConsole.Instructions.InstructionBase.html#SadConsole.Instructions.InstructionBase.Repeating
+  name: Repeating
+  nameWithType: InstructionBase.Repeating
+  fullName: SadConsole.Instructions.InstructionBase.Repeating
+- uid: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  parent: SadConsole.Components.UpdateComponent
+  isExternal: true
+  href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  name: OnAdded(IScreenObject)
+  nameWithType: UpdateComponent.OnAdded(IScreenObject)
+  fullName: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  spec.csharp:
+  - uid: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+    name: OnAdded
+    isExternal: true
+    href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+    name: OnAdded
+    isExternal: true
+    href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+- uid: SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  parent: SadConsole.Components.UpdateComponent
+  isExternal: true
+  href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  name: OnRemoved(IScreenObject)
+  nameWithType: UpdateComponent.OnRemoved(IScreenObject)
+  fullName: SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  spec.csharp:
+  - uid: SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+    name: OnRemoved
+    isExternal: true
+    href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+    name: OnRemoved
+    isExternal: true
+    href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+- uid: SadConsole.Components.UpdateComponent.SortOrder
+  commentId: P:SadConsole.Components.UpdateComponent.SortOrder
+  parent: SadConsole.Components.UpdateComponent
+  isExternal: true
+  href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.SortOrder
+  name: SortOrder
+  nameWithType: UpdateComponent.SortOrder
+  fullName: SadConsole.Components.UpdateComponent.SortOrder
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SadConsole.Components
+  commentId: N:SadConsole.Components
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Components
+  nameWithType: SadConsole.Components
+  fullName: SadConsole.Components
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Components
+    name: Components
+    isExternal: true
+    href: SadConsole.Components.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Components
+    name: Components
+    isExternal: true
+    href: SadConsole.Components.html
+- uid: SadConsole.Instructions.CodeInstruction.#ctor*
+  commentId: Overload:SadConsole.Instructions.CodeInstruction.#ctor
+  isExternal: true
+  href: SadConsole.Instructions.CodeInstruction.html#SadConsole.Instructions.CodeInstruction.#ctor(System.Func{SadConsole.IScreenObject,System.TimeSpan,System.Boolean})
+  name: CodeInstruction
+  nameWithType: CodeInstruction.CodeInstruction
+  fullName: SadConsole.Instructions.CodeInstruction.CodeInstruction
+  nameWithType.vb: CodeInstruction.New
+  fullName.vb: SadConsole.Instructions.CodeInstruction.New
+  name.vb: New
+- uid: System.Func{SadConsole.IScreenObject,System.TimeSpan,System.Boolean}
+  commentId: T:System.Func{SadConsole.IScreenObject,System.TimeSpan,System.Boolean}
+  parent: System
+  definition: System.Func`3
+  href: https://learn.microsoft.com/dotnet/api/system.func-3
+  name: Func<IScreenObject, TimeSpan, bool>
+  nameWithType: Func<IScreenObject, TimeSpan, bool>
+  fullName: System.Func<SadConsole.IScreenObject, System.TimeSpan, bool>
+  nameWithType.vb: Func(Of IScreenObject, TimeSpan, Boolean)
+  fullName.vb: System.Func(Of SadConsole.IScreenObject, System.TimeSpan, Boolean)
+  name.vb: Func(Of IScreenObject, TimeSpan, Boolean)
+  spec.csharp:
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: <
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Func`3
+  commentId: T:System.Func`3
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-3
+  name: Func<T1, T2, TResult>
+  nameWithType: Func<T1, T2, TResult>
+  fullName: System.Func<T1, T2, TResult>
+  nameWithType.vb: Func(Of T1, T2, TResult)
+  fullName.vb: System.Func(Of T1, T2, TResult)
+  name.vb: Func(Of T1, T2, TResult)
+  spec.csharp:
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: <
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`3
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-3
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: SadConsole.Instructions.InstructionBase.Update(SadConsole.IScreenObject,System.TimeSpan)
+  commentId: M:SadConsole.Instructions.InstructionBase.Update(SadConsole.IScreenObject,System.TimeSpan)
+  parent: SadConsole.Instructions.InstructionBase
+  isExternal: true
+  href: SadConsole.Instructions.InstructionBase.html#SadConsole.Instructions.InstructionBase.Update(SadConsole.IScreenObject,System.TimeSpan)
+  name: Update(IScreenObject, TimeSpan)
+  nameWithType: InstructionBase.Update(IScreenObject, TimeSpan)
+  fullName: SadConsole.Instructions.InstructionBase.Update(SadConsole.IScreenObject, System.TimeSpan)
+  spec.csharp:
+  - uid: SadConsole.Instructions.InstructionBase.Update(SadConsole.IScreenObject,System.TimeSpan)
+    name: Update
+    isExternal: true
+    href: SadConsole.Instructions.InstructionBase.html#SadConsole.Instructions.InstructionBase.Update(SadConsole.IScreenObject,System.TimeSpan)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Instructions.InstructionBase.Update(SadConsole.IScreenObject,System.TimeSpan)
+    name: Update
+    isExternal: true
+    href: SadConsole.Instructions.InstructionBase.html#SadConsole.Instructions.InstructionBase.Update(SadConsole.IScreenObject,System.TimeSpan)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+- uid: SadConsole.Instructions.CodeInstruction.Update*
+  commentId: Overload:SadConsole.Instructions.CodeInstruction.Update
+  isExternal: true
+  href: SadConsole.Instructions.CodeInstruction.html#SadConsole.Instructions.CodeInstruction.Update(SadConsole.IScreenObject,System.TimeSpan)
+  name: Update
+  nameWithType: CodeInstruction.Update
+  fullName: SadConsole.Instructions.CodeInstruction.Update
+- uid: SadConsole.IScreenObject
+  commentId: T:SadConsole.IScreenObject
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IScreenObject.html
+  name: IScreenObject
+  nameWithType: IScreenObject
+  fullName: SadConsole.IScreenObject
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
+- uid: SadConsole.Instructions.CodeInstruction.SetCallback*
+  commentId: Overload:SadConsole.Instructions.CodeInstruction.SetCallback
+  isExternal: true
+  href: SadConsole.Instructions.CodeInstruction.html#SadConsole.Instructions.CodeInstruction.SetCallback(System.Func{SadConsole.IScreenObject,System.TimeSpan,System.Boolean})
+  name: SetCallback
+  nameWithType: CodeInstruction.SetCallback
+  fullName: SadConsole.Instructions.CodeInstruction.SetCallback
+- uid: SadConsole.Instructions.CodeInstruction.ID*
+  commentId: Overload:SadConsole.Instructions.CodeInstruction.ID
+  isExternal: true
+  href: SadConsole.Instructions.CodeInstruction.html#SadConsole.Instructions.CodeInstruction.ID
+  name: ID
+  nameWithType: CodeInstruction.ID
+  fullName: SadConsole.Instructions.CodeInstruction.ID
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

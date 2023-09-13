@@ -38,9 +38,9 @@ static void Startup()
 
 ## Use the Cursor
 
-The `SadConsole.Console` type is the basic type you use to get data on the screen. As you learned in the previous part of this tutorial series, you can use methods like `SetGlyph`, `SetForeground`, and even `Print`, to draw on the console. There is another way to write to the console, something the you may be more used to, and that's the console cursor.
+The `SadConsole.Console` type is the basic type you use to get data on the screen. As you learned in the previous part of this tutorial series, you can use methods like `SetGlyph`, `SetForeground`, and even `Print`, to draw on the console. There is another way to write to the console, something you may be more used to, and that's the console cursor.
 
-When you run a terminal program, such as _cmd.exe_ or _bash_, you're presented with a blinking cursor, letting you know its ready for you to type something. When the programs you run communicate back to you, that cursor prints things to the screen:
+When you run a terminal program, such as _cmd.exe_ or _bash_, you're presented with a blinking cursor, letting you know it's ready for you to type something. When the programs you run communicate back to you, that cursor prints things to the screen:
 
 ![demonstrating a powershell and cmd terminal](images/part-2-cursor-parents/terminal.gif)
 
@@ -131,7 +131,7 @@ static void Startup()
 }
 ```
 
-Now when you run the program you'll see that the cursor is blinking, and when you type on the keyboard, the cursor prints the characters to the screen!
+Now when you run the game, you'll see that the cursor is blinking, and when you type on the keyboard, the cursor prints the characters to the screen!
 
 ## Containers
 
@@ -165,7 +165,7 @@ static void Startup()
 
 The previous code you used at the start of this article used the `Game.Instance.StartingConsole` property, and now you're using the `Game.Instance.Screen` property, conceptually known as the "current screen." When SadConsole starts up, the `Game.Instance.Screen` property is assigned to the `StartingConsole` property, so they are the same object. The current screen is the `StartingConsole`. The current screen is the object that is processed by SadConsole every game frame. It represents what is on the screen visually and what game logic is run.
 
-If you run the game now, nothing will be displayed. A `ScreenObject` is just a container that lets you add multiple child objects to it, but it itself doesn't draw anything. You can do this same thing with a `Console`, but the console would also want to draw something and use resources. So when you have a container that doesn't need to draw anything directly, `ScreenObject` is the type you want to use.
+If you run the game now, nothing will be displayed. A `ScreenObject` is just a container that lets you add multiple child objects to it, but it itself doesn't draw anything. You can do this same thing with a `Console`, but the console would also want to draw something and use resources. So, when you have a container that doesn't need to draw anything directly, `ScreenObject` is the type you want to use.
 
 > [!IMPORTANT]
 > Because you've replaced the `Game.Instance.Screen` property and you've destroyed the starting console, `Game.Instance.StartingConsole`can no longer be used. Destroying the starting console is important when you're no longer using it, as it frees up video card memory.
@@ -203,7 +203,7 @@ The code above introduces a few new concepts you may be unfamiliar with:
 
     `container` is the root object, which doesn't draw anything because it's a `ScreenObject`, however, it contains a single child: `console1`, added by the last line of the code: `container.Children.Add(console1)`. `console1` draws something on the screen because it's a console. Children are positioned relative to their parent. In this case, `console1` is positioned at _(x3,y2)_ of its parent, `container` which is at _(x0,y0)_. The final drawing position of `console1` is calculated using the formula `self.Position + parent.Position`. Because `container` is the root object and is positioned at _(x0,y0)_, which is the top-left of the game window, so `console` is drawn at _(x3, y2)_ on the window. If `container` was moved to _(x1, y1)_, `console` would be drawn at _(x4, y3)_.
 
-    The way positions are calculated differently between objects that have a surfaces versus those that are containers. This is explained later.
+    Positions are calculated differently between objects that have a surface versus those that are containers. This is explained later.
     
     > [!TIP]
     > The position is a `Point` type. Instead of using `new Point(3, 2)`, the `Point` type supports interpreting `(3, 2)` as a `Point`. You can use that syntax anywhere you need a `Point`.
@@ -222,13 +222,13 @@ The code above introduces a few new concepts you may be unfamiliar with:
 
     Previously when you were using the starting console, it was automatically focused, so you didn't have to worry about that. Only the focused object receives keyboard input. If the `container` was focused, `console1` still wouldn't receive keyboard input, even though it's a child object. This is a common mistake developers make with SadConsole, they forget to **Focus** the console or object to receive keyboard input. 
 
-When you run the code, you'll see a screen similar to the following, try typing with the keyboard and clicking the mouse:
+When you run the code, you'll see a screen like the following, try typing with the keyboard and clicking the mouse:
 
 ![child console with cursor displayed](images/part-2-cursor-parents/cyan-cursor-console.png)
 
 ## Add a child to the first console
 
-When children are added to a parent, they draw on top of those parents. Right now the object hierarchy of `Game.Instance.Screen` consists of two objects.
+When children are added to a parent, they draw on top of those parents. Right now, the object hierarchy of `Game.Instance.Screen` consists of two objects.
 
 ```text
 - container
@@ -238,7 +238,7 @@ When children are added to a parent, they draw on top of those parents. Right no
 > [!NOTE]
 > `Game.Instance.Screen` is what is processed and drawn by SadConsole.
 
-Let's add another object to the hierarchy. Instead of a `Console` though, add a `ScreenSurface`. A `ScreenSurface` is pretty similar to a `Console`, with only with one minor difference, the console has a built-in `Cursor`. A `ScreenSurface` doesn't contain a cursor, though one could be added.
+Let's add another object to the hierarchy. Instead of a `Console` though, add a `ScreenSurface`. A `ScreenSurface` is like a `Console`, with only with one minor difference, the console has a built-in `Cursor`. A `ScreenSurface` doesn't contain a cursor, though one could be added.
 
 This surface is going to be a child of the console. It will be drawn on top of the console, however, we'll not allow it to gain focus or process any input. Add this code after the previous code.
 
@@ -256,7 +256,7 @@ When you run the program and you can see the other surface displayed on top of t
 
 ![console with child surface](images/part-2-cursor-parents/single-console-child-surface.png)
 
-Right now the object hierarchy of `Game.Instance.Screen` is:
+Right now, the object hierarchy of `Game.Instance.Screen` is:
 
 ```text
 - container

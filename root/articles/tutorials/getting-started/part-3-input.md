@@ -61,7 +61,7 @@ Notice the differences in this code from the previous startup code:
 - The `Startup()` method was removed.
 - `.OnStart(Startup)` which declared the `Startup()` method as the "starting" code, was replaced with `.SetStartingScreen<RootScreen>();`.
 
-The `SetStartingScreen` configuration method designates an object as the starting object. It automatically assigns a new instanace of that object to the `Game.Instance.Screen` property and destroys the starting console for you. This simplifies game setup. In this case, the newly created `RootScreen` class is going to be our container that is the game screen. All of the startup code goes into that object.
+The `SetStartingScreen` configuration method designates an object as the starting object. It automatically assigns a new instance of that object to the `Game.Instance.Screen` property and destroys the starting console for you. This simplifies game setup. In this case, the newly created `RootScreen` class is going to be our container that is the game screen. All the startup code goes into that object.
 
 ## Create a basic map
 
@@ -105,7 +105,7 @@ Next, lets add a basic map to the screen.
     
     - It's a `ScreenSurface` and not a `Console`.
     
-      The map isn't going to use a cursor object to print and collect input from the user, so we don't need a full console object. The majority of the time when you create objects in SadConsole that don't need a cursor you'll probably just use a `ScreenSurface`.
+      The map isn't going to use a cursor object to print and collect input from the user, so we don't need a full console object. Most of the time when you create objects in SadConsole that don't need a cursor you'll probably just use a `ScreenSurface`.
     
     The width and height of the object is set to the `Game.Instance.ScreenCellsX` and `Game.Instance.ScreenCellsY` variables, respectively.
     
@@ -131,7 +131,7 @@ Next, lets add a basic map to the screen.
     }
     ```
 
-    The way the gradient algorithm works is by calculating each X,Y of an area, and providing a color that maps to it. What you do with that information is up to you. In this example we colored the background of each cell based on what the algorithm gave us. The amount of colors in the gradient and the amount of steps must match for the gradient to work. The following diagram may help understand how this is put together, but it's not really important at this point:
+    The way the gradient algorithm works is by calculating each X,Y of an area, and providing a color that maps to it. What you do with that information is up to you. In this example we colored the background of each cell based on what the algorithm gave us. The number of colors in the gradient and the number of steps must match for the gradient to work. The following diagram may help understand how this is put together, but it's not really important at this point:
     
     The `FontSize` used helps stretch the gradient evenly over the surface. The default font used by SadConsole has a 2:1 ratio in width to height. The following image illustrates how the gradient is laid out, it uses a smaller window for the purpose of the illustration:
 
@@ -229,7 +229,7 @@ Now that the `GameObject` type has been created, it can be used to represent the
     // ... other code ...
     ```
 
-01. In the `RootScreen` constructor, create the object to represent the player
+01. In the `RootScreen` constructor, create the object to represent the player:
 
     ```csharp
     public RootScreen()
@@ -253,7 +253,7 @@ Now that you have a player on the screen, you'll need to get the keyboard workin
 
 ## Keyboard
 
-The previous tutorial article had you working with the `Cursor` object. The console was focused and the cursor accepted input and typed on the screen. While the cursor is great for getting input from the user to typing things on to the screen, it's generally not used for normal game interaction. Instead, you can interpret the keyboard as it's pressed, and move the game object.
+The previous tutorial article had you working with the `Cursor` object. The console was focused, and the cursor accepted input. The input was typed on the screen. While the cursor is great for getting input from the user to typing things on to the screen, it's generally not used for normal game interaction. Instead, you can interpret the keyboard as it's pressed, and move the game object.
 
 Open the _RootScreen.cs_ file.
 

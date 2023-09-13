@@ -1,0 +1,2682 @@
+### YamlMime:ManagedReference
+items:
+- uid: SadConsole.Components.LayeredSurface
+  commentId: T:SadConsole.Components.LayeredSurface
+  id: LayeredSurface
+  parent: SadConsole.Components
+  children:
+  - SadConsole.Components.LayeredSurface.#ctor
+  - SadConsole.Components.LayeredSurface.Add(SadConsole.ICellSurface)
+  - SadConsole.Components.LayeredSurface.AddRange(System.Collections.Generic.IEnumerable{SadConsole.ICellSurface})
+  - SadConsole.Components.LayeredSurface.Clear
+  - SadConsole.Components.LayeredSurface.Clear(SadConsole.ICellSurface)
+  - SadConsole.Components.LayeredSurface.Contains(SadConsole.ICellSurface)
+  - SadConsole.Components.LayeredSurface.CopyTo(SadConsole.ICellSurface[],System.Int32)
+  - SadConsole.Components.LayeredSurface.Count
+  - SadConsole.Components.LayeredSurface.Create
+  - SadConsole.Components.LayeredSurface.DefaultBackground
+  - SadConsole.Components.LayeredSurface.GetEnumerator
+  - SadConsole.Components.LayeredSurface.IndexOf(SadConsole.ICellSurface)
+  - SadConsole.Components.LayeredSurface.Insert(System.Int32,SadConsole.ICellSurface)
+  - SadConsole.Components.LayeredSurface.IsAttached
+  - SadConsole.Components.LayeredSurface.IsReadOnly
+  - SadConsole.Components.LayeredSurface.Item(System.Int32)
+  - SadConsole.Components.LayeredSurface.OnAdded(SadConsole.IScreenObject)
+  - SadConsole.Components.LayeredSurface.OnRemoved(SadConsole.IScreenObject)
+  - SadConsole.Components.LayeredSurface.Remove(SadConsole.ICellSurface)
+  - SadConsole.Components.LayeredSurface.RemoveAt(System.Int32)
+  - SadConsole.Components.LayeredSurface.RenderStep
+  - SadConsole.Components.LayeredSurface.Replace(SadConsole.ICellSurface,SadConsole.ICellSurface)
+  - SadConsole.Components.LayeredSurface.Update(SadConsole.IScreenObject,System.TimeSpan)
+  - SadConsole.Components.LayeredSurface.View
+  - SadConsole.Components.LayeredSurface._layers
+  - SadConsole.Components.LayeredSurface._screen
+  - SadConsole.Components.LayeredSurface._screenCachedView
+  langs:
+  - csharp
+  - vb
+  name: LayeredSurface
+  nameWithType: LayeredSurface
+  fullName: SadConsole.Components.LayeredSurface
+  type: Class
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: Manages a set of surface layers.
+  example: []
+  syntax:
+    content: >-
+      [DataContract]
+
+      public class LayeredSurface : UpdateComponent, IComponent, IList<ICellSurface>, ICollection<ICellSurface>, IEnumerable<ICellSurface>, IEnumerable
+    content.vb: >-
+      <DataContract>
+
+      Public Class LayeredSurface Inherits UpdateComponent Implements IComponent, IList(Of ICellSurface), ICollection(Of ICellSurface), IEnumerable(Of ICellSurface), IEnumerable
+  inheritance:
+  - System.Object
+  - SadConsole.Components.UpdateComponent
+  implements:
+  - SadConsole.Components.IComponent
+  - System.Collections.Generic.IList{SadConsole.ICellSurface}
+  - System.Collections.Generic.ICollection{SadConsole.ICellSurface}
+  - System.Collections.Generic.IEnumerable{SadConsole.ICellSurface}
+  - System.Collections.IEnumerable
+  inheritedMembers:
+  - SadConsole.Components.UpdateComponent.SortOrder
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: System.Runtime.Serialization.DataContractAttribute
+    ctor: System.Runtime.Serialization.DataContractAttribute.#ctor
+    arguments: []
+- uid: SadConsole.Components.LayeredSurface._screen
+  commentId: F:SadConsole.Components.LayeredSurface._screen
+  id: _screen
+  parent: SadConsole.Components.LayeredSurface
+  langs:
+  - csharp
+  - vb
+  name: _screen
+  nameWithType: LayeredSurface._screen
+  fullName: SadConsole.Components.LayeredSurface._screen
+  type: Field
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: The parent screen hosting this component.
+  example: []
+  syntax:
+    content: protected IScreenSurface? _screen
+    return:
+      type: SadConsole.IScreenSurface
+    content.vb: Protected _screen As IScreenSurface
+- uid: SadConsole.Components.LayeredSurface._screenCachedView
+  commentId: F:SadConsole.Components.LayeredSurface._screenCachedView
+  id: _screenCachedView
+  parent: SadConsole.Components.LayeredSurface
+  langs:
+  - csharp
+  - vb
+  name: _screenCachedView
+  nameWithType: LayeredSurface._screenCachedView
+  fullName: SadConsole.Components.LayeredSurface._screenCachedView
+  type: Field
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: A cached copy of the <xref href="SadConsole.ICellSurface.View" data-throw-if-not-resolved="false"></xref> of the hosting screen surface.
+  example: []
+  syntax:
+    content: protected Rectangle _screenCachedView
+    return:
+      type: SadRogue.Primitives.Rectangle
+    content.vb: Protected _screenCachedView As Rectangle
+- uid: SadConsole.Components.LayeredSurface._layers
+  commentId: F:SadConsole.Components.LayeredSurface._layers
+  id: _layers
+  parent: SadConsole.Components.LayeredSurface
+  langs:
+  - csharp
+  - vb
+  name: _layers
+  nameWithType: LayeredSurface._layers
+  fullName: SadConsole.Components.LayeredSurface._layers
+  type: Field
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: The entities to process.
+  example: []
+  syntax:
+    content: >-
+      [DataMember(Name = "Layers")]
+
+      protected List<ICellSurface> _layers
+    return:
+      type: System.Collections.Generic.List{SadConsole.ICellSurface}
+    content.vb: >-
+      <DataMember(Name:="Layers")>
+
+      Protected _layers As List(Of ICellSurface)
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Name
+      type: System.String
+      value: Layers
+- uid: SadConsole.Components.LayeredSurface.RenderStep
+  commentId: F:SadConsole.Components.LayeredSurface.RenderStep
+  id: RenderStep
+  parent: SadConsole.Components.LayeredSurface
+  langs:
+  - csharp
+  - vb
+  name: RenderStep
+  nameWithType: LayeredSurface.RenderStep
+  fullName: SadConsole.Components.LayeredSurface.RenderStep
+  type: Field
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: Internal use only
+  example: []
+  syntax:
+    content: public IRenderStep? RenderStep
+    return:
+      type: SadConsole.Renderers.IRenderStep
+    content.vb: Public RenderStep As IRenderStep
+- uid: SadConsole.Components.LayeredSurface.Add(SadConsole.ICellSurface)
+  commentId: M:SadConsole.Components.LayeredSurface.Add(SadConsole.ICellSurface)
+  id: Add(SadConsole.ICellSurface)
+  parent: SadConsole.Components.LayeredSurface
+  langs:
+  - csharp
+  - vb
+  name: Add(ICellSurface)
+  nameWithType: LayeredSurface.Add(ICellSurface)
+  fullName: SadConsole.Components.LayeredSurface.Add(SadConsole.ICellSurface)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: Adds a layer to this component.
+  example: []
+  syntax:
+    content: public void Add(ICellSurface layer)
+    parameters:
+    - id: layer
+      type: SadConsole.ICellSurface
+      description: The layer to add.
+    content.vb: Public Sub Add(layer As ICellSurface)
+  overload: SadConsole.Components.LayeredSurface.Add*
+  implements:
+  - System.Collections.Generic.ICollection{SadConsole.ICellSurface}.Add(SadConsole.ICellSurface)
+- uid: SadConsole.Components.LayeredSurface.AddRange(System.Collections.Generic.IEnumerable{SadConsole.ICellSurface})
+  commentId: M:SadConsole.Components.LayeredSurface.AddRange(System.Collections.Generic.IEnumerable{SadConsole.ICellSurface})
+  id: AddRange(System.Collections.Generic.IEnumerable{SadConsole.ICellSurface})
+  parent: SadConsole.Components.LayeredSurface
+  langs:
+  - csharp
+  - vb
+  name: AddRange(IEnumerable<ICellSurface>)
+  nameWithType: LayeredSurface.AddRange(IEnumerable<ICellSurface>)
+  fullName: SadConsole.Components.LayeredSurface.AddRange(System.Collections.Generic.IEnumerable<SadConsole.ICellSurface>)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: Adds a collection if layers to this component.
+  example: []
+  syntax:
+    content: public void AddRange(IEnumerable<ICellSurface> layers)
+    parameters:
+    - id: layers
+      type: System.Collections.Generic.IEnumerable{SadConsole.ICellSurface}
+      description: The layers to add.
+    content.vb: Public Sub AddRange(layers As IEnumerable(Of ICellSurface))
+  overload: SadConsole.Components.LayeredSurface.AddRange*
+  nameWithType.vb: LayeredSurface.AddRange(IEnumerable(Of ICellSurface))
+  fullName.vb: SadConsole.Components.LayeredSurface.AddRange(System.Collections.Generic.IEnumerable(Of SadConsole.ICellSurface))
+  name.vb: AddRange(IEnumerable(Of ICellSurface))
+- uid: SadConsole.Components.LayeredSurface.Replace(SadConsole.ICellSurface,SadConsole.ICellSurface)
+  commentId: M:SadConsole.Components.LayeredSurface.Replace(SadConsole.ICellSurface,SadConsole.ICellSurface)
+  id: Replace(SadConsole.ICellSurface,SadConsole.ICellSurface)
+  parent: SadConsole.Components.LayeredSurface
+  langs:
+  - csharp
+  - vb
+  name: Replace(ICellSurface, ICellSurface)
+  nameWithType: LayeredSurface.Replace(ICellSurface, ICellSurface)
+  fullName: SadConsole.Components.LayeredSurface.Replace(SadConsole.ICellSurface, SadConsole.ICellSurface)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: Replaces a layer with a new instance.
+  example: []
+  syntax:
+    content: public void Replace(ICellSurface oldLayer, ICellSurface newLayer)
+    parameters:
+    - id: oldLayer
+      type: SadConsole.ICellSurface
+      description: The layer to remove.
+    - id: newLayer
+      type: SadConsole.ICellSurface
+      description: The layer to add.
+    content.vb: Public Sub Replace(oldLayer As ICellSurface, newLayer As ICellSurface)
+  overload: SadConsole.Components.LayeredSurface.Replace*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: >-
+      <p>Thrown when the old layer doesn't exist in this collection.</p>
+
+      <p>- or -</p>
+
+      <p>Thrown when the new layer already exists in this collection.</p>
+
+      <p>- or -</p>
+
+      <p>Thrown when the new layer isn't the same size as the other layers.</p>
+- uid: SadConsole.Components.LayeredSurface.Remove(SadConsole.ICellSurface)
+  commentId: M:SadConsole.Components.LayeredSurface.Remove(SadConsole.ICellSurface)
+  id: Remove(SadConsole.ICellSurface)
+  parent: SadConsole.Components.LayeredSurface
+  langs:
+  - csharp
+  - vb
+  name: Remove(ICellSurface)
+  nameWithType: LayeredSurface.Remove(ICellSurface)
+  fullName: SadConsole.Components.LayeredSurface.Remove(SadConsole.ICellSurface)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: Removes a layer from this component.
+  example: []
+  syntax:
+    content: public bool Remove(ICellSurface layer)
+    parameters:
+    - id: layer
+      type: SadConsole.ICellSurface
+      description: The layer to remove.
+    return:
+      type: System.Boolean
+    content.vb: Public Function Remove(layer As ICellSurface) As Boolean
+  overload: SadConsole.Components.LayeredSurface.Remove*
+  implements:
+  - System.Collections.Generic.ICollection{SadConsole.ICellSurface}.Remove(SadConsole.ICellSurface)
+- uid: SadConsole.Components.LayeredSurface.IndexOf(SadConsole.ICellSurface)
+  commentId: M:SadConsole.Components.LayeredSurface.IndexOf(SadConsole.ICellSurface)
+  id: IndexOf(SadConsole.ICellSurface)
+  parent: SadConsole.Components.LayeredSurface
+  langs:
+  - csharp
+  - vb
+  name: IndexOf(ICellSurface)
+  nameWithType: LayeredSurface.IndexOf(ICellSurface)
+  fullName: SadConsole.Components.LayeredSurface.IndexOf(SadConsole.ICellSurface)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: Returns the index of the specified layer.
+  example: []
+  syntax:
+    content: public int IndexOf(ICellSurface layer)
+    parameters:
+    - id: layer
+      type: SadConsole.ICellSurface
+      description: The layer to search for.
+    return:
+      type: System.Int32
+      description: The index of the layer.
+    content.vb: Public Function IndexOf(layer As ICellSurface) As Integer
+  overload: SadConsole.Components.LayeredSurface.IndexOf*
+  implements:
+  - System.Collections.Generic.IList{SadConsole.ICellSurface}.IndexOf(SadConsole.ICellSurface)
+- uid: SadConsole.Components.LayeredSurface.Insert(System.Int32,SadConsole.ICellSurface)
+  commentId: M:SadConsole.Components.LayeredSurface.Insert(System.Int32,SadConsole.ICellSurface)
+  id: Insert(System.Int32,SadConsole.ICellSurface)
+  parent: SadConsole.Components.LayeredSurface
+  langs:
+  - csharp
+  - vb
+  name: Insert(int, ICellSurface)
+  nameWithType: LayeredSurface.Insert(int, ICellSurface)
+  fullName: SadConsole.Components.LayeredSurface.Insert(int, SadConsole.ICellSurface)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: Inserts the layer at the specified index.
+  example: []
+  syntax:
+    content: public void Insert(int index, ICellSurface layer)
+    parameters:
+    - id: index
+      type: System.Int32
+      description: The index to insert at.
+    - id: layer
+      type: SadConsole.ICellSurface
+      description: The layer to insert.
+    content.vb: Public Sub Insert(index As Integer, layer As ICellSurface)
+  overload: SadConsole.Components.LayeredSurface.Insert*
+  implements:
+  - System.Collections.Generic.IList{SadConsole.ICellSurface}.Insert(System.Int32,SadConsole.ICellSurface)
+  nameWithType.vb: LayeredSurface.Insert(Integer, ICellSurface)
+  fullName.vb: SadConsole.Components.LayeredSurface.Insert(Integer, SadConsole.ICellSurface)
+  name.vb: Insert(Integer, ICellSurface)
+- uid: SadConsole.Components.LayeredSurface.RemoveAt(System.Int32)
+  commentId: M:SadConsole.Components.LayeredSurface.RemoveAt(System.Int32)
+  id: RemoveAt(System.Int32)
+  parent: SadConsole.Components.LayeredSurface
+  langs:
+  - csharp
+  - vb
+  name: RemoveAt(int)
+  nameWithType: LayeredSurface.RemoveAt(int)
+  fullName: SadConsole.Components.LayeredSurface.RemoveAt(int)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: Removes a layer at the specified index.
+  example: []
+  syntax:
+    content: public void RemoveAt(int index)
+    parameters:
+    - id: index
+      type: System.Int32
+      description: The index of the layer to remove.
+    content.vb: Public Sub RemoveAt(index As Integer)
+  overload: SadConsole.Components.LayeredSurface.RemoveAt*
+  implements:
+  - System.Collections.Generic.IList{SadConsole.ICellSurface}.RemoveAt(System.Int32)
+  nameWithType.vb: LayeredSurface.RemoveAt(Integer)
+  fullName.vb: SadConsole.Components.LayeredSurface.RemoveAt(Integer)
+  name.vb: RemoveAt(Integer)
+- uid: SadConsole.Components.LayeredSurface.Clear
+  commentId: M:SadConsole.Components.LayeredSurface.Clear
+  id: Clear
+  parent: SadConsole.Components.LayeredSurface
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: LayeredSurface.Clear()
+  fullName: SadConsole.Components.LayeredSurface.Clear()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: Removes all layers.
+  example: []
+  syntax:
+    content: public void Clear()
+    content.vb: Public Sub Clear()
+  overload: SadConsole.Components.LayeredSurface.Clear*
+  implements:
+  - System.Collections.Generic.ICollection{SadConsole.ICellSurface}.Clear
+- uid: SadConsole.Components.LayeredSurface.Clear(SadConsole.ICellSurface)
+  commentId: M:SadConsole.Components.LayeredSurface.Clear(SadConsole.ICellSurface)
+  id: Clear(SadConsole.ICellSurface)
+  parent: SadConsole.Components.LayeredSurface
+  langs:
+  - csharp
+  - vb
+  name: Clear(ICellSurface)
+  nameWithType: LayeredSurface.Clear(ICellSurface)
+  fullName: SadConsole.Components.LayeredSurface.Clear(SadConsole.ICellSurface)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: Removes all layers and adds the <code class="paramref">initialLayer</code> parameter as the first layer.
+  example: []
+  syntax:
+    content: public void Clear(ICellSurface initialLayer)
+    parameters:
+    - id: initialLayer
+      type: SadConsole.ICellSurface
+      description: The new first layer.
+    content.vb: Public Sub Clear(initialLayer As ICellSurface)
+  overload: SadConsole.Components.LayeredSurface.Clear*
+- uid: SadConsole.Components.LayeredSurface.Contains(SadConsole.ICellSurface)
+  commentId: M:SadConsole.Components.LayeredSurface.Contains(SadConsole.ICellSurface)
+  id: Contains(SadConsole.ICellSurface)
+  parent: SadConsole.Components.LayeredSurface
+  langs:
+  - csharp
+  - vb
+  name: Contains(ICellSurface)
+  nameWithType: LayeredSurface.Contains(ICellSurface)
+  fullName: SadConsole.Components.LayeredSurface.Contains(SadConsole.ICellSurface)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  example: []
+  syntax:
+    content: public bool Contains(ICellSurface layer)
+    parameters:
+    - id: layer
+      type: SadConsole.ICellSurface
+    return:
+      type: System.Boolean
+    content.vb: Public Function Contains(layer As ICellSurface) As Boolean
+  overload: SadConsole.Components.LayeredSurface.Contains*
+  implements:
+  - System.Collections.Generic.ICollection{SadConsole.ICellSurface}.Contains(SadConsole.ICellSurface)
+- uid: SadConsole.Components.LayeredSurface.CopyTo(SadConsole.ICellSurface[],System.Int32)
+  commentId: M:SadConsole.Components.LayeredSurface.CopyTo(SadConsole.ICellSurface[],System.Int32)
+  id: CopyTo(SadConsole.ICellSurface[],System.Int32)
+  parent: SadConsole.Components.LayeredSurface
+  langs:
+  - csharp
+  - vb
+  name: CopyTo(ICellSurface[], int)
+  nameWithType: LayeredSurface.CopyTo(ICellSurface[], int)
+  fullName: SadConsole.Components.LayeredSurface.CopyTo(SadConsole.ICellSurface[], int)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  example: []
+  syntax:
+    content: public void CopyTo(ICellSurface[] array, int arrayIndex)
+    parameters:
+    - id: array
+      type: SadConsole.ICellSurface[]
+    - id: arrayIndex
+      type: System.Int32
+    content.vb: Public Sub CopyTo(array As ICellSurface(), arrayIndex As Integer)
+  overload: SadConsole.Components.LayeredSurface.CopyTo*
+  implements:
+  - System.Collections.Generic.ICollection{SadConsole.ICellSurface}.CopyTo(SadConsole.ICellSurface[],System.Int32)
+  nameWithType.vb: LayeredSurface.CopyTo(ICellSurface(), Integer)
+  fullName.vb: SadConsole.Components.LayeredSurface.CopyTo(SadConsole.ICellSurface(), Integer)
+  name.vb: CopyTo(ICellSurface(), Integer)
+- uid: SadConsole.Components.LayeredSurface.GetEnumerator
+  commentId: M:SadConsole.Components.LayeredSurface.GetEnumerator
+  id: GetEnumerator
+  parent: SadConsole.Components.LayeredSurface
+  langs:
+  - csharp
+  - vb
+  name: GetEnumerator()
+  nameWithType: LayeredSurface.GetEnumerator()
+  fullName: SadConsole.Components.LayeredSurface.GetEnumerator()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  example: []
+  syntax:
+    content: public IEnumerator<ICellSurface> GetEnumerator()
+    return:
+      type: System.Collections.Generic.IEnumerator{SadConsole.ICellSurface}
+    content.vb: Public Function GetEnumerator() As IEnumerator(Of ICellSurface)
+  overload: SadConsole.Components.LayeredSurface.GetEnumerator*
+  implements:
+  - System.Collections.Generic.IEnumerable{SadConsole.ICellSurface}.GetEnumerator
+- uid: SadConsole.Components.LayeredSurface.Create
+  commentId: M:SadConsole.Components.LayeredSurface.Create
+  id: Create
+  parent: SadConsole.Components.LayeredSurface
+  langs:
+  - csharp
+  - vb
+  name: Create()
+  nameWithType: LayeredSurface.Create()
+  fullName: SadConsole.Components.LayeredSurface.Create()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: Adds a new layer. The layer is based on the first layer's width and height.
+  example: []
+  syntax:
+    content: public CellSurface Create()
+    return:
+      type: SadConsole.CellSurface
+      description: ''
+    content.vb: Public Function Create() As CellSurface
+  overload: SadConsole.Components.LayeredSurface.Create*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: ''
+- uid: SadConsole.Components.LayeredSurface.OnAdded(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Components.LayeredSurface.OnAdded(SadConsole.IScreenObject)
+  id: OnAdded(SadConsole.IScreenObject)
+  parent: SadConsole.Components.LayeredSurface
+  langs:
+  - csharp
+  - vb
+  name: OnAdded(IScreenObject)
+  nameWithType: LayeredSurface.OnAdded(IScreenObject)
+  fullName: SadConsole.Components.LayeredSurface.OnAdded(SadConsole.IScreenObject)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: Called when the component is added to a host.
+  example: []
+  syntax:
+    content: public override void OnAdded(IScreenObject host)
+    parameters:
+    - id: host
+      type: SadConsole.IScreenObject
+      description: The host that added the component.
+    content.vb: Public Overrides Sub OnAdded(host As IScreenObject)
+  overridden: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  overload: SadConsole.Components.LayeredSurface.OnAdded*
+  implements:
+  - SadConsole.Components.IComponent.OnAdded(SadConsole.IScreenObject)
+- uid: SadConsole.Components.LayeredSurface.OnRemoved(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Components.LayeredSurface.OnRemoved(SadConsole.IScreenObject)
+  id: OnRemoved(SadConsole.IScreenObject)
+  parent: SadConsole.Components.LayeredSurface
+  langs:
+  - csharp
+  - vb
+  name: OnRemoved(IScreenObject)
+  nameWithType: LayeredSurface.OnRemoved(IScreenObject)
+  fullName: SadConsole.Components.LayeredSurface.OnRemoved(SadConsole.IScreenObject)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: Called when the component is removed from the host.
+  example: []
+  syntax:
+    content: public override void OnRemoved(IScreenObject host)
+    parameters:
+    - id: host
+      type: SadConsole.IScreenObject
+      description: The host that removed the component.
+    content.vb: Public Overrides Sub OnRemoved(host As IScreenObject)
+  overridden: SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  overload: SadConsole.Components.LayeredSurface.OnRemoved*
+  implements:
+  - SadConsole.Components.IComponent.OnRemoved(SadConsole.IScreenObject)
+- uid: SadConsole.Components.LayeredSurface.Update(SadConsole.IScreenObject,System.TimeSpan)
+  commentId: M:SadConsole.Components.LayeredSurface.Update(SadConsole.IScreenObject,System.TimeSpan)
+  id: Update(SadConsole.IScreenObject,System.TimeSpan)
+  parent: SadConsole.Components.LayeredSurface
+  langs:
+  - csharp
+  - vb
+  name: Update(IScreenObject, TimeSpan)
+  nameWithType: LayeredSurface.Update(IScreenObject, TimeSpan)
+  fullName: SadConsole.Components.LayeredSurface.Update(SadConsole.IScreenObject, System.TimeSpan)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: Called by a host on the update frame.
+  example: []
+  syntax:
+    content: public override void Update(IScreenObject host, TimeSpan delta)
+    parameters:
+    - id: host
+      type: SadConsole.IScreenObject
+      description: The host calling the component.
+    - id: delta
+      type: System.TimeSpan
+      description: The time that has elapsed since this method was last called.
+    content.vb: Public Overrides Sub Update(host As IScreenObject, delta As TimeSpan)
+  overridden: SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  overload: SadConsole.Components.LayeredSurface.Update*
+  implements:
+  - SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+- uid: SadConsole.Components.LayeredSurface.#ctor
+  commentId: M:SadConsole.Components.LayeredSurface.#ctor
+  id: '#ctor'
+  parent: SadConsole.Components.LayeredSurface
+  langs:
+  - csharp
+  - vb
+  name: LayeredSurface()
+  nameWithType: LayeredSurface.LayeredSurface()
+  fullName: SadConsole.Components.LayeredSurface.LayeredSurface()
+  type: Constructor
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  syntax:
+    content: public LayeredSurface()
+    content.vb: Public Sub New()
+  overload: SadConsole.Components.LayeredSurface.#ctor*
+  nameWithType.vb: LayeredSurface.New()
+  fullName.vb: SadConsole.Components.LayeredSurface.New()
+  name.vb: New()
+- uid: SadConsole.Components.LayeredSurface.IsAttached
+  commentId: P:SadConsole.Components.LayeredSurface.IsAttached
+  id: IsAttached
+  parent: SadConsole.Components.LayeredSurface
+  langs:
+  - csharp
+  - vb
+  name: IsAttached
+  nameWithType: LayeredSurface.IsAttached
+  fullName: SadConsole.Components.LayeredSurface.IsAttached
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: Indicates that the entity renderer has been added to a parent object.
+  example: []
+  syntax:
+    content: protected bool IsAttached { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Protected Property IsAttached As Boolean
+  overload: SadConsole.Components.LayeredSurface.IsAttached*
+- uid: SadConsole.Components.LayeredSurface.View
+  commentId: P:SadConsole.Components.LayeredSurface.View
+  id: View
+  parent: SadConsole.Components.LayeredSurface
+  langs:
+  - csharp
+  - vb
+  name: View
+  nameWithType: LayeredSurface.View
+  fullName: SadConsole.Components.LayeredSurface.View
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: The visible portion of the surface layers.
+  example: []
+  syntax:
+    content: public Rectangle View { get; set; }
+    parameters: []
+    return:
+      type: SadRogue.Primitives.Rectangle
+    content.vb: Public Property View As Rectangle
+  overload: SadConsole.Components.LayeredSurface.View*
+- uid: SadConsole.Components.LayeredSurface.DefaultBackground
+  commentId: P:SadConsole.Components.LayeredSurface.DefaultBackground
+  id: DefaultBackground
+  parent: SadConsole.Components.LayeredSurface
+  langs:
+  - csharp
+  - vb
+  name: DefaultBackground
+  nameWithType: LayeredSurface.DefaultBackground
+  fullName: SadConsole.Components.LayeredSurface.DefaultBackground
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: The default color to clear the rendering surface. This is used instead of the individual layer's default background.
+  example: []
+  syntax:
+    content: public Color DefaultBackground { get; set; }
+    parameters: []
+    return:
+      type: SadRogue.Primitives.Color
+    content.vb: Public Property DefaultBackground As Color
+  overload: SadConsole.Components.LayeredSurface.DefaultBackground*
+- uid: SadConsole.Components.LayeredSurface.Count
+  commentId: P:SadConsole.Components.LayeredSurface.Count
+  id: Count
+  parent: SadConsole.Components.LayeredSurface
+  langs:
+  - csharp
+  - vb
+  name: Count
+  nameWithType: LayeredSurface.Count
+  fullName: SadConsole.Components.LayeredSurface.Count
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: The numbers of layers.
+  example: []
+  syntax:
+    content: public int Count { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Count As Integer
+  overload: SadConsole.Components.LayeredSurface.Count*
+  implements:
+  - System.Collections.Generic.ICollection{SadConsole.ICellSurface}.Count
+- uid: SadConsole.Components.LayeredSurface.IsReadOnly
+  commentId: P:SadConsole.Components.LayeredSurface.IsReadOnly
+  id: IsReadOnly
+  parent: SadConsole.Components.LayeredSurface
+  langs:
+  - csharp
+  - vb
+  name: IsReadOnly
+  nameWithType: LayeredSurface.IsReadOnly
+  fullName: SadConsole.Components.LayeredSurface.IsReadOnly
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: Always returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+  example: []
+  syntax:
+    content: public bool IsReadOnly { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsReadOnly As Boolean
+  overload: SadConsole.Components.LayeredSurface.IsReadOnly*
+  implements:
+  - System.Collections.Generic.ICollection{SadConsole.ICellSurface}.IsReadOnly
+- uid: SadConsole.Components.LayeredSurface.Item(System.Int32)
+  commentId: P:SadConsole.Components.LayeredSurface.Item(System.Int32)
+  id: Item(System.Int32)
+  parent: SadConsole.Components.LayeredSurface
+  langs:
+  - csharp
+  - vb
+  name: this[int]
+  nameWithType: LayeredSurface.this[int]
+  fullName: SadConsole.Components.LayeredSurface.this[int]
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: Gets or sets a layer by index.
+  example: []
+  syntax:
+    content: public ICellSurface this[int index] { get; set; }
+    parameters:
+    - id: index
+      type: System.Int32
+      description: The index of the layer to get or set.
+    return:
+      type: SadConsole.ICellSurface
+      description: The layer.
+    content.vb: Public Default Property this[](index As Integer) As ICellSurface
+  overload: SadConsole.Components.LayeredSurface.Item*
+  implements:
+  - System.Collections.Generic.IList{SadConsole.ICellSurface}.Item(System.Int32)
+  nameWithType.vb: LayeredSurface.this[](Integer)
+  fullName.vb: SadConsole.Components.LayeredSurface.this[](Integer)
+  name.vb: this[](Integer)
+references:
+- uid: SadConsole.Components
+  commentId: N:SadConsole.Components
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Components
+  nameWithType: SadConsole.Components
+  fullName: SadConsole.Components
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Components
+    name: Components
+    isExternal: true
+    href: SadConsole.Components.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Components
+    name: Components
+    isExternal: true
+    href: SadConsole.Components.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: SadConsole.Components.UpdateComponent
+  commentId: T:SadConsole.Components.UpdateComponent
+  parent: SadConsole.Components
+  isExternal: true
+  href: SadConsole.Components.UpdateComponent.html
+  name: UpdateComponent
+  nameWithType: UpdateComponent
+  fullName: SadConsole.Components.UpdateComponent
+- uid: SadConsole.Components.IComponent
+  commentId: T:SadConsole.Components.IComponent
+  parent: SadConsole.Components
+  isExternal: true
+  href: SadConsole.Components.IComponent.html
+  name: IComponent
+  nameWithType: IComponent
+  fullName: SadConsole.Components.IComponent
+- uid: System.Collections.Generic.IList{SadConsole.ICellSurface}
+  commentId: T:System.Collections.Generic.IList{SadConsole.ICellSurface}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<ICellSurface>
+  nameWithType: IList<ICellSurface>
+  fullName: System.Collections.Generic.IList<SadConsole.ICellSurface>
+  nameWithType.vb: IList(Of ICellSurface)
+  fullName.vb: System.Collections.Generic.IList(Of SadConsole.ICellSurface)
+  name.vb: IList(Of ICellSurface)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - uid: SadConsole.ICellSurface
+    name: ICellSurface
+    isExternal: true
+    href: SadConsole.ICellSurface.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.ICellSurface
+    name: ICellSurface
+    isExternal: true
+    href: SadConsole.ICellSurface.html
+  - name: )
+- uid: System.Collections.Generic.ICollection{SadConsole.ICellSurface}
+  commentId: T:System.Collections.Generic.ICollection{SadConsole.ICellSurface}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<ICellSurface>
+  nameWithType: ICollection<ICellSurface>
+  fullName: System.Collections.Generic.ICollection<SadConsole.ICellSurface>
+  nameWithType.vb: ICollection(Of ICellSurface)
+  fullName.vb: System.Collections.Generic.ICollection(Of SadConsole.ICellSurface)
+  name.vb: ICollection(Of ICellSurface)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: SadConsole.ICellSurface
+    name: ICellSurface
+    isExternal: true
+    href: SadConsole.ICellSurface.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.ICellSurface
+    name: ICellSurface
+    isExternal: true
+    href: SadConsole.ICellSurface.html
+  - name: )
+- uid: System.Collections.Generic.IEnumerable{SadConsole.ICellSurface}
+  commentId: T:System.Collections.Generic.IEnumerable{SadConsole.ICellSurface}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<ICellSurface>
+  nameWithType: IEnumerable<ICellSurface>
+  fullName: System.Collections.Generic.IEnumerable<SadConsole.ICellSurface>
+  nameWithType.vb: IEnumerable(Of ICellSurface)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of SadConsole.ICellSurface)
+  name.vb: IEnumerable(Of ICellSurface)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: SadConsole.ICellSurface
+    name: ICellSurface
+    isExternal: true
+    href: SadConsole.ICellSurface.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.ICellSurface
+    name: ICellSurface
+    isExternal: true
+    href: SadConsole.ICellSurface.html
+  - name: )
+- uid: System.Collections.IEnumerable
+  commentId: T:System.Collections.IEnumerable
+  parent: System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.ienumerable
+  name: IEnumerable
+  nameWithType: IEnumerable
+  fullName: System.Collections.IEnumerable
+- uid: SadConsole.Components.UpdateComponent.SortOrder
+  commentId: P:SadConsole.Components.UpdateComponent.SortOrder
+  parent: SadConsole.Components.UpdateComponent
+  isExternal: true
+  href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.SortOrder
+  name: SortOrder
+  nameWithType: UpdateComponent.SortOrder
+  fullName: SadConsole.Components.UpdateComponent.SortOrder
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.Generic.ICollection`1
+  commentId: T:System.Collections.Generic.ICollection`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<T>
+  nameWithType: ICollection<T>
+  fullName: System.Collections.Generic.ICollection<T>
+  nameWithType.vb: ICollection(Of T)
+  fullName.vb: System.Collections.Generic.ICollection(Of T)
+  name.vb: ICollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections
+  commentId: N:System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections
+  nameWithType: System.Collections
+  fullName: System.Collections
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+- uid: SadConsole.IScreenSurface
+  commentId: T:SadConsole.IScreenSurface
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IScreenSurface.html
+  name: IScreenSurface
+  nameWithType: IScreenSurface
+  fullName: SadConsole.IScreenSurface
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
+- uid: SadConsole.ICellSurface.View
+  commentId: P:SadConsole.ICellSurface.View
+  parent: SadConsole.ICellSurface
+  isExternal: true
+  href: SadConsole.ICellSurface.html#SadConsole.ICellSurface.View
+  name: View
+  nameWithType: ICellSurface.View
+  fullName: SadConsole.ICellSurface.View
+- uid: SadRogue.Primitives.Rectangle
+  commentId: T:SadRogue.Primitives.Rectangle
+  parent: SadRogue.Primitives
+  isExternal: true
+  name: Rectangle
+  nameWithType: Rectangle
+  fullName: SadRogue.Primitives.Rectangle
+- uid: SadConsole.ICellSurface
+  commentId: T:SadConsole.ICellSurface
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ICellSurface.html
+  name: ICellSurface
+  nameWithType: ICellSurface
+  fullName: SadConsole.ICellSurface
+- uid: SadRogue.Primitives
+  commentId: N:SadRogue.Primitives
+  isExternal: true
+  href: SadRogue.html
+  name: SadRogue.Primitives
+  nameWithType: SadRogue.Primitives
+  fullName: SadRogue.Primitives
+  spec.csharp:
+  - uid: SadRogue
+    name: SadRogue
+    isExternal: true
+    href: SadRogue.html
+  - name: .
+  - uid: SadRogue.Primitives
+    name: Primitives
+    isExternal: true
+    href: SadRogue.Primitives.html
+  spec.vb:
+  - uid: SadRogue
+    name: SadRogue
+    isExternal: true
+    href: SadRogue.html
+  - name: .
+  - uid: SadRogue.Primitives
+    name: Primitives
+    isExternal: true
+    href: SadRogue.Primitives.html
+- uid: System.Collections.Generic.List{SadConsole.ICellSurface}
+  commentId: T:System.Collections.Generic.List{SadConsole.ICellSurface}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<ICellSurface>
+  nameWithType: List<ICellSurface>
+  fullName: System.Collections.Generic.List<SadConsole.ICellSurface>
+  nameWithType.vb: List(Of ICellSurface)
+  fullName.vb: System.Collections.Generic.List(Of SadConsole.ICellSurface)
+  name.vb: List(Of ICellSurface)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: SadConsole.ICellSurface
+    name: ICellSurface
+    isExternal: true
+    href: SadConsole.ICellSurface.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.ICellSurface
+    name: ICellSurface
+    isExternal: true
+    href: SadConsole.ICellSurface.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: SadConsole.Renderers.IRenderStep
+  commentId: T:SadConsole.Renderers.IRenderStep
+  parent: SadConsole.Renderers
+  isExternal: true
+  href: SadConsole.Renderers.IRenderStep.html
+  name: IRenderStep
+  nameWithType: IRenderStep
+  fullName: SadConsole.Renderers.IRenderStep
+- uid: SadConsole.Renderers
+  commentId: N:SadConsole.Renderers
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Renderers
+  nameWithType: SadConsole.Renderers
+  fullName: SadConsole.Renderers
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Renderers
+    name: Renderers
+    isExternal: true
+    href: SadConsole.Renderers.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Renderers
+    name: Renderers
+    isExternal: true
+    href: SadConsole.Renderers.html
+- uid: SadConsole.Components.LayeredSurface.Add*
+  commentId: Overload:SadConsole.Components.LayeredSurface.Add
+  isExternal: true
+  href: SadConsole.Components.LayeredSurface.html#SadConsole.Components.LayeredSurface.Add(SadConsole.ICellSurface)
+  name: Add
+  nameWithType: LayeredSurface.Add
+  fullName: SadConsole.Components.LayeredSurface.Add
+- uid: System.Collections.Generic.ICollection{SadConsole.ICellSurface}.Add(SadConsole.ICellSurface)
+  commentId: M:System.Collections.Generic.ICollection{SadConsole.ICellSurface}.Add(SadConsole.ICellSurface)
+  parent: System.Collections.Generic.ICollection{SadConsole.ICellSurface}
+  definition: System.Collections.Generic.ICollection`1.Add(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.icellsurface-.add#system-collections-generic-icollection((sadconsole-icellsurface))-add(sadconsole-icellsurface)
+  name: Add(ICellSurface)
+  nameWithType: ICollection<ICellSurface>.Add(ICellSurface)
+  fullName: System.Collections.Generic.ICollection<SadConsole.ICellSurface>.Add(SadConsole.ICellSurface)
+  nameWithType.vb: ICollection(Of ICellSurface).Add(ICellSurface)
+  fullName.vb: System.Collections.Generic.ICollection(Of SadConsole.ICellSurface).Add(SadConsole.ICellSurface)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection{SadConsole.ICellSurface}.Add(SadConsole.ICellSurface)
+    name: Add
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.icellsurface-.add#system-collections-generic-icollection((sadconsole-icellsurface))-add(sadconsole-icellsurface)
+  - name: (
+  - uid: SadConsole.ICellSurface
+    name: ICellSurface
+    isExternal: true
+    href: SadConsole.ICellSurface.html
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection{SadConsole.ICellSurface}.Add(SadConsole.ICellSurface)
+    name: Add
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.icellsurface-.add#system-collections-generic-icollection((sadconsole-icellsurface))-add(sadconsole-icellsurface)
+  - name: (
+  - uid: SadConsole.ICellSurface
+    name: ICellSurface
+    isExternal: true
+    href: SadConsole.ICellSurface.html
+  - name: )
+- uid: System.Collections.Generic.ICollection`1.Add(`0)
+  commentId: M:System.Collections.Generic.ICollection`1.Add(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add
+  name: Add(T)
+  nameWithType: ICollection<T>.Add(T)
+  fullName: System.Collections.Generic.ICollection<T>.Add(T)
+  nameWithType.vb: ICollection(Of T).Add(T)
+  fullName.vb: System.Collections.Generic.ICollection(Of T).Add(T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1.Add(`0)
+    name: Add
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1.Add(`0)
+    name: Add
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add
+  - name: (
+  - name: T
+  - name: )
+- uid: SadConsole.Components.LayeredSurface.AddRange*
+  commentId: Overload:SadConsole.Components.LayeredSurface.AddRange
+  isExternal: true
+  href: SadConsole.Components.LayeredSurface.html#SadConsole.Components.LayeredSurface.AddRange(System.Collections.Generic.IEnumerable{SadConsole.ICellSurface})
+  name: AddRange
+  nameWithType: LayeredSurface.AddRange
+  fullName: SadConsole.Components.LayeredSurface.AddRange
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: SadConsole.Components.LayeredSurface.Replace*
+  commentId: Overload:SadConsole.Components.LayeredSurface.Replace
+  isExternal: true
+  href: SadConsole.Components.LayeredSurface.html#SadConsole.Components.LayeredSurface.Replace(SadConsole.ICellSurface,SadConsole.ICellSurface)
+  name: Replace
+  nameWithType: LayeredSurface.Replace
+  fullName: SadConsole.Components.LayeredSurface.Replace
+- uid: SadConsole.Components.LayeredSurface.Remove*
+  commentId: Overload:SadConsole.Components.LayeredSurface.Remove
+  isExternal: true
+  href: SadConsole.Components.LayeredSurface.html#SadConsole.Components.LayeredSurface.Remove(SadConsole.ICellSurface)
+  name: Remove
+  nameWithType: LayeredSurface.Remove
+  fullName: SadConsole.Components.LayeredSurface.Remove
+- uid: System.Collections.Generic.ICollection{SadConsole.ICellSurface}.Remove(SadConsole.ICellSurface)
+  commentId: M:System.Collections.Generic.ICollection{SadConsole.ICellSurface}.Remove(SadConsole.ICellSurface)
+  parent: System.Collections.Generic.ICollection{SadConsole.ICellSurface}
+  definition: System.Collections.Generic.ICollection`1.Remove(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.icellsurface-.remove#system-collections-generic-icollection((sadconsole-icellsurface))-remove(sadconsole-icellsurface)
+  name: Remove(ICellSurface)
+  nameWithType: ICollection<ICellSurface>.Remove(ICellSurface)
+  fullName: System.Collections.Generic.ICollection<SadConsole.ICellSurface>.Remove(SadConsole.ICellSurface)
+  nameWithType.vb: ICollection(Of ICellSurface).Remove(ICellSurface)
+  fullName.vb: System.Collections.Generic.ICollection(Of SadConsole.ICellSurface).Remove(SadConsole.ICellSurface)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection{SadConsole.ICellSurface}.Remove(SadConsole.ICellSurface)
+    name: Remove
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.icellsurface-.remove#system-collections-generic-icollection((sadconsole-icellsurface))-remove(sadconsole-icellsurface)
+  - name: (
+  - uid: SadConsole.ICellSurface
+    name: ICellSurface
+    isExternal: true
+    href: SadConsole.ICellSurface.html
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection{SadConsole.ICellSurface}.Remove(SadConsole.ICellSurface)
+    name: Remove
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.icellsurface-.remove#system-collections-generic-icollection((sadconsole-icellsurface))-remove(sadconsole-icellsurface)
+  - name: (
+  - uid: SadConsole.ICellSurface
+    name: ICellSurface
+    isExternal: true
+    href: SadConsole.ICellSurface.html
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Collections.Generic.ICollection`1.Remove(`0)
+  commentId: M:System.Collections.Generic.ICollection`1.Remove(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.remove
+  name: Remove(T)
+  nameWithType: ICollection<T>.Remove(T)
+  fullName: System.Collections.Generic.ICollection<T>.Remove(T)
+  nameWithType.vb: ICollection(Of T).Remove(T)
+  fullName.vb: System.Collections.Generic.ICollection(Of T).Remove(T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1.Remove(`0)
+    name: Remove
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.remove
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1.Remove(`0)
+    name: Remove
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.remove
+  - name: (
+  - name: T
+  - name: )
+- uid: SadConsole.Components.LayeredSurface.IndexOf*
+  commentId: Overload:SadConsole.Components.LayeredSurface.IndexOf
+  isExternal: true
+  href: SadConsole.Components.LayeredSurface.html#SadConsole.Components.LayeredSurface.IndexOf(SadConsole.ICellSurface)
+  name: IndexOf
+  nameWithType: LayeredSurface.IndexOf
+  fullName: SadConsole.Components.LayeredSurface.IndexOf
+- uid: System.Collections.Generic.IList{SadConsole.ICellSurface}.IndexOf(SadConsole.ICellSurface)
+  commentId: M:System.Collections.Generic.IList{SadConsole.ICellSurface}.IndexOf(SadConsole.ICellSurface)
+  parent: System.Collections.Generic.IList{SadConsole.ICellSurface}
+  definition: System.Collections.Generic.IList`1.IndexOf(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-sadconsole.icellsurface-.indexof#system-collections-generic-ilist((sadconsole-icellsurface))-indexof(sadconsole-icellsurface)
+  name: IndexOf(ICellSurface)
+  nameWithType: IList<ICellSurface>.IndexOf(ICellSurface)
+  fullName: System.Collections.Generic.IList<SadConsole.ICellSurface>.IndexOf(SadConsole.ICellSurface)
+  nameWithType.vb: IList(Of ICellSurface).IndexOf(ICellSurface)
+  fullName.vb: System.Collections.Generic.IList(Of SadConsole.ICellSurface).IndexOf(SadConsole.ICellSurface)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList{SadConsole.ICellSurface}.IndexOf(SadConsole.ICellSurface)
+    name: IndexOf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-sadconsole.icellsurface-.indexof#system-collections-generic-ilist((sadconsole-icellsurface))-indexof(sadconsole-icellsurface)
+  - name: (
+  - uid: SadConsole.ICellSurface
+    name: ICellSurface
+    isExternal: true
+    href: SadConsole.ICellSurface.html
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IList{SadConsole.ICellSurface}.IndexOf(SadConsole.ICellSurface)
+    name: IndexOf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-sadconsole.icellsurface-.indexof#system-collections-generic-ilist((sadconsole-icellsurface))-indexof(sadconsole-icellsurface)
+  - name: (
+  - uid: SadConsole.ICellSurface
+    name: ICellSurface
+    isExternal: true
+    href: SadConsole.ICellSurface.html
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Collections.Generic.IList`1.IndexOf(`0)
+  commentId: M:System.Collections.Generic.IList`1.IndexOf(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1.indexof
+  name: IndexOf(T)
+  nameWithType: IList<T>.IndexOf(T)
+  fullName: System.Collections.Generic.IList<T>.IndexOf(T)
+  nameWithType.vb: IList(Of T).IndexOf(T)
+  fullName.vb: System.Collections.Generic.IList(Of T).IndexOf(T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1.IndexOf(`0)
+    name: IndexOf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1.indexof
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1.IndexOf(`0)
+    name: IndexOf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1.indexof
+  - name: (
+  - name: T
+  - name: )
+- uid: SadConsole.Components.LayeredSurface.Insert*
+  commentId: Overload:SadConsole.Components.LayeredSurface.Insert
+  isExternal: true
+  href: SadConsole.Components.LayeredSurface.html#SadConsole.Components.LayeredSurface.Insert(System.Int32,SadConsole.ICellSurface)
+  name: Insert
+  nameWithType: LayeredSurface.Insert
+  fullName: SadConsole.Components.LayeredSurface.Insert
+- uid: System.Collections.Generic.IList{SadConsole.ICellSurface}.Insert(System.Int32,SadConsole.ICellSurface)
+  commentId: M:System.Collections.Generic.IList{SadConsole.ICellSurface}.Insert(System.Int32,SadConsole.ICellSurface)
+  parent: System.Collections.Generic.IList{SadConsole.ICellSurface}
+  definition: System.Collections.Generic.IList`1.Insert(System.Int32,`0)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-sadconsole.icellsurface-.insert#system-collections-generic-ilist((sadconsole-icellsurface))-insert(system-int32-sadconsole-icellsurface)
+  name: Insert(int, ICellSurface)
+  nameWithType: IList<ICellSurface>.Insert(int, ICellSurface)
+  fullName: System.Collections.Generic.IList<SadConsole.ICellSurface>.Insert(int, SadConsole.ICellSurface)
+  nameWithType.vb: IList(Of ICellSurface).Insert(Integer, ICellSurface)
+  fullName.vb: System.Collections.Generic.IList(Of SadConsole.ICellSurface).Insert(Integer, SadConsole.ICellSurface)
+  name.vb: Insert(Integer, ICellSurface)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList{SadConsole.ICellSurface}.Insert(System.Int32,SadConsole.ICellSurface)
+    name: Insert
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-sadconsole.icellsurface-.insert#system-collections-generic-ilist((sadconsole-icellsurface))-insert(system-int32-sadconsole-icellsurface)
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: SadConsole.ICellSurface
+    name: ICellSurface
+    isExternal: true
+    href: SadConsole.ICellSurface.html
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IList{SadConsole.ICellSurface}.Insert(System.Int32,SadConsole.ICellSurface)
+    name: Insert
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-sadconsole.icellsurface-.insert#system-collections-generic-ilist((sadconsole-icellsurface))-insert(system-int32-sadconsole-icellsurface)
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: SadConsole.ICellSurface
+    name: ICellSurface
+    isExternal: true
+    href: SadConsole.ICellSurface.html
+  - name: )
+- uid: System.Collections.Generic.IList`1.Insert(System.Int32,`0)
+  commentId: M:System.Collections.Generic.IList`1.Insert(System.Int32,`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1.insert
+  name: Insert(int, T)
+  nameWithType: IList<T>.Insert(int, T)
+  fullName: System.Collections.Generic.IList<T>.Insert(int, T)
+  nameWithType.vb: IList(Of T).Insert(Integer, T)
+  fullName.vb: System.Collections.Generic.IList(Of T).Insert(Integer, T)
+  name.vb: Insert(Integer, T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1.Insert(System.Int32,`0)
+    name: Insert
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1.insert
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1.Insert(System.Int32,`0)
+    name: Insert
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1.insert
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - name: T
+  - name: )
+- uid: SadConsole.Components.LayeredSurface.RemoveAt*
+  commentId: Overload:SadConsole.Components.LayeredSurface.RemoveAt
+  isExternal: true
+  href: SadConsole.Components.LayeredSurface.html#SadConsole.Components.LayeredSurface.RemoveAt(System.Int32)
+  name: RemoveAt
+  nameWithType: LayeredSurface.RemoveAt
+  fullName: SadConsole.Components.LayeredSurface.RemoveAt
+- uid: System.Collections.Generic.IList{SadConsole.ICellSurface}.RemoveAt(System.Int32)
+  commentId: M:System.Collections.Generic.IList{SadConsole.ICellSurface}.RemoveAt(System.Int32)
+  parent: System.Collections.Generic.IList{SadConsole.ICellSurface}
+  definition: System.Collections.Generic.IList`1.RemoveAt(System.Int32)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-sadconsole.icellsurface-.removeat#system-collections-generic-ilist((sadconsole-icellsurface))-removeat(system-int32)
+  name: RemoveAt(int)
+  nameWithType: IList<ICellSurface>.RemoveAt(int)
+  fullName: System.Collections.Generic.IList<SadConsole.ICellSurface>.RemoveAt(int)
+  nameWithType.vb: IList(Of ICellSurface).RemoveAt(Integer)
+  fullName.vb: System.Collections.Generic.IList(Of SadConsole.ICellSurface).RemoveAt(Integer)
+  name.vb: RemoveAt(Integer)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList{SadConsole.ICellSurface}.RemoveAt(System.Int32)
+    name: RemoveAt
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-sadconsole.icellsurface-.removeat#system-collections-generic-ilist((sadconsole-icellsurface))-removeat(system-int32)
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IList{SadConsole.ICellSurface}.RemoveAt(System.Int32)
+    name: RemoveAt
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-sadconsole.icellsurface-.removeat#system-collections-generic-ilist((sadconsole-icellsurface))-removeat(system-int32)
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Collections.Generic.IList`1.RemoveAt(System.Int32)
+  commentId: M:System.Collections.Generic.IList`1.RemoveAt(System.Int32)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1.removeat
+  name: RemoveAt(int)
+  nameWithType: IList<T>.RemoveAt(int)
+  fullName: System.Collections.Generic.IList<T>.RemoveAt(int)
+  nameWithType.vb: IList(Of T).RemoveAt(Integer)
+  fullName.vb: System.Collections.Generic.IList(Of T).RemoveAt(Integer)
+  name.vb: RemoveAt(Integer)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1.RemoveAt(System.Int32)
+    name: RemoveAt
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1.removeat
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1.RemoveAt(System.Int32)
+    name: RemoveAt
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1.removeat
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: SadConsole.Components.LayeredSurface.Clear*
+  commentId: Overload:SadConsole.Components.LayeredSurface.Clear
+  isExternal: true
+  href: SadConsole.Components.LayeredSurface.html#SadConsole.Components.LayeredSurface.Clear
+  name: Clear
+  nameWithType: LayeredSurface.Clear
+  fullName: SadConsole.Components.LayeredSurface.Clear
+- uid: System.Collections.Generic.ICollection{SadConsole.ICellSurface}.Clear
+  commentId: M:System.Collections.Generic.ICollection{SadConsole.ICellSurface}.Clear
+  parent: System.Collections.Generic.ICollection{SadConsole.ICellSurface}
+  definition: System.Collections.Generic.ICollection`1.Clear
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.icellsurface-.clear#system-collections-generic-icollection((sadconsole-icellsurface))-clear
+  name: Clear()
+  nameWithType: ICollection<ICellSurface>.Clear()
+  fullName: System.Collections.Generic.ICollection<SadConsole.ICellSurface>.Clear()
+  nameWithType.vb: ICollection(Of ICellSurface).Clear()
+  fullName.vb: System.Collections.Generic.ICollection(Of SadConsole.ICellSurface).Clear()
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection{SadConsole.ICellSurface}.Clear
+    name: Clear
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.icellsurface-.clear#system-collections-generic-icollection((sadconsole-icellsurface))-clear
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection{SadConsole.ICellSurface}.Clear
+    name: Clear
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.icellsurface-.clear#system-collections-generic-icollection((sadconsole-icellsurface))-clear
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.ICollection`1.Clear
+  commentId: M:System.Collections.Generic.ICollection`1.Clear
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.clear
+  name: Clear()
+  nameWithType: ICollection<T>.Clear()
+  fullName: System.Collections.Generic.ICollection<T>.Clear()
+  nameWithType.vb: ICollection(Of T).Clear()
+  fullName.vb: System.Collections.Generic.ICollection(Of T).Clear()
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1.Clear
+    name: Clear
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.clear
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1.Clear
+    name: Clear
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.clear
+  - name: (
+  - name: )
+- uid: SadConsole.Components.LayeredSurface.Contains*
+  commentId: Overload:SadConsole.Components.LayeredSurface.Contains
+  isExternal: true
+  href: SadConsole.Components.LayeredSurface.html#SadConsole.Components.LayeredSurface.Contains(SadConsole.ICellSurface)
+  name: Contains
+  nameWithType: LayeredSurface.Contains
+  fullName: SadConsole.Components.LayeredSurface.Contains
+- uid: System.Collections.Generic.ICollection{SadConsole.ICellSurface}.Contains(SadConsole.ICellSurface)
+  commentId: M:System.Collections.Generic.ICollection{SadConsole.ICellSurface}.Contains(SadConsole.ICellSurface)
+  parent: System.Collections.Generic.ICollection{SadConsole.ICellSurface}
+  definition: System.Collections.Generic.ICollection`1.Contains(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.icellsurface-.contains#system-collections-generic-icollection((sadconsole-icellsurface))-contains(sadconsole-icellsurface)
+  name: Contains(ICellSurface)
+  nameWithType: ICollection<ICellSurface>.Contains(ICellSurface)
+  fullName: System.Collections.Generic.ICollection<SadConsole.ICellSurface>.Contains(SadConsole.ICellSurface)
+  nameWithType.vb: ICollection(Of ICellSurface).Contains(ICellSurface)
+  fullName.vb: System.Collections.Generic.ICollection(Of SadConsole.ICellSurface).Contains(SadConsole.ICellSurface)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection{SadConsole.ICellSurface}.Contains(SadConsole.ICellSurface)
+    name: Contains
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.icellsurface-.contains#system-collections-generic-icollection((sadconsole-icellsurface))-contains(sadconsole-icellsurface)
+  - name: (
+  - uid: SadConsole.ICellSurface
+    name: ICellSurface
+    isExternal: true
+    href: SadConsole.ICellSurface.html
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection{SadConsole.ICellSurface}.Contains(SadConsole.ICellSurface)
+    name: Contains
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.icellsurface-.contains#system-collections-generic-icollection((sadconsole-icellsurface))-contains(sadconsole-icellsurface)
+  - name: (
+  - uid: SadConsole.ICellSurface
+    name: ICellSurface
+    isExternal: true
+    href: SadConsole.ICellSurface.html
+  - name: )
+- uid: System.Collections.Generic.ICollection`1.Contains(`0)
+  commentId: M:System.Collections.Generic.ICollection`1.Contains(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.contains
+  name: Contains(T)
+  nameWithType: ICollection<T>.Contains(T)
+  fullName: System.Collections.Generic.ICollection<T>.Contains(T)
+  nameWithType.vb: ICollection(Of T).Contains(T)
+  fullName.vb: System.Collections.Generic.ICollection(Of T).Contains(T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1.Contains(`0)
+    name: Contains
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.contains
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1.Contains(`0)
+    name: Contains
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.contains
+  - name: (
+  - name: T
+  - name: )
+- uid: SadConsole.Components.LayeredSurface.CopyTo*
+  commentId: Overload:SadConsole.Components.LayeredSurface.CopyTo
+  isExternal: true
+  href: SadConsole.Components.LayeredSurface.html#SadConsole.Components.LayeredSurface.CopyTo(SadConsole.ICellSurface[],System.Int32)
+  name: CopyTo
+  nameWithType: LayeredSurface.CopyTo
+  fullName: SadConsole.Components.LayeredSurface.CopyTo
+- uid: System.Collections.Generic.ICollection{SadConsole.ICellSurface}.CopyTo(SadConsole.ICellSurface[],System.Int32)
+  commentId: M:System.Collections.Generic.ICollection{SadConsole.ICellSurface}.CopyTo(SadConsole.ICellSurface[],System.Int32)
+  parent: System.Collections.Generic.ICollection{SadConsole.ICellSurface}
+  definition: System.Collections.Generic.ICollection`1.CopyTo(`0[],System.Int32)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.icellsurface-.copyto#system-collections-generic-icollection((sadconsole-icellsurface))-copyto(sadconsole-icellsurface()-system-int32)
+  name: CopyTo(ICellSurface[], int)
+  nameWithType: ICollection<ICellSurface>.CopyTo(ICellSurface[], int)
+  fullName: System.Collections.Generic.ICollection<SadConsole.ICellSurface>.CopyTo(SadConsole.ICellSurface[], int)
+  nameWithType.vb: ICollection(Of ICellSurface).CopyTo(ICellSurface(), Integer)
+  fullName.vb: System.Collections.Generic.ICollection(Of SadConsole.ICellSurface).CopyTo(SadConsole.ICellSurface(), Integer)
+  name.vb: CopyTo(ICellSurface(), Integer)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection{SadConsole.ICellSurface}.CopyTo(SadConsole.ICellSurface[],System.Int32)
+    name: CopyTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.icellsurface-.copyto#system-collections-generic-icollection((sadconsole-icellsurface))-copyto(sadconsole-icellsurface()-system-int32)
+  - name: (
+  - uid: SadConsole.ICellSurface
+    name: ICellSurface
+    isExternal: true
+    href: SadConsole.ICellSurface.html
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection{SadConsole.ICellSurface}.CopyTo(SadConsole.ICellSurface[],System.Int32)
+    name: CopyTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.icellsurface-.copyto#system-collections-generic-icollection((sadconsole-icellsurface))-copyto(sadconsole-icellsurface()-system-int32)
+  - name: (
+  - uid: SadConsole.ICellSurface
+    name: ICellSurface
+    isExternal: true
+    href: SadConsole.ICellSurface.html
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: SadConsole.ICellSurface[]
+  isExternal: true
+  href: SadConsole.ICellSurface.html
+  name: ICellSurface[]
+  nameWithType: ICellSurface[]
+  fullName: SadConsole.ICellSurface[]
+  nameWithType.vb: ICellSurface()
+  fullName.vb: SadConsole.ICellSurface()
+  name.vb: ICellSurface()
+  spec.csharp:
+  - uid: SadConsole.ICellSurface
+    name: ICellSurface
+    isExternal: true
+    href: SadConsole.ICellSurface.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: SadConsole.ICellSurface
+    name: ICellSurface
+    isExternal: true
+    href: SadConsole.ICellSurface.html
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.ICollection`1.CopyTo(`0[],System.Int32)
+  commentId: M:System.Collections.Generic.ICollection`1.CopyTo(`0[],System.Int32)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.copyto
+  name: CopyTo(T[], int)
+  nameWithType: ICollection<T>.CopyTo(T[], int)
+  fullName: System.Collections.Generic.ICollection<T>.CopyTo(T[], int)
+  nameWithType.vb: ICollection(Of T).CopyTo(T(), Integer)
+  fullName.vb: System.Collections.Generic.ICollection(Of T).CopyTo(T(), Integer)
+  name.vb: CopyTo(T(), Integer)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1.CopyTo(`0[],System.Int32)
+    name: CopyTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.copyto
+  - name: (
+  - name: T
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1.CopyTo(`0[],System.Int32)
+    name: CopyTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.copyto
+  - name: (
+  - name: T
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: SadConsole.Components.LayeredSurface.GetEnumerator*
+  commentId: Overload:SadConsole.Components.LayeredSurface.GetEnumerator
+  isExternal: true
+  href: SadConsole.Components.LayeredSurface.html#SadConsole.Components.LayeredSurface.GetEnumerator
+  name: GetEnumerator
+  nameWithType: LayeredSurface.GetEnumerator
+  fullName: SadConsole.Components.LayeredSurface.GetEnumerator
+- uid: System.Collections.Generic.IEnumerable{SadConsole.ICellSurface}.GetEnumerator
+  commentId: M:System.Collections.Generic.IEnumerable{SadConsole.ICellSurface}.GetEnumerator
+  parent: System.Collections.Generic.IEnumerable{SadConsole.ICellSurface}
+  definition: System.Collections.Generic.IEnumerable`1.GetEnumerator
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-sadconsole.icellsurface-.getenumerator#system-collections-generic-ienumerable((sadconsole-icellsurface))-getenumerator
+  name: GetEnumerator()
+  nameWithType: IEnumerable<ICellSurface>.GetEnumerator()
+  fullName: System.Collections.Generic.IEnumerable<SadConsole.ICellSurface>.GetEnumerator()
+  nameWithType.vb: IEnumerable(Of ICellSurface).GetEnumerator()
+  fullName.vb: System.Collections.Generic.IEnumerable(Of SadConsole.ICellSurface).GetEnumerator()
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable{SadConsole.ICellSurface}.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-sadconsole.icellsurface-.getenumerator#system-collections-generic-ienumerable((sadconsole-icellsurface))-getenumerator
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable{SadConsole.ICellSurface}.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-sadconsole.icellsurface-.getenumerator#system-collections-generic-ienumerable((sadconsole-icellsurface))-getenumerator
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.IEnumerator{SadConsole.ICellSurface}
+  commentId: T:System.Collections.Generic.IEnumerator{SadConsole.ICellSurface}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerator`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  name: IEnumerator<ICellSurface>
+  nameWithType: IEnumerator<ICellSurface>
+  fullName: System.Collections.Generic.IEnumerator<SadConsole.ICellSurface>
+  nameWithType.vb: IEnumerator(Of ICellSurface)
+  fullName.vb: System.Collections.Generic.IEnumerator(Of SadConsole.ICellSurface)
+  name.vb: IEnumerator(Of ICellSurface)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: <
+  - uid: SadConsole.ICellSurface
+    name: ICellSurface
+    isExternal: true
+    href: SadConsole.ICellSurface.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.ICellSurface
+    name: ICellSurface
+    isExternal: true
+    href: SadConsole.ICellSurface.html
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1.GetEnumerator
+  commentId: M:System.Collections.Generic.IEnumerable`1.GetEnumerator
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  name: GetEnumerator()
+  nameWithType: IEnumerable<T>.GetEnumerator()
+  fullName: System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+  nameWithType.vb: IEnumerable(Of T).GetEnumerator()
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T).GetEnumerator()
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.IEnumerator`1
+  commentId: T:System.Collections.Generic.IEnumerator`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  name: IEnumerator<T>
+  nameWithType: IEnumerator<T>
+  fullName: System.Collections.Generic.IEnumerator<T>
+  nameWithType.vb: IEnumerator(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerator(Of T)
+  name.vb: IEnumerator(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
+- uid: SadConsole.Components.LayeredSurface.Create*
+  commentId: Overload:SadConsole.Components.LayeredSurface.Create
+  isExternal: true
+  href: SadConsole.Components.LayeredSurface.html#SadConsole.Components.LayeredSurface.Create
+  name: Create
+  nameWithType: LayeredSurface.Create
+  fullName: SadConsole.Components.LayeredSurface.Create
+- uid: SadConsole.CellSurface
+  commentId: T:SadConsole.CellSurface
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.CellSurface.html
+  name: CellSurface
+  nameWithType: CellSurface
+  fullName: SadConsole.CellSurface
+- uid: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  parent: SadConsole.Components.UpdateComponent
+  isExternal: true
+  href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  name: OnAdded(IScreenObject)
+  nameWithType: UpdateComponent.OnAdded(IScreenObject)
+  fullName: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  spec.csharp:
+  - uid: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+    name: OnAdded
+    isExternal: true
+    href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+    name: OnAdded
+    isExternal: true
+    href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+- uid: SadConsole.Components.LayeredSurface.OnAdded*
+  commentId: Overload:SadConsole.Components.LayeredSurface.OnAdded
+  isExternal: true
+  href: SadConsole.Components.LayeredSurface.html#SadConsole.Components.LayeredSurface.OnAdded(SadConsole.IScreenObject)
+  name: OnAdded
+  nameWithType: LayeredSurface.OnAdded
+  fullName: SadConsole.Components.LayeredSurface.OnAdded
+- uid: SadConsole.Components.IComponent.OnAdded(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Components.IComponent.OnAdded(SadConsole.IScreenObject)
+  parent: SadConsole.Components.IComponent
+  isExternal: true
+  href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.OnAdded(SadConsole.IScreenObject)
+  name: OnAdded(IScreenObject)
+  nameWithType: IComponent.OnAdded(IScreenObject)
+  fullName: SadConsole.Components.IComponent.OnAdded(SadConsole.IScreenObject)
+  spec.csharp:
+  - uid: SadConsole.Components.IComponent.OnAdded(SadConsole.IScreenObject)
+    name: OnAdded
+    isExternal: true
+    href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.OnAdded(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.IComponent.OnAdded(SadConsole.IScreenObject)
+    name: OnAdded
+    isExternal: true
+    href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.OnAdded(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+- uid: SadConsole.IScreenObject
+  commentId: T:SadConsole.IScreenObject
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IScreenObject.html
+  name: IScreenObject
+  nameWithType: IScreenObject
+  fullName: SadConsole.IScreenObject
+- uid: SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  parent: SadConsole.Components.UpdateComponent
+  isExternal: true
+  href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  name: OnRemoved(IScreenObject)
+  nameWithType: UpdateComponent.OnRemoved(IScreenObject)
+  fullName: SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  spec.csharp:
+  - uid: SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+    name: OnRemoved
+    isExternal: true
+    href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+    name: OnRemoved
+    isExternal: true
+    href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+- uid: SadConsole.Components.LayeredSurface.OnRemoved*
+  commentId: Overload:SadConsole.Components.LayeredSurface.OnRemoved
+  isExternal: true
+  href: SadConsole.Components.LayeredSurface.html#SadConsole.Components.LayeredSurface.OnRemoved(SadConsole.IScreenObject)
+  name: OnRemoved
+  nameWithType: LayeredSurface.OnRemoved
+  fullName: SadConsole.Components.LayeredSurface.OnRemoved
+- uid: SadConsole.Components.IComponent.OnRemoved(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Components.IComponent.OnRemoved(SadConsole.IScreenObject)
+  parent: SadConsole.Components.IComponent
+  isExternal: true
+  href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.OnRemoved(SadConsole.IScreenObject)
+  name: OnRemoved(IScreenObject)
+  nameWithType: IComponent.OnRemoved(IScreenObject)
+  fullName: SadConsole.Components.IComponent.OnRemoved(SadConsole.IScreenObject)
+  spec.csharp:
+  - uid: SadConsole.Components.IComponent.OnRemoved(SadConsole.IScreenObject)
+    name: OnRemoved
+    isExternal: true
+    href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.OnRemoved(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.IComponent.OnRemoved(SadConsole.IScreenObject)
+    name: OnRemoved
+    isExternal: true
+    href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.OnRemoved(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+- uid: SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  commentId: M:SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  parent: SadConsole.Components.UpdateComponent
+  isExternal: true
+  href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  name: Update(IScreenObject, TimeSpan)
+  nameWithType: UpdateComponent.Update(IScreenObject, TimeSpan)
+  fullName: SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject, System.TimeSpan)
+  spec.csharp:
+  - uid: SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+    name: Update
+    isExternal: true
+    href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+    name: Update
+    isExternal: true
+    href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+- uid: SadConsole.Components.LayeredSurface.Update*
+  commentId: Overload:SadConsole.Components.LayeredSurface.Update
+  isExternal: true
+  href: SadConsole.Components.LayeredSurface.html#SadConsole.Components.LayeredSurface.Update(SadConsole.IScreenObject,System.TimeSpan)
+  name: Update
+  nameWithType: LayeredSurface.Update
+  fullName: SadConsole.Components.LayeredSurface.Update
+- uid: SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  commentId: M:SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  parent: SadConsole.Components.IComponent
+  isExternal: true
+  href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  name: Update(IScreenObject, TimeSpan)
+  nameWithType: IComponent.Update(IScreenObject, TimeSpan)
+  fullName: SadConsole.Components.IComponent.Update(SadConsole.IScreenObject, System.TimeSpan)
+  spec.csharp:
+  - uid: SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+    name: Update
+    isExternal: true
+    href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+    name: Update
+    isExternal: true
+    href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+- uid: SadConsole.Components.LayeredSurface.#ctor*
+  commentId: Overload:SadConsole.Components.LayeredSurface.#ctor
+  isExternal: true
+  href: SadConsole.Components.LayeredSurface.html#SadConsole.Components.LayeredSurface.#ctor
+  name: LayeredSurface
+  nameWithType: LayeredSurface.LayeredSurface
+  fullName: SadConsole.Components.LayeredSurface.LayeredSurface
+  nameWithType.vb: LayeredSurface.New
+  fullName.vb: SadConsole.Components.LayeredSurface.New
+  name.vb: New
+- uid: SadConsole.Components.LayeredSurface.IsAttached*
+  commentId: Overload:SadConsole.Components.LayeredSurface.IsAttached
+  isExternal: true
+  href: SadConsole.Components.LayeredSurface.html#SadConsole.Components.LayeredSurface.IsAttached
+  name: IsAttached
+  nameWithType: LayeredSurface.IsAttached
+  fullName: SadConsole.Components.LayeredSurface.IsAttached
+- uid: SadConsole.Components.LayeredSurface.View*
+  commentId: Overload:SadConsole.Components.LayeredSurface.View
+  isExternal: true
+  href: SadConsole.Components.LayeredSurface.html#SadConsole.Components.LayeredSurface.View
+  name: View
+  nameWithType: LayeredSurface.View
+  fullName: SadConsole.Components.LayeredSurface.View
+- uid: SadConsole.Components.LayeredSurface.DefaultBackground*
+  commentId: Overload:SadConsole.Components.LayeredSurface.DefaultBackground
+  isExternal: true
+  href: SadConsole.Components.LayeredSurface.html#SadConsole.Components.LayeredSurface.DefaultBackground
+  name: DefaultBackground
+  nameWithType: LayeredSurface.DefaultBackground
+  fullName: SadConsole.Components.LayeredSurface.DefaultBackground
+- uid: SadRogue.Primitives.Color
+  commentId: T:SadRogue.Primitives.Color
+  parent: SadRogue.Primitives
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: SadRogue.Primitives.Color
+- uid: SadConsole.Components.LayeredSurface.Count*
+  commentId: Overload:SadConsole.Components.LayeredSurface.Count
+  isExternal: true
+  href: SadConsole.Components.LayeredSurface.html#SadConsole.Components.LayeredSurface.Count
+  name: Count
+  nameWithType: LayeredSurface.Count
+  fullName: SadConsole.Components.LayeredSurface.Count
+- uid: System.Collections.Generic.ICollection{SadConsole.ICellSurface}.Count
+  commentId: P:System.Collections.Generic.ICollection{SadConsole.ICellSurface}.Count
+  parent: System.Collections.Generic.ICollection{SadConsole.ICellSurface}
+  definition: System.Collections.Generic.ICollection`1.Count
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.icellsurface-.count
+  name: Count
+  nameWithType: ICollection<ICellSurface>.Count
+  fullName: System.Collections.Generic.ICollection<SadConsole.ICellSurface>.Count
+  nameWithType.vb: ICollection(Of ICellSurface).Count
+  fullName.vb: System.Collections.Generic.ICollection(Of SadConsole.ICellSurface).Count
+- uid: System.Collections.Generic.ICollection`1.Count
+  commentId: P:System.Collections.Generic.ICollection`1.Count
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.count
+  name: Count
+  nameWithType: ICollection<T>.Count
+  fullName: System.Collections.Generic.ICollection<T>.Count
+  nameWithType.vb: ICollection(Of T).Count
+  fullName.vb: System.Collections.Generic.ICollection(Of T).Count
+- uid: SadConsole.Components.LayeredSurface.IsReadOnly*
+  commentId: Overload:SadConsole.Components.LayeredSurface.IsReadOnly
+  isExternal: true
+  href: SadConsole.Components.LayeredSurface.html#SadConsole.Components.LayeredSurface.IsReadOnly
+  name: IsReadOnly
+  nameWithType: LayeredSurface.IsReadOnly
+  fullName: SadConsole.Components.LayeredSurface.IsReadOnly
+- uid: System.Collections.Generic.ICollection{SadConsole.ICellSurface}.IsReadOnly
+  commentId: P:System.Collections.Generic.ICollection{SadConsole.ICellSurface}.IsReadOnly
+  parent: System.Collections.Generic.ICollection{SadConsole.ICellSurface}
+  definition: System.Collections.Generic.ICollection`1.IsReadOnly
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.icellsurface-.isreadonly
+  name: IsReadOnly
+  nameWithType: ICollection<ICellSurface>.IsReadOnly
+  fullName: System.Collections.Generic.ICollection<SadConsole.ICellSurface>.IsReadOnly
+  nameWithType.vb: ICollection(Of ICellSurface).IsReadOnly
+  fullName.vb: System.Collections.Generic.ICollection(Of SadConsole.ICellSurface).IsReadOnly
+- uid: System.Collections.Generic.ICollection`1.IsReadOnly
+  commentId: P:System.Collections.Generic.ICollection`1.IsReadOnly
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.isreadonly
+  name: IsReadOnly
+  nameWithType: ICollection<T>.IsReadOnly
+  fullName: System.Collections.Generic.ICollection<T>.IsReadOnly
+  nameWithType.vb: ICollection(Of T).IsReadOnly
+  fullName.vb: System.Collections.Generic.ICollection(Of T).IsReadOnly
+- uid: SadConsole.Components.LayeredSurface.Item*
+  commentId: Overload:SadConsole.Components.LayeredSurface.Item
+  isExternal: true
+  href: SadConsole.Components.LayeredSurface.html#SadConsole.Components.LayeredSurface.Item(System.Int32)
+  name: this
+  nameWithType: LayeredSurface.this
+  fullName: SadConsole.Components.LayeredSurface.this
+  nameWithType.vb: LayeredSurface.this[]
+  fullName.vb: SadConsole.Components.LayeredSurface.this[]
+  name.vb: this[]
+- uid: System.Collections.Generic.IList{SadConsole.ICellSurface}.Item(System.Int32)
+  commentId: P:System.Collections.Generic.IList{SadConsole.ICellSurface}.Item(System.Int32)
+  parent: System.Collections.Generic.IList{SadConsole.ICellSurface}
+  definition: System.Collections.Generic.IList`1.Item(System.Int32)
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: this[int]
+  nameWithType: IList<ICellSurface>.this[int]
+  fullName: System.Collections.Generic.IList<SadConsole.ICellSurface>.this[int]
+  nameWithType.vb: IList(Of ICellSurface).this[](Integer)
+  fullName.vb: System.Collections.Generic.IList(Of SadConsole.ICellSurface).this[](Integer)
+  name.vb: this[](Integer)
+  spec.csharp:
+  - name: this
+  - name: '['
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ']'
+  spec.vb:
+  - uid: System.Collections.Generic.IList{SadConsole.ICellSurface}.Item(System.Int32)
+    name: this[]
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-sadconsole.icellsurface-.item
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Collections.Generic.IList`1.Item(System.Int32)
+  commentId: P:System.Collections.Generic.IList`1.Item(System.Int32)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: this[int]
+  nameWithType: IList<T>.this[int]
+  fullName: System.Collections.Generic.IList<T>.this[int]
+  nameWithType.vb: IList(Of T).this[](Integer)
+  fullName.vb: System.Collections.Generic.IList(Of T).this[](Integer)
+  name.vb: this[](Integer)
+  spec.csharp:
+  - name: this
+  - name: '['
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ']'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1.Item(System.Int32)
+    name: this[]
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1.item
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )

@@ -1,0 +1,869 @@
+### YamlMime:ManagedReference
+items:
+- uid: SadConsole.Entities.AnimatedAppearanceComponent
+  commentId: T:SadConsole.Entities.AnimatedAppearanceComponent
+  id: AnimatedAppearanceComponent
+  parent: SadConsole.Entities
+  children:
+  - SadConsole.Entities.AnimatedAppearanceComponent.#ctor
+  - SadConsole.Entities.AnimatedAppearanceComponent.AnimationTime
+  - SadConsole.Entities.AnimatedAppearanceComponent.Frames
+  - SadConsole.Entities.AnimatedAppearanceComponent.IsRepeatable
+  - SadConsole.Entities.AnimatedAppearanceComponent.OnAdded(SadConsole.IScreenObject)
+  - SadConsole.Entities.AnimatedAppearanceComponent.OnRemoved(SadConsole.IScreenObject)
+  - SadConsole.Entities.AnimatedAppearanceComponent.Restart
+  - SadConsole.Entities.AnimatedAppearanceComponent.Start
+  - SadConsole.Entities.AnimatedAppearanceComponent.Stop
+  - SadConsole.Entities.AnimatedAppearanceComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  langs:
+  - csharp
+  - vb
+  name: AnimatedAppearanceComponent
+  nameWithType: AnimatedAppearanceComponent
+  fullName: SadConsole.Entities.AnimatedAppearanceComponent
+  type: Class
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: A component for <xref href="SadConsole.Entities.Entity" data-throw-if-not-resolved="false"></xref> that animates the <see cref="!:Entity.Appearance"></see> and <see cref="!:Entity.Effect"></see> properties.
+  example: []
+  syntax:
+    content: >-
+      [DataContract]
+
+      public class AnimatedAppearanceComponent : UpdateComponent, IComponent
+    content.vb: >-
+      <DataContract>
+
+      Public Class AnimatedAppearanceComponent Inherits UpdateComponent Implements IComponent
+  inheritance:
+  - System.Object
+  - SadConsole.Components.UpdateComponent
+  implements:
+  - SadConsole.Components.IComponent
+  inheritedMembers:
+  - SadConsole.Components.UpdateComponent.SortOrder
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: System.Runtime.Serialization.DataContractAttribute
+    ctor: System.Runtime.Serialization.DataContractAttribute.#ctor
+    arguments: []
+- uid: SadConsole.Entities.AnimatedAppearanceComponent.OnAdded(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Entities.AnimatedAppearanceComponent.OnAdded(SadConsole.IScreenObject)
+  id: OnAdded(SadConsole.IScreenObject)
+  parent: SadConsole.Entities.AnimatedAppearanceComponent
+  langs:
+  - csharp
+  - vb
+  name: OnAdded(IScreenObject)
+  nameWithType: AnimatedAppearanceComponent.OnAdded(IScreenObject)
+  fullName: SadConsole.Entities.AnimatedAppearanceComponent.OnAdded(SadConsole.IScreenObject)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: Called by the component system when this component is added to an object. Must be of type <xref href="SadConsole.Entities.Entity" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public override void OnAdded(IScreenObject host)
+    parameters:
+    - id: host
+      type: SadConsole.IScreenObject
+      description: The component host.
+    content.vb: Public Overrides Sub OnAdded(host As IScreenObject)
+  overridden: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  overload: SadConsole.Entities.AnimatedAppearanceComponent.OnAdded*
+  exceptions:
+  - type: System.InvalidCastException
+    commentId: T:System.InvalidCastException
+    description: This component was added to a type other than <xref href="SadConsole.Entities.Entity" data-throw-if-not-resolved="false"></xref>.
+- uid: SadConsole.Entities.AnimatedAppearanceComponent.OnRemoved(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Entities.AnimatedAppearanceComponent.OnRemoved(SadConsole.IScreenObject)
+  id: OnRemoved(SadConsole.IScreenObject)
+  parent: SadConsole.Entities.AnimatedAppearanceComponent
+  langs:
+  - csharp
+  - vb
+  name: OnRemoved(IScreenObject)
+  nameWithType: AnimatedAppearanceComponent.OnRemoved(IScreenObject)
+  fullName: SadConsole.Entities.AnimatedAppearanceComponent.OnRemoved(SadConsole.IScreenObject)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: Called by the component system when this component is removed from an object.
+  example: []
+  syntax:
+    content: public override void OnRemoved(IScreenObject host)
+    parameters:
+    - id: host
+      type: SadConsole.IScreenObject
+      description: The component host.
+    content.vb: Public Overrides Sub OnRemoved(host As IScreenObject)
+  overridden: SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  overload: SadConsole.Entities.AnimatedAppearanceComponent.OnRemoved*
+- uid: SadConsole.Entities.AnimatedAppearanceComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  commentId: M:SadConsole.Entities.AnimatedAppearanceComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  id: Update(SadConsole.IScreenObject,System.TimeSpan)
+  parent: SadConsole.Entities.AnimatedAppearanceComponent
+  langs:
+  - csharp
+  - vb
+  name: Update(IScreenObject, TimeSpan)
+  nameWithType: AnimatedAppearanceComponent.Update(IScreenObject, TimeSpan)
+  fullName: SadConsole.Entities.AnimatedAppearanceComponent.Update(SadConsole.IScreenObject, System.TimeSpan)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: Updates the animation frame index and applies the animation to the entity.
+  example: []
+  syntax:
+    content: public override void Update(IScreenObject host, TimeSpan delta)
+    parameters:
+    - id: host
+      type: SadConsole.IScreenObject
+      description: The component host.
+    - id: delta
+      type: System.TimeSpan
+      description: The time between calls to this method.
+    content.vb: Public Overrides Sub Update(host As IScreenObject, delta As TimeSpan)
+  overridden: SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  overload: SadConsole.Entities.AnimatedAppearanceComponent.Update*
+- uid: SadConsole.Entities.AnimatedAppearanceComponent.Start
+  commentId: M:SadConsole.Entities.AnimatedAppearanceComponent.Start
+  id: Start
+  parent: SadConsole.Entities.AnimatedAppearanceComponent
+  langs:
+  - csharp
+  - vb
+  name: Start()
+  nameWithType: AnimatedAppearanceComponent.Start()
+  fullName: SadConsole.Entities.AnimatedAppearanceComponent.Start()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: Starts the animation and immediately applies the current frame to the entity.
+  example: []
+  syntax:
+    content: public void Start()
+    content.vb: Public Sub Start()
+  overload: SadConsole.Entities.AnimatedAppearanceComponent.Start*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: The animation was started but there aren't any frames to animate.
+- uid: SadConsole.Entities.AnimatedAppearanceComponent.Stop
+  commentId: M:SadConsole.Entities.AnimatedAppearanceComponent.Stop
+  id: Stop
+  parent: SadConsole.Entities.AnimatedAppearanceComponent
+  langs:
+  - csharp
+  - vb
+  name: Stop()
+  nameWithType: AnimatedAppearanceComponent.Stop()
+  fullName: SadConsole.Entities.AnimatedAppearanceComponent.Stop()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: Stops the animation.
+  example: []
+  syntax:
+    content: public void Stop()
+    content.vb: Public Sub [Stop]()
+  overload: SadConsole.Entities.AnimatedAppearanceComponent.Stop*
+- uid: SadConsole.Entities.AnimatedAppearanceComponent.Restart
+  commentId: M:SadConsole.Entities.AnimatedAppearanceComponent.Restart
+  id: Restart
+  parent: SadConsole.Entities.AnimatedAppearanceComponent
+  langs:
+  - csharp
+  - vb
+  name: Restart()
+  nameWithType: AnimatedAppearanceComponent.Restart()
+  fullName: SadConsole.Entities.AnimatedAppearanceComponent.Restart()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: Restarts the animation at the first frame.
+  example: []
+  syntax:
+    content: public void Restart()
+    content.vb: Public Sub Restart()
+  overload: SadConsole.Entities.AnimatedAppearanceComponent.Restart*
+- uid: SadConsole.Entities.AnimatedAppearanceComponent.#ctor
+  commentId: M:SadConsole.Entities.AnimatedAppearanceComponent.#ctor
+  id: '#ctor'
+  parent: SadConsole.Entities.AnimatedAppearanceComponent
+  langs:
+  - csharp
+  - vb
+  name: AnimatedAppearanceComponent()
+  nameWithType: AnimatedAppearanceComponent.AnimatedAppearanceComponent()
+  fullName: SadConsole.Entities.AnimatedAppearanceComponent.AnimatedAppearanceComponent()
+  type: Constructor
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  syntax:
+    content: public AnimatedAppearanceComponent()
+    content.vb: Public Sub New()
+  overload: SadConsole.Entities.AnimatedAppearanceComponent.#ctor*
+  nameWithType.vb: AnimatedAppearanceComponent.New()
+  fullName.vb: SadConsole.Entities.AnimatedAppearanceComponent.New()
+  name.vb: New()
+- uid: SadConsole.Entities.AnimatedAppearanceComponent.Frames
+  commentId: P:SadConsole.Entities.AnimatedAppearanceComponent.Frames
+  id: Frames
+  parent: SadConsole.Entities.AnimatedAppearanceComponent
+  langs:
+  - csharp
+  - vb
+  name: Frames
+  nameWithType: AnimatedAppearanceComponent.Frames
+  fullName: SadConsole.Entities.AnimatedAppearanceComponent.Frames
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: The frames of animation.
+  example: []
+  syntax:
+    content: public ColoredGlyphAndEffect[] Frames { get; set; }
+    parameters: []
+    return:
+      type: SadConsole.ColoredGlyphAndEffect[]
+    content.vb: Public Property Frames As ColoredGlyphAndEffect()
+  overload: SadConsole.Entities.AnimatedAppearanceComponent.Frames*
+- uid: SadConsole.Entities.AnimatedAppearanceComponent.AnimationTime
+  commentId: P:SadConsole.Entities.AnimatedAppearanceComponent.AnimationTime
+  id: AnimationTime
+  parent: SadConsole.Entities.AnimatedAppearanceComponent
+  langs:
+  - csharp
+  - vb
+  name: AnimationTime
+  nameWithType: AnimatedAppearanceComponent.AnimationTime
+  fullName: SadConsole.Entities.AnimatedAppearanceComponent.AnimationTime
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: The total time it takes to play all <xref href="SadConsole.Entities.AnimatedAppearanceComponent.Frames" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public TimeSpan AnimationTime { get; set; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: Public Property AnimationTime As TimeSpan
+  overload: SadConsole.Entities.AnimatedAppearanceComponent.AnimationTime*
+- uid: SadConsole.Entities.AnimatedAppearanceComponent.IsRepeatable
+  commentId: P:SadConsole.Entities.AnimatedAppearanceComponent.IsRepeatable
+  id: IsRepeatable
+  parent: SadConsole.Entities.AnimatedAppearanceComponent
+  langs:
+  - csharp
+  - vb
+  name: IsRepeatable
+  nameWithType: AnimatedAppearanceComponent.IsRepeatable
+  fullName: SadConsole.Entities.AnimatedAppearanceComponent.IsRepeatable
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the animation will automatically restart after the last frame is applied. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> and the animation stops when completed.
+  example: []
+  syntax:
+    content: public bool IsRepeatable { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsRepeatable As Boolean
+  overload: SadConsole.Entities.AnimatedAppearanceComponent.IsRepeatable*
+references:
+- uid: SadConsole.Entities.Entity
+  commentId: T:SadConsole.Entities.Entity
+  parent: SadConsole.Entities
+  isExternal: true
+  href: SadConsole.Entities.Entity.html
+  name: Entity
+  nameWithType: Entity
+  fullName: SadConsole.Entities.Entity
+- uid: SadConsole.Entities
+  commentId: N:SadConsole.Entities
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Entities
+  nameWithType: SadConsole.Entities
+  fullName: SadConsole.Entities
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Entities
+    name: Entities
+    isExternal: true
+    href: SadConsole.Entities.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Entities
+    name: Entities
+    isExternal: true
+    href: SadConsole.Entities.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: SadConsole.Components.UpdateComponent
+  commentId: T:SadConsole.Components.UpdateComponent
+  parent: SadConsole.Components
+  isExternal: true
+  href: SadConsole.Components.UpdateComponent.html
+  name: UpdateComponent
+  nameWithType: UpdateComponent
+  fullName: SadConsole.Components.UpdateComponent
+- uid: SadConsole.Components.IComponent
+  commentId: T:SadConsole.Components.IComponent
+  parent: SadConsole.Components
+  isExternal: true
+  href: SadConsole.Components.IComponent.html
+  name: IComponent
+  nameWithType: IComponent
+  fullName: SadConsole.Components.IComponent
+- uid: SadConsole.Components.UpdateComponent.SortOrder
+  commentId: P:SadConsole.Components.UpdateComponent.SortOrder
+  parent: SadConsole.Components.UpdateComponent
+  isExternal: true
+  href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.SortOrder
+  name: SortOrder
+  nameWithType: UpdateComponent.SortOrder
+  fullName: SadConsole.Components.UpdateComponent.SortOrder
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SadConsole.Components
+  commentId: N:SadConsole.Components
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Components
+  nameWithType: SadConsole.Components
+  fullName: SadConsole.Components
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Components
+    name: Components
+    isExternal: true
+    href: SadConsole.Components.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Components
+    name: Components
+    isExternal: true
+    href: SadConsole.Components.html
+- uid: System.InvalidCastException
+  commentId: T:System.InvalidCastException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidcastexception
+  name: InvalidCastException
+  nameWithType: InvalidCastException
+  fullName: System.InvalidCastException
+- uid: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  parent: SadConsole.Components.UpdateComponent
+  isExternal: true
+  href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  name: OnAdded(IScreenObject)
+  nameWithType: UpdateComponent.OnAdded(IScreenObject)
+  fullName: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  spec.csharp:
+  - uid: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+    name: OnAdded
+    isExternal: true
+    href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+    name: OnAdded
+    isExternal: true
+    href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+- uid: SadConsole.Entities.AnimatedAppearanceComponent.OnAdded*
+  commentId: Overload:SadConsole.Entities.AnimatedAppearanceComponent.OnAdded
+  isExternal: true
+  href: SadConsole.Entities.AnimatedAppearanceComponent.html#SadConsole.Entities.AnimatedAppearanceComponent.OnAdded(SadConsole.IScreenObject)
+  name: OnAdded
+  nameWithType: AnimatedAppearanceComponent.OnAdded
+  fullName: SadConsole.Entities.AnimatedAppearanceComponent.OnAdded
+- uid: SadConsole.IScreenObject
+  commentId: T:SadConsole.IScreenObject
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IScreenObject.html
+  name: IScreenObject
+  nameWithType: IScreenObject
+  fullName: SadConsole.IScreenObject
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
+- uid: SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  parent: SadConsole.Components.UpdateComponent
+  isExternal: true
+  href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  name: OnRemoved(IScreenObject)
+  nameWithType: UpdateComponent.OnRemoved(IScreenObject)
+  fullName: SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  spec.csharp:
+  - uid: SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+    name: OnRemoved
+    isExternal: true
+    href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+    name: OnRemoved
+    isExternal: true
+    href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+- uid: SadConsole.Entities.AnimatedAppearanceComponent.OnRemoved*
+  commentId: Overload:SadConsole.Entities.AnimatedAppearanceComponent.OnRemoved
+  isExternal: true
+  href: SadConsole.Entities.AnimatedAppearanceComponent.html#SadConsole.Entities.AnimatedAppearanceComponent.OnRemoved(SadConsole.IScreenObject)
+  name: OnRemoved
+  nameWithType: AnimatedAppearanceComponent.OnRemoved
+  fullName: SadConsole.Entities.AnimatedAppearanceComponent.OnRemoved
+- uid: SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  commentId: M:SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  parent: SadConsole.Components.UpdateComponent
+  isExternal: true
+  href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  name: Update(IScreenObject, TimeSpan)
+  nameWithType: UpdateComponent.Update(IScreenObject, TimeSpan)
+  fullName: SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject, System.TimeSpan)
+  spec.csharp:
+  - uid: SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+    name: Update
+    isExternal: true
+    href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+    name: Update
+    isExternal: true
+    href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+- uid: SadConsole.Entities.AnimatedAppearanceComponent.Update*
+  commentId: Overload:SadConsole.Entities.AnimatedAppearanceComponent.Update
+  isExternal: true
+  href: SadConsole.Entities.AnimatedAppearanceComponent.html#SadConsole.Entities.AnimatedAppearanceComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  name: Update
+  nameWithType: AnimatedAppearanceComponent.Update
+  fullName: SadConsole.Entities.AnimatedAppearanceComponent.Update
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: SadConsole.Entities.AnimatedAppearanceComponent.Start*
+  commentId: Overload:SadConsole.Entities.AnimatedAppearanceComponent.Start
+  isExternal: true
+  href: SadConsole.Entities.AnimatedAppearanceComponent.html#SadConsole.Entities.AnimatedAppearanceComponent.Start
+  name: Start
+  nameWithType: AnimatedAppearanceComponent.Start
+  fullName: SadConsole.Entities.AnimatedAppearanceComponent.Start
+- uid: SadConsole.Entities.AnimatedAppearanceComponent.Stop*
+  commentId: Overload:SadConsole.Entities.AnimatedAppearanceComponent.Stop
+  isExternal: true
+  href: SadConsole.Entities.AnimatedAppearanceComponent.html#SadConsole.Entities.AnimatedAppearanceComponent.Stop
+  name: Stop
+  nameWithType: AnimatedAppearanceComponent.Stop
+  fullName: SadConsole.Entities.AnimatedAppearanceComponent.Stop
+- uid: SadConsole.Entities.AnimatedAppearanceComponent.Restart*
+  commentId: Overload:SadConsole.Entities.AnimatedAppearanceComponent.Restart
+  isExternal: true
+  href: SadConsole.Entities.AnimatedAppearanceComponent.html#SadConsole.Entities.AnimatedAppearanceComponent.Restart
+  name: Restart
+  nameWithType: AnimatedAppearanceComponent.Restart
+  fullName: SadConsole.Entities.AnimatedAppearanceComponent.Restart
+- uid: SadConsole.Entities.AnimatedAppearanceComponent.#ctor*
+  commentId: Overload:SadConsole.Entities.AnimatedAppearanceComponent.#ctor
+  isExternal: true
+  href: SadConsole.Entities.AnimatedAppearanceComponent.html#SadConsole.Entities.AnimatedAppearanceComponent.#ctor
+  name: AnimatedAppearanceComponent
+  nameWithType: AnimatedAppearanceComponent.AnimatedAppearanceComponent
+  fullName: SadConsole.Entities.AnimatedAppearanceComponent.AnimatedAppearanceComponent
+  nameWithType.vb: AnimatedAppearanceComponent.New
+  fullName.vb: SadConsole.Entities.AnimatedAppearanceComponent.New
+  name.vb: New
+- uid: SadConsole.Entities.AnimatedAppearanceComponent.Frames*
+  commentId: Overload:SadConsole.Entities.AnimatedAppearanceComponent.Frames
+  isExternal: true
+  href: SadConsole.Entities.AnimatedAppearanceComponent.html#SadConsole.Entities.AnimatedAppearanceComponent.Frames
+  name: Frames
+  nameWithType: AnimatedAppearanceComponent.Frames
+  fullName: SadConsole.Entities.AnimatedAppearanceComponent.Frames
+- uid: SadConsole.ColoredGlyphAndEffect[]
+  isExternal: true
+  href: SadConsole.ColoredGlyphAndEffect.html
+  name: ColoredGlyphAndEffect[]
+  nameWithType: ColoredGlyphAndEffect[]
+  fullName: SadConsole.ColoredGlyphAndEffect[]
+  nameWithType.vb: ColoredGlyphAndEffect()
+  fullName.vb: SadConsole.ColoredGlyphAndEffect()
+  name.vb: ColoredGlyphAndEffect()
+  spec.csharp:
+  - uid: SadConsole.ColoredGlyphAndEffect
+    name: ColoredGlyphAndEffect
+    isExternal: true
+    href: SadConsole.ColoredGlyphAndEffect.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: SadConsole.ColoredGlyphAndEffect
+    name: ColoredGlyphAndEffect
+    isExternal: true
+    href: SadConsole.ColoredGlyphAndEffect.html
+  - name: (
+  - name: )
+- uid: SadConsole.Entities.AnimatedAppearanceComponent.Frames
+  commentId: P:SadConsole.Entities.AnimatedAppearanceComponent.Frames
+  isExternal: true
+  href: SadConsole.Entities.AnimatedAppearanceComponent.html#SadConsole.Entities.AnimatedAppearanceComponent.Frames
+  name: Frames
+  nameWithType: AnimatedAppearanceComponent.Frames
+  fullName: SadConsole.Entities.AnimatedAppearanceComponent.Frames
+- uid: SadConsole.Entities.AnimatedAppearanceComponent.AnimationTime*
+  commentId: Overload:SadConsole.Entities.AnimatedAppearanceComponent.AnimationTime
+  isExternal: true
+  href: SadConsole.Entities.AnimatedAppearanceComponent.html#SadConsole.Entities.AnimatedAppearanceComponent.AnimationTime
+  name: AnimationTime
+  nameWithType: AnimatedAppearanceComponent.AnimationTime
+  fullName: SadConsole.Entities.AnimatedAppearanceComponent.AnimationTime
+- uid: SadConsole.Entities.AnimatedAppearanceComponent.IsRepeatable*
+  commentId: Overload:SadConsole.Entities.AnimatedAppearanceComponent.IsRepeatable
+  isExternal: true
+  href: SadConsole.Entities.AnimatedAppearanceComponent.html#SadConsole.Entities.AnimatedAppearanceComponent.IsRepeatable
+  name: IsRepeatable
+  nameWithType: AnimatedAppearanceComponent.IsRepeatable
+  fullName: SadConsole.Entities.AnimatedAppearanceComponent.IsRepeatable
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean

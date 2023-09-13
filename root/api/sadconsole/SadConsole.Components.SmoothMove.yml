@@ -1,0 +1,972 @@
+### YamlMime:ManagedReference
+items:
+- uid: SadConsole.Components.SmoothMove
+  commentId: T:SadConsole.Components.SmoothMove
+  id: SmoothMove
+  parent: SadConsole.Components
+  children:
+  - SadConsole.Components.SmoothMove.#ctor
+  - SadConsole.Components.SmoothMove.#ctor(SadRogue.Primitives.Point)
+  - SadConsole.Components.SmoothMove.#ctor(SadRogue.Primitives.Point,System.TimeSpan)
+  - SadConsole.Components.SmoothMove.#ctor(System.TimeSpan)
+  - SadConsole.Components.SmoothMove.FontSize
+  - SadConsole.Components.SmoothMove.IsMoving
+  - SadConsole.Components.SmoothMove.MoveEnded
+  - SadConsole.Components.SmoothMove.MoveStarted
+  - SadConsole.Components.SmoothMove.OnAdded(SadConsole.IScreenObject)
+  - SadConsole.Components.SmoothMove.OnRemoved(SadConsole.IScreenObject)
+  - SadConsole.Components.SmoothMove.TransitionEasingFunction
+  - SadConsole.Components.SmoothMove.TransitionTime
+  - SadConsole.Components.SmoothMove.Update(SadConsole.IScreenObject,System.TimeSpan)
+  langs:
+  - csharp
+  - vb
+  name: SmoothMove
+  nameWithType: SmoothMove
+  fullName: SadConsole.Components.SmoothMove
+  type: Class
+  assemblies:
+  - SadConsole.Extended
+  namespace: SadConsole.Components
+  summary: Animates the movement of an object.
+  example: []
+  syntax:
+    content: 'public class SmoothMove : UpdateComponent, IComponent'
+    content.vb: Public Class SmoothMove Inherits UpdateComponent Implements IComponent
+  inheritance:
+  - System.Object
+  - SadConsole.Components.UpdateComponent
+  implements:
+  - SadConsole.Components.IComponent
+  inheritedMembers:
+  - SadConsole.Components.UpdateComponent.SortOrder
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: SadConsole.Components.SmoothMove.#ctor
+  commentId: M:SadConsole.Components.SmoothMove.#ctor
+  id: '#ctor'
+  parent: SadConsole.Components.SmoothMove
+  langs:
+  - csharp
+  - vb
+  name: SmoothMove()
+  nameWithType: SmoothMove.SmoothMove()
+  fullName: SadConsole.Components.SmoothMove.SmoothMove()
+  type: Constructor
+  assemblies:
+  - SadConsole.Extended
+  namespace: SadConsole.Components
+  summary: Creates a new instance of this object with a default transition time of 200 milliseconds.
+  example: []
+  syntax:
+    content: public SmoothMove()
+    content.vb: Public Sub New()
+  overload: SadConsole.Components.SmoothMove.#ctor*
+  nameWithType.vb: SmoothMove.New()
+  fullName.vb: SadConsole.Components.SmoothMove.New()
+  name.vb: New()
+- uid: SadConsole.Components.SmoothMove.#ctor(SadRogue.Primitives.Point)
+  commentId: M:SadConsole.Components.SmoothMove.#ctor(SadRogue.Primitives.Point)
+  id: '#ctor(SadRogue.Primitives.Point)'
+  parent: SadConsole.Components.SmoothMove
+  langs:
+  - csharp
+  - vb
+  name: SmoothMove(Point)
+  nameWithType: SmoothMove.SmoothMove(Point)
+  fullName: SadConsole.Components.SmoothMove.SmoothMove(SadRogue.Primitives.Point)
+  type: Constructor
+  assemblies:
+  - SadConsole.Extended
+  namespace: SadConsole.Components
+  summary: Creates a new instance of this object with a fixed size for calculating smooth movement.
+  example: []
+  syntax:
+    content: public SmoothMove(Point fontSize)
+    parameters:
+    - id: fontSize
+      type: SadRogue.Primitives.Point
+      description: The size of the font used to display the object hosting the component.
+    content.vb: Public Sub New(fontSize As Point)
+  overload: SadConsole.Components.SmoothMove.#ctor*
+  nameWithType.vb: SmoothMove.New(Point)
+  fullName.vb: SadConsole.Components.SmoothMove.New(SadRogue.Primitives.Point)
+  name.vb: New(Point)
+- uid: SadConsole.Components.SmoothMove.#ctor(System.TimeSpan)
+  commentId: M:SadConsole.Components.SmoothMove.#ctor(System.TimeSpan)
+  id: '#ctor(System.TimeSpan)'
+  parent: SadConsole.Components.SmoothMove
+  langs:
+  - csharp
+  - vb
+  name: SmoothMove(TimeSpan)
+  nameWithType: SmoothMove.SmoothMove(TimeSpan)
+  fullName: SadConsole.Components.SmoothMove.SmoothMove(System.TimeSpan)
+  type: Constructor
+  assemblies:
+  - SadConsole.Extended
+  namespace: SadConsole.Components
+  summary: Creates a new instance of this object with a specific transition time.
+  example: []
+  syntax:
+    content: public SmoothMove(TimeSpan transitionTime)
+    parameters:
+    - id: transitionTime
+      type: System.TimeSpan
+      description: The amount of time it takes to animate the movement.
+    content.vb: Public Sub New(transitionTime As TimeSpan)
+  overload: SadConsole.Components.SmoothMove.#ctor*
+  nameWithType.vb: SmoothMove.New(TimeSpan)
+  fullName.vb: SadConsole.Components.SmoothMove.New(System.TimeSpan)
+  name.vb: New(TimeSpan)
+- uid: SadConsole.Components.SmoothMove.#ctor(SadRogue.Primitives.Point,System.TimeSpan)
+  commentId: M:SadConsole.Components.SmoothMove.#ctor(SadRogue.Primitives.Point,System.TimeSpan)
+  id: '#ctor(SadRogue.Primitives.Point,System.TimeSpan)'
+  parent: SadConsole.Components.SmoothMove
+  langs:
+  - csharp
+  - vb
+  name: SmoothMove(Point, TimeSpan)
+  nameWithType: SmoothMove.SmoothMove(Point, TimeSpan)
+  fullName: SadConsole.Components.SmoothMove.SmoothMove(SadRogue.Primitives.Point, System.TimeSpan)
+  type: Constructor
+  assemblies:
+  - SadConsole.Extended
+  namespace: SadConsole.Components
+  summary: Creates a new instance of this object with a fixed size for calculating smooth movement and the specified transition time.
+  example: []
+  syntax:
+    content: public SmoothMove(Point fontSize, TimeSpan transitionTime)
+    parameters:
+    - id: fontSize
+      type: SadRogue.Primitives.Point
+      description: The size of the font used to display the object hosting the component.
+    - id: transitionTime
+      type: System.TimeSpan
+      description: The amount of time it takes to animate the movement.
+    content.vb: Public Sub New(fontSize As Point, transitionTime As TimeSpan)
+  overload: SadConsole.Components.SmoothMove.#ctor*
+  nameWithType.vb: SmoothMove.New(Point, TimeSpan)
+  fullName.vb: SadConsole.Components.SmoothMove.New(SadRogue.Primitives.Point, System.TimeSpan)
+  name.vb: New(Point, TimeSpan)
+- uid: SadConsole.Components.SmoothMove.OnAdded(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Components.SmoothMove.OnAdded(SadConsole.IScreenObject)
+  id: OnAdded(SadConsole.IScreenObject)
+  parent: SadConsole.Components.SmoothMove
+  langs:
+  - csharp
+  - vb
+  name: OnAdded(IScreenObject)
+  nameWithType: SmoothMove.OnAdded(IScreenObject)
+  fullName: SadConsole.Components.SmoothMove.OnAdded(SadConsole.IScreenObject)
+  type: Method
+  assemblies:
+  - SadConsole.Extended
+  namespace: SadConsole.Components
+  summary: Called by the <code class="paramref">host</code> when the component is added to an object. Add to a <xref href="SadConsole.IScreenSurface" data-throw-if-not-resolved="false"></xref> or <xref href="SadConsole.Entities.Entity" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public override void OnAdded(IScreenObject host)
+    parameters:
+    - id: host
+      type: SadConsole.IScreenObject
+      description: The <xref href="SadConsole.IScreenSurface" data-throw-if-not-resolved="false"></xref> or <xref href="SadConsole.Entities.Entity" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Overrides Sub OnAdded(host As IScreenObject)
+  overridden: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  overload: SadConsole.Components.SmoothMove.OnAdded*
+- uid: SadConsole.Components.SmoothMove.OnRemoved(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Components.SmoothMove.OnRemoved(SadConsole.IScreenObject)
+  id: OnRemoved(SadConsole.IScreenObject)
+  parent: SadConsole.Components.SmoothMove
+  langs:
+  - csharp
+  - vb
+  name: OnRemoved(IScreenObject)
+  nameWithType: SmoothMove.OnRemoved(IScreenObject)
+  fullName: SadConsole.Components.SmoothMove.OnRemoved(SadConsole.IScreenObject)
+  type: Method
+  assemblies:
+  - SadConsole.Extended
+  namespace: SadConsole.Components
+  summary: Called when the component is removed from the host.
+  example: []
+  syntax:
+    content: public override void OnRemoved(IScreenObject host)
+    parameters:
+    - id: host
+      type: SadConsole.IScreenObject
+      description: The host that removed the component.
+    content.vb: Public Overrides Sub OnRemoved(host As IScreenObject)
+  overridden: SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  overload: SadConsole.Components.SmoothMove.OnRemoved*
+- uid: SadConsole.Components.SmoothMove.Update(SadConsole.IScreenObject,System.TimeSpan)
+  commentId: M:SadConsole.Components.SmoothMove.Update(SadConsole.IScreenObject,System.TimeSpan)
+  id: Update(SadConsole.IScreenObject,System.TimeSpan)
+  parent: SadConsole.Components.SmoothMove
+  langs:
+  - csharp
+  - vb
+  name: Update(IScreenObject, TimeSpan)
+  nameWithType: SmoothMove.Update(IScreenObject, TimeSpan)
+  fullName: SadConsole.Components.SmoothMove.Update(SadConsole.IScreenObject, System.TimeSpan)
+  type: Method
+  assemblies:
+  - SadConsole.Extended
+  namespace: SadConsole.Components
+  summary: Updates the component. If the object is moving, changes to pixel positioning (if required) and animates the movement.
+  example: []
+  syntax:
+    content: public override void Update(IScreenObject host, TimeSpan delta)
+    parameters:
+    - id: host
+      type: SadConsole.IScreenObject
+      description: The host object being moved.
+    - id: delta
+      type: System.TimeSpan
+      description: The time difference from the previous frame.
+    content.vb: Public Overrides Sub Update(host As IScreenObject, delta As TimeSpan)
+  overridden: SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  overload: SadConsole.Components.SmoothMove.Update*
+- uid: SadConsole.Components.SmoothMove.IsMoving
+  commentId: P:SadConsole.Components.SmoothMove.IsMoving
+  id: IsMoving
+  parent: SadConsole.Components.SmoothMove
+  langs:
+  - csharp
+  - vb
+  name: IsMoving
+  nameWithType: SmoothMove.IsMoving
+  fullName: SadConsole.Components.SmoothMove.IsMoving
+  type: Property
+  assemblies:
+  - SadConsole.Extended
+  namespace: SadConsole.Components
+  summary: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when this component currently is animating the movement of the host object; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+  example: []
+  syntax:
+    content: public bool IsMoving { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsMoving As Boolean
+  overload: SadConsole.Components.SmoothMove.IsMoving*
+- uid: SadConsole.Components.SmoothMove.FontSize
+  commentId: P:SadConsole.Components.SmoothMove.FontSize
+  id: FontSize
+  parent: SadConsole.Components.SmoothMove
+  langs:
+  - csharp
+  - vb
+  name: FontSize
+  nameWithType: SmoothMove.FontSize
+  fullName: SadConsole.Components.SmoothMove.FontSize
+  type: Property
+  assemblies:
+  - SadConsole.Extended
+  namespace: SadConsole.Components
+  summary: The size of the parent object's font.
+  example: []
+  syntax:
+    content: public Point FontSize { get; set; }
+    parameters: []
+    return:
+      type: SadRogue.Primitives.Point
+    content.vb: Public Property FontSize As Point
+  overload: SadConsole.Components.SmoothMove.FontSize*
+- uid: SadConsole.Components.SmoothMove.TransitionEasingFunction
+  commentId: P:SadConsole.Components.SmoothMove.TransitionEasingFunction
+  id: TransitionEasingFunction
+  parent: SadConsole.Components.SmoothMove
+  langs:
+  - csharp
+  - vb
+  name: TransitionEasingFunction
+  nameWithType: SmoothMove.TransitionEasingFunction
+  fullName: SadConsole.Components.SmoothMove.TransitionEasingFunction
+  type: Property
+  assemblies:
+  - SadConsole.Extended
+  namespace: SadConsole.Components
+  summary: The easing function applied to smoothing the objects movement.
+  example: []
+  syntax:
+    content: public EasingBase TransitionEasingFunction { get; set; }
+    parameters: []
+    return:
+      type: SadConsole.EasingFunctions.EasingBase
+    content.vb: Public Property TransitionEasingFunction As EasingBase
+  overload: SadConsole.Components.SmoothMove.TransitionEasingFunction*
+- uid: SadConsole.Components.SmoothMove.TransitionTime
+  commentId: P:SadConsole.Components.SmoothMove.TransitionTime
+  id: TransitionTime
+  parent: SadConsole.Components.SmoothMove
+  langs:
+  - csharp
+  - vb
+  name: TransitionTime
+  nameWithType: SmoothMove.TransitionTime
+  fullName: SadConsole.Components.SmoothMove.TransitionTime
+  type: Property
+  assemblies:
+  - SadConsole.Extended
+  namespace: SadConsole.Components
+  summary: The amount of time it takes to animated the movement.
+  example: []
+  syntax:
+    content: public TimeSpan TransitionTime { get; set; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: Public Property TransitionTime As TimeSpan
+  overload: SadConsole.Components.SmoothMove.TransitionTime*
+- uid: SadConsole.Components.SmoothMove.MoveStarted
+  commentId: E:SadConsole.Components.SmoothMove.MoveStarted
+  id: MoveStarted
+  parent: SadConsole.Components.SmoothMove
+  langs:
+  - csharp
+  - vb
+  name: MoveStarted
+  nameWithType: SmoothMove.MoveStarted
+  fullName: SadConsole.Components.SmoothMove.MoveStarted
+  type: Event
+  assemblies:
+  - SadConsole.Extended
+  namespace: SadConsole.Components
+  summary: Raised when the smoothing component starts moving an object.
+  example: []
+  syntax:
+    content: public event EventHandler MoveStarted
+    return:
+      type: System.EventHandler
+    content.vb: Public Event MoveStarted As EventHandler
+- uid: SadConsole.Components.SmoothMove.MoveEnded
+  commentId: E:SadConsole.Components.SmoothMove.MoveEnded
+  id: MoveEnded
+  parent: SadConsole.Components.SmoothMove
+  langs:
+  - csharp
+  - vb
+  name: MoveEnded
+  nameWithType: SmoothMove.MoveEnded
+  fullName: SadConsole.Components.SmoothMove.MoveEnded
+  type: Event
+  assemblies:
+  - SadConsole.Extended
+  namespace: SadConsole.Components
+  summary: Raised when the smoothing component ends moving an object.
+  example: []
+  syntax:
+    content: public event EventHandler MoveEnded
+    return:
+      type: System.EventHandler
+    content.vb: Public Event MoveEnded As EventHandler
+references:
+- uid: SadConsole.Components
+  commentId: N:SadConsole.Components
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Components
+  nameWithType: SadConsole.Components
+  fullName: SadConsole.Components
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Components
+    name: Components
+    isExternal: true
+    href: SadConsole.Components.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Components
+    name: Components
+    isExternal: true
+    href: SadConsole.Components.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: SadConsole.Components.UpdateComponent
+  commentId: T:SadConsole.Components.UpdateComponent
+  parent: SadConsole.Components
+  isExternal: true
+  href: SadConsole.Components.UpdateComponent.html
+  name: UpdateComponent
+  nameWithType: UpdateComponent
+  fullName: SadConsole.Components.UpdateComponent
+- uid: SadConsole.Components.IComponent
+  commentId: T:SadConsole.Components.IComponent
+  parent: SadConsole.Components
+  isExternal: true
+  href: SadConsole.Components.IComponent.html
+  name: IComponent
+  nameWithType: IComponent
+  fullName: SadConsole.Components.IComponent
+- uid: SadConsole.Components.UpdateComponent.SortOrder
+  commentId: P:SadConsole.Components.UpdateComponent.SortOrder
+  parent: SadConsole.Components.UpdateComponent
+  isExternal: true
+  href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.SortOrder
+  name: SortOrder
+  nameWithType: UpdateComponent.SortOrder
+  fullName: SadConsole.Components.UpdateComponent.SortOrder
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SadConsole.Components.SmoothMove.#ctor*
+  commentId: Overload:SadConsole.Components.SmoothMove.#ctor
+  isExternal: true
+  href: SadConsole.Components.SmoothMove.html#SadConsole.Components.SmoothMove.#ctor
+  name: SmoothMove
+  nameWithType: SmoothMove.SmoothMove
+  fullName: SadConsole.Components.SmoothMove.SmoothMove
+  nameWithType.vb: SmoothMove.New
+  fullName.vb: SadConsole.Components.SmoothMove.New
+  name.vb: New
+- uid: SadRogue.Primitives.Point
+  commentId: T:SadRogue.Primitives.Point
+  parent: SadRogue.Primitives
+  isExternal: true
+  name: Point
+  nameWithType: Point
+  fullName: SadRogue.Primitives.Point
+- uid: SadRogue.Primitives
+  commentId: N:SadRogue.Primitives
+  isExternal: true
+  href: SadRogue.html
+  name: SadRogue.Primitives
+  nameWithType: SadRogue.Primitives
+  fullName: SadRogue.Primitives
+  spec.csharp:
+  - uid: SadRogue
+    name: SadRogue
+    isExternal: true
+    href: SadRogue.html
+  - name: .
+  - uid: SadRogue.Primitives
+    name: Primitives
+    isExternal: true
+    href: SadRogue.Primitives.html
+  spec.vb:
+  - uid: SadRogue
+    name: SadRogue
+    isExternal: true
+    href: SadRogue.html
+  - name: .
+  - uid: SadRogue.Primitives
+    name: Primitives
+    isExternal: true
+    href: SadRogue.Primitives.html
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+- uid: SadConsole.IScreenSurface
+  commentId: T:SadConsole.IScreenSurface
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IScreenSurface.html
+  name: IScreenSurface
+  nameWithType: IScreenSurface
+  fullName: SadConsole.IScreenSurface
+- uid: SadConsole.Entities.Entity
+  commentId: T:SadConsole.Entities.Entity
+  parent: SadConsole.Entities
+  isExternal: true
+  href: SadConsole.Entities.Entity.html
+  name: Entity
+  nameWithType: Entity
+  fullName: SadConsole.Entities.Entity
+- uid: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  parent: SadConsole.Components.UpdateComponent
+  isExternal: true
+  href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  name: OnAdded(IScreenObject)
+  nameWithType: UpdateComponent.OnAdded(IScreenObject)
+  fullName: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  spec.csharp:
+  - uid: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+    name: OnAdded
+    isExternal: true
+    href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+    name: OnAdded
+    isExternal: true
+    href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+- uid: SadConsole.Components.SmoothMove.OnAdded*
+  commentId: Overload:SadConsole.Components.SmoothMove.OnAdded
+  isExternal: true
+  href: SadConsole.Components.SmoothMove.html#SadConsole.Components.SmoothMove.OnAdded(SadConsole.IScreenObject)
+  name: OnAdded
+  nameWithType: SmoothMove.OnAdded
+  fullName: SadConsole.Components.SmoothMove.OnAdded
+- uid: SadConsole.IScreenObject
+  commentId: T:SadConsole.IScreenObject
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IScreenObject.html
+  name: IScreenObject
+  nameWithType: IScreenObject
+  fullName: SadConsole.IScreenObject
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
+- uid: SadConsole.Entities
+  commentId: N:SadConsole.Entities
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Entities
+  nameWithType: SadConsole.Entities
+  fullName: SadConsole.Entities
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Entities
+    name: Entities
+    isExternal: true
+    href: SadConsole.Entities.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Entities
+    name: Entities
+    isExternal: true
+    href: SadConsole.Entities.html
+- uid: SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  parent: SadConsole.Components.UpdateComponent
+  isExternal: true
+  href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  name: OnRemoved(IScreenObject)
+  nameWithType: UpdateComponent.OnRemoved(IScreenObject)
+  fullName: SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  spec.csharp:
+  - uid: SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+    name: OnRemoved
+    isExternal: true
+    href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+    name: OnRemoved
+    isExternal: true
+    href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+- uid: SadConsole.Components.SmoothMove.OnRemoved*
+  commentId: Overload:SadConsole.Components.SmoothMove.OnRemoved
+  isExternal: true
+  href: SadConsole.Components.SmoothMove.html#SadConsole.Components.SmoothMove.OnRemoved(SadConsole.IScreenObject)
+  name: OnRemoved
+  nameWithType: SmoothMove.OnRemoved
+  fullName: SadConsole.Components.SmoothMove.OnRemoved
+- uid: SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  commentId: M:SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  parent: SadConsole.Components.UpdateComponent
+  isExternal: true
+  href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  name: Update(IScreenObject, TimeSpan)
+  nameWithType: UpdateComponent.Update(IScreenObject, TimeSpan)
+  fullName: SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject, System.TimeSpan)
+  spec.csharp:
+  - uid: SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+    name: Update
+    isExternal: true
+    href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+    name: Update
+    isExternal: true
+    href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+- uid: SadConsole.Components.SmoothMove.Update*
+  commentId: Overload:SadConsole.Components.SmoothMove.Update
+  isExternal: true
+  href: SadConsole.Components.SmoothMove.html#SadConsole.Components.SmoothMove.Update(SadConsole.IScreenObject,System.TimeSpan)
+  name: Update
+  nameWithType: SmoothMove.Update
+  fullName: SadConsole.Components.SmoothMove.Update
+- uid: SadConsole.Components.SmoothMove.IsMoving*
+  commentId: Overload:SadConsole.Components.SmoothMove.IsMoving
+  isExternal: true
+  href: SadConsole.Components.SmoothMove.html#SadConsole.Components.SmoothMove.IsMoving
+  name: IsMoving
+  nameWithType: SmoothMove.IsMoving
+  fullName: SadConsole.Components.SmoothMove.IsMoving
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: SadConsole.Components.SmoothMove.FontSize*
+  commentId: Overload:SadConsole.Components.SmoothMove.FontSize
+  isExternal: true
+  href: SadConsole.Components.SmoothMove.html#SadConsole.Components.SmoothMove.FontSize
+  name: FontSize
+  nameWithType: SmoothMove.FontSize
+  fullName: SadConsole.Components.SmoothMove.FontSize
+- uid: SadConsole.Components.SmoothMove.TransitionEasingFunction*
+  commentId: Overload:SadConsole.Components.SmoothMove.TransitionEasingFunction
+  isExternal: true
+  href: SadConsole.Components.SmoothMove.html#SadConsole.Components.SmoothMove.TransitionEasingFunction
+  name: TransitionEasingFunction
+  nameWithType: SmoothMove.TransitionEasingFunction
+  fullName: SadConsole.Components.SmoothMove.TransitionEasingFunction
+- uid: SadConsole.EasingFunctions.EasingBase
+  commentId: T:SadConsole.EasingFunctions.EasingBase
+  parent: SadConsole.EasingFunctions
+  isExternal: true
+  href: SadConsole.EasingFunctions.EasingBase.html
+  name: EasingBase
+  nameWithType: EasingBase
+  fullName: SadConsole.EasingFunctions.EasingBase
+- uid: SadConsole.EasingFunctions
+  commentId: N:SadConsole.EasingFunctions
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.EasingFunctions
+  nameWithType: SadConsole.EasingFunctions
+  fullName: SadConsole.EasingFunctions
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.EasingFunctions
+    name: EasingFunctions
+    isExternal: true
+    href: SadConsole.EasingFunctions.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.EasingFunctions
+    name: EasingFunctions
+    isExternal: true
+    href: SadConsole.EasingFunctions.html
+- uid: SadConsole.Components.SmoothMove.TransitionTime*
+  commentId: Overload:SadConsole.Components.SmoothMove.TransitionTime
+  isExternal: true
+  href: SadConsole.Components.SmoothMove.html#SadConsole.Components.SmoothMove.TransitionTime
+  name: TransitionTime
+  nameWithType: SmoothMove.TransitionTime
+  fullName: SadConsole.Components.SmoothMove.TransitionTime
+- uid: System.EventHandler
+  commentId: T:System.EventHandler
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler
+  name: EventHandler
+  nameWithType: EventHandler
+  fullName: System.EventHandler
