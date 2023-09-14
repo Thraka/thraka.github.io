@@ -1,0 +1,426 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Get Started 3 - Input </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Get Started 3 - Input ">
+    
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/dracula.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-9">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="get-started-3---input">Get Started 3 - Input</h1>
+
+<p>In this part of the tutorial we'll explore how input works in SadConsole. You'll learn how to create a basic map with a player that you can use the mouse and keyboard to interact with.</p>
+<p>Input is made up of both keyboard and mouse processing. SadConsole does not provide any input processing for gamepads and joysticks. However, MonoGame provides gamepad and joystick processing, which SadConsole is built on.</p>
+<p>Previous articles in this tutorial:</p>
+<ul>
+<li><a href="part-1-drawing.html">Get Started 1 - Draw on a console</a></li>
+<li><a href="part-2-cursor-parents.html">Get Started 2 - Cursors and parenting</a></li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>To start this part of the tutorial you'll need to have created a SadConsole project, one that was created by following the previous tutorials in this series.</p>
+<h2 id="game-structure">Game structure</h2>
+<p>First, let's create a new root object. This object represents a game scene which includes the map and a status pane. The player character will move around the map. Add a new class to your project (look up how to do that in your development environment tool's documentation if you don't know how) named <em>RootScreen.cs</em>. Replace the content with the following:</p>
+<pre><code class="lang-csharp">namespace SadConsoleGame;
+
+internal class RootScreen: ScreenObject
+{
+    public RootScreen()
+    {
+
+    }
+}
+</code></pre>
+<div class="TIP">
+<h5>Tip</h5>
+<p>You may be used to older C# syntax where you need to wrap a class inside a namespace block, known as block-scoped namespaces. Modern C# lets you declare the namespace as a statement, known as a file-scoped namespace, this namespace applies to the entire code file.</p>
+</div>
+<p>Next, modify the startup code of the game to indicate that the <code>RootScreen</code> type is going to be used as the starting object. This is simple to do and removes the requirement of the <code>Startup</code> method we were using in the previous tutorial. In the <em>program.cs</em> file, change the code to the following:</p>
+<pre><code class="lang-csharp">using SadConsoleGame
+
+Settings.WindowTitle = &quot;My SadConsole Game&quot;;
+
+Game.Configuration gameStartup = new Game.Configuration()
+    .SetScreenSize(120, 38)
+    .SetStartingScreen&lt;RootScreen&gt;()
+    ;
+
+Game.Create(gameStartup);
+Game.Instance.Run();
+Game.Instance.Dispose();
+</code></pre>
+<p>Notice the differences in this code from the previous startup code:</p>
+<ul>
+<li>The project namespace was imported with <code>using SadConsoleGame;</code></li>
+<li>The screen size was changed to <strong>120, 38</strong>.</li>
+<li>The <code>Startup()</code> method was removed.</li>
+<li><code>.OnStart(Startup)</code> which declared the <code>Startup()</code> method as the &quot;starting&quot; code, was replaced with <code>.SetStartingScreen&lt;RootScreen&gt;();</code>.</li>
+</ul>
+<p>The <code>SetStartingScreen</code> configuration method designates an object as the starting object. It automatically assigns a new instance of that object to the <code>Game.Instance.Screen</code> property and destroys the starting console for you. This simplifies game setup. In this case, the newly created <code>RootScreen</code> class is going to be our container that is the game screen. All the startup code goes into that object.</p>
+<h2 id="create-a-basic-map">Create a basic map</h2>
+<p>Next, lets add a basic map to the screen.</p>
+<ol>
+<li><p>Open the <em>RootScreen.cs</em> file.</p>
+</li>
+<li><p>Add a new <code>ScreenSurface</code> field to the class named <code>_map</code>.</p>
+<pre><code class="lang-csharp">internal class RootScreen: ScreenObject
+{
+    private ScreenSurface _map;
+
+    public RootScreen()
+    {
+
+    }
+}
+</code></pre>
+<p>This surface represents the map data.</p>
+</li>
+<li><p>Modify the constructor of <code>RootScreen</code> to create an instance of the map:</p>
+<pre><code class="lang-csharp">internal class RootScreen: ScreenObject
+{
+    private ScreenSurface _map;
+
+    public RootScreen()
+    {
+        _map = new ScreenSurface(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY - 5);
+        _map.UseMouse = false;
+
+        Children.Add(_map);
+    }
+}
+</code></pre>
+<p>Notice two things about the <code>_map</code> variable:</p>
+<ul>
+<li><p>It's a <code>ScreenSurface</code> and not a <code>Console</code>.</p>
+<p>The map isn't going to use a cursor object to print and collect input from the user, so we don't need a full console object. Most of the time when you create objects in SadConsole that don't need a cursor you'll probably just use a <code>ScreenSurface</code>.</p>
+</li>
+</ul>
+<p>The width and height of the object is set to the <code>Game.Instance.ScreenCellsX</code> and <code>Game.Instance.ScreenCellsY</code> variables, respectively.</p>
+<p><code>ScreenCellsX/Y</code> represent how many cells in the default font size the SadConsole game can fit on the screen. These are from the width and height values passed to the <code>Game.Create</code> method at the start of the game. This makes it easy to create a surface that fills the window. For the <code>Y</code> height though, we're trimming off <em>5</em> from the bottom. This leaves some space at the bottom of the screen to add a status console later.</p>
+<p>Next, lets add some background to the map. Instead of using the <code>FillWithRandomGarbage</code> method that we previously used, we'll draw a gradient. The background doesn't really represent anything, but it makes it easier to see our objects and demonstrate some key concepts.</p>
+</li>
+<li><p>Add the <code>FillBackground</code> method to the class to fill the map surface with a gradient:</p>
+<pre><code class="lang-csharp">private void FillBackground()
+{
+    Color[] colors = new[] { Color.LightGreen, Color.Coral, Color.CornflowerBlue, Color.DarkGreen };
+    float[] colorStops = new[] { 0f, 0.35f, 0.75f, 1f };
+
+    Algorithms.GradientFill(_map.FontSize, 
+                            _map.Surface.Area.Center, 
+                            _map.Surface.Width / 3, 
+                            45, 
+                            _map.Surface.Area, 
+                            new Gradient(colors, colorStops), 
+                            (x, y, color) =&gt; _map.Surface[x, y].Background = color);
+}
+</code></pre>
+<p>The way the gradient algorithm works is by calculating each X,Y of an area, and providing a color that maps to it. What you do with that information is up to you. In this example we colored the background of each cell based on what the algorithm gave us. The number of colors in the gradient and the number of steps must match for the gradient to work. The following diagram may help understand how this is put together, but it's not really important at this point:</p>
+<p>The <code>FontSize</code> used helps stretch the gradient evenly over the surface. The default font used by SadConsole has a 2:1 ratio in width to height. The following image illustrates how the gradient is laid out, it uses a smaller window for the purpose of the illustration:</p>
+<p><img src="images/part-3-input/gradient.png" alt="SadConsole gradient diagram"></p>
+</li>
+<li><p>Call the <code>FillBackground</code> method from the <code>RootScreen</code> constructor:</p>
+<pre><code class="lang-csharp">public RootScreen()
+{
+    _map = new ScreenSurface(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY - 5);
+    _map.UseMouse = false;
+
+    FillBackground();
+
+    Children.Add(_map);
+}
+</code></pre>
+</li>
+</ol>
+<p>Now that there's a background that we can place objects on, let's create and place a player object.</p>
+<h2 id="game-object">Game object</h2>
+<p>The game will have a player-controlled object, along with other non-player characters (NPC) on the map. Next, create an object named <code>GameObject</code> which represents these objects.</p>
+<ol>
+<li><p>Add a new class to your project named <em>GameObject.cs</em>.</p>
+</li>
+<li><p>Paste the following code into the file:</p>
+<pre><code class="lang-csharp">namespace SadConsoleGame;
+
+internal class GameObject
+{
+    public Point Position { get; private set; }
+
+    public ColoredGlyph Appearance { get; set; }
+
+    public GameObject(ColoredGlyph appearance, Point position, IScreenSurface hostingSurface)
+    {
+        Appearance = appearance;
+        Position = position;
+        DrawGameObject(hostingSurface);
+    }
+
+    private void DrawGameObject(IScreenSurface screenSurface)
+    {
+        Appearance.CopyAppearanceTo(screenSurface.Surface[Position]);
+        screenSurface.IsDirty = true;
+    }
+}
+</code></pre>
+</li>
+</ol>
+<p>Let's dive into this code. First, the class has two properties:</p>
+<ul>
+<li><p><code>Position</code></p>
+<p>This is a <code>Point</code> type from the <code>SadRogue.Primitives</code> namespace. It represents a location, and in this case, the position of our game object on the map.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>If you have compiler errors stating that the <code>Point</code> (or other) types can't be found, you're probably not using implicit namespaces which are declared in the project file. Import the namespace into the code file by adding <code>using SadRogue.Primitives;</code> to the top of the file.</p>
+</div>
+</li>
+<li><p><code>Appearance</code></p>
+<p>The appearance of the game object is a <code>ColoredGlyph</code>, which represents a foreground color, background color, and glyph character combination.</p>
+</li>
+</ul>
+<p>The constructor of the object requires the appearance and position of the object, but also a surface. Why would you provide the surface? To draw the object! When the object is created, we're instantly drawing it to the surface by calling the <code>DrawGameObject</code> method from the constructor. <code>DrawGameObject</code> uses the <code>Appearance.CopyAppearanceTo</code> method to draw the object. This method copies all of the settings in the appearance to a specific cell on the surface. Lastly, after copying the appearance of the object, the surface is marked as dirty so that it's redrawn.</p>
+<p>Most of the time when you draw on a surface using methods like <code>SetGlyph</code>, <code>SetForeground</code>, or <code>Print</code>, those methods mark the surface as dirty for you. In the case of the preceding code, we're editing a cell of the surface directly by using the <code>CopyAppearanceTo</code> method, which doesn't automatically mark the surface as dirty.</p>
+<h3 id="code-to-move-the-object">Code to move the object</h3>
+<p>Add another method to the <code>GameObject</code> class named <code>Move</code>. This method handles repositioning the object and then drawing it on the surface.</p>
+<pre><code class="lang-csharp">public void Move(Point newPosition, IScreenSurface screenSurface)
+{ 
+    Position = newPosition;
+    DrawGameObject(screenSurface);
+}
+</code></pre>
+<h2 id="player-game-object">Player game object</h2>
+<p>Now that the <code>GameObject</code> type has been created, it can be used to represent the player. Let's add a player object to the <code>RootScreen</code> class.</p>
+<ol>
+<li><p>Open the <em>RootScreen.cs</em> file.</p>
+</li>
+<li><p>Add a new field to the class to represent the controlled player object:</p>
+<pre><code class="lang-csharp">internal class RootScreen: ScreenObject
+{
+    private ScreenSurface _map;
+    private GameObject _controlledObject;
+
+// ... other code ...
+</code></pre>
+</li>
+<li><p>In the <code>RootScreen</code> constructor, create the object to represent the player:</p>
+<pre><code class="lang-csharp">public RootScreen()
+{
+    _map = new ScreenSurface(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY - 5);
+    _map.UseMouse = false;
+
+    FillBackground();
+
+    Children.Add(_map);
+
+    _controlledObject = new GameObject(new ColoredGlyph(Color.White, Color.Black, 2), _map.Surface.Area.Center, _map);
+}
+</code></pre>
+<p>This creates a black and white glyph &quot;2&quot;, the smiley face glyph. It's placed at the center of the map surface. run your project and you'll see the smiley face!</p>
+</li>
+</ol>
+<p><img src="images/part-3-input/smileyface.png" alt="Smiley face glyph 2"></p>
+<p>Now that you have a player on the screen, you'll need to get the keyboard working.</p>
+<h2 id="keyboard">Keyboard</h2>
+<p>The previous tutorial article had you working with the <code>Cursor</code> object. The console was focused, and the cursor accepted input. The input was typed on the screen. While the cursor is great for getting input from the user to typing things on to the screen, it's generally not used for normal game interaction. Instead, you can interpret the keyboard as it's pressed, and move the game object.</p>
+<p>Open the <em>RootScreen.cs</em> file.</p>
+<p>SadConsole sends keyboard input to the object that is focused. For our scene to process the keyboard, we'll want to do two things:</p>
+<ul>
+<li><p>Focus the object.</p>
+<p>The <code>RootScreen</code> object is already focused because it's the starting screen. If you want to change which object directly receives keyboard input, focus it. Things like popup windows will focus themselves for keyboard input, and then when hidden, restore focus to the previously focused object.</p>
+</li>
+<li><p>Override the <code>ProcessKeyboard</code> method in the <code>RootScreen</code> class. Add the following code to the <code>RootScreen</code> class.</p>
+<pre><code class="lang-csharp">public override bool ProcessKeyboard(Keyboard keyboard)
+{
+    return base.ProcessKeyboard(keyboard);
+}
+</code></pre>
+<p>This method is called every game frame on the focused object. The <code>base.ProcessKeyboard</code> call allows the <code>RootScreen</code>'s base class to do its normal keyboard processing, which is processing any keyboard-based components added to the object. You'll learn more about components later.</p>
+</li>
+</ul>
+<p>Next, we'll update the keyboard code to move our player-controlled object around. Remember, the player object has a <code>Position</code> property. We simply have to check if a direction key is pressed, and then change the <code>Position</code> property to move the object.</p>
+<p>The <code>keyboard</code> parameter passed to the <code>ProcessKeyboard</code> method contains the current state of the keyboard and any changes to it from the previous game frame. This parameter is used to test if a key is pressed, the state of a key (up or down), or if a key was just released.</p>
+<p>Change the <code>ProcessKeyboard</code> method to the following code:</p>
+<pre><code class="lang-csharp">public override bool ProcessKeyboard(Keyboard keyboard)
+{
+    bool handled = false;
+
+    if (keyboard.IsKeyPressed(Keys.Up))
+    {
+        _controlledObject.Move(_controlledObject.Position + Direction.Up, _map);
+        handled = true;
+    }
+    else if (keyboard.IsKeyPressed(Keys.Down))
+    {
+        _controlledObject.Move(_controlledObject.Position + Direction.Down, _map);
+        handled = true;
+    }
+
+    if (keyboard.IsKeyPressed(Keys.Left))
+    {
+        _controlledObject.Move(_controlledObject.Position + Direction.Left, _map);
+        handled = true;
+    }
+    else if (keyboard.IsKeyPressed(Keys.Right))
+    {
+        _controlledObject.Move(_controlledObject.Position + Direction.Right, _map);
+        handled = true;
+    }
+
+    return handled;
+}
+</code></pre>
+<p>Let's look at this code:</p>
+<ul>
+<li><p>The <code>handled</code> variable is used to indicate that we did in fact process the keyboard, and this value is returned at the end of the method. This value is important when you want to prevent other objects from processing the keyboard after you did.</p>
+</li>
+<li><p>All for directional keys are checked with the <a class="xref" href="../../../api/sadconsole/SadConsole.Input.Keyboard.html#SadConsole_Input_Keyboard_IsKeyPressed_SadConsole_Input_Keys_"><code>keyboard.IsKeyPressed</code></a> method.</p>
+</li>
+</ul>
+<p>Now run the game and try moving the character around the screen:</p>
+<p><img src="images/part-3-input/move-player.gif" alt="Moving the player"></p>
+<p>Notice that you can move the character around the map, but the character is leaving a trail behind it. This is because when the character moves we copy the appearance of the character to the new position on the surface directly, which changes what is on the surface. We don't restore what used to be on the surface.</p>
+<h3 id="cleaner-movement-on-the-map">Cleaner movement on the map</h3>
+<p>There are a few different ways of solving the problem of leaving a trail behind the player, but for this part of the tutorial we'll fix it in a simple way. When a game object is moved to a position on the map, store the target cell's appearance in the game object. When the game object is moved to another position, restore previous position's cell appearance.</p>
+<p>For this code you're going to edit the <em>GameObject.cs</em> file.</p>
+<ol>
+<li><p>Open the <em>GameObject.cs</em> file.</p>
+</li>
+<li><p>Add a private variable named <code>_mapAppearance</code> to the class, below the existing properties. This variable will store the map's cell appearance before our character moves to that cell.</p>
+<pre><code class="lang-csharp">internal class GameObject
+{
+    private ColoredGlyph _mapAppearance = new ColoredGlyph();
+
+    // ... other code ...
+</code></pre>
+</li>
+<li><p>In the constructor, the game object is initially placed on the map. Copy the cell of the map before drawing the object:</p>
+<pre><code class="lang-csharp">public GameObject(ColoredGlyph appearance, Point position, IScreenSurface hostingSurface)
+{
+    Appearance = appearance;
+    Position = position;
+
+    // Store the map cell
+    hostingSurface.Surface[position].CopyAppearanceTo(_mapAppearance);
+
+    // draw the object
+    DrawGameObject(hostingSurface);
+}
+</code></pre>
+</li>
+<li><p>Modify the <code>Move</code> method to restore the old cell and store the new position cell of the map:</p>
+<pre><code class="lang-csharp">public void Move(Point newPosition, IScreenSurface screenSurface)
+{ 
+    // Restore the old cell
+    _mapAppearance.CopyAppearanceTo(screenSurface.Surface[Position]);
+
+    // Store the map cell of the new position
+    screenSurface.Surface[newPosition].CopyAppearanceTo(_mapAppearance);
+
+    Position = newPosition;
+    DrawGameObject(screenSurface);
+}
+</code></pre>
+</li>
+</ol>
+<p>Run the game and now you'll see that there is no trail left behind the player:</p>
+<p><img src="images/part-3-input/move-player-clean.gif" alt="Moving the player"></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Now you understand a bit more about how input works, and you have a basic map and game object. These are just the basics, there is a lot more you can do with input, but that will be explored when we get into the user interface controls provided by SadConsole. The next part of the tutorial series will explore creating more map objects and displaying feedback to the user.</p>
+<ul>
+<li><a href="part-4-mapobject.html">Next: Get Started 4 - A proper map</a></li>
+<li><a href="projects/Part3.zip">Download the code for this part of the tutorial</a></li>
+</ul>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-3" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+                <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

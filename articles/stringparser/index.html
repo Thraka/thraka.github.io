@@ -1,0 +1,316 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>String Parser overview </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="String Parser overview ">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/dracula.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-9">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="string-parser-overview">String Parser overview</h1>
+
+<p>SadConsole includes a string processing system that's designed to allow you to easily apply styles and effects to strings without having to fallback on code. For example, you can use the string parser to change the foreground or background of text in the string. You can also parser <a href="#create-a-command">create your own commands</a>.</p>
+<p>The string parser generates a <a class="xref" href="../../api/sadconsole/SadConsole.ColoredString.html">ColoredString</a> object, which represents each character in the string with an associated foreground color, background color, mirrored setting, and effect.</p>
+<p>To learn more about the parser syntax, see <a href="syntax.html">String parser syntax</a>.</p>
+<h2 id="namespaces-and-types">Namespaces and types</h2>
+<p>The parser instance and commands are available in the <a class="xref" href="../../api/sadconsole/SadConsole.StringParser.html">SadConsole.StringParser</a> namespace. The following table describes the objects in that namespace:</p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="../../api/sadconsole/SadConsole.StringParser.IParser.html">IParser</a></td>
+<td>An interface that contains the <code>Parse</code> method that transforms a string into a <code>ColoredString</code>.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/sadconsole/SadConsole.StringParser.Default.html">Default</a></td>
+<td>SadConsole's built-in parser that supports the parser commands.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/sadconsole/SadConsole.StringParser.ParseCommandBase.html">ParseCommandBase</a></td>
+<td>The base class for a SadConsole parser command.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/sadconsole/SadConsole.StringParser.ParseCommandBlink.html">ParseCommandBlink</a></td>
+<td>Applies an effect to a glyph.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/sadconsole/SadConsole.StringParser.ParseCommandClearEffect.html">ParseCommandClearEffect</a></td>
+<td>Removes an effect from a glyph.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/sadconsole/SadConsole.StringParser.ParseCommandDecorator.html">ParseCommandDecorator</a></td>
+<td>Sets a decorator on a glyph.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/sadconsole/SadConsole.StringParser.ParseCommandGradient.html">ParseCommandGradient</a></td>
+<td>Applies a gradient of colors across multiple glyphs.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/sadconsole/SadConsole.StringParser.ParseCommandMirror.html">ParseCommandMirror</a></td>
+<td>Sets the mirror setting on a glyph.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/sadconsole/SadConsole.StringParser.ParseCommandRecolor.html">ParseCommandRecolor</a></td>
+<td>Changes the foreground or background color of a glyph.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/sadconsole/SadConsole.StringParser.ParseCommandSetGlyph.html">ParseCommandSetGlyph</a></td>
+<td>Changes the character of a glyph.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/sadconsole/SadConsole.StringParser.ParseCommandStacks.html">ParseCommandStacks</a></td>
+<td>Holds the active commands that are applied across the glyphs in a string.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/sadconsole/SadConsole.StringParser.ParseCommandUndo.html">ParseCommandUndo</a></td>
+<td>Removes the previous command from the stack of commands.</td>
+</tr>
+</tbody>
+</table>
+<p>For more information about how to use the commands, see <a href="syntax.html">String parser syntax</a>.</p>
+<p>The <a class="xref" href="../../api/sadconsole/SadConsole.StringParser.Default.html">Default</a> parser is available through the <a class="xref" href="../../api/sadconsole/SadConsole.ColoredString.html#SadConsole_ColoredString_Parser">ColoredString.Parser</a> property.</p>
+<h2 id="how-to-parse-a-string">How to parse a string</h2>
+<p>There are three parts of SadConsole that can parse a string to generate a <a class="xref" href="../../api/sadconsole/SadConsole.ColoredString.html">ColoredString</a> object:</p>
+<ul>
+<li><p><a class="xref" href="../../api/sadconsole/SadConsole.ColoredString.html#SadConsole_ColoredString_Parser">ColoredString.Parser</a></p>
+<p>This property is configured to use the built-in parser. It's used by the rest of SadConsole to parse strings. You can use it directly to parse a string.</p>
+<pre><code class="lang-csharp">ColoredString.Parser.Parse(&quot;Normal [c:r f:Blue][c:r b:Yellow]and colored&quot;);
+</code></pre>
+<p>To learn more about the parser syntax, see <a href="syntax.html">String parser syntax</a>.</p>
+</li>
+<li><p>The <code>Print</code> methods on surfaces.</p>
+<p><strong>If</strong> the <a class="xref" href="../../api/sadconsole/SadConsole.ICellSurface.html#SadConsole_ICellSurface_UsePrintProcessor">UsePrintProcessor</a> property of the surface is set to <strong>true</strong>, the string printed is first passed through the string parser.</p>
+<p>The <a class="xref" href="../../api/sadconsole/SadConsole.ICellSurface.html#SadConsole_ICellSurface_UsePrintProcessor">UsePrintProcessor</a> property is set to <strong>false</strong> by default.</p>
+<p>Even if <code>UsePrintProcessor</code> is set to <strong>false</strong>, you can still print parsed strings by using the <a class="xref" href="../../api/sadconsole/SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_Print_SadConsole_ISurface_System_Int32_System_Int32_SadConsole_ColoredString_">Print(ISurface, int, int, ColoredString)</a> overload, which takes a <code>ColoredString</code> instance. First, use <a class="xref" href="../../api/sadconsole/SadConsole.ColoredString.html#SadConsole_ColoredString_Parser">ColoredString.Parser</a> to parse the string and generate the <code>ColoredString</code> instance, then call the <code>Print</code> method.</p>
+</li>
+<li><p>The <code>Print</code> methods on cursors.</p>
+<p><strong>If</strong> the <a class="xref" href="../../api/sadconsole/SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_UseStringParser">UseStringParser</a> property of a cursor is set to <strong>true</strong>, the string printed is first passed through the string parser before the cursor starts printing characters.</p>
+<p>The <a class="xref" href="../../api/sadconsole/SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_UseStringParser">UseStringParser</a> property is set to <strong>false</strong> by default.</p>
+<p>Even if <code>UseStringParser</code> is set to <strong>false</strong>, you can still print parsed strings by using the <a class="xref" href="../../api/sadconsole/SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_Print_SadConsole_ColoredString_">Print(ColoredString)</a> overload, which takes a <code>ColoredString</code> instance. First, use <a class="xref" href="../../api/sadconsole/SadConsole.ColoredString.html#SadConsole_ColoredString_Parser">ColoredString.Parser</a> to parse the string and generate the <code>ColoredString</code> instance, then call the <code>Print</code> method.</p>
+</li>
+</ul>
+<h2 id="parser-variables">Parser variables</h2>
+<p>SadConsole's default parser supports a find and replace system when parsing a string. &quot;Variable&quot; names are added to a dictionary in the parser, and associated with a delegate that returns a string. Instead of a simple find and replace system where a named string is replaced with a string value, the delegates are invoked to generate a string. Meaning, you get to run code to calculate values and generate the string that's replaced.</p>
+<p>Variables are marked in the parsed string with <code>$$name</code> where <strong>name</strong> is the name of the variable-value you want to place into the string.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>The <a class="xref" href="../../api/sadconsole/SadConsole.StringParser.IParser.html">IParser</a> interface only provides a <code>Parse</code> method, so you must cast parser instance provided by the <code>ColoredString</code> object to the <code>Default</code> parser provided by SadConsole.</p>
+</div>
+<p>The following code adds two variables to the parser, <code>first_name</code> and <code>last_name</code>. The delegates assigned to the variables return a name when the variable is found in the string.</p>
+<pre><code class="lang-csharp">var castedParser = (SadConsole.StringParser.Default)SadConsole.ColoredString.Parser;
+
+castedParser.Variables[&quot;first_name&quot;] = () =&gt; &quot;John&quot;;
+castedParser.Variables[&quot;last_name&quot;] = () =&gt; &quot;Smith&quot;;
+
+castedParser.Parse(&quot;The player's name is $$first_name $$last_name.&quot;);
+
+// Creates the following colored string text: 
+//   The player's name is John Smith.
+</code></pre>
+<h2 id="create-a-command">Create a command</h2>
+<p>The string parser looks for command triggers in the string it's parsing, but it only knows to look for the built-in commands. You can extend the parsing logic to look for triggers of your own commands. The extended parser logic is processed first, and if no command is returned to the parser, the built-in system processes the command trigger. With this logic, you can provide your own commands with new triggers, or override the existing triggers with new commands.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>The <a class="xref" href="../../api/sadconsole/SadConsole.StringParser.IParser.html">IParser</a> interface only provides a <code>Parse</code> method, so you must cast parser instance provided by the <code>ColoredString</code> object to the <code>Default</code> parser provided by SadConsole.</p>
+</div>
+<p>The following code attaches a delegate named <code>CustomParseCommand</code> to the parser's <code>CustomProcessor</code> property:</p>
+<pre><code class="lang-csharp">((Default)ColoredString.Parser).CustomProcessor = CustomParseCommand;
+</code></pre>
+<p>The magic keyword trigger is <code>[c:name</code> where <code>name</code> is the command name. The command name is sent to the command parser. The parameters, which is the rest of the command string until <code>]</code> is encountered, is passed as the <code>parameters</code> of the command.</p>
+<p>The following example is the parser extension registered in the preceding code. The logic checks for the command name <code>t</code> or <code>retext</code>, and if found, returns that command. If the name doesn't match, <code>null</code> is returned which lets the parser check the built-in commands.</p>
+<pre><code class="lang-csharp">private ParseCommandBase? CustomParseCommand(string command, string parameters, ColoredGlyphBase[] glyphString,
+                                                    ICellSurface? surface, ParseCommandStacks? commandStacks)
+{
+    return command switch
+    {
+        &quot;retext&quot; =&gt; new ParseCommandRetext(parameters),
+        &quot;t&quot; =&gt; new ParseCommandRetext(parameters),
+        _ =&gt; null,
+    };
+}
+</code></pre>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>The surface that's passed to the method may be <code>null</code>. When the parser is working on a surface, the instance of the surface is provided. When <code>null</code>, this means that the string is being built outside of a surface or cursor's <code>Print</code> statement, like with the <code>ColoredString.Parser.Parse</code> method.</p>
+</div>
+<p>With the parser method declared, you can create a new command type based on the <a class="xref" href="../../api/sadconsole/SadConsole.StringParser.ParseCommandBase.html">ParseCommandBase</a> type. This has one important method, <code>Build</code>. The <code>Build</code> method takes in a colored glyph instance and transforms it according to the command. The command must set the <a class="xref" href="../../api/sadconsole/SadConsole.StringParser.ParseCommandBase.html#SadConsole_StringParser_ParseCommandBase_CommandType">CommandType</a> property to the aspect of the glyph the command manipulates, otherwise, it won't be processed when parsing string. There are 6 different types of valid commands.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Foreground</td>
+<td>Command is added to the foreground stack of commands.</td>
+</tr>
+<tr>
+<td>Background</td>
+<td>Command is added to the background stack of commands.</td>
+</tr>
+<tr>
+<td>Glyph</td>
+<td>Command is added to the glyph stack of commands.</td>
+</tr>
+<tr>
+<td>SpriteEffect</td>
+<td>Command is added to the SpriteEffect (mirror) stack of commands.</td>
+</tr>
+<tr>
+<td>Effect</td>
+<td>Command is added to the cell effect stack of commands.</td>
+</tr>
+<tr>
+<td>PureCommand</td>
+<td>Command isn't added to the list of active commands, and it's <code>build</code> is never called. It is only created once and during creation, and can manipulate things. The <strong>Undo</strong> command behaves like this.</td>
+</tr>
+</tbody>
+</table>
+<p>The following code example demonstrates the <code>t</code> command declared in the preceding code example. The command is supposed to change the glyphs in the string to a specific glyph. The command's parameters expect a character and an optional count of how many glyphs to change: <code>[c:t glyph_index[:count]]</code></p>
+<pre><code class="lang-csharp">private class ParseCommandRetext : ParseCommandBase
+{
+    public int Counter;
+    public char Glyph;
+
+    public ParseCommandRetext(string parameters)
+    {
+        string[] parts = parameters.Split(new char[] { ':' }, 2);
+
+        // Count and glyph type provided
+        if (parts.Length == 2)
+            Counter = int.Parse(parts[1]);
+        else
+            Counter = -1;
+
+        // Get character
+        Glyph = parts[0][0];
+
+        // No exceptions, set the type
+        CommandType = CommandTypes.Glyph;
+    }
+
+    public override void Build(ref ColoredGlyphAndEffect glyphState, ColoredGlyphAndEffect[] glyphString, int surfaceIndex, ICellSurface surface, ref int stringIndex, System.ReadOnlySpan&lt;char&gt; processedString, ParseCommandStacks commandStack)
+    {
+        glyphState.Glyph = Glyph;
+
+        if (Counter != -1)
+        {
+            Counter--;
+
+            if (Counter == 0)
+                commandStack.RemoveSafe(this);
+        }
+    }
+}
+</code></pre>
+<p>The command can be triggered by adding the syntax to a string that's parsed:</p>
+<pre><code class="lang-text">The text after the command [c:t Z]is changed to 'Z'.
+</code></pre>
+<p>Which outputs the following text:</p>
+<pre><code class="lang-text">The text after the command ZZZZZZZZZZZZZZZZZZ
+</code></pre>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-3" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+                <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

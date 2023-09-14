@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Overview of the startup config </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Overview of the startup config ">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/dracula.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-9">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="game-startup">Game startup</h1>
+
+<p>Game startup API is provided by the host library and not by SadConsole directly. The two hosts, MonoGame and SFML, have identical startup APIs. The MonoGame host is documented on this site, but should equally apply to SFML.</p>
+<p>SadConsole games start when the <a class="xref" href="../../api/monogame/SadConsole.Game.html#SadConsole_Game_Create_SadConsole_Game_Configuration_">Create(Configuration)</a> method is called, providing an instance of the <a class="xref" href="../../api/monogame/SadConsole.Game.Configuration.html">Game.Configuration</a> object. The <code>Configuration</code> object is created fluently, meaning, as you call each method to configure the object, the object is returned for continued configuration. Consider the following example:</p>
+<pre><code class="lang-csharp">Game.Configuration gameStartup = new Game.Configuration()
+    .SetScreenSize(120, 32)
+    .SetStartingScreen&lt;RootScreen&gt;()
+    .IsStartingScreenFocused(false)
+    .ConfigureFonts((f) =&gt; f.UseBuiltinFontExtended())
+    ;
+
+Game.Create(gameStartup);
+Game.Instance.Run();
+Game.Instance.Dispose();
+</code></pre>
+<p>The configuration object, <code>gameStartup</code>, sequentially calls <code>SetScreenSize</code>, <code>SetStartingScreen</code>, <code>IsStartingScreenFocused</code>, and <code>ConfigureFonts</code>.</p>
+<p>The following table lists the configuration options with an explanation of what it does:</p>
+<table>
+<thead>
+<tr>
+<th>Configuration option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="../../api/monogame/SadConsole.Game.Configuration.html#SadConsole_Game_Configuration_SetStartingScreen__1">SetStartingScreen&lt;TRootObject&gt;()</a></td>
+<td>Configures the <a class="xref" href="../../api/sadconsole/SadConsole.GameHost.html#SadConsole_GameHost_Screen">GameHost.Screen</a> to an object. For more information, see <a href="#startup-screen">Startup screen</a>.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/monogame/SadConsole.Game.Configuration.html#SadConsole_Game_Configuration_SetScreenSize_System_Int32_System_Int32_">SetScreenSize(int, int)</a></td>
+<td>Sets the size of the starting console and sets the <a class="xref" href="../../api/sadconsole/SadConsole.GameHost.html#SadConsole_GameHost_ScreenCellsX">ScreenCellsX</a> and <a class="xref" href="../../api/sadconsole/SadConsole.GameHost.html#SadConsole_GameHost_ScreenCellsY">ScreenCellsY</a> properties to the <strong>Width, Height</strong> values provided, respectively. If not called, defaults to <strong>80, 25</strong>.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/monogame/SadConsole.Game.Configuration.html#SadConsole_Game_Configuration_ConfigureFonts_System_Action_SadConsole_Game_ConfigurationFontLoader__">ConfigureFonts(Action&lt;ConfigurationFontLoader&gt;)</a></td>
+<td>Use a delegate to configure the provided font settings object.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/monogame/SadConsole.Game.Configuration.html#SadConsole_Game_Configuration_IsStartingScreenFocused_System_Boolean_">IsStartingScreenFocused(bool)</a></td>
+<td>Defaults to <code>true</code>. Use this method to pass <code>false</code> and disable focusing the <a class="xref" href="../../api/sadconsole/SadConsole.GameHost.html#SadConsole_GameHost_Screen">GameHost.Screen</a> object.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/monogame/SadConsole.Game.Configuration.html#SadConsole_Game_Configuration_OnStart_System_Action_">OnStart(Action)</a></td>
+<td>The delegate provided to this method is invoked when the game starts running. All startup objects are already created and ready to go by the time it's invoked.</td>
+</tr>
+<tr>
+<td><a class="xref" href="../../api/monogame/SadConsole.Game.Configuration.html#SadConsole_Game_Configuration_OnEnd_System_Action_">OnEnd(Action)</a></td>
+<td>The delegate provided to this method is invoked when the game is shutting down.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="default-configuration">Default configuration</h2>
+<p>As soon as the <a class="xref" href="../../api/monogame/SadConsole.Game.Configuration.html">Game.Configuration</a> is created, the following defaults are applied:</p>
+<ul>
+<li>The screen size is set to <strong>80, 25</strong>.</li>
+<li>Builtin font is enabled.</li>
+<li>The <a class="xref" href="../../api/sadconsole/SadConsole.GameHost.html#SadConsole_GameHost_StartingConsole">GameHost.StartingConsole</a> property is set to a <a class="xref" href="../../api/sadconsole/SadConsole.Console.html">Console</a> object sized to <strong>80, 25</strong>.</li>
+<li>The <code>StartingConsole</code> is assigned to the <a class="xref" href="../../api/sadconsole/SadConsole.GameHost.html#SadConsole_GameHost_Screen">GameHost.Screen</a> property.</li>
+</ul>
+<p>The defaults can be overridden.</p>
+<h2 id="starting-console">Starting console</h2>
+<p>When no other screen is designated as a startup screen, the <a class="xref" href="../../api/sadconsole/SadConsole.GameHost.html#SadConsole_GameHost_StartingConsole">GameHost.StartingConsole</a> is created and assigned to the to the <a class="xref" href="../../api/sadconsole/SadConsole.GameHost.html#SadConsole_GameHost_Screen">GameHost.Screen</a> property. You can use either property to access the same object. <code>StartingConsole</code> is a strongly typed property while <code>Screen</code> isn't.</p>
+<p>If the <code>StartingConsole</code> is going to be used, you'll want to configure the object. For more information, see <a href="#startup-delegate">Startup delegate</a>.</p>
+<h2 id="startup-screen">Startup screen</h2>
+<p>The <a class="xref" href="../../api/sadconsole/SadConsole.GameHost.html#SadConsole_GameHost_Screen">GameHost.Screen</a> is set by the startup code. There are three ways to choose what the <code>Screen</code> is set to:</p>
+<ul>
+<li><p>Designate a type with <a class="xref" href="../../api/monogame/SadConsole.Game.Configuration.html#SadConsole_Game_Configuration_SetStartingScreen__1">SetStartingScreen&lt;TRootObject&gt;()</a>.</p>
+<p>With the configuration object, call <a class="xref" href="../../api/monogame/SadConsole.Game.Configuration.html#SadConsole_Game_Configuration_SetStartingScreen__1">SetStartingScreen&lt;TRootObject&gt;()</a> and pass a type that implements the <a class="xref" href="../../api/sadconsole/SadConsole.IScreenObject.html">IScreenObject</a> interface. The type provided must have a parameterless constructor.</p>
+<pre><code class="lang-csharp">Game.Configuration gameStartup = new Game.Configuration()
+    .SetScreenSize(120, 38)
+    .SetStartingScreen&lt;RootScreen&gt;()
+    ;
+
+Game.Create(gameStartup);
+Game.Instance.Run();
+Game.Instance.Dispose();
+</code></pre>
+<p>In the preceding example, <code>RootScreen</code> is a type that implements <code>IScreenObject</code> and has a parameterless constructor.</p>
+<p>When the starting screen is specified in this way, <a class="xref" href="../../api/sadconsole/SadConsole.GameHost.html#SadConsole_GameHost_StartingConsole">GameHost.StartingConsole</a> is destroyed and can't be used.</p>
+</li>
+<li><p>Use a delegate to generate an object.</p>
+<p>Like the previous item, you can use a delegate that returns a game object, which is set to the <a class="xref" href="../../api/sadconsole/SadConsole.GameHost.html#SadConsole_GameHost_Screen">GameHost.Screen</a> property.</p>
+<pre><code class="lang-csharp">Game.Configuration gameStartup = new Game.Configuration()
+    .SetScreenSize(120, 38)
+    .SetStartingScreen(CreateStartupObject)
+    ;
+
+Game.Create(gameStartup);
+Game.Instance.Run();
+Game.Instance.Dispose();
+
+static IScreenObject CreateStartupObject(Game gameInstance)
+{
+    SadConsole.Components.Cursor cursor = new();
+    ScreenSurface screen = new(gameInstance.ScreenCellsX, gameInstance.ScreenCellsY);
+
+    screen.UseKeyboard = true;
+    screen.SadComponents.Add(cursor);
+    cursor.IsEnabled = true;
+
+    cursor.Move((2, 2))
+          .Print(&quot;Welcome to SadConsole! You can start typing now!&quot;)
+          .NewLine()
+          .Right(2);
+
+    return screen;
+}
+</code></pre>
+<p>The delegate is invoked by the startup code right before the game starts, so all configuration is completed and SadConsole ready to be used. The object can be created any way you want.</p>
+<p>When the starting screen is specified in this way, <a class="xref" href="../../api/sadconsole/SadConsole.GameHost.html#SadConsole_GameHost_StartingConsole">GameHost.StartingConsole</a> is destroyed and can't be used.</p>
+</li>
+<li><p>Do nothing.</p>
+<p>If the startup config doesn't designate a startup object, a <a class="xref" href="../../api/sadconsole/SadConsole.Console.html">Console</a> is created and assigned to both the <a class="xref" href="../../api/sadconsole/SadConsole.GameHost.html#SadConsole_GameHost_Screen">GameHost.Screen</a> and <a class="xref" href="../../api/sadconsole/SadConsole.GameHost.html#SadConsole_GameHost_StartingConsole">GameHost.StartingConsole</a> properties.</p>
+<p>When you use the default startup, you must use the <a class="xref" href="../../api/monogame/SadConsole.Game.Configuration.html#SadConsole_Game_Configuration_OnStart_System_Action_">Game.Configuration.OnStart(Action)</a> configuration option and provide a delegate that customizes the <code>StartingConsole</code>. For more information, see <a href="#startup-delegate">Startup delegate</a>.</p>
+<p>The <code>StartingConsole</code> is convenient when you want to quickly play around with different ideas or concepts when you're learning SadConsole.</p>
+</li>
+</ul>
+<h2 id="startup-delegate">Startup delegate</h2>
+<p>If you have further initialization you want to perform, especially when you don't designate a different startup object, you can use the <a class="xref" href="../../api/monogame/SadConsole.Game.Configuration.html#SadConsole_Game_Configuration_OnStart_System_Action_">Game.Configuration.OnStart(Action)</a> configuration option to specify a delegate that's invoked after the game starts.</p>
+<p>When you leave the default configuration that creates the <a class="xref" href="../../api/sadconsole/SadConsole.GameHost.html#SadConsole_GameHost_StartingConsole">GameHost.StartingConsole</a> instance, you must use this configuration option to setup the console. The following code example demonstrates printing some text on the <code>StartingConsole</code>.</p>
+<pre><code class="lang-csharp">Game.Configuration gameStartup = new Game.Configuration()
+    .SetScreenSize(90, 30)
+    .OnStart(Startup)
+    ;
+
+Game.Create(gameStartup);
+Game.Instance.Run();
+Game.Instance.Dispose();
+
+static void Startup()
+{
+    Game.Instance.StartingConsole.FillWithRandomGarbage(SadConsole.Game.Instance.StartingConsole.Font);
+    Game.Instance.StartingConsole.Fill(new Rectangle(3, 3, 23, 3), Color.Violet, Color.Black, 0, Mirror.None);
+    Game.Instance.StartingConsole.Print(4, 4, &quot;Hello from SadConsole&quot;);
+}
+</code></pre>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-3" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+                <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

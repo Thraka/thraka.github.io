@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Overview of GameHost.Screen </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Overview of GameHost.Screen ">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/dracula.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-9">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="sadconsole-gamehostscreen-property">SadConsole <strong>GameHost.Screen</strong> Property</h1>
+
+<p>The <a class="xref" href="../../api/sadconsole/SadConsole.GameHost.html#SadConsole_GameHost_Screen">GameHost.Screen</a> property is one of the most important properties in SadConsole. The <code>Screen</code> determines what's visible on the screen and what's processed by the keyboard and mouse.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>The host is accessed through the <code>SadConsole.GameHost.Instance</code> property.</p>
+</div>
+<h2 id="what-does-the-screen-represent">What does the Screen represent?</h2>
+<p>The <code>GameHost.Screen</code> object represents the consoles and surfaces that are displayed to the user. It's a single root object that all other objects are a child of. Because the <code>GameHost.Screen</code> represents what's on the screen, you can use it to transition from one part of your game to the other. For example, when your game starts you can show a title screen with all its logic, and then based on the user's selection, swap the <code>GameHost.Screen</code> to an instance of a screen that represents the settings menu or a screen that starts the game.</p>
+<p>There's no limit to the children an object can have, nor is there a limit to how deep the parent-child relationship can be.</p>
+<h2 id="designating-the-startup-screen">Designating the startup screen</h2>
+<p>The startup screen is set by the game configuration object. To learn about the configuration object, see <a href="config.html">Game startup</a>.</p>
+<p>Use the. For more information, see <a href="config.html#startup-screen">Game startup - startup screen</a>.</p>
+<p>The <a class="xref" href="../../api/sadconsole/SadConsole.GameHost.html#SadConsole_GameHost_Screen">GameHost.Screen</a> is set by the startup code. The easiest way to setup the start screen is to create a new object that inherits from <code>IScreenObject</code>, and configure it with all of your consoles, surfaces, and input handling code. Then, use the <a class="xref" href="../../api/monogame/SadConsole.Game.Configuration.html#SadConsole_Game_Configuration_SetStartingScreen__1">SetStartingScreen&lt;TRootObject&gt;()</a> configuration method, providing the type.</p>
+<h3 id="starting-screen-type">Starting screen type</h3>
+<pre><code class="lang-csharp">class RootScreen : ScreenObject
+{
+    public RootScreen()
+    {
+        // Code here to create consoles, objects, and arrange them. 
+        // Each object should be added to the Children collection.
+    }
+}
+</code></pre>
+<h3 id="configuration-setting">Configuration setting</h3>
+<pre><code class="lang-csharp">Game.Configuration gameStartup = new Game.Configuration()
+    .SetScreenSize(120, 38)
+    .SetStartingScreen&lt;RootScreen&gt;() // Startup object type is here
+    ;
+
+Game.Create(gameStartup);
+Game.Instance.Run();
+Game.Instance.Dispose();
+</code></pre>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-3" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+                <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,375 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Get Started 2 - Cursors and parenting </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Get Started 2 - Cursors and parenting ">
+    
+      <link rel="shortcut icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../../styles/docfx.css">
+      <link rel="stylesheet" href="../../../styles/dracula.css">
+      <link rel="stylesheet" href="../../../styles/main.css">
+      <meta property="docfx:navrel" content="../../../toc.html">
+      <meta property="docfx:tocrel" content="../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-9">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="get-started-2---cursors-and-parenting">Get Started 2 - Cursors and parenting</h1>
+
+<p>This article is the 2nd in the series of Getting Started tutorials for SadConsole. In this article you'll learn how to use the <code>Cursor</code> object to write on a <code>Console</code>. SadConsole can also display more than one console, you'll also learn how to have multiple consoles on the screen.</p>
+<p>Previous articles in this tutorial:</p>
+<ul>
+<li><a href="part-1-drawing.html">Get Started 1 - Draw on a console</a></li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>To start this part of the tutorial you'll need to have created a SadConsole project, one that was created by following the previous tutorial in this series. However, you may have been experimenting with your code. To make sure that you start this tutorial with the same code, copy and paste the following code into your <em>program.cs</em>:</p>
+<pre><code class="lang-csharp">Settings.WindowTitle = &quot;My SadConsole Game&quot;;
+
+Game.Configuration gameStartup = new Game.Configuration()
+    .SetScreenSize(90, 30)
+    .OnStart(Startup)
+    ;
+
+Game.Create(gameStartup);
+Game.Instance.Run();
+Game.Instance.Dispose();
+
+static void Startup()
+{
+    if (Game.Instance.StartingConsole is null)
+        throw new NullReferenceException(&quot;Unsure why. If you used a game config with SetStartingScreen, it destroys the StartingConsole object.&quot;);
+
+    Console startingConsole = Game.Instance.StartingConsole;
+}
+</code></pre>
+<h2 id="use-the-cursor">Use the Cursor</h2>
+<p>The <code>SadConsole.Console</code> type is the basic type you use to get data on the screen. As you learned in the previous part of this tutorial series, you can use methods like <code>SetGlyph</code>, <code>SetForeground</code>, and even <code>Print</code>, to draw on the console. There is another way to write to the console, something you may be more used to, and that's the console cursor.</p>
+<p>When you run a terminal program, such as <em>cmd.exe</em> or <em>bash</em>, you're presented with a blinking cursor, letting you know it's ready for you to type something. When the programs you run communicate back to you, that cursor prints things to the screen:</p>
+<p><img src="images/part-2-cursor-parents/terminal.gif" alt="demonstrating a powershell and cmd terminal"></p>
+<p>SadConsole provides a cursor system as way to show users where text is about to be written, where they should use the keyboard to type, or just as a convenient way to draw to a console. You can chain cursor commands into a series of actions:</p>
+<ol>
+<li>Match the printing style of the cursor to the host console.</li>
+<li>Move the cursor to position 20,21</li>
+<li>Print the text &quot;Kato is my favorite dog&quot;</li>
+<li>Change the print color to Green</li>
+<li>Move the cursor to a new line</li>
+<li>Print the text &quot;No, Birdie is my favorite dog&quot;</li>
+</ol>
+<p>Replace the <code>Startup</code> code with the following and run your program:</p>
+<pre><code class="lang-csharp">static void Startup()
+{
+    if (Game.Instance.StartingConsole is null)
+        throw new NullReferenceException(&quot;Unsure why. If you used a game config with SetStartingScreen, it destroys the StartingConsole object.&quot;);
+
+    Console startingConsole = Game.Instance.StartingConsole;
+
+    startingConsole.Cursor.PrintAppearanceMatchesHost = false;
+
+    startingConsole.Cursor
+        .SetPrintAppearanceToHost()
+        .Move(0, 21)
+        .Print(&quot;Kato is my favorite dog&quot;)
+        .SetPrintAppearance(Color.Green)
+        .NewLine()
+        .Print(&quot;No, Birdie is my favorite dog&quot;);
+}
+</code></pre>
+<p>The first thing the code does is alter the cursor's look. By default, the cursor always prints text in the style of the console that hosts the cursor. Once <code>Cursor.PrintAppearanceMatchesHost</code> is set to <code>false</code>, the <code>Cursor.PrintAppearance</code> property is used to color the printing. This defaults to a <strong>Black</strong> background and <strong>White</strong> foreground.</p>
+<p>The code causes the cursor to do things, but you don't <em>see</em> a cursor on the screen. By default, the cursor is invisible and doesn't respond to the keyboard. To show the cursor, change the <code>IsVisible</code> property to <code>true</code>.</p>
+<pre><code class="lang-csharp">static void Startup()
+{
+    if (Game.Instance.StartingConsole is null)
+        throw new NullReferenceException(&quot;Unsure why. If you used a game config with SetStartingScreen, it destroys the StartingConsole object.&quot;);
+
+    Console startingConsole = Game.Instance.StartingConsole;
+
+    startingConsole.Cursor.PrintAppearanceMatchesHost = false;
+
+    startingConsole.Cursor
+        .SetPrintAppearanceToHost()
+        .Move(0, 21)
+        .Print(&quot;Kato is my favorite dog&quot;)
+        .SetPrintAppearance(Color.Green)
+        .NewLine()
+        .Print(&quot;No, Birdie is my favorite dog&quot;);
+
+    startingConsole.Cursor.IsVisible = true;
+}
+</code></pre>
+<p>Run your program and you'll see the cursor blinking. When you type though, nothing happens. The cursor is currently visible, but it's not been enabled yet. To make your cursor respond to keyboard events, there are two conditions that must be satisfied:</p>
+<ol>
+<li>The console must be focused (you can use <code>startingConsole.IsFocused = true</code> to focus the console). By default, the &quot;starting console&quot; is already focused.</li>
+<li>The cursor must be enabled.</li>
+</ol>
+<p>To enable the cursor, set the <code>IsEnabled</code> property to <code>true</code>.</p>
+<pre><code class="lang-csharp">static void Startup()
+{
+    if (Game.Instance.StartingConsole is null)
+        throw new NullReferenceException(&quot;Unsure why. If you used a game config with SetStartingScreen, it destroys the StartingConsole object.&quot;);
+
+    Console startingConsole = Game.Instance.StartingConsole;
+
+    startingConsole.Cursor.PrintAppearanceMatchesHost = false;
+
+    startingConsole.Cursor
+        .SetPrintAppearanceToHost()
+        .Move(0, 21)
+        .Print(&quot;Kato is my favorite dog&quot;)
+        .SetPrintAppearance(Color.Green)
+        .NewLine()
+        .Print(&quot;No, Birdie is my favorite dog&quot;);
+
+    startingConsole.Cursor.IsVisible = true;
+    startingConsole.Cursor.IsEnabled = true;
+}
+</code></pre>
+<p>Now when you run the game, you'll see that the cursor is blinking, and when you type on the keyboard, the cursor prints the characters to the screen!</p>
+<h2 id="containers">Containers</h2>
+<p>SadConsole has a framework in place that lets you create more than one console and display them at the same time. SadConsole provides a generic object that allows parenting but doesn't display anything itself: <code>ScreenObject</code>.</p>
+<p>The starting screen is a <code>Console</code>, so we'll need to get rid of that and start over if we want a base container object. Let's create a new <code>ScreenObject</code> that will host a few consoles.</p>
+<p>Second, erase all the code in the <code>Startup</code> method:</p>
+<pre><code class="lang-csharp">static void Startup()
+{
+
+}
+</code></pre>
+<p>Now, do the following:</p>
+<ol>
+<li>Create a new <code>ScreenObject</code> and assign it to a variable named <code>container</code>.</li>
+<li>To make this object the main object processed by SadConsole, assign it to the <code>Game.Instance.Screen</code> property.</li>
+<li>Finally, destroy the original <code>Game.Instance.StartingConsole</code> with the <code>DestroyDefaultStartingConsole</code> method.</li>
+</ol>
+<pre><code class="lang-csharp">static void Startup()
+{
+    ScreenObject container = new ScreenObject();
+    Game.Instance.Screen = container;
+    Game.Instance.DestroyDefaultStartingConsole();
+}
+</code></pre>
+<p>The previous code you used at the start of this article used the <code>Game.Instance.StartingConsole</code> property, and now you're using the <code>Game.Instance.Screen</code> property, conceptually known as the &quot;current screen.&quot; When SadConsole starts up, the <code>Game.Instance.Screen</code> property is assigned to the <code>StartingConsole</code> property, so they are the same object. The current screen is the <code>StartingConsole</code>. The current screen is the object that is processed by SadConsole every game frame. It represents what is on the screen visually and what game logic is run.</p>
+<p>If you run the game now, nothing will be displayed. A <code>ScreenObject</code> is just a container that lets you add multiple child objects to it, but it itself doesn't draw anything. You can do this same thing with a <code>Console</code>, but the console would also want to draw something and use resources. So, when you have a container that doesn't need to draw anything directly, <code>ScreenObject</code> is the type you want to use.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Because you've replaced the <code>Game.Instance.Screen</code> property and you've destroyed the starting console, <code>Game.Instance.StartingConsole</code>can no longer be used. Destroying the starting console is important when you're no longer using it, as it frees up video card memory.</p>
+</div>
+<h2 id="first-child-console">First child console</h2>
+<p>The first console we'll create will be displayed on the top-left part of the screen. It won't take up the whole screen, and it'll use a unique background color so that it can be distinguished from the second console we'll soon create.</p>
+<pre><code class="lang-csharp">static void Startup()
+{
+    ScreenObject container = new ScreenObject();
+    Game.Instance.Screen = container;
+    Game.Instance.DestroyDefaultStartingConsole();
+
+    // First console
+    Console console1 = new(60, 14);
+    console1.Position = (3, 2);
+    console1.Surface.DefaultBackground = Color.AnsiCyan;
+    console1.Clear();
+    console1.Print(1, 1, &quot;Type on me!&quot;);
+    console1.Cursor.Position = (1, 2);
+    console1.Cursor.IsEnabled = true;
+    console1.Cursor.IsVisible = true;
+    console1.Cursor.MouseClickReposition = true;
+    console1.IsFocused = true;
+
+    container.Children.Add(console1);
+}
+</code></pre>
+<p>The code above introduces a few new concepts you may be unfamiliar with:</p>
+<ol>
+<li><p><code>console1.Position = (3, 2);</code></p>
+<p><code>container</code> is the root object, which doesn't draw anything because it's a <code>ScreenObject</code>, however, it contains a single child: <code>console1</code>, added by the last line of the code: <code>container.Children.Add(console1)</code>. <code>console1</code> draws something on the screen because it's a console. Children are positioned relative to their parent. In this case, <code>console1</code> is positioned at <em>(x3,y2)</em> of its parent, <code>container</code> which is at <em>(x0,y0)</em>. The final drawing position of <code>console1</code> is calculated using the formula <code>self.Position + parent.Position</code>. Because <code>container</code> is the root object and is positioned at <em>(x0,y0)</em>, which is the top-left of the game window, so <code>console</code> is drawn at <em>(x3, y2)</em> on the window. If <code>container</code> was moved to <em>(x1, y1)</em>, <code>console</code> would be drawn at <em>(x4, y3)</em>.</p>
+<p>Positions are calculated differently between objects that have a surface versus those that are containers. This is explained later.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>The position is a <code>Point</code> type. Instead of using <code>new Point(3, 2)</code>, the <code>Point</code> type supports interpreting <code>(3, 2)</code> as a <code>Point</code>. You can use that syntax anywhere you need a <code>Point</code>.</p>
+</div>
+</li>
+<li><p><code>console1.Surface.DefaultBackground</code> and <code>console1.Clear</code></p>
+<p>Each console (which is made up of a surface) has a <code>DefaultBackground</code> and <code>DefaultForeground</code> property. The background property is the most important of the two. This controls the &quot;fill&quot; color used on each cell. SadConsole has some optimization built into it based on this property. You'll always want to set the <code>DefaultBackground</code> property to match your most used background color of a console. Any cell whose background matches the <code>DefaultBackground</code>, is optimized by skipping its own background drawing.</p>
+<p>The <code>console1.Clear</code> method is called to reset every cell to the new default background color. In our case, this makes sure every cell is colored with a <strong>Cyan</strong> background.</p>
+</li>
+<li><p><code>console1.Cursor.MouseClickReposition = true</code></p>
+<p>This allows the mouse input to move the cursor for you. When you click on the console, the cursor will reposition itself to wherever the mouse was clicked.</p>
+</li>
+<li><p><code>console1.IsFocused = true</code></p>
+<p>Previously when you were using the starting console, it was automatically focused, so you didn't have to worry about that. Only the focused object receives keyboard input. If the <code>container</code> was focused, <code>console1</code> still wouldn't receive keyboard input, even though it's a child object. This is a common mistake developers make with SadConsole, they forget to <strong>Focus</strong> the console or object to receive keyboard input.</p>
+</li>
+</ol>
+<p>When you run the code, you'll see a screen like the following, try typing with the keyboard and clicking the mouse:</p>
+<p><img src="images/part-2-cursor-parents/cyan-cursor-console.png" alt="child console with cursor displayed"></p>
+<h2 id="add-a-child-to-the-first-console">Add a child to the first console</h2>
+<p>When children are added to a parent, they draw on top of those parents. Right now, the object hierarchy of <code>Game.Instance.Screen</code> consists of two objects.</p>
+<pre><code class="lang-text">- container
+  - console1
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>Game.Instance.Screen</code> is what is processed and drawn by SadConsole.</p>
+</div>
+<p>Let's add another object to the hierarchy. Instead of a <code>Console</code> though, add a <code>ScreenSurface</code>. A <code>ScreenSurface</code> is like a <code>Console</code>, with only with one minor difference, the console has a built-in <code>Cursor</code>. A <code>ScreenSurface</code> doesn't contain a cursor, though one could be added.</p>
+<p>This surface is going to be a child of the console. It will be drawn on top of the console, however, we'll not allow it to gain focus or process any input. Add this code after the previous code.</p>
+<pre><code class="lang-csharp">// Add a child surface
+ScreenSurface surfaceObject = new(5, 3);
+surfaceObject.Surface.FillWithRandomGarbage(surfaceObject.Font);
+surfaceObject.Position = console1.Surface.Area.Center - (surfaceObject.Surface.Area.Size / 2);
+surfaceObject.UseMouse = false;
+
+console1.Children.Add(surfaceObject);
+</code></pre>
+<p>When you run the program and you can see the other surface displayed on top of the console.</p>
+<p><img src="images/part-2-cursor-parents/single-console-child-surface.png" alt="console with child surface"></p>
+<p>Right now, the object hierarchy of <code>Game.Instance.Screen</code> is:</p>
+<pre><code class="lang-text">- container
+  - console1
+    - surfaceObject
+</code></pre>
+<p>Try moving the cursor and typing behind <code>surfaceObject</code>.</p>
+<h2 id="second-child-console">Second child console</h2>
+<p>The final thing we'll do is add a second console. This console will be a duplicate of the first, but with a different background color. This demonstrates changing focus between consoles and objects.</p>
+<pre><code class="lang-csharp">// Second console
+Console console2 = new Console(58, 12);
+console2.Position = new Point(19, 11);
+console2.DefaultBackground = Color.AnsiRed;
+console2.Clear();
+console2.Print(1, 1, &quot;Type on me!&quot;);
+console2.Cursor.Position = new Point(1, 2);
+console2.Cursor.IsEnabled = true;
+console2.Cursor.IsVisible = true;
+console2.FocusOnMouseClick = true;
+console2.MoveToFrontOnMouseClick = true;
+
+container.Children.Add(console2);
+container.Children.MoveToBottom(console2);
+</code></pre>
+<p>There are two new properties and a new method being called here:</p>
+<ol>
+<li><p><code>console2.FocusOnMouseClick = true;</code></p>
+<p>Remember, only the <strong>focused</strong> object receives keyboard input. If we want the second console to receive that keyboard input, we need to remove focus from the first console and give it to the second. Normally you do this with <code>target.IsFocused = true</code>. SadConsole can detect when the mouse is clicked on a surface and automatically give it focus, which is what this code does. Set that property on <code>console1</code> also. You'll be able to click back and forth between both consoles and type on them.</p>
+</li>
+<li><p><code>console2.MoveToFrontOnMouseClick = true;</code></p>
+<p>This property responds to the mouse click and moves the object to the top, last in the collection. The draw order of the objects is based on where they are in the <code>Children</code> collection. Whichever object is added last becomes the top-most drawn object. Whichever object is first in this collection is the back-most drawn object. Changing an object's focus doesn't affect drawing order.</p>
+</li>
+<li><p><code>container.Children.MoveToBottom(console2);</code></p>
+<p>Because we added <code>console2</code> to the <code>container</code> after <code>console1</code> was added, <code>console2</code> is the top-most object drawn, being the last in the collection. However, we want the experience to be that <code>console1</code> is the first console you interact with. There are two ways of doing this. First, the code above solved this problem by forcibly moving <code>console2</code> to the bottom of the collection. The second way is just adding the consoles in the order you want them to appear, with the last item added being the top-most. For example, remove the existing <code>container.Children.Add</code> method calls for both consoles, and add this to the end of the code routine:</p>
+<pre><code class="lang-csharp">container.Children.Add(console2);
+container.Children.Add(console1);
+</code></pre>
+<p>Now the consoles are inserted in the order you want them displayed, with <code>console1</code> on top.</p>
+</li>
+</ol>
+<p>Right now the object hierarchy of <code>Game.Instance.Screen</code> is:</p>
+<pre><code class="lang-text">- container
+  - console2   &lt;-- first in the collection, drawn first, below others
+  - console1   &lt;-- last in the collection, drawn last, on top of others
+    - surfaceObject  &lt;-- as a child of console1, drawn on top of it
+</code></pre>
+<p>When you run the program and you can see and interact with both consoles.</p>
+<p><img src="images/part-2-cursor-parents/two-consoles.png" alt="console with child surface"></p>
+<p>When interacting with the game, try clicking on the different consoles. You'll notice a few problems:</p>
+<ul>
+<li>After you click on <code>console2</code> (Red) it's moved to the front and if you click on <code>console1</code> (Cyan) ...
+<ul>
+<li><code>console1</code> stays in the background instead of moving to the foreground.</li>
+<li>If you type, <code>console2</code> still responds to the keyboard, even though you clicked on <code>console1</code>.</li>
+</ul>
+</li>
+<li>When you click on <code>console2</code> (Red), the cursor isn't moved to the position of the mouse like with <code>console1</code>.</li>
+</ul>
+<p>These behavior differences are from a few properties that are set differently between <code>console1</code> and <code>console2</code>. Can you fix those bugs? Try and see if you can!</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Now you have both a working console and a non-console surface. You've explored how SadConsole uses the Cursor object to let you type, emulating a terminal. You also learned how to parent one object to another and move items within the parent's <code>Children</code> collection. The next part of this series will explore more about the keyboard and mouse input.</p>
+<ul>
+<li><a href="part-3-input.html">Next: Get Started 2 - Input</a></li>
+</ul>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-3" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+                <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

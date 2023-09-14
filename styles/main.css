@@ -1,7 +1,7 @@
 ﻿/*@font-face {
     font-family: 'DOS';
     src: url('fonts/Fixedsys500c.eot');
-    src: local('鈽�'),url('fonts/Fixedsys500c.woff') format('woff'),url('fonts/Fixedsys500c.ttf') format('truetype'),url('fonts/Fixedsys500c.svg') format('svg');
+    src: local('鈽 '),url('fonts/Fixedsys500c.woff') format('woff'),url('fonts/Fixedsys500c.ttf') format('truetype'),url('fonts/Fixedsys500c.svg') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -33,8 +33,8 @@ foant-family: DOS,SimHei,Monaco,Menlo,Consolas,'Courier New';
   --color-blue-bright: #55f;
   --color-green: #0a0;
   --color-green-bright: #0f0;
-  --color-cyan: #077;
-  --color-cyan-bright: #0ff;
+  --color-cyan: #0AA;
+  --color-cyan-bright: #5ff;
   --color-red: #700;
   --color-red-bright: #f55;
   --color-magenta: #a0a;
@@ -92,7 +92,7 @@ body {
   font-size: 14px;
   line-height: 18px;
   font-family: Hack;
-  background-color: var(--color-blue);
+  background-color: var(--color-black);
   color: var(--color-white);
 }
 
@@ -102,11 +102,11 @@ body .toc{
 }
 
 .footer {
-  background-color: var(--color-blue);
+  background-color: var(--color-black);
 }
 
 .navbar-default {
-  background-color: var(--color-blue);
+  background-color: var(--color-black);
   border-color: var(--color-blue);
 }
 
@@ -125,20 +125,20 @@ body .toc{
 }
 
 .sidetoc {
-  background-color: var(--color-cyan);
+  background-color: var(--color-black);
   border-left: 0px solid #e7e7e7;
   border-right: 0px solid #e7e7e7;
   box-shadow: 10px 15px rgba(0, 0, 0, 0.5);
 }
 
 .sidefilter {
-  background-color: var(--color-blue);
+  background-color: var(--color-black);
   border-left: 0px solid #e7e7e7;
   border-right: 0px solid #e7e7e7;
 }
 
 .sidenav, .fixed_header, .toc  {
-  background-color: var(--color-blue);
+  background-color: var(--color-black);
 }
 
 .toc .level1 > li {
@@ -157,12 +157,12 @@ body .toc{
 }
 
 .toc .nav > li > a {
-  color: var(--color-white-bright);
+  color: var(--color-cyan);
   margin-bottom: 3px;
 }
 
 .toc .nav > li.active > a {
-  color: var(--color-green-bright);
+  color: var(--color-cyan-bright);
 }
 .toc .nav > li.active > a:hover,
 .toc .nav > li.active > a:focus {
@@ -258,16 +258,22 @@ h1 {
 }
 
 h2::before {
-  content: "\2500[";
+  /*content: "\2500[";*/
   color: var(--color-cyan-bright);
 }
 h2 {
-  font-size: 18px;
-  color: var(--color-green-bright);
+  font-size: 14px;
+  color: var(--color-white-bright);
+  background: var(--color-blue);
+  padding: 8px 10px;
+  box-shadow: 8px 8px 0 1px var(--color-blue-bright);
+  width: fit-content;
+  margin: 20px -10px;
+  text-transform: uppercase;
 }
 h2::after {
   /*content: " ]\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\2500\a0\2500\a0\B7";*/
-  content: "]\2500";
+  /*content: "]\2500";*/
   color: var(--color-cyan-bright);
 }
 
@@ -341,7 +347,8 @@ h2::after {
 
 .affix{
   position: fixed;
-  margin-right: 20px;
+  margin-right: 5px;
+  margin-top: -50px;
 }
 
 .affix ul > li > a:before {
@@ -393,18 +400,18 @@ h2::after {
   font-size: 14px;
 }
 
-.h4, h4 {
+.h4, h4, article h4 {
   color: var(--color-magenta-bright);
-  /*border-bottom: 2px solid var(--color-cyan-bright);*/
-  border-bottom: unset;
-  padding-bottom: 0.2em;
   font-size: 16px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--color-black-bright);
 }
 
 .h3, h3 {
-  font-size: 16px;
   color: var(--color-green-bright);
-  text-decoration: underline;
+  font-size: 16px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--color-black-bright);
 }
 
 ol ul {
@@ -506,5 +513,5 @@ td:first-child {
 }
 
 .table-striped>tbody>tr:nth-of-type(odd) {
-  background-color: #0000b4;
+  background-color: transparent;
 }
