@@ -29,7 +29,7 @@ The following table lists the configuration options with an explanation of what 
 
 | Configuration option                                                                                        | Description                                                                                                                                                                                                                                      |
 |-------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `SetStartingScreen`                                                                                         | Configures the <xref:SadConsole.GameHost.Screen?displayProperty=nameWithType> to an object. For more information, see [Startup screen](#startup-screen).                                                                                         |
+| <xref:SadConsole.Game.Configuration.SetStartingScreen``1>                                                                                         | Configures the <xref:SadConsole.GameHost.Screen?displayProperty=nameWithType> to an object. For more information, see [Startup screen](#startup-screen).                                                                                         |
 | <xref:SadConsole.Game.Configuration.SetScreenSize(System.Int32,System.Int32)>                               | Sets the size of the starting console and sets the <xref:SadConsole.GameHost.ScreenCellsX> and <xref:SadConsole.GameHost.ScreenCellsY> properties to the **Width, Height** values provided, respectively. If not called, defaults to **80, 25**. |
 | <xref:SadConsole.Game.Configuration.ConfigureFonts(System.Action{SadConsole.Game.ConfigurationFontLoader})> | Use a delegate to configure the provided font settings object.                                                                                                                                                                                   |
 | <xref:SadConsole.Game.Configuration.IsStartingScreenFocused(System.Boolean)>                                | Defaults to `true`. Use this method to pass `false` and disable focusing the <xref:SadConsole.GameHost.Screen?displayProperty=nameWithType> object.                                                                                              |
@@ -43,13 +43,13 @@ As soon as the <xref:SadConsole.Game.Configuration> is created, the following de
 - The screen size is set to **80, 25**.
 - Builtin font is enabled.
 - The <xref:SadConsole.GameHost.StartingConsole?displayProperty=nameWithType> property is set to a <xref:SadConsole.Console> object sized to **80, 25**.
-- The `StartingConsole` is assigned to the <xref:SadConosle.GameHost.Screen?displayProperty=nameWithType> property.
+- The `StartingConsole` is assigned to the <xref:SadConsole.GameHost.Screen?displayProperty=nameWithType> property.
 
 The defaults can be overridden.
 
 ## Starting console
 
-When no other screen is designated as a startup screen, the <xref:SadConsole.GameHost.StartingConsole?displayProperty=nameWithType> is created and assigned to the to the <xref:SadConosle.GameHost.Screen?displayProperty=nameWithType> property. You can use either property to access the same object. `StartingConsole` is a strongly typed property while `Screen` isn't.
+When no other screen is designated as a startup screen, the <xref:SadConsole.GameHost.StartingConsole?displayProperty=nameWithType> is created and assigned to the to the <xref:SadConsole.GameHost.Screen?displayProperty=nameWithType> property. You can use either property to access the same object. `StartingConsole` is a strongly typed property while `Screen` isn't.
 
 If the `StartingConsole` is going to be used, you'll want to configure the object. For more information, see [Startup delegate](#startup-delegate).
 
@@ -57,9 +57,9 @@ If the `StartingConsole` is going to be used, you'll want to configure the objec
 
 The <xref:SadConsole.GameHost.Screen?displayProperty=nameWithType> is set by the startup code. There are three ways to choose what the `Screen` is set to:
 
-- Designate a type with <xref:SadConsole.Game.Configuration.SetStartingScreen%601>.
+- Designate a type with <xref:SadConsole.Game.Configuration.SetStartingScreen``1>.
 
-  With the configuration object, call <xref:SadConsole.Game.Configuration.SetStartingScreen%601> and pass a type that implements the <xref:SadConsole.IScreenObject> interface. The type provided must have a parameterless constructor.
+  With the configuration object, call <xref:SadConsole.Game.Configuration.SetStartingScreen``1> and pass a type that implements the <xref:SadConsole.IScreenObject> interface. The type provided must have a parameterless constructor.
 
   ```csharp
   Game.Configuration gameStartup = new Game.Configuration()
@@ -124,7 +124,7 @@ The <xref:SadConsole.GameHost.Screen?displayProperty=nameWithType> is set by the
 
 If you have further initialization you want to perform, especially when you don't designate a different startup object, you can use the <xref:SadConsole.Game.Configuration.OnStart(System.Action)?displayProperty=nameWithType> configuration option to specify a delegate that's invoked after the game starts.
 
-When you leave the default configuration that creates the <xref:SadConsole.Game.StartingConsole?displayProperty=nameWithType> instance, you must use this configuration option to setup the console. The following code example demonstrates printing some text on the `StartingConsole`.
+When you leave the default configuration that creates the <xref:SadConsole.GameHost.StartingConsole?displayProperty=nameWithType> instance, you must use this configuration option to setup the console. The following code example demonstrates printing some text on the `StartingConsole`.
 
 ```csharp
 Game.Configuration gameStartup = new Game.Configuration()
