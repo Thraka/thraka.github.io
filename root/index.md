@@ -2,17 +2,26 @@
 
 [![Join us on Discord (Primary)](https://img.shields.io/discord/501465397518925843.svg?label=discord)][discord] [![NuGet](https://img.shields.io/nuget/v/SadConsole.svg)][nuget]
 
-SadConsole is .NET game library that provides an engine to emulate old-school console and command prompt style graphics. SadConsole is built in a generic way and doesn't do any rendering itself. A game engine or other rendering library is required to draw SadConsole games. There are host libraries for MonoGame and SFML. The ascii character set is represented in a sprite sheet, much like other modern ascii games such as Dwarf Fortress.
-
-SadConsole is built on cross-platform .NET, and can run anywhere the graphical host library can. It uses the **TheSadRogue.Primitives** ([NuGet](https://www.nuget.org/packages/TheSadRogue.Primitives), [GitHub](https://github.com/thesadrogue/TheSadRogue.Primitives)) library, which is a shared library with the amazing [GoRogue 3](https://github.com/Chris3606/GoRogue) utility library.
+SadConsole is cross-platform .NET game library that provides an engine to emulate old-school console and command prompt style graphics. SadConsole is built in a generic way and doesn't do any rendering itself. A game engine or other rendering library is required to draw SadConsole games. There are host libraries for MonoGame and SFML. The ascii character set is represented in a sprite sheet, much like other modern ascii games such as Dwarf Fortress.
 
 ## Dependencies
 
 SadConsole uses NuGet for its .NET dependencies.
 
-## Demo Project
+- **TheSadRogue.Primitives** ([NuGet](https://www.nuget.org/packages/TheSadRogue.Primitives), [GitHub](https://github.com/thesadrogue/TheSadRogue.Primitives))
+- **Newtonsoft.Json**
 
-The [DemoProject](https://github.com/Thraka/SadConsole/tree/master/Samples/MainSample) shows how to use SadConsole in a multi-platform environment and demonstrates various things you can do with SadConsole.
+## Demo
+
+The .NET templates provided by SadConsole can generate a demo application that showcases SadConsole. The follwoing commands install the SadConsole templates, generates the demo application, and then runs it.
+
+```dotnet
+dotnet new --install SadConsole.Templates
+dotnet new sadconsole-demo
+dotnet run
+```
+
+To learn how to use SadConsole, see [Get Started 1 - Draw on a console](articles/tutorials/getting-started/part-1-drawing.md).
 
 ## Features
 
@@ -34,20 +43,11 @@ Here are some of the features SadConsole supports.
 
 #### String display and parsing
 
-![string pic](images/index/string-parser.gif)
+![string pic](images/index/stringparseexample.gif)
 
 #### Scrolling
 
 ![scrolling console](images/index/scrolling-example2.gif)
 
-#### Entities
-
-![entities](images/index/entities.gif)
-
-#### Views
-
-![views](images/index/views.gif)
-
 [nuget]: http://www.nuget.org/packages/SadConsole/
 [discord]: https://discord.gg/pAFNKYjczM
-[reddit]: http://reddit.com/r/sadconsole

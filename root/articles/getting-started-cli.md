@@ -26,23 +26,28 @@ Once you have a terminal open, navigate to the folder where you'll keep your cod
 Next, install the SadConsole templates:
 
 ```shell
-dotnet new --install SadConsole.Templates
+dotnet new install SadConsole.Templates
 ```
+
+> [!TIP]
+> The `dotnet` commands used here are based on .NET 7. If you're using .NET 6 they're slightly different with `dotnet new --install SadConsole.Templates` and `dotnet new --list sadconsole`.
 
 When this command runs, it lists every template installed. You can run a command to list the SadConsole related templates:
 
 ```shell
-dotnet new sadconsole --list
+dotnet new list sadconsole
 ```
 
 You should see output similar to the following:
 
 ```shell
-Templates                                Short Name                 Language      Tags
---------------------------------------------------------------------------------------------------------------
-SadConsole Game (MonoGame)            sadconsole-mg              [C#]          Console/Roguelike/SadConsole
-SadConsole Game (SFML)                sadconsole-sfml            [C#]          Console/Roguelike/SadConsole
-SadConsole Console Class              scconsole                  [C#]          Console/SadConsole
+These templates matched your input: 'sadconsole'
+
+Template Name               Short Name       Language  Tags
+--------------------------  ---------------  --------  -------------------------------------
+SadConsole Demo             sadconsole-demo  [C#]      Console/Roguelike/SadConsole/MonoGame
+SadConsole Game (MonoGame)  sadconsole-mg    [C#]      Console/Roguelike/SadConsole/MonoGame
+SadConsole Game (SFML)      sadconsole-sfml  [C#]      Console/Roguelike/SadConsole/SFML
 ```
 
 The `SadConsole Game (MonoGame)` template creates a SadConsle game that uses [MonoGame](https://www.monogame.net/) and the `SadConsole Game (SFML)` template creates a game that uses [SFML](https://www.sfml-dev.org/). MonoGame and SFML are the backend renderers for SadConsole. In general, the code you use for SadConsole doesn't care which rendering system you use. However, as your game progresses, which renderer you choose is very important. Currently, it's recommended that you use the MonoGame renderer as it has the following benefits:
