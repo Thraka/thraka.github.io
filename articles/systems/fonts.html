@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>How fonts are used </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="How fonts are used ">
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/dracula.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-9">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="sadconsole-font-overview">SadConsole Font Overview</h1>
+
+<p>A &quot;font&quot; in SadConsole is used to display characters on the screen. The font can be a mix of textual glyphs or graphical tiles. Fonts consist of two parts, the image file and the config file. The image is in any format that the current <a href="host.html">host</a> supports. Most likely, this is MonoGame. Both the MonoGame and SFML hosts support loading <em>.png</em> images, and that image format can be considered safe.</p>
+<h2 id="image-file">Image file</h2>
+<p>The image file of the font must use a transparent background, and <em>not</em> a colored key file. The glyphs in the font graphic should use a pure white color <code>(255, 255,255)</code> for the foreground. The image file should have two very specific glyphs, a fully transparent glyph, and a fully filled in glyph.</p>
+<p>Here is an example of the standard font graphic included in SadConsole.</p>
+<p><img src="images/fonts/font-sample.png" alt="font sample"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Normally the background of the font texture is transparent, not black. In this article it's black so that you can see the glyphs.</p>
+</div>
+<h2 id="glyph-indices">Glyph indices</h2>
+<p>The font is broken down into glyph cells that are referenced by index. Index <strong>0</strong> represents the top-left cell, and moving right, counts up from <strong>0</strong> where the next cell is <strong>1</strong>. Once the index reaches the end of the line, it moves to the next line, continuing to count.</p>
+<p><img src="images/fonts/how-font-works.png" alt="font indexing"></p>
+<p>When text is written to a surface or console, all of the characters are placed on the surface at the appropraite positions. This is because the surfaces and consoles you see on the screen draw the font glyphs by index. All of the english characters represented in the font file are placed in their matching keyboard keycode index. Character <code>A</code> (code 65) is placed at index 65, while character <code>z</code> (code 122) is placed at index 122, and so on. If index 66 is placed at <strong>(0,0)</strong> on a surface, you'll see th <code>B</code> character at <strong>(0,0)</strong>.</p>
+<h2 id="font-config-file">Font config file</h2>
+<p>Each graphical font has a special config file that tells SadConsole how to interpret the image file. This is a json encoded file that ends with the <strong>.font</strong> extension.</p>
+<p>Here is an example of a font config file. According to this config, each glyph in the image file is 8 pixels wide by 16 pixels hight. There is a 1 pixel spacing between every glyph, and the solid-filled glyph index is 219.</p>
+<pre><code class="lang-json">{
+  &quot;Name&quot;: &quot;IBM_8x16&quot;,
+  &quot;FilePath&quot;: &quot;IBM8x16.png&quot;,
+  &quot;GlyphHeight&quot;: 16,
+  &quot;GlyphPadding&quot;: 1,
+  &quot;GlyphWidth&quot;: 8,
+  &quot;SolidGlyphIndex&quot;: 219,
+  &quot;Columns&quot;: 16,
+  &quot;IsSadExtended&quot;: false
+}
+</code></pre>
+<h2 id="font-requirements">Font requirements</h2>
+<p>There are a few requirements for the font image and config files.</p>
+<ul>
+<li><p>Index 0 in the image file should be completely transparent.</p>
+<p>This is important because index 0 is considered a dead glyph and is used in optimization. Any glyph besides 0, even if it's completely transparent, is drawn to the screen. Glyph 0 is always skipped.</p>
+</li>
+<li><p>The config file must set the <code>SolidGlyphIndex</code> index. In a code page 437 font, which is what SadConsole is built around, this is index 219.</p>
+<p>The solid white glyph is used in filling the backgrounds of cells.</p>
+</li>
+</ul>
+<h2 id="font-sizes">Font sizes</h2>
+<p>Fonts that are used by surfaces require a &quot;size&quot; to determine how big each glyph should be. In general, the font has a built-in size that corresponds to the size of the individual glyphs in the image file. The size used with a surface can be in any amount of pixels, and the font is stretched to that size.</p>
+<p>When you need to generate a font size, use the <a class="xref" href="../../api/sadconsole/SadConsole.IFont.html#SadConsole_IFont_GetFontSize_SadConsole_IFont_Sizes_">IFont.GetFontSize(IFont.Sizes)</a> method, passing in a size value. The size values are designed to generate pixel-aligned font sizes. Use the font object you want to generate a font size from. After you create a surface, you could change the font. To ensure that you use the appropriate font size, use the surface's current font to generate a size. For example, the following code creates the surface object first, which uses the default font, then uses the assigned font to generate a font size two times bigger.</p>
+<pre><code class="lang-csharp">SadConsole.ScreenSurface surfaceObj = new(80, 24);
+
+surfaceObj.FontSize = surfaceObj.Font.GetFontSize(IFont.Sizes.Two);
+</code></pre>
+<h2 id="default-font">Default font</h2>
+<p>SadConsole uses the IBM 8x16 Code Page 437 font by default. The default font, designated by the <a class="xref" href="../../api/sadconsole/SadConsole.GameHost.html#SadConsole_GameHost_DefaultFont">DefaultFont</a> property, is automatically used by every SadConsole surface object, unless a different font is designated when the object is created.</p>
+<p>You can have SadConsole use a custom font on startup by adjusting the game config that starts SadConsole. For more information, see <a href="config.html#use-your-own-font-as-the-default-font">Use your own font as the default font</a></p>
+<pre><code class="lang-csharp">Game.Configuration gameStartup = new Game.Configuration()
+    // ...config options...
+    .ConfigureFonts(SetupFont)
+    ;
+
+Game.Create(gameStartup);
+Game.Instance.Run();
+Game.Instance.Dispose();
+
+static void SetupFont(Game.ConfigurationFontLoader loader)
+{
+    loader.UseCustomFont(&quot;fonts\\new.font&quot;);
+}
+</code></pre>
+<h3 id="changing-the-default-font-after-sadconsole-has-started">Changing the default font after SadConsole has started</h3>
+<p>If you want SadConsole to use a different font after SadConsole has started, set the <code>SadConsole.Game.Instance.DefaultFont</code> property to a different font instance. Any object created <strong>after</strong> the default font changes, uses the new default font.</p>
+<h2 id="load-a-font">Load a font</h2>
+<p>Fonts are loaded by the game host with the <a class="xref" href="../../api/sadconsole/SadConsole.GameHost.html#SadConsole_GameHost_LoadFont_System_String_">LoadFont(string)</a> method. When a font is loaded, it's registered with the <a class="xref" href="../../api/sadconsole/SadConsole.GameHost.html#SadConsole_GameHost_Fonts">Fonts</a> dictionary, which is keyed by the font name, and then the instance is returned.</p>
+<p>Fonts can be preloaded with the game config, before your game starts. For more information, see <a href="config.html#add-additional-fonts-to-sadconsole">Add additional fonts to SadConsole</a></p>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-3" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+                <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

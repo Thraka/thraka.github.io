@@ -70,7 +70,7 @@
 <h1 id="game-startup">Game startup</h1>
 
 <p>Game startup API is provided by the host library and not by SadConsole directly. The two hosts, MonoGame and SFML, have identical startup APIs. The MonoGame host is documented on this site, but should equally apply to SFML.</p>
-<p>SadConsole games start when the <a class="xref" href="../../api/monogame/SadConsole.Game.html#SadConsole_Game_Create_SadConsole_Game_Configuration_">Create(Configuration)</a> method is called, providing an instance of the <a class="xref" href="../../api/monogame/SadConsole.Game.Configuration.html">Game.Configuration</a> object. The <code>Configuration</code> object is created fluently, meaning, as you call each method to configure the object, the object is returned for continued configuration. Consider the following example:</p>
+<p>SadConsole games start when the <a class="xref" href="https://www.sadconsole.com/monogame/api/SadConsole.Game.html#SadConsole_Game_Create_SadConsole_Game_Configuration_">Create(Configuration)</a> method is called, providing an instance of the <a class="xref" href="https://www.sadconsole.com/monogame/api/SadConsole.Game.Configuration.html">Game.Configuration</a> object. The <code>Configuration</code> object is created fluently, meaning, as you call each method to configure the object, the object is returned for continued configuration. Consider the following example:</p>
 <pre><code class="lang-csharp">Game.Configuration gameStartup = new Game.Configuration()
     .SetScreenSize(120, 32)
     .SetStartingScreen&lt;RootScreen&gt;()
@@ -93,33 +93,33 @@ Game.Instance.Dispose();
 </thead>
 <tbody>
 <tr>
-<td><a class="xref" href="../../api/monogame/SadConsole.Game.Configuration.html#SadConsole_Game_Configuration_SetStartingScreen__1">SetStartingScreen&lt;TRootObject&gt;()</a></td>
+<td><a class="xref" href="https://www.sadconsole.com/monogame/api/SadConsole.Game.Configuration.html#SadConsole_Game_Configuration_SetStartingScreen__1">SetStartingScreen&lt;TRootObject&gt;()</a></td>
 <td>Configures the <a class="xref" href="../../api/sadconsole/SadConsole.GameHost.html#SadConsole_GameHost_Screen">GameHost.Screen</a> to an object. For more information, see <a href="#startup-screen">Startup screen</a>.</td>
 </tr>
 <tr>
-<td><a class="xref" href="../../api/monogame/SadConsole.Game.Configuration.html#SadConsole_Game_Configuration_SetScreenSize_System_Int32_System_Int32_">SetScreenSize(int, int)</a></td>
+<td><a class="xref" href="https://www.sadconsole.com/monogame/api/SadConsole.Game.Configuration.html#SadConsole_Game_Configuration_SetScreenSize_System_Int32_System_Int32_">SetScreenSize(int, int)</a></td>
 <td>Sets the size of the starting console and sets the <a class="xref" href="../../api/sadconsole/SadConsole.GameHost.html#SadConsole_GameHost_ScreenCellsX">ScreenCellsX</a> and <a class="xref" href="../../api/sadconsole/SadConsole.GameHost.html#SadConsole_GameHost_ScreenCellsY">ScreenCellsY</a> properties to the <strong>Width, Height</strong> values provided, respectively. If not called, defaults to <strong>80, 25</strong>.</td>
 </tr>
 <tr>
-<td><a class="xref" href="../../api/monogame/SadConsole.Game.Configuration.html#SadConsole_Game_Configuration_ConfigureFonts_System_Action_SadConsole_Game_ConfigurationFontLoader__">ConfigureFonts(Action&lt;ConfigurationFontLoader&gt;)</a></td>
+<td><a class="xref" href="https://www.sadconsole.com/monogame/api/SadConsole.Game.Configuration.html#SadConsole_Game_Configuration_ConfigureFonts_System_Action_SadConsole_Game_ConfigurationFontLoader__">ConfigureFonts(Action&lt;ConfigurationFontLoader&gt;)</a></td>
 <td>Use a delegate to configure the provided font settings object.</td>
 </tr>
 <tr>
-<td><a class="xref" href="../../api/monogame/SadConsole.Game.Configuration.html#SadConsole_Game_Configuration_IsStartingScreenFocused_System_Boolean_">IsStartingScreenFocused(bool)</a></td>
+<td><a class="xref" href="https://www.sadconsole.com/monogame/api/SadConsole.Game.Configuration.html#SadConsole_Game_Configuration_IsStartingScreenFocused_System_Boolean_">IsStartingScreenFocused(bool)</a></td>
 <td>Defaults to <code>true</code>. Use this method to pass <code>false</code> and disable focusing the <a class="xref" href="../../api/sadconsole/SadConsole.GameHost.html#SadConsole_GameHost_Screen">GameHost.Screen</a> object.</td>
 </tr>
 <tr>
-<td><a class="xref" href="../../api/monogame/SadConsole.Game.Configuration.html#SadConsole_Game_Configuration_OnStart_System_Action_">OnStart(Action)</a></td>
+<td><a class="xref" href="https://www.sadconsole.com/monogame/api/SadConsole.Game.Configuration.html#SadConsole_Game_Configuration_OnStart_System_Action_">OnStart(Action)</a></td>
 <td>The delegate provided to this method is invoked when the game starts running. All startup objects are already created and ready to go by the time it's invoked.</td>
 </tr>
 <tr>
-<td><a class="xref" href="../../api/monogame/SadConsole.Game.Configuration.html#SadConsole_Game_Configuration_OnEnd_System_Action_">OnEnd(Action)</a></td>
+<td><a class="xref" href="https://www.sadconsole.com/monogame/api/SadConsole.Game.Configuration.html#SadConsole_Game_Configuration_OnEnd_System_Action_">OnEnd(Action)</a></td>
 <td>The delegate provided to this method is invoked when the game is shutting down.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="default-configuration">Default configuration</h2>
-<p>As soon as the <a class="xref" href="../../api/monogame/SadConsole.Game.Configuration.html">Game.Configuration</a> is created, the following defaults are applied:</p>
+<p>As soon as the <a class="xref" href="https://www.sadconsole.com/monogame/api/SadConsole.Game.Configuration.html">Game.Configuration</a> is created, the following defaults are applied:</p>
 <ul>
 <li>The screen size is set to <strong>80, 25</strong>.</li>
 <li>Builtin font is enabled.</li>
@@ -133,8 +133,8 @@ Game.Instance.Dispose();
 <h2 id="startup-screen">Startup screen</h2>
 <p>The <a class="xref" href="../../api/sadconsole/SadConsole.GameHost.html#SadConsole_GameHost_Screen">GameHost.Screen</a> is set by the startup code. There are three ways to choose what the <code>Screen</code> is set to:</p>
 <ul>
-<li><p>Designate a type with <a class="xref" href="../../api/monogame/SadConsole.Game.Configuration.html#SadConsole_Game_Configuration_SetStartingScreen__1">SetStartingScreen&lt;TRootObject&gt;()</a>.</p>
-<p>With the configuration object, call <a class="xref" href="../../api/monogame/SadConsole.Game.Configuration.html#SadConsole_Game_Configuration_SetStartingScreen__1">SetStartingScreen&lt;TRootObject&gt;()</a> and pass a type that implements the <a class="xref" href="../../api/sadconsole/SadConsole.IScreenObject.html">IScreenObject</a> interface. The type provided must have a parameterless constructor.</p>
+<li><p>Designate a type with <a class="xref" href="https://www.sadconsole.com/monogame/api/SadConsole.Game.Configuration.html#SadConsole_Game_Configuration_SetStartingScreen__1">SetStartingScreen&lt;TRootObject&gt;()</a>.</p>
+<p>With the configuration object, call <a class="xref" href="https://www.sadconsole.com/monogame/api/SadConsole.Game.Configuration.html#SadConsole_Game_Configuration_SetStartingScreen__1">SetStartingScreen&lt;TRootObject&gt;()</a> and pass a type that implements the <a class="xref" href="../../api/sadconsole/SadConsole.IScreenObject.html">IScreenObject</a> interface. The type provided must have a parameterless constructor.</p>
 <pre><code class="lang-csharp">Game.Configuration gameStartup = new Game.Configuration()
     .SetScreenSize(120, 38)
     .SetStartingScreen&lt;RootScreen&gt;()
@@ -180,12 +180,12 @@ static IScreenObject CreateStartupObject(Game gameInstance)
 </li>
 <li><p>Do nothing.</p>
 <p>If the startup config doesn't designate a startup object, a <a class="xref" href="../../api/sadconsole/SadConsole.Console.html">Console</a> is created and assigned to both the <a class="xref" href="../../api/sadconsole/SadConsole.GameHost.html#SadConsole_GameHost_Screen">GameHost.Screen</a> and <a class="xref" href="../../api/sadconsole/SadConsole.GameHost.html#SadConsole_GameHost_StartingConsole">GameHost.StartingConsole</a> properties.</p>
-<p>When you use the default startup, you must use the <a class="xref" href="../../api/monogame/SadConsole.Game.Configuration.html#SadConsole_Game_Configuration_OnStart_System_Action_">Game.Configuration.OnStart(Action)</a> configuration option and provide a delegate that customizes the <code>StartingConsole</code>. For more information, see <a href="#startup-delegate">Startup delegate</a>.</p>
+<p>When you use the default startup, you must use the <a class="xref" href="https://www.sadconsole.com/monogame/api/SadConsole.Game.Configuration.html#SadConsole_Game_Configuration_OnStart_System_Action_">Game.Configuration.OnStart(Action)</a> configuration option and provide a delegate that customizes the <code>StartingConsole</code>. For more information, see <a href="#startup-delegate">Startup delegate</a>.</p>
 <p>The <code>StartingConsole</code> is convenient when you want to quickly play around with different ideas or concepts when you're learning SadConsole.</p>
 </li>
 </ul>
 <h2 id="startup-delegate">Startup delegate</h2>
-<p>If you have further initialization you want to perform, especially when you don't designate a different startup object, you can use the <a class="xref" href="../../api/monogame/SadConsole.Game.Configuration.html#SadConsole_Game_Configuration_OnStart_System_Action_">Game.Configuration.OnStart(Action)</a> configuration option to specify a delegate that's invoked after the game starts.</p>
+<p>If you have further initialization you want to perform, especially when you don't designate a different startup object, you can use the <a class="xref" href="https://www.sadconsole.com/monogame/api/SadConsole.Game.Configuration.html#SadConsole_Game_Configuration_OnStart_System_Action_">Game.Configuration.OnStart(Action)</a> configuration option to specify a delegate that's invoked after the game starts.</p>
 <p>When you leave the default configuration that creates the <a class="xref" href="../../api/sadconsole/SadConsole.GameHost.html#SadConsole_GameHost_StartingConsole">GameHost.StartingConsole</a> instance, you must use this configuration option to setup the console. The following code example demonstrates printing some text on the <code>StartingConsole</code>.</p>
 <pre><code class="lang-csharp">Game.Configuration gameStartup = new Game.Configuration()
     .SetScreenSize(90, 30)
@@ -201,6 +201,56 @@ static void Startup()
     Game.Instance.StartingConsole.FillWithRandomGarbage(SadConsole.Game.Instance.StartingConsole.Font);
     Game.Instance.StartingConsole.Fill(new Rectangle(3, 3, 23, 3), Color.Violet, Color.Black, 0, Mirror.None);
     Game.Instance.StartingConsole.Print(4, 4, &quot;Hello from SadConsole&quot;);
+}
+</code></pre>
+<h2 id="configure-fonts">Configure fonts</h2>
+<p>SadConsole uses the IBM 8x16 Code Page 437 font by default. To customize how SadConsole loads the default font, use the <a class="xref" href="https://www.sadconsole.com/monogame/api/SadConsole.Game.Configuration.html#SadConsole_Game_Configuration_ConfigureFonts_System_Action_SadConsole_Game_ConfigurationFontLoader__">ConfigureFonts(Action&lt;ConfigurationFontLoader&gt;)</a> option, which takes a delegate parameter that configures the fonts. The delegate should call the <a class="xref" href="https://www.sadconsole.com/monogame/api/SadConsole.Game.ConfigurationFontLoader.html#SadConsole_Game_ConfigurationFontLoader_UseCustomFont_System_String_">Game.ConfigurationFontLoader.UseCustomFont(string)</a> method, passing the path to the <em>.font</em> file.</p>
+<h3 id="use-your-own-font-as-the-default-font">Use your own font as the default font</h3>
+<pre><code class="lang-csharp">Game.Configuration gameStartup = new Game.Configuration()
+    // ...config options...
+    .ConfigureFonts(SetupFont)
+    ;
+
+Game.Create(gameStartup);
+Game.Instance.Run();
+Game.Instance.Dispose();
+
+static void SetupFont(Game.ConfigurationFontLoader loader)
+{
+    loader.UseCustomFont(&quot;fonts\\new.font&quot;);
+}
+</code></pre>
+<h3 id="use-the-sadconsole-extended-font">Use the SadConsole Extended font</h3>
+<p>SadConsole includes an extended version of the IBM 8x16 Code Page 437 font with other graphical characters that help with building text-ish interfaces and characters. Call the <a class="xref" href="https://www.sadconsole.com/monogame/api/SadConsole.Game.ConfigurationFontLoader.html#SadConsole_Game_ConfigurationFontLoader_UseBuiltinFontExtended">Game.ConfigurationFontLoader.UseBuiltinFontExtended()</a> method.</p>
+<pre><code class="lang-csharp">Game.Configuration gameStartup = new Game.Configuration()
+    // ...config options...
+    .ConfigureFonts(SetupFont)
+    ;
+
+Game.Create(gameStartup);
+Game.Instance.Run();
+Game.Instance.Dispose();
+
+static void SetupFont(Game.ConfigurationFontLoader loader)
+{
+    loader.UseBuiltinFontExtended();
+}
+</code></pre>
+<h3 id="add-additional-fonts-to-sadconsole">Add additional fonts to SadConsole</h3>
+<p>The startup config can also add additional fonts to SadConsole. These fonts are loaded into the game host, but don't automaticaly become the default font. Call the <a class="xref" href="https://www.sadconsole.com/monogame/api/SadConsole.Game.ConfigurationFontLoader.html#SadConsole_Game_ConfigurationFontLoader_AddExtraFonts_">Game.ConfigurationFontLoader.AddExtraFonts</a> method and provide a string to the path of each font you want to add.</p>
+<pre><code class="lang-csharp">Game.Configuration gameStartup = new Game.Configuration()
+    // ...config options...
+    .ConfigureFonts(SetupFont)
+    ;
+
+Game.Create(gameStartup);
+Game.Instance.Run();
+Game.Instance.Dispose();
+
+static void SetupFont(Game.ConfigurationFontLoader loader)
+{
+    loader.UseBuiltinFontExtended();
+    loader.AddExtraFonts(&quot;fonts\\new.font&quot;, &quot;fonts\\second.font&quot;);
 }
 </code></pre>
 </article>
