@@ -143,3 +143,66 @@ static void Startup()
     Game.Instance.StartingConsole.Print(4, 4, "Hello from SadConsole");
 }
 ```
+
+## Configure fonts
+
+SadConsole uses the IBM 8x16 Code Page 437 font by default. To customize how SadConsole loads the default font, use the <xref:SadConsole.Game.Configuration.ConfigureFonts(System.Action{SadConsole.Game.ConfigurationFontLoader})> option, which takes a delegate parameter that configures the fonts. The delegate should call the <xref:SadConsole.Game.ConfigurationFontLoader.UseCustomFont(System.String)?displayProperty=nameWithType> method, passing the path to the _.font_ file.
+
+### Use your own font as the default font
+
+```csharp
+Game.Configuration gameStartup = new Game.Configuration()
+    // ...config options...
+    .ConfigureFonts(SetupFont)
+    ;
+
+Game.Create(gameStartup);
+Game.Instance.Run();
+Game.Instance.Dispose();
+
+static void SetupFont(Game.ConfigurationFontLoader loader)
+{
+    loader.UseCustomFont("fonts\\new.font");
+}
+```
+
+### Use the SadConsole Extended font
+
+SadConsole includes an extended version of the IBM 8x16 Code Page 437 font with other graphical characters that help with building text-ish interfaces and characters. Call the <xref:SadConsole.Game.ConfigurationFontLoader.UseBuiltinFontExtended?displayProperty=nameWithType> method.
+
+```csharp
+Game.Configuration gameStartup = new Game.Configuration()
+    // ...config options...
+    .ConfigureFonts(SetupFont)
+    ;
+
+Game.Create(gameStartup);
+Game.Instance.Run();
+Game.Instance.Dispose();
+
+static void SetupFont(Game.ConfigurationFontLoader loader)
+{
+    loader.UseBuiltinFontExtended();
+}
+```
+
+### Add additional fonts to SadConsole
+
+The startup config can also add additional fonts to SadConsole. These fonts are loaded into the game host, but don't automaticaly become the default font. Call the <xref:SadConsole.Game.ConfigurationFontLoader.AddExtraFonts*?displayProperty=nameWithType> method and provide a string to the path of each font you want to add.
+
+```csharp
+Game.Configuration gameStartup = new Game.Configuration()
+    // ...config options...
+    .ConfigureFonts(SetupFont)
+    ;
+
+Game.Create(gameStartup);
+Game.Instance.Run();
+Game.Instance.Dispose();
+
+static void SetupFont(Game.ConfigurationFontLoader loader)
+{
+    loader.UseBuiltinFontExtended();
+    loader.AddExtraFonts("fonts\\new.font", "fonts\\second.font");
+}
+```

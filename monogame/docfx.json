@@ -1,0 +1,86 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": [
+            "src/SadConsole.Host.MonoGame.dll"
+          ]
+        }
+      ],
+      "dest": "api",
+      "disableGitFeatures": false,
+      "disableDefaultFilter": false
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "api/**.yml"
+        ]
+      },
+      {
+        "files": [
+          "articles/**.md",
+          "articles/**/toc.yml",
+          "toc.yml",
+          "*.md"
+        ]
+      },
+      {
+        "files": [
+          "**/*.md"
+        ],
+        "src": "apidocs",
+        "dest": "api"
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "_config.yml",
+          "images/**",
+          "articles/**/images/**.png",
+          "articles/**/images/**.gif",
+          "articles/**.zip"
+        ]
+      }
+    ],
+    "overwrite": [
+      {
+        "files": [
+        ],
+        "exclude": [
+          "obj/**",
+          "_site/**"
+        ]
+      }
+    ],
+    "dest": "../_site/monogame",
+    "globalMetadataFiles": [],
+    "fileMetadataFiles": [],
+    "template": [
+      "default",
+      "../templates/boot386"
+    ],
+    "fileMetadata": {
+      "titleSuffix": {
+        "articles/**.md": "SadConsole v10"
+      }
+    },
+    "xrefservice": [
+      "https://xref.docs.microsoft.com/query?uid={uid}"
+    ],
+    "xref": [
+      "https://thesadrogue.github.io/TheSadRogue.Primitives/xrefmap.yml",
+      "https://www.sadconsole.com/xrefmap.yml"
+    ],
+    "postProcessors": [],
+    "markdownEngineName": "markdig",
+    "noLangKeyword": false,
+    "keepFileLink": false,
+    "cleanupCacheHistory": false,
+    "disableGitFeatures": false
+  }
+}

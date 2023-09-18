@@ -13,4 +13,5 @@ if ($args.Count -eq 1) {
 Write-Host "================"
 Write-Host "Building site..."
 Write-Host "================"
+docfx build .\monogame\docfx.json
 docfx build .\root\docfx.json --serve
