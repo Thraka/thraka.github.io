@@ -5,7 +5,9 @@ ms.date: 09/17/2023
 
 # Resize your main console with the window
 
-A common scenario with SadConsole is resizing the window and then resizing the console with it. When you create a new SadConsole game, you specify the width and height in cells, and the game window is sized in pixels to hold that many cells. However, once you resize the window, SadConsole generally centers or stretches the rendering surface to fill the window. It does not resize the internal SadConsole objects
+A common scenario with SadConsole is resizing the window and then resizing the console with it. When you create a new SadConsole game, you specify the width and height in cells, and the game window is sized in pixels to hold that many cells. However, once you resize the window, SadConsole generally centers or stretches the rendering surface to fill the window. It doesn't resize the internal rendering surface which would allow you to show a bigger console on the screen.
+
+However, you can react to the size change of the window, and grow or shrink a console, and
 
 ## Example
 
