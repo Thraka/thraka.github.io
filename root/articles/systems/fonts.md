@@ -1,10 +1,8 @@
 ---
-title: How fonts are used
+title: SadConsole Font Overview
 description: Learn about the startup configuration for SadConsole
-ms.date: 09/12/2023
+ms.date: 10/31/2023
 ---
-
-# SadConsole Font Overview
 
 A "font" in SadConsole is used to display characters on the screen. The font can be a mix of textual glyphs or graphical tiles. Fonts consist of two parts, the image file and the config file. The image is in any format that the current [host](host.md) supports. Most likely, this is MonoGame. Both the MonoGame and SFML hosts support loading _.png_ images, and that image format can be considered safe.
 
@@ -35,6 +33,7 @@ Here is an example of a font config file. According to this config, each glyph i
 
 ```json
 {
+  "$type": "SadConsole.SadFont, SadConsole",
   "Name": "IBM_8x16",
   "FilePath": "IBM8x16.png",
   "GlyphHeight": 16,
@@ -74,9 +73,11 @@ surfaceObj.FontSize = surfaceObj.Font.GetFontSize(IFont.Sizes.Two);
 
 SadConsole uses the IBM 8x16 Code Page 437 font by default. The default font, designated by the <xref:SadConsole.GameHost.DefaultFont> property, is automatically used by every SadConsole surface object, unless a different font is designated when the object is created.
 
-You can have SadConsole use a custom font on startup by adjusting the game config that starts SadConsole. For more information, see [Use your own font as the default font](config.md#use-your-own-font-as-the-default-font)
+You can have SadConsole use a custom font on startup by adjusting the game config that starts SadConsole. For more information, see [Use your own font as the default font](config.md#use-your-own-font-as-the-default-font).
 
 ```csharp
+using SadConsole.Configuration;
+
 Game.Configuration gameStartup = new Game.Configuration()
     // ...config options...
     .ConfigureFonts(SetupFont)
@@ -100,4 +101,4 @@ If you want SadConsole to use a different font after SadConsole has started, set
 
 Fonts are loaded by the game host with the <xref:SadConsole.GameHost.LoadFont(System.String)> method. When a font is loaded, it's registered with the <xref:SadConsole.GameHost.Fonts> dictionary, which is keyed by the font name, and then the instance is returned.
 
-Fonts can be preloaded with the game config, before your game starts. For more information, see [Add additional fonts to SadConsole](config.md#add-additional-fonts-to-sadconsole)
+Fonts can be preloaded with the game config, before your game starts. For more information, see [Use a delegate to configure the font options](config.md#use-a-delegate-to-configure-the-font-options).

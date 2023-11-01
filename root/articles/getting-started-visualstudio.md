@@ -1,6 +1,6 @@
 ---
 description: Create a SadConsole project with Visual Studio.
-ms.date: 09/03/2023
+ms.date: 10/31/2023
 ---
 
 # Create a new SadConsole .NET project with Visual Studio
@@ -85,7 +85,7 @@ You need perform a minor modification to the project file, and then change the s
 
 01. Save the file and close the XML editor.
 
-Your project file should look similar to this, though the `<TargetFramework>` may be different:
+Your project file should look similar to this, though the `<TargetFramework>` may be different (which can be `net6.0` or above):
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -100,7 +100,7 @@ Your project file should look similar to this, though the `<TargetFramework>` ma
 
   <ItemGroup>
     <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.1.303" />
-    <PackageReference Include="SadConsole.Host.MonoGame" Version="10.0.0" />
+    <PackageReference Include="SadConsole.Host.MonoGame" Version="10.0.0-beta2-debug" />
   </ItemGroup>
 
   <ItemGroup>
@@ -117,7 +117,7 @@ Your project file should look similar to this, though the `<TargetFramework>` ma
 The startup code, which you'll write in the next section, designates the startup object, known as the "root screen." That object is a `ScreenObject` type, or any type derived from `ScreenObject` such as `ScreenSurface`. Create a new root screne:
 
 01. In the **Solution Explorer** window, right-click on the project and select **Add** > **Class**.
-01. Name the class `RootScrene` and create it. The code editor for the class is opened.
+01. Name the class `RootScreen` and create it. The code editor for the class is opened.
 01. Replace the generated code with the following:
 
     ```csharp
@@ -154,11 +154,13 @@ The startup code, which you'll write in the next section, designates the startup
 01. Replace the code with the following:
 
 ```csharp
+using SadConsole.Configuration;
+
 Settings.WindowTitle = "My SadConsole Game";
 
-Game.Configuration gameStartup = new Game.Configuration()
+Builder gameStartup = new Builder()
     .SetScreenSize(90, 30)
-    .SetStartingScreen<RootScene>()
+    .SetStartingScreen<RootScreen>()
     ;
 
 Game.Create(gameStartup);

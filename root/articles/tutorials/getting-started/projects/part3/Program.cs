@@ -1,32 +1,14 @@
-﻿using System;
-using SadConsole;
-using SadRogue.Primitives;
-using Console = SadConsole.Console;
+﻿using SadConsole.Configuration;
+using SadConsoleGame;
 
-namespace SadConsoleGame
-{
-    public static class Program
-    {
-        static void Main()
-        {
-            // Setup the engine and create the main window.
-            Game.Create(120, 38);
+Settings.WindowTitle = "My SadConsole Game";
 
-            // Hook the start event so we can add consoles to the system.
-            Game.Instance.OnStart = Init;
+Builder configuration = new Builder()
+    .SetScreenSize(120, 38)
+    .SetStartingScreen<RootScreen>()
+    .IsStartingScreenFocused(true)
+    ;
 
-            // Start the game.
-            Game.Instance.Run();
-            Game.Instance.Dispose();
-        }
-
-        static void Init()
-        {
-            Game.Instance.Screen = new RootScreen();
-            Game.Instance.Screen.IsFocused = true;
-
-            // This is needed because we replaced the initial screen object with our own.
-            Game.Instance.DestroyDefaultStartingConsole();
-        }
-    }
-}
+Game.Create(configuration);
+Game.Instance.Run();
+Game.Instance.Dispose();

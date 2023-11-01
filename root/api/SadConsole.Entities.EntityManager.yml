@@ -1,0 +1,3347 @@
+### YamlMime:ManagedReference
+items:
+- uid: SadConsole.Entities.EntityManager
+  commentId: T:SadConsole.Entities.EntityManager
+  id: EntityManager
+  parent: SadConsole.Entities
+  children:
+  - SadConsole.Entities.EntityManager.#ctor
+  - SadConsole.Entities.EntityManager.Add(SadConsole.Entities.Entity)
+  - SadConsole.Entities.EntityManager.AddEntity(SadConsole.Entities.Entity,System.Boolean)
+  - SadConsole.Entities.EntityManager.AddRange(System.Collections.Generic.IEnumerable{SadConsole.Entities.Entity})
+  - SadConsole.Entities.EntityManager.AlternativeFont
+  - SadConsole.Entities.EntityManager.CalculateEntityVisibility(SadConsole.Entities.Entity)
+  - SadConsole.Entities.EntityManager.CalculateEntityVisibilityProtected(SadConsole.Entities.Entity,System.Boolean)
+  - SadConsole.Entities.EntityManager.Clear
+  - SadConsole.Entities.EntityManager.Contains(SadConsole.Entities.Entity)
+  - SadConsole.Entities.EntityManager.CopyTo(SadConsole.Entities.Entity[],System.Int32)
+  - SadConsole.Entities.EntityManager.Count
+  - SadConsole.Entities.EntityManager.DoEntityUpdate
+  - SadConsole.Entities.EntityManager.Entities
+  - SadConsole.Entities.EntityManager.EntitiesVisible
+  - SadConsole.Entities.EntityManager.GetEnumerator
+  - SadConsole.Entities.EntityManager.GetRenderRectangle(SadRogue.Primitives.Point,System.Boolean)
+  - SadConsole.Entities.EntityManager.IndexOf(SadConsole.Entities.Entity)
+  - SadConsole.Entities.EntityManager.IsAttached
+  - SadConsole.Entities.EntityManager.IsDirty
+  - SadConsole.Entities.EntityManager.IsReadOnly
+  - SadConsole.Entities.EntityManager.Item(System.Int32)
+  - SadConsole.Entities.EntityManager.OnAdded(SadConsole.IScreenObject)
+  - SadConsole.Entities.EntityManager.OnEntityAdded(SadConsole.Entities.Entity)
+  - SadConsole.Entities.EntityManager.OnEntityChangedPosition(SadConsole.Entities.Entity,SadRogue.Primitives.ValueChangedEventArgs{SadRogue.Primitives.Point})
+  - SadConsole.Entities.EntityManager.OnEntityRemoved(SadConsole.Entities.Entity)
+  - SadConsole.Entities.EntityManager.OnRemoved(SadConsole.IScreenObject)
+  - SadConsole.Entities.EntityManager.Remove(SadConsole.Entities.Entity)
+  - SadConsole.Entities.EntityManager.RemoveEntity(SadConsole.Entities.Entity)
+  - SadConsole.Entities.EntityManager.RenderStep
+  - SadConsole.Entities.EntityManager.SkipExistsChecks
+  - SadConsole.Entities.EntityManager.SortVisibleEntities
+  - SadConsole.Entities.EntityManager.Update(SadConsole.IScreenObject,System.TimeSpan)
+  - SadConsole.Entities.EntityManager.UpdateCachedVisibilityArea
+  - SadConsole.Entities.EntityManager._entities
+  - SadConsole.Entities.EntityManager._entitiesVisible
+  - SadConsole.Entities.EntityManager._offsetAreaPixels
+  - SadConsole.Entities.EntityManager._screen
+  - SadConsole.Entities.EntityManager._screenCachedFont
+  - SadConsole.Entities.EntityManager._screenCachedFontSize
+  - SadConsole.Entities.EntityManager._screenCachedView
+  langs:
+  - csharp
+  - vb
+  name: EntityManager
+  nameWithType: EntityManager
+  fullName: SadConsole.Entities.EntityManager
+  type: Class
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: Manages a set of entities. Adds a render step and only renders the entities that are in the parent <xref href="SadConsole.IScreenSurface" data-throw-if-not-resolved="false"></xref> visible area.
+  example: []
+  syntax:
+    content: >-
+      [DataContract]
+
+      public class EntityManager : UpdateComponent, IComponent, IList<Entity>, ICollection<Entity>, IEnumerable<Entity>, IEnumerable
+    content.vb: >-
+      <DataContract>
+
+      Public Class EntityManager Inherits UpdateComponent Implements IComponent, IList(Of Entity), ICollection(Of Entity), IEnumerable(Of Entity), IEnumerable
+  inheritance:
+  - System.Object
+  - SadConsole.Components.UpdateComponent
+  derivedClasses:
+  - SadConsole.Entities.EntityManagerZoned
+  implements:
+  - SadConsole.Components.IComponent
+  - System.Collections.Generic.IList{SadConsole.Entities.Entity}
+  - System.Collections.Generic.ICollection{SadConsole.Entities.Entity}
+  - System.Collections.Generic.IEnumerable{SadConsole.Entities.Entity}
+  - System.Collections.IEnumerable
+  inheritedMembers:
+  - SadConsole.Components.UpdateComponent.SortOrder
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: System.Runtime.Serialization.DataContractAttribute
+    ctor: System.Runtime.Serialization.DataContractAttribute.#ctor
+    arguments: []
+- uid: SadConsole.Entities.EntityManager.IsAttached
+  commentId: F:SadConsole.Entities.EntityManager.IsAttached
+  id: IsAttached
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: IsAttached
+  nameWithType: EntityManager.IsAttached
+  fullName: SadConsole.Entities.EntityManager.IsAttached
+  type: Field
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: Indicates that the entity renderer has been added to a parent object.
+  example: []
+  syntax:
+    content: protected bool IsAttached
+    return:
+      type: System.Boolean
+    content.vb: Protected IsAttached As Boolean
+- uid: SadConsole.Entities.EntityManager._entities
+  commentId: F:SadConsole.Entities.EntityManager._entities
+  id: _entities
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: _entities
+  nameWithType: EntityManager._entities
+  fullName: SadConsole.Entities.EntityManager._entities
+  type: Field
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: The entities to process.
+  example: []
+  syntax:
+    content: >-
+      [DataMember(Name = "Entities")]
+
+      protected List<Entity> _entities
+    return:
+      type: System.Collections.Generic.List{SadConsole.Entities.Entity}
+    content.vb: >-
+      <DataMember(Name:="Entities")>
+
+      Protected _entities As List(Of Entity)
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Name
+      type: System.String
+      value: Entities
+- uid: SadConsole.Entities.EntityManager._entitiesVisible
+  commentId: F:SadConsole.Entities.EntityManager._entitiesVisible
+  id: _entitiesVisible
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: _entitiesVisible
+  nameWithType: EntityManager._entitiesVisible
+  fullName: SadConsole.Entities.EntityManager._entitiesVisible
+  type: Field
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: The entities currently visible.
+  example: []
+  syntax:
+    content: protected List<Entity> _entitiesVisible
+    return:
+      type: System.Collections.Generic.List{SadConsole.Entities.Entity}
+    content.vb: Protected _entitiesVisible As List(Of Entity)
+- uid: SadConsole.Entities.EntityManager._screen
+  commentId: F:SadConsole.Entities.EntityManager._screen
+  id: _screen
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: _screen
+  nameWithType: EntityManager._screen
+  fullName: SadConsole.Entities.EntityManager._screen
+  type: Field
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: The parent screen hosting this component.
+  example: []
+  syntax:
+    content: protected IScreenSurface? _screen
+    return:
+      type: SadConsole.IScreenSurface
+    content.vb: Protected _screen As IScreenSurface
+- uid: SadConsole.Entities.EntityManager._offsetAreaPixels
+  commentId: F:SadConsole.Entities.EntityManager._offsetAreaPixels
+  id: _offsetAreaPixels
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: _offsetAreaPixels
+  nameWithType: EntityManager._offsetAreaPixels
+  fullName: SadConsole.Entities.EntityManager._offsetAreaPixels
+  type: Field
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: Cached rectangle for rendering.
+  example: []
+  syntax:
+    content: protected Rectangle _offsetAreaPixels
+    return:
+      type: SadRogue.Primitives.Rectangle
+    content.vb: Protected _offsetAreaPixels As Rectangle
+- uid: SadConsole.Entities.EntityManager._screenCachedView
+  commentId: F:SadConsole.Entities.EntityManager._screenCachedView
+  id: _screenCachedView
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: _screenCachedView
+  nameWithType: EntityManager._screenCachedView
+  fullName: SadConsole.Entities.EntityManager._screenCachedView
+  type: Field
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: A cached copy of the <xref href="SadConsole.ICellSurface.View" data-throw-if-not-resolved="false"></xref> of the hosting screen surface.
+  example: []
+  syntax:
+    content: protected Rectangle _screenCachedView
+    return:
+      type: SadRogue.Primitives.Rectangle
+    content.vb: Protected _screenCachedView As Rectangle
+- uid: SadConsole.Entities.EntityManager._screenCachedFont
+  commentId: F:SadConsole.Entities.EntityManager._screenCachedFont
+  id: _screenCachedFont
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: _screenCachedFont
+  nameWithType: EntityManager._screenCachedFont
+  fullName: SadConsole.Entities.EntityManager._screenCachedFont
+  type: Field
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: A cached copy of the <xref href="SadConsole.IScreenSurface.Font" data-throw-if-not-resolved="false"></xref> of the hosting screen surface.
+  example: []
+  syntax:
+    content: protected IFont? _screenCachedFont
+    return:
+      type: SadConsole.IFont
+    content.vb: Protected _screenCachedFont As IFont
+- uid: SadConsole.Entities.EntityManager._screenCachedFontSize
+  commentId: F:SadConsole.Entities.EntityManager._screenCachedFontSize
+  id: _screenCachedFontSize
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: _screenCachedFontSize
+  nameWithType: EntityManager._screenCachedFontSize
+  fullName: SadConsole.Entities.EntityManager._screenCachedFontSize
+  type: Field
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: A cached copy of the <xref href="SadConsole.IScreenSurface.FontSize" data-throw-if-not-resolved="false"></xref> of the hosting screen surface.
+  example: []
+  syntax:
+    content: protected Point _screenCachedFontSize
+    return:
+      type: SadRogue.Primitives.Point
+    content.vb: Protected _screenCachedFontSize As Point
+- uid: SadConsole.Entities.EntityManager.RenderStep
+  commentId: F:SadConsole.Entities.EntityManager.RenderStep
+  id: RenderStep
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: RenderStep
+  nameWithType: EntityManager.RenderStep
+  fullName: SadConsole.Entities.EntityManager.RenderStep
+  type: Field
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: Internal use only
+  example: []
+  syntax:
+    content: public IRenderStep? RenderStep
+    return:
+      type: SadConsole.Renderers.IRenderStep
+    content.vb: Public RenderStep As IRenderStep
+- uid: SadConsole.Entities.EntityManager.Add(SadConsole.Entities.Entity)
+  commentId: M:SadConsole.Entities.EntityManager.Add(SadConsole.Entities.Entity)
+  id: Add(SadConsole.Entities.Entity)
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: Add(Entity)
+  nameWithType: EntityManager.Add(Entity)
+  fullName: SadConsole.Entities.EntityManager.Add(SadConsole.Entities.Entity)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: Adds an entity to this manager.
+  example: []
+  syntax:
+    content: public void Add(Entity entity)
+    parameters:
+    - id: entity
+      type: SadConsole.Entities.Entity
+      description: The entity to add.
+    content.vb: Public Sub Add(entity As Entity)
+  overload: SadConsole.Entities.EntityManager.Add*
+  implements:
+  - System.Collections.Generic.ICollection{SadConsole.Entities.Entity}.Add(SadConsole.Entities.Entity)
+- uid: SadConsole.Entities.EntityManager.AddRange(System.Collections.Generic.IEnumerable{SadConsole.Entities.Entity})
+  commentId: M:SadConsole.Entities.EntityManager.AddRange(System.Collections.Generic.IEnumerable{SadConsole.Entities.Entity})
+  id: AddRange(System.Collections.Generic.IEnumerable{SadConsole.Entities.Entity})
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: AddRange(IEnumerable<Entity>)
+  nameWithType: EntityManager.AddRange(IEnumerable<Entity>)
+  fullName: SadConsole.Entities.EntityManager.AddRange(System.Collections.Generic.IEnumerable<SadConsole.Entities.Entity>)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: Adds a collection of entities to this manager.
+  example: []
+  syntax:
+    content: public void AddRange(IEnumerable<Entity> entities)
+    parameters:
+    - id: entities
+      type: System.Collections.Generic.IEnumerable{SadConsole.Entities.Entity}
+      description: The entities to add.
+    content.vb: Public Sub AddRange(entities As IEnumerable(Of Entity))
+  overload: SadConsole.Entities.EntityManager.AddRange*
+  nameWithType.vb: EntityManager.AddRange(IEnumerable(Of Entity))
+  fullName.vb: SadConsole.Entities.EntityManager.AddRange(System.Collections.Generic.IEnumerable(Of SadConsole.Entities.Entity))
+  name.vb: AddRange(IEnumerable(Of Entity))
+- uid: SadConsole.Entities.EntityManager.AddEntity(SadConsole.Entities.Entity,System.Boolean)
+  commentId: M:SadConsole.Entities.EntityManager.AddEntity(SadConsole.Entities.Entity,System.Boolean)
+  id: AddEntity(SadConsole.Entities.Entity,System.Boolean)
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: AddEntity(Entity, bool)
+  nameWithType: EntityManager.AddEntity(Entity, bool)
+  fullName: SadConsole.Entities.EntityManager.AddEntity(SadConsole.Entities.Entity, bool)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: Adds an entity to the collection, subscribes to events, and calls <xref href="SadConsole.Entities.EntityManager.OnEntityAdded(SadConsole.Entities.Entity)" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.Entities.EntityManager.OnEntityChangedPosition(SadConsole.Entities.Entity%2cSadRogue.Primitives.ValueChangedEventArgs%7bSadRogue.Primitives.Point%7d)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected void AddEntity(Entity entity, bool skipSort)
+    parameters:
+    - id: entity
+      type: SadConsole.Entities.Entity
+      description: The entity to remove.
+    - id: skipSort
+      type: System.Boolean
+      description: When true, skips sorting when <xref href="SadConsole.Entities.EntityManager.CalculateEntityVisibilityProtected(SadConsole.Entities.Entity%2cSystem.Boolean)" data-throw-if-not-resolved="false"></xref> is called inside this method.
+    content.vb: Protected Sub AddEntity(entity As Entity, skipSort As Boolean)
+  overload: SadConsole.Entities.EntityManager.AddEntity*
+  nameWithType.vb: EntityManager.AddEntity(Entity, Boolean)
+  fullName.vb: SadConsole.Entities.EntityManager.AddEntity(SadConsole.Entities.Entity, Boolean)
+  name.vb: AddEntity(Entity, Boolean)
+- uid: SadConsole.Entities.EntityManager.RemoveEntity(SadConsole.Entities.Entity)
+  commentId: M:SadConsole.Entities.EntityManager.RemoveEntity(SadConsole.Entities.Entity)
+  id: RemoveEntity(SadConsole.Entities.Entity)
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: RemoveEntity(Entity)
+  nameWithType: EntityManager.RemoveEntity(Entity)
+  fullName: SadConsole.Entities.EntityManager.RemoveEntity(SadConsole.Entities.Entity)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: Adds an entity to the collection, unsubscribes to events, and calls <xref href="SadConsole.Entities.EntityManager.OnEntityRemoved(SadConsole.Entities.Entity)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected bool RemoveEntity(Entity entity)
+    parameters:
+    - id: entity
+      type: SadConsole.Entities.Entity
+      description: The entity to remove.
+    return:
+      type: System.Boolean
+    content.vb: Protected Function RemoveEntity(entity As Entity) As Boolean
+  overload: SadConsole.Entities.EntityManager.RemoveEntity*
+- uid: SadConsole.Entities.EntityManager.Remove(SadConsole.Entities.Entity)
+  commentId: M:SadConsole.Entities.EntityManager.Remove(SadConsole.Entities.Entity)
+  id: Remove(SadConsole.Entities.Entity)
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: Remove(Entity)
+  nameWithType: EntityManager.Remove(Entity)
+  fullName: SadConsole.Entities.EntityManager.Remove(SadConsole.Entities.Entity)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: Removes an entity from this manager.
+  example: []
+  syntax:
+    content: public bool Remove(Entity entity)
+    parameters:
+    - id: entity
+      type: SadConsole.Entities.Entity
+      description: The entity to remove.
+    return:
+      type: System.Boolean
+    content.vb: Public Function Remove(entity As Entity) As Boolean
+  overload: SadConsole.Entities.EntityManager.Remove*
+  implements:
+  - System.Collections.Generic.ICollection{SadConsole.Entities.Entity}.Remove(SadConsole.Entities.Entity)
+- uid: SadConsole.Entities.EntityManager.Clear
+  commentId: M:SadConsole.Entities.EntityManager.Clear
+  id: Clear
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: EntityManager.Clear()
+  fullName: SadConsole.Entities.EntityManager.Clear()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: Removes all entities from this renderer.
+  example: []
+  syntax:
+    content: public void Clear()
+    content.vb: Public Sub Clear()
+  overload: SadConsole.Entities.EntityManager.Clear*
+  implements:
+  - System.Collections.Generic.ICollection{SadConsole.Entities.Entity}.Clear
+- uid: SadConsole.Entities.EntityManager.OnAdded(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Entities.EntityManager.OnAdded(SadConsole.IScreenObject)
+  id: OnAdded(SadConsole.IScreenObject)
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: OnAdded(IScreenObject)
+  nameWithType: EntityManager.OnAdded(IScreenObject)
+  fullName: SadConsole.Entities.EntityManager.OnAdded(SadConsole.IScreenObject)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: Called when the component is added to a host.
+  example: []
+  syntax:
+    content: public override void OnAdded(IScreenObject host)
+    parameters:
+    - id: host
+      type: SadConsole.IScreenObject
+      description: The host that added the component.
+    content.vb: Public Overrides Sub OnAdded(host As IScreenObject)
+  overridden: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  overload: SadConsole.Entities.EntityManager.OnAdded*
+  implements:
+  - SadConsole.Components.IComponent.OnAdded(SadConsole.IScreenObject)
+- uid: SadConsole.Entities.EntityManager.OnRemoved(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Entities.EntityManager.OnRemoved(SadConsole.IScreenObject)
+  id: OnRemoved(SadConsole.IScreenObject)
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: OnRemoved(IScreenObject)
+  nameWithType: EntityManager.OnRemoved(IScreenObject)
+  fullName: SadConsole.Entities.EntityManager.OnRemoved(SadConsole.IScreenObject)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: Called when the component is removed from the host.
+  example: []
+  syntax:
+    content: public override void OnRemoved(IScreenObject host)
+    parameters:
+    - id: host
+      type: SadConsole.IScreenObject
+      description: The host that removed the component.
+    content.vb: Public Overrides Sub OnRemoved(host As IScreenObject)
+  overridden: SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  overload: SadConsole.Entities.EntityManager.OnRemoved*
+  implements:
+  - SadConsole.Components.IComponent.OnRemoved(SadConsole.IScreenObject)
+- uid: SadConsole.Entities.EntityManager.Update(SadConsole.IScreenObject,System.TimeSpan)
+  commentId: M:SadConsole.Entities.EntityManager.Update(SadConsole.IScreenObject,System.TimeSpan)
+  id: Update(SadConsole.IScreenObject,System.TimeSpan)
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: Update(IScreenObject, TimeSpan)
+  nameWithType: EntityManager.Update(IScreenObject, TimeSpan)
+  fullName: SadConsole.Entities.EntityManager.Update(SadConsole.IScreenObject, System.TimeSpan)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: Called by a host on the update frame.
+  example: []
+  syntax:
+    content: public override void Update(IScreenObject host, TimeSpan delta)
+    parameters:
+    - id: host
+      type: SadConsole.IScreenObject
+      description: The host calling the component.
+    - id: delta
+      type: System.TimeSpan
+      description: The time that has elapsed since this method was last called.
+    content.vb: Public Overrides Sub Update(host As IScreenObject, delta As TimeSpan)
+  overridden: SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  overload: SadConsole.Entities.EntityManager.Update*
+  implements:
+  - SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+- uid: SadConsole.Entities.EntityManager.GetRenderRectangle(SadRogue.Primitives.Point,System.Boolean)
+  commentId: M:SadConsole.Entities.EntityManager.GetRenderRectangle(SadRogue.Primitives.Point,System.Boolean)
+  id: GetRenderRectangle(SadRogue.Primitives.Point,System.Boolean)
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: GetRenderRectangle(Point, bool)
+  nameWithType: EntityManager.GetRenderRectangle(Point, bool)
+  fullName: SadConsole.Entities.EntityManager.GetRenderRectangle(SadRogue.Primitives.Point, bool)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: Gets a render rectangle for a position.
+  example: []
+  syntax:
+    content: public Rectangle GetRenderRectangle(Point position, bool isPixel)
+    parameters:
+    - id: position
+      type: SadRogue.Primitives.Point
+      description: The position of the entity.
+    - id: isPixel
+      type: System.Boolean
+      description: Indicates the entity is pixel positioned.
+    return:
+      type: SadRogue.Primitives.Rectangle
+      description: ''
+    content.vb: Public Function GetRenderRectangle(position As Point, isPixel As Boolean) As Rectangle
+  overload: SadConsole.Entities.EntityManager.GetRenderRectangle*
+  nameWithType.vb: EntityManager.GetRenderRectangle(Point, Boolean)
+  fullName.vb: SadConsole.Entities.EntityManager.GetRenderRectangle(SadRogue.Primitives.Point, Boolean)
+  name.vb: GetRenderRectangle(Point, Boolean)
+- uid: SadConsole.Entities.EntityManager.SortVisibleEntities
+  commentId: M:SadConsole.Entities.EntityManager.SortVisibleEntities
+  id: SortVisibleEntities
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: SortVisibleEntities()
+  nameWithType: EntityManager.SortVisibleEntities()
+  fullName: SadConsole.Entities.EntityManager.SortVisibleEntities()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: Sorts the <xref href="SadConsole.Entities.EntityManager.EntitiesVisible" data-throw-if-not-resolved="false"></xref> collection according to the <xref href="SadConsole.Entities.Entity.ZIndex" data-throw-if-not-resolved="false"></xref> value.
+  example: []
+  syntax:
+    content: public void SortVisibleEntities()
+    content.vb: Public Sub SortVisibleEntities()
+  overload: SadConsole.Entities.EntityManager.SortVisibleEntities*
+- uid: SadConsole.Entities.EntityManager.OnEntityChangedPosition(SadConsole.Entities.Entity,SadRogue.Primitives.ValueChangedEventArgs{SadRogue.Primitives.Point})
+  commentId: M:SadConsole.Entities.EntityManager.OnEntityChangedPosition(SadConsole.Entities.Entity,SadRogue.Primitives.ValueChangedEventArgs{SadRogue.Primitives.Point})
+  id: OnEntityChangedPosition(SadConsole.Entities.Entity,SadRogue.Primitives.ValueChangedEventArgs{SadRogue.Primitives.Point})
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: OnEntityChangedPosition(Entity, ValueChangedEventArgs<Point>)
+  nameWithType: EntityManager.OnEntityChangedPosition(Entity, ValueChangedEventArgs<Point>)
+  fullName: SadConsole.Entities.EntityManager.OnEntityChangedPosition(SadConsole.Entities.Entity, SadRogue.Primitives.ValueChangedEventArgs<SadRogue.Primitives.Point>)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: Called when an entity changes position.
+  example: []
+  syntax:
+    content: protected virtual void OnEntityChangedPosition(Entity entity, ValueChangedEventArgs<Point> e)
+    parameters:
+    - id: entity
+      type: SadConsole.Entities.Entity
+      description: The entity that moved.
+    - id: e
+      type: SadRogue.Primitives.ValueChangedEventArgs{SadRogue.Primitives.Point}
+      description: The previous and new values of the position.
+    content.vb: Protected Overridable Sub OnEntityChangedPosition(entity As Entity, e As ValueChangedEventArgs(Of Point))
+  overload: SadConsole.Entities.EntityManager.OnEntityChangedPosition*
+  nameWithType.vb: EntityManager.OnEntityChangedPosition(Entity, ValueChangedEventArgs(Of Point))
+  fullName.vb: SadConsole.Entities.EntityManager.OnEntityChangedPosition(SadConsole.Entities.Entity, SadRogue.Primitives.ValueChangedEventArgs(Of SadRogue.Primitives.Point))
+  name.vb: OnEntityChangedPosition(Entity, ValueChangedEventArgs(Of Point))
+- uid: SadConsole.Entities.EntityManager.OnEntityAdded(SadConsole.Entities.Entity)
+  commentId: M:SadConsole.Entities.EntityManager.OnEntityAdded(SadConsole.Entities.Entity)
+  id: OnEntityAdded(SadConsole.Entities.Entity)
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: OnEntityAdded(Entity)
+  nameWithType: EntityManager.OnEntityAdded(Entity)
+  fullName: SadConsole.Entities.EntityManager.OnEntityAdded(SadConsole.Entities.Entity)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: Called when an entity is added.
+  example: []
+  syntax:
+    content: protected virtual void OnEntityAdded(Entity entity)
+    parameters:
+    - id: entity
+      type: SadConsole.Entities.Entity
+      description: The entity.
+    content.vb: Protected Overridable Sub OnEntityAdded(entity As Entity)
+  overload: SadConsole.Entities.EntityManager.OnEntityAdded*
+- uid: SadConsole.Entities.EntityManager.OnEntityRemoved(SadConsole.Entities.Entity)
+  commentId: M:SadConsole.Entities.EntityManager.OnEntityRemoved(SadConsole.Entities.Entity)
+  id: OnEntityRemoved(SadConsole.Entities.Entity)
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: OnEntityRemoved(Entity)
+  nameWithType: EntityManager.OnEntityRemoved(Entity)
+  fullName: SadConsole.Entities.EntityManager.OnEntityRemoved(SadConsole.Entities.Entity)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: Called when an entity is removed.
+  example: []
+  syntax:
+    content: protected virtual void OnEntityRemoved(Entity entity)
+    parameters:
+    - id: entity
+      type: SadConsole.Entities.Entity
+      description: The entity.
+    content.vb: Protected Overridable Sub OnEntityRemoved(entity As Entity)
+  overload: SadConsole.Entities.EntityManager.OnEntityRemoved*
+- uid: SadConsole.Entities.EntityManager.CalculateEntityVisibility(SadConsole.Entities.Entity)
+  commentId: M:SadConsole.Entities.EntityManager.CalculateEntityVisibility(SadConsole.Entities.Entity)
+  id: CalculateEntityVisibility(SadConsole.Entities.Entity)
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: CalculateEntityVisibility(Entity)
+  nameWithType: EntityManager.CalculateEntityVisibility(Entity)
+  fullName: SadConsole.Entities.EntityManager.CalculateEntityVisibility(SadConsole.Entities.Entity)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: Updates the visibility state of an entity.
+  example: []
+  syntax:
+    content: public bool CalculateEntityVisibility(Entity entity)
+    parameters:
+    - id: entity
+      type: SadConsole.Entities.Entity
+      description: The entity to check.
+    return:
+      type: System.Boolean
+      description: Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when this entity is considered visible; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function CalculateEntityVisibility(entity As Entity) As Boolean
+  overload: SadConsole.Entities.EntityManager.CalculateEntityVisibility*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: ''
+- uid: SadConsole.Entities.EntityManager.CalculateEntityVisibilityProtected(SadConsole.Entities.Entity,System.Boolean)
+  commentId: M:SadConsole.Entities.EntityManager.CalculateEntityVisibilityProtected(SadConsole.Entities.Entity,System.Boolean)
+  id: CalculateEntityVisibilityProtected(SadConsole.Entities.Entity,System.Boolean)
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: CalculateEntityVisibilityProtected(Entity, bool)
+  nameWithType: EntityManager.CalculateEntityVisibilityProtected(Entity, bool)
+  fullName: SadConsole.Entities.EntityManager.CalculateEntityVisibilityProtected(SadConsole.Entities.Entity, bool)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: Detects a visibility state change of an entity and changes its internal list position.
+  example: []
+  syntax:
+    content: protected bool CalculateEntityVisibilityProtected(Entity entity, bool skipSort)
+    parameters:
+    - id: entity
+      type: SadConsole.Entities.Entity
+      description: The entity to check.
+    - id: skipSort
+      type: System.Boolean
+      description: If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, skips sorting the visible.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the entity is visible; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Protected Function CalculateEntityVisibilityProtected(entity As Entity, skipSort As Boolean) As Boolean
+  overload: SadConsole.Entities.EntityManager.CalculateEntityVisibilityProtected*
+  nameWithType.vb: EntityManager.CalculateEntityVisibilityProtected(Entity, Boolean)
+  fullName.vb: SadConsole.Entities.EntityManager.CalculateEntityVisibilityProtected(SadConsole.Entities.Entity, Boolean)
+  name.vb: CalculateEntityVisibilityProtected(Entity, Boolean)
+- uid: SadConsole.Entities.EntityManager.UpdateCachedVisibilityArea
+  commentId: M:SadConsole.Entities.EntityManager.UpdateCachedVisibilityArea
+  id: UpdateCachedVisibilityArea
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: UpdateCachedVisibilityArea()
+  nameWithType: EntityManager.UpdateCachedVisibilityArea()
+  fullName: SadConsole.Entities.EntityManager.UpdateCachedVisibilityArea()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: Updates the cached view area based on the parent surface.
+  example: []
+  syntax:
+    content: protected void UpdateCachedVisibilityArea()
+    content.vb: Protected Sub UpdateCachedVisibilityArea()
+  overload: SadConsole.Entities.EntityManager.UpdateCachedVisibilityArea*
+- uid: SadConsole.Entities.EntityManager.IndexOf(SadConsole.Entities.Entity)
+  commentId: M:SadConsole.Entities.EntityManager.IndexOf(SadConsole.Entities.Entity)
+  id: IndexOf(SadConsole.Entities.Entity)
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: IndexOf(Entity)
+  nameWithType: EntityManager.IndexOf(Entity)
+  fullName: SadConsole.Entities.EntityManager.IndexOf(SadConsole.Entities.Entity)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  example: []
+  syntax:
+    content: public int IndexOf(Entity item)
+    parameters:
+    - id: item
+      type: SadConsole.Entities.Entity
+    return:
+      type: System.Int32
+    content.vb: Public Function IndexOf(item As Entity) As Integer
+  overload: SadConsole.Entities.EntityManager.IndexOf*
+  implements:
+  - System.Collections.Generic.IList{SadConsole.Entities.Entity}.IndexOf(SadConsole.Entities.Entity)
+- uid: SadConsole.Entities.EntityManager.Contains(SadConsole.Entities.Entity)
+  commentId: M:SadConsole.Entities.EntityManager.Contains(SadConsole.Entities.Entity)
+  id: Contains(SadConsole.Entities.Entity)
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: Contains(Entity)
+  nameWithType: EntityManager.Contains(Entity)
+  fullName: SadConsole.Entities.EntityManager.Contains(SadConsole.Entities.Entity)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  example: []
+  syntax:
+    content: public bool Contains(Entity item)
+    parameters:
+    - id: item
+      type: SadConsole.Entities.Entity
+    return:
+      type: System.Boolean
+    content.vb: Public Function Contains(item As Entity) As Boolean
+  overload: SadConsole.Entities.EntityManager.Contains*
+  implements:
+  - System.Collections.Generic.ICollection{SadConsole.Entities.Entity}.Contains(SadConsole.Entities.Entity)
+- uid: SadConsole.Entities.EntityManager.CopyTo(SadConsole.Entities.Entity[],System.Int32)
+  commentId: M:SadConsole.Entities.EntityManager.CopyTo(SadConsole.Entities.Entity[],System.Int32)
+  id: CopyTo(SadConsole.Entities.Entity[],System.Int32)
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: CopyTo(Entity[], int)
+  nameWithType: EntityManager.CopyTo(Entity[], int)
+  fullName: SadConsole.Entities.EntityManager.CopyTo(SadConsole.Entities.Entity[], int)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  example: []
+  syntax:
+    content: public void CopyTo(Entity[] array, int arrayIndex)
+    parameters:
+    - id: array
+      type: SadConsole.Entities.Entity[]
+    - id: arrayIndex
+      type: System.Int32
+    content.vb: Public Sub CopyTo(array As Entity(), arrayIndex As Integer)
+  overload: SadConsole.Entities.EntityManager.CopyTo*
+  implements:
+  - System.Collections.Generic.ICollection{SadConsole.Entities.Entity}.CopyTo(SadConsole.Entities.Entity[],System.Int32)
+  nameWithType.vb: EntityManager.CopyTo(Entity(), Integer)
+  fullName.vb: SadConsole.Entities.EntityManager.CopyTo(SadConsole.Entities.Entity(), Integer)
+  name.vb: CopyTo(Entity(), Integer)
+- uid: SadConsole.Entities.EntityManager.GetEnumerator
+  commentId: M:SadConsole.Entities.EntityManager.GetEnumerator
+  id: GetEnumerator
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: GetEnumerator()
+  nameWithType: EntityManager.GetEnumerator()
+  fullName: SadConsole.Entities.EntityManager.GetEnumerator()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  example: []
+  syntax:
+    content: public IEnumerator<Entity> GetEnumerator()
+    return:
+      type: System.Collections.Generic.IEnumerator{SadConsole.Entities.Entity}
+    content.vb: Public Function GetEnumerator() As IEnumerator(Of Entity)
+  overload: SadConsole.Entities.EntityManager.GetEnumerator*
+  implements:
+  - System.Collections.Generic.IEnumerable{SadConsole.Entities.Entity}.GetEnumerator
+- uid: SadConsole.Entities.EntityManager.#ctor
+  commentId: M:SadConsole.Entities.EntityManager.#ctor
+  id: '#ctor'
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: EntityManager()
+  nameWithType: EntityManager.EntityManager()
+  fullName: SadConsole.Entities.EntityManager.EntityManager()
+  type: Constructor
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  syntax:
+    content: public EntityManager()
+    content.vb: Public Sub New()
+  overload: SadConsole.Entities.EntityManager.#ctor*
+  nameWithType.vb: EntityManager.New()
+  fullName.vb: SadConsole.Entities.EntityManager.New()
+  name.vb: New()
+- uid: SadConsole.Entities.EntityManager.Entities
+  commentId: P:SadConsole.Entities.EntityManager.Entities
+  id: Entities
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: Entities
+  nameWithType: EntityManager.Entities
+  fullName: SadConsole.Entities.EntityManager.Entities
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: The entities associated with this manager.
+  example: []
+  syntax:
+    content: public IReadOnlyList<Entity> Entities { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{SadConsole.Entities.Entity}
+    content.vb: Public ReadOnly Property Entities As IReadOnlyList(Of Entity)
+  overload: SadConsole.Entities.EntityManager.Entities*
+- uid: SadConsole.Entities.EntityManager.EntitiesVisible
+  commentId: P:SadConsole.Entities.EntityManager.EntitiesVisible
+  id: EntitiesVisible
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: EntitiesVisible
+  nameWithType: EntityManager.EntitiesVisible
+  fullName: SadConsole.Entities.EntityManager.EntitiesVisible
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: The entities within the visible portion of the parent surface.
+  example: []
+  syntax:
+    content: public IReadOnlyList<Entity> EntitiesVisible { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{SadConsole.Entities.Entity}
+    content.vb: Public ReadOnly Property EntitiesVisible As IReadOnlyList(Of Entity)
+  overload: SadConsole.Entities.EntityManager.EntitiesVisible*
+- uid: SadConsole.Entities.EntityManager.IsDirty
+  commentId: P:SadConsole.Entities.EntityManager.IsDirty
+  id: IsDirty
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: IsDirty
+  nameWithType: EntityManager.IsDirty
+  fullName: SadConsole.Entities.EntityManager.IsDirty
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that this object needs to be redrawn; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+  example: []
+  syntax:
+    content: public bool IsDirty { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsDirty As Boolean
+  overload: SadConsole.Entities.EntityManager.IsDirty*
+- uid: SadConsole.Entities.EntityManager.DoEntityUpdate
+  commentId: P:SadConsole.Entities.EntityManager.DoEntityUpdate
+  id: DoEntityUpdate
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: DoEntityUpdate
+  nameWithType: EntityManager.DoEntityUpdate
+  fullName: SadConsole.Entities.EntityManager.DoEntityUpdate
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates this manager should call <xref href="SadConsole.IScreenObject.Update(System.TimeSpan)" data-throw-if-not-resolved="false"></xref> on each entity; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+  example: []
+  syntax:
+    content: public bool DoEntityUpdate { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property DoEntityUpdate As Boolean
+  overload: SadConsole.Entities.EntityManager.DoEntityUpdate*
+- uid: SadConsole.Entities.EntityManager.SkipExistsChecks
+  commentId: P:SadConsole.Entities.EntityManager.SkipExistsChecks
+  id: SkipExistsChecks
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: SkipExistsChecks
+  nameWithType: EntityManager.SkipExistsChecks
+  fullName: SadConsole.Entities.EntityManager.SkipExistsChecks
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the <xref href="SadConsole.Entities.EntityManager.Add(SadConsole.Entities.Entity)" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.Entities.EntityManager.Remove(SadConsole.Entities.Entity)" data-throw-if-not-resolved="false"></xref> won't check if the entity exists before doing its operation.
+  example: []
+  syntax:
+    content: public bool SkipExistsChecks { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SkipExistsChecks As Boolean
+  overload: SadConsole.Entities.EntityManager.SkipExistsChecks*
+- uid: SadConsole.Entities.EntityManager.AlternativeFont
+  commentId: P:SadConsole.Entities.EntityManager.AlternativeFont
+  id: AlternativeFont
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: AlternativeFont
+  nameWithType: EntityManager.AlternativeFont
+  fullName: SadConsole.Entities.EntityManager.AlternativeFont
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: An alternative font to use when drawing the entities. If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, the hosting surface's font is used.
+  example: []
+  syntax:
+    content: public IFont? AlternativeFont { get; set; }
+    parameters: []
+    return:
+      type: SadConsole.IFont
+    content.vb: Public Property AlternativeFont As IFont
+  overload: SadConsole.Entities.EntityManager.AlternativeFont*
+- uid: SadConsole.Entities.EntityManager.Count
+  commentId: P:SadConsole.Entities.EntityManager.Count
+  id: Count
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: Count
+  nameWithType: EntityManager.Count
+  fullName: SadConsole.Entities.EntityManager.Count
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: The number of entities in the renderer.
+  example: []
+  syntax:
+    content: public int Count { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Count As Integer
+  overload: SadConsole.Entities.EntityManager.Count*
+  implements:
+  - System.Collections.Generic.ICollection{SadConsole.Entities.Entity}.Count
+- uid: SadConsole.Entities.EntityManager.IsReadOnly
+  commentId: P:SadConsole.Entities.EntityManager.IsReadOnly
+  id: IsReadOnly
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: IsReadOnly
+  nameWithType: EntityManager.IsReadOnly
+  fullName: SadConsole.Entities.EntityManager.IsReadOnly
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: Always returns false.
+  example: []
+  syntax:
+    content: public bool IsReadOnly { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsReadOnly As Boolean
+  overload: SadConsole.Entities.EntityManager.IsReadOnly*
+  implements:
+  - System.Collections.Generic.ICollection{SadConsole.Entities.Entity}.IsReadOnly
+- uid: SadConsole.Entities.EntityManager.Item(System.Int32)
+  commentId: P:SadConsole.Entities.EntityManager.Item(System.Int32)
+  id: Item(System.Int32)
+  parent: SadConsole.Entities.EntityManager
+  langs:
+  - csharp
+  - vb
+  name: this[int]
+  nameWithType: EntityManager.this[int]
+  fullName: SadConsole.Entities.EntityManager.this[int]
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Entities
+  summary: Gets an entity by index.
+  example: []
+  syntax:
+    content: public Entity this[int index] { get; set; }
+    parameters:
+    - id: index
+      type: System.Int32
+      description: ''
+    return:
+      type: SadConsole.Entities.Entity
+      description: The entity.
+    content.vb: Public Default Property this[](index As Integer) As Entity
+  overload: SadConsole.Entities.EntityManager.Item*
+  exceptions:
+  - type: System.NotSupportedException
+    commentId: T:System.NotSupportedException
+    description: ''
+  implements:
+  - System.Collections.Generic.IList{SadConsole.Entities.Entity}.Item(System.Int32)
+  nameWithType.vb: EntityManager.this[](Integer)
+  fullName.vb: SadConsole.Entities.EntityManager.this[](Integer)
+  name.vb: this[](Integer)
+references:
+- uid: SadConsole.IScreenSurface
+  commentId: T:SadConsole.IScreenSurface
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IScreenSurface.html
+  name: IScreenSurface
+  nameWithType: IScreenSurface
+  fullName: SadConsole.IScreenSurface
+- uid: SadConsole.Entities
+  commentId: N:SadConsole.Entities
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Entities
+  nameWithType: SadConsole.Entities
+  fullName: SadConsole.Entities
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Entities
+    name: Entities
+    isExternal: true
+    href: SadConsole.Entities.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Entities
+    name: Entities
+    isExternal: true
+    href: SadConsole.Entities.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: SadConsole.Components.UpdateComponent
+  commentId: T:SadConsole.Components.UpdateComponent
+  parent: SadConsole.Components
+  isExternal: true
+  href: SadConsole.Components.UpdateComponent.html
+  name: UpdateComponent
+  nameWithType: UpdateComponent
+  fullName: SadConsole.Components.UpdateComponent
+- uid: SadConsole.Components.IComponent
+  commentId: T:SadConsole.Components.IComponent
+  parent: SadConsole.Components
+  isExternal: true
+  href: SadConsole.Components.IComponent.html
+  name: IComponent
+  nameWithType: IComponent
+  fullName: SadConsole.Components.IComponent
+- uid: System.Collections.Generic.IList{SadConsole.Entities.Entity}
+  commentId: T:System.Collections.Generic.IList{SadConsole.Entities.Entity}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<Entity>
+  nameWithType: IList<Entity>
+  fullName: System.Collections.Generic.IList<SadConsole.Entities.Entity>
+  nameWithType.vb: IList(Of Entity)
+  fullName.vb: System.Collections.Generic.IList(Of SadConsole.Entities.Entity)
+  name.vb: IList(Of Entity)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: )
+- uid: System.Collections.Generic.ICollection{SadConsole.Entities.Entity}
+  commentId: T:System.Collections.Generic.ICollection{SadConsole.Entities.Entity}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<Entity>
+  nameWithType: ICollection<Entity>
+  fullName: System.Collections.Generic.ICollection<SadConsole.Entities.Entity>
+  nameWithType.vb: ICollection(Of Entity)
+  fullName.vb: System.Collections.Generic.ICollection(Of SadConsole.Entities.Entity)
+  name.vb: ICollection(Of Entity)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: )
+- uid: System.Collections.Generic.IEnumerable{SadConsole.Entities.Entity}
+  commentId: T:System.Collections.Generic.IEnumerable{SadConsole.Entities.Entity}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<Entity>
+  nameWithType: IEnumerable<Entity>
+  fullName: System.Collections.Generic.IEnumerable<SadConsole.Entities.Entity>
+  nameWithType.vb: IEnumerable(Of Entity)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of SadConsole.Entities.Entity)
+  name.vb: IEnumerable(Of Entity)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: )
+- uid: System.Collections.IEnumerable
+  commentId: T:System.Collections.IEnumerable
+  parent: System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.ienumerable
+  name: IEnumerable
+  nameWithType: IEnumerable
+  fullName: System.Collections.IEnumerable
+- uid: SadConsole.Components.UpdateComponent.SortOrder
+  commentId: P:SadConsole.Components.UpdateComponent.SortOrder
+  parent: SadConsole.Components.UpdateComponent
+  isExternal: true
+  href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.SortOrder
+  name: SortOrder
+  nameWithType: UpdateComponent.SortOrder
+  fullName: SadConsole.Components.UpdateComponent.SortOrder
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SadConsole.Components
+  commentId: N:SadConsole.Components
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Components
+  nameWithType: SadConsole.Components
+  fullName: SadConsole.Components
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Components
+    name: Components
+    isExternal: true
+    href: SadConsole.Components.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Components
+    name: Components
+    isExternal: true
+    href: SadConsole.Components.html
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.Generic.ICollection`1
+  commentId: T:System.Collections.Generic.ICollection`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<T>
+  nameWithType: ICollection<T>
+  fullName: System.Collections.Generic.ICollection<T>
+  nameWithType.vb: ICollection(Of T)
+  fullName.vb: System.Collections.Generic.ICollection(Of T)
+  name.vb: ICollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections
+  commentId: N:System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections
+  nameWithType: System.Collections
+  fullName: System.Collections
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Collections.Generic.List{SadConsole.Entities.Entity}
+  commentId: T:System.Collections.Generic.List{SadConsole.Entities.Entity}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Entity>
+  nameWithType: List<Entity>
+  fullName: System.Collections.Generic.List<SadConsole.Entities.Entity>
+  nameWithType.vb: List(Of Entity)
+  fullName.vb: System.Collections.Generic.List(Of SadConsole.Entities.Entity)
+  name.vb: List(Of Entity)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: SadRogue.Primitives.Rectangle
+  commentId: T:SadRogue.Primitives.Rectangle
+  parent: SadRogue.Primitives
+  isExternal: true
+  name: Rectangle
+  nameWithType: Rectangle
+  fullName: SadRogue.Primitives.Rectangle
+- uid: SadRogue.Primitives
+  commentId: N:SadRogue.Primitives
+  isExternal: true
+  href: SadRogue.html
+  name: SadRogue.Primitives
+  nameWithType: SadRogue.Primitives
+  fullName: SadRogue.Primitives
+  spec.csharp:
+  - uid: SadRogue
+    name: SadRogue
+    isExternal: true
+    href: SadRogue.html
+  - name: .
+  - uid: SadRogue.Primitives
+    name: Primitives
+    isExternal: true
+    href: SadRogue.Primitives.html
+  spec.vb:
+  - uid: SadRogue
+    name: SadRogue
+    isExternal: true
+    href: SadRogue.html
+  - name: .
+  - uid: SadRogue.Primitives
+    name: Primitives
+    isExternal: true
+    href: SadRogue.Primitives.html
+- uid: SadConsole.ICellSurface.View
+  commentId: P:SadConsole.ICellSurface.View
+  parent: SadConsole.ICellSurface
+  isExternal: true
+  href: SadConsole.ICellSurface.html#SadConsole.ICellSurface.View
+  name: View
+  nameWithType: ICellSurface.View
+  fullName: SadConsole.ICellSurface.View
+- uid: SadConsole.ICellSurface
+  commentId: T:SadConsole.ICellSurface
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ICellSurface.html
+  name: ICellSurface
+  nameWithType: ICellSurface
+  fullName: SadConsole.ICellSurface
+- uid: SadConsole.IScreenSurface.Font
+  commentId: P:SadConsole.IScreenSurface.Font
+  parent: SadConsole.IScreenSurface
+  isExternal: true
+  href: SadConsole.IScreenSurface.html#SadConsole.IScreenSurface.Font
+  name: Font
+  nameWithType: IScreenSurface.Font
+  fullName: SadConsole.IScreenSurface.Font
+- uid: SadConsole.IFont
+  commentId: T:SadConsole.IFont
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IFont.html
+  name: IFont
+  nameWithType: IFont
+  fullName: SadConsole.IFont
+- uid: SadConsole.IScreenSurface.FontSize
+  commentId: P:SadConsole.IScreenSurface.FontSize
+  parent: SadConsole.IScreenSurface
+  isExternal: true
+  href: SadConsole.IScreenSurface.html#SadConsole.IScreenSurface.FontSize
+  name: FontSize
+  nameWithType: IScreenSurface.FontSize
+  fullName: SadConsole.IScreenSurface.FontSize
+- uid: SadRogue.Primitives.Point
+  commentId: T:SadRogue.Primitives.Point
+  parent: SadRogue.Primitives
+  isExternal: true
+  name: Point
+  nameWithType: Point
+  fullName: SadRogue.Primitives.Point
+- uid: SadConsole.Renderers.IRenderStep
+  commentId: T:SadConsole.Renderers.IRenderStep
+  parent: SadConsole.Renderers
+  isExternal: true
+  href: SadConsole.Renderers.IRenderStep.html
+  name: IRenderStep
+  nameWithType: IRenderStep
+  fullName: SadConsole.Renderers.IRenderStep
+- uid: SadConsole.Renderers
+  commentId: N:SadConsole.Renderers
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Renderers
+  nameWithType: SadConsole.Renderers
+  fullName: SadConsole.Renderers
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Renderers
+    name: Renderers
+    isExternal: true
+    href: SadConsole.Renderers.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Renderers
+    name: Renderers
+    isExternal: true
+    href: SadConsole.Renderers.html
+- uid: SadConsole.Entities.EntityManager.Add*
+  commentId: Overload:SadConsole.Entities.EntityManager.Add
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.Add(SadConsole.Entities.Entity)
+  name: Add
+  nameWithType: EntityManager.Add
+  fullName: SadConsole.Entities.EntityManager.Add
+- uid: System.Collections.Generic.ICollection{SadConsole.Entities.Entity}.Add(SadConsole.Entities.Entity)
+  commentId: M:System.Collections.Generic.ICollection{SadConsole.Entities.Entity}.Add(SadConsole.Entities.Entity)
+  parent: System.Collections.Generic.ICollection{SadConsole.Entities.Entity}
+  definition: System.Collections.Generic.ICollection`1.Add(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.entities.entity-.add#system-collections-generic-icollection((sadconsole-entities-entity))-add(sadconsole-entities-entity)
+  name: Add(Entity)
+  nameWithType: ICollection<Entity>.Add(Entity)
+  fullName: System.Collections.Generic.ICollection<SadConsole.Entities.Entity>.Add(SadConsole.Entities.Entity)
+  nameWithType.vb: ICollection(Of Entity).Add(Entity)
+  fullName.vb: System.Collections.Generic.ICollection(Of SadConsole.Entities.Entity).Add(SadConsole.Entities.Entity)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection{SadConsole.Entities.Entity}.Add(SadConsole.Entities.Entity)
+    name: Add
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.entities.entity-.add#system-collections-generic-icollection((sadconsole-entities-entity))-add(sadconsole-entities-entity)
+  - name: (
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection{SadConsole.Entities.Entity}.Add(SadConsole.Entities.Entity)
+    name: Add
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.entities.entity-.add#system-collections-generic-icollection((sadconsole-entities-entity))-add(sadconsole-entities-entity)
+  - name: (
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: )
+- uid: SadConsole.Entities.Entity
+  commentId: T:SadConsole.Entities.Entity
+  parent: SadConsole.Entities
+  isExternal: true
+  href: SadConsole.Entities.Entity.html
+  name: Entity
+  nameWithType: Entity
+  fullName: SadConsole.Entities.Entity
+- uid: System.Collections.Generic.ICollection`1.Add(`0)
+  commentId: M:System.Collections.Generic.ICollection`1.Add(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add
+  name: Add(T)
+  nameWithType: ICollection<T>.Add(T)
+  fullName: System.Collections.Generic.ICollection<T>.Add(T)
+  nameWithType.vb: ICollection(Of T).Add(T)
+  fullName.vb: System.Collections.Generic.ICollection(Of T).Add(T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1.Add(`0)
+    name: Add
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1.Add(`0)
+    name: Add
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add
+  - name: (
+  - name: T
+  - name: )
+- uid: SadConsole.Entities.EntityManager.AddRange*
+  commentId: Overload:SadConsole.Entities.EntityManager.AddRange
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.AddRange(System.Collections.Generic.IEnumerable{SadConsole.Entities.Entity})
+  name: AddRange
+  nameWithType: EntityManager.AddRange
+  fullName: SadConsole.Entities.EntityManager.AddRange
+- uid: SadConsole.Entities.EntityManager.OnEntityAdded(SadConsole.Entities.Entity)
+  commentId: M:SadConsole.Entities.EntityManager.OnEntityAdded(SadConsole.Entities.Entity)
+  parent: SadConsole.Entities.EntityManager
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.OnEntityAdded(SadConsole.Entities.Entity)
+  name: OnEntityAdded(Entity)
+  nameWithType: EntityManager.OnEntityAdded(Entity)
+  fullName: SadConsole.Entities.EntityManager.OnEntityAdded(SadConsole.Entities.Entity)
+  spec.csharp:
+  - uid: SadConsole.Entities.EntityManager.OnEntityAdded(SadConsole.Entities.Entity)
+    name: OnEntityAdded
+    isExternal: true
+    href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.OnEntityAdded(SadConsole.Entities.Entity)
+  - name: (
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Entities.EntityManager.OnEntityAdded(SadConsole.Entities.Entity)
+    name: OnEntityAdded
+    isExternal: true
+    href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.OnEntityAdded(SadConsole.Entities.Entity)
+  - name: (
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: )
+- uid: SadConsole.Entities.EntityManager.OnEntityChangedPosition(SadConsole.Entities.Entity,SadRogue.Primitives.ValueChangedEventArgs{SadRogue.Primitives.Point})
+  commentId: M:SadConsole.Entities.EntityManager.OnEntityChangedPosition(SadConsole.Entities.Entity,SadRogue.Primitives.ValueChangedEventArgs{SadRogue.Primitives.Point})
+  parent: SadConsole.Entities.EntityManager
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.OnEntityChangedPosition(SadConsole.Entities.Entity,SadRogue.Primitives.ValueChangedEventArgs{SadRogue.Primitives.Point})
+  name: OnEntityChangedPosition(Entity, ValueChangedEventArgs<Point>)
+  nameWithType: EntityManager.OnEntityChangedPosition(Entity, ValueChangedEventArgs<Point>)
+  fullName: SadConsole.Entities.EntityManager.OnEntityChangedPosition(SadConsole.Entities.Entity, SadRogue.Primitives.ValueChangedEventArgs<SadRogue.Primitives.Point>)
+  nameWithType.vb: EntityManager.OnEntityChangedPosition(Entity, ValueChangedEventArgs(Of Point))
+  fullName.vb: SadConsole.Entities.EntityManager.OnEntityChangedPosition(SadConsole.Entities.Entity, SadRogue.Primitives.ValueChangedEventArgs(Of SadRogue.Primitives.Point))
+  name.vb: OnEntityChangedPosition(Entity, ValueChangedEventArgs(Of Point))
+  spec.csharp:
+  - uid: SadConsole.Entities.EntityManager.OnEntityChangedPosition(SadConsole.Entities.Entity,SadRogue.Primitives.ValueChangedEventArgs{SadRogue.Primitives.Point})
+    name: OnEntityChangedPosition
+    isExternal: true
+    href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.OnEntityChangedPosition(SadConsole.Entities.Entity,SadRogue.Primitives.ValueChangedEventArgs{SadRogue.Primitives.Point})
+  - name: (
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.ValueChangedEventArgs`1
+    name: ValueChangedEventArgs
+    isExternal: true
+  - name: <
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Entities.EntityManager.OnEntityChangedPosition(SadConsole.Entities.Entity,SadRogue.Primitives.ValueChangedEventArgs{SadRogue.Primitives.Point})
+    name: OnEntityChangedPosition
+    isExternal: true
+    href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.OnEntityChangedPosition(SadConsole.Entities.Entity,SadRogue.Primitives.ValueChangedEventArgs{SadRogue.Primitives.Point})
+  - name: (
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.ValueChangedEventArgs`1
+    name: ValueChangedEventArgs
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: )
+  - name: )
+- uid: SadConsole.Entities.EntityManager.CalculateEntityVisibilityProtected(SadConsole.Entities.Entity,System.Boolean)
+  commentId: M:SadConsole.Entities.EntityManager.CalculateEntityVisibilityProtected(SadConsole.Entities.Entity,System.Boolean)
+  parent: SadConsole.Entities.EntityManager
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.CalculateEntityVisibilityProtected(SadConsole.Entities.Entity,System.Boolean)
+  name: CalculateEntityVisibilityProtected(Entity, bool)
+  nameWithType: EntityManager.CalculateEntityVisibilityProtected(Entity, bool)
+  fullName: SadConsole.Entities.EntityManager.CalculateEntityVisibilityProtected(SadConsole.Entities.Entity, bool)
+  nameWithType.vb: EntityManager.CalculateEntityVisibilityProtected(Entity, Boolean)
+  fullName.vb: SadConsole.Entities.EntityManager.CalculateEntityVisibilityProtected(SadConsole.Entities.Entity, Boolean)
+  name.vb: CalculateEntityVisibilityProtected(Entity, Boolean)
+  spec.csharp:
+  - uid: SadConsole.Entities.EntityManager.CalculateEntityVisibilityProtected(SadConsole.Entities.Entity,System.Boolean)
+    name: CalculateEntityVisibilityProtected
+    isExternal: true
+    href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.CalculateEntityVisibilityProtected(SadConsole.Entities.Entity,System.Boolean)
+  - name: (
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Entities.EntityManager.CalculateEntityVisibilityProtected(SadConsole.Entities.Entity,System.Boolean)
+    name: CalculateEntityVisibilityProtected
+    isExternal: true
+    href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.CalculateEntityVisibilityProtected(SadConsole.Entities.Entity,System.Boolean)
+  - name: (
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: SadConsole.Entities.EntityManager.AddEntity*
+  commentId: Overload:SadConsole.Entities.EntityManager.AddEntity
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.AddEntity(SadConsole.Entities.Entity,System.Boolean)
+  name: AddEntity
+  nameWithType: EntityManager.AddEntity
+  fullName: SadConsole.Entities.EntityManager.AddEntity
+- uid: SadConsole.Entities.EntityManager
+  commentId: T:SadConsole.Entities.EntityManager
+  parent: SadConsole.Entities
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html
+  name: EntityManager
+  nameWithType: EntityManager
+  fullName: SadConsole.Entities.EntityManager
+- uid: SadConsole.Entities.EntityManager.OnEntityRemoved(SadConsole.Entities.Entity)
+  commentId: M:SadConsole.Entities.EntityManager.OnEntityRemoved(SadConsole.Entities.Entity)
+  parent: SadConsole.Entities.EntityManager
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.OnEntityRemoved(SadConsole.Entities.Entity)
+  name: OnEntityRemoved(Entity)
+  nameWithType: EntityManager.OnEntityRemoved(Entity)
+  fullName: SadConsole.Entities.EntityManager.OnEntityRemoved(SadConsole.Entities.Entity)
+  spec.csharp:
+  - uid: SadConsole.Entities.EntityManager.OnEntityRemoved(SadConsole.Entities.Entity)
+    name: OnEntityRemoved
+    isExternal: true
+    href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.OnEntityRemoved(SadConsole.Entities.Entity)
+  - name: (
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Entities.EntityManager.OnEntityRemoved(SadConsole.Entities.Entity)
+    name: OnEntityRemoved
+    isExternal: true
+    href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.OnEntityRemoved(SadConsole.Entities.Entity)
+  - name: (
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: )
+- uid: SadConsole.Entities.EntityManager.RemoveEntity*
+  commentId: Overload:SadConsole.Entities.EntityManager.RemoveEntity
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.RemoveEntity(SadConsole.Entities.Entity)
+  name: RemoveEntity
+  nameWithType: EntityManager.RemoveEntity
+  fullName: SadConsole.Entities.EntityManager.RemoveEntity
+- uid: SadConsole.Entities.EntityManager.Remove*
+  commentId: Overload:SadConsole.Entities.EntityManager.Remove
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.Remove(SadConsole.Entities.Entity)
+  name: Remove
+  nameWithType: EntityManager.Remove
+  fullName: SadConsole.Entities.EntityManager.Remove
+- uid: System.Collections.Generic.ICollection{SadConsole.Entities.Entity}.Remove(SadConsole.Entities.Entity)
+  commentId: M:System.Collections.Generic.ICollection{SadConsole.Entities.Entity}.Remove(SadConsole.Entities.Entity)
+  parent: System.Collections.Generic.ICollection{SadConsole.Entities.Entity}
+  definition: System.Collections.Generic.ICollection`1.Remove(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.entities.entity-.remove#system-collections-generic-icollection((sadconsole-entities-entity))-remove(sadconsole-entities-entity)
+  name: Remove(Entity)
+  nameWithType: ICollection<Entity>.Remove(Entity)
+  fullName: System.Collections.Generic.ICollection<SadConsole.Entities.Entity>.Remove(SadConsole.Entities.Entity)
+  nameWithType.vb: ICollection(Of Entity).Remove(Entity)
+  fullName.vb: System.Collections.Generic.ICollection(Of SadConsole.Entities.Entity).Remove(SadConsole.Entities.Entity)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection{SadConsole.Entities.Entity}.Remove(SadConsole.Entities.Entity)
+    name: Remove
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.entities.entity-.remove#system-collections-generic-icollection((sadconsole-entities-entity))-remove(sadconsole-entities-entity)
+  - name: (
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection{SadConsole.Entities.Entity}.Remove(SadConsole.Entities.Entity)
+    name: Remove
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.entities.entity-.remove#system-collections-generic-icollection((sadconsole-entities-entity))-remove(sadconsole-entities-entity)
+  - name: (
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: )
+- uid: System.Collections.Generic.ICollection`1.Remove(`0)
+  commentId: M:System.Collections.Generic.ICollection`1.Remove(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.remove
+  name: Remove(T)
+  nameWithType: ICollection<T>.Remove(T)
+  fullName: System.Collections.Generic.ICollection<T>.Remove(T)
+  nameWithType.vb: ICollection(Of T).Remove(T)
+  fullName.vb: System.Collections.Generic.ICollection(Of T).Remove(T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1.Remove(`0)
+    name: Remove
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.remove
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1.Remove(`0)
+    name: Remove
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.remove
+  - name: (
+  - name: T
+  - name: )
+- uid: SadConsole.Entities.EntityManager.Clear*
+  commentId: Overload:SadConsole.Entities.EntityManager.Clear
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.Clear
+  name: Clear
+  nameWithType: EntityManager.Clear
+  fullName: SadConsole.Entities.EntityManager.Clear
+- uid: System.Collections.Generic.ICollection{SadConsole.Entities.Entity}.Clear
+  commentId: M:System.Collections.Generic.ICollection{SadConsole.Entities.Entity}.Clear
+  parent: System.Collections.Generic.ICollection{SadConsole.Entities.Entity}
+  definition: System.Collections.Generic.ICollection`1.Clear
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.entities.entity-.clear#system-collections-generic-icollection((sadconsole-entities-entity))-clear
+  name: Clear()
+  nameWithType: ICollection<Entity>.Clear()
+  fullName: System.Collections.Generic.ICollection<SadConsole.Entities.Entity>.Clear()
+  nameWithType.vb: ICollection(Of Entity).Clear()
+  fullName.vb: System.Collections.Generic.ICollection(Of SadConsole.Entities.Entity).Clear()
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection{SadConsole.Entities.Entity}.Clear
+    name: Clear
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.entities.entity-.clear#system-collections-generic-icollection((sadconsole-entities-entity))-clear
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection{SadConsole.Entities.Entity}.Clear
+    name: Clear
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.entities.entity-.clear#system-collections-generic-icollection((sadconsole-entities-entity))-clear
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.ICollection`1.Clear
+  commentId: M:System.Collections.Generic.ICollection`1.Clear
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.clear
+  name: Clear()
+  nameWithType: ICollection<T>.Clear()
+  fullName: System.Collections.Generic.ICollection<T>.Clear()
+  nameWithType.vb: ICollection(Of T).Clear()
+  fullName.vb: System.Collections.Generic.ICollection(Of T).Clear()
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1.Clear
+    name: Clear
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.clear
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1.Clear
+    name: Clear
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.clear
+  - name: (
+  - name: )
+- uid: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  parent: SadConsole.Components.UpdateComponent
+  isExternal: true
+  href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  name: OnAdded(IScreenObject)
+  nameWithType: UpdateComponent.OnAdded(IScreenObject)
+  fullName: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  spec.csharp:
+  - uid: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+    name: OnAdded
+    isExternal: true
+    href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+    name: OnAdded
+    isExternal: true
+    href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+- uid: SadConsole.Entities.EntityManager.OnAdded*
+  commentId: Overload:SadConsole.Entities.EntityManager.OnAdded
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.OnAdded(SadConsole.IScreenObject)
+  name: OnAdded
+  nameWithType: EntityManager.OnAdded
+  fullName: SadConsole.Entities.EntityManager.OnAdded
+- uid: SadConsole.Components.IComponent.OnAdded(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Components.IComponent.OnAdded(SadConsole.IScreenObject)
+  parent: SadConsole.Components.IComponent
+  isExternal: true
+  href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.OnAdded(SadConsole.IScreenObject)
+  name: OnAdded(IScreenObject)
+  nameWithType: IComponent.OnAdded(IScreenObject)
+  fullName: SadConsole.Components.IComponent.OnAdded(SadConsole.IScreenObject)
+  spec.csharp:
+  - uid: SadConsole.Components.IComponent.OnAdded(SadConsole.IScreenObject)
+    name: OnAdded
+    isExternal: true
+    href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.OnAdded(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.IComponent.OnAdded(SadConsole.IScreenObject)
+    name: OnAdded
+    isExternal: true
+    href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.OnAdded(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+- uid: SadConsole.IScreenObject
+  commentId: T:SadConsole.IScreenObject
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IScreenObject.html
+  name: IScreenObject
+  nameWithType: IScreenObject
+  fullName: SadConsole.IScreenObject
+- uid: SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  parent: SadConsole.Components.UpdateComponent
+  isExternal: true
+  href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  name: OnRemoved(IScreenObject)
+  nameWithType: UpdateComponent.OnRemoved(IScreenObject)
+  fullName: SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  spec.csharp:
+  - uid: SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+    name: OnRemoved
+    isExternal: true
+    href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+    name: OnRemoved
+    isExternal: true
+    href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+- uid: SadConsole.Entities.EntityManager.OnRemoved*
+  commentId: Overload:SadConsole.Entities.EntityManager.OnRemoved
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.OnRemoved(SadConsole.IScreenObject)
+  name: OnRemoved
+  nameWithType: EntityManager.OnRemoved
+  fullName: SadConsole.Entities.EntityManager.OnRemoved
+- uid: SadConsole.Components.IComponent.OnRemoved(SadConsole.IScreenObject)
+  commentId: M:SadConsole.Components.IComponent.OnRemoved(SadConsole.IScreenObject)
+  parent: SadConsole.Components.IComponent
+  isExternal: true
+  href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.OnRemoved(SadConsole.IScreenObject)
+  name: OnRemoved(IScreenObject)
+  nameWithType: IComponent.OnRemoved(IScreenObject)
+  fullName: SadConsole.Components.IComponent.OnRemoved(SadConsole.IScreenObject)
+  spec.csharp:
+  - uid: SadConsole.Components.IComponent.OnRemoved(SadConsole.IScreenObject)
+    name: OnRemoved
+    isExternal: true
+    href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.OnRemoved(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.IComponent.OnRemoved(SadConsole.IScreenObject)
+    name: OnRemoved
+    isExternal: true
+    href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.OnRemoved(SadConsole.IScreenObject)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: )
+- uid: SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  commentId: M:SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  parent: SadConsole.Components.UpdateComponent
+  isExternal: true
+  href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  name: Update(IScreenObject, TimeSpan)
+  nameWithType: UpdateComponent.Update(IScreenObject, TimeSpan)
+  fullName: SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject, System.TimeSpan)
+  spec.csharp:
+  - uid: SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+    name: Update
+    isExternal: true
+    href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+    name: Update
+    isExternal: true
+    href: SadConsole.Components.UpdateComponent.html#SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+- uid: SadConsole.Entities.EntityManager.Update*
+  commentId: Overload:SadConsole.Entities.EntityManager.Update
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.Update(SadConsole.IScreenObject,System.TimeSpan)
+  name: Update
+  nameWithType: EntityManager.Update
+  fullName: SadConsole.Entities.EntityManager.Update
+- uid: SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  commentId: M:SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  parent: SadConsole.Components.IComponent
+  isExternal: true
+  href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  name: Update(IScreenObject, TimeSpan)
+  nameWithType: IComponent.Update(IScreenObject, TimeSpan)
+  fullName: SadConsole.Components.IComponent.Update(SadConsole.IScreenObject, System.TimeSpan)
+  spec.csharp:
+  - uid: SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+    name: Update
+    isExternal: true
+    href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+    name: Update
+    isExternal: true
+    href: SadConsole.Components.IComponent.html#SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+- uid: SadConsole.Entities.EntityManager.GetRenderRectangle*
+  commentId: Overload:SadConsole.Entities.EntityManager.GetRenderRectangle
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.GetRenderRectangle(SadRogue.Primitives.Point,System.Boolean)
+  name: GetRenderRectangle
+  nameWithType: EntityManager.GetRenderRectangle
+  fullName: SadConsole.Entities.EntityManager.GetRenderRectangle
+- uid: SadConsole.Entities.EntityManager.EntitiesVisible
+  commentId: P:SadConsole.Entities.EntityManager.EntitiesVisible
+  parent: SadConsole.Entities.EntityManager
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.EntitiesVisible
+  name: EntitiesVisible
+  nameWithType: EntityManager.EntitiesVisible
+  fullName: SadConsole.Entities.EntityManager.EntitiesVisible
+- uid: SadConsole.Entities.Entity.ZIndex
+  commentId: P:SadConsole.Entities.Entity.ZIndex
+  isExternal: true
+  href: SadConsole.Entities.Entity.html#SadConsole.Entities.Entity.ZIndex
+  name: ZIndex
+  nameWithType: Entity.ZIndex
+  fullName: SadConsole.Entities.Entity.ZIndex
+- uid: SadConsole.Entities.EntityManager.SortVisibleEntities*
+  commentId: Overload:SadConsole.Entities.EntityManager.SortVisibleEntities
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.SortVisibleEntities
+  name: SortVisibleEntities
+  nameWithType: EntityManager.SortVisibleEntities
+  fullName: SadConsole.Entities.EntityManager.SortVisibleEntities
+- uid: SadConsole.Entities.EntityManager.OnEntityChangedPosition*
+  commentId: Overload:SadConsole.Entities.EntityManager.OnEntityChangedPosition
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.OnEntityChangedPosition(SadConsole.Entities.Entity,SadRogue.Primitives.ValueChangedEventArgs{SadRogue.Primitives.Point})
+  name: OnEntityChangedPosition
+  nameWithType: EntityManager.OnEntityChangedPosition
+  fullName: SadConsole.Entities.EntityManager.OnEntityChangedPosition
+- uid: SadRogue.Primitives.ValueChangedEventArgs{SadRogue.Primitives.Point}
+  commentId: T:SadRogue.Primitives.ValueChangedEventArgs{SadRogue.Primitives.Point}
+  parent: SadRogue.Primitives
+  definition: SadRogue.Primitives.ValueChangedEventArgs`1
+  name: ValueChangedEventArgs<Point>
+  nameWithType: ValueChangedEventArgs<Point>
+  fullName: SadRogue.Primitives.ValueChangedEventArgs<SadRogue.Primitives.Point>
+  nameWithType.vb: ValueChangedEventArgs(Of Point)
+  fullName.vb: SadRogue.Primitives.ValueChangedEventArgs(Of SadRogue.Primitives.Point)
+  name.vb: ValueChangedEventArgs(Of Point)
+  spec.csharp:
+  - uid: SadRogue.Primitives.ValueChangedEventArgs`1
+    name: ValueChangedEventArgs
+    isExternal: true
+  - name: <
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: SadRogue.Primitives.ValueChangedEventArgs`1
+    name: ValueChangedEventArgs
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: )
+- uid: SadRogue.Primitives.ValueChangedEventArgs`1
+  commentId: T:SadRogue.Primitives.ValueChangedEventArgs`1
+  isExternal: true
+  name: ValueChangedEventArgs<TProperty>
+  nameWithType: ValueChangedEventArgs<TProperty>
+  fullName: SadRogue.Primitives.ValueChangedEventArgs<TProperty>
+  nameWithType.vb: ValueChangedEventArgs(Of TProperty)
+  fullName.vb: SadRogue.Primitives.ValueChangedEventArgs(Of TProperty)
+  name.vb: ValueChangedEventArgs(Of TProperty)
+  spec.csharp:
+  - uid: SadRogue.Primitives.ValueChangedEventArgs`1
+    name: ValueChangedEventArgs
+    isExternal: true
+  - name: <
+  - name: TProperty
+  - name: '>'
+  spec.vb:
+  - uid: SadRogue.Primitives.ValueChangedEventArgs`1
+    name: ValueChangedEventArgs
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TProperty
+  - name: )
+- uid: SadConsole.Entities.EntityManager.OnEntityAdded*
+  commentId: Overload:SadConsole.Entities.EntityManager.OnEntityAdded
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.OnEntityAdded(SadConsole.Entities.Entity)
+  name: OnEntityAdded
+  nameWithType: EntityManager.OnEntityAdded
+  fullName: SadConsole.Entities.EntityManager.OnEntityAdded
+- uid: SadConsole.Entities.EntityManager.OnEntityRemoved*
+  commentId: Overload:SadConsole.Entities.EntityManager.OnEntityRemoved
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.OnEntityRemoved(SadConsole.Entities.Entity)
+  name: OnEntityRemoved
+  nameWithType: EntityManager.OnEntityRemoved
+  fullName: SadConsole.Entities.EntityManager.OnEntityRemoved
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: SadConsole.Entities.EntityManager.CalculateEntityVisibility*
+  commentId: Overload:SadConsole.Entities.EntityManager.CalculateEntityVisibility
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.CalculateEntityVisibility(SadConsole.Entities.Entity)
+  name: CalculateEntityVisibility
+  nameWithType: EntityManager.CalculateEntityVisibility
+  fullName: SadConsole.Entities.EntityManager.CalculateEntityVisibility
+- uid: SadConsole.Entities.EntityManager.CalculateEntityVisibilityProtected*
+  commentId: Overload:SadConsole.Entities.EntityManager.CalculateEntityVisibilityProtected
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.CalculateEntityVisibilityProtected(SadConsole.Entities.Entity,System.Boolean)
+  name: CalculateEntityVisibilityProtected
+  nameWithType: EntityManager.CalculateEntityVisibilityProtected
+  fullName: SadConsole.Entities.EntityManager.CalculateEntityVisibilityProtected
+- uid: SadConsole.Entities.EntityManager.UpdateCachedVisibilityArea*
+  commentId: Overload:SadConsole.Entities.EntityManager.UpdateCachedVisibilityArea
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.UpdateCachedVisibilityArea
+  name: UpdateCachedVisibilityArea
+  nameWithType: EntityManager.UpdateCachedVisibilityArea
+  fullName: SadConsole.Entities.EntityManager.UpdateCachedVisibilityArea
+- uid: SadConsole.Entities.EntityManager.IndexOf*
+  commentId: Overload:SadConsole.Entities.EntityManager.IndexOf
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.IndexOf(SadConsole.Entities.Entity)
+  name: IndexOf
+  nameWithType: EntityManager.IndexOf
+  fullName: SadConsole.Entities.EntityManager.IndexOf
+- uid: System.Collections.Generic.IList{SadConsole.Entities.Entity}.IndexOf(SadConsole.Entities.Entity)
+  commentId: M:System.Collections.Generic.IList{SadConsole.Entities.Entity}.IndexOf(SadConsole.Entities.Entity)
+  parent: System.Collections.Generic.IList{SadConsole.Entities.Entity}
+  definition: System.Collections.Generic.IList`1.IndexOf(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-sadconsole.entities.entity-.indexof#system-collections-generic-ilist((sadconsole-entities-entity))-indexof(sadconsole-entities-entity)
+  name: IndexOf(Entity)
+  nameWithType: IList<Entity>.IndexOf(Entity)
+  fullName: System.Collections.Generic.IList<SadConsole.Entities.Entity>.IndexOf(SadConsole.Entities.Entity)
+  nameWithType.vb: IList(Of Entity).IndexOf(Entity)
+  fullName.vb: System.Collections.Generic.IList(Of SadConsole.Entities.Entity).IndexOf(SadConsole.Entities.Entity)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList{SadConsole.Entities.Entity}.IndexOf(SadConsole.Entities.Entity)
+    name: IndexOf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-sadconsole.entities.entity-.indexof#system-collections-generic-ilist((sadconsole-entities-entity))-indexof(sadconsole-entities-entity)
+  - name: (
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IList{SadConsole.Entities.Entity}.IndexOf(SadConsole.Entities.Entity)
+    name: IndexOf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-sadconsole.entities.entity-.indexof#system-collections-generic-ilist((sadconsole-entities-entity))-indexof(sadconsole-entities-entity)
+  - name: (
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Collections.Generic.IList`1.IndexOf(`0)
+  commentId: M:System.Collections.Generic.IList`1.IndexOf(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1.indexof
+  name: IndexOf(T)
+  nameWithType: IList<T>.IndexOf(T)
+  fullName: System.Collections.Generic.IList<T>.IndexOf(T)
+  nameWithType.vb: IList(Of T).IndexOf(T)
+  fullName.vb: System.Collections.Generic.IList(Of T).IndexOf(T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1.IndexOf(`0)
+    name: IndexOf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1.indexof
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1.IndexOf(`0)
+    name: IndexOf
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1.indexof
+  - name: (
+  - name: T
+  - name: )
+- uid: SadConsole.Entities.EntityManager.Contains*
+  commentId: Overload:SadConsole.Entities.EntityManager.Contains
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.Contains(SadConsole.Entities.Entity)
+  name: Contains
+  nameWithType: EntityManager.Contains
+  fullName: SadConsole.Entities.EntityManager.Contains
+- uid: System.Collections.Generic.ICollection{SadConsole.Entities.Entity}.Contains(SadConsole.Entities.Entity)
+  commentId: M:System.Collections.Generic.ICollection{SadConsole.Entities.Entity}.Contains(SadConsole.Entities.Entity)
+  parent: System.Collections.Generic.ICollection{SadConsole.Entities.Entity}
+  definition: System.Collections.Generic.ICollection`1.Contains(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.entities.entity-.contains#system-collections-generic-icollection((sadconsole-entities-entity))-contains(sadconsole-entities-entity)
+  name: Contains(Entity)
+  nameWithType: ICollection<Entity>.Contains(Entity)
+  fullName: System.Collections.Generic.ICollection<SadConsole.Entities.Entity>.Contains(SadConsole.Entities.Entity)
+  nameWithType.vb: ICollection(Of Entity).Contains(Entity)
+  fullName.vb: System.Collections.Generic.ICollection(Of SadConsole.Entities.Entity).Contains(SadConsole.Entities.Entity)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection{SadConsole.Entities.Entity}.Contains(SadConsole.Entities.Entity)
+    name: Contains
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.entities.entity-.contains#system-collections-generic-icollection((sadconsole-entities-entity))-contains(sadconsole-entities-entity)
+  - name: (
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection{SadConsole.Entities.Entity}.Contains(SadConsole.Entities.Entity)
+    name: Contains
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.entities.entity-.contains#system-collections-generic-icollection((sadconsole-entities-entity))-contains(sadconsole-entities-entity)
+  - name: (
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: )
+- uid: System.Collections.Generic.ICollection`1.Contains(`0)
+  commentId: M:System.Collections.Generic.ICollection`1.Contains(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.contains
+  name: Contains(T)
+  nameWithType: ICollection<T>.Contains(T)
+  fullName: System.Collections.Generic.ICollection<T>.Contains(T)
+  nameWithType.vb: ICollection(Of T).Contains(T)
+  fullName.vb: System.Collections.Generic.ICollection(Of T).Contains(T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1.Contains(`0)
+    name: Contains
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.contains
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1.Contains(`0)
+    name: Contains
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.contains
+  - name: (
+  - name: T
+  - name: )
+- uid: SadConsole.Entities.EntityManager.CopyTo*
+  commentId: Overload:SadConsole.Entities.EntityManager.CopyTo
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.CopyTo(SadConsole.Entities.Entity[],System.Int32)
+  name: CopyTo
+  nameWithType: EntityManager.CopyTo
+  fullName: SadConsole.Entities.EntityManager.CopyTo
+- uid: System.Collections.Generic.ICollection{SadConsole.Entities.Entity}.CopyTo(SadConsole.Entities.Entity[],System.Int32)
+  commentId: M:System.Collections.Generic.ICollection{SadConsole.Entities.Entity}.CopyTo(SadConsole.Entities.Entity[],System.Int32)
+  parent: System.Collections.Generic.ICollection{SadConsole.Entities.Entity}
+  definition: System.Collections.Generic.ICollection`1.CopyTo(`0[],System.Int32)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.entities.entity-.copyto#system-collections-generic-icollection((sadconsole-entities-entity))-copyto(sadconsole-entities-entity()-system-int32)
+  name: CopyTo(Entity[], int)
+  nameWithType: ICollection<Entity>.CopyTo(Entity[], int)
+  fullName: System.Collections.Generic.ICollection<SadConsole.Entities.Entity>.CopyTo(SadConsole.Entities.Entity[], int)
+  nameWithType.vb: ICollection(Of Entity).CopyTo(Entity(), Integer)
+  fullName.vb: System.Collections.Generic.ICollection(Of SadConsole.Entities.Entity).CopyTo(SadConsole.Entities.Entity(), Integer)
+  name.vb: CopyTo(Entity(), Integer)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection{SadConsole.Entities.Entity}.CopyTo(SadConsole.Entities.Entity[],System.Int32)
+    name: CopyTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.entities.entity-.copyto#system-collections-generic-icollection((sadconsole-entities-entity))-copyto(sadconsole-entities-entity()-system-int32)
+  - name: (
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection{SadConsole.Entities.Entity}.CopyTo(SadConsole.Entities.Entity[],System.Int32)
+    name: CopyTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.entities.entity-.copyto#system-collections-generic-icollection((sadconsole-entities-entity))-copyto(sadconsole-entities-entity()-system-int32)
+  - name: (
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: SadConsole.Entities.Entity[]
+  isExternal: true
+  href: SadConsole.Entities.Entity.html
+  name: Entity[]
+  nameWithType: Entity[]
+  fullName: SadConsole.Entities.Entity[]
+  nameWithType.vb: Entity()
+  fullName.vb: SadConsole.Entities.Entity()
+  name.vb: Entity()
+  spec.csharp:
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.ICollection`1.CopyTo(`0[],System.Int32)
+  commentId: M:System.Collections.Generic.ICollection`1.CopyTo(`0[],System.Int32)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.copyto
+  name: CopyTo(T[], int)
+  nameWithType: ICollection<T>.CopyTo(T[], int)
+  fullName: System.Collections.Generic.ICollection<T>.CopyTo(T[], int)
+  nameWithType.vb: ICollection(Of T).CopyTo(T(), Integer)
+  fullName.vb: System.Collections.Generic.ICollection(Of T).CopyTo(T(), Integer)
+  name.vb: CopyTo(T(), Integer)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1.CopyTo(`0[],System.Int32)
+    name: CopyTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.copyto
+  - name: (
+  - name: T
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1.CopyTo(`0[],System.Int32)
+    name: CopyTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.copyto
+  - name: (
+  - name: T
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: SadConsole.Entities.EntityManager.GetEnumerator*
+  commentId: Overload:SadConsole.Entities.EntityManager.GetEnumerator
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.GetEnumerator
+  name: GetEnumerator
+  nameWithType: EntityManager.GetEnumerator
+  fullName: SadConsole.Entities.EntityManager.GetEnumerator
+- uid: System.Collections.Generic.IEnumerable{SadConsole.Entities.Entity}.GetEnumerator
+  commentId: M:System.Collections.Generic.IEnumerable{SadConsole.Entities.Entity}.GetEnumerator
+  parent: System.Collections.Generic.IEnumerable{SadConsole.Entities.Entity}
+  definition: System.Collections.Generic.IEnumerable`1.GetEnumerator
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-sadconsole.entities.entity-.getenumerator#system-collections-generic-ienumerable((sadconsole-entities-entity))-getenumerator
+  name: GetEnumerator()
+  nameWithType: IEnumerable<Entity>.GetEnumerator()
+  fullName: System.Collections.Generic.IEnumerable<SadConsole.Entities.Entity>.GetEnumerator()
+  nameWithType.vb: IEnumerable(Of Entity).GetEnumerator()
+  fullName.vb: System.Collections.Generic.IEnumerable(Of SadConsole.Entities.Entity).GetEnumerator()
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable{SadConsole.Entities.Entity}.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-sadconsole.entities.entity-.getenumerator#system-collections-generic-ienumerable((sadconsole-entities-entity))-getenumerator
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable{SadConsole.Entities.Entity}.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-sadconsole.entities.entity-.getenumerator#system-collections-generic-ienumerable((sadconsole-entities-entity))-getenumerator
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.IEnumerator{SadConsole.Entities.Entity}
+  commentId: T:System.Collections.Generic.IEnumerator{SadConsole.Entities.Entity}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerator`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  name: IEnumerator<Entity>
+  nameWithType: IEnumerator<Entity>
+  fullName: System.Collections.Generic.IEnumerator<SadConsole.Entities.Entity>
+  nameWithType.vb: IEnumerator(Of Entity)
+  fullName.vb: System.Collections.Generic.IEnumerator(Of SadConsole.Entities.Entity)
+  name.vb: IEnumerator(Of Entity)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: <
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1.GetEnumerator
+  commentId: M:System.Collections.Generic.IEnumerable`1.GetEnumerator
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  name: GetEnumerator()
+  nameWithType: IEnumerable<T>.GetEnumerator()
+  fullName: System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+  nameWithType.vb: IEnumerable(Of T).GetEnumerator()
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T).GetEnumerator()
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.IEnumerator`1
+  commentId: T:System.Collections.Generic.IEnumerator`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  name: IEnumerator<T>
+  nameWithType: IEnumerator<T>
+  fullName: System.Collections.Generic.IEnumerator<T>
+  nameWithType.vb: IEnumerator(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerator(Of T)
+  name.vb: IEnumerator(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: SadConsole.Entities.EntityManager.#ctor*
+  commentId: Overload:SadConsole.Entities.EntityManager.#ctor
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.#ctor
+  name: EntityManager
+  nameWithType: EntityManager.EntityManager
+  fullName: SadConsole.Entities.EntityManager.EntityManager
+  nameWithType.vb: EntityManager.New
+  fullName.vb: SadConsole.Entities.EntityManager.New
+  name.vb: New
+- uid: SadConsole.Entities.EntityManager.Entities*
+  commentId: Overload:SadConsole.Entities.EntityManager.Entities
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.Entities
+  name: Entities
+  nameWithType: EntityManager.Entities
+  fullName: SadConsole.Entities.EntityManager.Entities
+- uid: System.Collections.Generic.IReadOnlyList{SadConsole.Entities.Entity}
+  commentId: T:System.Collections.Generic.IReadOnlyList{SadConsole.Entities.Entity}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<Entity>
+  nameWithType: IReadOnlyList<Entity>
+  fullName: System.Collections.Generic.IReadOnlyList<SadConsole.Entities.Entity>
+  nameWithType.vb: IReadOnlyList(Of Entity)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of SadConsole.Entities.Entity)
+  name.vb: IReadOnlyList(Of Entity)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyList`1
+  commentId: T:System.Collections.Generic.IReadOnlyList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  name: IReadOnlyList<T>
+  nameWithType: IReadOnlyList<T>
+  fullName: System.Collections.Generic.IReadOnlyList<T>
+  nameWithType.vb: IReadOnlyList(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyList(Of T)
+  name.vb: IReadOnlyList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyList`1
+    name: IReadOnlyList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: SadConsole.Entities.EntityManager.EntitiesVisible*
+  commentId: Overload:SadConsole.Entities.EntityManager.EntitiesVisible
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.EntitiesVisible
+  name: EntitiesVisible
+  nameWithType: EntityManager.EntitiesVisible
+  fullName: SadConsole.Entities.EntityManager.EntitiesVisible
+- uid: SadConsole.Entities.EntityManager.IsDirty*
+  commentId: Overload:SadConsole.Entities.EntityManager.IsDirty
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.IsDirty
+  name: IsDirty
+  nameWithType: EntityManager.IsDirty
+  fullName: SadConsole.Entities.EntityManager.IsDirty
+- uid: SadConsole.IScreenObject.Update(System.TimeSpan)
+  commentId: M:SadConsole.IScreenObject.Update(System.TimeSpan)
+  parent: SadConsole.IScreenObject
+  isExternal: true
+  href: SadConsole.IScreenObject.html#SadConsole.IScreenObject.Update(System.TimeSpan)
+  name: Update(TimeSpan)
+  nameWithType: IScreenObject.Update(TimeSpan)
+  fullName: SadConsole.IScreenObject.Update(System.TimeSpan)
+  spec.csharp:
+  - uid: SadConsole.IScreenObject.Update(System.TimeSpan)
+    name: Update
+    isExternal: true
+    href: SadConsole.IScreenObject.html#SadConsole.IScreenObject.Update(System.TimeSpan)
+  - name: (
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+  spec.vb:
+  - uid: SadConsole.IScreenObject.Update(System.TimeSpan)
+    name: Update
+    isExternal: true
+    href: SadConsole.IScreenObject.html#SadConsole.IScreenObject.Update(System.TimeSpan)
+  - name: (
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+- uid: SadConsole.Entities.EntityManager.DoEntityUpdate*
+  commentId: Overload:SadConsole.Entities.EntityManager.DoEntityUpdate
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.DoEntityUpdate
+  name: DoEntityUpdate
+  nameWithType: EntityManager.DoEntityUpdate
+  fullName: SadConsole.Entities.EntityManager.DoEntityUpdate
+- uid: SadConsole.Entities.EntityManager.Add(SadConsole.Entities.Entity)
+  commentId: M:SadConsole.Entities.EntityManager.Add(SadConsole.Entities.Entity)
+  parent: SadConsole.Entities.EntityManager
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.Add(SadConsole.Entities.Entity)
+  name: Add(Entity)
+  nameWithType: EntityManager.Add(Entity)
+  fullName: SadConsole.Entities.EntityManager.Add(SadConsole.Entities.Entity)
+  spec.csharp:
+  - uid: SadConsole.Entities.EntityManager.Add(SadConsole.Entities.Entity)
+    name: Add
+    isExternal: true
+    href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.Add(SadConsole.Entities.Entity)
+  - name: (
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Entities.EntityManager.Add(SadConsole.Entities.Entity)
+    name: Add
+    isExternal: true
+    href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.Add(SadConsole.Entities.Entity)
+  - name: (
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: )
+- uid: SadConsole.Entities.EntityManager.Remove(SadConsole.Entities.Entity)
+  commentId: M:SadConsole.Entities.EntityManager.Remove(SadConsole.Entities.Entity)
+  parent: SadConsole.Entities.EntityManager
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.Remove(SadConsole.Entities.Entity)
+  name: Remove(Entity)
+  nameWithType: EntityManager.Remove(Entity)
+  fullName: SadConsole.Entities.EntityManager.Remove(SadConsole.Entities.Entity)
+  spec.csharp:
+  - uid: SadConsole.Entities.EntityManager.Remove(SadConsole.Entities.Entity)
+    name: Remove
+    isExternal: true
+    href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.Remove(SadConsole.Entities.Entity)
+  - name: (
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Entities.EntityManager.Remove(SadConsole.Entities.Entity)
+    name: Remove
+    isExternal: true
+    href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.Remove(SadConsole.Entities.Entity)
+  - name: (
+  - uid: SadConsole.Entities.Entity
+    name: Entity
+    isExternal: true
+    href: SadConsole.Entities.Entity.html
+  - name: )
+- uid: SadConsole.Entities.EntityManager.SkipExistsChecks*
+  commentId: Overload:SadConsole.Entities.EntityManager.SkipExistsChecks
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.SkipExistsChecks
+  name: SkipExistsChecks
+  nameWithType: EntityManager.SkipExistsChecks
+  fullName: SadConsole.Entities.EntityManager.SkipExistsChecks
+- uid: SadConsole.Entities.EntityManager.AlternativeFont*
+  commentId: Overload:SadConsole.Entities.EntityManager.AlternativeFont
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.AlternativeFont
+  name: AlternativeFont
+  nameWithType: EntityManager.AlternativeFont
+  fullName: SadConsole.Entities.EntityManager.AlternativeFont
+- uid: SadConsole.Entities.EntityManager.Count*
+  commentId: Overload:SadConsole.Entities.EntityManager.Count
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.Count
+  name: Count
+  nameWithType: EntityManager.Count
+  fullName: SadConsole.Entities.EntityManager.Count
+- uid: System.Collections.Generic.ICollection{SadConsole.Entities.Entity}.Count
+  commentId: P:System.Collections.Generic.ICollection{SadConsole.Entities.Entity}.Count
+  parent: System.Collections.Generic.ICollection{SadConsole.Entities.Entity}
+  definition: System.Collections.Generic.ICollection`1.Count
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.entities.entity-.count
+  name: Count
+  nameWithType: ICollection<Entity>.Count
+  fullName: System.Collections.Generic.ICollection<SadConsole.Entities.Entity>.Count
+  nameWithType.vb: ICollection(Of Entity).Count
+  fullName.vb: System.Collections.Generic.ICollection(Of SadConsole.Entities.Entity).Count
+- uid: System.Collections.Generic.ICollection`1.Count
+  commentId: P:System.Collections.Generic.ICollection`1.Count
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.count
+  name: Count
+  nameWithType: ICollection<T>.Count
+  fullName: System.Collections.Generic.ICollection<T>.Count
+  nameWithType.vb: ICollection(Of T).Count
+  fullName.vb: System.Collections.Generic.ICollection(Of T).Count
+- uid: SadConsole.Entities.EntityManager.IsReadOnly*
+  commentId: Overload:SadConsole.Entities.EntityManager.IsReadOnly
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.IsReadOnly
+  name: IsReadOnly
+  nameWithType: EntityManager.IsReadOnly
+  fullName: SadConsole.Entities.EntityManager.IsReadOnly
+- uid: System.Collections.Generic.ICollection{SadConsole.Entities.Entity}.IsReadOnly
+  commentId: P:System.Collections.Generic.ICollection{SadConsole.Entities.Entity}.IsReadOnly
+  parent: System.Collections.Generic.ICollection{SadConsole.Entities.Entity}
+  definition: System.Collections.Generic.ICollection`1.IsReadOnly
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-sadconsole.entities.entity-.isreadonly
+  name: IsReadOnly
+  nameWithType: ICollection<Entity>.IsReadOnly
+  fullName: System.Collections.Generic.ICollection<SadConsole.Entities.Entity>.IsReadOnly
+  nameWithType.vb: ICollection(Of Entity).IsReadOnly
+  fullName.vb: System.Collections.Generic.ICollection(Of SadConsole.Entities.Entity).IsReadOnly
+- uid: System.Collections.Generic.ICollection`1.IsReadOnly
+  commentId: P:System.Collections.Generic.ICollection`1.IsReadOnly
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.isreadonly
+  name: IsReadOnly
+  nameWithType: ICollection<T>.IsReadOnly
+  fullName: System.Collections.Generic.ICollection<T>.IsReadOnly
+  nameWithType.vb: ICollection(Of T).IsReadOnly
+  fullName.vb: System.Collections.Generic.ICollection(Of T).IsReadOnly
+- uid: System.NotSupportedException
+  commentId: T:System.NotSupportedException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.notsupportedexception
+  name: NotSupportedException
+  nameWithType: NotSupportedException
+  fullName: System.NotSupportedException
+- uid: SadConsole.Entities.EntityManager.Item*
+  commentId: Overload:SadConsole.Entities.EntityManager.Item
+  isExternal: true
+  href: SadConsole.Entities.EntityManager.html#SadConsole.Entities.EntityManager.Item(System.Int32)
+  name: this
+  nameWithType: EntityManager.this
+  fullName: SadConsole.Entities.EntityManager.this
+  nameWithType.vb: EntityManager.this[]
+  fullName.vb: SadConsole.Entities.EntityManager.this[]
+  name.vb: this[]
+- uid: System.Collections.Generic.IList{SadConsole.Entities.Entity}.Item(System.Int32)
+  commentId: P:System.Collections.Generic.IList{SadConsole.Entities.Entity}.Item(System.Int32)
+  parent: System.Collections.Generic.IList{SadConsole.Entities.Entity}
+  definition: System.Collections.Generic.IList`1.Item(System.Int32)
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: this[int]
+  nameWithType: IList<Entity>.this[int]
+  fullName: System.Collections.Generic.IList<SadConsole.Entities.Entity>.this[int]
+  nameWithType.vb: IList(Of Entity).this[](Integer)
+  fullName.vb: System.Collections.Generic.IList(Of SadConsole.Entities.Entity).this[](Integer)
+  name.vb: this[](Integer)
+  spec.csharp:
+  - name: this
+  - name: '['
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ']'
+  spec.vb:
+  - uid: System.Collections.Generic.IList{SadConsole.Entities.Entity}.Item(System.Int32)
+    name: this[]
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-sadconsole.entities.entity-.item
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Collections.Generic.IList`1.Item(System.Int32)
+  commentId: P:System.Collections.Generic.IList`1.Item(System.Int32)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: this[int]
+  nameWithType: IList<T>.this[int]
+  fullName: System.Collections.Generic.IList<T>.this[int]
+  nameWithType.vb: IList(Of T).this[](Integer)
+  fullName.vb: System.Collections.Generic.IList(Of T).this[](Integer)
+  name.vb: this[](Integer)
+  spec.csharp:
+  - name: this
+  - name: '['
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ']'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1.Item(System.Int32)
+    name: this[]
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1.item
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )

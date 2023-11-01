@@ -1,6 +1,6 @@
 ---
-description: Part 5 of the getting started series. This article explores creating more objects to put on the game map. The objects have code that reacts to the player touching them.
-ms.date: 09/04/2023
+description: Part 5 of the SadConsole getting started series. This article explores creating more objects to put on the game map. The objects have code that reacts to the player touching them.
+ms.date: 10/31/2023
 ---
 
 # Get Started 5 - More objects
@@ -161,7 +161,7 @@ The map has the `CreateTreasure` and `CreateMonster` methods, but they currently
     
     Note that the constructor parameters changed. The `Treaasure` type doesn't require a `ColoredGlyph` to describe how it looks.
 
-01. Next, change the code in the `CcreateMonster` method in the same way as `CreateTreasure`:
+01. Next, change the code in the `CreateMonster` method in the same way as `CreateTreasure`:
 
     From:
     

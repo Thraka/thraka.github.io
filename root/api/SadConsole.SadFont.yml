@@ -1,0 +1,2405 @@
+### YamlMime:ManagedReference
+items:
+- uid: SadConsole.SadFont
+  commentId: T:SadConsole.SadFont
+  id: SadFont
+  parent: SadConsole
+  children:
+  - SadConsole.SadFont.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,SadConsole.ITexture,System.String,System.Collections.Generic.Dictionary{System.Int32,SadRogue.Primitives.Rectangle})
+  - SadConsole.SadFont.Clone(System.String)
+  - SadConsole.SadFont.Columns
+  - SadConsole.SadFont.ConfigureRects
+  - SadConsole.SadFont.Dispose
+  - SadConsole.SadFont.FilePath
+  - SadConsole.SadFont.ForceConfigureRects
+  - SadConsole.SadFont.GenerateGlyphSourceRectangle(System.Int32)
+  - SadConsole.SadFont.GetDecorator(System.String,SadRogue.Primitives.Color)
+  - SadConsole.SadFont.GetFontSize(SadConsole.IFont.Sizes)
+  - SadConsole.SadFont.GetGlyphDefinition(System.String)
+  - SadConsole.SadFont.GetGlyphSourceRectangle(System.Int32)
+  - SadConsole.SadFont.GlyphDefinitions
+  - SadConsole.SadFont.GlyphHeight
+  - SadConsole.SadFont.GlyphPadding
+  - SadConsole.SadFont.GlyphRectangles
+  - SadConsole.SadFont.GlyphWidth
+  - SadConsole.SadFont.HasGlyphDefinition(System.String)
+  - SadConsole.SadFont.Image
+  - SadConsole.SadFont.IsSadExtended
+  - SadConsole.SadFont.Name
+  - SadConsole.SadFont.Rows
+  - SadConsole.SadFont.SolidGlyphIndex
+  - SadConsole.SadFont.SolidGlyphRectangle
+  - SadConsole.SadFont.TotalGlyphs
+  - SadConsole.SadFont.UnsupportedGlyphIndex
+  - SadConsole.SadFont.UnsupportedGlyphRectangle
+  langs:
+  - csharp
+  - vb
+  name: SadFont
+  nameWithType: SadFont
+  fullName: SadConsole.SadFont
+  type: Class
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Represents a graphical font used by SadConsole.
+  example: []
+  syntax:
+    content: >-
+      [DataContract]
+
+      public sealed class SadFont : IFont, IDisposable
+    content.vb: >-
+      <DataContract>
+
+      Public NotInheritable Class SadFont Implements IFont, IDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - SadConsole.IFont
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  extensionMethods:
+  - SadConsole.IFont.SadConsole.FontExtensions.GetGlyphRatio(SadRogue.Primitives.Point)
+  - SadConsole.IFont.SadConsole.FontExtensions.GetRenderRect(System.Int32,System.Int32,SadRogue.Primitives.Point)
+  - SadConsole.IFont.SadConsole.FontExtensions.GetWorldPosition(SadRogue.Primitives.Point,SadRogue.Primitives.Point)
+  attributes:
+  - type: System.Runtime.Serialization.DataContractAttribute
+    ctor: System.Runtime.Serialization.DataContractAttribute.#ctor
+    arguments: []
+- uid: SadConsole.SadFont.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,SadConsole.ITexture,System.String,System.Collections.Generic.Dictionary{System.Int32,SadRogue.Primitives.Rectangle})
+  commentId: M:SadConsole.SadFont.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,SadConsole.ITexture,System.String,System.Collections.Generic.Dictionary{System.Int32,SadRogue.Primitives.Rectangle})
+  id: '#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,SadConsole.ITexture,System.String,System.Collections.Generic.Dictionary{System.Int32,SadRogue.Primitives.Rectangle})'
+  parent: SadConsole.SadFont
+  langs:
+  - csharp
+  - vb
+  name: SadFont(int, int, int, int, int, int, ITexture, string, Dictionary<int, Rectangle>?)
+  nameWithType: SadFont.SadFont(int, int, int, int, int, int, ITexture, string, Dictionary<int, Rectangle>?)
+  fullName: SadConsole.SadFont.SadFont(int, int, int, int, int, int, SadConsole.ITexture, string, System.Collections.Generic.Dictionary<int, SadRogue.Primitives.Rectangle>?)
+  type: Constructor
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Creates a new font with the specified settings.
+  example: []
+  syntax:
+    content: public SadFont(int glyphWidth, int glyphHeight, int glyphPadding, int rows, int columns, int solidGlyphIndex, ITexture image, string name, Dictionary<int, Rectangle>? glyphRectangles = null)
+    parameters:
+    - id: glyphWidth
+      type: System.Int32
+      description: The pixel width of each glyph.
+    - id: glyphHeight
+      type: System.Int32
+      description: The pixel height of each glyph.
+    - id: glyphPadding
+      type: System.Int32
+      description: The pixel padding between each glyph.
+    - id: rows
+      type: System.Int32
+      description: Number of glyph rows in the <code class="paramref">image</code>.
+    - id: columns
+      type: System.Int32
+      description: Number of glyph columns in the <code class="paramref">image</code>.
+    - id: solidGlyphIndex
+      type: System.Int32
+      description: The index of the glyph that is a solid white box.
+    - id: image
+      type: SadConsole.ITexture
+      description: The <xref href="SadConsole.ITexture" data-throw-if-not-resolved="false"></xref> of the font.
+    - id: name
+      type: System.String
+      description: A font identifier used for serialization of resources using this font.
+    - id: glyphRectangles
+      type: System.Collections.Generic.Dictionary{System.Int32,SadRogue.Primitives.Rectangle}
+      description: Glyph mapping dictionary.
+    content.vb: Public Sub New(glyphWidth As Integer, glyphHeight As Integer, glyphPadding As Integer, rows As Integer, columns As Integer, solidGlyphIndex As Integer, image As ITexture, name As String, glyphRectangles As Dictionary(Of Integer, Rectangle) = Nothing)
+  overload: SadConsole.SadFont.#ctor*
+  nameWithType.vb: SadFont.New(Integer, Integer, Integer, Integer, Integer, Integer, ITexture, String, Dictionary(Of Integer, Rectangle))
+  fullName.vb: SadConsole.SadFont.New(Integer, Integer, Integer, Integer, Integer, Integer, SadConsole.ITexture, String, System.Collections.Generic.Dictionary(Of Integer, SadRogue.Primitives.Rectangle))
+  name.vb: New(Integer, Integer, Integer, Integer, Integer, Integer, ITexture, String, Dictionary(Of Integer, Rectangle))
+- uid: SadConsole.SadFont.GetGlyphSourceRectangle(System.Int32)
+  commentId: M:SadConsole.SadFont.GetGlyphSourceRectangle(System.Int32)
+  id: GetGlyphSourceRectangle(System.Int32)
+  parent: SadConsole.SadFont
+  langs:
+  - csharp
+  - vb
+  name: GetGlyphSourceRectangle(int)
+  nameWithType: SadFont.GetGlyphSourceRectangle(int)
+  fullName: SadConsole.SadFont.GetGlyphSourceRectangle(int)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Gets the rendering rectangle for a glyph.
+  example: []
+  syntax:
+    content: public Rectangle GetGlyphSourceRectangle(int glyph)
+    parameters:
+    - id: glyph
+      type: System.Int32
+      description: The index of the glyph to get.
+    return:
+      type: SadRogue.Primitives.Rectangle
+      description: The rectangle for the glyph if it exists, otherwise returns <xref href="SadConsole.SadFont.UnsupportedGlyphRectangle" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function GetGlyphSourceRectangle(glyph As Integer) As Rectangle
+  overload: SadConsole.SadFont.GetGlyphSourceRectangle*
+  implements:
+  - SadConsole.IFont.GetGlyphSourceRectangle(System.Int32)
+  nameWithType.vb: SadFont.GetGlyphSourceRectangle(Integer)
+  fullName.vb: SadConsole.SadFont.GetGlyphSourceRectangle(Integer)
+  name.vb: GetGlyphSourceRectangle(Integer)
+- uid: SadConsole.SadFont.GenerateGlyphSourceRectangle(System.Int32)
+  commentId: M:SadConsole.SadFont.GenerateGlyphSourceRectangle(System.Int32)
+  id: GenerateGlyphSourceRectangle(System.Int32)
+  parent: SadConsole.SadFont
+  langs:
+  - csharp
+  - vb
+  name: GenerateGlyphSourceRectangle(int)
+  nameWithType: SadFont.GenerateGlyphSourceRectangle(int)
+  fullName: SadConsole.SadFont.GenerateGlyphSourceRectangle(int)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Generates a rectangle for the specified glyph based on the glyph index, <xref href="SadConsole.SadFont.Rows" data-throw-if-not-resolved="false"></xref>, <xref href="SadConsole.SadFont.Columns" data-throw-if-not-resolved="false"></xref>, and <xref href="SadConsole.SadFont.GlyphPadding" data-throw-if-not-resolved="false"></xref> values. For the actual font rectangle, use <xref href="SadConsole.SadFont.GetGlyphSourceRectangle(System.Int32)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public Rectangle GenerateGlyphSourceRectangle(int glyph)
+    parameters:
+    - id: glyph
+      type: System.Int32
+      description: The glyph.
+    return:
+      type: SadRogue.Primitives.Rectangle
+      description: A rectangle based on where the font thinks the rectangle should be.
+    content.vb: Public Function GenerateGlyphSourceRectangle(glyph As Integer) As Rectangle
+  overload: SadConsole.SadFont.GenerateGlyphSourceRectangle*
+  implements:
+  - SadConsole.IFont.GenerateGlyphSourceRectangle(System.Int32)
+  nameWithType.vb: SadFont.GenerateGlyphSourceRectangle(Integer)
+  fullName.vb: SadConsole.SadFont.GenerateGlyphSourceRectangle(Integer)
+  name.vb: GenerateGlyphSourceRectangle(Integer)
+- uid: SadConsole.SadFont.GetDecorator(System.String,SadRogue.Primitives.Color)
+  commentId: M:SadConsole.SadFont.GetDecorator(System.String,SadRogue.Primitives.Color)
+  id: GetDecorator(System.String,SadRogue.Primitives.Color)
+  parent: SadConsole.SadFont
+  langs:
+  - csharp
+  - vb
+  name: GetDecorator(string, Color)
+  nameWithType: SadFont.GetDecorator(string, Color)
+  fullName: SadConsole.SadFont.GetDecorator(string, SadRogue.Primitives.Color)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Gets a <xref href="SadConsole.CellDecorator" data-throw-if-not-resolved="false"></xref> by the <xref href="SadConsole.GlyphDefinition" data-throw-if-not-resolved="false"></xref> defined by the font file.
+  remarks: If the decorator does not exist, <xref href="SadConsole.CellDecorator.Empty" data-throw-if-not-resolved="false"></xref> is returned.
+  example: []
+  syntax:
+    content: public CellDecorator GetDecorator(string name, Color color)
+    parameters:
+    - id: name
+      type: System.String
+      description: The name of the decorator to get.
+    - id: color
+      type: SadRogue.Primitives.Color
+      description: The color to apply to the decorator.
+    return:
+      type: SadConsole.CellDecorator
+      description: The decorator instance.
+    content.vb: Public Function GetDecorator(name As String, color As Color) As CellDecorator
+  overload: SadConsole.SadFont.GetDecorator*
+  implements:
+  - SadConsole.IFont.GetDecorator(System.String,SadRogue.Primitives.Color)
+  nameWithType.vb: SadFont.GetDecorator(String, Color)
+  fullName.vb: SadConsole.SadFont.GetDecorator(String, SadRogue.Primitives.Color)
+  name.vb: GetDecorator(String, Color)
+- uid: SadConsole.SadFont.GetGlyphDefinition(System.String)
+  commentId: M:SadConsole.SadFont.GetGlyphDefinition(System.String)
+  id: GetGlyphDefinition(System.String)
+  parent: SadConsole.SadFont
+  langs:
+  - csharp
+  - vb
+  name: GetGlyphDefinition(string)
+  nameWithType: SadFont.GetGlyphDefinition(string)
+  fullName: SadConsole.SadFont.GetGlyphDefinition(string)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: A safe way to get a <xref href="SadConsole.GlyphDefinition" data-throw-if-not-resolved="false"></xref> by name that is defined by the font file.
+  remarks: If the glyph definition doesn't exist, return s<xref href="SadConsole.GlyphDefinition.Empty" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public GlyphDefinition GetGlyphDefinition(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: The name of the glyph definition.
+    return:
+      type: SadConsole.GlyphDefinition
+      description: The glyph definition.
+    content.vb: Public Function GetGlyphDefinition(name As String) As GlyphDefinition
+  overload: SadConsole.SadFont.GetGlyphDefinition*
+  implements:
+  - SadConsole.IFont.GetGlyphDefinition(System.String)
+  nameWithType.vb: SadFont.GetGlyphDefinition(String)
+  fullName.vb: SadConsole.SadFont.GetGlyphDefinition(String)
+  name.vb: GetGlyphDefinition(String)
+- uid: SadConsole.SadFont.HasGlyphDefinition(System.String)
+  commentId: M:SadConsole.SadFont.HasGlyphDefinition(System.String)
+  id: HasGlyphDefinition(System.String)
+  parent: SadConsole.SadFont
+  langs:
+  - csharp
+  - vb
+  name: HasGlyphDefinition(string)
+  nameWithType: SadFont.HasGlyphDefinition(string)
+  fullName: SadConsole.SadFont.HasGlyphDefinition(string)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the glyph has been defined by name.
+  example: []
+  syntax:
+    content: public bool HasGlyphDefinition(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: The name of the glyph
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the glyph name exists, otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function HasGlyphDefinition(name As String) As Boolean
+  overload: SadConsole.SadFont.HasGlyphDefinition*
+  implements:
+  - SadConsole.IFont.HasGlyphDefinition(System.String)
+  nameWithType.vb: SadFont.HasGlyphDefinition(String)
+  fullName.vb: SadConsole.SadFont.HasGlyphDefinition(String)
+  name.vb: HasGlyphDefinition(String)
+- uid: SadConsole.SadFont.GetFontSize(SadConsole.IFont.Sizes)
+  commentId: M:SadConsole.SadFont.GetFontSize(SadConsole.IFont.Sizes)
+  id: GetFontSize(SadConsole.IFont.Sizes)
+  parent: SadConsole.SadFont
+  langs:
+  - csharp
+  - vb
+  name: GetFontSize(Sizes)
+  nameWithType: SadFont.GetFontSize(IFont.Sizes)
+  fullName: SadConsole.SadFont.GetFontSize(SadConsole.IFont.Sizes)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Gets the pixel size of a font based on a <xref href="SadConsole.IFont.Sizes" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public Point GetFontSize(IFont.Sizes size)
+    parameters:
+    - id: size
+      type: SadConsole.IFont.Sizes
+      description: The desired size.
+    return:
+      type: SadRogue.Primitives.Point
+      description: The width and height of a font cell.
+    content.vb: Public Function GetFontSize(size As IFont.Sizes) As Point
+  overload: SadConsole.SadFont.GetFontSize*
+  implements:
+  - SadConsole.IFont.GetFontSize(SadConsole.IFont.Sizes)
+- uid: SadConsole.SadFont.ConfigureRects
+  commentId: M:SadConsole.SadFont.ConfigureRects
+  id: ConfigureRects
+  parent: SadConsole.SadFont
+  langs:
+  - csharp
+  - vb
+  name: ConfigureRects()
+  nameWithType: SadFont.ConfigureRects()
+  fullName: SadConsole.SadFont.ConfigureRects()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Builds the <xref href="SadConsole.SadFont.GlyphRectangles" data-throw-if-not-resolved="false"></xref> array based on the current font settings, if the <xref href="SadConsole.SadFont.GlyphRectangles" data-throw-if-not-resolved="false"></xref> dictionary is empty.
+  example: []
+  syntax:
+    content: public void ConfigureRects()
+    content.vb: Public Sub ConfigureRects()
+  overload: SadConsole.SadFont.ConfigureRects*
+- uid: SadConsole.SadFont.ForceConfigureRects
+  commentId: M:SadConsole.SadFont.ForceConfigureRects
+  id: ForceConfigureRects
+  parent: SadConsole.SadFont
+  langs:
+  - csharp
+  - vb
+  name: ForceConfigureRects()
+  nameWithType: SadFont.ForceConfigureRects()
+  fullName: SadConsole.SadFont.ForceConfigureRects()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Builds the <xref href="SadConsole.SadFont.GlyphRectangles" data-throw-if-not-resolved="false"></xref> array based on the current font settings.
+  example: []
+  syntax:
+    content: public void ForceConfigureRects()
+    content.vb: Public Sub ForceConfigureRects()
+  overload: SadConsole.SadFont.ForceConfigureRects*
+- uid: SadConsole.SadFont.Clone(System.String)
+  commentId: M:SadConsole.SadFont.Clone(System.String)
+  id: Clone(System.String)
+  parent: SadConsole.SadFont
+  langs:
+  - csharp
+  - vb
+  name: Clone(string)
+  nameWithType: SadFont.Clone(string)
+  fullName: SadConsole.SadFont.Clone(string)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Clones this font.
+  example: []
+  syntax:
+    content: public SadFont Clone(string newName)
+    parameters:
+    - id: newName
+      type: System.String
+      description: The name to apply when creating the cloned font.
+    return:
+      type: SadConsole.SadFont
+      description: Returns the cloned font.
+    content.vb: Public Function Clone(newName As String) As SadFont
+  overload: SadConsole.SadFont.Clone*
+  nameWithType.vb: SadFont.Clone(String)
+  fullName.vb: SadConsole.SadFont.Clone(String)
+  name.vb: Clone(String)
+- uid: SadConsole.SadFont.Dispose
+  commentId: M:SadConsole.SadFont.Dispose
+  id: Dispose
+  parent: SadConsole.SadFont
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: SadFont.Dispose()
+  fullName: SadConsole.SadFont.Dispose()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Disposes the <xref href="SadConsole.SadFont.Image" data-throw-if-not-resolved="false"></xref> property.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: SadConsole.SadFont.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+- uid: SadConsole.SadFont.SolidGlyphIndex
+  commentId: P:SadConsole.SadFont.SolidGlyphIndex
+  id: SolidGlyphIndex
+  parent: SadConsole.SadFont
+  langs:
+  - csharp
+  - vb
+  name: SolidGlyphIndex
+  nameWithType: SadFont.SolidGlyphIndex
+  fullName: SadConsole.SadFont.SolidGlyphIndex
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Which glyph index is considered completely solid. Used for shading.
+  example: []
+  syntax:
+    content: >-
+      [DataMember]
+
+      public int SolidGlyphIndex { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <DataMember>
+
+      Public Property SolidGlyphIndex As Integer
+  overload: SadConsole.SadFont.SolidGlyphIndex*
+  implements:
+  - SadConsole.IFont.SolidGlyphIndex
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: SadConsole.SadFont.SolidGlyphRectangle
+  commentId: P:SadConsole.SadFont.SolidGlyphRectangle
+  id: SolidGlyphRectangle
+  parent: SadConsole.SadFont
+  langs:
+  - csharp
+  - vb
+  name: SolidGlyphRectangle
+  nameWithType: SadFont.SolidGlyphRectangle
+  fullName: SadConsole.SadFont.SolidGlyphRectangle
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: The rectangle associated with the <xref href="SadConsole.SadFont.SolidGlyphIndex" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public Rectangle SolidGlyphRectangle { get; }
+    parameters: []
+    return:
+      type: SadRogue.Primitives.Rectangle
+    content.vb: Public ReadOnly Property SolidGlyphRectangle As Rectangle
+  overload: SadConsole.SadFont.SolidGlyphRectangle*
+  implements:
+  - SadConsole.IFont.SolidGlyphRectangle
+- uid: SadConsole.SadFont.Columns
+  commentId: P:SadConsole.SadFont.Columns
+  id: Columns
+  parent: SadConsole.SadFont
+  langs:
+  - csharp
+  - vb
+  name: Columns
+  nameWithType: SadFont.Columns
+  fullName: SadConsole.SadFont.Columns
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  example: []
+  syntax:
+    content: >-
+      [DataMember]
+
+      public int Columns { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <DataMember>
+
+      Public Property Columns As Integer
+  overload: SadConsole.SadFont.Columns*
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: SadConsole.SadFont.Rows
+  commentId: P:SadConsole.SadFont.Rows
+  id: Rows
+  parent: SadConsole.SadFont
+  langs:
+  - csharp
+  - vb
+  name: Rows
+  nameWithType: SadFont.Rows
+  fullName: SadConsole.SadFont.Rows
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  example: []
+  syntax:
+    content: >-
+      [DataMember]
+
+      public int Rows { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <DataMember>
+
+      Public Property Rows As Integer
+  overload: SadConsole.SadFont.Rows*
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: SadConsole.SadFont.TotalGlyphs
+  commentId: P:SadConsole.SadFont.TotalGlyphs
+  id: TotalGlyphs
+  parent: SadConsole.SadFont
+  langs:
+  - csharp
+  - vb
+  name: TotalGlyphs
+  nameWithType: SadFont.TotalGlyphs
+  fullName: SadConsole.SadFont.TotalGlyphs
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Gets the total glyphs in this font, which represents the last index. Calculated from <xref href="SadConsole.SadFont.Columns" data-throw-if-not-resolved="false"></xref> times <xref href="SadConsole.SadFont.Rows" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public int TotalGlyphs { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property TotalGlyphs As Integer
+  overload: SadConsole.SadFont.TotalGlyphs*
+  implements:
+  - SadConsole.IFont.TotalGlyphs
+- uid: SadConsole.SadFont.Name
+  commentId: P:SadConsole.SadFont.Name
+  id: Name
+  parent: SadConsole.SadFont
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: SadFont.Name
+  fullName: SadConsole.SadFont.Name
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: The name of the font used when it is registered with the <xref href="SadConsole.GameHost.Fonts" data-throw-if-not-resolved="false"></xref> collection.
+  example: []
+  syntax:
+    content: >-
+      [DataMember]
+
+      public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <DataMember>
+
+      Public Property Name As String
+  overload: SadConsole.SadFont.Name*
+  implements:
+  - SadConsole.IFont.Name
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: SadConsole.SadFont.FilePath
+  commentId: P:SadConsole.SadFont.FilePath
+  id: FilePath
+  parent: SadConsole.SadFont
+  langs:
+  - csharp
+  - vb
+  name: FilePath
+  nameWithType: SadFont.FilePath
+  fullName: SadConsole.SadFont.FilePath
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: The name of the image file as defined in the .font file.
+  example: []
+  syntax:
+    content: >-
+      [DataMember]
+
+      public string FilePath { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <DataMember>
+
+      Public Property FilePath As String
+  overload: SadConsole.SadFont.FilePath*
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: SadConsole.SadFont.GlyphHeight
+  commentId: P:SadConsole.SadFont.GlyphHeight
+  id: GlyphHeight
+  parent: SadConsole.SadFont
+  langs:
+  - csharp
+  - vb
+  name: GlyphHeight
+  nameWithType: SadFont.GlyphHeight
+  fullName: SadConsole.SadFont.GlyphHeight
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: The height of each glyph in pixels.
+  example: []
+  syntax:
+    content: >-
+      [DataMember]
+
+      public int GlyphHeight { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <DataMember>
+
+      Public Property GlyphHeight As Integer
+  overload: SadConsole.SadFont.GlyphHeight*
+  implements:
+  - SadConsole.IFont.GlyphHeight
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: SadConsole.SadFont.GlyphWidth
+  commentId: P:SadConsole.SadFont.GlyphWidth
+  id: GlyphWidth
+  parent: SadConsole.SadFont
+  langs:
+  - csharp
+  - vb
+  name: GlyphWidth
+  nameWithType: SadFont.GlyphWidth
+  fullName: SadConsole.SadFont.GlyphWidth
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: The width of each glyph in pixels.
+  example: []
+  syntax:
+    content: >-
+      [DataMember]
+
+      public int GlyphWidth { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <DataMember>
+
+      Public Property GlyphWidth As Integer
+  overload: SadConsole.SadFont.GlyphWidth*
+  implements:
+  - SadConsole.IFont.GlyphWidth
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: SadConsole.SadFont.GlyphPadding
+  commentId: P:SadConsole.SadFont.GlyphPadding
+  id: GlyphPadding
+  parent: SadConsole.SadFont
+  langs:
+  - csharp
+  - vb
+  name: GlyphPadding
+  nameWithType: SadFont.GlyphPadding
+  fullName: SadConsole.SadFont.GlyphPadding
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: The amount of pixels between glyphs.
+  example: []
+  syntax:
+    content: >-
+      [DataMember]
+
+      public int GlyphPadding { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <DataMember>
+
+      Public Property GlyphPadding As Integer
+  overload: SadConsole.SadFont.GlyphPadding*
+  implements:
+  - SadConsole.IFont.GlyphPadding
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: SadConsole.SadFont.UnsupportedGlyphIndex
+  commentId: P:SadConsole.SadFont.UnsupportedGlyphIndex
+  id: UnsupportedGlyphIndex
+  parent: SadConsole.SadFont
+  langs:
+  - csharp
+  - vb
+  name: UnsupportedGlyphIndex
+  nameWithType: SadFont.UnsupportedGlyphIndex
+  fullName: SadConsole.SadFont.UnsupportedGlyphIndex
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: The glyph index to use when an unsupported glyph is used during rendering.
+  example: []
+  syntax:
+    content: >-
+      [DataMember]
+
+      public int UnsupportedGlyphIndex { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <DataMember>
+
+      Public Property UnsupportedGlyphIndex As Integer
+  overload: SadConsole.SadFont.UnsupportedGlyphIndex*
+  implements:
+  - SadConsole.IFont.UnsupportedGlyphIndex
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: SadConsole.SadFont.UnsupportedGlyphRectangle
+  commentId: P:SadConsole.SadFont.UnsupportedGlyphRectangle
+  id: UnsupportedGlyphRectangle
+  parent: SadConsole.SadFont
+  langs:
+  - csharp
+  - vb
+  name: UnsupportedGlyphRectangle
+  nameWithType: SadFont.UnsupportedGlyphRectangle
+  fullName: SadConsole.SadFont.UnsupportedGlyphRectangle
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: The rectangle associated with the <xref href="SadConsole.SadFont.UnsupportedGlyphIndex" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public Rectangle UnsupportedGlyphRectangle { get; }
+    parameters: []
+    return:
+      type: SadRogue.Primitives.Rectangle
+    content.vb: Public ReadOnly Property UnsupportedGlyphRectangle As Rectangle
+  overload: SadConsole.SadFont.UnsupportedGlyphRectangle*
+  implements:
+  - SadConsole.IFont.UnsupportedGlyphRectangle
+- uid: SadConsole.SadFont.GlyphRectangles
+  commentId: P:SadConsole.SadFont.GlyphRectangles
+  id: GlyphRectangles
+  parent: SadConsole.SadFont
+  langs:
+  - csharp
+  - vb
+  name: GlyphRectangles
+  nameWithType: SadFont.GlyphRectangles
+  fullName: SadConsole.SadFont.GlyphRectangles
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: A dictionary that stores the source rectangles of the font by glyph id.
+  example: []
+  syntax:
+    content: public Dictionary<int, Rectangle> GlyphRectangles { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.Int32,SadRogue.Primitives.Rectangle}
+    content.vb: Public Property GlyphRectangles As Dictionary(Of Integer, Rectangle)
+  overload: SadConsole.SadFont.GlyphRectangles*
+- uid: SadConsole.SadFont.IsSadExtended
+  commentId: P:SadConsole.SadFont.IsSadExtended
+  id: IsSadExtended
+  parent: SadConsole.SadFont
+  langs:
+  - csharp
+  - vb
+  name: IsSadExtended
+  nameWithType: SadFont.IsSadExtended
+  fullName: SadConsole.SadFont.IsSadExtended
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: True when the font supports SadConsole extended decorators; otherwise false.
+  example: []
+  syntax:
+    content: >-
+      [DataMember]
+
+      public bool IsSadExtended { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <DataMember>
+
+      Public Property IsSadExtended As Boolean
+  overload: SadConsole.SadFont.IsSadExtended*
+  implements:
+  - SadConsole.IFont.IsSadExtended
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: SadConsole.SadFont.Image
+  commentId: P:SadConsole.SadFont.Image
+  id: Image
+  parent: SadConsole.SadFont
+  langs:
+  - csharp
+  - vb
+  name: Image
+  nameWithType: SadFont.Image
+  fullName: SadConsole.SadFont.Image
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: The texture used by the font.
+  example: []
+  syntax:
+    content: public ITexture Image { get; set; }
+    parameters: []
+    return:
+      type: SadConsole.ITexture
+    content.vb: Public Property Image As ITexture
+  overload: SadConsole.SadFont.Image*
+  implements:
+  - SadConsole.IFont.Image
+- uid: SadConsole.SadFont.GlyphDefinitions
+  commentId: P:SadConsole.SadFont.GlyphDefinitions
+  id: GlyphDefinitions
+  parent: SadConsole.SadFont
+  langs:
+  - csharp
+  - vb
+  name: GlyphDefinitions
+  nameWithType: SadFont.GlyphDefinitions
+  fullName: SadConsole.SadFont.GlyphDefinitions
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: A collection of named glyph definitions.
+  example: []
+  syntax:
+    content: >-
+      [DataMember]
+
+      public Dictionary<string, GlyphDefinition> GlyphDefinitions { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,SadConsole.GlyphDefinition}
+    content.vb: >-
+      <DataMember>
+
+      Public Property GlyphDefinitions As Dictionary(Of String, GlyphDefinition)
+  overload: SadConsole.SadFont.GlyphDefinitions*
+  implements:
+  - SadConsole.IFont.GlyphDefinitions
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+references:
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: SadConsole.IFont
+  commentId: T:SadConsole.IFont
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IFont.html
+  name: IFont
+  nameWithType: IFont
+  fullName: SadConsole.IFont
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: SadConsole.IFont.SadConsole.FontExtensions.GetGlyphRatio(SadRogue.Primitives.Point)
+  commentId: M:SadConsole.FontExtensions.GetGlyphRatio(SadConsole.IFont,SadRogue.Primitives.Point)
+  parent: SadConsole.FontExtensions
+  definition: SadConsole.FontExtensions.GetGlyphRatio(SadConsole.IFont,SadRogue.Primitives.Point)
+  href: SadConsole.FontExtensions.html#SadConsole.FontExtensions.GetGlyphRatio(SadConsole.IFont,SadRogue.Primitives.Point)
+  name: GetGlyphRatio(IFont, Point)
+  nameWithType: FontExtensions.GetGlyphRatio(IFont, Point)
+  fullName: SadConsole.FontExtensions.GetGlyphRatio(SadConsole.IFont, SadRogue.Primitives.Point)
+  spec.csharp:
+  - uid: SadConsole.FontExtensions.GetGlyphRatio(SadConsole.IFont,SadRogue.Primitives.Point)
+    name: GetGlyphRatio
+    isExternal: true
+    href: SadConsole.FontExtensions.html#SadConsole.FontExtensions.GetGlyphRatio(SadConsole.IFont,SadRogue.Primitives.Point)
+  - name: (
+  - uid: SadConsole.IFont
+    name: IFont
+    isExternal: true
+    href: SadConsole.IFont.html
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: SadConsole.FontExtensions.GetGlyphRatio(SadConsole.IFont,SadRogue.Primitives.Point)
+    name: GetGlyphRatio
+    isExternal: true
+    href: SadConsole.FontExtensions.html#SadConsole.FontExtensions.GetGlyphRatio(SadConsole.IFont,SadRogue.Primitives.Point)
+  - name: (
+  - uid: SadConsole.IFont
+    name: IFont
+    isExternal: true
+    href: SadConsole.IFont.html
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: )
+- uid: SadConsole.IFont.SadConsole.FontExtensions.GetRenderRect(System.Int32,System.Int32,SadRogue.Primitives.Point)
+  commentId: M:SadConsole.FontExtensions.GetRenderRect(SadConsole.IFont,System.Int32,System.Int32,SadRogue.Primitives.Point)
+  parent: SadConsole.FontExtensions
+  definition: SadConsole.FontExtensions.GetRenderRect(SadConsole.IFont,System.Int32,System.Int32,SadRogue.Primitives.Point)
+  href: SadConsole.FontExtensions.html#SadConsole.FontExtensions.GetRenderRect(SadConsole.IFont,System.Int32,System.Int32,SadRogue.Primitives.Point)
+  name: GetRenderRect(IFont, int, int, Point)
+  nameWithType: FontExtensions.GetRenderRect(IFont, int, int, Point)
+  fullName: SadConsole.FontExtensions.GetRenderRect(SadConsole.IFont, int, int, SadRogue.Primitives.Point)
+  nameWithType.vb: FontExtensions.GetRenderRect(IFont, Integer, Integer, Point)
+  fullName.vb: SadConsole.FontExtensions.GetRenderRect(SadConsole.IFont, Integer, Integer, SadRogue.Primitives.Point)
+  name.vb: GetRenderRect(IFont, Integer, Integer, Point)
+  spec.csharp:
+  - uid: SadConsole.FontExtensions.GetRenderRect(SadConsole.IFont,System.Int32,System.Int32,SadRogue.Primitives.Point)
+    name: GetRenderRect
+    isExternal: true
+    href: SadConsole.FontExtensions.html#SadConsole.FontExtensions.GetRenderRect(SadConsole.IFont,System.Int32,System.Int32,SadRogue.Primitives.Point)
+  - name: (
+  - uid: SadConsole.IFont
+    name: IFont
+    isExternal: true
+    href: SadConsole.IFont.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: SadConsole.FontExtensions.GetRenderRect(SadConsole.IFont,System.Int32,System.Int32,SadRogue.Primitives.Point)
+    name: GetRenderRect
+    isExternal: true
+    href: SadConsole.FontExtensions.html#SadConsole.FontExtensions.GetRenderRect(SadConsole.IFont,System.Int32,System.Int32,SadRogue.Primitives.Point)
+  - name: (
+  - uid: SadConsole.IFont
+    name: IFont
+    isExternal: true
+    href: SadConsole.IFont.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: )
+- uid: SadConsole.IFont.SadConsole.FontExtensions.GetWorldPosition(SadRogue.Primitives.Point,SadRogue.Primitives.Point)
+  commentId: M:SadConsole.FontExtensions.GetWorldPosition(SadConsole.IFont,SadRogue.Primitives.Point,SadRogue.Primitives.Point)
+  parent: SadConsole.FontExtensions
+  definition: SadConsole.FontExtensions.GetWorldPosition(SadConsole.IFont,SadRogue.Primitives.Point,SadRogue.Primitives.Point)
+  href: SadConsole.FontExtensions.html#SadConsole.FontExtensions.GetWorldPosition(SadConsole.IFont,SadRogue.Primitives.Point,SadRogue.Primitives.Point)
+  name: GetWorldPosition(IFont, Point, Point)
+  nameWithType: FontExtensions.GetWorldPosition(IFont, Point, Point)
+  fullName: SadConsole.FontExtensions.GetWorldPosition(SadConsole.IFont, SadRogue.Primitives.Point, SadRogue.Primitives.Point)
+  spec.csharp:
+  - uid: SadConsole.FontExtensions.GetWorldPosition(SadConsole.IFont,SadRogue.Primitives.Point,SadRogue.Primitives.Point)
+    name: GetWorldPosition
+    isExternal: true
+    href: SadConsole.FontExtensions.html#SadConsole.FontExtensions.GetWorldPosition(SadConsole.IFont,SadRogue.Primitives.Point,SadRogue.Primitives.Point)
+  - name: (
+  - uid: SadConsole.IFont
+    name: IFont
+    isExternal: true
+    href: SadConsole.IFont.html
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: SadConsole.FontExtensions.GetWorldPosition(SadConsole.IFont,SadRogue.Primitives.Point,SadRogue.Primitives.Point)
+    name: GetWorldPosition
+    isExternal: true
+    href: SadConsole.FontExtensions.html#SadConsole.FontExtensions.GetWorldPosition(SadConsole.IFont,SadRogue.Primitives.Point,SadRogue.Primitives.Point)
+  - name: (
+  - uid: SadConsole.IFont
+    name: IFont
+    isExternal: true
+    href: SadConsole.IFont.html
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SadConsole.FontExtensions.GetGlyphRatio(SadConsole.IFont,SadRogue.Primitives.Point)
+  commentId: M:SadConsole.FontExtensions.GetGlyphRatio(SadConsole.IFont,SadRogue.Primitives.Point)
+  isExternal: true
+  href: SadConsole.FontExtensions.html#SadConsole.FontExtensions.GetGlyphRatio(SadConsole.IFont,SadRogue.Primitives.Point)
+  name: GetGlyphRatio(IFont, Point)
+  nameWithType: FontExtensions.GetGlyphRatio(IFont, Point)
+  fullName: SadConsole.FontExtensions.GetGlyphRatio(SadConsole.IFont, SadRogue.Primitives.Point)
+  spec.csharp:
+  - uid: SadConsole.FontExtensions.GetGlyphRatio(SadConsole.IFont,SadRogue.Primitives.Point)
+    name: GetGlyphRatio
+    isExternal: true
+    href: SadConsole.FontExtensions.html#SadConsole.FontExtensions.GetGlyphRatio(SadConsole.IFont,SadRogue.Primitives.Point)
+  - name: (
+  - uid: SadConsole.IFont
+    name: IFont
+    isExternal: true
+    href: SadConsole.IFont.html
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: SadConsole.FontExtensions.GetGlyphRatio(SadConsole.IFont,SadRogue.Primitives.Point)
+    name: GetGlyphRatio
+    isExternal: true
+    href: SadConsole.FontExtensions.html#SadConsole.FontExtensions.GetGlyphRatio(SadConsole.IFont,SadRogue.Primitives.Point)
+  - name: (
+  - uid: SadConsole.IFont
+    name: IFont
+    isExternal: true
+    href: SadConsole.IFont.html
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: )
+- uid: SadConsole.FontExtensions
+  commentId: T:SadConsole.FontExtensions
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.FontExtensions.html
+  name: FontExtensions
+  nameWithType: FontExtensions
+  fullName: SadConsole.FontExtensions
+- uid: SadConsole.FontExtensions.GetRenderRect(SadConsole.IFont,System.Int32,System.Int32,SadRogue.Primitives.Point)
+  commentId: M:SadConsole.FontExtensions.GetRenderRect(SadConsole.IFont,System.Int32,System.Int32,SadRogue.Primitives.Point)
+  isExternal: true
+  href: SadConsole.FontExtensions.html#SadConsole.FontExtensions.GetRenderRect(SadConsole.IFont,System.Int32,System.Int32,SadRogue.Primitives.Point)
+  name: GetRenderRect(IFont, int, int, Point)
+  nameWithType: FontExtensions.GetRenderRect(IFont, int, int, Point)
+  fullName: SadConsole.FontExtensions.GetRenderRect(SadConsole.IFont, int, int, SadRogue.Primitives.Point)
+  nameWithType.vb: FontExtensions.GetRenderRect(IFont, Integer, Integer, Point)
+  fullName.vb: SadConsole.FontExtensions.GetRenderRect(SadConsole.IFont, Integer, Integer, SadRogue.Primitives.Point)
+  name.vb: GetRenderRect(IFont, Integer, Integer, Point)
+  spec.csharp:
+  - uid: SadConsole.FontExtensions.GetRenderRect(SadConsole.IFont,System.Int32,System.Int32,SadRogue.Primitives.Point)
+    name: GetRenderRect
+    isExternal: true
+    href: SadConsole.FontExtensions.html#SadConsole.FontExtensions.GetRenderRect(SadConsole.IFont,System.Int32,System.Int32,SadRogue.Primitives.Point)
+  - name: (
+  - uid: SadConsole.IFont
+    name: IFont
+    isExternal: true
+    href: SadConsole.IFont.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: SadConsole.FontExtensions.GetRenderRect(SadConsole.IFont,System.Int32,System.Int32,SadRogue.Primitives.Point)
+    name: GetRenderRect
+    isExternal: true
+    href: SadConsole.FontExtensions.html#SadConsole.FontExtensions.GetRenderRect(SadConsole.IFont,System.Int32,System.Int32,SadRogue.Primitives.Point)
+  - name: (
+  - uid: SadConsole.IFont
+    name: IFont
+    isExternal: true
+    href: SadConsole.IFont.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: )
+- uid: SadConsole.FontExtensions.GetWorldPosition(SadConsole.IFont,SadRogue.Primitives.Point,SadRogue.Primitives.Point)
+  commentId: M:SadConsole.FontExtensions.GetWorldPosition(SadConsole.IFont,SadRogue.Primitives.Point,SadRogue.Primitives.Point)
+  isExternal: true
+  href: SadConsole.FontExtensions.html#SadConsole.FontExtensions.GetWorldPosition(SadConsole.IFont,SadRogue.Primitives.Point,SadRogue.Primitives.Point)
+  name: GetWorldPosition(IFont, Point, Point)
+  nameWithType: FontExtensions.GetWorldPosition(IFont, Point, Point)
+  fullName: SadConsole.FontExtensions.GetWorldPosition(SadConsole.IFont, SadRogue.Primitives.Point, SadRogue.Primitives.Point)
+  spec.csharp:
+  - uid: SadConsole.FontExtensions.GetWorldPosition(SadConsole.IFont,SadRogue.Primitives.Point,SadRogue.Primitives.Point)
+    name: GetWorldPosition
+    isExternal: true
+    href: SadConsole.FontExtensions.html#SadConsole.FontExtensions.GetWorldPosition(SadConsole.IFont,SadRogue.Primitives.Point,SadRogue.Primitives.Point)
+  - name: (
+  - uid: SadConsole.IFont
+    name: IFont
+    isExternal: true
+    href: SadConsole.IFont.html
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: SadConsole.FontExtensions.GetWorldPosition(SadConsole.IFont,SadRogue.Primitives.Point,SadRogue.Primitives.Point)
+    name: GetWorldPosition
+    isExternal: true
+    href: SadConsole.FontExtensions.html#SadConsole.FontExtensions.GetWorldPosition(SadConsole.IFont,SadRogue.Primitives.Point,SadRogue.Primitives.Point)
+  - name: (
+  - uid: SadConsole.IFont
+    name: IFont
+    isExternal: true
+    href: SadConsole.IFont.html
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: )
+- uid: SadConsole.ITexture
+  commentId: T:SadConsole.ITexture
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ITexture.html
+  name: ITexture
+  nameWithType: ITexture
+  fullName: SadConsole.ITexture
+- uid: SadConsole.SadFont.#ctor*
+  commentId: Overload:SadConsole.SadFont.#ctor
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,SadConsole.ITexture,System.String,System.Collections.Generic.Dictionary{System.Int32,SadRogue.Primitives.Rectangle})
+  name: SadFont
+  nameWithType: SadFont.SadFont
+  fullName: SadConsole.SadFont.SadFont
+  nameWithType.vb: SadFont.New
+  fullName.vb: SadConsole.SadFont.New
+  name.vb: New
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Collections.Generic.Dictionary{System.Int32,SadRogue.Primitives.Rectangle}
+  commentId: T:System.Collections.Generic.Dictionary{System.Int32,SadRogue.Primitives.Rectangle}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<int, Rectangle>
+  nameWithType: Dictionary<int, Rectangle>
+  fullName: System.Collections.Generic.Dictionary<int, SadRogue.Primitives.Rectangle>
+  nameWithType.vb: Dictionary(Of Integer, Rectangle)
+  fullName.vb: System.Collections.Generic.Dictionary(Of Integer, SadRogue.Primitives.Rectangle)
+  name.vb: Dictionary(Of Integer, Rectangle)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.Rectangle
+    name: Rectangle
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.Rectangle
+    name: Rectangle
+    isExternal: true
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: SadConsole.SadFont.UnsupportedGlyphRectangle
+  commentId: P:SadConsole.SadFont.UnsupportedGlyphRectangle
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.UnsupportedGlyphRectangle
+  name: UnsupportedGlyphRectangle
+  nameWithType: SadFont.UnsupportedGlyphRectangle
+  fullName: SadConsole.SadFont.UnsupportedGlyphRectangle
+- uid: SadConsole.SadFont.GetGlyphSourceRectangle*
+  commentId: Overload:SadConsole.SadFont.GetGlyphSourceRectangle
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.GetGlyphSourceRectangle(System.Int32)
+  name: GetGlyphSourceRectangle
+  nameWithType: SadFont.GetGlyphSourceRectangle
+  fullName: SadConsole.SadFont.GetGlyphSourceRectangle
+- uid: SadConsole.IFont.GetGlyphSourceRectangle(System.Int32)
+  commentId: M:SadConsole.IFont.GetGlyphSourceRectangle(System.Int32)
+  parent: SadConsole.IFont
+  isExternal: true
+  href: SadConsole.IFont.html#SadConsole.IFont.GetGlyphSourceRectangle(System.Int32)
+  name: GetGlyphSourceRectangle(int)
+  nameWithType: IFont.GetGlyphSourceRectangle(int)
+  fullName: SadConsole.IFont.GetGlyphSourceRectangle(int)
+  nameWithType.vb: IFont.GetGlyphSourceRectangle(Integer)
+  fullName.vb: SadConsole.IFont.GetGlyphSourceRectangle(Integer)
+  name.vb: GetGlyphSourceRectangle(Integer)
+  spec.csharp:
+  - uid: SadConsole.IFont.GetGlyphSourceRectangle(System.Int32)
+    name: GetGlyphSourceRectangle
+    isExternal: true
+    href: SadConsole.IFont.html#SadConsole.IFont.GetGlyphSourceRectangle(System.Int32)
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: SadConsole.IFont.GetGlyphSourceRectangle(System.Int32)
+    name: GetGlyphSourceRectangle
+    isExternal: true
+    href: SadConsole.IFont.html#SadConsole.IFont.GetGlyphSourceRectangle(System.Int32)
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: SadRogue.Primitives.Rectangle
+  commentId: T:SadRogue.Primitives.Rectangle
+  parent: SadRogue.Primitives
+  isExternal: true
+  name: Rectangle
+  nameWithType: Rectangle
+  fullName: SadRogue.Primitives.Rectangle
+- uid: SadRogue.Primitives
+  commentId: N:SadRogue.Primitives
+  isExternal: true
+  href: SadRogue.html
+  name: SadRogue.Primitives
+  nameWithType: SadRogue.Primitives
+  fullName: SadRogue.Primitives
+  spec.csharp:
+  - uid: SadRogue
+    name: SadRogue
+    isExternal: true
+    href: SadRogue.html
+  - name: .
+  - uid: SadRogue.Primitives
+    name: Primitives
+    isExternal: true
+    href: SadRogue.Primitives.html
+  spec.vb:
+  - uid: SadRogue
+    name: SadRogue
+    isExternal: true
+    href: SadRogue.html
+  - name: .
+  - uid: SadRogue.Primitives
+    name: Primitives
+    isExternal: true
+    href: SadRogue.Primitives.html
+- uid: SadConsole.SadFont.Rows
+  commentId: P:SadConsole.SadFont.Rows
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.Rows
+  name: Rows
+  nameWithType: SadFont.Rows
+  fullName: SadConsole.SadFont.Rows
+- uid: SadConsole.SadFont.Columns
+  commentId: P:SadConsole.SadFont.Columns
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.Columns
+  name: Columns
+  nameWithType: SadFont.Columns
+  fullName: SadConsole.SadFont.Columns
+- uid: SadConsole.SadFont.GlyphPadding
+  commentId: P:SadConsole.SadFont.GlyphPadding
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.GlyphPadding
+  name: GlyphPadding
+  nameWithType: SadFont.GlyphPadding
+  fullName: SadConsole.SadFont.GlyphPadding
+- uid: SadConsole.SadFont.GetGlyphSourceRectangle(System.Int32)
+  commentId: M:SadConsole.SadFont.GetGlyphSourceRectangle(System.Int32)
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.GetGlyphSourceRectangle(System.Int32)
+  name: GetGlyphSourceRectangle(int)
+  nameWithType: SadFont.GetGlyphSourceRectangle(int)
+  fullName: SadConsole.SadFont.GetGlyphSourceRectangle(int)
+  nameWithType.vb: SadFont.GetGlyphSourceRectangle(Integer)
+  fullName.vb: SadConsole.SadFont.GetGlyphSourceRectangle(Integer)
+  name.vb: GetGlyphSourceRectangle(Integer)
+  spec.csharp:
+  - uid: SadConsole.SadFont.GetGlyphSourceRectangle(System.Int32)
+    name: GetGlyphSourceRectangle
+    isExternal: true
+    href: SadConsole.SadFont.html#SadConsole.SadFont.GetGlyphSourceRectangle(System.Int32)
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: SadConsole.SadFont.GetGlyphSourceRectangle(System.Int32)
+    name: GetGlyphSourceRectangle
+    isExternal: true
+    href: SadConsole.SadFont.html#SadConsole.SadFont.GetGlyphSourceRectangle(System.Int32)
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: SadConsole.SadFont.GenerateGlyphSourceRectangle*
+  commentId: Overload:SadConsole.SadFont.GenerateGlyphSourceRectangle
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.GenerateGlyphSourceRectangle(System.Int32)
+  name: GenerateGlyphSourceRectangle
+  nameWithType: SadFont.GenerateGlyphSourceRectangle
+  fullName: SadConsole.SadFont.GenerateGlyphSourceRectangle
+- uid: SadConsole.IFont.GenerateGlyphSourceRectangle(System.Int32)
+  commentId: M:SadConsole.IFont.GenerateGlyphSourceRectangle(System.Int32)
+  parent: SadConsole.IFont
+  isExternal: true
+  href: SadConsole.IFont.html#SadConsole.IFont.GenerateGlyphSourceRectangle(System.Int32)
+  name: GenerateGlyphSourceRectangle(int)
+  nameWithType: IFont.GenerateGlyphSourceRectangle(int)
+  fullName: SadConsole.IFont.GenerateGlyphSourceRectangle(int)
+  nameWithType.vb: IFont.GenerateGlyphSourceRectangle(Integer)
+  fullName.vb: SadConsole.IFont.GenerateGlyphSourceRectangle(Integer)
+  name.vb: GenerateGlyphSourceRectangle(Integer)
+  spec.csharp:
+  - uid: SadConsole.IFont.GenerateGlyphSourceRectangle(System.Int32)
+    name: GenerateGlyphSourceRectangle
+    isExternal: true
+    href: SadConsole.IFont.html#SadConsole.IFont.GenerateGlyphSourceRectangle(System.Int32)
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: SadConsole.IFont.GenerateGlyphSourceRectangle(System.Int32)
+    name: GenerateGlyphSourceRectangle
+    isExternal: true
+    href: SadConsole.IFont.html#SadConsole.IFont.GenerateGlyphSourceRectangle(System.Int32)
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: SadConsole.CellDecorator
+  commentId: T:SadConsole.CellDecorator
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.CellDecorator.html
+  name: CellDecorator
+  nameWithType: CellDecorator
+  fullName: SadConsole.CellDecorator
+- uid: SadConsole.GlyphDefinition
+  commentId: T:SadConsole.GlyphDefinition
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.GlyphDefinition.html
+  name: GlyphDefinition
+  nameWithType: GlyphDefinition
+  fullName: SadConsole.GlyphDefinition
+- uid: SadConsole.CellDecorator.Empty
+  commentId: P:SadConsole.CellDecorator.Empty
+  isExternal: true
+  href: SadConsole.CellDecorator.html#SadConsole.CellDecorator.Empty
+  name: Empty
+  nameWithType: CellDecorator.Empty
+  fullName: SadConsole.CellDecorator.Empty
+- uid: SadConsole.SadFont.GetDecorator*
+  commentId: Overload:SadConsole.SadFont.GetDecorator
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.GetDecorator(System.String,SadRogue.Primitives.Color)
+  name: GetDecorator
+  nameWithType: SadFont.GetDecorator
+  fullName: SadConsole.SadFont.GetDecorator
+- uid: SadConsole.IFont.GetDecorator(System.String,SadRogue.Primitives.Color)
+  commentId: M:SadConsole.IFont.GetDecorator(System.String,SadRogue.Primitives.Color)
+  parent: SadConsole.IFont
+  isExternal: true
+  href: SadConsole.IFont.html#SadConsole.IFont.GetDecorator(System.String,SadRogue.Primitives.Color)
+  name: GetDecorator(string, Color)
+  nameWithType: IFont.GetDecorator(string, Color)
+  fullName: SadConsole.IFont.GetDecorator(string, SadRogue.Primitives.Color)
+  nameWithType.vb: IFont.GetDecorator(String, Color)
+  fullName.vb: SadConsole.IFont.GetDecorator(String, SadRogue.Primitives.Color)
+  name.vb: GetDecorator(String, Color)
+  spec.csharp:
+  - uid: SadConsole.IFont.GetDecorator(System.String,SadRogue.Primitives.Color)
+    name: GetDecorator
+    isExternal: true
+    href: SadConsole.IFont.html#SadConsole.IFont.GetDecorator(System.String,SadRogue.Primitives.Color)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.Color
+    name: Color
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: SadConsole.IFont.GetDecorator(System.String,SadRogue.Primitives.Color)
+    name: GetDecorator
+    isExternal: true
+    href: SadConsole.IFont.html#SadConsole.IFont.GetDecorator(System.String,SadRogue.Primitives.Color)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.Color
+    name: Color
+    isExternal: true
+  - name: )
+- uid: SadRogue.Primitives.Color
+  commentId: T:SadRogue.Primitives.Color
+  parent: SadRogue.Primitives
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: SadRogue.Primitives.Color
+- uid: SadConsole.GlyphDefinition.Empty
+  commentId: P:SadConsole.GlyphDefinition.Empty
+  isExternal: true
+  href: SadConsole.GlyphDefinition.html#SadConsole.GlyphDefinition.Empty
+  name: Empty
+  nameWithType: GlyphDefinition.Empty
+  fullName: SadConsole.GlyphDefinition.Empty
+- uid: SadConsole.SadFont.GetGlyphDefinition*
+  commentId: Overload:SadConsole.SadFont.GetGlyphDefinition
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.GetGlyphDefinition(System.String)
+  name: GetGlyphDefinition
+  nameWithType: SadFont.GetGlyphDefinition
+  fullName: SadConsole.SadFont.GetGlyphDefinition
+- uid: SadConsole.IFont.GetGlyphDefinition(System.String)
+  commentId: M:SadConsole.IFont.GetGlyphDefinition(System.String)
+  parent: SadConsole.IFont
+  isExternal: true
+  href: SadConsole.IFont.html#SadConsole.IFont.GetGlyphDefinition(System.String)
+  name: GetGlyphDefinition(string)
+  nameWithType: IFont.GetGlyphDefinition(string)
+  fullName: SadConsole.IFont.GetGlyphDefinition(string)
+  nameWithType.vb: IFont.GetGlyphDefinition(String)
+  fullName.vb: SadConsole.IFont.GetGlyphDefinition(String)
+  name.vb: GetGlyphDefinition(String)
+  spec.csharp:
+  - uid: SadConsole.IFont.GetGlyphDefinition(System.String)
+    name: GetGlyphDefinition
+    isExternal: true
+    href: SadConsole.IFont.html#SadConsole.IFont.GetGlyphDefinition(System.String)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: SadConsole.IFont.GetGlyphDefinition(System.String)
+    name: GetGlyphDefinition
+    isExternal: true
+    href: SadConsole.IFont.html#SadConsole.IFont.GetGlyphDefinition(System.String)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: SadConsole.SadFont.HasGlyphDefinition*
+  commentId: Overload:SadConsole.SadFont.HasGlyphDefinition
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.HasGlyphDefinition(System.String)
+  name: HasGlyphDefinition
+  nameWithType: SadFont.HasGlyphDefinition
+  fullName: SadConsole.SadFont.HasGlyphDefinition
+- uid: SadConsole.IFont.HasGlyphDefinition(System.String)
+  commentId: M:SadConsole.IFont.HasGlyphDefinition(System.String)
+  parent: SadConsole.IFont
+  isExternal: true
+  href: SadConsole.IFont.html#SadConsole.IFont.HasGlyphDefinition(System.String)
+  name: HasGlyphDefinition(string)
+  nameWithType: IFont.HasGlyphDefinition(string)
+  fullName: SadConsole.IFont.HasGlyphDefinition(string)
+  nameWithType.vb: IFont.HasGlyphDefinition(String)
+  fullName.vb: SadConsole.IFont.HasGlyphDefinition(String)
+  name.vb: HasGlyphDefinition(String)
+  spec.csharp:
+  - uid: SadConsole.IFont.HasGlyphDefinition(System.String)
+    name: HasGlyphDefinition
+    isExternal: true
+    href: SadConsole.IFont.html#SadConsole.IFont.HasGlyphDefinition(System.String)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: SadConsole.IFont.HasGlyphDefinition(System.String)
+    name: HasGlyphDefinition
+    isExternal: true
+    href: SadConsole.IFont.html#SadConsole.IFont.HasGlyphDefinition(System.String)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: SadConsole.IFont.Sizes
+  commentId: T:SadConsole.IFont.Sizes
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IFont.html
+  name: IFont.Sizes
+  nameWithType: IFont.Sizes
+  fullName: SadConsole.IFont.Sizes
+  spec.csharp:
+  - uid: SadConsole.IFont
+    name: IFont
+    isExternal: true
+    href: SadConsole.IFont.html
+  - name: .
+  - uid: SadConsole.IFont.Sizes
+    name: Sizes
+    isExternal: true
+    href: SadConsole.IFont.Sizes.html
+  spec.vb:
+  - uid: SadConsole.IFont
+    name: IFont
+    isExternal: true
+    href: SadConsole.IFont.html
+  - name: .
+  - uid: SadConsole.IFont.Sizes
+    name: Sizes
+    isExternal: true
+    href: SadConsole.IFont.Sizes.html
+- uid: SadConsole.SadFont.GetFontSize*
+  commentId: Overload:SadConsole.SadFont.GetFontSize
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.GetFontSize(SadConsole.IFont.Sizes)
+  name: GetFontSize
+  nameWithType: SadFont.GetFontSize
+  fullName: SadConsole.SadFont.GetFontSize
+- uid: SadConsole.IFont.GetFontSize(SadConsole.IFont.Sizes)
+  commentId: M:SadConsole.IFont.GetFontSize(SadConsole.IFont.Sizes)
+  parent: SadConsole.IFont
+  isExternal: true
+  href: SadConsole.IFont.html#SadConsole.IFont.GetFontSize(SadConsole.IFont.Sizes)
+  name: GetFontSize(Sizes)
+  nameWithType: IFont.GetFontSize(IFont.Sizes)
+  fullName: SadConsole.IFont.GetFontSize(SadConsole.IFont.Sizes)
+  spec.csharp:
+  - uid: SadConsole.IFont.GetFontSize(SadConsole.IFont.Sizes)
+    name: GetFontSize
+    isExternal: true
+    href: SadConsole.IFont.html#SadConsole.IFont.GetFontSize(SadConsole.IFont.Sizes)
+  - name: (
+  - uid: SadConsole.IFont.Sizes
+    name: Sizes
+    isExternal: true
+    href: SadConsole.IFont.Sizes.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.IFont.GetFontSize(SadConsole.IFont.Sizes)
+    name: GetFontSize
+    isExternal: true
+    href: SadConsole.IFont.html#SadConsole.IFont.GetFontSize(SadConsole.IFont.Sizes)
+  - name: (
+  - uid: SadConsole.IFont.Sizes
+    name: Sizes
+    isExternal: true
+    href: SadConsole.IFont.Sizes.html
+  - name: )
+- uid: SadRogue.Primitives.Point
+  commentId: T:SadRogue.Primitives.Point
+  parent: SadRogue.Primitives
+  isExternal: true
+  name: Point
+  nameWithType: Point
+  fullName: SadRogue.Primitives.Point
+- uid: SadConsole.SadFont.GlyphRectangles
+  commentId: P:SadConsole.SadFont.GlyphRectangles
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.GlyphRectangles
+  name: GlyphRectangles
+  nameWithType: SadFont.GlyphRectangles
+  fullName: SadConsole.SadFont.GlyphRectangles
+- uid: SadConsole.SadFont.ConfigureRects*
+  commentId: Overload:SadConsole.SadFont.ConfigureRects
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.ConfigureRects
+  name: ConfigureRects
+  nameWithType: SadFont.ConfigureRects
+  fullName: SadConsole.SadFont.ConfigureRects
+- uid: SadConsole.SadFont.ForceConfigureRects*
+  commentId: Overload:SadConsole.SadFont.ForceConfigureRects
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.ForceConfigureRects
+  name: ForceConfigureRects
+  nameWithType: SadFont.ForceConfigureRects
+  fullName: SadConsole.SadFont.ForceConfigureRects
+- uid: SadConsole.SadFont.Clone*
+  commentId: Overload:SadConsole.SadFont.Clone
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.Clone(System.String)
+  name: Clone
+  nameWithType: SadFont.Clone
+  fullName: SadConsole.SadFont.Clone
+- uid: SadConsole.SadFont
+  commentId: T:SadConsole.SadFont
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.SadFont.html
+  name: SadFont
+  nameWithType: SadFont
+  fullName: SadConsole.SadFont
+- uid: SadConsole.SadFont.Image
+  commentId: P:SadConsole.SadFont.Image
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.Image
+  name: Image
+  nameWithType: SadFont.Image
+  fullName: SadConsole.SadFont.Image
+- uid: SadConsole.SadFont.Dispose*
+  commentId: Overload:SadConsole.SadFont.Dispose
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.Dispose
+  name: Dispose
+  nameWithType: SadFont.Dispose
+  fullName: SadConsole.SadFont.Dispose
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: SadConsole.SadFont.SolidGlyphIndex*
+  commentId: Overload:SadConsole.SadFont.SolidGlyphIndex
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.SolidGlyphIndex
+  name: SolidGlyphIndex
+  nameWithType: SadFont.SolidGlyphIndex
+  fullName: SadConsole.SadFont.SolidGlyphIndex
+- uid: SadConsole.IFont.SolidGlyphIndex
+  commentId: P:SadConsole.IFont.SolidGlyphIndex
+  parent: SadConsole.IFont
+  isExternal: true
+  href: SadConsole.IFont.html#SadConsole.IFont.SolidGlyphIndex
+  name: SolidGlyphIndex
+  nameWithType: IFont.SolidGlyphIndex
+  fullName: SadConsole.IFont.SolidGlyphIndex
+- uid: SadConsole.SadFont.SolidGlyphIndex
+  commentId: P:SadConsole.SadFont.SolidGlyphIndex
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.SolidGlyphIndex
+  name: SolidGlyphIndex
+  nameWithType: SadFont.SolidGlyphIndex
+  fullName: SadConsole.SadFont.SolidGlyphIndex
+- uid: SadConsole.SadFont.SolidGlyphRectangle*
+  commentId: Overload:SadConsole.SadFont.SolidGlyphRectangle
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.SolidGlyphRectangle
+  name: SolidGlyphRectangle
+  nameWithType: SadFont.SolidGlyphRectangle
+  fullName: SadConsole.SadFont.SolidGlyphRectangle
+- uid: SadConsole.IFont.SolidGlyphRectangle
+  commentId: P:SadConsole.IFont.SolidGlyphRectangle
+  parent: SadConsole.IFont
+  isExternal: true
+  href: SadConsole.IFont.html#SadConsole.IFont.SolidGlyphRectangle
+  name: SolidGlyphRectangle
+  nameWithType: IFont.SolidGlyphRectangle
+  fullName: SadConsole.IFont.SolidGlyphRectangle
+- uid: SadConsole.SadFont.Columns*
+  commentId: Overload:SadConsole.SadFont.Columns
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.Columns
+  name: Columns
+  nameWithType: SadFont.Columns
+  fullName: SadConsole.SadFont.Columns
+- uid: SadConsole.SadFont.Rows*
+  commentId: Overload:SadConsole.SadFont.Rows
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.Rows
+  name: Rows
+  nameWithType: SadFont.Rows
+  fullName: SadConsole.SadFont.Rows
+- uid: SadConsole.SadFont.TotalGlyphs*
+  commentId: Overload:SadConsole.SadFont.TotalGlyphs
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.TotalGlyphs
+  name: TotalGlyphs
+  nameWithType: SadFont.TotalGlyphs
+  fullName: SadConsole.SadFont.TotalGlyphs
+- uid: SadConsole.IFont.TotalGlyphs
+  commentId: P:SadConsole.IFont.TotalGlyphs
+  parent: SadConsole.IFont
+  isExternal: true
+  href: SadConsole.IFont.html#SadConsole.IFont.TotalGlyphs
+  name: TotalGlyphs
+  nameWithType: IFont.TotalGlyphs
+  fullName: SadConsole.IFont.TotalGlyphs
+- uid: SadConsole.GameHost.Fonts
+  commentId: P:SadConsole.GameHost.Fonts
+  parent: SadConsole.GameHost
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.Fonts
+  name: Fonts
+  nameWithType: GameHost.Fonts
+  fullName: SadConsole.GameHost.Fonts
+- uid: SadConsole.SadFont.Name*
+  commentId: Overload:SadConsole.SadFont.Name
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.Name
+  name: Name
+  nameWithType: SadFont.Name
+  fullName: SadConsole.SadFont.Name
+- uid: SadConsole.IFont.Name
+  commentId: P:SadConsole.IFont.Name
+  parent: SadConsole.IFont
+  isExternal: true
+  href: SadConsole.IFont.html#SadConsole.IFont.Name
+  name: Name
+  nameWithType: IFont.Name
+  fullName: SadConsole.IFont.Name
+- uid: SadConsole.GameHost
+  commentId: T:SadConsole.GameHost
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.GameHost.html
+  name: GameHost
+  nameWithType: GameHost
+  fullName: SadConsole.GameHost
+- uid: SadConsole.SadFont.FilePath*
+  commentId: Overload:SadConsole.SadFont.FilePath
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.FilePath
+  name: FilePath
+  nameWithType: SadFont.FilePath
+  fullName: SadConsole.SadFont.FilePath
+- uid: SadConsole.SadFont.GlyphHeight*
+  commentId: Overload:SadConsole.SadFont.GlyphHeight
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.GlyphHeight
+  name: GlyphHeight
+  nameWithType: SadFont.GlyphHeight
+  fullName: SadConsole.SadFont.GlyphHeight
+- uid: SadConsole.IFont.GlyphHeight
+  commentId: P:SadConsole.IFont.GlyphHeight
+  parent: SadConsole.IFont
+  isExternal: true
+  href: SadConsole.IFont.html#SadConsole.IFont.GlyphHeight
+  name: GlyphHeight
+  nameWithType: IFont.GlyphHeight
+  fullName: SadConsole.IFont.GlyphHeight
+- uid: SadConsole.SadFont.GlyphWidth*
+  commentId: Overload:SadConsole.SadFont.GlyphWidth
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.GlyphWidth
+  name: GlyphWidth
+  nameWithType: SadFont.GlyphWidth
+  fullName: SadConsole.SadFont.GlyphWidth
+- uid: SadConsole.IFont.GlyphWidth
+  commentId: P:SadConsole.IFont.GlyphWidth
+  parent: SadConsole.IFont
+  isExternal: true
+  href: SadConsole.IFont.html#SadConsole.IFont.GlyphWidth
+  name: GlyphWidth
+  nameWithType: IFont.GlyphWidth
+  fullName: SadConsole.IFont.GlyphWidth
+- uid: SadConsole.SadFont.GlyphPadding*
+  commentId: Overload:SadConsole.SadFont.GlyphPadding
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.GlyphPadding
+  name: GlyphPadding
+  nameWithType: SadFont.GlyphPadding
+  fullName: SadConsole.SadFont.GlyphPadding
+- uid: SadConsole.IFont.GlyphPadding
+  commentId: P:SadConsole.IFont.GlyphPadding
+  parent: SadConsole.IFont
+  isExternal: true
+  href: SadConsole.IFont.html#SadConsole.IFont.GlyphPadding
+  name: GlyphPadding
+  nameWithType: IFont.GlyphPadding
+  fullName: SadConsole.IFont.GlyphPadding
+- uid: SadConsole.SadFont.UnsupportedGlyphIndex*
+  commentId: Overload:SadConsole.SadFont.UnsupportedGlyphIndex
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.UnsupportedGlyphIndex
+  name: UnsupportedGlyphIndex
+  nameWithType: SadFont.UnsupportedGlyphIndex
+  fullName: SadConsole.SadFont.UnsupportedGlyphIndex
+- uid: SadConsole.IFont.UnsupportedGlyphIndex
+  commentId: P:SadConsole.IFont.UnsupportedGlyphIndex
+  parent: SadConsole.IFont
+  isExternal: true
+  href: SadConsole.IFont.html#SadConsole.IFont.UnsupportedGlyphIndex
+  name: UnsupportedGlyphIndex
+  nameWithType: IFont.UnsupportedGlyphIndex
+  fullName: SadConsole.IFont.UnsupportedGlyphIndex
+- uid: SadConsole.SadFont.UnsupportedGlyphIndex
+  commentId: P:SadConsole.SadFont.UnsupportedGlyphIndex
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.UnsupportedGlyphIndex
+  name: UnsupportedGlyphIndex
+  nameWithType: SadFont.UnsupportedGlyphIndex
+  fullName: SadConsole.SadFont.UnsupportedGlyphIndex
+- uid: SadConsole.SadFont.UnsupportedGlyphRectangle*
+  commentId: Overload:SadConsole.SadFont.UnsupportedGlyphRectangle
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.UnsupportedGlyphRectangle
+  name: UnsupportedGlyphRectangle
+  nameWithType: SadFont.UnsupportedGlyphRectangle
+  fullName: SadConsole.SadFont.UnsupportedGlyphRectangle
+- uid: SadConsole.IFont.UnsupportedGlyphRectangle
+  commentId: P:SadConsole.IFont.UnsupportedGlyphRectangle
+  parent: SadConsole.IFont
+  isExternal: true
+  href: SadConsole.IFont.html#SadConsole.IFont.UnsupportedGlyphRectangle
+  name: UnsupportedGlyphRectangle
+  nameWithType: IFont.UnsupportedGlyphRectangle
+  fullName: SadConsole.IFont.UnsupportedGlyphRectangle
+- uid: SadConsole.SadFont.GlyphRectangles*
+  commentId: Overload:SadConsole.SadFont.GlyphRectangles
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.GlyphRectangles
+  name: GlyphRectangles
+  nameWithType: SadFont.GlyphRectangles
+  fullName: SadConsole.SadFont.GlyphRectangles
+- uid: SadConsole.SadFont.IsSadExtended*
+  commentId: Overload:SadConsole.SadFont.IsSadExtended
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.IsSadExtended
+  name: IsSadExtended
+  nameWithType: SadFont.IsSadExtended
+  fullName: SadConsole.SadFont.IsSadExtended
+- uid: SadConsole.IFont.IsSadExtended
+  commentId: P:SadConsole.IFont.IsSadExtended
+  parent: SadConsole.IFont
+  isExternal: true
+  href: SadConsole.IFont.html#SadConsole.IFont.IsSadExtended
+  name: IsSadExtended
+  nameWithType: IFont.IsSadExtended
+  fullName: SadConsole.IFont.IsSadExtended
+- uid: SadConsole.SadFont.Image*
+  commentId: Overload:SadConsole.SadFont.Image
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.Image
+  name: Image
+  nameWithType: SadFont.Image
+  fullName: SadConsole.SadFont.Image
+- uid: SadConsole.IFont.Image
+  commentId: P:SadConsole.IFont.Image
+  parent: SadConsole.IFont
+  isExternal: true
+  href: SadConsole.IFont.html#SadConsole.IFont.Image
+  name: Image
+  nameWithType: IFont.Image
+  fullName: SadConsole.IFont.Image
+- uid: SadConsole.SadFont.GlyphDefinitions*
+  commentId: Overload:SadConsole.SadFont.GlyphDefinitions
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole.SadFont.GlyphDefinitions
+  name: GlyphDefinitions
+  nameWithType: SadFont.GlyphDefinitions
+  fullName: SadConsole.SadFont.GlyphDefinitions
+- uid: SadConsole.IFont.GlyphDefinitions
+  commentId: P:SadConsole.IFont.GlyphDefinitions
+  parent: SadConsole.IFont
+  isExternal: true
+  href: SadConsole.IFont.html#SadConsole.IFont.GlyphDefinitions
+  name: GlyphDefinitions
+  nameWithType: IFont.GlyphDefinitions
+  fullName: SadConsole.IFont.GlyphDefinitions
+- uid: System.Collections.Generic.Dictionary{System.String,SadConsole.GlyphDefinition}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,SadConsole.GlyphDefinition}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, GlyphDefinition>
+  nameWithType: Dictionary<string, GlyphDefinition>
+  fullName: System.Collections.Generic.Dictionary<string, SadConsole.GlyphDefinition>
+  nameWithType.vb: Dictionary(Of String, GlyphDefinition)
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, SadConsole.GlyphDefinition)
+  name.vb: Dictionary(Of String, GlyphDefinition)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: SadConsole.GlyphDefinition
+    name: GlyphDefinition
+    isExternal: true
+    href: SadConsole.GlyphDefinition.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: SadConsole.GlyphDefinition
+    name: GlyphDefinition
+    isExternal: true
+    href: SadConsole.GlyphDefinition.html
+  - name: )

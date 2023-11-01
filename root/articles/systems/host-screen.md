@@ -23,7 +23,7 @@ The startup screen is set by the game configuration object. To learn about the c
 
 Use the. For more information, see [Game startup - startup screen](config.md#startup-screen).
 
-The <xref:SadConsole.GameHost.Screen?displayProperty=nameWithType> is set by the startup code. The easiest way to setup the start screen is to create a new object that inherits from `IScreenObject`, and configure it with all of your consoles, surfaces, and input handling code. Then, use the <xref:SadConsole.Game.Configuration.SetStartingScreen``1> configuration method, providing the type.
+The <xref:SadConsole.GameHost.Screen?displayProperty=nameWithType> is set by the startup code. The easiest way to setup the start screen is to create a new object that inherits from `IScreenObject`, and configure it with all of your consoles, surfaces, and input handling code. Then, use the <xref:SadConsole.Configuration.Extensions.SetStartingScreen``1(SadConsole.Configuration.Builder)> configuration method, providing the type.
 
 ### Starting screen type
 
@@ -41,6 +41,8 @@ class RootScreen : ScreenObject
 ### Configuration setting
 
 ```csharp
+using SadConsole.Configuration;
+
 Game.Configuration gameStartup = new Game.Configuration()
     .SetScreenSize(120, 38)
     .SetStartingScreen<RootScreen>() // Startup object type is here

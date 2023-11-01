@@ -1,0 +1,2990 @@
+### YamlMime:ManagedReference
+items:
+- uid: SadConsole.GameHost
+  commentId: T:SadConsole.GameHost
+  id: GameHost
+  parent: SadConsole
+  children:
+  - SadConsole.GameHost.#ctor
+  - SadConsole.GameHost.CreateTexture(System.Int32,System.Int32)
+  - SadConsole.GameHost.DefaultFont
+  - SadConsole.GameHost.DefaultFontSize
+  - SadConsole.GameHost.DestroyDefaultStartingConsole
+  - SadConsole.GameHost.Dispose
+  - SadConsole.GameHost.Dispose(System.Boolean)
+  - SadConsole.GameHost.DrawCalls
+  - SadConsole.GameHost.DrawFrameDelta
+  - SadConsole.GameHost.EmbeddedFont
+  - SadConsole.GameHost.EmbeddedFontExtended
+  - SadConsole.GameHost.Ending
+  - SadConsole.GameHost.FileDelete(System.String)
+  - SadConsole.GameHost.FileExists(System.String)
+  - SadConsole.GameHost.Finalize
+  - SadConsole.GameHost.FocusedScreenObjects
+  - SadConsole.GameHost.Fonts
+  - SadConsole.GameHost.FrameNumber
+  - SadConsole.GameHost.FrameRender
+  - SadConsole.GameHost.FrameUpdate
+  - SadConsole.GameHost.GameRunningTotalTime
+  - SadConsole.GameHost.GetKeyboardState
+  - SadConsole.GameHost.GetMouseState
+  - SadConsole.GameHost.GetRenderer(System.String)
+  - SadConsole.GameHost.GetRendererStep(System.String)
+  - SadConsole.GameHost.GetTexture(System.IO.Stream)
+  - SadConsole.GameHost.GetTexture(System.String)
+  - SadConsole.GameHost.Instance
+  - SadConsole.GameHost.Keyboard
+  - SadConsole.GameHost.LoadDefaultFonts(System.String)
+  - SadConsole.GameHost.LoadFont(System.String)
+  - SadConsole.GameHost.LoadMappedColors
+  - SadConsole.GameHost.Mouse
+  - SadConsole.GameHost.OnFrameRender
+  - SadConsole.GameHost.OnFrameUpdate
+  - SadConsole.GameHost.OnGameEnding
+  - SadConsole.GameHost.OnGameStarted
+  - SadConsole.GameHost.OpenStream(System.String,System.IO.FileMode,System.IO.FileAccess)
+  - SadConsole.GameHost.Random
+  - SadConsole.GameHost.ResizeWindow(System.Int32,System.Int32,SadRogue.Primitives.Point,System.Boolean)
+  - SadConsole.GameHost.ResizeWindow(System.Int32,System.Int32,System.Boolean)
+  - SadConsole.GameHost.RestoreGlobalState
+  - SadConsole.GameHost.Run
+  - SadConsole.GameHost.SaveGlobalState
+  - SadConsole.GameHost.Screen
+  - SadConsole.GameHost.ScreenCellsX
+  - SadConsole.GameHost.ScreenCellsY
+  - SadConsole.GameHost.SerializerPathHint
+  - SadConsole.GameHost.SetRenderer(System.String,System.Type)
+  - SadConsole.GameHost.SetRendererStep(System.String,System.Type)
+  - SadConsole.GameHost.SetSplashScreens(SadConsole.IScreenSurface[])
+  - SadConsole.GameHost.Started
+  - SadConsole.GameHost.StartingConsole
+  - SadConsole.GameHost.UpdateFrameDelta
+  - SadConsole.GameHost._gameStartedAt
+  - SadConsole.GameHost._rendererSteps
+  - SadConsole.GameHost._renderers
+  - SadConsole.GameHost._splashScreens
+  langs:
+  - csharp
+  - vb
+  name: GameHost
+  nameWithType: GameHost
+  fullName: SadConsole.GameHost
+  type: Class
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Represents the SadConsole game engine.
+  remarks: >-
+    When a new host is created, the host should do the following:
+
+
+    - Run `LoadDefaultFonts`.
+
+    - Run `SetRenderer` for `window`, `controls`, `layered`, and `default` renderers.
+
+    - Run `LoadMappedColors`.
+
+    - Configure the `Screen` to a new console with `ScreenCellsX` and `ScreenCellsY`.
+
+    - Prior to running the game, run `SplashScreens.SplashScreenManager.CheckRun()`.
+  example: []
+  syntax:
+    content: 'public abstract class GameHost : IDisposable'
+    content.vb: Public MustInherit Class GameHost Implements IDisposable
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - SadConsole.Game
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: SadConsole.GameHost._renderers
+  commentId: F:SadConsole.GameHost._renderers
+  id: _renderers
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: _renderers
+  nameWithType: GameHost._renderers
+  fullName: SadConsole.GameHost._renderers
+  type: Field
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Holds all of the <xref href="SadConsole.Renderers.IRenderer" data-throw-if-not-resolved="false"></xref> types.
+  example: []
+  syntax:
+    content: protected Dictionary<string, Type> _renderers
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,System.Type}
+    content.vb: Protected _renderers As Dictionary(Of String, Type)
+- uid: SadConsole.GameHost._rendererSteps
+  commentId: F:SadConsole.GameHost._rendererSteps
+  id: _rendererSteps
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: _rendererSteps
+  nameWithType: GameHost._rendererSteps
+  fullName: SadConsole.GameHost._rendererSteps
+  type: Field
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Holds all of the <xref href="SadConsole.Renderers.IRenderStep" data-throw-if-not-resolved="false"></xref> types.
+  example: []
+  syntax:
+    content: protected Dictionary<string, Type> _rendererSteps
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,System.Type}
+    content.vb: Protected _rendererSteps As Dictionary(Of String, Type)
+- uid: SadConsole.GameHost._gameStartedAt
+  commentId: F:SadConsole.GameHost._gameStartedAt
+  id: _gameStartedAt
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: _gameStartedAt
+  nameWithType: GameHost._gameStartedAt
+  fullName: SadConsole.GameHost._gameStartedAt
+  type: Field
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: The date and time the game was started.
+  example: []
+  syntax:
+    content: protected DateTime _gameStartedAt
+    return:
+      type: System.DateTime
+    content.vb: Protected _gameStartedAt As Date
+- uid: SadConsole.GameHost.OnGameStarted
+  commentId: M:SadConsole.GameHost.OnGameStarted
+  id: OnGameStarted
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: OnGameStarted()
+  nameWithType: GameHost.OnGameStarted()
+  fullName: SadConsole.GameHost.OnGameStarted()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Raises the <xref href="SadConsole.GameHost.Started" data-throw-if-not-resolved="false"></xref> event.
+  example: []
+  syntax:
+    content: protected virtual void OnGameStarted()
+    content.vb: Protected Overridable Sub OnGameStarted()
+  overload: SadConsole.GameHost.OnGameStarted*
+- uid: SadConsole.GameHost.OnGameEnding
+  commentId: M:SadConsole.GameHost.OnGameEnding
+  id: OnGameEnding
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: OnGameEnding()
+  nameWithType: GameHost.OnGameEnding()
+  fullName: SadConsole.GameHost.OnGameEnding()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Raises the <xref href="SadConsole.GameHost.Ending" data-throw-if-not-resolved="false"></xref> event.
+  example: []
+  syntax:
+    content: protected virtual void OnGameEnding()
+    content.vb: Protected Overridable Sub OnGameEnding()
+  overload: SadConsole.GameHost.OnGameEnding*
+- uid: SadConsole.GameHost.OnFrameRender
+  commentId: M:SadConsole.GameHost.OnFrameRender
+  id: OnFrameRender
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: OnFrameRender()
+  nameWithType: GameHost.OnFrameRender()
+  fullName: SadConsole.GameHost.OnFrameRender()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Raises the <xref href="SadConsole.GameHost.FrameRender" data-throw-if-not-resolved="false"></xref> event.
+  example: []
+  syntax:
+    content: protected virtual void OnFrameRender()
+    content.vb: Protected Overridable Sub OnFrameRender()
+  overload: SadConsole.GameHost.OnFrameRender*
+- uid: SadConsole.GameHost.OnFrameUpdate
+  commentId: M:SadConsole.GameHost.OnFrameUpdate
+  id: OnFrameUpdate
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: OnFrameUpdate()
+  nameWithType: GameHost.OnFrameUpdate()
+  fullName: SadConsole.GameHost.OnFrameUpdate()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Raises the <xref href="SadConsole.GameHost.FrameUpdate" data-throw-if-not-resolved="false"></xref> event.
+  example: []
+  syntax:
+    content: protected virtual void OnFrameUpdate()
+    content.vb: Protected Overridable Sub OnFrameUpdate()
+  overload: SadConsole.GameHost.OnFrameUpdate*
+- uid: SadConsole.GameHost.Run
+  commentId: M:SadConsole.GameHost.Run
+  id: Run
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: Run()
+  nameWithType: GameHost.Run()
+  fullName: SadConsole.GameHost.Run()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Runs the game.
+  example: []
+  syntax:
+    content: public abstract void Run()
+    content.vb: Public MustOverride Sub Run()
+  overload: SadConsole.GameHost.Run*
+- uid: SadConsole.GameHost.GetTexture(System.String)
+  commentId: M:SadConsole.GameHost.GetTexture(System.String)
+  id: GetTexture(System.String)
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: GetTexture(string)
+  nameWithType: GameHost.GetTexture(string)
+  fullName: SadConsole.GameHost.GetTexture(string)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Gets a texture from the implemented host.
+  example: []
+  syntax:
+    content: public abstract ITexture GetTexture(string resourcePath)
+    parameters:
+    - id: resourcePath
+      type: System.String
+      description: The path to the texture to load.
+    return:
+      type: SadConsole.ITexture
+      description: The texture from the game host.
+    content.vb: Public MustOverride Function GetTexture(resourcePath As String) As ITexture
+  overload: SadConsole.GameHost.GetTexture*
+  nameWithType.vb: GameHost.GetTexture(String)
+  fullName.vb: SadConsole.GameHost.GetTexture(String)
+  name.vb: GetTexture(String)
+- uid: SadConsole.GameHost.GetTexture(System.IO.Stream)
+  commentId: M:SadConsole.GameHost.GetTexture(System.IO.Stream)
+  id: GetTexture(System.IO.Stream)
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: GetTexture(Stream)
+  nameWithType: GameHost.GetTexture(Stream)
+  fullName: SadConsole.GameHost.GetTexture(System.IO.Stream)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Gets a texture from the implemented host.
+  example: []
+  syntax:
+    content: public abstract ITexture GetTexture(Stream textureStream)
+    parameters:
+    - id: textureStream
+      type: System.IO.Stream
+      description: A stream containing the texture.
+    return:
+      type: SadConsole.ITexture
+      description: The texture from the game host.
+    content.vb: Public MustOverride Function GetTexture(textureStream As Stream) As ITexture
+  overload: SadConsole.GameHost.GetTexture*
+- uid: SadConsole.GameHost.CreateTexture(System.Int32,System.Int32)
+  commentId: M:SadConsole.GameHost.CreateTexture(System.Int32,System.Int32)
+  id: CreateTexture(System.Int32,System.Int32)
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: CreateTexture(int, int)
+  nameWithType: GameHost.CreateTexture(int, int)
+  fullName: SadConsole.GameHost.CreateTexture(int, int)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Creates a texture.
+  example: []
+  syntax:
+    content: public abstract ITexture CreateTexture(int width, int height)
+    parameters:
+    - id: width
+      type: System.Int32
+      description: The width of the texture in pixels.
+    - id: height
+      type: System.Int32
+      description: The height of the texture in pixels.
+    return:
+      type: SadConsole.ITexture
+      description: The texture from the game host.
+    content.vb: Public MustOverride Function CreateTexture(width As Integer, height As Integer) As ITexture
+  overload: SadConsole.GameHost.CreateTexture*
+  nameWithType.vb: GameHost.CreateTexture(Integer, Integer)
+  fullName.vb: SadConsole.GameHost.CreateTexture(Integer, Integer)
+  name.vb: CreateTexture(Integer, Integer)
+- uid: SadConsole.GameHost.GetRenderer(System.String)
+  commentId: M:SadConsole.GameHost.GetRenderer(System.String)
+  id: GetRenderer(System.String)
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: GetRenderer(string)
+  nameWithType: GameHost.GetRenderer(string)
+  fullName: SadConsole.GameHost.GetRenderer(string)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Creates and returns an <xref href="SadConsole.Renderers.IRenderer" data-throw-if-not-resolved="false"></xref> by name.
+  example: []
+  syntax:
+    content: public virtual IRenderer? GetRenderer(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: The name of the renderer.
+    return:
+      type: SadConsole.Renderers.IRenderer
+      description: A new renderer.
+    content.vb: Public Overridable Function GetRenderer(name As String) As IRenderer
+  overload: SadConsole.GameHost.GetRenderer*
+  nameWithType.vb: GameHost.GetRenderer(String)
+  fullName.vb: SadConsole.GameHost.GetRenderer(String)
+  name.vb: GetRenderer(String)
+- uid: SadConsole.GameHost.SetRenderer(System.String,System.Type)
+  commentId: M:SadConsole.GameHost.SetRenderer(System.String,System.Type)
+  id: SetRenderer(System.String,System.Type)
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: SetRenderer(string, Type)
+  nameWithType: GameHost.SetRenderer(string, Type)
+  fullName: SadConsole.GameHost.SetRenderer(string, System.Type)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Sets the default <xref href="SadConsole.Renderers.IRenderer" data-throw-if-not-resolved="false"></xref> for a type.
+  example: []
+  syntax:
+    content: public void SetRenderer(string name, Type rendererType)
+    parameters:
+    - id: name
+      type: System.String
+      description: The name to register the renderer as.
+    - id: rendererType
+      type: System.Type
+      description: The renderer type.
+    content.vb: Public Sub SetRenderer(name As String, rendererType As Type)
+  overload: SadConsole.GameHost.SetRenderer*
+  nameWithType.vb: GameHost.SetRenderer(String, Type)
+  fullName.vb: SadConsole.GameHost.SetRenderer(String, System.Type)
+  name.vb: SetRenderer(String, Type)
+- uid: SadConsole.GameHost.SetRendererStep(System.String,System.Type)
+  commentId: M:SadConsole.GameHost.SetRendererStep(System.String,System.Type)
+  id: SetRendererStep(System.String,System.Type)
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: SetRendererStep(string, Type)
+  nameWithType: GameHost.SetRendererStep(string, Type)
+  fullName: SadConsole.GameHost.SetRendererStep(string, System.Type)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Sets the default <xref href="SadConsole.Renderers.IRenderStep" data-throw-if-not-resolved="false"></xref> for a type.
+  example: []
+  syntax:
+    content: public void SetRendererStep(string name, Type rendererStepType)
+    parameters:
+    - id: name
+      type: System.String
+      description: The name to register the render step as.
+    - id: rendererStepType
+      type: System.Type
+      description: The render step type.
+    content.vb: Public Sub SetRendererStep(name As String, rendererStepType As Type)
+  overload: SadConsole.GameHost.SetRendererStep*
+  nameWithType.vb: GameHost.SetRendererStep(String, Type)
+  fullName.vb: SadConsole.GameHost.SetRendererStep(String, System.Type)
+  name.vb: SetRendererStep(String, Type)
+- uid: SadConsole.GameHost.GetRendererStep(System.String)
+  commentId: M:SadConsole.GameHost.GetRendererStep(System.String)
+  id: GetRendererStep(System.String)
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: GetRendererStep(string)
+  nameWithType: GameHost.GetRendererStep(string)
+  fullName: SadConsole.GameHost.GetRendererStep(string)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Creates and returns a <xref href="SadConsole.Renderers.IRenderStep" data-throw-if-not-resolved="false"></xref> by name.
+  example: []
+  syntax:
+    content: public virtual IRenderStep GetRendererStep(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: The name of the renderer.
+    return:
+      type: SadConsole.Renderers.IRenderStep
+      description: A new renderer.
+    content.vb: Public Overridable Function GetRendererStep(name As String) As IRenderStep
+  overload: SadConsole.GameHost.GetRendererStep*
+  nameWithType.vb: GameHost.GetRendererStep(String)
+  fullName.vb: SadConsole.GameHost.GetRendererStep(String)
+  name.vb: GetRendererStep(String)
+- uid: SadConsole.GameHost.GetKeyboardState
+  commentId: M:SadConsole.GameHost.GetKeyboardState
+  id: GetKeyboardState
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: GetKeyboardState()
+  nameWithType: GameHost.GetKeyboardState()
+  fullName: SadConsole.GameHost.GetKeyboardState()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Gets the state of the keyboard from the implemented host.
+  example: []
+  syntax:
+    content: public abstract IKeyboardState GetKeyboardState()
+    return:
+      type: SadConsole.Input.IKeyboardState
+      description: The state of the keyboard.
+    content.vb: Public MustOverride Function GetKeyboardState() As IKeyboardState
+  overload: SadConsole.GameHost.GetKeyboardState*
+- uid: SadConsole.GameHost.GetMouseState
+  commentId: M:SadConsole.GameHost.GetMouseState
+  id: GetMouseState
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: GetMouseState()
+  nameWithType: GameHost.GetMouseState()
+  fullName: SadConsole.GameHost.GetMouseState()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Gets the state of the mouse from the implemented host.
+  example: []
+  syntax:
+    content: public abstract IMouseState GetMouseState()
+    return:
+      type: SadConsole.Input.IMouseState
+      description: The state of the mouse.
+    content.vb: Public MustOverride Function GetMouseState() As IMouseState
+  overload: SadConsole.GameHost.GetMouseState*
+- uid: SadConsole.GameHost.SetSplashScreens(SadConsole.IScreenSurface[])
+  commentId: M:SadConsole.GameHost.SetSplashScreens(SadConsole.IScreenSurface[])
+  id: SetSplashScreens(SadConsole.IScreenSurface[])
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: SetSplashScreens(params IScreenSurface[])
+  nameWithType: GameHost.SetSplashScreens(params IScreenSurface[])
+  fullName: SadConsole.GameHost.SetSplashScreens(params SadConsole.IScreenSurface[])
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: The splash screens the game should sequentially show on startup.
+  example: []
+  syntax:
+    content: public void SetSplashScreens(params IScreenSurface[] surfaces)
+    parameters:
+    - id: surfaces
+      type: SadConsole.IScreenSurface[]
+      description: The splash screens to show.
+    content.vb: Public Sub SetSplashScreens(ParamArray surfaces As IScreenSurface())
+  overload: SadConsole.GameHost.SetSplashScreens*
+  nameWithType.vb: GameHost.SetSplashScreens(ParamArray IScreenSurface())
+  fullName.vb: SadConsole.GameHost.SetSplashScreens(ParamArray SadConsole.IScreenSurface())
+  name.vb: SetSplashScreens(ParamArray IScreenSurface())
+- uid: SadConsole.GameHost.LoadFont(System.String)
+  commentId: M:SadConsole.GameHost.LoadFont(System.String)
+  id: LoadFont(System.String)
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: LoadFont(string)
+  nameWithType: GameHost.LoadFont(string)
+  fullName: SadConsole.GameHost.LoadFont(string)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Loads a font from a file and adds it to the <xref href="SadConsole.GameHost.Fonts" data-throw-if-not-resolved="false"></xref> collection.
+  example: []
+  syntax:
+    content: public IFont LoadFont(string font)
+    parameters:
+    - id: font
+      type: System.String
+      description: The font file to load.
+    return:
+      type: SadConsole.IFont
+      description: A master font that you can generate a usable font from.
+    content.vb: Public Function LoadFont(font As String) As IFont
+  overload: SadConsole.GameHost.LoadFont*
+  nameWithType.vb: GameHost.LoadFont(String)
+  fullName.vb: SadConsole.GameHost.LoadFont(String)
+  name.vb: LoadFont(String)
+- uid: SadConsole.GameHost.DestroyDefaultStartingConsole
+  commentId: M:SadConsole.GameHost.DestroyDefaultStartingConsole
+  id: DestroyDefaultStartingConsole
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: DestroyDefaultStartingConsole()
+  nameWithType: GameHost.DestroyDefaultStartingConsole()
+  fullName: SadConsole.GameHost.DestroyDefaultStartingConsole()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Destroys the <xref href="SadConsole.GameHost.StartingConsole" data-throw-if-not-resolved="false"></xref> instance.
+  remarks: Prior to calling this method, you must set <xref href="SadConsole.GameHost.Screen" data-throw-if-not-resolved="false"></xref> to an object other than <xref href="SadConsole.GameHost.StartingConsole" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public void DestroyDefaultStartingConsole()
+    content.vb: Public Sub DestroyDefaultStartingConsole()
+  overload: SadConsole.GameHost.DestroyDefaultStartingConsole*
+- uid: SadConsole.GameHost.OpenStream(System.String,System.IO.FileMode,System.IO.FileAccess)
+  commentId: M:SadConsole.GameHost.OpenStream(System.String,System.IO.FileMode,System.IO.FileAccess)
+  id: OpenStream(System.String,System.IO.FileMode,System.IO.FileAccess)
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: OpenStream(string, FileMode, FileAccess)
+  nameWithType: GameHost.OpenStream(string, FileMode, FileAccess)
+  fullName: SadConsole.GameHost.OpenStream(string, System.IO.FileMode, System.IO.FileAccess)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Opens a file stream with the specified mode and access.
+  example: []
+  syntax:
+    content: public virtual Stream OpenStream(string file, FileMode mode = FileMode.Open, FileAccess access = FileAccess.Read)
+    parameters:
+    - id: file
+      type: System.String
+      description: The file to open.
+    - id: mode
+      type: System.IO.FileMode
+      description: The mode for opening. Defaults to <xref href="System.IO.FileMode.Open" data-throw-if-not-resolved="false"></xref>.
+    - id: access
+      type: System.IO.FileAccess
+      description: The type of access for the stream. Defaults to <xref href="System.IO.FileAccess.Read" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.IO.Stream
+      description: The stream object.
+    content.vb: Public Overridable Function OpenStream(file As String, mode As FileMode = FileMode.Open, access As FileAccess = FileAccess.Read) As Stream
+  overload: SadConsole.GameHost.OpenStream*
+  nameWithType.vb: GameHost.OpenStream(String, FileMode, FileAccess)
+  fullName.vb: SadConsole.GameHost.OpenStream(String, System.IO.FileMode, System.IO.FileAccess)
+  name.vb: OpenStream(String, FileMode, FileAccess)
+- uid: SadConsole.GameHost.FileExists(System.String)
+  commentId: M:SadConsole.GameHost.FileExists(System.String)
+  id: FileExists(System.String)
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: FileExists(string)
+  nameWithType: GameHost.FileExists(string)
+  fullName: SadConsole.GameHost.FileExists(string)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Checks if a file exists.
+  example: []
+  syntax:
+    content: public virtual bool FileExists(string file)
+    parameters:
+    - id: file
+      type: System.String
+      description: The file to check.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the file exists; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overridable Function FileExists(file As String) As Boolean
+  overload: SadConsole.GameHost.FileExists*
+  nameWithType.vb: GameHost.FileExists(String)
+  fullName.vb: SadConsole.GameHost.FileExists(String)
+  name.vb: FileExists(String)
+- uid: SadConsole.GameHost.FileDelete(System.String)
+  commentId: M:SadConsole.GameHost.FileDelete(System.String)
+  id: FileDelete(System.String)
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: FileDelete(string)
+  nameWithType: GameHost.FileDelete(string)
+  fullName: SadConsole.GameHost.FileDelete(string)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Deletes a file.
+  example: []
+  syntax:
+    content: public virtual bool FileDelete(string file)
+    parameters:
+    - id: file
+      type: System.String
+      description: The file to delete.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the file was deleted; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Overridable Function FileDelete(file As String) As Boolean
+  overload: SadConsole.GameHost.FileDelete*
+  nameWithType.vb: GameHost.FileDelete(String)
+  fullName.vb: SadConsole.GameHost.FileDelete(String)
+  name.vb: FileDelete(String)
+- uid: SadConsole.GameHost.LoadDefaultFonts(System.String)
+  commentId: M:SadConsole.GameHost.LoadDefaultFonts(System.String)
+  id: LoadDefaultFonts(System.String)
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: LoadDefaultFonts(string?)
+  nameWithType: GameHost.LoadDefaultFonts(string?)
+  fullName: SadConsole.GameHost.LoadDefaultFonts(string?)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Loads the embedded <code>IBM.font</code> files. Sets the <xref href="SadConsole.GameHost.DefaultFont" data-throw-if-not-resolved="false"></xref> property.
+  remarks: If <code class="paramref">defaultFont</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, the <xref href="SadConsole.GameHost.EmbeddedFont" data-throw-if-not-resolved="false"></xref> or <xref href="SadConsole.GameHost.EmbeddedFontExtended" data-throw-if-not-resolved="false"></xref> font is set based on the value of <xref href="SadConsole.Settings.UseDefaultExtendedFont" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected void LoadDefaultFonts(string? defaultFont)
+    parameters:
+    - id: defaultFont
+      type: System.String
+      description: An optional font to load and set as the default.
+    content.vb: Protected Sub LoadDefaultFonts(defaultFont As String)
+  overload: SadConsole.GameHost.LoadDefaultFonts*
+  nameWithType.vb: GameHost.LoadDefaultFonts(String)
+  fullName.vb: SadConsole.GameHost.LoadDefaultFonts(String)
+  name.vb: LoadDefaultFonts(String)
+- uid: SadConsole.GameHost.LoadMappedColors
+  commentId: M:SadConsole.GameHost.LoadMappedColors
+  id: LoadMappedColors
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: LoadMappedColors()
+  nameWithType: GameHost.LoadMappedColors()
+  fullName: SadConsole.GameHost.LoadMappedColors()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Uses reflection to examine the <xref href="SadRogue.Primitives.Color" data-throw-if-not-resolved="false"></xref> type and add any predefined colors into <xref href="SadRogue.Primitives.ColorExtensions2.ColorMappings" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected static void LoadMappedColors()
+    content.vb: Protected Shared Sub LoadMappedColors()
+  overload: SadConsole.GameHost.LoadMappedColors*
+- uid: SadConsole.GameHost.ResizeWindow(System.Int32,System.Int32,System.Boolean)
+  commentId: M:SadConsole.GameHost.ResizeWindow(System.Int32,System.Int32,System.Boolean)
+  id: ResizeWindow(System.Int32,System.Int32,System.Boolean)
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: ResizeWindow(int, int, bool)
+  nameWithType: GameHost.ResizeWindow(int, int, bool)
+  fullName: SadConsole.GameHost.ResizeWindow(int, int, bool)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Resizes the window to the specified dimensions.
+  example: []
+  syntax:
+    content: public abstract void ResizeWindow(int width, int height, bool resizeOutputSurface = false)
+    parameters:
+    - id: width
+      type: System.Int32
+      description: The width of the window in pixels.
+    - id: height
+      type: System.Int32
+      description: The height of the window in pixels.
+    - id: resizeOutputSurface
+      type: System.Boolean
+      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> resizes the screen output surface along with the window. Defaults to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>
+    content.vb: Public MustOverride Sub ResizeWindow(width As Integer, height As Integer, resizeOutputSurface As Boolean = False)
+  overload: SadConsole.GameHost.ResizeWindow*
+  nameWithType.vb: GameHost.ResizeWindow(Integer, Integer, Boolean)
+  fullName.vb: SadConsole.GameHost.ResizeWindow(Integer, Integer, Boolean)
+  name.vb: ResizeWindow(Integer, Integer, Boolean)
+- uid: SadConsole.GameHost.ResizeWindow(System.Int32,System.Int32,SadRogue.Primitives.Point,System.Boolean)
+  commentId: M:SadConsole.GameHost.ResizeWindow(System.Int32,System.Int32,SadRogue.Primitives.Point,System.Boolean)
+  id: ResizeWindow(System.Int32,System.Int32,SadRogue.Primitives.Point,System.Boolean)
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: ResizeWindow(int, int, Point, bool)
+  nameWithType: GameHost.ResizeWindow(int, int, Point, bool)
+  fullName: SadConsole.GameHost.ResizeWindow(int, int, SadRogue.Primitives.Point, bool)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Resizes the window to the specified cell count along the X-axis and Y-axis.
+  example: []
+  syntax:
+    content: public void ResizeWindow(int cellsX, int cellsY, Point cellSize, bool resizeOutputSurface = false)
+    parameters:
+    - id: cellsX
+      type: System.Int32
+      description: The number of cells to fit horizontally.
+    - id: cellsY
+      type: System.Int32
+      description: The number of cells to fit vertically.
+    - id: cellSize
+      type: SadRogue.Primitives.Point
+      description: The size of the cells in pixels.
+    - id: resizeOutputSurface
+      type: System.Boolean
+      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> resizes the screen output surface along with the window. Defaults to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>
+    content.vb: Public Sub ResizeWindow(cellsX As Integer, cellsY As Integer, cellSize As Point, resizeOutputSurface As Boolean = False)
+  overload: SadConsole.GameHost.ResizeWindow*
+  nameWithType.vb: GameHost.ResizeWindow(Integer, Integer, Point, Boolean)
+  fullName.vb: SadConsole.GameHost.ResizeWindow(Integer, Integer, SadRogue.Primitives.Point, Boolean)
+  name.vb: ResizeWindow(Integer, Integer, Point, Boolean)
+- uid: SadConsole.GameHost.SaveGlobalState
+  commentId: M:SadConsole.GameHost.SaveGlobalState
+  id: SaveGlobalState
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: SaveGlobalState()
+  nameWithType: GameHost.SaveGlobalState()
+  fullName: SadConsole.GameHost.SaveGlobalState()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Saves the global state, mainly the <xref href="SadConsole.GameHost.FocusedScreenObjects" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.GameHost.Screen" data-throw-if-not-resolved="false"></xref> objects.
+  example: []
+  syntax:
+    content: public void SaveGlobalState()
+    content.vb: Public Sub SaveGlobalState()
+  overload: SadConsole.GameHost.SaveGlobalState*
+- uid: SadConsole.GameHost.RestoreGlobalState
+  commentId: M:SadConsole.GameHost.RestoreGlobalState
+  id: RestoreGlobalState
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: RestoreGlobalState()
+  nameWithType: GameHost.RestoreGlobalState()
+  fullName: SadConsole.GameHost.RestoreGlobalState()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Restores the global state that was saved with <xref href="SadConsole.GameHost.SaveGlobalState" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public void RestoreGlobalState()
+    content.vb: Public Sub RestoreGlobalState()
+  overload: SadConsole.GameHost.RestoreGlobalState*
+- uid: SadConsole.GameHost.Dispose(System.Boolean)
+  commentId: M:SadConsole.GameHost.Dispose(System.Boolean)
+  id: Dispose(System.Boolean)
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: Dispose(bool)
+  nameWithType: GameHost.Dispose(bool)
+  fullName: SadConsole.GameHost.Dispose(bool)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  example: []
+  syntax:
+    content: protected virtual void Dispose(bool disposing)
+    parameters:
+    - id: disposing
+      type: System.Boolean
+    content.vb: Protected Overridable Sub Dispose(disposing As Boolean)
+  overload: SadConsole.GameHost.Dispose*
+  nameWithType.vb: GameHost.Dispose(Boolean)
+  fullName.vb: SadConsole.GameHost.Dispose(Boolean)
+  name.vb: Dispose(Boolean)
+- uid: SadConsole.GameHost.Finalize
+  commentId: M:SadConsole.GameHost.Finalize
+  id: Finalize
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: ~GameHost()
+  nameWithType: GameHost.~GameHost()
+  fullName: SadConsole.GameHost.~GameHost()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Disposes this object.
+  example: []
+  syntax:
+    content: protected ~GameHost()
+    content.vb: 'Protected '
+  overload: SadConsole.GameHost.Finalize*
+  nameWithType.vb: ''
+  fullName.vb: ''
+  name.vb: ''
+- uid: SadConsole.GameHost.Dispose
+  commentId: M:SadConsole.GameHost.Dispose
+  id: Dispose
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: GameHost.Dispose()
+  fullName: SadConsole.GameHost.Dispose()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Disposes this object.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: SadConsole.GameHost.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+- uid: SadConsole.GameHost.#ctor
+  commentId: M:SadConsole.GameHost.#ctor
+  id: '#ctor'
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: GameHost()
+  nameWithType: GameHost.GameHost()
+  fullName: SadConsole.GameHost.GameHost()
+  type: Constructor
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  syntax:
+    content: protected GameHost()
+    content.vb: Protected Sub New()
+  overload: SadConsole.GameHost.#ctor*
+  nameWithType.vb: GameHost.New()
+  fullName.vb: SadConsole.GameHost.New()
+  name.vb: New()
+- uid: SadConsole.GameHost._splashScreens
+  commentId: P:SadConsole.GameHost._splashScreens
+  id: _splashScreens
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: _splashScreens
+  nameWithType: GameHost._splashScreens
+  fullName: SadConsole.GameHost._splashScreens
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: The splash screens to show on game startup.
+  example: []
+  syntax:
+    content: protected Queue<IScreenSurface> _splashScreens { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Queue{SadConsole.IScreenSurface}
+    content.vb: Protected Property _splashScreens As Queue(Of IScreenSurface)
+  overload: SadConsole.GameHost._splashScreens*
+- uid: SadConsole.GameHost.Instance
+  commentId: P:SadConsole.GameHost.Instance
+  id: Instance
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: Instance
+  nameWithType: GameHost.Instance
+  fullName: SadConsole.GameHost.Instance
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Instance of the game host.
+  example: []
+  syntax:
+    content: public static GameHost Instance { get; protected set; }
+    parameters: []
+    return:
+      type: SadConsole.GameHost
+    content.vb: Public Shared Property Instance As GameHost
+  overload: SadConsole.GameHost.Instance*
+- uid: SadConsole.GameHost.SerializerPathHint
+  commentId: P:SadConsole.GameHost.SerializerPathHint
+  id: SerializerPathHint
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: SerializerPathHint
+  nameWithType: GameHost.SerializerPathHint
+  fullName: SadConsole.GameHost.SerializerPathHint
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Contains the path to a file being serialized or deserialized.
+  example: []
+  syntax:
+    content: public static string SerializerPathHint { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Shared ReadOnly Property SerializerPathHint As String
+  overload: SadConsole.GameHost.SerializerPathHint*
+- uid: SadConsole.GameHost.DrawCalls
+  commentId: P:SadConsole.GameHost.DrawCalls
+  id: DrawCalls
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: DrawCalls
+  nameWithType: GameHost.DrawCalls
+  fullName: SadConsole.GameHost.DrawCalls
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Draw calls registered for the next drawing frame.
+  example: []
+  syntax:
+    content: public Queue<IDrawCall> DrawCalls { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Queue{SadConsole.DrawCalls.IDrawCall}
+    content.vb: Public ReadOnly Property DrawCalls As Queue(Of IDrawCall)
+  overload: SadConsole.GameHost.DrawCalls*
+- uid: SadConsole.GameHost.ScreenCellsX
+  commentId: P:SadConsole.GameHost.ScreenCellsX
+  id: ScreenCellsX
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: ScreenCellsX
+  nameWithType: GameHost.ScreenCellsX
+  fullName: SadConsole.GameHost.ScreenCellsX
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: How many cells fit in the render area width used by SadConsole.
+  example: []
+  syntax:
+    content: public int ScreenCellsX { get; protected set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property ScreenCellsX As Integer
+  overload: SadConsole.GameHost.ScreenCellsX*
+- uid: SadConsole.GameHost.ScreenCellsY
+  commentId: P:SadConsole.GameHost.ScreenCellsY
+  id: ScreenCellsY
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: ScreenCellsY
+  nameWithType: GameHost.ScreenCellsY
+  fullName: SadConsole.GameHost.ScreenCellsY
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: How many cells fit in the render area width used by SadConsole.
+  example: []
+  syntax:
+    content: public int ScreenCellsY { get; protected set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property ScreenCellsY As Integer
+  overload: SadConsole.GameHost.ScreenCellsY*
+- uid: SadConsole.GameHost.FrameNumber
+  commentId: P:SadConsole.GameHost.FrameNumber
+  id: FrameNumber
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: FrameNumber
+  nameWithType: GameHost.FrameNumber
+  fullName: SadConsole.GameHost.FrameNumber
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: A frame number counter, incremented every game frame.
+  example: []
+  syntax:
+    content: public int FrameNumber { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property FrameNumber As Integer
+  overload: SadConsole.GameHost.FrameNumber*
+- uid: SadConsole.GameHost.Fonts
+  commentId: P:SadConsole.GameHost.Fonts
+  id: Fonts
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: Fonts
+  nameWithType: GameHost.Fonts
+  fullName: SadConsole.GameHost.Fonts
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Collection of fonts. Used mainly by the deserialization system.
+  example: []
+  syntax:
+    content: public Dictionary<string, IFont> Fonts { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,SadConsole.IFont}
+    content.vb: Public ReadOnly Property Fonts As Dictionary(Of String, IFont)
+  overload: SadConsole.GameHost.Fonts*
+- uid: SadConsole.GameHost.EmbeddedFont
+  commentId: P:SadConsole.GameHost.EmbeddedFont
+  id: EmbeddedFont
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: EmbeddedFont
+  nameWithType: GameHost.EmbeddedFont
+  fullName: SadConsole.GameHost.EmbeddedFont
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: The font automatically loaded by SadConsole. Standard IBM style font.
+  example: []
+  syntax:
+    content: public SadFont EmbeddedFont { get; }
+    parameters: []
+    return:
+      type: SadConsole.SadFont
+    content.vb: Public ReadOnly Property EmbeddedFont As SadFont
+  overload: SadConsole.GameHost.EmbeddedFont*
+- uid: SadConsole.GameHost.EmbeddedFontExtended
+  commentId: P:SadConsole.GameHost.EmbeddedFontExtended
+  id: EmbeddedFontExtended
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: EmbeddedFontExtended
+  nameWithType: GameHost.EmbeddedFontExtended
+  fullName: SadConsole.GameHost.EmbeddedFontExtended
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: The font automatically loaded by SadConsole. Standard IBM style font. Extended with extra SadConsole characters.
+  example: []
+  syntax:
+    content: public SadFont EmbeddedFontExtended { get; }
+    parameters: []
+    return:
+      type: SadConsole.SadFont
+    content.vb: Public ReadOnly Property EmbeddedFontExtended As SadFont
+  overload: SadConsole.GameHost.EmbeddedFontExtended*
+- uid: SadConsole.GameHost.DefaultFont
+  commentId: P:SadConsole.GameHost.DefaultFont
+  id: DefaultFont
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: DefaultFont
+  nameWithType: GameHost.DefaultFont
+  fullName: SadConsole.GameHost.DefaultFont
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: The default font for any type that does not provide a font.
+  example: []
+  syntax:
+    content: public IFont DefaultFont { get; set; }
+    parameters: []
+    return:
+      type: SadConsole.IFont
+    content.vb: Public Property DefaultFont As IFont
+  overload: SadConsole.GameHost.DefaultFont*
+- uid: SadConsole.GameHost.DefaultFontSize
+  commentId: P:SadConsole.GameHost.DefaultFontSize
+  id: DefaultFontSize
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: DefaultFontSize
+  nameWithType: GameHost.DefaultFontSize
+  fullName: SadConsole.GameHost.DefaultFontSize
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: The default font size to use with the <xref href="SadConsole.GameHost.DefaultFont" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public IFont.Sizes DefaultFontSize { get; set; }
+    parameters: []
+    return:
+      type: SadConsole.IFont.Sizes
+    content.vb: Public Property DefaultFontSize As IFont.Sizes
+  overload: SadConsole.GameHost.DefaultFontSize*
+- uid: SadConsole.GameHost.Keyboard
+  commentId: P:SadConsole.GameHost.Keyboard
+  id: Keyboard
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: Keyboard
+  nameWithType: GameHost.Keyboard
+  fullName: SadConsole.GameHost.Keyboard
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Global keyboard object used by SadConsole during the update frame.
+  example: []
+  syntax:
+    content: public Keyboard Keyboard { get; }
+    parameters: []
+    return:
+      type: SadConsole.Input.Keyboard
+    content.vb: Public ReadOnly Property Keyboard As Keyboard
+  overload: SadConsole.GameHost.Keyboard*
+- uid: SadConsole.GameHost.Mouse
+  commentId: P:SadConsole.GameHost.Mouse
+  id: Mouse
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: Mouse
+  nameWithType: GameHost.Mouse
+  fullName: SadConsole.GameHost.Mouse
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Global mouse object used by SadConsole during the update frame.
+  example: []
+  syntax:
+    content: public Mouse Mouse { get; }
+    parameters: []
+    return:
+      type: SadConsole.Input.Mouse
+    content.vb: Public ReadOnly Property Mouse As Mouse
+  overload: SadConsole.GameHost.Mouse*
+- uid: SadConsole.GameHost.UpdateFrameDelta
+  commentId: P:SadConsole.GameHost.UpdateFrameDelta
+  id: UpdateFrameDelta
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: UpdateFrameDelta
+  nameWithType: GameHost.UpdateFrameDelta
+  fullName: SadConsole.GameHost.UpdateFrameDelta
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: The elapsed time between now and the last update call.
+  example: []
+  syntax:
+    content: public TimeSpan UpdateFrameDelta { get; set; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: Public Property UpdateFrameDelta As TimeSpan
+  overload: SadConsole.GameHost.UpdateFrameDelta*
+- uid: SadConsole.GameHost.DrawFrameDelta
+  commentId: P:SadConsole.GameHost.DrawFrameDelta
+  id: DrawFrameDelta
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: DrawFrameDelta
+  nameWithType: GameHost.DrawFrameDelta
+  fullName: SadConsole.GameHost.DrawFrameDelta
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: The elapsed time between now and the last draw call.
+  example: []
+  syntax:
+    content: public TimeSpan DrawFrameDelta { get; set; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: Public Property DrawFrameDelta As TimeSpan
+  overload: SadConsole.GameHost.DrawFrameDelta*
+- uid: SadConsole.GameHost.GameRunningTotalTime
+  commentId: P:SadConsole.GameHost.GameRunningTotalTime
+  id: GameRunningTotalTime
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: GameRunningTotalTime
+  nameWithType: GameHost.GameRunningTotalTime
+  fullName: SadConsole.GameHost.GameRunningTotalTime
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: The total time the game has been running.
+  example: []
+  syntax:
+    content: public TimeSpan GameRunningTotalTime { get; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: Public ReadOnly Property GameRunningTotalTime As TimeSpan
+  overload: SadConsole.GameHost.GameRunningTotalTime*
+- uid: SadConsole.GameHost.StartingConsole
+  commentId: P:SadConsole.GameHost.StartingConsole
+  id: StartingConsole
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: StartingConsole
+  nameWithType: GameHost.StartingConsole
+  fullName: SadConsole.GameHost.StartingConsole
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: The console created by the game and automatically assigned to <xref href="SadConsole.GameHost.Screen" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public Console? StartingConsole { get; protected set; }
+    parameters: []
+    return:
+      type: SadConsole.Console
+    content.vb: Public Property StartingConsole As Console
+  overload: SadConsole.GameHost.StartingConsole*
+- uid: SadConsole.GameHost.Screen
+  commentId: P:SadConsole.GameHost.Screen
+  id: Screen
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: Screen
+  nameWithType: GameHost.Screen
+  fullName: SadConsole.GameHost.Screen
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: The active screen processed by the game.
+  example: []
+  syntax:
+    content: public IScreenObject? Screen { get; set; }
+    parameters: []
+    return:
+      type: SadConsole.IScreenObject
+    content.vb: Public Property Screen As IScreenObject
+  overload: SadConsole.GameHost.Screen*
+- uid: SadConsole.GameHost.FocusedScreenObjects
+  commentId: P:SadConsole.GameHost.FocusedScreenObjects
+  id: FocusedScreenObjects
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: FocusedScreenObjects
+  nameWithType: GameHost.FocusedScreenObjects
+  fullName: SadConsole.GameHost.FocusedScreenObjects
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: The stack of focused consoles used by the mouse and keyboard.
+  example: []
+  syntax:
+    content: public FocusedScreenObjectStack FocusedScreenObjects { get; set; }
+    parameters: []
+    return:
+      type: SadConsole.FocusedScreenObjectStack
+    content.vb: Public Property FocusedScreenObjects As FocusedScreenObjectStack
+  overload: SadConsole.GameHost.FocusedScreenObjects*
+- uid: SadConsole.GameHost.Random
+  commentId: P:SadConsole.GameHost.Random
+  id: Random
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: Random
+  nameWithType: GameHost.Random
+  fullName: SadConsole.GameHost.Random
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: A global random number generator.
+  example: []
+  syntax:
+    content: public Random Random { get; set; }
+    parameters: []
+    return:
+      type: System.Random
+    content.vb: Public Property Random As Random
+  overload: SadConsole.GameHost.Random*
+- uid: SadConsole.GameHost.FrameRender
+  commentId: E:SadConsole.GameHost.FrameRender
+  id: FrameRender
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: FrameRender
+  nameWithType: GameHost.FrameRender
+  fullName: SadConsole.GameHost.FrameRender
+  type: Event
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Raised when the game draws a frame to the screen.
+  example: []
+  syntax:
+    content: public event EventHandler<GameHost>? FrameRender
+    return:
+      type: System.EventHandler{SadConsole.GameHost}
+    content.vb: Public Event FrameRender As EventHandler(Of GameHost)
+- uid: SadConsole.GameHost.FrameUpdate
+  commentId: E:SadConsole.GameHost.FrameUpdate
+  id: FrameUpdate
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: FrameUpdate
+  nameWithType: GameHost.FrameUpdate
+  fullName: SadConsole.GameHost.FrameUpdate
+  type: Event
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Raised when the game updates prior to drawing a frame.
+  example: []
+  syntax:
+    content: public event EventHandler<GameHost>? FrameUpdate
+    return:
+      type: System.EventHandler{SadConsole.GameHost}
+    content.vb: Public Event FrameUpdate As EventHandler(Of GameHost)
+- uid: SadConsole.GameHost.Started
+  commentId: E:SadConsole.GameHost.Started
+  id: Started
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: Started
+  nameWithType: GameHost.Started
+  fullName: SadConsole.GameHost.Started
+  type: Event
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: A callback to run before the <xref href="SadConsole.GameHost.Run" data-throw-if-not-resolved="false"></xref> method is called;
+  example: []
+  syntax:
+    content: public event EventHandler<GameHost>? Started
+    return:
+      type: System.EventHandler{SadConsole.GameHost}
+    content.vb: Public Event Started As EventHandler(Of GameHost)
+- uid: SadConsole.GameHost.Ending
+  commentId: E:SadConsole.GameHost.Ending
+  id: Ending
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: Ending
+  nameWithType: GameHost.Ending
+  fullName: SadConsole.GameHost.Ending
+  type: Event
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: A callback to run after the <xref href="SadConsole.GameHost.Run" data-throw-if-not-resolved="false"></xref> method is called;
+  example: []
+  syntax:
+    content: public event EventHandler<GameHost>? Ending
+    return:
+      type: System.EventHandler{SadConsole.GameHost}
+    content.vb: Public Event Ending As EventHandler(Of GameHost)
+references:
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SadConsole.Renderers.IRenderer
+  commentId: T:SadConsole.Renderers.IRenderer
+  parent: SadConsole.Renderers
+  isExternal: true
+  href: SadConsole.Renderers.IRenderer.html
+  name: IRenderer
+  nameWithType: IRenderer
+  fullName: SadConsole.Renderers.IRenderer
+- uid: System.Collections.Generic.Dictionary{System.String,System.Type}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,System.Type}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, Type>
+  nameWithType: Dictionary<string, Type>
+  fullName: System.Collections.Generic.Dictionary<string, System.Type>
+  nameWithType.vb: Dictionary(Of String, Type)
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, System.Type)
+  name.vb: Dictionary(Of String, Type)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+- uid: SadConsole.Renderers
+  commentId: N:SadConsole.Renderers
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Renderers
+  nameWithType: SadConsole.Renderers
+  fullName: SadConsole.Renderers
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Renderers
+    name: Renderers
+    isExternal: true
+    href: SadConsole.Renderers.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Renderers
+    name: Renderers
+    isExternal: true
+    href: SadConsole.Renderers.html
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: SadConsole.Renderers.IRenderStep
+  commentId: T:SadConsole.Renderers.IRenderStep
+  parent: SadConsole.Renderers
+  isExternal: true
+  href: SadConsole.Renderers.IRenderStep.html
+  name: IRenderStep
+  nameWithType: IRenderStep
+  fullName: SadConsole.Renderers.IRenderStep
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: SadConsole.GameHost.Started
+  commentId: E:SadConsole.GameHost.Started
+  parent: SadConsole.GameHost
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.Started
+  name: Started
+  nameWithType: GameHost.Started
+  fullName: SadConsole.GameHost.Started
+- uid: SadConsole.GameHost.OnGameStarted*
+  commentId: Overload:SadConsole.GameHost.OnGameStarted
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.OnGameStarted
+  name: OnGameStarted
+  nameWithType: GameHost.OnGameStarted
+  fullName: SadConsole.GameHost.OnGameStarted
+- uid: SadConsole.GameHost
+  commentId: T:SadConsole.GameHost
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.GameHost.html
+  name: GameHost
+  nameWithType: GameHost
+  fullName: SadConsole.GameHost
+- uid: SadConsole.GameHost.Ending
+  commentId: E:SadConsole.GameHost.Ending
+  parent: SadConsole.GameHost
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.Ending
+  name: Ending
+  nameWithType: GameHost.Ending
+  fullName: SadConsole.GameHost.Ending
+- uid: SadConsole.GameHost.OnGameEnding*
+  commentId: Overload:SadConsole.GameHost.OnGameEnding
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.OnGameEnding
+  name: OnGameEnding
+  nameWithType: GameHost.OnGameEnding
+  fullName: SadConsole.GameHost.OnGameEnding
+- uid: SadConsole.GameHost.FrameRender
+  commentId: E:SadConsole.GameHost.FrameRender
+  parent: SadConsole.GameHost
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.FrameRender
+  name: FrameRender
+  nameWithType: GameHost.FrameRender
+  fullName: SadConsole.GameHost.FrameRender
+- uid: SadConsole.GameHost.OnFrameRender*
+  commentId: Overload:SadConsole.GameHost.OnFrameRender
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.OnFrameRender
+  name: OnFrameRender
+  nameWithType: GameHost.OnFrameRender
+  fullName: SadConsole.GameHost.OnFrameRender
+- uid: SadConsole.GameHost.FrameUpdate
+  commentId: E:SadConsole.GameHost.FrameUpdate
+  parent: SadConsole.GameHost
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.FrameUpdate
+  name: FrameUpdate
+  nameWithType: GameHost.FrameUpdate
+  fullName: SadConsole.GameHost.FrameUpdate
+- uid: SadConsole.GameHost.OnFrameUpdate*
+  commentId: Overload:SadConsole.GameHost.OnFrameUpdate
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.OnFrameUpdate
+  name: OnFrameUpdate
+  nameWithType: GameHost.OnFrameUpdate
+  fullName: SadConsole.GameHost.OnFrameUpdate
+- uid: SadConsole.GameHost.Run*
+  commentId: Overload:SadConsole.GameHost.Run
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.Run
+  name: Run
+  nameWithType: GameHost.Run
+  fullName: SadConsole.GameHost.Run
+- uid: SadConsole.GameHost.GetTexture*
+  commentId: Overload:SadConsole.GameHost.GetTexture
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.GetTexture(System.String)
+  name: GetTexture
+  nameWithType: GameHost.GetTexture
+  fullName: SadConsole.GameHost.GetTexture
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: SadConsole.ITexture
+  commentId: T:SadConsole.ITexture
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ITexture.html
+  name: ITexture
+  nameWithType: ITexture
+  fullName: SadConsole.ITexture
+- uid: System.IO.Stream
+  commentId: T:System.IO.Stream
+  parent: System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  name: Stream
+  nameWithType: Stream
+  fullName: System.IO.Stream
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+- uid: SadConsole.GameHost.CreateTexture*
+  commentId: Overload:SadConsole.GameHost.CreateTexture
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.CreateTexture(System.Int32,System.Int32)
+  name: CreateTexture
+  nameWithType: GameHost.CreateTexture
+  fullName: SadConsole.GameHost.CreateTexture
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: SadConsole.GameHost.GetRenderer*
+  commentId: Overload:SadConsole.GameHost.GetRenderer
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.GetRenderer(System.String)
+  name: GetRenderer
+  nameWithType: GameHost.GetRenderer
+  fullName: SadConsole.GameHost.GetRenderer
+- uid: SadConsole.GameHost.SetRenderer*
+  commentId: Overload:SadConsole.GameHost.SetRenderer
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.SetRenderer(System.String,System.Type)
+  name: SetRenderer
+  nameWithType: GameHost.SetRenderer
+  fullName: SadConsole.GameHost.SetRenderer
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: SadConsole.GameHost.SetRendererStep*
+  commentId: Overload:SadConsole.GameHost.SetRendererStep
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.SetRendererStep(System.String,System.Type)
+  name: SetRendererStep
+  nameWithType: GameHost.SetRendererStep
+  fullName: SadConsole.GameHost.SetRendererStep
+- uid: SadConsole.GameHost.GetRendererStep*
+  commentId: Overload:SadConsole.GameHost.GetRendererStep
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.GetRendererStep(System.String)
+  name: GetRendererStep
+  nameWithType: GameHost.GetRendererStep
+  fullName: SadConsole.GameHost.GetRendererStep
+- uid: SadConsole.GameHost.GetKeyboardState*
+  commentId: Overload:SadConsole.GameHost.GetKeyboardState
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.GetKeyboardState
+  name: GetKeyboardState
+  nameWithType: GameHost.GetKeyboardState
+  fullName: SadConsole.GameHost.GetKeyboardState
+- uid: SadConsole.Input.IKeyboardState
+  commentId: T:SadConsole.Input.IKeyboardState
+  parent: SadConsole.Input
+  isExternal: true
+  href: SadConsole.Input.IKeyboardState.html
+  name: IKeyboardState
+  nameWithType: IKeyboardState
+  fullName: SadConsole.Input.IKeyboardState
+- uid: SadConsole.Input
+  commentId: N:SadConsole.Input
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Input
+  nameWithType: SadConsole.Input
+  fullName: SadConsole.Input
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Input
+    name: Input
+    isExternal: true
+    href: SadConsole.Input.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Input
+    name: Input
+    isExternal: true
+    href: SadConsole.Input.html
+- uid: SadConsole.GameHost.GetMouseState*
+  commentId: Overload:SadConsole.GameHost.GetMouseState
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.GetMouseState
+  name: GetMouseState
+  nameWithType: GameHost.GetMouseState
+  fullName: SadConsole.GameHost.GetMouseState
+- uid: SadConsole.Input.IMouseState
+  commentId: T:SadConsole.Input.IMouseState
+  parent: SadConsole.Input
+  isExternal: true
+  href: SadConsole.Input.IMouseState.html
+  name: IMouseState
+  nameWithType: IMouseState
+  fullName: SadConsole.Input.IMouseState
+- uid: SadConsole.GameHost.SetSplashScreens*
+  commentId: Overload:SadConsole.GameHost.SetSplashScreens
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.SetSplashScreens(SadConsole.IScreenSurface[])
+  name: SetSplashScreens
+  nameWithType: GameHost.SetSplashScreens
+  fullName: SadConsole.GameHost.SetSplashScreens
+- uid: SadConsole.IScreenSurface[]
+  isExternal: true
+  href: SadConsole.IScreenSurface.html
+  name: IScreenSurface[]
+  nameWithType: IScreenSurface[]
+  fullName: SadConsole.IScreenSurface[]
+  nameWithType.vb: IScreenSurface()
+  fullName.vb: SadConsole.IScreenSurface()
+  name.vb: IScreenSurface()
+  spec.csharp:
+  - uid: SadConsole.IScreenSurface
+    name: IScreenSurface
+    isExternal: true
+    href: SadConsole.IScreenSurface.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: SadConsole.IScreenSurface
+    name: IScreenSurface
+    isExternal: true
+    href: SadConsole.IScreenSurface.html
+  - name: (
+  - name: )
+- uid: SadConsole.GameHost.Fonts
+  commentId: P:SadConsole.GameHost.Fonts
+  parent: SadConsole.GameHost
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.Fonts
+  name: Fonts
+  nameWithType: GameHost.Fonts
+  fullName: SadConsole.GameHost.Fonts
+- uid: SadConsole.GameHost.LoadFont*
+  commentId: Overload:SadConsole.GameHost.LoadFont
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.LoadFont(System.String)
+  name: LoadFont
+  nameWithType: GameHost.LoadFont
+  fullName: SadConsole.GameHost.LoadFont
+- uid: SadConsole.IFont
+  commentId: T:SadConsole.IFont
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IFont.html
+  name: IFont
+  nameWithType: IFont
+  fullName: SadConsole.IFont
+- uid: SadConsole.GameHost.StartingConsole
+  commentId: P:SadConsole.GameHost.StartingConsole
+  parent: SadConsole.GameHost
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.StartingConsole
+  name: StartingConsole
+  nameWithType: GameHost.StartingConsole
+  fullName: SadConsole.GameHost.StartingConsole
+- uid: SadConsole.GameHost.Screen
+  commentId: P:SadConsole.GameHost.Screen
+  parent: SadConsole.GameHost
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.Screen
+  name: Screen
+  nameWithType: GameHost.Screen
+  fullName: SadConsole.GameHost.Screen
+- uid: SadConsole.GameHost.DestroyDefaultStartingConsole*
+  commentId: Overload:SadConsole.GameHost.DestroyDefaultStartingConsole
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.DestroyDefaultStartingConsole
+  name: DestroyDefaultStartingConsole
+  nameWithType: GameHost.DestroyDefaultStartingConsole
+  fullName: SadConsole.GameHost.DestroyDefaultStartingConsole
+- uid: System.IO.FileMode.Open
+  commentId: F:System.IO.FileMode.Open
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.filemode#system-io-filemode-open
+  name: Open
+  nameWithType: FileMode.Open
+  fullName: System.IO.FileMode.Open
+- uid: System.IO.FileAccess.Read
+  commentId: F:System.IO.FileAccess.Read
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.fileaccess#system-io-fileaccess-read
+  name: Read
+  nameWithType: FileAccess.Read
+  fullName: System.IO.FileAccess.Read
+- uid: SadConsole.GameHost.OpenStream*
+  commentId: Overload:SadConsole.GameHost.OpenStream
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.OpenStream(System.String,System.IO.FileMode,System.IO.FileAccess)
+  name: OpenStream
+  nameWithType: GameHost.OpenStream
+  fullName: SadConsole.GameHost.OpenStream
+- uid: System.IO.FileMode
+  commentId: T:System.IO.FileMode
+  parent: System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.filemode
+  name: FileMode
+  nameWithType: FileMode
+  fullName: System.IO.FileMode
+- uid: System.IO.FileAccess
+  commentId: T:System.IO.FileAccess
+  parent: System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.fileaccess
+  name: FileAccess
+  nameWithType: FileAccess
+  fullName: System.IO.FileAccess
+- uid: SadConsole.GameHost.FileExists*
+  commentId: Overload:SadConsole.GameHost.FileExists
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.FileExists(System.String)
+  name: FileExists
+  nameWithType: GameHost.FileExists
+  fullName: SadConsole.GameHost.FileExists
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: SadConsole.GameHost.FileDelete*
+  commentId: Overload:SadConsole.GameHost.FileDelete
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.FileDelete(System.String)
+  name: FileDelete
+  nameWithType: GameHost.FileDelete
+  fullName: SadConsole.GameHost.FileDelete
+- uid: SadConsole.GameHost.DefaultFont
+  commentId: P:SadConsole.GameHost.DefaultFont
+  parent: SadConsole.GameHost
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.DefaultFont
+  name: DefaultFont
+  nameWithType: GameHost.DefaultFont
+  fullName: SadConsole.GameHost.DefaultFont
+- uid: SadConsole.GameHost.EmbeddedFont
+  commentId: P:SadConsole.GameHost.EmbeddedFont
+  parent: SadConsole.GameHost
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.EmbeddedFont
+  name: EmbeddedFont
+  nameWithType: GameHost.EmbeddedFont
+  fullName: SadConsole.GameHost.EmbeddedFont
+- uid: SadConsole.GameHost.EmbeddedFontExtended
+  commentId: P:SadConsole.GameHost.EmbeddedFontExtended
+  parent: SadConsole.GameHost
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.EmbeddedFontExtended
+  name: EmbeddedFontExtended
+  nameWithType: GameHost.EmbeddedFontExtended
+  fullName: SadConsole.GameHost.EmbeddedFontExtended
+- uid: SadConsole.Settings.UseDefaultExtendedFont
+  commentId: P:SadConsole.Settings.UseDefaultExtendedFont
+  isExternal: true
+  href: SadConsole.Settings.html#SadConsole.Settings.UseDefaultExtendedFont
+  name: UseDefaultExtendedFont
+  nameWithType: Settings.UseDefaultExtendedFont
+  fullName: SadConsole.Settings.UseDefaultExtendedFont
+- uid: SadConsole.GameHost.LoadDefaultFonts*
+  commentId: Overload:SadConsole.GameHost.LoadDefaultFonts
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.LoadDefaultFonts(System.String)
+  name: LoadDefaultFonts
+  nameWithType: GameHost.LoadDefaultFonts
+  fullName: SadConsole.GameHost.LoadDefaultFonts
+- uid: SadRogue.Primitives.Color
+  commentId: T:SadRogue.Primitives.Color
+  parent: SadRogue.Primitives
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: SadRogue.Primitives.Color
+- uid: SadRogue.Primitives.ColorExtensions2.ColorMappings
+  commentId: F:SadRogue.Primitives.ColorExtensions2.ColorMappings
+  isExternal: true
+  href: SadRogue.Primitives.ColorExtensions2.html#SadRogue.Primitives.ColorExtensions2.ColorMappings
+  name: ColorMappings
+  nameWithType: ColorExtensions2.ColorMappings
+  fullName: SadRogue.Primitives.ColorExtensions2.ColorMappings
+- uid: SadConsole.GameHost.LoadMappedColors*
+  commentId: Overload:SadConsole.GameHost.LoadMappedColors
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.LoadMappedColors
+  name: LoadMappedColors
+  nameWithType: GameHost.LoadMappedColors
+  fullName: SadConsole.GameHost.LoadMappedColors
+- uid: SadRogue.Primitives
+  commentId: N:SadRogue.Primitives
+  isExternal: true
+  href: SadRogue.html
+  name: SadRogue.Primitives
+  nameWithType: SadRogue.Primitives
+  fullName: SadRogue.Primitives
+  spec.csharp:
+  - uid: SadRogue
+    name: SadRogue
+    isExternal: true
+    href: SadRogue.html
+  - name: .
+  - uid: SadRogue.Primitives
+    name: Primitives
+    isExternal: true
+    href: SadRogue.Primitives.html
+  spec.vb:
+  - uid: SadRogue
+    name: SadRogue
+    isExternal: true
+    href: SadRogue.html
+  - name: .
+  - uid: SadRogue.Primitives
+    name: Primitives
+    isExternal: true
+    href: SadRogue.Primitives.html
+- uid: SadConsole.GameHost.ResizeWindow*
+  commentId: Overload:SadConsole.GameHost.ResizeWindow
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.ResizeWindow(System.Int32,System.Int32,System.Boolean)
+  name: ResizeWindow
+  nameWithType: GameHost.ResizeWindow
+  fullName: SadConsole.GameHost.ResizeWindow
+- uid: SadRogue.Primitives.Point
+  commentId: T:SadRogue.Primitives.Point
+  parent: SadRogue.Primitives
+  isExternal: true
+  name: Point
+  nameWithType: Point
+  fullName: SadRogue.Primitives.Point
+- uid: SadConsole.GameHost.FocusedScreenObjects
+  commentId: P:SadConsole.GameHost.FocusedScreenObjects
+  parent: SadConsole.GameHost
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.FocusedScreenObjects
+  name: FocusedScreenObjects
+  nameWithType: GameHost.FocusedScreenObjects
+  fullName: SadConsole.GameHost.FocusedScreenObjects
+- uid: SadConsole.GameHost.SaveGlobalState*
+  commentId: Overload:SadConsole.GameHost.SaveGlobalState
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.SaveGlobalState
+  name: SaveGlobalState
+  nameWithType: GameHost.SaveGlobalState
+  fullName: SadConsole.GameHost.SaveGlobalState
+- uid: SadConsole.GameHost.SaveGlobalState
+  commentId: M:SadConsole.GameHost.SaveGlobalState
+  parent: SadConsole.GameHost
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.SaveGlobalState
+  name: SaveGlobalState()
+  nameWithType: GameHost.SaveGlobalState()
+  fullName: SadConsole.GameHost.SaveGlobalState()
+  spec.csharp:
+  - uid: SadConsole.GameHost.SaveGlobalState
+    name: SaveGlobalState
+    isExternal: true
+    href: SadConsole.GameHost.html#SadConsole.GameHost.SaveGlobalState
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.GameHost.SaveGlobalState
+    name: SaveGlobalState
+    isExternal: true
+    href: SadConsole.GameHost.html#SadConsole.GameHost.SaveGlobalState
+  - name: (
+  - name: )
+- uid: SadConsole.GameHost.RestoreGlobalState*
+  commentId: Overload:SadConsole.GameHost.RestoreGlobalState
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.RestoreGlobalState
+  name: RestoreGlobalState
+  nameWithType: GameHost.RestoreGlobalState
+  fullName: SadConsole.GameHost.RestoreGlobalState
+- uid: SadConsole.GameHost.Dispose*
+  commentId: Overload:SadConsole.GameHost.Dispose
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.Dispose(System.Boolean)
+  name: Dispose
+  nameWithType: GameHost.Dispose
+  fullName: SadConsole.GameHost.Dispose
+- uid: SadConsole.GameHost.Finalize*
+  commentId: Overload:SadConsole.GameHost.Finalize
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.Finalize
+  name: ~GameHost
+  nameWithType: GameHost.~GameHost
+  fullName: SadConsole.GameHost.~GameHost
+  spec.csharp:
+  - name: "~"
+  - uid: SadConsole.GameHost.Finalize*
+    name: GameHost
+    isExternal: true
+    href: SadConsole.GameHost.html#SadConsole.GameHost.Finalize
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: SadConsole.GameHost.#ctor*
+  commentId: Overload:SadConsole.GameHost.#ctor
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.#ctor
+  name: GameHost
+  nameWithType: GameHost.GameHost
+  fullName: SadConsole.GameHost.GameHost
+  nameWithType.vb: GameHost.New
+  fullName.vb: SadConsole.GameHost.New
+  name.vb: New
+- uid: SadConsole.GameHost._splashScreens*
+  commentId: Overload:SadConsole.GameHost._splashScreens
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost._splashScreens
+  name: _splashScreens
+  nameWithType: GameHost._splashScreens
+  fullName: SadConsole.GameHost._splashScreens
+- uid: System.Collections.Generic.Queue{SadConsole.IScreenSurface}
+  commentId: T:System.Collections.Generic.Queue{SadConsole.IScreenSurface}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Queue`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.queue-1
+  name: Queue<IScreenSurface>
+  nameWithType: Queue<IScreenSurface>
+  fullName: System.Collections.Generic.Queue<SadConsole.IScreenSurface>
+  nameWithType.vb: Queue(Of IScreenSurface)
+  fullName.vb: System.Collections.Generic.Queue(Of SadConsole.IScreenSurface)
+  name.vb: Queue(Of IScreenSurface)
+  spec.csharp:
+  - uid: System.Collections.Generic.Queue`1
+    name: Queue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.queue-1
+  - name: <
+  - uid: SadConsole.IScreenSurface
+    name: IScreenSurface
+    isExternal: true
+    href: SadConsole.IScreenSurface.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Queue`1
+    name: Queue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.queue-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.IScreenSurface
+    name: IScreenSurface
+    isExternal: true
+    href: SadConsole.IScreenSurface.html
+  - name: )
+- uid: System.Collections.Generic.Queue`1
+  commentId: T:System.Collections.Generic.Queue`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.queue-1
+  name: Queue<T>
+  nameWithType: Queue<T>
+  fullName: System.Collections.Generic.Queue<T>
+  nameWithType.vb: Queue(Of T)
+  fullName.vb: System.Collections.Generic.Queue(Of T)
+  name.vb: Queue(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.Queue`1
+    name: Queue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.queue-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Queue`1
+    name: Queue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.queue-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: SadConsole.GameHost.Instance*
+  commentId: Overload:SadConsole.GameHost.Instance
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.Instance
+  name: Instance
+  nameWithType: GameHost.Instance
+  fullName: SadConsole.GameHost.Instance
+- uid: SadConsole.GameHost.SerializerPathHint*
+  commentId: Overload:SadConsole.GameHost.SerializerPathHint
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.SerializerPathHint
+  name: SerializerPathHint
+  nameWithType: GameHost.SerializerPathHint
+  fullName: SadConsole.GameHost.SerializerPathHint
+- uid: SadConsole.GameHost.DrawCalls*
+  commentId: Overload:SadConsole.GameHost.DrawCalls
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.DrawCalls
+  name: DrawCalls
+  nameWithType: GameHost.DrawCalls
+  fullName: SadConsole.GameHost.DrawCalls
+- uid: System.Collections.Generic.Queue{SadConsole.DrawCalls.IDrawCall}
+  commentId: T:System.Collections.Generic.Queue{SadConsole.DrawCalls.IDrawCall}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Queue`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.queue-1
+  name: Queue<IDrawCall>
+  nameWithType: Queue<IDrawCall>
+  fullName: System.Collections.Generic.Queue<SadConsole.DrawCalls.IDrawCall>
+  nameWithType.vb: Queue(Of IDrawCall)
+  fullName.vb: System.Collections.Generic.Queue(Of SadConsole.DrawCalls.IDrawCall)
+  name.vb: Queue(Of IDrawCall)
+  spec.csharp:
+  - uid: System.Collections.Generic.Queue`1
+    name: Queue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.queue-1
+  - name: <
+  - uid: SadConsole.DrawCalls.IDrawCall
+    name: IDrawCall
+    isExternal: true
+    href: SadConsole.DrawCalls.IDrawCall.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Queue`1
+    name: Queue
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.queue-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.DrawCalls.IDrawCall
+    name: IDrawCall
+    isExternal: true
+    href: SadConsole.DrawCalls.IDrawCall.html
+  - name: )
+- uid: SadConsole.GameHost.ScreenCellsX*
+  commentId: Overload:SadConsole.GameHost.ScreenCellsX
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.ScreenCellsX
+  name: ScreenCellsX
+  nameWithType: GameHost.ScreenCellsX
+  fullName: SadConsole.GameHost.ScreenCellsX
+- uid: SadConsole.GameHost.ScreenCellsY*
+  commentId: Overload:SadConsole.GameHost.ScreenCellsY
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.ScreenCellsY
+  name: ScreenCellsY
+  nameWithType: GameHost.ScreenCellsY
+  fullName: SadConsole.GameHost.ScreenCellsY
+- uid: SadConsole.GameHost.FrameNumber*
+  commentId: Overload:SadConsole.GameHost.FrameNumber
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.FrameNumber
+  name: FrameNumber
+  nameWithType: GameHost.FrameNumber
+  fullName: SadConsole.GameHost.FrameNumber
+- uid: SadConsole.GameHost.Fonts*
+  commentId: Overload:SadConsole.GameHost.Fonts
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.Fonts
+  name: Fonts
+  nameWithType: GameHost.Fonts
+  fullName: SadConsole.GameHost.Fonts
+- uid: System.Collections.Generic.Dictionary{System.String,SadConsole.IFont}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,SadConsole.IFont}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, IFont>
+  nameWithType: Dictionary<string, IFont>
+  fullName: System.Collections.Generic.Dictionary<string, SadConsole.IFont>
+  nameWithType.vb: Dictionary(Of String, IFont)
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, SadConsole.IFont)
+  name.vb: Dictionary(Of String, IFont)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: SadConsole.IFont
+    name: IFont
+    isExternal: true
+    href: SadConsole.IFont.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: SadConsole.IFont
+    name: IFont
+    isExternal: true
+    href: SadConsole.IFont.html
+  - name: )
+- uid: SadConsole.GameHost.EmbeddedFont*
+  commentId: Overload:SadConsole.GameHost.EmbeddedFont
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.EmbeddedFont
+  name: EmbeddedFont
+  nameWithType: GameHost.EmbeddedFont
+  fullName: SadConsole.GameHost.EmbeddedFont
+- uid: SadConsole.SadFont
+  commentId: T:SadConsole.SadFont
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.SadFont.html
+  name: SadFont
+  nameWithType: SadFont
+  fullName: SadConsole.SadFont
+- uid: SadConsole.GameHost.EmbeddedFontExtended*
+  commentId: Overload:SadConsole.GameHost.EmbeddedFontExtended
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.EmbeddedFontExtended
+  name: EmbeddedFontExtended
+  nameWithType: GameHost.EmbeddedFontExtended
+  fullName: SadConsole.GameHost.EmbeddedFontExtended
+- uid: SadConsole.GameHost.DefaultFont*
+  commentId: Overload:SadConsole.GameHost.DefaultFont
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.DefaultFont
+  name: DefaultFont
+  nameWithType: GameHost.DefaultFont
+  fullName: SadConsole.GameHost.DefaultFont
+- uid: SadConsole.GameHost.DefaultFontSize*
+  commentId: Overload:SadConsole.GameHost.DefaultFontSize
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.DefaultFontSize
+  name: DefaultFontSize
+  nameWithType: GameHost.DefaultFontSize
+  fullName: SadConsole.GameHost.DefaultFontSize
+- uid: SadConsole.IFont.Sizes
+  commentId: T:SadConsole.IFont.Sizes
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IFont.html
+  name: IFont.Sizes
+  nameWithType: IFont.Sizes
+  fullName: SadConsole.IFont.Sizes
+  spec.csharp:
+  - uid: SadConsole.IFont
+    name: IFont
+    isExternal: true
+    href: SadConsole.IFont.html
+  - name: .
+  - uid: SadConsole.IFont.Sizes
+    name: Sizes
+    isExternal: true
+    href: SadConsole.IFont.Sizes.html
+  spec.vb:
+  - uid: SadConsole.IFont
+    name: IFont
+    isExternal: true
+    href: SadConsole.IFont.html
+  - name: .
+  - uid: SadConsole.IFont.Sizes
+    name: Sizes
+    isExternal: true
+    href: SadConsole.IFont.Sizes.html
+- uid: SadConsole.GameHost.Keyboard*
+  commentId: Overload:SadConsole.GameHost.Keyboard
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.Keyboard
+  name: Keyboard
+  nameWithType: GameHost.Keyboard
+  fullName: SadConsole.GameHost.Keyboard
+- uid: SadConsole.Input.Keyboard
+  commentId: T:SadConsole.Input.Keyboard
+  parent: SadConsole.Input
+  isExternal: true
+  href: SadConsole.Input.Keyboard.html
+  name: Keyboard
+  nameWithType: Keyboard
+  fullName: SadConsole.Input.Keyboard
+- uid: SadConsole.GameHost.Mouse*
+  commentId: Overload:SadConsole.GameHost.Mouse
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.Mouse
+  name: Mouse
+  nameWithType: GameHost.Mouse
+  fullName: SadConsole.GameHost.Mouse
+- uid: SadConsole.Input.Mouse
+  commentId: T:SadConsole.Input.Mouse
+  parent: SadConsole.Input
+  isExternal: true
+  href: SadConsole.Input.Mouse.html
+  name: Mouse
+  nameWithType: Mouse
+  fullName: SadConsole.Input.Mouse
+- uid: SadConsole.GameHost.UpdateFrameDelta*
+  commentId: Overload:SadConsole.GameHost.UpdateFrameDelta
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.UpdateFrameDelta
+  name: UpdateFrameDelta
+  nameWithType: GameHost.UpdateFrameDelta
+  fullName: SadConsole.GameHost.UpdateFrameDelta
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+- uid: SadConsole.GameHost.DrawFrameDelta*
+  commentId: Overload:SadConsole.GameHost.DrawFrameDelta
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.DrawFrameDelta
+  name: DrawFrameDelta
+  nameWithType: GameHost.DrawFrameDelta
+  fullName: SadConsole.GameHost.DrawFrameDelta
+- uid: SadConsole.GameHost.GameRunningTotalTime*
+  commentId: Overload:SadConsole.GameHost.GameRunningTotalTime
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.GameRunningTotalTime
+  name: GameRunningTotalTime
+  nameWithType: GameHost.GameRunningTotalTime
+  fullName: SadConsole.GameHost.GameRunningTotalTime
+- uid: SadConsole.GameHost.StartingConsole*
+  commentId: Overload:SadConsole.GameHost.StartingConsole
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.StartingConsole
+  name: StartingConsole
+  nameWithType: GameHost.StartingConsole
+  fullName: SadConsole.GameHost.StartingConsole
+- uid: SadConsole.Console
+  commentId: T:SadConsole.Console
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.Console.html
+  name: Console
+  nameWithType: Console
+  fullName: SadConsole.Console
+- uid: SadConsole.GameHost.Screen*
+  commentId: Overload:SadConsole.GameHost.Screen
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.Screen
+  name: Screen
+  nameWithType: GameHost.Screen
+  fullName: SadConsole.GameHost.Screen
+- uid: SadConsole.IScreenObject
+  commentId: T:SadConsole.IScreenObject
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IScreenObject.html
+  name: IScreenObject
+  nameWithType: IScreenObject
+  fullName: SadConsole.IScreenObject
+- uid: SadConsole.GameHost.FocusedScreenObjects*
+  commentId: Overload:SadConsole.GameHost.FocusedScreenObjects
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.FocusedScreenObjects
+  name: FocusedScreenObjects
+  nameWithType: GameHost.FocusedScreenObjects
+  fullName: SadConsole.GameHost.FocusedScreenObjects
+- uid: SadConsole.FocusedScreenObjectStack
+  commentId: T:SadConsole.FocusedScreenObjectStack
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.FocusedScreenObjectStack.html
+  name: FocusedScreenObjectStack
+  nameWithType: FocusedScreenObjectStack
+  fullName: SadConsole.FocusedScreenObjectStack
+- uid: SadConsole.GameHost.Random*
+  commentId: Overload:SadConsole.GameHost.Random
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.Random
+  name: Random
+  nameWithType: GameHost.Random
+  fullName: SadConsole.GameHost.Random
+- uid: System.Random
+  commentId: T:System.Random
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.random
+  name: Random
+  nameWithType: Random
+  fullName: System.Random
+- uid: System.EventHandler{SadConsole.GameHost}
+  commentId: T:System.EventHandler{SadConsole.GameHost}
+  parent: System
+  definition: System.EventHandler`1
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<GameHost>
+  nameWithType: EventHandler<GameHost>
+  fullName: System.EventHandler<SadConsole.GameHost>
+  nameWithType.vb: EventHandler(Of GameHost)
+  fullName.vb: System.EventHandler(Of SadConsole.GameHost)
+  name.vb: EventHandler(Of GameHost)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: SadConsole.GameHost
+    name: GameHost
+    isExternal: true
+    href: SadConsole.GameHost.html
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.GameHost
+    name: GameHost
+    isExternal: true
+    href: SadConsole.GameHost.html
+  - name: )
+- uid: System.EventHandler`1
+  commentId: T:System.EventHandler`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  name: EventHandler<TEventArgs>
+  nameWithType: EventHandler<TEventArgs>
+  fullName: System.EventHandler<TEventArgs>
+  nameWithType.vb: EventHandler(Of TEventArgs)
+  fullName.vb: System.EventHandler(Of TEventArgs)
+  name.vb: EventHandler(Of TEventArgs)
+  spec.csharp:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - name: TEventArgs
+  - name: '>'
+  spec.vb:
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEventArgs
+  - name: )
+- uid: SadConsole.GameHost.Run
+  commentId: M:SadConsole.GameHost.Run
+  parent: SadConsole.GameHost
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole.GameHost.Run
+  name: Run()
+  nameWithType: GameHost.Run()
+  fullName: SadConsole.GameHost.Run()
+  spec.csharp:
+  - uid: SadConsole.GameHost.Run
+    name: Run
+    isExternal: true
+    href: SadConsole.GameHost.html#SadConsole.GameHost.Run
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.GameHost.Run
+    name: Run
+    isExternal: true
+    href: SadConsole.GameHost.html#SadConsole.GameHost.Run
+  - name: (
+  - name: )

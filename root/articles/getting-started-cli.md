@@ -1,6 +1,6 @@
 ---
 description: Create a SadConsole project with the SadConsole templates.
-ms.date: 02/05/2021
+ms.date: 10/31/2023
 ---
 
 # Create a new SadConsole .NET project with the SadConsole templates
@@ -67,7 +67,7 @@ This section is important if you're planning on using Visual Studio to create th
 Your terminal should be in the game directory you created at the start of this article. Create your project using the `dotnet new` command:
 
 ```shell
-dotnet new sadconsole-mg -n SadConsoleGame
+dotnet new sadconsole.mg -n SadConsoleGame
 ```
 
 This command generates a small example game that you can then customize. Run the game with `dotnet run` from your terminal, and you'll see the following:

@@ -1,44 +1,40 @@
-﻿using SadConsole;
-using SadRogue.Primitives;
+﻿namespace SadConsoleGame;
 
-namespace SadConsoleGame
+internal class GameObject
 {
-    public class GameObject
+    private ColoredGlyph _mapAppearance = new ColoredGlyph();
+
+    public Point Position { get; private set; }
+
+    public ColoredGlyph Appearance { get; set; }
+
+    public GameObject(ColoredGlyph appearance, Point position, IScreenSurface hostingSurface)
     {
-        public Point Position { get; private set; }
+        Appearance = appearance;
+        Position = position;
 
-        public ColoredGlyph Appearance { get; set; }
+        // Store the map cell
+        hostingSurface.Surface[position].CopyAppearanceTo(_mapAppearance);
 
-        private ColoredGlyph _mapAppearance = new ColoredGlyph();
+        // draw the object
+        DrawGameObject(hostingSurface);
+    }
 
-        public GameObject(ColoredGlyph appearance, Point position, IScreenSurface hostingSurface)
-        {
-            Appearance = appearance;
-            Position = position;
+    private void DrawGameObject(IScreenSurface screenSurface)
+    {
+        Appearance.CopyAppearanceTo(screenSurface.Surface[Position]);
+        screenSurface.IsDirty = true;
+    }
 
-            // Store the map cell
-            hostingSurface.Surface[position].CopyAppearanceTo(_mapAppearance);
+    public void Move(Point newPosition, IScreenSurface screenSurface)
+    {
+        // Restore the old cell
+        _mapAppearance.CopyAppearanceTo(screenSurface.Surface[Position]);
 
-            // Draw the object
-            DrawGameObject(hostingSurface);
-        }
+        // Store the map cell of the new position
+        screenSurface.Surface[newPosition].CopyAppearanceTo(_mapAppearance);
 
-        private void DrawGameObject(IScreenSurface screenSurface)
-        {
-            Appearance.CopyAppearanceTo(screenSurface.Surface[Position]);
-            screenSurface.IsDirty = true;
-        }
-
-        public void Move(Point newPosition, IScreenSurface screenSurface)
-        { 
-            // Restore the old cell
-            _mapAppearance.CopyAppearanceTo(screenSurface.Surface[Position]);
-
-            // Store the map cell of the new position
-            screenSurface.Surface[newPosition].CopyAppearanceTo(_mapAppearance);
-
-            Position = newPosition;
-            DrawGameObject(screenSurface);
-        }
+        Position = newPosition;
+        DrawGameObject(screenSurface);
     }
 }

@@ -17,7 +17,7 @@ The .NET templates provided by SadConsole can generate a demo application that s
 
 ```dotnet
 dotnet new --install SadConsole.Templates
-dotnet new sadconsole-demo
+dotnet new sadconsole.demo
 dotnet run
 ```
 

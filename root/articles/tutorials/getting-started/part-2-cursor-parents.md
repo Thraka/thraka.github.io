@@ -1,6 +1,6 @@
 ---
-description: Part 2 of the getting started series. In this part you'll learn how to use the Cursor object and how nesting and parenting consoles works.
-ms.date: 09/04/2023
+description: Part 2 of the SadConsole getting started series. In this part you'll learn how to use the Cursor object and how nesting and parenting consoles works.
+ms.date: 10/31/2023
 ---
 
 # Get Started 2 - Cursors and parenting
@@ -16,21 +16,24 @@ Previous articles in this tutorial:
 To start this part of the tutorial you'll need to have created a SadConsole project, one that was created by following the previous tutorial in this series. However, you may have been experimenting with your code. To make sure that you start this tutorial with the same code, copy and paste the following code into your _program.cs_:
 
 ```csharp
+using SadConsole.Configuration;
+
 Settings.WindowTitle = "My SadConsole Game";
 
-Game.Configuration gameStartup = new Game.Configuration()
+Builder configuration = new Builder()
     .SetScreenSize(90, 30)
+    .UseDefaultConsole()
     .OnStart(Startup)
     ;
 
-Game.Create(gameStartup);
+Game.Create(configuration);
 Game.Instance.Run();
 Game.Instance.Dispose();
 
-static void Startup()
+static void Startup(object? sender, GameHost host)
 {
     if (Game.Instance.StartingConsole is null)
-        throw new NullReferenceException("Unsure why. If you used a game config with SetStartingScreen, it destroys the StartingConsole object.");
+        throw new NullReferenceException("You should never have this error if you used the UseDefaultConsole startup code.");
 
     Console startingConsole = Game.Instance.StartingConsole;
 }
@@ -56,10 +59,10 @@ SadConsole provides a cursor system as way to show users where text is about to 
 Replace the `Startup` code with the following and run your program:
 
 ```csharp
-static void Startup()
+static void Startup(object? sender, GameHost host)
 {
     if (Game.Instance.StartingConsole is null)
-        throw new NullReferenceException("Unsure why. If you used a game config with SetStartingScreen, it destroys the StartingConsole object.");
+        throw new NullReferenceException("You should never have this error if you used the UseDefaultConsole startup code.");
 
     Console startingConsole = Game.Instance.StartingConsole;
 
@@ -80,7 +83,7 @@ The first thing the code does is alter the cursor's look. By default, the cursor
 The code causes the cursor to do things, but you don't _see_ a cursor on the screen. By default, the cursor is invisible and doesn't respond to the keyboard. To show the cursor, change the `IsVisible` property to `true`.
 
 ```csharp
-static void Startup()
+static void Startup(object? sender, GameHost host)
 {
     if (Game.Instance.StartingConsole is null)
         throw new NullReferenceException("Unsure why. If you used a game config with SetStartingScreen, it destroys the StartingConsole object.");
@@ -109,7 +112,7 @@ Run your program and you'll see the cursor blinking. When you type though, nothi
 To enable the cursor, set the `IsEnabled` property to `true`.
 
 ```csharp
-static void Startup()
+static void Startup(object? sender, GameHost host)
 {
     if (Game.Instance.StartingConsole is null)
         throw new NullReferenceException("Unsure why. If you used a game config with SetStartingScreen, it destroys the StartingConsole object.");
@@ -139,10 +142,19 @@ SadConsole has a framework in place that lets you create more than one console a
 
 The starting screen is a `Console`, so we'll need to get rid of that and start over if we want a base container object. Let's create a new `ScreenObject` that will host a few consoles.
 
+First, we don't need the starting console since we'll provide our own object. Remove the `.UseDefaultConsole()` line from the startup configuration:
+
+```csharp
+Builder configuration = new Builder()
+    .SetScreenSize(90, 30)
+    .OnStart(Startup)
+    ;
+```
+
 Second, erase all the code in the `Startup` method:
 
 ```csharp
-static void Startup()
+static void Startup(object? sender, GameHost host)
 {
 
 }
@@ -152,34 +164,28 @@ Now, do the following:
 
 01. Create a new `ScreenObject` and assign it to a variable named `container`.
 01. To make this object the main object processed by SadConsole, assign it to the `Game.Instance.Screen` property.
-01. Finally, destroy the original `Game.Instance.StartingConsole` with the `DestroyDefaultStartingConsole` method.
 
 ```csharp
-static void Startup()
+static void Startup(object? sender, GameHost host)
 {
     ScreenObject container = new ScreenObject();
     Game.Instance.Screen = container;
-    Game.Instance.DestroyDefaultStartingConsole();
 }
 ```
 
-The previous code you used at the start of this article used the `Game.Instance.StartingConsole` property, and now you're using the `Game.Instance.Screen` property, conceptually known as the "current screen." When SadConsole starts up, the `Game.Instance.Screen` property is assigned to the `StartingConsole` property, so they are the same object. The current screen is the `StartingConsole`. The current screen is the object that is processed by SadConsole every game frame. It represents what is on the screen visually and what game logic is run.
+The previous code you used at the start of this article used the `Game.Instance.StartingConsole` property, and now you're using the `Game.Instance.Screen` property, conceptually known as the "current screen." When SadConsole starts up with the default console turned on, the `Game.Instance.Screen` property is assigned to the `StartingConsole` property, so they're referencing the same object. The current screen is the object that's processed by SadConsole every game frame. It represents what is on the screen visually.
 
-If you run the game now, nothing will be displayed. A `ScreenObject` is just a container that lets you add multiple child objects to it, but it itself doesn't draw anything. You can do this same thing with a `Console`, but the console would also want to draw something and use resources. So, when you have a container that doesn't need to draw anything directly, `ScreenObject` is the type you want to use.
-
-> [!IMPORTANT]
-> Because you've replaced the `Game.Instance.Screen` property and you've destroyed the starting console, `Game.Instance.StartingConsole`can no longer be used. Destroying the starting console is important when you're no longer using it, as it frees up video card memory.
+If you run the game now, nothing will be displayed. A `ScreenObject` is just a container that lets you add multiple child objects to it, but it itself doesn't draw anything. `Console` also supports child objects, since it's also a `ScreenObject`, and it would draw itself. So, `ScreenObject` is the type you want to use when you have a container that doesn't need to draw anything directly.
 
 ## First child console
 
 The first console we'll create will be displayed on the top-left part of the screen. It won't take up the whole screen, and it'll use a unique background color so that it can be distinguished from the second console we'll soon create.
 
 ```csharp
-static void Startup()
+static void Startup(object? sender, GameHost host)
 {
     ScreenObject container = new ScreenObject();
     Game.Instance.Screen = container;
-    Game.Instance.DestroyDefaultStartingConsole();
 
     // First console
     Console console1 = new(60, 14);

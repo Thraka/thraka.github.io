@@ -1,6 +1,6 @@
 ---
-description: Part 3 of the getting started series. Learn how to create a basic map object and how to handle keyboard input.
-ms.date: 09/04/2023
+description: Part 3 of the SadConsole getting started series. Learn how to create a basic map object and how to handle keyboard input.
+ms.date: 10/31/2023
 ---
 
 # Get Started 3 - Input
@@ -40,28 +40,35 @@ internal class RootScreen: ScreenObject
 Next, modify the startup code of the game to indicate that the `RootScreen` type is going to be used as the starting object. This is simple to do and removes the requirement of the `Startup` method we were using in the previous tutorial. In the _program.cs_ file, change the code to the following:
 
 ```csharp
-using SadConsoleGame
+using SadConsole.Configuration;
+using SadConsoleGame;
 
 Settings.WindowTitle = "My SadConsole Game";
 
-Game.Configuration gameStartup = new Game.Configuration()
+Builder configuration = new Builder()
     .SetScreenSize(120, 38)
     .SetStartingScreen<RootScreen>()
+    .IsStartingScreenFocused(true)
     ;
 
-Game.Create(gameStartup);
+Game.Create(configuration);
 Game.Instance.Run();
 Game.Instance.Dispose();
 ```
 
 Notice the differences in this code from the previous startup code:
 
-- The project namespace was imported with `using SadConsoleGame;`
-- The screen size was changed to **120, 38**.
-- The `Startup()` method was removed.
-- `.OnStart(Startup)` which declared the `Startup()` method as the "starting" code, was replaced with `.SetStartingScreen<RootScreen>();`.
+- The project namespace was imported with `using SadConsoleGame;`.
 
-The `SetStartingScreen` configuration method designates an object as the starting object. It automatically assigns a new instance of that object to the `Game.Instance.Screen` property and destroys the starting console for you. This simplifies game setup. In this case, the newly created `RootScreen` class is going to be our container that is the game screen. All the startup code goes into that object.
+  > [!NOTE]
+  > The code in the tutorial is using the C# feature **top-level statements**. Without that feature, C# projects use a `Program.Main` method to specify the boot code. Top-level statements is cleaner, in my opinion, but requires that you import the root namespace used in your project.
+
+- The screen size was changed to **120, 38**.
+- `.OnStart(Startup)` which used the `Startup` method as the "starting" code, was replaced with `.SetStartingScreen<RootScreen>();`.
+- `IsStartingScreenFocused(true)` is called, which automatically sets the starting screen to focused.
+- The `Startup()` method was removed.
+
+The `SetStartingScreen` configuration method designates an object as the starting object. It automatically assigns a new instance of that object to the `Game.Instance.Screen` property. This simplifies game setup. In this case, the newly created `RootScreen` class is going to be our container that is the game screen. All the startup code goes into that object.
 
 ## Create a basic map
 
@@ -263,7 +270,15 @@ SadConsole sends keyboard input to the object that is focused. For our scene to 
 
   The `RootScreen` object is already focused because it's the starting screen. If you want to change which object directly receives keyboard input, focus it. Things like popup windows will focus themselves for keyboard input, and then when hidden, restore focus to the previously focused object.
 
-- Override the `ProcessKeyboard` method in the `RootScreen` class. Add the following code to the `RootScreen` class.
+- Override the `ProcessKeyboard` method in the `RootScreen` class.
+
+  01. First, import the `SadConsole.Input` namespace at the top of the code file:
+
+  ```csharp
+  using SadConsole.Input;
+  ```
+
+  01. Next, add the following code after the `FillBackground` method:
 
   ```csharp
   public override bool ProcessKeyboard(Keyboard keyboard)
@@ -337,6 +352,8 @@ For this code you're going to edit the _GameObject.cs_ file.
     {
         private ColoredGlyph _mapAppearance = new ColoredGlyph();
     
+        public Point Position { get; private set; }
+
         // ... other code ...
     ```
 

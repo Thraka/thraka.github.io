@@ -68,7 +68,7 @@ static void Init()
 
 The above code results in the following console.
 
-![string parser demonstration window](images/string-parser-demo.png)
+![string parser demonstration window](./images/syntax/string-parser-demo.png)
 
 ## Command: Recolor
 

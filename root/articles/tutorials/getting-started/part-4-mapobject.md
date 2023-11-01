@@ -1,6 +1,6 @@
 ---
-description: Part 4 of the getting started series. This article explores creating a proper map object to hold all the game objects. The game objects are updated with the capability to touch one another.
-ms.date: 09/04/2023
+description: Part 4 of the SadConsole getting started series. This article explores creating a proper map object to hold all the game objects. The game objects are updated with the capability to touch one another.
+ms.date: 10/31/2023
 ---
 
 # Get Started 4 - A proper map
@@ -187,7 +187,7 @@ First, the map needs to be able to create these new objects.
         // ... other code ...
     ```
 
-    Notice that `GameObjects` is a read-only list. This lets anything outside of the map know about what objects are on the map, but we want the map itself to control adding and removing game objects.
+    Notice that `GameObjects` is a read-only list. This lets code outside of the map know about what objects are on the map, but we want the map itself to control adding and removing game objects.
 
 01. Next, update the `Map` constructor to initialize the `_mapObjects` collection:
 

@@ -1,6 +1,6 @@
 ---
 description: Learn how to get started with SadConsole by drawing on a console.
-ms.date: 09/04/2023
+ms.date: 10/31/2023
 ---
 
 # Get Started 1 - Draw on a console
@@ -42,7 +42,7 @@ The previous section leads you to material that helps you create a SadConsole pr
     
       <ItemGroup>
         <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.1.303" />
-        <PackageReference Include="SadConsole.Host.MonoGame" Version="10.0.0-alpha4-debug" />
+        <PackageReference Include="SadConsole.Host.MonoGame" Version="10.0.0" />
       </ItemGroup>
     
     </Project>
@@ -54,23 +54,17 @@ The previous section leads you to material that helps you create a SadConsole pr
 01. Open _Program.cs_ and replace the code with the following:
 
     ```csharp
+    using SadConsole.Configuration;
+
     Settings.WindowTitle = "My SadConsole Game";
     
-    Game.Configuration gameStartup = new Game.Configuration()
-        .SetScreenSize(90, 30)
-        .OnStart(Startup)
-        ;
-    
-    Game.Create(gameStartup);
+    Game.Create(90, 30, Startup);
     Game.Instance.Run();
     Game.Instance.Dispose();
     
-    static void Startup()
+    static void Startup(object? sender, GameHost host)
     {
-        if (Game.Instance.StartingConsole is null)
-            throw new NullReferenceException("Unsure why. If you used a game config with SetStartingScreen, it destroys the StartingConsole object.");
-    
-        Game.Instance.StartingConsole.FillWithRandomGarbage(SadConsole.Game.Instance.StartingConsole.Font);
+        Game.Instance.StartingConsole!.FillWithRandomGarbage(SadConsole.Game.Instance.StartingConsole!.Font);
         Game.Instance.StartingConsole.Fill(new Rectangle(3, 3, 23, 3), Color.Violet, Color.Black, 0, Mirror.None);
         Game.Instance.StartingConsole.Print(4, 4, "Hello from SadConsole");
     }
@@ -82,34 +76,28 @@ You should be able to run this code and see the following output. You can run yo
 
 ## Exploring the sample code
 
-The `static void Startup()` method created in the previous section provides a simple place to easily explore and play with SadConsole without creating any real game code. The `Startup` method is declared as [`static`][csharp-static] which means that you don't have to create an instance of a type to access this method. This method was provided to SadConsole in the code at the start of the program. This is a hook where you can provide some extra initialization code for your game, such as creating all the startup variables and objects.
+The `static void Startup(object? sender, GameHost host)` method is used as an event handler by SadConsole. When the game starts, this method will be called and any code you provide in it is executed. For now, this method provides a simple place to easily explore and play with SadConsole without creating any real game code.
+
+The `Startup` method is declared as [`static`][csharp-static] which means that you don't have to create an instance of a type to access this method. This method was provided to SadConsole in the code at the start of the program. This is a hook where you can provide some extra initialization code for your game, such as creating all the startup variables and objects.
 
 Let's explore the `Startup` method:
 
 ```csharp
-static void Startup()
+static void Startup(object? sender, GameHost host)
 {
-    if (Game.Instance.StartingConsole is null)
-        throw new NullReferenceException("StartingConsole is null. If you used a game config with SetStartingScreen, it destroys the StartingConsole object.");
-
-    Game.Instance.StartingConsole.FillWithRandomGarbage(SadConsole.Game.Instance.StartingConsole.Font);
+    Game.Instance.StartingConsole!.FillWithRandomGarbage(SadConsole.Game.Instance.StartingConsole!.Font);
     Game.Instance.StartingConsole.Fill(new Rectangle(3, 3, 23, 3), Color.Violet, Color.Black, 0, Mirror.None);
     Game.Instance.StartingConsole.Print(4, 4, "Hello from SadConsole");
 }
 ```
 
-01. This code is accessing the default starting console. You provided the size of the starting console when you created the SadConsole game. The first line double checks that the starting console exists. Since the startup config didn't explicitly set a startup **object**, the `StartingConsole` is created. The example code in this first part of the tutorial series uses it.
+01. This code is accessing the default starting console. You provided the size of the starting console when you created the SadConsole game. The first code line fills the console with some garbage, that is, random characters and colors.
 
     ```csharp
-    if (Game.Instance.StartingConsole is null)
-        throw new NullReferenceException("StartingConsole is null. If you used a game config with SetStartingScreen, it destroys the StartingConsole object.");
+    Game.Instance.StartingConsole!.FillWithRandomGarbage(SadConsole.Game.Instance.StartingConsole!.Font);
     ```
 
-01. The first code line fills the console with some garbage, that is, random characters and colors.
-
-    ```csharp
-    Game.Instance.StartingConsole.FillWithRandomGarbage(SadConsole.Game.Instance.StartingConsole.Font);
-    ```
+    Did you notice the `!` in that line of code? Because `StartingConsole` can be null, we need to tell C# that we understand this and we're absolutely sure that it isn't null, which is what the `!` (null-forgiving) operator does in this case. This isn't required, but if your code editor was warning you that `StartingConsole` might be null, this disables that warning.
 
 01. The next line fills a rectangle region with some color to create a box.
 
@@ -138,14 +126,11 @@ Play around with these methods. Try filling in some other boxes, changing the co
 Let's add some more code to the `Startup` method to draw more things to the screen. However, simplify the access to `Game.Instance.StartingConsole` by assigning it to a variable named `startingConsole`, this will make it easier to write code that interacts with it. You can copy/paste this code over your existing code so that you're in sync with the article:
 
 ```csharp
-static void Startup()
+static void Startup(object? sender, GameHost host)
 {
-    if (Game.Instance.StartingConsole is null)
-        throw new NullReferenceException("Unsure why. If you used a game config with SetStartingScreen, it destroys the StartingConsole object.");
+    Console startingConsole = Game.Instance.StartingConsole!;
 
-    Console startingConsole = Game.Instance.StartingConsole;
-
-    startingConsole.FillWithRandomGarbage(SadConsole.Game.Instance.StartingConsole.Font);
+    startingConsole.FillWithRandomGarbage(startingConsole.Font);
     startingConsole.Fill(new Rectangle(3, 3, 23, 3), Color.Violet, Color.Black, 0, Mirror.None);
     startingConsole.Print(4, 4, "Hello from SadConsole");
 }
@@ -216,12 +201,9 @@ startingConsole.DrawLine(new Point(60, 5), new Point(66, 20), '$', Color.AnsiBlu
 Your `Startup` method should look like the following:
 
 ```csharp
-static void Startup()
+static void Startup(object? sender, GameHost host)
 {
-    if (Game.Instance.StartingConsole is null)
-        throw new NullReferenceException("Unsure why. If you used a game config with SetStartingScreen, it destroys the StartingConsole object.");
-
-    Console startingConsole = Game.Instance.StartingConsole;
+    Console startingConsole = Game.Instance.StartingConsole!;
 
     startingConsole.Fill(new Rectangle(3, 3, 23, 3), Color.Violet, Color.Black, 0, Mirror.None);
     startingConsole.Print(4, 4, "Hello from SadConsole");

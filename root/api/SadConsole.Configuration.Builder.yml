@@ -1,0 +1,2327 @@
+### YamlMime:ManagedReference
+items:
+- uid: SadConsole.Configuration.Builder
+  commentId: T:SadConsole.Configuration.Builder
+  id: Builder
+  parent: SadConsole.Configuration
+  children:
+  - SadConsole.Configuration.Builder.#ctor
+  - SadConsole.Configuration.Builder.Configs
+  - SadConsole.Configuration.Builder.GetOrCreateConfig``1
+  langs:
+  - csharp
+  - vb
+  name: Builder
+  nameWithType: Builder
+  fullName: SadConsole.Configuration.Builder
+  type: Class
+  assemblies:
+  - SadConsole.Host.MonoGame
+  namespace: SadConsole.Configuration
+  summary: Composes a game host object.
+  example: []
+  syntax:
+    content: public sealed class Builder
+    content.vb: Public NotInheritable Class Builder
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  extensionMethods:
+  - SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.AddFrameRenderEvent(System.EventHandler{SadConsole.GameHost})
+  - SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.AddFrameUpdateEvent(System.EventHandler{SadConsole.GameHost})
+  - SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.ConfigureFonts(System.Action{SadConsole.Configuration.FontConfig,SadConsole.Game})
+  - SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.ConfigureFonts(System.Boolean)
+  - SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.ConfigureFonts(System.String,System.String[])
+  - SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.FixOldFontName
+  - SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.IsStartingScreenFocused(System.Boolean)
+  - SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.OnEnd(System.EventHandler{SadConsole.GameHost})
+  - SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.OnStart(System.EventHandler{SadConsole.GameHost})
+  - SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.SetScreenSize(System.Int32,System.Int32)
+  - SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.SetSplashScreen(System.Func{SadConsole.Game,SadConsole.ScreenSurface[]})
+  - SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.SetSplashScreen``1
+  - SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.SetStartingScreen(System.Func{SadConsole.Game,SadConsole.IScreenObject})
+  - SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.SetStartingScreen``1
+  - SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.ShowMonoGameFPS
+  - SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.UseDefaultConsole
+  - SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.UseUnlimitedFPS
+  - SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.WithMonoGameCtor(System.Action{SadConsole.Host.Game})
+- uid: SadConsole.Configuration.Builder.GetOrCreateConfig``1
+  commentId: M:SadConsole.Configuration.Builder.GetOrCreateConfig``1
+  id: GetOrCreateConfig``1
+  parent: SadConsole.Configuration.Builder
+  langs:
+  - csharp
+  - vb
+  name: GetOrCreateConfig<TConfig>()
+  nameWithType: Builder.GetOrCreateConfig<TConfig>()
+  fullName: SadConsole.Configuration.Builder.GetOrCreateConfig<TConfig>()
+  type: Method
+  assemblies:
+  - SadConsole.Host.MonoGame
+  namespace: SadConsole.Configuration
+  summary: Adds or gets the specified config object from the <xref href="SadConsole.Configuration.Builder.Configs" data-throw-if-not-resolved="false"></xref> collection.
+  example: []
+  syntax:
+    content: 'public TConfig GetOrCreateConfig<TConfig>() where TConfig : IConfigurator, new()'
+    typeParameters:
+    - id: TConfig
+      description: The type of config object.
+    return:
+      type: '{TConfig}'
+      description: A new instance of <code class="typeparamref">TConfig</code> if it's not found in the <xref href="SadConsole.Configuration.Builder.Configs" data-throw-if-not-resolved="false"></xref> collection. If found in the collection, that instance is returned.
+    content.vb: Public Function GetOrCreateConfig(Of TConfig As {IConfigurator, New})() As TConfig
+  overload: SadConsole.Configuration.Builder.GetOrCreateConfig*
+  nameWithType.vb: Builder.GetOrCreateConfig(Of TConfig)()
+  fullName.vb: SadConsole.Configuration.Builder.GetOrCreateConfig(Of TConfig)()
+  name.vb: GetOrCreateConfig(Of TConfig)()
+- uid: SadConsole.Configuration.Builder.#ctor
+  commentId: M:SadConsole.Configuration.Builder.#ctor
+  id: '#ctor'
+  parent: SadConsole.Configuration.Builder
+  langs:
+  - csharp
+  - vb
+  name: Builder()
+  nameWithType: Builder.Builder()
+  fullName: SadConsole.Configuration.Builder.Builder()
+  type: Constructor
+  assemblies:
+  - SadConsole.Host.MonoGame
+  namespace: SadConsole.Configuration
+  syntax:
+    content: public Builder()
+    content.vb: Public Sub New()
+  overload: SadConsole.Configuration.Builder.#ctor*
+  nameWithType.vb: Builder.New()
+  fullName.vb: SadConsole.Configuration.Builder.New()
+  name.vb: New()
+- uid: SadConsole.Configuration.Builder.Configs
+  commentId: P:SadConsole.Configuration.Builder.Configs
+  id: Configs
+  parent: SadConsole.Configuration.Builder
+  langs:
+  - csharp
+  - vb
+  name: Configs
+  nameWithType: Builder.Configs
+  fullName: SadConsole.Configuration.Builder.Configs
+  type: Property
+  assemblies:
+  - SadConsole.Host.MonoGame
+  namespace: SadConsole.Configuration
+  summary: A collection of <xref href="SadConsole.Configuration.IConfigurator" data-throw-if-not-resolved="false"></xref> objects.
+  example: []
+  syntax:
+    content: public List<IConfigurator> Configs { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{SadConsole.Configuration.IConfigurator}
+    content.vb: Public ReadOnly Property Configs As List(Of IConfigurator)
+  overload: SadConsole.Configuration.Builder.Configs*
+references:
+- uid: SadConsole.Configuration
+  commentId: N:SadConsole.Configuration
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Configuration
+  nameWithType: SadConsole.Configuration
+  fullName: SadConsole.Configuration
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Configuration
+    name: Configuration
+    isExternal: true
+    href: SadConsole.Configuration.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Configuration
+    name: Configuration
+    isExternal: true
+    href: SadConsole.Configuration.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.AddFrameRenderEvent(System.EventHandler{SadConsole.GameHost})
+  commentId: M:SadConsole.Configuration.Extensions.AddFrameRenderEvent(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  parent: SadConsole.Configuration.Extensions
+  definition: SadConsole.Configuration.Extensions.AddFrameRenderEvent(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.AddFrameRenderEvent(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  name: AddFrameRenderEvent(Builder, EventHandler<GameHost>)
+  nameWithType: Extensions.AddFrameRenderEvent(Builder, EventHandler<GameHost>)
+  fullName: SadConsole.Configuration.Extensions.AddFrameRenderEvent(SadConsole.Configuration.Builder, System.EventHandler<SadConsole.GameHost>)
+  nameWithType.vb: Extensions.AddFrameRenderEvent(Builder, EventHandler(Of GameHost))
+  fullName.vb: SadConsole.Configuration.Extensions.AddFrameRenderEvent(SadConsole.Configuration.Builder, System.EventHandler(Of SadConsole.GameHost))
+  name.vb: AddFrameRenderEvent(Builder, EventHandler(Of GameHost))
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.AddFrameRenderEvent(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+    name: AddFrameRenderEvent
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.AddFrameRenderEvent(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: SadConsole.GameHost
+    name: GameHost
+    isExternal: true
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.AddFrameRenderEvent(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+    name: AddFrameRenderEvent
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.AddFrameRenderEvent(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.GameHost
+    name: GameHost
+    isExternal: true
+  - name: )
+  - name: )
+- uid: SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.AddFrameUpdateEvent(System.EventHandler{SadConsole.GameHost})
+  commentId: M:SadConsole.Configuration.Extensions.AddFrameUpdateEvent(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  parent: SadConsole.Configuration.Extensions
+  definition: SadConsole.Configuration.Extensions.AddFrameUpdateEvent(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.AddFrameUpdateEvent(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  name: AddFrameUpdateEvent(Builder, EventHandler<GameHost>)
+  nameWithType: Extensions.AddFrameUpdateEvent(Builder, EventHandler<GameHost>)
+  fullName: SadConsole.Configuration.Extensions.AddFrameUpdateEvent(SadConsole.Configuration.Builder, System.EventHandler<SadConsole.GameHost>)
+  nameWithType.vb: Extensions.AddFrameUpdateEvent(Builder, EventHandler(Of GameHost))
+  fullName.vb: SadConsole.Configuration.Extensions.AddFrameUpdateEvent(SadConsole.Configuration.Builder, System.EventHandler(Of SadConsole.GameHost))
+  name.vb: AddFrameUpdateEvent(Builder, EventHandler(Of GameHost))
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.AddFrameUpdateEvent(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+    name: AddFrameUpdateEvent
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.AddFrameUpdateEvent(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: SadConsole.GameHost
+    name: GameHost
+    isExternal: true
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.AddFrameUpdateEvent(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+    name: AddFrameUpdateEvent
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.AddFrameUpdateEvent(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.GameHost
+    name: GameHost
+    isExternal: true
+  - name: )
+  - name: )
+- uid: SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.ConfigureFonts(System.Action{SadConsole.Configuration.FontConfig,SadConsole.Game})
+  commentId: M:SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.Game})
+  parent: SadConsole.Configuration.Extensions
+  definition: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.Game})
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.Game})
+  name: ConfigureFonts(Builder, Action<FontConfig, Game>)
+  nameWithType: Extensions.ConfigureFonts(Builder, Action<FontConfig, Game>)
+  fullName: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder, System.Action<SadConsole.Configuration.FontConfig, SadConsole.Game>)
+  nameWithType.vb: Extensions.ConfigureFonts(Builder, Action(Of FontConfig, Game))
+  fullName.vb: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder, System.Action(Of SadConsole.Configuration.FontConfig, SadConsole.Game))
+  name.vb: ConfigureFonts(Builder, Action(Of FontConfig, Game))
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.Game})
+    name: ConfigureFonts
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.Game})
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - uid: SadConsole.Configuration.FontConfig
+    name: FontConfig
+    isExternal: true
+    href: SadConsole.Configuration.FontConfig.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Game
+    name: Game
+    isExternal: true
+    href: SadConsole.Game.html
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.Game})
+    name: ConfigureFonts
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.Game})
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Configuration.FontConfig
+    name: FontConfig
+    isExternal: true
+    href: SadConsole.Configuration.FontConfig.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Game
+    name: Game
+    isExternal: true
+    href: SadConsole.Game.html
+  - name: )
+  - name: )
+- uid: SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.ConfigureFonts(System.Boolean)
+  commentId: M:SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Boolean)
+  parent: SadConsole.Configuration.Extensions
+  definition: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Boolean)
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Boolean)
+  name: ConfigureFonts(Builder, bool)
+  nameWithType: Extensions.ConfigureFonts(Builder, bool)
+  fullName: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder, bool)
+  nameWithType.vb: Extensions.ConfigureFonts(Builder, Boolean)
+  fullName.vb: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder, Boolean)
+  name.vb: ConfigureFonts(Builder, Boolean)
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Boolean)
+    name: ConfigureFonts
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Boolean)
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Boolean)
+    name: ConfigureFonts
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Boolean)
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.ConfigureFonts(System.String,System.String[])
+  commentId: M:SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.String,System.String[])
+  parent: SadConsole.Configuration.Extensions
+  definition: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.String,System.String[])
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.String,System.String[])
+  name: ConfigureFonts(Builder, string, string[])
+  nameWithType: Extensions.ConfigureFonts(Builder, string, string[])
+  fullName: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder, string, string[])
+  nameWithType.vb: Extensions.ConfigureFonts(Builder, String, String())
+  fullName.vb: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder, String, String())
+  name.vb: ConfigureFonts(Builder, String, String())
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.String,System.String[])
+    name: ConfigureFonts
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.String,System.String[])
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.String,System.String[])
+    name: ConfigureFonts
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.String,System.String[])
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+  - name: )
+- uid: SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.FixOldFontName
+  commentId: M:SadConsole.Configuration.Extensions.FixOldFontName(SadConsole.Configuration.Builder)
+  parent: SadConsole.Configuration.Extensions
+  definition: SadConsole.Configuration.Extensions.FixOldFontName(SadConsole.Configuration.Builder)
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.FixOldFontName(SadConsole.Configuration.Builder)
+  name: FixOldFontName(Builder)
+  nameWithType: Extensions.FixOldFontName(Builder)
+  fullName: SadConsole.Configuration.Extensions.FixOldFontName(SadConsole.Configuration.Builder)
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.FixOldFontName(SadConsole.Configuration.Builder)
+    name: FixOldFontName
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.FixOldFontName(SadConsole.Configuration.Builder)
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.FixOldFontName(SadConsole.Configuration.Builder)
+    name: FixOldFontName
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.FixOldFontName(SadConsole.Configuration.Builder)
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: )
+- uid: SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.IsStartingScreenFocused(System.Boolean)
+  commentId: M:SadConsole.Configuration.Extensions.IsStartingScreenFocused(SadConsole.Configuration.Builder,System.Boolean)
+  parent: SadConsole.Configuration.Extensions
+  definition: SadConsole.Configuration.Extensions.IsStartingScreenFocused(SadConsole.Configuration.Builder,System.Boolean)
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.IsStartingScreenFocused(SadConsole.Configuration.Builder,System.Boolean)
+  name: IsStartingScreenFocused(Builder, bool)
+  nameWithType: Extensions.IsStartingScreenFocused(Builder, bool)
+  fullName: SadConsole.Configuration.Extensions.IsStartingScreenFocused(SadConsole.Configuration.Builder, bool)
+  nameWithType.vb: Extensions.IsStartingScreenFocused(Builder, Boolean)
+  fullName.vb: SadConsole.Configuration.Extensions.IsStartingScreenFocused(SadConsole.Configuration.Builder, Boolean)
+  name.vb: IsStartingScreenFocused(Builder, Boolean)
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.IsStartingScreenFocused(SadConsole.Configuration.Builder,System.Boolean)
+    name: IsStartingScreenFocused
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.IsStartingScreenFocused(SadConsole.Configuration.Builder,System.Boolean)
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.IsStartingScreenFocused(SadConsole.Configuration.Builder,System.Boolean)
+    name: IsStartingScreenFocused
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.IsStartingScreenFocused(SadConsole.Configuration.Builder,System.Boolean)
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.OnEnd(System.EventHandler{SadConsole.GameHost})
+  commentId: M:SadConsole.Configuration.Extensions.OnEnd(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  parent: SadConsole.Configuration.Extensions
+  definition: SadConsole.Configuration.Extensions.OnEnd(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.OnEnd(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  name: OnEnd(Builder, EventHandler<GameHost>)
+  nameWithType: Extensions.OnEnd(Builder, EventHandler<GameHost>)
+  fullName: SadConsole.Configuration.Extensions.OnEnd(SadConsole.Configuration.Builder, System.EventHandler<SadConsole.GameHost>)
+  nameWithType.vb: Extensions.OnEnd(Builder, EventHandler(Of GameHost))
+  fullName.vb: SadConsole.Configuration.Extensions.OnEnd(SadConsole.Configuration.Builder, System.EventHandler(Of SadConsole.GameHost))
+  name.vb: OnEnd(Builder, EventHandler(Of GameHost))
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.OnEnd(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+    name: OnEnd
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.OnEnd(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: SadConsole.GameHost
+    name: GameHost
+    isExternal: true
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.OnEnd(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+    name: OnEnd
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.OnEnd(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.GameHost
+    name: GameHost
+    isExternal: true
+  - name: )
+  - name: )
+- uid: SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.OnStart(System.EventHandler{SadConsole.GameHost})
+  commentId: M:SadConsole.Configuration.Extensions.OnStart(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  parent: SadConsole.Configuration.Extensions
+  definition: SadConsole.Configuration.Extensions.OnStart(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.OnStart(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  name: OnStart(Builder, EventHandler<GameHost>)
+  nameWithType: Extensions.OnStart(Builder, EventHandler<GameHost>)
+  fullName: SadConsole.Configuration.Extensions.OnStart(SadConsole.Configuration.Builder, System.EventHandler<SadConsole.GameHost>)
+  nameWithType.vb: Extensions.OnStart(Builder, EventHandler(Of GameHost))
+  fullName.vb: SadConsole.Configuration.Extensions.OnStart(SadConsole.Configuration.Builder, System.EventHandler(Of SadConsole.GameHost))
+  name.vb: OnStart(Builder, EventHandler(Of GameHost))
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.OnStart(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+    name: OnStart
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.OnStart(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: SadConsole.GameHost
+    name: GameHost
+    isExternal: true
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.OnStart(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+    name: OnStart
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.OnStart(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.GameHost
+    name: GameHost
+    isExternal: true
+  - name: )
+  - name: )
+- uid: SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.SetScreenSize(System.Int32,System.Int32)
+  commentId: M:SadConsole.Configuration.Extensions.SetScreenSize(SadConsole.Configuration.Builder,System.Int32,System.Int32)
+  parent: SadConsole.Configuration.Extensions
+  definition: SadConsole.Configuration.Extensions.SetScreenSize(SadConsole.Configuration.Builder,System.Int32,System.Int32)
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.SetScreenSize(SadConsole.Configuration.Builder,System.Int32,System.Int32)
+  name: SetScreenSize(Builder, int, int)
+  nameWithType: Extensions.SetScreenSize(Builder, int, int)
+  fullName: SadConsole.Configuration.Extensions.SetScreenSize(SadConsole.Configuration.Builder, int, int)
+  nameWithType.vb: Extensions.SetScreenSize(Builder, Integer, Integer)
+  fullName.vb: SadConsole.Configuration.Extensions.SetScreenSize(SadConsole.Configuration.Builder, Integer, Integer)
+  name.vb: SetScreenSize(Builder, Integer, Integer)
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.SetScreenSize(SadConsole.Configuration.Builder,System.Int32,System.Int32)
+    name: SetScreenSize
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.SetScreenSize(SadConsole.Configuration.Builder,System.Int32,System.Int32)
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.SetScreenSize(SadConsole.Configuration.Builder,System.Int32,System.Int32)
+    name: SetScreenSize
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.SetScreenSize(SadConsole.Configuration.Builder,System.Int32,System.Int32)
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.SetSplashScreen(System.Func{SadConsole.Game,SadConsole.ScreenSurface[]})
+  commentId: M:SadConsole.Configuration.Extensions.SetSplashScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.ScreenSurface[]})
+  parent: SadConsole.Configuration.Extensions
+  definition: SadConsole.Configuration.Extensions.SetSplashScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.ScreenSurface[]})
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.SetSplashScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.ScreenSurface[]})
+  name: SetSplashScreen(Builder, Func<Game, ScreenSurface[]>)
+  nameWithType: Extensions.SetSplashScreen(Builder, Func<Game, ScreenSurface[]>)
+  fullName: SadConsole.Configuration.Extensions.SetSplashScreen(SadConsole.Configuration.Builder, System.Func<SadConsole.Game, SadConsole.ScreenSurface[]>)
+  nameWithType.vb: Extensions.SetSplashScreen(Builder, Func(Of Game, ScreenSurface()))
+  fullName.vb: SadConsole.Configuration.Extensions.SetSplashScreen(SadConsole.Configuration.Builder, System.Func(Of SadConsole.Game, SadConsole.ScreenSurface()))
+  name.vb: SetSplashScreen(Builder, Func(Of Game, ScreenSurface()))
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.SetSplashScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.ScreenSurface[]})
+    name: SetSplashScreen
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.SetSplashScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.ScreenSurface[]})
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: SadConsole.Game
+    name: Game
+    isExternal: true
+    href: SadConsole.Game.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.ScreenSurface
+    name: ScreenSurface
+    isExternal: true
+  - name: '['
+  - name: ']'
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.SetSplashScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.ScreenSurface[]})
+    name: SetSplashScreen
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.SetSplashScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.ScreenSurface[]})
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Game
+    name: Game
+    isExternal: true
+    href: SadConsole.Game.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.ScreenSurface
+    name: ScreenSurface
+    isExternal: true
+  - name: (
+  - name: )
+  - name: )
+  - name: )
+- uid: SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.SetSplashScreen``1
+  commentId: M:SadConsole.Configuration.Extensions.SetSplashScreen``1(SadConsole.Configuration.Builder)
+  parent: SadConsole.Configuration.Extensions
+  definition: SadConsole.Configuration.Extensions.SetSplashScreen``1(SadConsole.Configuration.Builder)
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.SetSplashScreen``1(SadConsole.Configuration.Builder)
+  name: SetSplashScreen<TSplashScreen>(Builder)
+  nameWithType: Extensions.SetSplashScreen<TSplashScreen>(Builder)
+  fullName: SadConsole.Configuration.Extensions.SetSplashScreen<TSplashScreen>(SadConsole.Configuration.Builder)
+  nameWithType.vb: Extensions.SetSplashScreen(Of TSplashScreen)(Builder)
+  fullName.vb: SadConsole.Configuration.Extensions.SetSplashScreen(Of TSplashScreen)(SadConsole.Configuration.Builder)
+  name.vb: SetSplashScreen(Of TSplashScreen)(Builder)
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.SetSplashScreen``1(SadConsole.Configuration.Builder)
+    name: SetSplashScreen
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.SetSplashScreen``1(SadConsole.Configuration.Builder)
+  - name: <
+  - name: TSplashScreen
+  - name: '>'
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.SetSplashScreen``1(SadConsole.Configuration.Builder)
+    name: SetSplashScreen
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.SetSplashScreen``1(SadConsole.Configuration.Builder)
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSplashScreen
+  - name: )
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: )
+- uid: SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.SetStartingScreen(System.Func{SadConsole.Game,SadConsole.IScreenObject})
+  commentId: M:SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.IScreenObject})
+  parent: SadConsole.Configuration.Extensions
+  definition: SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.IScreenObject})
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.IScreenObject})
+  name: SetStartingScreen(Builder, Func<Game, IScreenObject>)
+  nameWithType: Extensions.SetStartingScreen(Builder, Func<Game, IScreenObject>)
+  fullName: SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder, System.Func<SadConsole.Game, SadConsole.IScreenObject>)
+  nameWithType.vb: Extensions.SetStartingScreen(Builder, Func(Of Game, IScreenObject))
+  fullName.vb: SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder, System.Func(Of SadConsole.Game, SadConsole.IScreenObject))
+  name.vb: SetStartingScreen(Builder, Func(Of Game, IScreenObject))
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.IScreenObject})
+    name: SetStartingScreen
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.IScreenObject})
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: SadConsole.Game
+    name: Game
+    isExternal: true
+    href: SadConsole.Game.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.IScreenObject})
+    name: SetStartingScreen
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.IScreenObject})
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Game
+    name: Game
+    isExternal: true
+    href: SadConsole.Game.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+  - name: )
+  - name: )
+- uid: SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.SetStartingScreen``1
+  commentId: M:SadConsole.Configuration.Extensions.SetStartingScreen``1(SadConsole.Configuration.Builder)
+  parent: SadConsole.Configuration.Extensions
+  definition: SadConsole.Configuration.Extensions.SetStartingScreen``1(SadConsole.Configuration.Builder)
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.SetStartingScreen``1(SadConsole.Configuration.Builder)
+  name: SetStartingScreen<TRootObject>(Builder)
+  nameWithType: Extensions.SetStartingScreen<TRootObject>(Builder)
+  fullName: SadConsole.Configuration.Extensions.SetStartingScreen<TRootObject>(SadConsole.Configuration.Builder)
+  nameWithType.vb: Extensions.SetStartingScreen(Of TRootObject)(Builder)
+  fullName.vb: SadConsole.Configuration.Extensions.SetStartingScreen(Of TRootObject)(SadConsole.Configuration.Builder)
+  name.vb: SetStartingScreen(Of TRootObject)(Builder)
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.SetStartingScreen``1(SadConsole.Configuration.Builder)
+    name: SetStartingScreen
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.SetStartingScreen``1(SadConsole.Configuration.Builder)
+  - name: <
+  - name: TRootObject
+  - name: '>'
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.SetStartingScreen``1(SadConsole.Configuration.Builder)
+    name: SetStartingScreen
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.SetStartingScreen``1(SadConsole.Configuration.Builder)
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TRootObject
+  - name: )
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: )
+- uid: SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.ShowMonoGameFPS
+  commentId: M:SadConsole.Configuration.Extensions.ShowMonoGameFPS(SadConsole.Configuration.Builder)
+  parent: SadConsole.Configuration.Extensions
+  definition: SadConsole.Configuration.Extensions.ShowMonoGameFPS(SadConsole.Configuration.Builder)
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.ShowMonoGameFPS(SadConsole.Configuration.Builder)
+  name: ShowMonoGameFPS(Builder)
+  nameWithType: Extensions.ShowMonoGameFPS(Builder)
+  fullName: SadConsole.Configuration.Extensions.ShowMonoGameFPS(SadConsole.Configuration.Builder)
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.ShowMonoGameFPS(SadConsole.Configuration.Builder)
+    name: ShowMonoGameFPS
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.ShowMonoGameFPS(SadConsole.Configuration.Builder)
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.ShowMonoGameFPS(SadConsole.Configuration.Builder)
+    name: ShowMonoGameFPS
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.ShowMonoGameFPS(SadConsole.Configuration.Builder)
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: )
+- uid: SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.UseDefaultConsole
+  commentId: M:SadConsole.Configuration.Extensions.UseDefaultConsole(SadConsole.Configuration.Builder)
+  parent: SadConsole.Configuration.Extensions
+  definition: SadConsole.Configuration.Extensions.UseDefaultConsole(SadConsole.Configuration.Builder)
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.UseDefaultConsole(SadConsole.Configuration.Builder)
+  name: UseDefaultConsole(Builder)
+  nameWithType: Extensions.UseDefaultConsole(Builder)
+  fullName: SadConsole.Configuration.Extensions.UseDefaultConsole(SadConsole.Configuration.Builder)
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.UseDefaultConsole(SadConsole.Configuration.Builder)
+    name: UseDefaultConsole
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.UseDefaultConsole(SadConsole.Configuration.Builder)
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.UseDefaultConsole(SadConsole.Configuration.Builder)
+    name: UseDefaultConsole
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.UseDefaultConsole(SadConsole.Configuration.Builder)
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: )
+- uid: SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.UseUnlimitedFPS
+  commentId: M:SadConsole.Configuration.Extensions.UseUnlimitedFPS(SadConsole.Configuration.Builder)
+  parent: SadConsole.Configuration.Extensions
+  definition: SadConsole.Configuration.Extensions.UseUnlimitedFPS(SadConsole.Configuration.Builder)
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.UseUnlimitedFPS(SadConsole.Configuration.Builder)
+  name: UseUnlimitedFPS(Builder)
+  nameWithType: Extensions.UseUnlimitedFPS(Builder)
+  fullName: SadConsole.Configuration.Extensions.UseUnlimitedFPS(SadConsole.Configuration.Builder)
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.UseUnlimitedFPS(SadConsole.Configuration.Builder)
+    name: UseUnlimitedFPS
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.UseUnlimitedFPS(SadConsole.Configuration.Builder)
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.UseUnlimitedFPS(SadConsole.Configuration.Builder)
+    name: UseUnlimitedFPS
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.UseUnlimitedFPS(SadConsole.Configuration.Builder)
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: )
+- uid: SadConsole.Configuration.Builder.SadConsole.Configuration.Extensions.WithMonoGameCtor(System.Action{SadConsole.Host.Game})
+  commentId: M:SadConsole.Configuration.Extensions.WithMonoGameCtor(SadConsole.Configuration.Builder,System.Action{SadConsole.Host.Game})
+  parent: SadConsole.Configuration.Extensions
+  definition: SadConsole.Configuration.Extensions.WithMonoGameCtor(SadConsole.Configuration.Builder,System.Action{SadConsole.Host.Game})
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.WithMonoGameCtor(SadConsole.Configuration.Builder,System.Action{SadConsole.Host.Game})
+  name: WithMonoGameCtor(Builder, Action<Game>)
+  nameWithType: Extensions.WithMonoGameCtor(Builder, Action<Game>)
+  fullName: SadConsole.Configuration.Extensions.WithMonoGameCtor(SadConsole.Configuration.Builder, System.Action<SadConsole.Host.Game>)
+  nameWithType.vb: Extensions.WithMonoGameCtor(Builder, Action(Of Game))
+  fullName.vb: SadConsole.Configuration.Extensions.WithMonoGameCtor(SadConsole.Configuration.Builder, System.Action(Of SadConsole.Host.Game))
+  name.vb: WithMonoGameCtor(Builder, Action(Of Game))
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.WithMonoGameCtor(SadConsole.Configuration.Builder,System.Action{SadConsole.Host.Game})
+    name: WithMonoGameCtor
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.WithMonoGameCtor(SadConsole.Configuration.Builder,System.Action{SadConsole.Host.Game})
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: SadConsole.Host.Game
+    name: Game
+    isExternal: true
+    href: SadConsole.Host.Game.html
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.WithMonoGameCtor(SadConsole.Configuration.Builder,System.Action{SadConsole.Host.Game})
+    name: WithMonoGameCtor
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.WithMonoGameCtor(SadConsole.Configuration.Builder,System.Action{SadConsole.Host.Game})
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Host.Game
+    name: Game
+    isExternal: true
+    href: SadConsole.Host.Game.html
+  - name: )
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SadConsole.Configuration.Extensions.AddFrameRenderEvent(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  commentId: M:SadConsole.Configuration.Extensions.AddFrameRenderEvent(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  isExternal: true
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.AddFrameRenderEvent(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  name: AddFrameRenderEvent(Builder, EventHandler<GameHost>)
+  nameWithType: Extensions.AddFrameRenderEvent(Builder, EventHandler<GameHost>)
+  fullName: SadConsole.Configuration.Extensions.AddFrameRenderEvent(SadConsole.Configuration.Builder, System.EventHandler<SadConsole.GameHost>)
+  nameWithType.vb: Extensions.AddFrameRenderEvent(Builder, EventHandler(Of GameHost))
+  fullName.vb: SadConsole.Configuration.Extensions.AddFrameRenderEvent(SadConsole.Configuration.Builder, System.EventHandler(Of SadConsole.GameHost))
+  name.vb: AddFrameRenderEvent(Builder, EventHandler(Of GameHost))
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.AddFrameRenderEvent(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+    name: AddFrameRenderEvent
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.AddFrameRenderEvent(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: SadConsole.GameHost
+    name: GameHost
+    isExternal: true
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.AddFrameRenderEvent(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+    name: AddFrameRenderEvent
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.AddFrameRenderEvent(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.GameHost
+    name: GameHost
+    isExternal: true
+  - name: )
+  - name: )
+- uid: SadConsole.Configuration.Extensions
+  commentId: T:SadConsole.Configuration.Extensions
+  parent: SadConsole.Configuration
+  isExternal: true
+  href: SadConsole.Configuration.Extensions.html
+  name: Extensions
+  nameWithType: Extensions
+  fullName: SadConsole.Configuration.Extensions
+- uid: SadConsole.Configuration.Extensions.AddFrameUpdateEvent(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  commentId: M:SadConsole.Configuration.Extensions.AddFrameUpdateEvent(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  isExternal: true
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.AddFrameUpdateEvent(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  name: AddFrameUpdateEvent(Builder, EventHandler<GameHost>)
+  nameWithType: Extensions.AddFrameUpdateEvent(Builder, EventHandler<GameHost>)
+  fullName: SadConsole.Configuration.Extensions.AddFrameUpdateEvent(SadConsole.Configuration.Builder, System.EventHandler<SadConsole.GameHost>)
+  nameWithType.vb: Extensions.AddFrameUpdateEvent(Builder, EventHandler(Of GameHost))
+  fullName.vb: SadConsole.Configuration.Extensions.AddFrameUpdateEvent(SadConsole.Configuration.Builder, System.EventHandler(Of SadConsole.GameHost))
+  name.vb: AddFrameUpdateEvent(Builder, EventHandler(Of GameHost))
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.AddFrameUpdateEvent(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+    name: AddFrameUpdateEvent
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.AddFrameUpdateEvent(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: SadConsole.GameHost
+    name: GameHost
+    isExternal: true
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.AddFrameUpdateEvent(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+    name: AddFrameUpdateEvent
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.AddFrameUpdateEvent(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.GameHost
+    name: GameHost
+    isExternal: true
+  - name: )
+  - name: )
+- uid: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.Game})
+  commentId: M:SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.Game})
+  isExternal: true
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.Game})
+  name: ConfigureFonts(Builder, Action<FontConfig, Game>)
+  nameWithType: Extensions.ConfigureFonts(Builder, Action<FontConfig, Game>)
+  fullName: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder, System.Action<SadConsole.Configuration.FontConfig, SadConsole.Game>)
+  nameWithType.vb: Extensions.ConfigureFonts(Builder, Action(Of FontConfig, Game))
+  fullName.vb: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder, System.Action(Of SadConsole.Configuration.FontConfig, SadConsole.Game))
+  name.vb: ConfigureFonts(Builder, Action(Of FontConfig, Game))
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.Game})
+    name: ConfigureFonts
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.Game})
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: <
+  - uid: SadConsole.Configuration.FontConfig
+    name: FontConfig
+    isExternal: true
+    href: SadConsole.Configuration.FontConfig.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Game
+    name: Game
+    isExternal: true
+    href: SadConsole.Game.html
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.Game})
+    name: ConfigureFonts
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.Game})
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`2
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Configuration.FontConfig
+    name: FontConfig
+    isExternal: true
+    href: SadConsole.Configuration.FontConfig.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Game
+    name: Game
+    isExternal: true
+    href: SadConsole.Game.html
+  - name: )
+  - name: )
+- uid: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Boolean)
+  commentId: M:SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Boolean)
+  isExternal: true
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Boolean)
+  name: ConfigureFonts(Builder, bool)
+  nameWithType: Extensions.ConfigureFonts(Builder, bool)
+  fullName: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder, bool)
+  nameWithType.vb: Extensions.ConfigureFonts(Builder, Boolean)
+  fullName.vb: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder, Boolean)
+  name.vb: ConfigureFonts(Builder, Boolean)
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Boolean)
+    name: ConfigureFonts
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Boolean)
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Boolean)
+    name: ConfigureFonts
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Boolean)
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.String,System.String[])
+  commentId: M:SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.String,System.String[])
+  isExternal: true
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.String,System.String[])
+  name: ConfigureFonts(Builder, string, string[])
+  nameWithType: Extensions.ConfigureFonts(Builder, string, string[])
+  fullName: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder, string, string[])
+  nameWithType.vb: Extensions.ConfigureFonts(Builder, String, String())
+  fullName.vb: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder, String, String())
+  name.vb: ConfigureFonts(Builder, String, String())
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.String,System.String[])
+    name: ConfigureFonts
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.String,System.String[])
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.String,System.String[])
+    name: ConfigureFonts
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.String,System.String[])
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+  - name: )
+- uid: SadConsole.Configuration.Extensions.FixOldFontName(SadConsole.Configuration.Builder)
+  commentId: M:SadConsole.Configuration.Extensions.FixOldFontName(SadConsole.Configuration.Builder)
+  isExternal: true
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.FixOldFontName(SadConsole.Configuration.Builder)
+  name: FixOldFontName(Builder)
+  nameWithType: Extensions.FixOldFontName(Builder)
+  fullName: SadConsole.Configuration.Extensions.FixOldFontName(SadConsole.Configuration.Builder)
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.FixOldFontName(SadConsole.Configuration.Builder)
+    name: FixOldFontName
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.FixOldFontName(SadConsole.Configuration.Builder)
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.FixOldFontName(SadConsole.Configuration.Builder)
+    name: FixOldFontName
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.FixOldFontName(SadConsole.Configuration.Builder)
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: )
+- uid: SadConsole.Configuration.Extensions.IsStartingScreenFocused(SadConsole.Configuration.Builder,System.Boolean)
+  commentId: M:SadConsole.Configuration.Extensions.IsStartingScreenFocused(SadConsole.Configuration.Builder,System.Boolean)
+  isExternal: true
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.IsStartingScreenFocused(SadConsole.Configuration.Builder,System.Boolean)
+  name: IsStartingScreenFocused(Builder, bool)
+  nameWithType: Extensions.IsStartingScreenFocused(Builder, bool)
+  fullName: SadConsole.Configuration.Extensions.IsStartingScreenFocused(SadConsole.Configuration.Builder, bool)
+  nameWithType.vb: Extensions.IsStartingScreenFocused(Builder, Boolean)
+  fullName.vb: SadConsole.Configuration.Extensions.IsStartingScreenFocused(SadConsole.Configuration.Builder, Boolean)
+  name.vb: IsStartingScreenFocused(Builder, Boolean)
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.IsStartingScreenFocused(SadConsole.Configuration.Builder,System.Boolean)
+    name: IsStartingScreenFocused
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.IsStartingScreenFocused(SadConsole.Configuration.Builder,System.Boolean)
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.IsStartingScreenFocused(SadConsole.Configuration.Builder,System.Boolean)
+    name: IsStartingScreenFocused
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.IsStartingScreenFocused(SadConsole.Configuration.Builder,System.Boolean)
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: SadConsole.Configuration.Extensions.OnEnd(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  commentId: M:SadConsole.Configuration.Extensions.OnEnd(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  isExternal: true
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.OnEnd(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  name: OnEnd(Builder, EventHandler<GameHost>)
+  nameWithType: Extensions.OnEnd(Builder, EventHandler<GameHost>)
+  fullName: SadConsole.Configuration.Extensions.OnEnd(SadConsole.Configuration.Builder, System.EventHandler<SadConsole.GameHost>)
+  nameWithType.vb: Extensions.OnEnd(Builder, EventHandler(Of GameHost))
+  fullName.vb: SadConsole.Configuration.Extensions.OnEnd(SadConsole.Configuration.Builder, System.EventHandler(Of SadConsole.GameHost))
+  name.vb: OnEnd(Builder, EventHandler(Of GameHost))
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.OnEnd(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+    name: OnEnd
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.OnEnd(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: SadConsole.GameHost
+    name: GameHost
+    isExternal: true
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.OnEnd(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+    name: OnEnd
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.OnEnd(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.GameHost
+    name: GameHost
+    isExternal: true
+  - name: )
+  - name: )
+- uid: SadConsole.Configuration.Extensions.OnStart(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  commentId: M:SadConsole.Configuration.Extensions.OnStart(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  isExternal: true
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.OnStart(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  name: OnStart(Builder, EventHandler<GameHost>)
+  nameWithType: Extensions.OnStart(Builder, EventHandler<GameHost>)
+  fullName: SadConsole.Configuration.Extensions.OnStart(SadConsole.Configuration.Builder, System.EventHandler<SadConsole.GameHost>)
+  nameWithType.vb: Extensions.OnStart(Builder, EventHandler(Of GameHost))
+  fullName.vb: SadConsole.Configuration.Extensions.OnStart(SadConsole.Configuration.Builder, System.EventHandler(Of SadConsole.GameHost))
+  name.vb: OnStart(Builder, EventHandler(Of GameHost))
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.OnStart(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+    name: OnStart
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.OnStart(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: <
+  - uid: SadConsole.GameHost
+    name: GameHost
+    isExternal: true
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.OnStart(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+    name: OnStart
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.OnStart(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.EventHandler`1
+    name: EventHandler
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.eventhandler-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.GameHost
+    name: GameHost
+    isExternal: true
+  - name: )
+  - name: )
+- uid: SadConsole.Configuration.Extensions.SetScreenSize(SadConsole.Configuration.Builder,System.Int32,System.Int32)
+  commentId: M:SadConsole.Configuration.Extensions.SetScreenSize(SadConsole.Configuration.Builder,System.Int32,System.Int32)
+  isExternal: true
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.SetScreenSize(SadConsole.Configuration.Builder,System.Int32,System.Int32)
+  name: SetScreenSize(Builder, int, int)
+  nameWithType: Extensions.SetScreenSize(Builder, int, int)
+  fullName: SadConsole.Configuration.Extensions.SetScreenSize(SadConsole.Configuration.Builder, int, int)
+  nameWithType.vb: Extensions.SetScreenSize(Builder, Integer, Integer)
+  fullName.vb: SadConsole.Configuration.Extensions.SetScreenSize(SadConsole.Configuration.Builder, Integer, Integer)
+  name.vb: SetScreenSize(Builder, Integer, Integer)
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.SetScreenSize(SadConsole.Configuration.Builder,System.Int32,System.Int32)
+    name: SetScreenSize
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.SetScreenSize(SadConsole.Configuration.Builder,System.Int32,System.Int32)
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.SetScreenSize(SadConsole.Configuration.Builder,System.Int32,System.Int32)
+    name: SetScreenSize
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.SetScreenSize(SadConsole.Configuration.Builder,System.Int32,System.Int32)
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: SadConsole.Configuration.Extensions.SetSplashScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.ScreenSurface[]})
+  commentId: M:SadConsole.Configuration.Extensions.SetSplashScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.ScreenSurface[]})
+  isExternal: true
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.SetSplashScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.ScreenSurface[]})
+  name: SetSplashScreen(Builder, Func<Game, ScreenSurface[]>)
+  nameWithType: Extensions.SetSplashScreen(Builder, Func<Game, ScreenSurface[]>)
+  fullName: SadConsole.Configuration.Extensions.SetSplashScreen(SadConsole.Configuration.Builder, System.Func<SadConsole.Game, SadConsole.ScreenSurface[]>)
+  nameWithType.vb: Extensions.SetSplashScreen(Builder, Func(Of Game, ScreenSurface()))
+  fullName.vb: SadConsole.Configuration.Extensions.SetSplashScreen(SadConsole.Configuration.Builder, System.Func(Of SadConsole.Game, SadConsole.ScreenSurface()))
+  name.vb: SetSplashScreen(Builder, Func(Of Game, ScreenSurface()))
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.SetSplashScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.ScreenSurface[]})
+    name: SetSplashScreen
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.SetSplashScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.ScreenSurface[]})
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: SadConsole.Game
+    name: Game
+    isExternal: true
+    href: SadConsole.Game.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.ScreenSurface
+    name: ScreenSurface
+    isExternal: true
+  - name: '['
+  - name: ']'
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.SetSplashScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.ScreenSurface[]})
+    name: SetSplashScreen
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.SetSplashScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.ScreenSurface[]})
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Game
+    name: Game
+    isExternal: true
+    href: SadConsole.Game.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.ScreenSurface
+    name: ScreenSurface
+    isExternal: true
+  - name: (
+  - name: )
+  - name: )
+  - name: )
+- uid: SadConsole.Configuration.Extensions.SetSplashScreen``1(SadConsole.Configuration.Builder)
+  commentId: M:SadConsole.Configuration.Extensions.SetSplashScreen``1(SadConsole.Configuration.Builder)
+  isExternal: true
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.SetSplashScreen``1(SadConsole.Configuration.Builder)
+  name: SetSplashScreen<TSplashScreen>(Builder)
+  nameWithType: Extensions.SetSplashScreen<TSplashScreen>(Builder)
+  fullName: SadConsole.Configuration.Extensions.SetSplashScreen<TSplashScreen>(SadConsole.Configuration.Builder)
+  nameWithType.vb: Extensions.SetSplashScreen(Of TSplashScreen)(Builder)
+  fullName.vb: SadConsole.Configuration.Extensions.SetSplashScreen(Of TSplashScreen)(SadConsole.Configuration.Builder)
+  name.vb: SetSplashScreen(Of TSplashScreen)(Builder)
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.SetSplashScreen``1(SadConsole.Configuration.Builder)
+    name: SetSplashScreen
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.SetSplashScreen``1(SadConsole.Configuration.Builder)
+  - name: <
+  - name: TSplashScreen
+  - name: '>'
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.SetSplashScreen``1(SadConsole.Configuration.Builder)
+    name: SetSplashScreen
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.SetSplashScreen``1(SadConsole.Configuration.Builder)
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSplashScreen
+  - name: )
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: )
+- uid: SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.IScreenObject})
+  commentId: M:SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.IScreenObject})
+  isExternal: true
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.IScreenObject})
+  name: SetStartingScreen(Builder, Func<Game, IScreenObject>)
+  nameWithType: Extensions.SetStartingScreen(Builder, Func<Game, IScreenObject>)
+  fullName: SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder, System.Func<SadConsole.Game, SadConsole.IScreenObject>)
+  nameWithType.vb: Extensions.SetStartingScreen(Builder, Func(Of Game, IScreenObject))
+  fullName.vb: SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder, System.Func(Of SadConsole.Game, SadConsole.IScreenObject))
+  name.vb: SetStartingScreen(Builder, Func(Of Game, IScreenObject))
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.IScreenObject})
+    name: SetStartingScreen
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.IScreenObject})
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: SadConsole.Game
+    name: Game
+    isExternal: true
+    href: SadConsole.Game.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.IScreenObject})
+    name: SetStartingScreen
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.IScreenObject})
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Game
+    name: Game
+    isExternal: true
+    href: SadConsole.Game.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+  - name: )
+  - name: )
+- uid: SadConsole.Configuration.Extensions.SetStartingScreen``1(SadConsole.Configuration.Builder)
+  commentId: M:SadConsole.Configuration.Extensions.SetStartingScreen``1(SadConsole.Configuration.Builder)
+  isExternal: true
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.SetStartingScreen``1(SadConsole.Configuration.Builder)
+  name: SetStartingScreen<TRootObject>(Builder)
+  nameWithType: Extensions.SetStartingScreen<TRootObject>(Builder)
+  fullName: SadConsole.Configuration.Extensions.SetStartingScreen<TRootObject>(SadConsole.Configuration.Builder)
+  nameWithType.vb: Extensions.SetStartingScreen(Of TRootObject)(Builder)
+  fullName.vb: SadConsole.Configuration.Extensions.SetStartingScreen(Of TRootObject)(SadConsole.Configuration.Builder)
+  name.vb: SetStartingScreen(Of TRootObject)(Builder)
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.SetStartingScreen``1(SadConsole.Configuration.Builder)
+    name: SetStartingScreen
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.SetStartingScreen``1(SadConsole.Configuration.Builder)
+  - name: <
+  - name: TRootObject
+  - name: '>'
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.SetStartingScreen``1(SadConsole.Configuration.Builder)
+    name: SetStartingScreen
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.SetStartingScreen``1(SadConsole.Configuration.Builder)
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TRootObject
+  - name: )
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: )
+- uid: SadConsole.Configuration.Extensions.ShowMonoGameFPS(SadConsole.Configuration.Builder)
+  commentId: M:SadConsole.Configuration.Extensions.ShowMonoGameFPS(SadConsole.Configuration.Builder)
+  isExternal: true
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.ShowMonoGameFPS(SadConsole.Configuration.Builder)
+  name: ShowMonoGameFPS(Builder)
+  nameWithType: Extensions.ShowMonoGameFPS(Builder)
+  fullName: SadConsole.Configuration.Extensions.ShowMonoGameFPS(SadConsole.Configuration.Builder)
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.ShowMonoGameFPS(SadConsole.Configuration.Builder)
+    name: ShowMonoGameFPS
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.ShowMonoGameFPS(SadConsole.Configuration.Builder)
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.ShowMonoGameFPS(SadConsole.Configuration.Builder)
+    name: ShowMonoGameFPS
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.ShowMonoGameFPS(SadConsole.Configuration.Builder)
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: )
+- uid: SadConsole.Configuration.Extensions.UseDefaultConsole(SadConsole.Configuration.Builder)
+  commentId: M:SadConsole.Configuration.Extensions.UseDefaultConsole(SadConsole.Configuration.Builder)
+  isExternal: true
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.UseDefaultConsole(SadConsole.Configuration.Builder)
+  name: UseDefaultConsole(Builder)
+  nameWithType: Extensions.UseDefaultConsole(Builder)
+  fullName: SadConsole.Configuration.Extensions.UseDefaultConsole(SadConsole.Configuration.Builder)
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.UseDefaultConsole(SadConsole.Configuration.Builder)
+    name: UseDefaultConsole
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.UseDefaultConsole(SadConsole.Configuration.Builder)
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.UseDefaultConsole(SadConsole.Configuration.Builder)
+    name: UseDefaultConsole
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.UseDefaultConsole(SadConsole.Configuration.Builder)
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: )
+- uid: SadConsole.Configuration.Extensions.UseUnlimitedFPS(SadConsole.Configuration.Builder)
+  commentId: M:SadConsole.Configuration.Extensions.UseUnlimitedFPS(SadConsole.Configuration.Builder)
+  isExternal: true
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.UseUnlimitedFPS(SadConsole.Configuration.Builder)
+  name: UseUnlimitedFPS(Builder)
+  nameWithType: Extensions.UseUnlimitedFPS(Builder)
+  fullName: SadConsole.Configuration.Extensions.UseUnlimitedFPS(SadConsole.Configuration.Builder)
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.UseUnlimitedFPS(SadConsole.Configuration.Builder)
+    name: UseUnlimitedFPS
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.UseUnlimitedFPS(SadConsole.Configuration.Builder)
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.UseUnlimitedFPS(SadConsole.Configuration.Builder)
+    name: UseUnlimitedFPS
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.UseUnlimitedFPS(SadConsole.Configuration.Builder)
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: )
+- uid: SadConsole.Configuration.Extensions.WithMonoGameCtor(SadConsole.Configuration.Builder,System.Action{SadConsole.Host.Game})
+  commentId: M:SadConsole.Configuration.Extensions.WithMonoGameCtor(SadConsole.Configuration.Builder,System.Action{SadConsole.Host.Game})
+  isExternal: true
+  href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.WithMonoGameCtor(SadConsole.Configuration.Builder,System.Action{SadConsole.Host.Game})
+  name: WithMonoGameCtor(Builder, Action<Game>)
+  nameWithType: Extensions.WithMonoGameCtor(Builder, Action<Game>)
+  fullName: SadConsole.Configuration.Extensions.WithMonoGameCtor(SadConsole.Configuration.Builder, System.Action<SadConsole.Host.Game>)
+  nameWithType.vb: Extensions.WithMonoGameCtor(Builder, Action(Of Game))
+  fullName.vb: SadConsole.Configuration.Extensions.WithMonoGameCtor(SadConsole.Configuration.Builder, System.Action(Of SadConsole.Host.Game))
+  name.vb: WithMonoGameCtor(Builder, Action(Of Game))
+  spec.csharp:
+  - uid: SadConsole.Configuration.Extensions.WithMonoGameCtor(SadConsole.Configuration.Builder,System.Action{SadConsole.Host.Game})
+    name: WithMonoGameCtor
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.WithMonoGameCtor(SadConsole.Configuration.Builder,System.Action{SadConsole.Host.Game})
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: SadConsole.Host.Game
+    name: Game
+    isExternal: true
+    href: SadConsole.Host.Game.html
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Configuration.Extensions.WithMonoGameCtor(SadConsole.Configuration.Builder,System.Action{SadConsole.Host.Game})
+    name: WithMonoGameCtor
+    isExternal: true
+    href: SadConsole.Configuration.Extensions.html#SadConsole.Configuration.Extensions.WithMonoGameCtor(SadConsole.Configuration.Builder,System.Action{SadConsole.Host.Game})
+  - name: (
+  - uid: SadConsole.Configuration.Builder
+    name: Builder
+    isExternal: true
+    href: SadConsole.Configuration.Builder.html
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Host.Game
+    name: Game
+    isExternal: true
+    href: SadConsole.Host.Game.html
+  - name: )
+  - name: )
+- uid: SadConsole.Configuration.Builder.Configs
+  commentId: P:SadConsole.Configuration.Builder.Configs
+  isExternal: true
+  href: SadConsole.Configuration.Builder.html#SadConsole.Configuration.Builder.Configs
+  name: Configs
+  nameWithType: Builder.Configs
+  fullName: SadConsole.Configuration.Builder.Configs
+- uid: SadConsole.Configuration.Builder.GetOrCreateConfig*
+  commentId: Overload:SadConsole.Configuration.Builder.GetOrCreateConfig
+  isExternal: true
+  href: SadConsole.Configuration.Builder.html#SadConsole.Configuration.Builder.GetOrCreateConfig``1
+  name: GetOrCreateConfig
+  nameWithType: Builder.GetOrCreateConfig
+  fullName: SadConsole.Configuration.Builder.GetOrCreateConfig
+- uid: '{TConfig}'
+  commentId: '!:TConfig'
+  definition: TConfig
+  name: TConfig
+  nameWithType: TConfig
+  fullName: TConfig
+- uid: TConfig
+  commentId: '!:TConfig'
+  name: TConfig
+  nameWithType: TConfig
+  fullName: TConfig
+- uid: SadConsole.Configuration.Builder.#ctor*
+  commentId: Overload:SadConsole.Configuration.Builder.#ctor
+  isExternal: true
+  href: SadConsole.Configuration.Builder.html#SadConsole.Configuration.Builder.#ctor
+  name: Builder
+  nameWithType: Builder.Builder
+  fullName: SadConsole.Configuration.Builder.Builder
+  nameWithType.vb: Builder.New
+  fullName.vb: SadConsole.Configuration.Builder.New
+  name.vb: New
+- uid: SadConsole.Configuration.IConfigurator
+  commentId: T:SadConsole.Configuration.IConfigurator
+  parent: SadConsole.Configuration
+  isExternal: true
+  href: SadConsole.Configuration.IConfigurator.html
+  name: IConfigurator
+  nameWithType: IConfigurator
+  fullName: SadConsole.Configuration.IConfigurator
+- uid: SadConsole.Configuration.Builder.Configs*
+  commentId: Overload:SadConsole.Configuration.Builder.Configs
+  isExternal: true
+  href: SadConsole.Configuration.Builder.html#SadConsole.Configuration.Builder.Configs
+  name: Configs
+  nameWithType: Builder.Configs
+  fullName: SadConsole.Configuration.Builder.Configs
+- uid: System.Collections.Generic.List{SadConsole.Configuration.IConfigurator}
+  commentId: T:System.Collections.Generic.List{SadConsole.Configuration.IConfigurator}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<IConfigurator>
+  nameWithType: List<IConfigurator>
+  fullName: System.Collections.Generic.List<SadConsole.Configuration.IConfigurator>
+  nameWithType.vb: List(Of IConfigurator)
+  fullName.vb: System.Collections.Generic.List(Of SadConsole.Configuration.IConfigurator)
+  name.vb: List(Of IConfigurator)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: SadConsole.Configuration.IConfigurator
+    name: IConfigurator
+    isExternal: true
+    href: SadConsole.Configuration.IConfigurator.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Configuration.IConfigurator
+    name: IConfigurator
+    isExternal: true
+    href: SadConsole.Configuration.IConfigurator.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
