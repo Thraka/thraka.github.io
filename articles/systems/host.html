@@ -84,24 +84,24 @@
 <p>The SFML host is <a href="https://www.nuget.org/packages/SadConsole.Host.SFML/">NuGet package <code>SadConsole.Host.SFML</code></a>.</p>
 <p>SFML is a C engine built for 2D games. SFML has bindings for multiple languages, including .NET languages. SFML does work cross-platform, on other operating systems, but it requires a lot of work to get going. SadConsole and SFML is currently built for Windows.</p>
 <h2 id="the-host-interface">The host interface</h2>
-<p>SadConsole is designed to not know about the host rendering engine. It provides a base class that defines common functionality between all host renderers, and is defined in the <a class="xref" href="../../api/sadconsole/SadConsole.GameHost.html">SadConsole.GameHost</a> class. A host may provide specific capabilities and types, but you generally don't to use them unless you want to do something specific with the host renderer, like using 3D capabilities provided by MonoGame.</p>
-<p>After a game is started, the host is accessed through the <a class="xref" href="../../api/sadconsole/SadConsole.GameHost.html#SadConsole_GameHost_Instance">GameHost.Instance</a> property.</p>
+<p>SadConsole is designed to not know about the host rendering engine. It provides a base class that defines common functionality between all host renderers, and is defined in the <a class="xref" href="../../api/SadConsole.GameHost.html">SadConsole.GameHost</a> class. A host may provide specific capabilities and types, but you generally don't to use them unless you want to do something specific with the host renderer, like using 3D capabilities provided by MonoGame.</p>
+<p>After a game is started, the host is accessed through the <a class="xref" href="../../api/SadConsole.GameHost.html#SadConsole_GameHost_Instance">GameHost.Instance</a> property.</p>
 <h2 id="input-processing">Input processing</h2>
-<p>SadConsole performs many operations during the <strong>update</strong> frame, one of which, is processing input. The input processor handles keyboard and mouse state. Mouse related input events are continually processed on the object under the mouse cursor, but the keyboard is different. Only the object currently <em>focused</em> is provided keyboard input. The focused object is designated by the <a class="xref" href="../../api/sadconsole/SadConsole.GameHost.html#SadConsole_GameHost_FocusedScreenObjects">GameHost.FocusedScreenObjects</a> property.</p>
+<p>SadConsole performs many operations during the <strong>update</strong> frame, one of which, is processing input. The input processor handles keyboard and mouse state. Mouse related input events are continually processed on the object under the mouse cursor, but the keyboard is different. Only the object currently <em>focused</em> is provided keyboard input. The focused object is designated by the <a class="xref" href="../../api/SadConsole.GameHost.html#SadConsole_GameHost_FocusedScreenObjects">GameHost.FocusedScreenObjects</a> property.</p>
 <div class="TIP">
 <h5>Tip</h5>
-<p>You can easily have an object set itself as focused by setting <a class="xref" href="../../api/sadconsole/SadConsole.IScreenObject.html#SadConsole_IScreenObject_IsFocused">IsFocused</a> to <code>true</code>.</p>
+<p>You can easily have an object set itself as focused by setting <a class="xref" href="../../api/SadConsole.IScreenObject.html#SadConsole_IScreenObject_IsFocused">IsFocused</a> to <code>true</code>.</p>
 </div>
 <h3 id="mouse">Mouse</h3>
-<p>Mouse input scans the <a class="xref" href="../../api/sadconsole/SadConsole.GameHost.html#SadConsole_GameHost_Screen">GameHost.Screen</a> object hierarchy and determines which object is under the mouse. That object's <a class="xref" href="../../api/sadconsole/SadConsole.IScreenObject.html#SadConsole_IScreenObject_ProcessMouse_SadConsole_Input_MouseScreenObjectState_">ProcessMouse(MouseScreenObjectState)</a> method is called. Usually, this method checks the <a class="xref" href="../../api/sadconsole/SadConsole.IScreenObject.html#SadConsole_IScreenObject_UseMouse">UseMouse</a> property, if it's <code>true</code>, the object handles the mouse. When the object processes the mouse, it raises the following mouse input events:</p>
+<p>Mouse input scans the <a class="xref" href="../../api/SadConsole.GameHost.html#SadConsole_GameHost_Screen">GameHost.Screen</a> object hierarchy and determines which object is under the mouse. That object's <a class="xref" href="../../api/SadConsole.IScreenObject.html#SadConsole_IScreenObject_ProcessMouse_SadConsole_Input_MouseScreenObjectState_">ProcessMouse(MouseScreenObjectState)</a> method is called. Usually, this method checks the <a class="xref" href="../../api/SadConsole.IScreenObject.html#SadConsole_IScreenObject_UseMouse">UseMouse</a> property, if it's <code>true</code>, the object handles the mouse. When the object processes the mouse, it raises the following mouse input events:</p>
 <ul>
-<li><a class="xref" href="../../api/sadconsole/SadConsole.IScreenSurface.html#SadConsole_IScreenSurface_MouseEnter">MouseEnter</a></li>
-<li><a class="xref" href="../../api/sadconsole/SadConsole.IScreenSurface.html#SadConsole_IScreenSurface_MouseMove">MouseMove</a></li>
-<li><a class="xref" href="../../api/sadconsole/SadConsole.IScreenSurface.html#SadConsole_IScreenSurface_MouseButtonClicked">MouseButtonClicked</a></li>
-<li><a class="xref" href="../../api/sadconsole/SadConsole.IScreenSurface.html#SadConsole_IScreenSurface_MouseExit">MouseExit</a></li>
+<li><a class="xref" href="../../api/SadConsole.IScreenSurface.html#SadConsole_IScreenSurface_MouseEnter">MouseEnter</a></li>
+<li><a class="xref" href="../../api/SadConsole.IScreenSurface.html#SadConsole_IScreenSurface_MouseMove">MouseMove</a></li>
+<li><a class="xref" href="../../api/SadConsole.IScreenSurface.html#SadConsole_IScreenSurface_MouseButtonClicked">MouseButtonClicked</a></li>
+<li><a class="xref" href="../../api/SadConsole.IScreenSurface.html#SadConsole_IScreenSurface_MouseExit">MouseExit</a></li>
 </ul>
 <h3 id="keyboard">Keyboard</h3>
-<p>Keyboard input is always sent to the object that is &quot;focused.&quot; An object is considered focused when its <a class="xref" href="../../api/sadconsole/SadConsole.IScreenObject.html#SadConsole_IScreenObject_IsFocused">IsFocused</a> property is set to <code>true</code> and it's the top-most object of the <a class="xref" href="../../api/sadconsole/SadConsole.GameHost.html#SadConsole_GameHost_FocusedScreenObjects">GameHost.FocusedScreenObjects</a> collection. When focused, the object's <a class="xref" href="../../api/sadconsole/SadConsole.IScreenObject.html#SadConsole_IScreenObject_ProcessKeyboard_SadConsole_Input_Keyboard_">ProcessKeyboard(Keyboard)</a> method is called every <strong>update</strong> frame, and if the object's <a class="xref" href="../../api/sadconsole/SadConsole.IScreenObject.html#SadConsole_IScreenObject_UseKeyboard">UseKeyboard</a> property is <code>true</code>, the keyboard is processed.</p>
+<p>Keyboard input is always sent to the object that is &quot;focused.&quot; An object is considered focused when its <a class="xref" href="../../api/SadConsole.IScreenObject.html#SadConsole_IScreenObject_IsFocused">IsFocused</a> property is set to <code>true</code> and it's the top-most object of the <a class="xref" href="../../api/SadConsole.GameHost.html#SadConsole_GameHost_FocusedScreenObjects">GameHost.FocusedScreenObjects</a> collection. When focused, the object's <a class="xref" href="../../api/SadConsole.IScreenObject.html#SadConsole_IScreenObject_ProcessKeyboard_SadConsole_Input_Keyboard_">ProcessKeyboard(Keyboard)</a> method is called every <strong>update</strong> frame, and if the object's <a class="xref" href="../../api/SadConsole.IScreenObject.html#SadConsole_IScreenObject_UseKeyboard">UseKeyboard</a> property is <code>true</code>, the keyboard is processed.</p>
 </article>
           </div>
 
@@ -112,7 +112,7 @@
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
                 <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>

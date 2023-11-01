@@ -148,7 +148,7 @@
 <li><p>Save the file and close the XML editor.</p>
 </li>
 </ol>
-<p>Your project file should look similar to this, though the <code>&lt;TargetFramework&gt;</code> may be different:</p>
+<p>Your project file should look similar to this, though the <code>&lt;TargetFramework&gt;</code> may be different (which can be <code>net6.0</code> or above):</p>
 <pre><code class="lang-xml">&lt;Project Sdk=&quot;Microsoft.NET.Sdk&quot;&gt;
 
   &lt;PropertyGroup&gt;
@@ -161,7 +161,7 @@
 
   &lt;ItemGroup&gt;
     &lt;PackageReference Include=&quot;MonoGame.Framework.DesktopGL&quot; Version=&quot;3.8.1.303&quot; /&gt;
-    &lt;PackageReference Include=&quot;SadConsole.Host.MonoGame&quot; Version=&quot;10.0.0&quot; /&gt;
+    &lt;PackageReference Include=&quot;SadConsole.Host.MonoGame&quot; Version=&quot;10.0.0-beta2-debug&quot; /&gt;
   &lt;/ItemGroup&gt;
 
   &lt;ItemGroup&gt;
@@ -177,7 +177,7 @@
 <ol>
 <li><p>In the <strong>Solution Explorer</strong> window, right-click on the project and select <strong>Add</strong> &gt; <strong>Class</strong>.</p>
 </li>
-<li><p>Name the class <code>RootScrene</code> and create it. The code editor for the class is opened.</p>
+<li><p>Name the class <code>RootScreen</code> and create it. The code editor for the class is opened.</p>
 </li>
 <li><p>Replace the generated code with the following:</p>
 <pre><code class="lang-csharp">class RootScreen : ScreenObject
@@ -213,11 +213,13 @@
 <li>In the <strong>Solution Explorer</strong> window, double-click the <em>Program.cs</em>. This opens the code editor.</li>
 <li>Replace the code with the following:</li>
 </ol>
-<pre><code class="lang-csharp">Settings.WindowTitle = &quot;My SadConsole Game&quot;;
+<pre><code class="lang-csharp">using SadConsole.Configuration;
 
-Game.Configuration gameStartup = new Game.Configuration()
+Settings.WindowTitle = &quot;My SadConsole Game&quot;;
+
+Builder gameStartup = new Builder()
     .SetScreenSize(90, 30)
-    .SetStartingScreen&lt;RootScene&gt;()
+    .SetStartingScreen&lt;RootScreen&gt;()
     ;
 
 Game.Create(gameStartup);
@@ -238,7 +240,7 @@ Game.Instance.Dispose();
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
                 <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>

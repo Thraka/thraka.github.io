@@ -1,0 +1,841 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Interface IScreenObject
+ </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Interface IScreenObject
+ ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/dracula.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-9">
+            <article class="content wrap" id="_content" data-uid="SadConsole.IScreenObject">
+
+
+
+  <h1 id="SadConsole_IScreenObject" data-uid="SadConsole.IScreenObject" class="text-break">Interface IScreenObject
+</h1>
+  <div class="markdown level0 summary"><p>A generic object processed by SadConsole. Provides parent/child, components, position, and input callbacks.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.IPositionable.html#SadRogue_Primitives_IPositionable_Position">IPositionable.Position</a>
+    </div>
+    <div>
+      <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.IPositionable.html#SadRogue_Primitives_IPositionable_PositionChanging">IPositionable.PositionChanging</a>
+    </div>
+    <div>
+      <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.IPositionable.html#SadRogue_Primitives_IPositionable_PositionChanged">IPositionable.PositionChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Components.IComponentHost.html#SadConsole_Components_IComponentHost_GetSadComponent__1">IComponentHost.GetSadComponent&lt;TComponent&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Components.IComponentHost.html#SadConsole_Components_IComponentHost_GetSadComponents__1">IComponentHost.GetSadComponents&lt;TComponent&gt;()</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Components.IComponentHost.html#SadConsole_Components_IComponentHost_HasSadComponent__1___0__">IComponentHost.HasSadComponent&lt;TComponent&gt;(out TComponent)</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Components.IComponentHost.html#SadConsole_Components_IComponentHost_CompareComponent_SadConsole_Components_IComponent_SadConsole_Components_IComponent_">IComponentHost.CompareComponent(IComponent, IComponent)</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.Components.IComponentHost.html#SadConsole_Components_IComponentHost_SadComponents">IComponentHost.SadComponents</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="SadConsole.html">SadConsole</a></h6>
+  <h6><strong>Assembly</strong>: SadConsole.dll</h6>
+  <h5 id="SadConsole_IScreenObject_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IScreenObject : IPositionable, IComponentHost</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+
+
+  <a id="SadConsole_IScreenObject_AbsolutePosition_" data-uid="SadConsole.IScreenObject.AbsolutePosition*"></a>
+  <h4 id="SadConsole_IScreenObject_AbsolutePosition" data-uid="SadConsole.IScreenObject.AbsolutePosition">AbsolutePosition</h4>
+  <div class="markdown level1 summary"><p>A position that's based on the current <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.IPositionable.html#SadRogue_Primitives_IPositionable_Position">Position</a>, as interpreted by the implementing class, in pixels.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Point AbsolutePosition { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Point.html">Point</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="SadConsole_IScreenObject_AbsolutePosition_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Most objects will implement this property based on <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.IPositionable.html#SadRogue_Primitives_IPositionable_Position">Position</a> which usually depends on the <a class="xref" href="SadConsole.IScreenObject.html#SadConsole_IScreenObject_Parent">Parent</a> object's position.</p>
+</div>
+
+
+  <a id="SadConsole_IScreenObject_Children_" data-uid="SadConsole.IScreenObject.Children*"></a>
+  <h4 id="SadConsole_IScreenObject_Children" data-uid="SadConsole.IScreenObject.Children">Children</h4>
+  <div class="markdown level1 summary"><p>The child objects of this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ScreenObjectCollection Children { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.ScreenObjectCollection.html">ScreenObjectCollection</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_IScreenObject_FocusedMode_" data-uid="SadConsole.IScreenObject.FocusedMode*"></a>
+  <h4 id="SadConsole_IScreenObject_FocusedMode" data-uid="SadConsole.IScreenObject.FocusedMode">FocusedMode</h4>
+  <div class="markdown level1 summary"><p>How the object should handle becoming active.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">FocusBehavior FocusedMode { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.FocusBehavior.html">FocusBehavior</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_IScreenObject_IgnoreParentPosition_" data-uid="SadConsole.IScreenObject.IgnoreParentPosition*"></a>
+  <h4 id="SadConsole_IScreenObject_IgnoreParentPosition" data-uid="SadConsole.IScreenObject.IgnoreParentPosition">IgnoreParentPosition</h4>
+  <div class="markdown level1 summary"><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, this object should ignore it's parent position when calculating <a class="xref" href="SadConsole.IScreenObject.html#SadConsole_IScreenObject_AbsolutePosition">AbsolutePosition</a>; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IgnoreParentPosition { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_IScreenObject_IsEnabled_" data-uid="SadConsole.IScreenObject.IsEnabled*"></a>
+  <h4 id="SadConsole_IScreenObject_IsEnabled" data-uid="SadConsole.IScreenObject.IsEnabled">IsEnabled</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the visibility of this object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsEnabled { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_IScreenObject_IsExclusiveMouse_" data-uid="SadConsole.IScreenObject.IsExclusiveMouse*"></a>
+  <h4 id="SadConsole_IScreenObject_IsExclusiveMouse" data-uid="SadConsole.IScreenObject.IsExclusiveMouse">IsExclusiveMouse</h4>
+  <div class="markdown level1 summary"><p>Gets or sets whether or not this object has exclusive access to the mouse events.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsExclusiveMouse { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_IScreenObject_IsFocused_" data-uid="SadConsole.IScreenObject.IsFocused*"></a>
+  <h4 id="SadConsole_IScreenObject_IsFocused" data-uid="SadConsole.IScreenObject.IsFocused">IsFocused</h4>
+  <div class="markdown level1 summary"><p>Gets or sets this console as the focused object for input.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsFocused { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_IScreenObject_IsVisible_" data-uid="SadConsole.IScreenObject.IsVisible*"></a>
+  <h4 id="SadConsole_IScreenObject_IsVisible" data-uid="SadConsole.IScreenObject.IsVisible">IsVisible</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the visibility of this object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsVisible { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_IScreenObject_Parent_" data-uid="SadConsole.IScreenObject.Parent*"></a>
+  <h4 id="SadConsole_IScreenObject_Parent" data-uid="SadConsole.IScreenObject.Parent">Parent</h4>
+  <div class="markdown level1 summary"><p>The parent object that this instance is a child of.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IScreenObject? Parent { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.IScreenObject.html">IScreenObject</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_IScreenObject_SortOrder_" data-uid="SadConsole.IScreenObject.SortOrder*"></a>
+  <h4 id="SadConsole_IScreenObject_SortOrder" data-uid="SadConsole.IScreenObject.SortOrder">SortOrder</h4>
+  <div class="markdown level1 summary"><p>Indicates the sorting order this object should use when parented. Sorting is a manual operation on the <a class="xref" href="SadConsole.IScreenObject.html#SadConsole_IScreenObject_Children">Children</a> collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">uint SortOrder { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_IScreenObject_UseKeyboard_" data-uid="SadConsole.IScreenObject.UseKeyboard*"></a>
+  <h4 id="SadConsole_IScreenObject_UseKeyboard" data-uid="SadConsole.IScreenObject.UseKeyboard">UseKeyboard</h4>
+  <div class="markdown level1 summary"><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, this object will use the keyboard; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool UseKeyboard { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_IScreenObject_UseMouse_" data-uid="SadConsole.IScreenObject.UseMouse*"></a>
+  <h4 id="SadConsole_IScreenObject_UseMouse" data-uid="SadConsole.IScreenObject.UseMouse">UseMouse</h4>
+  <div class="markdown level1 summary"><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, this object will use the mouse; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool UseMouse { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <a id="SadConsole_IScreenObject_LostMouse_" data-uid="SadConsole.IScreenObject.LostMouse*"></a>
+  <h4 id="SadConsole_IScreenObject_LostMouse_SadConsole_Input_MouseScreenObjectState_" data-uid="SadConsole.IScreenObject.LostMouse(SadConsole.Input.MouseScreenObjectState)">LostMouse(MouseScreenObjectState)</h4>
+  <div class="markdown level1 summary"><p>Called when the mouse is being used by something else.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void LostMouse(MouseScreenObjectState state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.Input.MouseScreenObjectState.html">MouseScreenObjectState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>The current state of the mouse based on this object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_IScreenObject_OnFocusLost_" data-uid="SadConsole.IScreenObject.OnFocusLost*"></a>
+  <h4 id="SadConsole_IScreenObject_OnFocusLost" data-uid="SadConsole.IScreenObject.OnFocusLost">OnFocusLost()</h4>
+  <div class="markdown level1 summary"><p>Called when this object's focus has been lost.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void OnFocusLost()</code></pre>
+  </div>
+
+
+  <a id="SadConsole_IScreenObject_OnFocused_" data-uid="SadConsole.IScreenObject.OnFocused*"></a>
+  <h4 id="SadConsole_IScreenObject_OnFocused" data-uid="SadConsole.IScreenObject.OnFocused">OnFocused()</h4>
+  <div class="markdown level1 summary"><p>Called when this object is focused.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void OnFocused()</code></pre>
+  </div>
+
+
+  <a id="SadConsole_IScreenObject_ProcessKeyboard_" data-uid="SadConsole.IScreenObject.ProcessKeyboard*"></a>
+  <h4 id="SadConsole_IScreenObject_ProcessKeyboard_SadConsole_Input_Keyboard_" data-uid="SadConsole.IScreenObject.ProcessKeyboard(SadConsole.Input.Keyboard)">ProcessKeyboard(Keyboard)</h4>
+  <div class="markdown level1 summary"><p>Called by the engine to process the keyboard.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool ProcessKeyboard(Keyboard keyboard)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.Input.Keyboard.html">Keyboard</a></td>
+        <td><span class="parametername">keyboard</span></td>
+        <td><p>Keyboard information.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p>True when the keyboard had data and this console did something with it.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_IScreenObject_ProcessMouse_" data-uid="SadConsole.IScreenObject.ProcessMouse*"></a>
+  <h4 id="SadConsole_IScreenObject_ProcessMouse_SadConsole_Input_MouseScreenObjectState_" data-uid="SadConsole.IScreenObject.ProcessMouse(SadConsole.Input.MouseScreenObjectState)">ProcessMouse(MouseScreenObjectState)</h4>
+  <div class="markdown level1 summary"><p>Processes the mouse.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool ProcessMouse(MouseScreenObjectState state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.Input.MouseScreenObjectState.html">MouseScreenObjectState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>The mouse state related to this object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p>True when this object should halt further mouse processing..</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_IScreenObject_Render_" data-uid="SadConsole.IScreenObject.Render*"></a>
+  <h4 id="SadConsole_IScreenObject_Render_System_TimeSpan_" data-uid="SadConsole.IScreenObject.Render(System.TimeSpan)">Render(TimeSpan)</h4>
+  <div class="markdown level1 summary"><p>Draws all <a class="xref" href="SadConsole.Components.IComponentHost.html#SadConsole_Components_IComponentHost_SadComponents">SadComponents</a> and <a class="xref" href="SadConsole.IScreenObject.html#SadConsole_IScreenObject_Children">Children</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Render(TimeSpan delta)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
+        <td><span class="parametername">delta</span></td>
+        <td><p>The time that has elapsed since the last call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="SadConsole_IScreenObject_Render_System_TimeSpan__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Only processes if <a class="xref" href="SadConsole.IScreenObject.html#SadConsole_IScreenObject_IsVisible">IsVisible</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+</div>
+
+
+  <a id="SadConsole_IScreenObject_Update_" data-uid="SadConsole.IScreenObject.Update*"></a>
+  <h4 id="SadConsole_IScreenObject_Update_System_TimeSpan_" data-uid="SadConsole.IScreenObject.Update(System.TimeSpan)">Update(TimeSpan)</h4>
+  <div class="markdown level1 summary"><p>Updates all SadComponents and <a class="xref" href="SadConsole.IScreenObject.html#SadConsole_IScreenObject_Children">Children</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Update(TimeSpan delta)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
+        <td><span class="parametername">delta</span></td>
+        <td><p>The time that has elapsed since the last call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="SadConsole_IScreenObject_Update_System_TimeSpan__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Only processes if <a class="xref" href="SadConsole.IScreenObject.html#SadConsole_IScreenObject_IsEnabled">IsEnabled</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+</div>
+
+
+  <a id="SadConsole_IScreenObject_UpdateAbsolutePosition_" data-uid="SadConsole.IScreenObject.UpdateAbsolutePosition*"></a>
+  <h4 id="SadConsole_IScreenObject_UpdateAbsolutePosition" data-uid="SadConsole.IScreenObject.UpdateAbsolutePosition">UpdateAbsolutePosition()</h4>
+  <div class="markdown level1 summary"><p>Sets a value for <a class="xref" href="SadConsole.IScreenObject.html#SadConsole_IScreenObject_AbsolutePosition">AbsolutePosition</a> based on the Position of this instance and the <a class="xref" href="SadConsole.IScreenObject.html#SadConsole_IScreenObject_Parent">Parent</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void UpdateAbsolutePosition()</code></pre>
+  </div>
+  <h3 id="events">Events
+</h3>
+
+
+  <h4 id="SadConsole_IScreenObject_FocusLost" data-uid="SadConsole.IScreenObject.FocusLost">FocusLost</h4>
+  <div class="markdown level1 summary"><p>Raised when the <a class="xref" href="SadConsole.IScreenObject.html#SadConsole_IScreenObject_IsFocused">IsFocused</a> property is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event EventHandler FocusLost</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler">EventHandler</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="SadConsole_IScreenObject_Focused" data-uid="SadConsole.IScreenObject.Focused">Focused</h4>
+  <div class="markdown level1 summary"><p>Raised when the <a class="xref" href="SadConsole.IScreenObject.html#SadConsole_IScreenObject_IsFocused">IsFocused</a> property is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event EventHandler Focused</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler">EventHandler</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="SadConsole_IScreenObject_IsEnabledChanged" data-uid="SadConsole.IScreenObject.IsEnabledChanged">IsEnabledChanged</h4>
+  <div class="markdown level1 summary"><p>Raised when the <a class="xref" href="SadConsole.IScreenObject.html#SadConsole_IScreenObject_IsEnabled">IsEnabled</a> property changes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event EventHandler IsEnabledChanged</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler">EventHandler</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="SadConsole_IScreenObject_IsVisibleChanged" data-uid="SadConsole.IScreenObject.IsVisibleChanged">IsVisibleChanged</h4>
+  <div class="markdown level1 summary"><p>Raised when the <a class="xref" href="SadConsole.IScreenObject.html#SadConsole_IScreenObject_IsVisible">IsVisible</a> property changes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event EventHandler IsVisibleChanged</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler">EventHandler</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="SadConsole_IScreenObject_ParentChanged" data-uid="SadConsole.IScreenObject.ParentChanged">ParentChanged</h4>
+  <div class="markdown level1 summary"><p>Raised when the <a class="xref" href="SadConsole.IScreenObject.html#SadConsole_IScreenObject_Parent">Parent</a> property changes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event EventHandler&lt;ValueChangedEventArgs&lt;IScreenObject?&gt;&gt; ParentChanged</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.ValueChangedEventArgs-1.html">ValueChangedEventArgs</a>&lt;<a class="xref" href="SadConsole.IScreenObject.html">IScreenObject</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="SadConsole.Quick.Keyboard.html#SadConsole_Quick_Keyboard_RemoveKeyboardHook_SadConsole_IScreenObject_System_Func_SadConsole_IScreenObject_SadConsole_Input_Keyboard_System_Boolean__">Keyboard.RemoveKeyboardHook(IScreenObject, Func&lt;IScreenObject, Keyboard, bool&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="SadConsole.Quick.Keyboard.html#SadConsole_Quick_Keyboard_RemoveKeyboardHooks_SadConsole_IScreenObject_">Keyboard.RemoveKeyboardHooks(IScreenObject)</a>
+  </div>
+  <div>
+      <a class="xref" href="SadConsole.Quick.Keyboard.html#SadConsole_Quick_Keyboard_WithKeyboard_SadConsole_IScreenObject_System_Func_SadConsole_IScreenObject_SadConsole_Input_Keyboard_System_Boolean__">Keyboard.WithKeyboard(IScreenObject, Func&lt;IScreenObject, Keyboard, bool&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="SadConsole.Quick.Mouse.html#SadConsole_Quick_Mouse_RemoveMouseHook_SadConsole_IScreenObject_System_Func_SadConsole_IScreenObject_SadConsole_Input_MouseScreenObjectState_System_Boolean__">Mouse.RemoveMouseHook(IScreenObject, Func&lt;IScreenObject, MouseScreenObjectState, bool&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="SadConsole.Quick.Mouse.html#SadConsole_Quick_Mouse_RemoveMouseHooks_SadConsole_IScreenObject_">Mouse.RemoveMouseHooks(IScreenObject)</a>
+  </div>
+  <div>
+      <a class="xref" href="SadConsole.Quick.Mouse.html#SadConsole_Quick_Mouse_WithMouse_SadConsole_IScreenObject_System_Func_SadConsole_IScreenObject_SadConsole_Input_MouseScreenObjectState_System_Boolean__">Mouse.WithMouse(IScreenObject, Func&lt;IScreenObject, MouseScreenObjectState, bool&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="SadConsole.Quick.Update.html#SadConsole_Quick_Update_RemoveUpdateHook_SadConsole_IScreenObject_System_Action_SadConsole_IScreenObject_System_TimeSpan__">Update.RemoveUpdateHook(IScreenObject, Action&lt;IScreenObject, TimeSpan&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="SadConsole.Quick.Update.html#SadConsole_Quick_Update_RemoveUpdateHooks_SadConsole_IScreenObject_">Update.RemoveUpdateHooks(IScreenObject)</a>
+  </div>
+  <div>
+      <a class="xref" href="SadConsole.Quick.Update.html#SadConsole_Quick_Update_WithUpdate_SadConsole_IScreenObject_System_Action_SadConsole_IScreenObject_System_TimeSpan__">Update.WithUpdate(IScreenObject, Action&lt;IScreenObject, TimeSpan&gt;)</a>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-3" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+                <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

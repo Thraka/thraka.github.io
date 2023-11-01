@@ -95,27 +95,39 @@ internal class RootScreen: ScreenObject
 <p>You may be used to older C# syntax where you need to wrap a class inside a namespace block, known as block-scoped namespaces. Modern C# lets you declare the namespace as a statement, known as a file-scoped namespace, this namespace applies to the entire code file.</p>
 </div>
 <p>Next, modify the startup code of the game to indicate that the <code>RootScreen</code> type is going to be used as the starting object. This is simple to do and removes the requirement of the <code>Startup</code> method we were using in the previous tutorial. In the <em>program.cs</em> file, change the code to the following:</p>
-<pre><code class="lang-csharp">using SadConsoleGame
+<pre><code class="lang-csharp">using SadConsole.Configuration;
+using SadConsoleGame;
 
 Settings.WindowTitle = &quot;My SadConsole Game&quot;;
 
-Game.Configuration gameStartup = new Game.Configuration()
+Builder configuration = new Builder()
     .SetScreenSize(120, 38)
     .SetStartingScreen&lt;RootScreen&gt;()
+    .IsStartingScreenFocused(true)
     ;
 
-Game.Create(gameStartup);
+Game.Create(configuration);
 Game.Instance.Run();
 Game.Instance.Dispose();
 </code></pre>
 <p>Notice the differences in this code from the previous startup code:</p>
 <ul>
-<li>The project namespace was imported with <code>using SadConsoleGame;</code></li>
-<li>The screen size was changed to <strong>120, 38</strong>.</li>
-<li>The <code>Startup()</code> method was removed.</li>
-<li><code>.OnStart(Startup)</code> which declared the <code>Startup()</code> method as the &quot;starting&quot; code, was replaced with <code>.SetStartingScreen&lt;RootScreen&gt;();</code>.</li>
+<li><p>The project namespace was imported with <code>using SadConsoleGame;</code>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The code in the tutorial is using the C# feature <strong>top-level statements</strong>. Without that feature, C# projects use a <code>Program.Main</code> method to specify the boot code. Top-level statements is cleaner, in my opinion, but requires that you import the root namespace used in your project.</p>
+</div>
+</li>
+<li><p>The screen size was changed to <strong>120, 38</strong>.</p>
+</li>
+<li><p><code>.OnStart(Startup)</code> which used the <code>Startup</code> method as the &quot;starting&quot; code, was replaced with <code>.SetStartingScreen&lt;RootScreen&gt;();</code>.</p>
+</li>
+<li><p><code>IsStartingScreenFocused(true)</code> is called, which automatically sets the starting screen to focused.</p>
+</li>
+<li><p>The <code>Startup()</code> method was removed.</p>
+</li>
 </ul>
-<p>The <code>SetStartingScreen</code> configuration method designates an object as the starting object. It automatically assigns a new instance of that object to the <code>Game.Instance.Screen</code> property and destroys the starting console for you. This simplifies game setup. In this case, the newly created <code>RootScreen</code> class is going to be our container that is the game screen. All the startup code goes into that object.</p>
+<p>The <code>SetStartingScreen</code> configuration method designates an object as the starting object. It automatically assigns a new instance of that object to the <code>Game.Instance.Screen</code> property. This simplifies game setup. In this case, the newly created <code>RootScreen</code> class is going to be our container that is the game screen. All the startup code goes into that object.</p>
 <h2 id="create-a-basic-map">Create a basic map</h2>
 <p>Next, lets add a basic map to the screen.</p>
 <ol>
@@ -284,7 +296,15 @@ internal class GameObject
 <li><p>Focus the object.</p>
 <p>The <code>RootScreen</code> object is already focused because it's the starting screen. If you want to change which object directly receives keyboard input, focus it. Things like popup windows will focus themselves for keyboard input, and then when hidden, restore focus to the previously focused object.</p>
 </li>
-<li><p>Override the <code>ProcessKeyboard</code> method in the <code>RootScreen</code> class. Add the following code to the <code>RootScreen</code> class.</p>
+<li><p>Override the <code>ProcessKeyboard</code> method in the <code>RootScreen</code> class.</p>
+<ol>
+<li>First, import the <code>SadConsole.Input</code> namespace at the top of the code file:</li>
+</ol>
+<pre><code class="lang-csharp">using SadConsole.Input;
+</code></pre>
+<ol>
+<li>Next, add the following code after the <code>FillBackground</code> method:</li>
+</ol>
 <pre><code class="lang-csharp">public override bool ProcessKeyboard(Keyboard keyboard)
 {
     return base.ProcessKeyboard(keyboard);
@@ -329,7 +349,7 @@ internal class GameObject
 <ul>
 <li><p>The <code>handled</code> variable is used to indicate that we did in fact process the keyboard, and this value is returned at the end of the method. This value is important when you want to prevent other objects from processing the keyboard after you did.</p>
 </li>
-<li><p>All for directional keys are checked with the <a class="xref" href="../../../api/sadconsole/SadConsole.Input.Keyboard.html#SadConsole_Input_Keyboard_IsKeyPressed_SadConsole_Input_Keys_"><code>keyboard.IsKeyPressed</code></a> method.</p>
+<li><p>All for directional keys are checked with the <a class="xref" href="../../../api/SadConsole.Input.Keyboard.html#SadConsole_Input_Keyboard_IsKeyPressed_SadConsole_Input_Keys_"><code>keyboard.IsKeyPressed</code></a> method.</p>
 </li>
 </ul>
 <p>Now run the game and try moving the character around the screen:</p>
@@ -345,6 +365,8 @@ internal class GameObject
 <pre><code class="lang-csharp">internal class GameObject
 {
     private ColoredGlyph _mapAppearance = new ColoredGlyph();
+
+    public Point Position { get; private set; }
 
     // ... other code ...
 </code></pre>
@@ -396,7 +418,7 @@ internal class GameObject
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
                 <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
