@@ -1,5 +1,6 @@
 ---
-description: Part 4 of the SadConsole getting started series. This article explores creating a proper map object to hold all the game objects. The game objects are updated with the capability to touch one another.
+title: Get Started Part 4 - Objects
+description: This article explores creating a proper map object to hold all the game objects. The game objects are updated with the capability to touch one another. Part 4 of the SadConsole getting started series.
 ms.date: 10/31/2023
 ---
 

@@ -4,7 +4,7 @@ description: Learn about what the GameHost.Screen property is why it's so import
 ms.date: 09/12/2023
 ---
 
-# SadConsole **GameHost.Screen** Property
+# GameHost.Screen overview (SadConsole Systems)
 
 The <xref:SadConsole.GameHost.Screen?displayProperty=nameWithType> property is one of the most important properties in SadConsole. The `Screen` determines what's visible on the screen and what's processed by the keyboard and mouse.
 

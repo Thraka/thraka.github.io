@@ -1,4 +1,5 @@
 ---
+title: Create a new project from the template
 description: Create a SadConsole project with the SadConsole templates.
 ms.date: 10/31/2023
 ---

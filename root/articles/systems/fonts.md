@@ -1,8 +1,10 @@
 ---
 title: SadConsole Font Overview
-description: Learn about the startup configuration for SadConsole
+description: Learn about how font objects are configured and used by SadConsole. The SadFont type is the main font type used.
 ms.date: 10/31/2023
 ---
+
+# Font overview (SadConsole Systems)
 
 A "font" in SadConsole is used to display characters on the screen. The font can be a mix of textual glyphs or graphical tiles. Fonts consist of two parts, the image file and the config file. The image is in any format that the current [host](host.md) supports. Most likely, this is MonoGame. Both the MonoGame and SFML hosts support loading _.png_ images, and that image format can be considered safe.
 

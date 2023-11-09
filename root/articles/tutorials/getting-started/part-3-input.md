@@ -1,5 +1,6 @@
 ---
-description: Part 3 of the SadConsole getting started series. Learn how to create a basic map object and how to handle keyboard input.
+title: Get Started Part 3 - A map
+description: Learn how to create a basic map object and how to handle keyboard input. Part 3 of the SadConsole getting started series.
 ms.date: 10/31/2023
 ---
 

@@ -1,5 +1,6 @@
 ---
-description: Part 2 of the SadConsole getting started series. In this part you'll learn how to use the Cursor object and how nesting and parenting consoles works.
+title: Get Started Part 2 - Cursors
+description: In this part you'll learn how to use the Cursor object and how nesting and parenting consoles works. Part 2 of the SadConsole getting started series.
 ms.date: 10/31/2023
 ---
 
@@ -45,7 +46,7 @@ The `SadConsole.Console` type is the basic type you use to get data on the scree
 
 When you run a terminal program, such as _cmd.exe_ or _bash_, you're presented with a blinking cursor, letting you know it's ready for you to type something. When the programs you run communicate back to you, that cursor prints things to the screen:
 
-![demonstrating a powershell and cmd terminal](images/part-2-cursor-parents/terminal.gif)
+![demonstrating a PowerShell and cmd terminal](images/part-2-cursor-parents/terminal.gif)
 
 SadConsole provides a cursor system as way to show users where text is about to be written, where they should use the keyboard to type, or just as a convenient way to draw to a console. You can chain cursor commands into a series of actions:
 
@@ -210,7 +211,7 @@ The code above introduces a few new concepts you may be unfamiliar with:
     `container` is the root object, which doesn't draw anything because it's a `ScreenObject`, however, it contains a single child: `console1`, added by the last line of the code: `container.Children.Add(console1)`. `console1` draws something on the screen because it's a console. Children are positioned relative to their parent. In this case, `console1` is positioned at _(x3,y2)_ of its parent, `container` which is at _(x0,y0)_. The final drawing position of `console1` is calculated using the formula `self.Position + parent.Position`. Because `container` is the root object and is positioned at _(x0,y0)_, which is the top-left of the game window, so `console` is drawn at _(x3, y2)_ on the window. If `container` was moved to _(x1, y1)_, `console` would be drawn at _(x4, y3)_.
 
     Positions are calculated differently between objects that have a surface versus those that are containers. This is explained later.
-    
+
     > [!TIP]
     > The position is a `Point` type. Instead of using `new Point(3, 2)`, the `Point` type supports interpreting `(3, 2)` as a `Point`. You can use that syntax anywhere you need a `Point`.
 
@@ -226,7 +227,7 @@ The code above introduces a few new concepts you may be unfamiliar with:
 
 01. `console1.IsFocused = true`
 
-    Previously when you were using the starting console, it was automatically focused, so you didn't have to worry about that. Only the focused object receives keyboard input. If the `container` was focused, `console1` still wouldn't receive keyboard input, even though it's a child object. This is a common mistake developers make with SadConsole, they forget to **Focus** the console or object to receive keyboard input. 
+    Previously when you were using the starting console, it was automatically focused, so you didn't have to worry about that. Only the focused object receives keyboard input. If the `container` was focused, `console1` still wouldn't receive keyboard input, even though it's a child object. This is a common mistake developers make with SadConsole, they forget to **Focus** the console or object to receive keyboard input.
 
 When you run the code, you'll see a screen like the following, try typing with the keyboard and clicking the mouse:
 

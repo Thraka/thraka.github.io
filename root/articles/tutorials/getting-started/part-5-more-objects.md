@@ -1,5 +1,6 @@
 ---
-description: Part 5 of the SadConsole getting started series. This article explores creating more objects to put on the game map. The objects have code that reacts to the player touching them.
+title: Get Started Part 5 - Object handling
+description: This article explores creating more objects to put on the game map. The objects have code that reacts to the player touching them. Part 5 of the SadConsole getting started series.
 ms.date: 10/31/2023
 ---
 

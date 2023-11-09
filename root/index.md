@@ -1,3 +1,11 @@
+---
+title: Welcome to SadConsole
+description: Introduction to SadConsole v10.
+ms.date: 11/08/2023
+_appTitle: ''
+_disableAffix: true
+---
+
 ## Welcome to SadConsole
 
 [![Join us on Discord (Primary)](https://img.shields.io/discord/501465397518925843.svg?label=discord)][discord] [![NuGet](https://img.shields.io/nuget/v/SadConsole.svg)][nuget]
@@ -15,7 +23,7 @@ SadConsole uses NuGet for its .NET dependencies.
 
 The .NET templates provided by SadConsole can generate a demo application that showcases SadConsole. The follwoing commands install the SadConsole templates, generates the demo application, and then runs it.
 
-```dotnet
+```shell
 dotnet new --install SadConsole.Templates
 dotnet new sadconsole.demo
 dotnet run

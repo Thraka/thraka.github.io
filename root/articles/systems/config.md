@@ -1,8 +1,10 @@
 ---
-title: Overview of the SadConsole startup config
-description: Learn about the startup configuration for SadConsole
+title: Overview of the startup config
+description: Learn about the startup configuration for SadConsole. The Builder object provides a fluent API for configuring SadConsole.
 ms.date: 10/31/2023
 ---
+
+# Startup config overview (SadConsole Systems)
 
 Game startup API is provided by the host library and not by SadConsole directly. The two hosts, MonoGame and SFML, have identical startup APIs. The MonoGame host is documented on this site, but should equally apply to SFML.
 

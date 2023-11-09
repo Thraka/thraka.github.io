@@ -1,9 +1,10 @@
 ---
+title: String parser syntax
 description: Learn about the SadConsole string parsers syntax.
 ms.date: 09/13/2023
 ---
 
-# String parser syntax
+# String parser built-in commands and syntax
 
 SadConsole provides 6 commands by default. A command is built with this string format: `[c:{command} {parameters}]`. The `[c:` text starts the command sequence. The sequence ends when `]` is encountered. If the command is invalid for some reason, it will not be processed and the text of the command will show up in the string. Once a command is created in the string, it is put on a stack and applied to each character encountered. Most commands can be applied for a specific count of characters, but otherwise apply until the end of the string. There is a special command, `[c:undo]` which stops the last command added to the stack of commands.
 

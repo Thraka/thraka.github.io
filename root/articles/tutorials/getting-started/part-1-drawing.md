@@ -1,5 +1,6 @@
 ---
-description: Learn how to get started with SadConsole by drawing on a console.
+title: Get Started Part 1 - Drawing
+description: Learn how to get started with SadConsole by drawing on a console. Part 1 of the SadConsole getting started series.
 ms.date: 10/31/2023
 ---
 

@@ -1,4 +1,5 @@
 ---
+title: How to resize console to the window
 description: Learn how to resize a console in response to the SadConsole window size changing.
 ms.date: 10/31/2023
 ---

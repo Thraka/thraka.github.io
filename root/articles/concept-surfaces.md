@@ -1,5 +1,5 @@
 ---
-title: Overview of SadConsole Surfaces
+title: Overview of surfaces
 description: Learn about how surfaces group cells together to form virtual consoles.
 ms.date: 02/05/2021
 ---

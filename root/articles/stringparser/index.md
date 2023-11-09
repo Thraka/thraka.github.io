@@ -1,5 +1,6 @@
 ---
-description: String parser overview
+title: Custom string parser
+description: An overview of the string parser in SadConsole. The string parser can interpret commands embedded in a string.
 ms.date: 09/13/2023
 ---
 

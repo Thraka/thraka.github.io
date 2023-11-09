@@ -1,6 +1,7 @@
 ---
-description: Introduction to SadConsole v10
-ms.date: 09/17/2023
+title: Introduction
+description: Introduction to SadConsole v10.
+ms.date: 11/08/2023
 ---
 
 # Introduction to SadConsole

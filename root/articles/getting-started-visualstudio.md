@@ -1,4 +1,5 @@
 ---
+title: Get started with Visual Studio
 description: Create a SadConsole project with Visual Studio.
 ms.date: 10/31/2023
 ---
