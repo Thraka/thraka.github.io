@@ -43,6 +43,7 @@ foant-family: DOS,SimHei,Monaco,Menlo,Consolas,'Courier New';
   --color-yellow-bright: #ff5;
   --color-white: #aaa;
   --color-white-bright: #fff;
+  --color-hljs-background: #002451;
 }
 
 @font-face {
@@ -92,6 +93,26 @@ foant-family: DOS,SimHei,Monaco,Menlo,Consolas,'Courier New';
   .container {
       width: 1370px;
   }
+}
+
+pre ::-webkit-scrollbar {
+  background-color: var(--color-hljs-background);
+  border-radius: 10px;
+  width: 16px;
+  height: 16px;
+}
+
+pre ::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+pre ::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  border: 3px solid var(--color-hljs-background);
+  background-clip: content-box;
+  background: var(--color-blue-bright);
+  width: 8px;
+  height: 8px;
 }
 
 html,
@@ -166,6 +187,16 @@ body .toc{
 .toc .nav > li > a {
   color: var(--color-cyan);
   margin-bottom: 3px;
+  margin-left: 3px;
+}
+
+.toc .level3 > li {
+  padding-bottom: 7px;
+  margin-left: 5px;
+}
+
+.toc .level3 {
+  margin-top: 5px;
 }
 
 .toc .nav > li.active > a {
@@ -182,13 +213,7 @@ body .toc{
 }
 
 .sideaffix {
-  margin-top: 50px;
   font-size: 14px;
-  max-height: 100%;
-  overflow: hidden;
-  top: 100px;
-  bottom: 10px;
-  position: fixed;
 }
 
 .bs-docs-sidebar {
@@ -216,20 +241,28 @@ pre {
   border-radius: 0px;
 }
 
-p > code, tr > code, li > code {
-  background-color: var(--color-black-bright);
+code {
+  background-color: #55555577;
   color: var(--color-white-bright);
   padding: 0.1em 0.3em;
   border-radius: 3px;
-  font-size: 90%;
+  font-size: 95%;
 }
 
 p > a.xref {
-  background-color: var(--color-black-bright);
+  background-color: #55555577;
   color: var(--color-yellow-bright);
   padding: 0.1em 0.3em;
   border-radius: 3px;
-  font-size: 90%;
+  font-size: 95%;
+}
+
+li > a.xref {
+  background-color: #55555577;
+  color: var(--color-yellow-bright);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+  font-size: 95%;
 }
 
 pre code {
@@ -240,7 +273,7 @@ pre code {
 }
 
 .hljs {
-  background: #002451;
+  background: var(--color-hljs-background);
 }
 
 .lang-plaintext, .lang-text, .lang-undefined {
@@ -260,9 +293,17 @@ pre code {
   font-size: 14px;
 }
 
+article h1 {
+  margin-top: -20px;
+}
+
 h1 {
   font-size: 24px;
   color: var(--color-white-bright);
+}
+
+article h2 {
+  margin: 30px 0px 30px -20px;
 }
 
 h2::before {
@@ -276,7 +317,7 @@ h2 {
   padding: 8px 10px;
   box-shadow: 8px 8px 0 1px var(--color-blue-bright);
   width: fit-content;
-  margin: 20px -10px;
+  margin: 30px 0px 30px -20px;
   text-transform: uppercase;
 }
 h2::after {
@@ -352,11 +393,11 @@ h2::after {
 .sideaffix > div.contribution > ul > li > a.contribution-link:hover {
   background-color: #ffffff;
 }
-
 .affix{
   position: fixed;
-  margin-right: 5px;
-  margin-top: -50px;
+  margin-right: 40px;
+  margin-top: -80px;
+  width: -webkit-fill-available;
 }
 
 .affix ul > li > a:before {
@@ -378,7 +419,7 @@ h2::after {
 .affix > ul > li > a:before {
   content: "|";
   font-size: 14px;
-  top: 5px;
+  top: 1px;
   left: 0;
 }
 .affix > ul > li.active > a,
@@ -390,22 +431,39 @@ h2::after {
   content: ">";
   font-size: 14px;
   top: 1px;
-  left: 5px;
+  left: 15px;
 }
 .affix > ul.level1 {
   overflow: hidden;
   padding-bottom: 10px;
   height: unset;
-  margin-right: 0px;
-  box-shadow: 10px 15px rgba(0, 0, 0, 0.5);
-  background-color: var(--color-cyan);
+  margin-right: 15px;
+  box-shadow: 10px 15px var(--color-white);
+  background-color: var(--color-black-bright);
 }
-
 .affix h5 {
   font-weight: normal;
   text-transform: uppercase;
   padding-left: 10px;
   font-size: 14px;
+}
+.affix ul > li.active > ul,
+.affix ul > li.active > a:before,
+.affix ul > li > a:hover:before {
+  display: block;
+  white-space: normal;
+}
+
+.affix > ul > li.active:last-child {
+  margin-bottom: inherit;
+}
+
+.affix ul ul > li {
+  padding-left: 15px;
+}
+
+.affix ul ul > li > a {
+  padding: 2px 30px;
 }
 
 .h4, h4, article h4 {
@@ -522,4 +580,8 @@ td:first-child {
 
 .table-striped>tbody>tr:nth-of-type(odd) {
   background-color: transparent;
+}
+
+img {
+  border: 1px solid var(--color-black-bright)
 }

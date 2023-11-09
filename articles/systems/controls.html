@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Overview of Controls | SadConsole</title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Overview of Controls | SadConsole">
+    <meta name="description" content="Learn about what UI controls are available  with SadConsole.">
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/dracula.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-9">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="controls-overview-sadconsole-systems">Controls overview (SadConsole Systems)</h1>
+
+<p>SadConsole provides a controls and forms-like framework for you to display GUI controls in your game. This includes controls like buttons, checkboxes, and lists. You can use the controls provided by SadConsole, extend those controls, or build your own controls.</p>
+<p>UI related types are in these two namespaces:</p>
+<ul>
+<li><code>SadConsole.UI</code> - Basic supporting objects, such as the controls host, colors, and window types.</li>
+<li><code>SadConsole.UI.Controls</code> - All of the controls provided by SadConsole.</li>
+</ul>
+<h2 id="create-and-show-controls">Create and show controls</h2>
+<p>Controls are hosted and managed by the <a class="xref" href="../../api/SadConsole.UI.ControlHost.html">SadConsole.UI.ControlHost</a> component. When this component is added to a surface, that surface has can draw controls, which the user can interact with. Controls are added to the component and not the surface directly.</p>
+<p>The following code demonstrates a <code>ScreenSurface</code> with a <code>ControlHost</code> component. A control is added to the component:</p>
+<pre><code class="lang-csharp">ScreenSurface surfaceObject = new(GameHost.Instance.ScreenCellsX, GameHost.Instance.ScreenCellsY);
+ControlHost controls = new();
+        
+surfaceObject.SadComponents.Add(controls);
+
+ListBox list = new(18, 7);
+list.DrawBorder = true;
+list.Items.Add(&quot;John&quot;);
+list.Items.Add(&quot;Steve&quot;);
+list.Items.Add(&quot;Nancy&quot;);
+list.Items.Add(&quot;Lewis&quot;);
+list.Items.Add(&quot;Karl&quot;);
+list.Items.Add(&quot;Carl with a C&quot;);
+list.Position = new Point(1, 1);
+
+controls.Add(list);
+GameHost.Instance.Screen = surfaceObject;
+</code></pre>
+<h3 id="controlsconsole">ControlsConsole</h3>
+<p>The <a class="xref" href="../../api/SadConsole.UI.ControlsConsole.html">SadConsole.UI.ControlsConsole</a> type combines a <a class="xref" href="../../api/SadConsole.Console.html">Console</a> (which inherits from <code>ScreenSurface</code>) with the <a class="xref" href="../../api/SadConsole.UI.ControlHost.html">ControlHost</a> component. The host is exposed through the <a class="xref" href="../../api/SadConsole.UI.ControlsConsole.html#SadConsole_UI_ControlsConsole_Controls">Controls</a> property. To demonstrate, the example from the previous section has been rewritten to use <code>ControlsConsole</code> instead of <code>ScreenSurface</code>:</p>
+<pre><code class="lang-csharp">ControlsConsole console = new(GameHost.Instance.ScreenCellsX, GameHost.Instance.ScreenCellsY);
+
+ListBox list = new(18, 7);
+list.DrawBorder = true;
+list.Items.Add(&quot;John&quot;);
+list.Items.Add(&quot;Steve&quot;);
+list.Items.Add(&quot;Nancy&quot;);
+list.Items.Add(&quot;Lewis&quot;);
+list.Items.Add(&quot;Karl&quot;);
+list.Items.Add(&quot;Carl with a C&quot;);
+list.Position = new Point(1, 1);
+
+console.Controls.Add(list);
+GameHost.Instance.Screen = console;
+</code></pre>
+<h2 id="color-system">Color system</h2>
+<p>All of the controls share a color scheme that each control uses to draw itself. The controls draw themselves with the color scheme based on the state the control is in, such as when the mouse is over the control.</p>
+<p>When a control draws itself, it calls the <a class="xref" href="../../api/SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeColors">ControlBase.FindThemeColors()</a> method. As indicated by the method name, this method finds the color scheme used in drawing the control. Colors are set globally by default by the <a class="xref" href="../../api/SadConsole.UI.Colors.html#SadConsole_UI_Colors_Default">SadConsole.UI.Colors.Default</a> property. You can edit these colors to customize the colors for all controls. But, you can set the colors separately from the default set of colors by setting them on the control's host or the control itself. When set on the host, all controls added to that host use those colors instead of the default. Further, if set directly on the control, those colors are used. To summerize, when a control draws itself, it uses the first set of colors it finds based on the following order:</p>
+<ul>
+<li>The control itself. (Colors are set with the <a class="xref" href="../../api/SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_SetThemeColors_SadConsole_UI_Colors_">SetThemeColors(Colors?)</a> method)</li>
+<li>The control's host's <a class="xref" href="../../api/SadConsole.UI.ControlHost.html#SadConsole_UI_ControlHost_ThemeColors">ThemeColors</a> property.</li>
+<li><a class="xref" href="../../api/SadConsole.UI.Colors.html#SadConsole_UI_Colors_Default">SadConsole.UI.Colors.Default</a> property.</li>
+</ul>
+<p>SadConsole provides two color schemes you can use as the default. Of course, you can always create your own color scheme, but a classic black Ansi-inspired theme and a blue-ish theme are provided. The black theme is the default, and is created by calling the <a class="xref" href="../../api/SadConsole.UI.Colors.html#SadConsole_UI_Colors_CreateAnsi">SadConsole.UI.Colors.CreateAnsi()</a> method. The blue theme is created by calling the <a class="xref" href="../../api/SadConsole.UI.Colors.html#SadConsole_UI_Colors_CreateSadConsoleBlue">SadConsole.UI.Colors.CreateSadConsoleBlue()</a> method.</p>
+<p>The following sections describe how the color system works with controls, if you're interested in how to simply change the colors, see the following articles:</p>
+<ul>
+<li><a href="../how-to-change-control-colors.html#how-to-edit-the-default-colors">How to edit the default colors.</a></li>
+<li><a href="../how-to-change-control-colors.html#how-to-set-the-colors-for-a-host">How to set the colors for a host.</a></li>
+<li><a href="../how-to-change-control-colors.html#how-to-set-the-colors-for-a-control">How to set the colors for a control.</a></li>
+</ul>
+<h2 id="control-color-theme-parts">Control color theme parts</h2>
+<p>The <a class="xref" href="../../api/SadConsole.UI.Colors.html">Colors</a> object has a few properties representing a standard set of named colors, such as <strong>Red</strong> or <strong>Gold</strong>. It also has a set of properties that represent the foreground and background colors used to draw the control when it's in a specific state. These color combinates are combined into a single <code>ColoredGlyph</code> object that's used in drawing.</p>
+<ul>
+<li><p>Normal</p>
+<p>This is what the control looks like when you create it.</p>
+<p>The <code>Colors.ControlBackgroundNormal</code> and <code>Colors.ControlForegroundNormal</code> colors are combined into the <code>Colors.Appearance_ControlNormal</code> property.</p>
+</li>
+<li><p>Disabled</p>
+<p>This is what the control looks like when it's disabled and all interaction with it is prevented.</p>
+<p>The <code>Colors.ControlBackgroundDisabled</code> and <code>Colors.ControlForegroundDisabled</code> colors are combined into the <code>Colors.Appearance_ControlDisabled</code> property.</p>
+</li>
+<li><p>Focused</p>
+<p>This is what the control looks like when it's the focused object. The control host can focus a single object. If there's text on the control, it's generally recolored to indicate it's the focused object.</p>
+<p>The <code>Colors.ControlBackgroundFocused</code> and <code>Colors.ControlForegroundFocused</code> colors are combined into the <code>Colors.Appearance_ControlFocused</code> property.</p>
+</li>
+<li><p>Mouse Over</p>
+<p>When the mouse is over the control, but no buttons are pressed, these are the colors used to draw it.</p>
+<p>The <code>Colors.ControlBackgroundMouseOver</code> and <code>Colors.ControlForegroundMouseOver</code> colors are combined into the <code>Colors.Appearance_ControlOver</code> property.</p>
+</li>
+<li><p>Mouse Down</p>
+<p>When the mouse is over the control and a mouse button is pressed, these are the colors ued to draw it.</p>
+<p>The <code>Colors.ControlBackgroundMouseDown</code> and <code>Colors.ControlForegroundMouseDown</code> colors are combined into the <code>Colors.Appearance_ControlMouseDown</code> property.</p>
+</li>
+<li><p>Selected</p>
+<p>This is what the control looks like when it's in the <strong>selected</strong> state. This state is used by the <a class="xref" href="../../api/SadConsole.UI.Controls.ListBox.html">ListBox</a> control to color the selected item.</p>
+<p>The <code>Colors.ControlBackgroundSelected</code> and <code>Colors.ControlForegroundSelected</code> colors are combined into the <code>Colors.Appearance_ControlSelected</code> property.</p>
+</li>
+</ul>
+<p>When you adjust the individual colors, such as <code>Colors.ControlForegroundNormal</code>, use the <a class="xref" href="../../api/SadConsole.UI.Colors.html#SadConsole_UI_Colors_RebuildAppearances">RebuildAppearances()</a> method to combine the two colors into the final <code>Colors.Appearance_*</code> property. You can also change the <code>Colors.Appearance_*</code> properties directly, but don't forget to also change the associated foreground and background colors too.</p>
+<h3 id="control-host">Control host</h3>
+<p>The <a class="xref" href="../../api/SadConsole.UI.ControlHost.html">ControlHost</a> component recolors the hosting surface it's attached to the color's designated by the <code>Colors.ControlHostBackground</code> and <code>Colors.ControlHostForeground</code> properties. This happens one time, when the component is added to the surface object. You can prevent this by setting the <a class="xref" href="../../api/SadConsole.UI.ControlHost.html#SadConsole_UI_ControlHost_ClearOnAdded">ControlHost.ClearOnAdded</a> property to <code>false</code> before the component is added.</p>
+<p>To learn how to change the colors of a host, see <a href="../how-to-change-control-colors.html#how-to-set-the-colors-for-a-host">How to set the colors for a host</a>.</p>
+<h2 id="reference-built-in-controls">Reference: Built-in controls</h2>
+<p>The following is a list of common controls provided by SadConsole:</p>
+<ul>
+<li><a class="xref" href="../../api/SadConsole.UI.Controls.Button.html">Button</a></li>
+<li><a class="xref" href="../../api/SadConsole.UI.Controls.Button3d.html">Button3d</a></li>
+<li><a class="xref" href="../../api/SadConsole.UI.Controls.ButtonBox.html">ButtonBox</a></li>
+<li><a class="xref" href="../../api/SadConsole.UI.Controls.CheckBox.html">CheckBox</a></li>
+<li><a class="xref" href="../../api/SadConsole.UI.Controls.ComboBox.html">ComboBox</a></li>
+<li><a class="xref" href="../../api/SadConsole.UI.Controls.DrawingArea.html">DrawingArea</a></li>
+<li><a class="xref" href="../../api/SadConsole.UI.Controls.Label.html">Label</a></li>
+<li><a class="xref" href="../../api/SadConsole.UI.Controls.ListBox.html">ListBox</a></li>
+<li><a class="xref" href="../../api/SadConsole.UI.Controls.NumberBox.html">NumberBox</a></li>
+<li><a class="xref" href="../../api/SadConsole.UI.Controls.ProgressBar.html">ProgressBar</a></li>
+<li><a class="xref" href="../../api/SadConsole.UI.Controls.RadioButton.html">RadioButton</a></li>
+<li><a class="xref" href="../../api/SadConsole.UI.Controls.SelectionButton.html">SelectionButton</a></li>
+<li><a class="xref" href="../../api/SadConsole.UI.Controls.TextBox.html">TextBox</a></li>
+<li><a class="xref" href="../../api/SadConsole.UI.Controls.ToggleSwitch.html">ToggleSwitch</a></li>
+</ul>
+<p>The following is a list of specialized controls. These are more advanced than the simple common control previously listed; these support are either container controls or support other controls.</p>
+<ul>
+<li><a class="xref" href="../../api/SadConsole.UI.Controls.Panel.html">Panel</a></li>
+<li><a class="xref" href="../../api/SadConsole.UI.Controls.ScrollBar.html">ScrollBar</a></li>
+<li><a class="xref" href="../../api/SadConsole.UI.Controls.SurfaceViewer.html">SurfaceViewer</a></li>
+<li><a class="xref" href="../../api/SadConsole.UI.Controls.TabControl.html">TabControl</a></li>
+</ul>
+<p>The following is a list of base classes used for other controls:</p>
+<ul>
+<li><p><a class="xref" href="../../api/SadConsole.UI.Controls.ControlBase.html">ControlBase</a></p>
+<p>This is the base class for all controls. When you want to create a completely new control, you inherit from this class.</p>
+</li>
+<li><p><a class="xref" href="../../api/SadConsole.UI.Controls.CompositeControl.html">CompositeControl</a></p>
+<p>This is a base class that contains multiple other controls. For example, the <code>ListBox</code> is a <code>CompositeControl</code> that hosts a <code>ScrollBar</code>.</p>
+</li>
+<li><p><a class="xref" href="../../api/SadConsole.UI.Controls.ButtonBase.html">ButtonBase</a></p>
+<p>This is the base class for all button types, such as <code>Button</code> and <code>ButtonBox</code>.</p>
+</li>
+<li><p><a class="xref" href="../../api/SadConsole.UI.Controls.ToggleButtonBase.html">ToggleButtonBase</a></p>
+<p>Inherits from <code>ButtonBase</code> and is the base class for all button types that have an <strong>on</strong> and <strong>off</strong> state, such as a <code>CheckBox</code> or <code>ToggleSwitch</code>.</p>
+</li>
+</ul>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-3" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+                <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>How to change the colors for a control | SadConsole</title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="How to change the colors for a control | SadConsole">
+    <meta name="description" content="Learn how to change the default colors used by controls in SadConsole. The default colors are defined by the Colors.Default property.">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/dracula.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-9">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="change-the-colors-used-by-controls">Change the colors used by controls</h1>
+
+<p>Controls get their colors from a variety of places, but in order. First, the control itself is checked for colors. If control doesn't define any colors, the control's host is checked, and if those aren't defined, the default colors are used. For more information, see <a href="systems/controls.html">Controls overview (SadConsole Systems)</a>.</p>
+<p>The following sections demonstrate how to change a control's colors.</p>
+<p>UI related types are in these two namespaces:</p>
+<ul>
+<li><code>SadConsole.UI</code> - Basic supporting objects, such as the controls host, colors, and window types.</li>
+<li><code>SadConsole.UI.Controls</code> - All of the controls provided by SadConsole.</li>
+</ul>
+<!--
+## Adjustable colors
+
+The <xref:SadConsole.UI.Colors> type uses <xref:SadConsole.UI.AdjustableColor> for the various control color schemes, such as <xref:SadConsole.UI.Colors.ControlForegroundNormal> and <xref:SadConsole.UI.Colors.ControlBackgroundNormal>. Adjustable colors are colors that are computed with a brightness when they're actually used. They're based on an existing color or defined by the <xref:SadConsole.UI.Colors.ColorNames> enum. This enum maps to the individual color properties provided by the `Colors` type, such as `Colors.Red`.
+
+The benefit of an adjustable color and the predefined colors, is that you can update the predefined colors object with say a new shade of red, then ask the adjustable color to refresh itself. If that adjustable color used the **red** color name, it refreshes itself with that new shade.
+-->
+<h2 id="how-to-edit-the-default-colors">How to edit the default colors</h2>
+<p>All controls, unless overridden, get their colors from the <a class="xref" href="../api/SadConsole.UI.Colors.html#SadConsole_UI_Colors_Default">SadConsole.UI.Colors.Default</a> property. You can set that property to a new <a class="xref" href="../api/SadConsole.UI.Colors.html">Colors</a> instance, or change the individual properties on the existing instance.</p>
+<p>After changing the <code>Colors.Default.Control*</code> color properties, you must call <a class="xref" href="../api/SadConsole.UI.Colors.html#SadConsole_UI_Colors_RebuildAppearances">RebuildAppearances()</a> to rebuild the specific <code>Colors.Default.Appearance_*</code> appearance states.</p>
+<pre><code class="lang-csharp">Colors.Default.ControlForegroundNormal.SetColor(Color.Purple);
+Colors.Default.RebuildAppearances();
+</code></pre>
+<h2 id="how-to-set-the-colors-for-a-host">How to set the colors for a host</h2>
+<p>If the colors are set on the control host, all controls in the host use these colors instead of the default colors. The colors are set by setting the <a class="xref" href="../api/SadConsole.UI.ControlHost.html#SadConsole_UI_ControlHost_ThemeColors">ControlHost.ThemeColors</a> property to an instance of the <a class="xref" href="../api/SadConsole.UI.Colors.html">Colors</a> type. To clear those colors and use the default, set <code>ThemeColors</code> to <code>null</code>.</p>
+<pre><code class="lang-csharp">// Create the new colors
+Colors newColors = Colors.Default.Clone();
+
+newColors.Red = Color.Red.GetBrightest();
+newColors.ControlForegroundNormal.SetColor(Color.Purple);
+newColors.RebuildAppearances();
+
+// Create the controls console, which has a controls host
+ControlsConsole console = new(GameHost.Instance.ScreenCellsX, GameHost.Instance.ScreenCellsY);
+
+// Update the controls host
+console.Controls.ThemeColors = newColors;
+
+// Add a single control
+Button button1 = new(&quot;Button 1&quot;);
+button1.Position = new Point(1, 1);
+
+console.Controls.Add(button1);
+
+// Show the console
+GameHost.Instance.Screen = console;
+</code></pre>
+<p><img src="images/how-to-change-control-colors/change-host-colors.png" alt="A SadConsole window showing a button where the foreground is purple."></p>
+<h2 id="how-to-set-the-colors-for-a-control">How to set the colors for a control</h2>
+<p>If colors are set directly on a control, that control uses those colors instead of any other set of colors. Call the <a class="xref" href="../api/SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_SetThemeColors_SadConsole_UI_Colors_">SetThemeColors(Colors?)</a> on the control, passing in the colors you want to use. Pass <code>null</code> to remove the colors if they were previously set on the control.</p>
+<pre><code class="lang-csharp">// Create the new colors
+Colors newColors = Colors.Default.Clone();
+
+newColors.Red = Color.Red.GetBrightest();
+newColors.ControlForegroundNormal.SetColor(Color.Purple);
+newColors.RebuildAppearances();
+
+// Create the controls console, which has a controls host
+ControlsConsole console = new(GameHost.Instance.ScreenCellsX, GameHost.Instance.ScreenCellsY);
+
+// Add first button with custom colors
+Button button1 = new(&quot;Button 1&quot;);
+button1.SetThemeColors(newColors);
+button1.Position = new Point(1, 1);
+console.Controls.Add(button1);
+
+// Add second button without custom colors
+Button button2 = new(&quot;Button 2&quot;);
+button2.Position = new Point(1, 2);
+console.Controls.Add(button2);
+
+// Show the console
+GameHost.Instance.Screen = console;
+</code></pre>
+<p><img src="images/how-to-change-control-colors/change-control-colors.png" alt="A SadConsole window showing two buttons where one has a purple foreground."></p>
+<h2 id="how-to-reset-the-colors-to-the-default">How to reset the colors to the default</h2>
+<p>If you ever change the <a class="xref" href="../api/SadConsole.UI.Colors.html#SadConsole_UI_Colors_Default">SadConsole.UI.Colors.Default</a> colors and want to revert them back to their defaultes, set the property to the return value of the <a class="xref" href="../api/SadConsole.UI.Colors.html#SadConsole_UI_Colors_CreateAnsi">CreateAnsi()</a> method. This method is used to generate the colors used by SadConsole when it starts.</p>
+<pre><code class="lang-csharp">Colors.Default = Colors.CreateAnsi();
+</code></pre>
+<div class="TIP">
+<h5>Tip</h5>
+<p>SadConsole also defines a set colors based on a blue tone, which you can use instead of the <code>CreateAnsi</code> colors which are based on black.</p>
+<pre><code class="lang-csharp">Colors.Default = Colors.CreateSadConsoleBlue();
+</code></pre>
+</div>
+<h2 id="how-to-get-the-colors-used-by-a-control-or-host">How to get the colors used by a control or host</h2>
+<p>There are times when you want to find the colors used by a control or a host, so that you can match that set of colors. This is most common when you've created your own control and you want to know what colors to use. Another common scenario for knowing the colors of a control is when you want to draw something that matches those colors. For example, the <code>Colors</code> type defines a <code>Lines</code> color, which is used to color various parts of controls, such as the <code>RadioButton</code>'s brackets or the <code>ListBox</code>'s surrounding box. You may want to know this color when drawing other lines on the surface host, so the color matches the controls.</p>
+<p>Call the control's <a class="xref" href="../api/SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeColors">FindThemeColors()</a> method. This searches the control and then the host for colors. If no colors are found, the default colors are returned.</p>
+<pre><code class="lang-csharp">Colors assignedColors = someControl.FindThemeColors();
+</code></pre>
+<p>Likewise, you can get the colors of a control host with the <a class="xref" href="../api/SadConsole.UI.ControlHost.html#SadConsole_UI_ControlHost_GetThemeColors">GetThemeColors()</a> method. This method checks to see if the host has colors value assigned to the <a class="xref" href="../api/SadConsole.UI.ControlHost.html#SadConsole_UI_ControlHost_ThemeColors">ThemeColors</a> property and returns them. If the property is <code>null</code>, the default colors are returned.</p>
+<pre><code class="lang-csharp">// Using a ControlsConsole which provides a ControlHost
+Colors hostColors = console.Controls.GetThemeColors();
+</code></pre>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-3" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+                <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
