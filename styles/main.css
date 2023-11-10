@@ -95,26 +95,6 @@ foant-family: DOS,SimHei,Monaco,Menlo,Consolas,'Courier New';
   }
 }
 
-pre ::-webkit-scrollbar {
-  background-color: var(--color-hljs-background);
-  border-radius: 10px;
-  width: 16px;
-  height: 16px;
-}
-
-pre ::-webkit-scrollbar-track {
-  border-radius: 10px;
-}
-
-pre ::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  border: 3px solid var(--color-hljs-background);
-  background-clip: content-box;
-  background: var(--color-blue-bright);
-  width: 8px;
-  height: 8px;
-}
-
 html,
 body {
   font-size: 14px;
@@ -150,6 +130,10 @@ body .toc{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.navbar-brand > img {
+  border: unset;
 }
 
 .sidetoc {
@@ -239,6 +223,34 @@ pre {
   background-color: #f5f5f5;
   border: 0px solid #ccc;
   border-radius: 0px;
+  margin-bottom: 2em;
+}
+
+pre ::-webkit-scrollbar {
+  background-color: var(--color-hljs-background);
+  border-radius: 10px;
+  width: 16px;
+  height: 16px;
+}
+
+pre ::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+pre ::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  border: 3px solid var(--color-hljs-background);
+  background-clip: content-box;
+  background: var(--color-blue-bright);
+  width: 8px;
+  height: 8px;
+}
+
+pre code {
+  font-size: 16px;
+  line-height: 16px;
+  font-family: DOS;
+  white-space: pre;
 }
 
 code {
@@ -263,13 +275,6 @@ li > a.xref {
   padding: 0.1em 0.3em;
   border-radius: 3px;
   font-size: 95%;
-}
-
-pre code {
-  font-size: 16px;
-  line-height: 16px;
-  font-family: DOS;
-  white-space: pre;
 }
 
 .hljs {
@@ -328,14 +333,16 @@ h2::after {
 
 .alert {
   border-radius: unset;
+  margin-top: 20px;
   margin-right: 10px;
-  box-shadow: 10px 15px rgba(0, 0, 0, 0.5);
 }
 
 .alert-warning {
   color: inherit;
   background-color: var(--color-red);
   border-color: inherit;
+  border-color: var(--color-red-bright);
+  box-shadow: 8px 10px var(--color-red-bright);
 }
 
     .alert-warning h5:before {
@@ -353,6 +360,7 @@ h2::after {
   color: var(--color-black);
   background-color: var(--color-white);
   border-color: var(--color-white-bright);
+  box-shadow: 8px 10px var(--color-white-bright);
 }
 
     .alert-info h5:before {
@@ -370,6 +378,7 @@ h2::after {
   color: var(--color-white-bright);
   background-color: var(--color-cyan);
   border-color: var(--color-cyan-bright);
+  box-shadow: 8px 10px var(--color-cyan-bright);
 }
 
     .alert-danger h5:before {
