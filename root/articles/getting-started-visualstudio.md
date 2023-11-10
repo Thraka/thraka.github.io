@@ -26,13 +26,13 @@ Start Visual Studio.
 01. In the **Create a new project** dialog, type `sadconsole`` into the search box and select the **SadConsole Game (MonoGame)** project template.
 
     ![create a new sadconsole project in visual studio](images/getting-started-visualstudio/template.png)
-    
+
     The `SadConsole Game (MonoGame)` template creates a SadConsole game that uses [MonoGame](https://www.monogame.net/) and the `SadConsole Game (SFML)` template creates a game that uses [SFML](https://www.sfml-dev.org/). MonoGame and SFML are the backend renderers for SadConsole. In general, the code you use for SadConsole doesn't care which rendering system you use. However, as your game progresses, which renderer you choose is very important. Currently, it's recommended that you use the MonoGame renderer as it has the following benefits:
-    
+
     - Easier cross-platform targeting.
     - Supports 3D rendering: models, scenes, etc.
     - Built for .NET coding
-    
+
     SFML is cross-platform, but it takes more work on your side to get that working.
 
 02. Press **Next** and then set the **Project name** to `SadConsoleGame` and choose a **location** on your computer to save the project.

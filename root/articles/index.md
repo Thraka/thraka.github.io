@@ -2,6 +2,7 @@
 title: Introduction
 description: Introduction to SadConsole v10.
 ms.date: 11/08/2023
+_disableAffix: true
 ---
 
 # Introduction to SadConsole

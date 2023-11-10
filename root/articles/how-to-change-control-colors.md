@@ -121,7 +121,7 @@ Call the control's <xref:SadConsole.UI.Controls.ControlBase.FindThemeColors> met
 Colors assignedColors = someControl.FindThemeColors();
 ```
 
-Likewise, you can get the colors of a control host with the <xref:SadConsole.UI.ControlHost.GetThemeColors> method. This method checks to see if the host has colors value assigned to the <xref:SadConsole.UI.ControlHost.ThemeColors> property and returns them. If the property is `null`, the default colors are returned. 
+Likewise, you can get the colors of a control host with the <xref:SadConsole.UI.ControlHost.GetThemeColors> method. This method checks to see if the host has colors value assigned to the <xref:SadConsole.UI.ControlHost.ThemeColors> property and returns them. If the property is `null`, the default colors are returned.
 
 ```csharp
 // Using a ControlsConsole which provides a ControlHost

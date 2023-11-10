@@ -82,9 +82,20 @@
       "/xrefmap.yml"
     ],
     "sitemap":{
-      "baseUrl": "https://www.sadconsole.com",
-      "priority": 0.1,
-      "changefreq": "weekly"
+      "baseUrl": "https://sadconsole.com",
+      "priority": 0.5,
+      "changefreq": "monthly",
+      "fileOptions":{
+        "**/api/**.yml": {
+          "baseUrl": "https://sadconsole.com/api/",
+          "priority": 0.1
+        },
+        "**/GettingStarted.md": {
+          "baseUrl": "https://sadconsole.com/articles/",
+            "priority": 0.8,
+            "changefreq": "daily"
+        }
+      }
     },
     "postProcessors": [],
     "markdownEngineName": "markdig",

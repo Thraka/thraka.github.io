@@ -1,6 +1,6 @@
 ---
-title: Welcome to SadConsole
-description: Introduction to SadConsole v10.
+title: Welcome to SadConsole, a console-style game framework
+description: Introduction to SadConsole, a hardware accelerated game framework. SadConsole makes it easy to write console, terminal, and text-based games. SadConsole is written in C# and targets .NET 6 and .NET 7.
 ms.date: 11/08/2023
 _appTitle: ''
 _disableAffix: true
@@ -10,7 +10,7 @@ _disableAffix: true
 
 [![Join us on Discord (Primary)](https://img.shields.io/discord/501465397518925843.svg?label=discord)][discord] [![NuGet](https://img.shields.io/nuget/v/SadConsole.svg)][nuget]
 
-SadConsole is cross-platform .NET game library that provides an engine to emulate old-school console and command prompt style graphics. SadConsole is built in a generic way and doesn't do any rendering itself. A game engine or other rendering library is required to draw SadConsole games. There are host libraries for MonoGame and SFML. The ascii character set is represented in a sprite sheet, much like other modern ascii games such as Dwarf Fortress.
+SadConsole is cross-platform .NET game library that provides an engine to emulate old-school console and command prompt style graphics. SadConsole is built in a generic way and doesn't do any rendering itself. A game engine or other rendering library is required to draw SadConsole games. There are host libraries for MonoGame and SFML, which are hardware accelerated. The ascii character set is represented in a sprite sheet, much like other modern ascii games such as Dwarf Fortress.
 
 ## Dependencies
 
