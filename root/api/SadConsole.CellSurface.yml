@@ -386,10 +386,8 @@ items:
     parameters:
     - id: viewWidth
       type: System.Int32
-      description: The viewable width of the surface.
     - id: viewHeight
       type: System.Int32
-      description: The viewable height of the surface.
     - id: clear
       type: System.Boolean
       description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates each cell should be reset to the default values.
@@ -1334,18 +1332,16 @@ items:
   summary: Given a position, returns the "value" associated with that location.
   example: []
   syntax:
-    content: public ColoredGlyphBase[] this[Range range] { get; }
+    content: public Span<ColoredGlyphBase> this[Range range] { get; }
     parameters:
     - id: range
       type: System.Range
       description: The cells to return from the array.
     return:
-      type: SadConsole.ColoredGlyphBase[]
+      type: System.Span{SadConsole.ColoredGlyphBase}
       description: The cells associated with the specified range.
-    content.vb: Public ReadOnly Default Property this[](range As Range) As ColoredGlyphBase()
+    content.vb: Public ReadOnly Default Property this[](range As Range) As Span(Of ColoredGlyphBase)
   overload: SadConsole.CellSurface.Item*
-  implements:
-  - SadConsole.ICellSurface.Item(System.Range)
   nameWithType.vb: CellSurface.this[](Range)
   fullName.vb: SadConsole.CellSurface.this[](System.Range)
   name.vb: this[](Range)
@@ -17301,36 +17297,6 @@ references:
     name: Point
     isExternal: true
   - name: )
-- uid: SadConsole.ICellSurface.Item(System.Range)
-  commentId: P:SadConsole.ICellSurface.Item(System.Range)
-  parent: SadConsole.ICellSurface
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.range
-  name: this[Range]
-  nameWithType: ICellSurface.this[Range]
-  fullName: SadConsole.ICellSurface.this[System.Range]
-  nameWithType.vb: ICellSurface.this[](Range)
-  fullName.vb: SadConsole.ICellSurface.this[](System.Range)
-  name.vb: this[](Range)
-  spec.csharp:
-  - name: this
-  - name: '['
-  - uid: System.Range
-    name: Range
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.range
-  - name: ']'
-  spec.vb:
-  - uid: SadConsole.ICellSurface.Item(System.Range)
-    name: this[]
-    isExternal: true
-    href: SadConsole.ICellSurface.html#SadConsole.ICellSurface.Item(System.Range)
-  - name: (
-  - uid: System.Range
-    name: Range
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.range
-  - name: )
 - uid: System.Range
   commentId: T:System.Range
   parent: System
@@ -17339,6 +17305,69 @@ references:
   name: Range
   nameWithType: Range
   fullName: System.Range
+- uid: System.Span{SadConsole.ColoredGlyphBase}
+  commentId: T:System.Span{SadConsole.ColoredGlyphBase}
+  parent: System
+  definition: System.Span`1
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<ColoredGlyphBase>
+  nameWithType: Span<ColoredGlyphBase>
+  fullName: System.Span<SadConsole.ColoredGlyphBase>
+  nameWithType.vb: Span(Of ColoredGlyphBase)
+  fullName.vb: System.Span(Of SadConsole.ColoredGlyphBase)
+  name.vb: Span(Of ColoredGlyphBase)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - uid: SadConsole.ColoredGlyphBase
+    name: ColoredGlyphBase
+    isExternal: true
+    href: SadConsole.ColoredGlyphBase.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.ColoredGlyphBase
+    name: ColoredGlyphBase
+    isExternal: true
+    href: SadConsole.ColoredGlyphBase.html
+  - name: )
+- uid: System.Span`1
+  commentId: T:System.Span`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.span-1
+  name: Span<T>
+  nameWithType: Span<T>
+  fullName: System.Span<T>
+  nameWithType.vb: Span(Of T)
+  fullName.vb: System.Span(Of T)
+  name.vb: Span(Of T)
+  spec.csharp:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Span`1
+    name: Span
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.span-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: SadConsole.ICellSurface.IsDirtyChanged
   commentId: E:SadConsole.ICellSurface.IsDirtyChanged
   parent: SadConsole.ICellSurface
