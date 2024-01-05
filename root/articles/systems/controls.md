@@ -82,37 +82,37 @@ The following sections describe how the color system works with controls, if you
 
 The <xref:SadConsole.UI.Colors> object has a few properties representing a standard set of named colors, such as **Red** or **Gold**. It also has a set of properties that represent the foreground and background colors used to draw the control when it's in a specific state. These color combinates are combined into a single `ColoredGlyph` object that's used in drawing.
 
-- Normal
+- **Normal**
 
   This is what the control looks like when you create it.
   
   The `Colors.ControlBackgroundNormal` and `Colors.ControlForegroundNormal` colors are combined into the `Colors.Appearance_ControlNormal` property.
 
-- Disabled
+- **Disabled**
 
   This is what the control looks like when it's disabled and all interaction with it is prevented.
   
   The `Colors.ControlBackgroundDisabled` and `Colors.ControlForegroundDisabled` colors are combined into the `Colors.Appearance_ControlDisabled` property.
 
-- Focused
+- **Focused**
 
   This is what the control looks like when it's the focused object. The control host can focus a single object. If there's text on the control, it's generally recolored to indicate it's the focused object.
   
   The `Colors.ControlBackgroundFocused` and `Colors.ControlForegroundFocused` colors are combined into the `Colors.Appearance_ControlFocused` property.
 
-- Mouse Over
+- **Mouse Over**
 
   When the mouse is over the control, but no buttons are pressed, these are the colors used to draw it.
   
   The `Colors.ControlBackgroundMouseOver` and `Colors.ControlForegroundMouseOver` colors are combined into the `Colors.Appearance_ControlOver` property.
 
-- Mouse Down
+- **Mouse Down**
 
   When the mouse is over the control and a mouse button is pressed, these are the colors ued to draw it.
   
   The `Colors.ControlBackgroundMouseDown` and `Colors.ControlForegroundMouseDown` colors are combined into the `Colors.Appearance_ControlMouseDown` property.
 
-- Selected
+- **Selected**
 
   This is what the control looks like when it's in the **selected** state. This state is used by the <xref:SadConsole.UI.Controls.ListBox> control to color the selected item.
   
