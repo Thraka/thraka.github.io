@@ -1,98 +1,137 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class LayeredSurface
- | SadConsole</title>
-      <meta name="viewport" content="width=device-width">
+ | SadConsole v10 </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class LayeredSurface
- | SadConsole">
-    
-      <link rel="shortcut icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
-      <link rel="stylesheet" href="../styles/dracula.css">
-      <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="../toc.html">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    
-    
+ | SadConsole v10 ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
+  <script type="module" src="./../public/docfx.min.js"></script>
 
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../images/SadConsoleLogo.gif" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
-              </form>
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/SadConsoleLogo.gif" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
             </div>
           </div>
-        </nav>
+        </div>
+      </nav>
+    </header>
 
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
           </div>
         </div>
-      </header>
-      <div role="main" class="container body-content hide-when-search">
+      </div>
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-9">
-            <article class="content wrap" id="_content" data-uid="SadConsole.Components.LayeredSurface">
+
+        <article data-uid="SadConsole.Components.LayeredSurface">
 
 
 
-  <h1 id="SadConsole_Components_LayeredSurface" data-uid="SadConsole.Components.LayeredSurface" class="text-break">Class LayeredSurface
-</h1>
-  <div class="markdown level0 summary"><p>Manages a set of surface layers.</p>
+  <h1 id="SadConsole_Components_LayeredSurface" data-uid="SadConsole.Components.LayeredSurface" class="text-break">
+    Class LayeredSurface
+  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SadConsole.html">SadConsole</a>.<a class="xref" href="SadConsole.Components.html">Components</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>SadConsole.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Manages a set of surface layers.</p>
 </div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-    <div class="level1"><a class="xref" href="SadConsole.Components.UpdateComponent.html">UpdateComponent</a></div>
-    <div class="level2"><span class="xref">LayeredSurface</span></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract]
+public class LayeredSurface : UpdateComponent, IComponent, IList&lt;ICellSurface&gt;, ICollection&lt;ICellSurface&gt;, IEnumerable&lt;ICellSurface&gt;, IEnumerable</code></pre>
   </div>
-  <div class="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="SadConsole.Components.IComponent.html">IComponent</a></div>
-    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a>&gt;</div>
-    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection</a>&lt;<a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a>&gt;</div>
-    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a>&gt;</div>
-    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
-  </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="SadConsole.Components.UpdateComponent.html">UpdateComponent</a></div>
+      <div><span class="xref">LayeredSurface</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="SadConsole.Components.IComponent.html">IComponent</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection</a>&lt;<a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
     <div>
       <a class="xref" href="SadConsole.Components.UpdateComponent.html#SadConsole_Components_UpdateComponent_SortOrder">UpdateComponent.SortOrder</a>
     </div>
@@ -117,905 +156,957 @@
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
     </div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="SadConsole.html">SadConsole</a>.<a class="xref" href="SadConsole.Components.html">Components</a></h6>
-  <h6><strong>Assembly</strong>: SadConsole.dll</h6>
-  <h5 id="SadConsole_Components_LayeredSurface_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[DataContract]
-public class LayeredSurface : UpdateComponent, IComponent, IList&lt;ICellSurface&gt;, ICollection&lt;ICellSurface&gt;, IEnumerable&lt;ICellSurface&gt;, IEnumerable</code></pre>
-  </div>
-  <h3 id="constructors">Constructors
-</h3>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
 
 
   <a id="SadConsole_Components_LayeredSurface__ctor_" data-uid="SadConsole.Components.LayeredSurface.#ctor*"></a>
-  <h4 id="SadConsole_Components_LayeredSurface__ctor" data-uid="SadConsole.Components.LayeredSurface.#ctor">LayeredSurface()</h4>
+
+  <h3 id="SadConsole_Components_LayeredSurface__ctor" data-uid="SadConsole.Components.LayeredSurface.#ctor">
+  LayeredSurface()
+  
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public LayeredSurface()</code></pre>
   </div>
-  <h3 id="fields">Fields
-</h3>
 
 
-  <h4 id="SadConsole_Components_LayeredSurface_RenderStep" data-uid="SadConsole.Components.LayeredSurface.RenderStep">RenderStep</h4>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="SadConsole_Components_LayeredSurface_RenderStep" data-uid="SadConsole.Components.LayeredSurface.RenderStep">
+  RenderStep
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Internal use only</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IRenderStep? RenderStep</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SadConsole.Renderers.IRenderStep.html">IRenderStep</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
 
 
-  <h4 id="SadConsole_Components_LayeredSurface__layers" data-uid="SadConsole.Components.LayeredSurface._layers">_layers</h4>
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SadConsole.Renderers.IRenderStep.html">IRenderStep</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SadConsole_Components_LayeredSurface__layers" data-uid="SadConsole.Components.LayeredSurface._layers">
+  _layers
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>The entities to process.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[DataMember(Name = &quot;Layers&quot;)]
 protected List&lt;ICellSurface&gt; _layers</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
 
 
-  <h4 id="SadConsole_Components_LayeredSurface__screen" data-uid="SadConsole.Components.LayeredSurface._screen">_screen</h4>
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SadConsole_Components_LayeredSurface__screen" data-uid="SadConsole.Components.LayeredSurface._screen">
+  _screen
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>The parent screen hosting this component.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected IScreenSurface? _screen</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SadConsole.IScreenSurface.html">IScreenSurface</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
 
 
-  <h4 id="SadConsole_Components_LayeredSurface__screenCachedView" data-uid="SadConsole.Components.LayeredSurface._screenCachedView">_screenCachedView</h4>
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SadConsole.IScreenSurface.html">IScreenSurface</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SadConsole_Components_LayeredSurface__screenCachedView" data-uid="SadConsole.Components.LayeredSurface._screenCachedView">
+  _screenCachedView
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>A cached copy of the <a class="xref" href="SadConsole.ICellSurface.html#SadConsole_ICellSurface_View">View</a> of the hosting screen surface.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected Rectangle _screenCachedView</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Rectangle.html">Rectangle</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-</h3>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Rectangle.html">Rectangle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
 
 
   <a id="SadConsole_Components_LayeredSurface_Count_" data-uid="SadConsole.Components.LayeredSurface.Count*"></a>
-  <h4 id="SadConsole_Components_LayeredSurface_Count" data-uid="SadConsole.Components.LayeredSurface.Count">Count</h4>
+
+  <h3 id="SadConsole_Components_LayeredSurface_Count" data-uid="SadConsole.Components.LayeredSurface.Count">
+  Count
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>The numbers of layers.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="SadConsole_Components_LayeredSurface_DefaultBackground_" data-uid="SadConsole.Components.LayeredSurface.DefaultBackground*"></a>
-  <h4 id="SadConsole_Components_LayeredSurface_DefaultBackground" data-uid="SadConsole.Components.LayeredSurface.DefaultBackground">DefaultBackground</h4>
+
+  <h3 id="SadConsole_Components_LayeredSurface_DefaultBackground" data-uid="SadConsole.Components.LayeredSurface.DefaultBackground">
+  DefaultBackground
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>The default color to clear the rendering surface. This is used instead of the individual layer's default background.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Color DefaultBackground { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="SadConsole_Components_LayeredSurface_IsAttached_" data-uid="SadConsole.Components.LayeredSurface.IsAttached*"></a>
-  <h4 id="SadConsole_Components_LayeredSurface_IsAttached" data-uid="SadConsole.Components.LayeredSurface.IsAttached">IsAttached</h4>
+
+  <h3 id="SadConsole_Components_LayeredSurface_IsAttached" data-uid="SadConsole.Components.LayeredSurface.IsAttached">
+  IsAttached
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Indicates that the entity renderer has been added to a parent object.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected bool IsAttached { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="SadConsole_Components_LayeredSurface_IsReadOnly_" data-uid="SadConsole.Components.LayeredSurface.IsReadOnly*"></a>
-  <h4 id="SadConsole_Components_LayeredSurface_IsReadOnly" data-uid="SadConsole.Components.LayeredSurface.IsReadOnly">IsReadOnly</h4>
+
+  <h3 id="SadConsole_Components_LayeredSurface_IsReadOnly" data-uid="SadConsole.Components.LayeredSurface.IsReadOnly">
+  IsReadOnly
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Always returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsReadOnly { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="SadConsole_Components_LayeredSurface_Item_" data-uid="SadConsole.Components.LayeredSurface.Item*"></a>
-  <h4 id="SadConsole_Components_LayeredSurface_Item_System_Int32_" data-uid="SadConsole.Components.LayeredSurface.Item(System.Int32)">this[int]</h4>
+
+  <h3 id="SadConsole_Components_LayeredSurface_Item_System_Int32_" data-uid="SadConsole.Components.LayeredSurface.Item(System.Int32)">
+  this[int]
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets a layer by index.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ICellSurface this[int index] { get; set; }</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">index</span></td>
-        <td><p>The index of the layer to get or set.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a></td>
-        <td><p>The layer.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index of the layer to get or set.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a></dt>
+    <dd><p>The layer.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="SadConsole_Components_LayeredSurface_View_" data-uid="SadConsole.Components.LayeredSurface.View*"></a>
-  <h4 id="SadConsole_Components_LayeredSurface_View" data-uid="SadConsole.Components.LayeredSurface.View">View</h4>
+
+  <h3 id="SadConsole_Components_LayeredSurface_View" data-uid="SadConsole.Components.LayeredSurface.View">
+  View
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>The visible portion of the surface layers.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Rectangle View { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Rectangle.html">Rectangle</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Rectangle.html">Rectangle</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
 
 
   <a id="SadConsole_Components_LayeredSurface_Add_" data-uid="SadConsole.Components.LayeredSurface.Add*"></a>
-  <h4 id="SadConsole_Components_LayeredSurface_Add_SadConsole_ICellSurface_" data-uid="SadConsole.Components.LayeredSurface.Add(SadConsole.ICellSurface)">Add(ICellSurface)</h4>
+
+  <h3 id="SadConsole_Components_LayeredSurface_Add_SadConsole_ICellSurface_" data-uid="SadConsole.Components.LayeredSurface.Add(SadConsole.ICellSurface)">
+  Add(ICellSurface)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Adds a layer to this component.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Add(ICellSurface layer)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a></td>
-        <td><span class="parametername">layer</span></td>
-        <td><p>The layer to add.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layer</code> <a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a></dt>
+    <dd><p>The layer to add.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="SadConsole_Components_LayeredSurface_AddRange_" data-uid="SadConsole.Components.LayeredSurface.AddRange*"></a>
-  <h4 id="SadConsole_Components_LayeredSurface_AddRange_System_Collections_Generic_IEnumerable_SadConsole_ICellSurface__" data-uid="SadConsole.Components.LayeredSurface.AddRange(System.Collections.Generic.IEnumerable{SadConsole.ICellSurface})">AddRange(IEnumerable&lt;ICellSurface&gt;)</h4>
+
+  <h3 id="SadConsole_Components_LayeredSurface_AddRange_System_Collections_Generic_IEnumerable_SadConsole_ICellSurface__" data-uid="SadConsole.Components.LayeredSurface.AddRange(System.Collections.Generic.IEnumerable{SadConsole.ICellSurface})">
+  AddRange(IEnumerable&lt;ICellSurface&gt;)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Adds a collection if layers to this component.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void AddRange(IEnumerable&lt;ICellSurface&gt; layers)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a>&gt;</td>
-        <td><span class="parametername">layers</span></td>
-        <td><p>The layers to add.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layers</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a>&gt;</dt>
+    <dd><p>The layers to add.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="SadConsole_Components_LayeredSurface_Clear_" data-uid="SadConsole.Components.LayeredSurface.Clear*"></a>
-  <h4 id="SadConsole_Components_LayeredSurface_Clear" data-uid="SadConsole.Components.LayeredSurface.Clear">Clear()</h4>
+
+  <h3 id="SadConsole_Components_LayeredSurface_Clear" data-uid="SadConsole.Components.LayeredSurface.Clear">
+  Clear()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Removes all layers.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
   </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
   <a id="SadConsole_Components_LayeredSurface_Clear_" data-uid="SadConsole.Components.LayeredSurface.Clear*"></a>
-  <h4 id="SadConsole_Components_LayeredSurface_Clear_SadConsole_ICellSurface_" data-uid="SadConsole.Components.LayeredSurface.Clear(SadConsole.ICellSurface)">Clear(ICellSurface)</h4>
+
+  <h3 id="SadConsole_Components_LayeredSurface_Clear_SadConsole_ICellSurface_" data-uid="SadConsole.Components.LayeredSurface.Clear(SadConsole.ICellSurface)">
+  Clear(ICellSurface)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Removes all layers and adds the <code class="paramref">initialLayer</code> parameter as the first layer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Clear(ICellSurface initialLayer)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a></td>
-        <td><span class="parametername">initialLayer</span></td>
-        <td><p>The new first layer.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>initialLayer</code> <a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a></dt>
+    <dd><p>The new first layer.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="SadConsole_Components_LayeredSurface_Contains_" data-uid="SadConsole.Components.LayeredSurface.Contains*"></a>
-  <h4 id="SadConsole_Components_LayeredSurface_Contains_SadConsole_ICellSurface_" data-uid="SadConsole.Components.LayeredSurface.Contains(SadConsole.ICellSurface)">Contains(ICellSurface)</h4>
+
+  <h3 id="SadConsole_Components_LayeredSurface_Contains_SadConsole_ICellSurface_" data-uid="SadConsole.Components.LayeredSurface.Contains(SadConsole.ICellSurface)">
+  Contains(ICellSurface)
+  
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool Contains(ICellSurface layer)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a></td>
-        <td><span class="parametername">layer</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layer</code> <a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="SadConsole_Components_LayeredSurface_CopyTo_" data-uid="SadConsole.Components.LayeredSurface.CopyTo*"></a>
-  <h4 id="SadConsole_Components_LayeredSurface_CopyTo_SadConsole_ICellSurface___System_Int32_" data-uid="SadConsole.Components.LayeredSurface.CopyTo(SadConsole.ICellSurface[],System.Int32)">CopyTo(ICellSurface[], int)</h4>
+
+  <h3 id="SadConsole_Components_LayeredSurface_CopyTo_SadConsole_ICellSurface___System_Int32_" data-uid="SadConsole.Components.LayeredSurface.CopyTo(SadConsole.ICellSurface[],System.Int32)">
+  CopyTo(ICellSurface[], int)
+  
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void CopyTo(ICellSurface[] array, int arrayIndex)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a>[]</td>
-        <td><span class="parametername">array</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">arrayIndex</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>array</code> <a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a>[]</dt>
+    <dd></dd>
+    <dt><code>arrayIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="SadConsole_Components_LayeredSurface_Create_" data-uid="SadConsole.Components.LayeredSurface.Create*"></a>
-  <h4 id="SadConsole_Components_LayeredSurface_Create" data-uid="SadConsole.Components.LayeredSurface.Create">Create()</h4>
+
+  <h3 id="SadConsole_Components_LayeredSurface_Create" data-uid="SadConsole.Components.LayeredSurface.Create">
+  Create()
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Adds a new layer. The layer is based on the first layer's width and height.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public CellSurface Create()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SadConsole.CellSurface.html">CellSurface</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SadConsole.CellSurface.html">CellSurface</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a></dt>
+    <dd></dd>
+  </dl>
+
 
 
   <a id="SadConsole_Components_LayeredSurface_GetEnumerator_" data-uid="SadConsole.Components.LayeredSurface.GetEnumerator*"></a>
-  <h4 id="SadConsole_Components_LayeredSurface_GetEnumerator" data-uid="SadConsole.Components.LayeredSurface.GetEnumerator">GetEnumerator()</h4>
+
+  <h3 id="SadConsole_Components_LayeredSurface_GetEnumerator" data-uid="SadConsole.Components.LayeredSurface.GetEnumerator">
+  GetEnumerator()
+  
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IEnumerator&lt;ICellSurface&gt; GetEnumerator()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;<a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;<a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="SadConsole_Components_LayeredSurface_IndexOf_" data-uid="SadConsole.Components.LayeredSurface.IndexOf*"></a>
-  <h4 id="SadConsole_Components_LayeredSurface_IndexOf_SadConsole_ICellSurface_" data-uid="SadConsole.Components.LayeredSurface.IndexOf(SadConsole.ICellSurface)">IndexOf(ICellSurface)</h4>
+
+  <h3 id="SadConsole_Components_LayeredSurface_IndexOf_SadConsole_ICellSurface_" data-uid="SadConsole.Components.LayeredSurface.IndexOf(SadConsole.ICellSurface)">
+  IndexOf(ICellSurface)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns the index of the specified layer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int IndexOf(ICellSurface layer)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a></td>
-        <td><span class="parametername">layer</span></td>
-        <td><p>The layer to search for.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><p>The index of the layer.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layer</code> <a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a></dt>
+    <dd><p>The layer to search for.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index of the layer.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="SadConsole_Components_LayeredSurface_Insert_" data-uid="SadConsole.Components.LayeredSurface.Insert*"></a>
-  <h4 id="SadConsole_Components_LayeredSurface_Insert_System_Int32_SadConsole_ICellSurface_" data-uid="SadConsole.Components.LayeredSurface.Insert(System.Int32,SadConsole.ICellSurface)">Insert(int, ICellSurface)</h4>
+
+  <h3 id="SadConsole_Components_LayeredSurface_Insert_System_Int32_SadConsole_ICellSurface_" data-uid="SadConsole.Components.LayeredSurface.Insert(System.Int32,SadConsole.ICellSurface)">
+  Insert(int, ICellSurface)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Inserts the layer at the specified index.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Insert(int index, ICellSurface layer)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">index</span></td>
-        <td><p>The index to insert at.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a></td>
-        <td><span class="parametername">layer</span></td>
-        <td><p>The layer to insert.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index to insert at.</p>
+</dd>
+    <dt><code>layer</code> <a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a></dt>
+    <dd><p>The layer to insert.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="SadConsole_Components_LayeredSurface_OnAdded_" data-uid="SadConsole.Components.LayeredSurface.OnAdded*"></a>
-  <h4 id="SadConsole_Components_LayeredSurface_OnAdded_SadConsole_IScreenObject_" data-uid="SadConsole.Components.LayeredSurface.OnAdded(SadConsole.IScreenObject)">OnAdded(IScreenObject)</h4>
+
+  <h3 id="SadConsole_Components_LayeredSurface_OnAdded_SadConsole_IScreenObject_" data-uid="SadConsole.Components.LayeredSurface.OnAdded(SadConsole.IScreenObject)">
+  OnAdded(IScreenObject)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Called when the component is added to a host.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void OnAdded(IScreenObject host)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SadConsole.IScreenObject.html">IScreenObject</a></td>
-        <td><span class="parametername">host</span></td>
-        <td><p>The host that added the component.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="SadConsole.Components.UpdateComponent.html#SadConsole_Components_UpdateComponent_OnAdded_SadConsole_IScreenObject_">UpdateComponent.OnAdded(IScreenObject)</a></div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>host</code> <a class="xref" href="SadConsole.IScreenObject.html">IScreenObject</a></dt>
+    <dd><p>The host that added the component.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="SadConsole_Components_LayeredSurface_OnRemoved_" data-uid="SadConsole.Components.LayeredSurface.OnRemoved*"></a>
-  <h4 id="SadConsole_Components_LayeredSurface_OnRemoved_SadConsole_IScreenObject_" data-uid="SadConsole.Components.LayeredSurface.OnRemoved(SadConsole.IScreenObject)">OnRemoved(IScreenObject)</h4>
+
+  <h3 id="SadConsole_Components_LayeredSurface_OnRemoved_SadConsole_IScreenObject_" data-uid="SadConsole.Components.LayeredSurface.OnRemoved(SadConsole.IScreenObject)">
+  OnRemoved(IScreenObject)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Called when the component is removed from the host.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void OnRemoved(IScreenObject host)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SadConsole.IScreenObject.html">IScreenObject</a></td>
-        <td><span class="parametername">host</span></td>
-        <td><p>The host that removed the component.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="SadConsole.Components.UpdateComponent.html#SadConsole_Components_UpdateComponent_OnRemoved_SadConsole_IScreenObject_">UpdateComponent.OnRemoved(IScreenObject)</a></div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>host</code> <a class="xref" href="SadConsole.IScreenObject.html">IScreenObject</a></dt>
+    <dd><p>The host that removed the component.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="SadConsole_Components_LayeredSurface_Remove_" data-uid="SadConsole.Components.LayeredSurface.Remove*"></a>
-  <h4 id="SadConsole_Components_LayeredSurface_Remove_SadConsole_ICellSurface_" data-uid="SadConsole.Components.LayeredSurface.Remove(SadConsole.ICellSurface)">Remove(ICellSurface)</h4>
+
+  <h3 id="SadConsole_Components_LayeredSurface_Remove_SadConsole_ICellSurface_" data-uid="SadConsole.Components.LayeredSurface.Remove(SadConsole.ICellSurface)">
+  Remove(ICellSurface)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Removes a layer from this component.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool Remove(ICellSurface layer)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a></td>
-        <td><span class="parametername">layer</span></td>
-        <td><p>The layer to remove.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layer</code> <a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a></dt>
+    <dd><p>The layer to remove.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
   <a id="SadConsole_Components_LayeredSurface_RemoveAt_" data-uid="SadConsole.Components.LayeredSurface.RemoveAt*"></a>
-  <h4 id="SadConsole_Components_LayeredSurface_RemoveAt_System_Int32_" data-uid="SadConsole.Components.LayeredSurface.RemoveAt(System.Int32)">RemoveAt(int)</h4>
+
+  <h3 id="SadConsole_Components_LayeredSurface_RemoveAt_System_Int32_" data-uid="SadConsole.Components.LayeredSurface.RemoveAt(System.Int32)">
+  RemoveAt(int)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Removes a layer at the specified index.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void RemoveAt(int index)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">index</span></td>
-        <td><p>The index of the layer to remove.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The index of the layer to remove.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="SadConsole_Components_LayeredSurface_Replace_" data-uid="SadConsole.Components.LayeredSurface.Replace*"></a>
-  <h4 id="SadConsole_Components_LayeredSurface_Replace_SadConsole_ICellSurface_SadConsole_ICellSurface_" data-uid="SadConsole.Components.LayeredSurface.Replace(SadConsole.ICellSurface,SadConsole.ICellSurface)">Replace(ICellSurface, ICellSurface)</h4>
+
+  <h3 id="SadConsole_Components_LayeredSurface_Replace_SadConsole_ICellSurface_SadConsole_ICellSurface_" data-uid="SadConsole.Components.LayeredSurface.Replace(SadConsole.ICellSurface,SadConsole.ICellSurface)">
+  Replace(ICellSurface, ICellSurface)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Replaces a layer with a new instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Replace(ICellSurface oldLayer, ICellSurface newLayer)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a></td>
-        <td><span class="parametername">oldLayer</span></td>
-        <td><p>The layer to remove.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a></td>
-        <td><span class="parametername">newLayer</span></td>
-        <td><p>The layer to add.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
-        <td><p>Thrown when the old layer doesn't exist in this collection.</p>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>oldLayer</code> <a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a></dt>
+    <dd><p>The layer to remove.</p>
+</dd>
+    <dt><code>newLayer</code> <a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a></dt>
+    <dd><p>The layer to add.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Thrown when the old layer doesn't exist in this collection.</p>
 <p>- or -</p>
 <p>Thrown when the new layer already exists in this collection.</p>
 <p>- or -</p>
 <p>Thrown when the new layer isn't the same size as the other layers.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+</dd>
+  </dl>
+
 
 
   <a id="SadConsole_Components_LayeredSurface_Update_" data-uid="SadConsole.Components.LayeredSurface.Update*"></a>
-  <h4 id="SadConsole_Components_LayeredSurface_Update_SadConsole_IScreenObject_System_TimeSpan_" data-uid="SadConsole.Components.LayeredSurface.Update(SadConsole.IScreenObject,System.TimeSpan)">Update(IScreenObject, TimeSpan)</h4>
+
+  <h3 id="SadConsole_Components_LayeredSurface_Update_SadConsole_IScreenObject_System_TimeSpan_" data-uid="SadConsole.Components.LayeredSurface.Update(SadConsole.IScreenObject,System.TimeSpan)">
+  Update(IScreenObject, TimeSpan)
+  
+  </h3>
+
   <div class="markdown level1 summary"><p>Called by a host on the update frame.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void Update(IScreenObject host, TimeSpan delta)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SadConsole.IScreenObject.html">IScreenObject</a></td>
-        <td><span class="parametername">host</span></td>
-        <td><p>The host calling the component.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
-        <td><span class="parametername">delta</span></td>
-        <td><p>The time that has elapsed since this method was last called.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="SadConsole.Components.UpdateComponent.html#SadConsole_Components_UpdateComponent_Update_SadConsole_IScreenObject_System_TimeSpan_">UpdateComponent.Update(IScreenObject, TimeSpan)</a></div>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="SadConsole.Components.IComponent.html">IComponent</a>
-  </div>
-  <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList&lt;T&gt;</a>
-  </div>
-  <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection&lt;T&gt;</a>
-  </div>
-  <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a>
-  </div>
-  <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a>
-  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>host</code> <a class="xref" href="SadConsole.IScreenObject.html">IScreenObject</a></dt>
+    <dd><p>The host calling the component.</p>
+</dd>
+    <dt><code>delta</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd><p>The time that has elapsed since this method was last called.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
 
 </article>
-          </div>
 
-          <div class="hidden-sm col-md-3" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In this article</h5>
-                <div></div>
-                <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-              </nav>
-            </div>
-          </div>
+        <div class="contribution d-print-none">
         </div>
+
+
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-      
-      <span>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>
-    </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
 
-    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
