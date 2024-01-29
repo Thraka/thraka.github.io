@@ -1,118 +1,86 @@
 ﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
 <html>
+
   <head>
     <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Interface ICellSurface
- | SadConsole v10 </title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ | SadConsole v10</title>
+      <meta name="viewport" content="width=device-width">
       <meta name="title" content="Interface ICellSurface
- | SadConsole v10 ">
-      
-      
-      <link rel="icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../public/docfx.min.css">
-      <link rel="stylesheet" href="../public/main.css">
-      <meta name="docfx:navrel" content="../toc.html">
-      <meta name="docfx:tocrel" content="toc.html">
-      
-      
-      
-      
-      
-      <meta name="loc:inThisArticle" content="In this article">
-      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
-      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
-      <meta name="loc:tocFilter" content="Filter by title">
-      <meta name="loc:nextArticle" content="Next">
-      <meta name="loc:prevArticle" content="Previous">
-      <meta name="loc:themeLight" content="Light">
-      <meta name="loc:themeDark" content="Dark">
-      <meta name="loc:themeAuto" content="Auto">
-      <meta name="loc:changeTheme" content="Change theme">
-      <meta name="loc:copy" content="Copy">
-      <meta name="loc:downloadPdf" content="Download PDF">
+ | SadConsole v10">
+    <meta name="description" content="An array of  objects used to represent a 2D surface.">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/dracula.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+      <meta http-equiv='content-language' content='en-us'>
+    
+    
+    
   </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
 
-  <script type="module" src="./../public/docfx.min.js"></script>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
 
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
-
-  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
-    <header class="bg-body border-bottom">
-      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
-        <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../images/SadConsoleLogo.gif" alt="">
-            
-          </a>
-          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="bi bi-three-dots"></i>
-          </button>
-          <div class="collapse navbar-collapse" id="navpanel">
-            <div id="navbar">
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
             </div>
           </div>
-        </div>
-      </nav>
-    </header>
+        </nav>
 
-    <main class="container-xxl">
-      <div class="toc-offcanvas">
-        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-            <nav class="toc" id="toc"></nav>
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
           </div>
         </div>
-      </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
 
-      <div class="content">
-        <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
-            <i class="bi bi-list"></i>
-          </button>
-
-          <nav id="breadcrumb"></nav>
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
         </div>
+        <div class="article row grid-right">
+          <div class="col-md-9">
+            <article class="content wrap" id="_content" data-uid="SadConsole.ICellSurface">
 
-        <article data-uid="SadConsole.ICellSurface">
 
 
-
-  <h1 id="SadConsole_ICellSurface" data-uid="SadConsole.ICellSurface" class="text-break">
-    Interface ICellSurface
-  
-  </h1>
-
-  <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="SadConsole.html">SadConsole</a></dd></dl>
-  <dl><dt>Assembly</dt><dd>SadConsole.dll</dd></dl>
-  </div>
-
-  <div class="markdown summary"><p>An array of <a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a> objects used to represent a 2D surface.</p>
+  <h1 id="SadConsole_ICellSurface" data-uid="SadConsole.ICellSurface" class="text-break">Interface ICellSurface
+</h1>
+  <div class="markdown level0 summary"><p>An array of <a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a> objects used to represent a 2D surface.</p>
 </div>
-  <div class="markdown conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface ICellSurface : IGridView&lt;ColoredGlyphBase&gt;, IEnumerable&lt;ColoredGlyphBase&gt;, IEnumerable, ISurface</code></pre>
-  </div>
-
-
-
-
-
-
-
-  <dl class="typelist derived">
-    <dt>Inherited Members</dt>
-    <dd>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
     <div>
       <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.GridViews.IGridView-1.html#SadRogue_Primitives_GridViews_IGridView_1_Height">IGridView&lt;ColoredGlyphBase&gt;.Height</a>
     </div>
@@ -137,11 +105,697 @@
     <div>
       <a class="xref" href="SadConsole.ISurface.html#SadConsole_ISurface_Surface">ISurface.Surface</a>
     </div>
-  </dd></dl>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="SadConsole.html">SadConsole</a></h6>
+  <h6><strong>Assembly</strong>: SadConsole.dll</h6>
+  <h5 id="SadConsole_ICellSurface_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface ICellSurface : IGridView&lt;ColoredGlyphBase&gt;, IEnumerable&lt;ColoredGlyphBase&gt;, IEnumerable, ISurface</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
 
-  <dl class="typelist extensionMethods">
-    <dt>Extension Methods</dt>
-    <dd>
+
+  <a id="SadConsole_ICellSurface_Area_" data-uid="SadConsole.ICellSurface.Area*"></a>
+  <h4 id="SadConsole_ICellSurface_Area" data-uid="SadConsole.ICellSurface.Area">Area</h4>
+  <div class="markdown level1 summary"><p>Returns a rectangle that represents the entire size of the surface.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Rectangle Area { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Rectangle.html">Rectangle</a></td>
+        <td>An array of  objects used to represent a 2D surface.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ICellSurface_Connected3dBox_" data-uid="SadConsole.ICellSurface.Connected3dBox*"></a>
+  <h4 id="SadConsole_ICellSurface_Connected3dBox" data-uid="SadConsole.ICellSurface.Connected3dBox">Connected3dBox</h4>
+  <div class="markdown level1 summary"><p>Glyph indexes for a block box that looks 3d.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int[] Connected3dBox { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</td>
+        <td>An array of  objects used to represent a 2D surface.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ICellSurface_ConnectedLineEmpty_" data-uid="SadConsole.ICellSurface.ConnectedLineEmpty*"></a>
+  <h4 id="SadConsole_ICellSurface_ConnectedLineEmpty" data-uid="SadConsole.ICellSurface.ConnectedLineEmpty">ConnectedLineEmpty</h4>
+  <div class="markdown level1 summary"><p>Glyph indexes for an empty line 0.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int[] ConnectedLineEmpty { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</td>
+        <td>An array of  objects used to represent a 2D surface.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ICellSurface_ConnectedLineThick_" data-uid="SadConsole.ICellSurface.ConnectedLineThick*"></a>
+  <h4 id="SadConsole_ICellSurface_ConnectedLineThick" data-uid="SadConsole.ICellSurface.ConnectedLineThick">ConnectedLineThick</h4>
+  <div class="markdown level1 summary"><p>Glyph indexes for a thick line.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int[] ConnectedLineThick { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</td>
+        <td>An array of  objects used to represent a 2D surface.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ICellSurface_ConnectedLineThin_" data-uid="SadConsole.ICellSurface.ConnectedLineThin*"></a>
+  <h4 id="SadConsole_ICellSurface_ConnectedLineThin" data-uid="SadConsole.ICellSurface.ConnectedLineThin">ConnectedLineThin</h4>
+  <div class="markdown level1 summary"><p>Glyph indexes for a thin line.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int[] ConnectedLineThin { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</td>
+        <td>An array of  objects used to represent a 2D surface.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ICellSurface_ConnectedLineThinExtended_" data-uid="SadConsole.ICellSurface.ConnectedLineThinExtended*"></a>
+  <h4 id="SadConsole_ICellSurface_ConnectedLineThinExtended" data-uid="SadConsole.ICellSurface.ConnectedLineThinExtended">ConnectedLineThinExtended</h4>
+  <div class="markdown level1 summary"><p>Glyph indexes for a thin line using a SadConsole extended font.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int[] ConnectedLineThinExtended { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</td>
+        <td>An array of  objects used to represent a 2D surface.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ICellSurface_DefaultBackground_" data-uid="SadConsole.ICellSurface.DefaultBackground*"></a>
+  <h4 id="SadConsole_ICellSurface_DefaultBackground" data-uid="SadConsole.ICellSurface.DefaultBackground">DefaultBackground</h4>
+  <div class="markdown level1 summary"><p>The default background for glyphs on this surface.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Color DefaultBackground { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></td>
+        <td>An array of  objects used to represent a 2D surface.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ICellSurface_DefaultForeground_" data-uid="SadConsole.ICellSurface.DefaultForeground*"></a>
+  <h4 id="SadConsole_ICellSurface_DefaultForeground" data-uid="SadConsole.ICellSurface.DefaultForeground">DefaultForeground</h4>
+  <div class="markdown level1 summary"><p>The default foreground for glyphs on this surface.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Color DefaultForeground { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></td>
+        <td>An array of  objects used to represent a 2D surface.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ICellSurface_DefaultGlyph_" data-uid="SadConsole.ICellSurface.DefaultGlyph*"></a>
+  <h4 id="SadConsole_ICellSurface_DefaultGlyph" data-uid="SadConsole.ICellSurface.DefaultGlyph">DefaultGlyph</h4>
+  <div class="markdown level1 summary"><p>The default glyph used in clearing and erasing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int DefaultGlyph { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td>An array of  objects used to represent a 2D surface.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ICellSurface_Effects_" data-uid="SadConsole.ICellSurface.Effects*"></a>
+  <h4 id="SadConsole_ICellSurface_Effects" data-uid="SadConsole.ICellSurface.Effects">Effects</h4>
+  <div class="markdown level1 summary"><p>Processes the effects added to cells with <span class="xref">CellSurfaceEditor.SetEffect*</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">EffectsManager Effects { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.Effects.EffectsManager.html">EffectsManager</a></td>
+        <td>An array of  objects used to represent a 2D surface.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ICellSurface_IsDirty_" data-uid="SadConsole.ICellSurface.IsDirty*"></a>
+  <h4 id="SadConsole_ICellSurface_IsDirty" data-uid="SadConsole.ICellSurface.IsDirty">IsDirty</h4>
+  <div class="markdown level1 summary"><p>Indicates the surface has changed and needs to be rendered.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsDirty { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td>An array of  objects used to represent a 2D surface.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ICellSurface_IsScrollable_" data-uid="SadConsole.ICellSurface.IsScrollable*"></a>
+  <h4 id="SadConsole_ICellSurface_IsScrollable" data-uid="SadConsole.ICellSurface.IsScrollable">IsScrollable</h4>
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the <a class="xref" href="SadConsole.ICellSurface.html#SadConsole_ICellSurface_View">View</a> width or height is different from <a class="xref" href="SadConsole.ICellSurface.html#SadConsole_ICellSurface_Area">Area</a>; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsScrollable { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td>An array of  objects used to represent a 2D surface.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ICellSurface_TimesShiftedDown_" data-uid="SadConsole.ICellSurface.TimesShiftedDown*"></a>
+  <h4 id="SadConsole_ICellSurface_TimesShiftedDown" data-uid="SadConsole.ICellSurface.TimesShiftedDown">TimesShiftedDown</h4>
+  <div class="markdown level1 summary"><p>A variable that tracks how many times this editor shifted the surface down.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int TimesShiftedDown { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td>An array of  objects used to represent a 2D surface.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ICellSurface_TimesShiftedLeft_" data-uid="SadConsole.ICellSurface.TimesShiftedLeft*"></a>
+  <h4 id="SadConsole_ICellSurface_TimesShiftedLeft" data-uid="SadConsole.ICellSurface.TimesShiftedLeft">TimesShiftedLeft</h4>
+  <div class="markdown level1 summary"><p>A variable that tracks how many times this editor shifted the surface left.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int TimesShiftedLeft { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td>An array of  objects used to represent a 2D surface.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ICellSurface_TimesShiftedRight_" data-uid="SadConsole.ICellSurface.TimesShiftedRight*"></a>
+  <h4 id="SadConsole_ICellSurface_TimesShiftedRight" data-uid="SadConsole.ICellSurface.TimesShiftedRight">TimesShiftedRight</h4>
+  <div class="markdown level1 summary"><p>A variable that tracks how many times this editor shifted the surface right.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int TimesShiftedRight { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td>An array of  objects used to represent a 2D surface.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ICellSurface_TimesShiftedUp_" data-uid="SadConsole.ICellSurface.TimesShiftedUp*"></a>
+  <h4 id="SadConsole_ICellSurface_TimesShiftedUp" data-uid="SadConsole.ICellSurface.TimesShiftedUp">TimesShiftedUp</h4>
+  <div class="markdown level1 summary"><p>A variable that tracks how many times this editor shifted the surface up.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int TimesShiftedUp { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td>An array of  objects used to represent a 2D surface.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ICellSurface_UsePrintProcessor_" data-uid="SadConsole.ICellSurface.UsePrintProcessor*"></a>
+  <h4 id="SadConsole_ICellSurface_UsePrintProcessor" data-uid="SadConsole.ICellSurface.UsePrintProcessor">UsePrintProcessor</h4>
+  <div class="markdown level1 summary"><p>When true, the <a class="xref" href="SadConsole.ColoredString.html#SadConsole_ColoredString_Parser">Parser</a> is used to generate a <a class="xref" href="SadConsole.ColoredString.html">ColoredString</a> before printing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool UsePrintProcessor { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td>An array of  objects used to represent a 2D surface.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ICellSurface_View_" data-uid="SadConsole.ICellSurface.View*"></a>
+  <h4 id="SadConsole_ICellSurface_View" data-uid="SadConsole.ICellSurface.View">View</h4>
+  <div class="markdown level1 summary"><p>The visible portion of the surface.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Rectangle View { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Rectangle.html">Rectangle</a></td>
+        <td>An array of  objects used to represent a 2D surface.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ICellSurface_ViewHeight_" data-uid="SadConsole.ICellSurface.ViewHeight*"></a>
+  <h4 id="SadConsole_ICellSurface_ViewHeight" data-uid="SadConsole.ICellSurface.ViewHeight">ViewHeight</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the visible height of the surface in cells.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int ViewHeight { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td>An array of  objects used to represent a 2D surface.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ICellSurface_ViewPosition_" data-uid="SadConsole.ICellSurface.ViewPosition*"></a>
+  <h4 id="SadConsole_ICellSurface_ViewPosition" data-uid="SadConsole.ICellSurface.ViewPosition">ViewPosition</h4>
+  <div class="markdown level1 summary"><p>The position of the view within the buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Point ViewPosition { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Point.html">Point</a></td>
+        <td>An array of  objects used to represent a 2D surface.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ICellSurface_ViewWidth_" data-uid="SadConsole.ICellSurface.ViewWidth*"></a>
+  <h4 id="SadConsole_ICellSurface_ViewWidth" data-uid="SadConsole.ICellSurface.ViewWidth">ViewWidth</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the visible width of the surface in cells.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int ViewWidth { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td>An array of  objects used to represent a 2D surface.</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <a id="SadConsole_ICellSurface_CreateLine_" data-uid="SadConsole.ICellSurface.CreateLine*"></a>
+  <h4 id="SadConsole_ICellSurface_CreateLine_System_Int32_" data-uid="SadConsole.ICellSurface.CreateLine(System.Int32)">CreateLine(int)</h4>
+  <div class="markdown level1 summary"><p>Creates an array of glyphs that can be used as a connected line.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int[] CreateLine(int singleGlyph)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">singleGlyph</span></td>
+        <td><p>The glyph to use for the connected line array.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</td>
+        <td><p>An array of glyphs.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ICellSurface_ValidateLineStyle_" data-uid="SadConsole.ICellSurface.ValidateLineStyle*"></a>
+  <h4 id="SadConsole_ICellSurface_ValidateLineStyle__1___0____" data-uid="SadConsole.ICellSurface.ValidateLineStyle``1(``0[]@)">ValidateLineStyle&lt;T&gt;(in T[])</h4>
+  <div class="markdown level1 summary"><p>Returns a value that indicates a line style array is not null and contains the required number of elements.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ValidateLineStyle&lt;T&gt;(in T[] connectedLineStyle)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>T[]</td>
+        <td><span class="parametername">connectedLineStyle</span></td>
+        <td><p>The array to check based on the <a class="xref" href="SadConsole.ICellSurface.ConnectedLineIndex.html">ICellSurface.ConnectedLineIndex</a> enum.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p>True when the line style is correct.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Type of the array.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="events">Events
+</h3>
+
+
+  <h4 id="SadConsole_ICellSurface_IsDirtyChanged" data-uid="SadConsole.ICellSurface.IsDirtyChanged">IsDirtyChanged</h4>
+  <div class="markdown level1 summary"><p>An event that is raised when <a class="xref" href="SadConsole.ICellSurface.html#SadConsole_ICellSurface_IsDirty">IsDirty</a> changes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event EventHandler IsDirtyChanged</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler">EventHandler</a></td>
+        <td>An array of  objects used to represent a 2D surface.</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_PrintTheDraw_SadConsole_ICellSurface_System_Int32_System_Int32_System_String_SadConsole_Readers_TheDrawFont_">CellSurfaceEditor.PrintTheDraw(ICellSurface, int, int, string, TheDrawFont)</a>
   </div>
@@ -460,832 +1114,42 @@
   <div>
       <a class="xref" href="SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_ShiftUp_SadConsole_ISurface_System_Int32_System_Boolean_">CellSurfaceEditor.ShiftUp(ISurface, int, bool)</a>
   </div>
-  </dd></dl>
-
-
-
-
-
-  <h2 class="section" id="properties">Properties
-</h2>
-
-
-  <a id="SadConsole_ICellSurface_Area_" data-uid="SadConsole.ICellSurface.Area*"></a>
-
-  <h3 id="SadConsole_ICellSurface_Area" data-uid="SadConsole.ICellSurface.Area">
-  Area
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns a rectangle that represents the entire size of the surface.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Rectangle Area { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Rectangle.html">Rectangle</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ICellSurface_Connected3dBox_" data-uid="SadConsole.ICellSurface.Connected3dBox*"></a>
-
-  <h3 id="SadConsole_ICellSurface_Connected3dBox" data-uid="SadConsole.ICellSurface.Connected3dBox">
-  Connected3dBox
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Glyph indexes for a block box that looks 3d.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int[] Connected3dBox { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ICellSurface_ConnectedLineEmpty_" data-uid="SadConsole.ICellSurface.ConnectedLineEmpty*"></a>
-
-  <h3 id="SadConsole_ICellSurface_ConnectedLineEmpty" data-uid="SadConsole.ICellSurface.ConnectedLineEmpty">
-  ConnectedLineEmpty
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Glyph indexes for an empty line 0.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int[] ConnectedLineEmpty { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ICellSurface_ConnectedLineThick_" data-uid="SadConsole.ICellSurface.ConnectedLineThick*"></a>
-
-  <h3 id="SadConsole_ICellSurface_ConnectedLineThick" data-uid="SadConsole.ICellSurface.ConnectedLineThick">
-  ConnectedLineThick
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Glyph indexes for a thick line.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int[] ConnectedLineThick { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ICellSurface_ConnectedLineThin_" data-uid="SadConsole.ICellSurface.ConnectedLineThin*"></a>
-
-  <h3 id="SadConsole_ICellSurface_ConnectedLineThin" data-uid="SadConsole.ICellSurface.ConnectedLineThin">
-  ConnectedLineThin
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Glyph indexes for a thin line.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int[] ConnectedLineThin { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ICellSurface_ConnectedLineThinExtended_" data-uid="SadConsole.ICellSurface.ConnectedLineThinExtended*"></a>
-
-  <h3 id="SadConsole_ICellSurface_ConnectedLineThinExtended" data-uid="SadConsole.ICellSurface.ConnectedLineThinExtended">
-  ConnectedLineThinExtended
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Glyph indexes for a thin line using a SadConsole extended font.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int[] ConnectedLineThinExtended { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ICellSurface_DefaultBackground_" data-uid="SadConsole.ICellSurface.DefaultBackground*"></a>
-
-  <h3 id="SadConsole_ICellSurface_DefaultBackground" data-uid="SadConsole.ICellSurface.DefaultBackground">
-  DefaultBackground
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>The default background for glyphs on this surface.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Color DefaultBackground { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ICellSurface_DefaultForeground_" data-uid="SadConsole.ICellSurface.DefaultForeground*"></a>
-
-  <h3 id="SadConsole_ICellSurface_DefaultForeground" data-uid="SadConsole.ICellSurface.DefaultForeground">
-  DefaultForeground
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>The default foreground for glyphs on this surface.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Color DefaultForeground { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ICellSurface_DefaultGlyph_" data-uid="SadConsole.ICellSurface.DefaultGlyph*"></a>
-
-  <h3 id="SadConsole_ICellSurface_DefaultGlyph" data-uid="SadConsole.ICellSurface.DefaultGlyph">
-  DefaultGlyph
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>The default glyph used in clearing and erasing.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">int DefaultGlyph { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ICellSurface_Effects_" data-uid="SadConsole.ICellSurface.Effects*"></a>
-
-  <h3 id="SadConsole_ICellSurface_Effects" data-uid="SadConsole.ICellSurface.Effects">
-  Effects
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Processes the effects added to cells with <span class="xref">CellSurfaceEditor.SetEffect*</span>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">EffectsManager Effects { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="SadConsole.Effects.EffectsManager.html">EffectsManager</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ICellSurface_IsDirty_" data-uid="SadConsole.ICellSurface.IsDirty*"></a>
-
-  <h3 id="SadConsole_ICellSurface_IsDirty" data-uid="SadConsole.ICellSurface.IsDirty">
-  IsDirty
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Indicates the surface has changed and needs to be rendered.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">bool IsDirty { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ICellSurface_IsScrollable_" data-uid="SadConsole.ICellSurface.IsScrollable*"></a>
-
-  <h3 id="SadConsole_ICellSurface_IsScrollable" data-uid="SadConsole.ICellSurface.IsScrollable">
-  IsScrollable
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the <a class="xref" href="SadConsole.ICellSurface.html#SadConsole_ICellSurface_View">View</a> width or height is different from <a class="xref" href="SadConsole.ICellSurface.html#SadConsole_ICellSurface_Area">Area</a>; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">bool IsScrollable { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ICellSurface_TimesShiftedDown_" data-uid="SadConsole.ICellSurface.TimesShiftedDown*"></a>
-
-  <h3 id="SadConsole_ICellSurface_TimesShiftedDown" data-uid="SadConsole.ICellSurface.TimesShiftedDown">
-  TimesShiftedDown
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>A variable that tracks how many times this editor shifted the surface down.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">int TimesShiftedDown { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ICellSurface_TimesShiftedLeft_" data-uid="SadConsole.ICellSurface.TimesShiftedLeft*"></a>
-
-  <h3 id="SadConsole_ICellSurface_TimesShiftedLeft" data-uid="SadConsole.ICellSurface.TimesShiftedLeft">
-  TimesShiftedLeft
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>A variable that tracks how many times this editor shifted the surface left.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">int TimesShiftedLeft { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ICellSurface_TimesShiftedRight_" data-uid="SadConsole.ICellSurface.TimesShiftedRight*"></a>
-
-  <h3 id="SadConsole_ICellSurface_TimesShiftedRight" data-uid="SadConsole.ICellSurface.TimesShiftedRight">
-  TimesShiftedRight
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>A variable that tracks how many times this editor shifted the surface right.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">int TimesShiftedRight { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ICellSurface_TimesShiftedUp_" data-uid="SadConsole.ICellSurface.TimesShiftedUp*"></a>
-
-  <h3 id="SadConsole_ICellSurface_TimesShiftedUp" data-uid="SadConsole.ICellSurface.TimesShiftedUp">
-  TimesShiftedUp
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>A variable that tracks how many times this editor shifted the surface up.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">int TimesShiftedUp { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ICellSurface_UsePrintProcessor_" data-uid="SadConsole.ICellSurface.UsePrintProcessor*"></a>
-
-  <h3 id="SadConsole_ICellSurface_UsePrintProcessor" data-uid="SadConsole.ICellSurface.UsePrintProcessor">
-  UsePrintProcessor
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>When true, the <a class="xref" href="SadConsole.ColoredString.html#SadConsole_ColoredString_Parser">Parser</a> is used to generate a <a class="xref" href="SadConsole.ColoredString.html">ColoredString</a> before printing.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">bool UsePrintProcessor { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ICellSurface_View_" data-uid="SadConsole.ICellSurface.View*"></a>
-
-  <h3 id="SadConsole_ICellSurface_View" data-uid="SadConsole.ICellSurface.View">
-  View
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>The visible portion of the surface.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Rectangle View { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Rectangle.html">Rectangle</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ICellSurface_ViewHeight_" data-uid="SadConsole.ICellSurface.ViewHeight*"></a>
-
-  <h3 id="SadConsole_ICellSurface_ViewHeight" data-uid="SadConsole.ICellSurface.ViewHeight">
-  ViewHeight
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Gets or sets the visible height of the surface in cells.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">int ViewHeight { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ICellSurface_ViewPosition_" data-uid="SadConsole.ICellSurface.ViewPosition*"></a>
-
-  <h3 id="SadConsole_ICellSurface_ViewPosition" data-uid="SadConsole.ICellSurface.ViewPosition">
-  ViewPosition
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>The position of the view within the buffer.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Point ViewPosition { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Point.html">Point</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ICellSurface_ViewWidth_" data-uid="SadConsole.ICellSurface.ViewWidth*"></a>
-
-  <h3 id="SadConsole_ICellSurface_ViewWidth" data-uid="SadConsole.ICellSurface.ViewWidth">
-  ViewWidth
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Gets or sets the visible width of the surface in cells.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">int ViewWidth { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <h2 class="section" id="methods">Methods
-</h2>
-
-
-  <a id="SadConsole_ICellSurface_CreateLine_" data-uid="SadConsole.ICellSurface.CreateLine*"></a>
-
-  <h3 id="SadConsole_ICellSurface_CreateLine_System_Int32_" data-uid="SadConsole.ICellSurface.CreateLine(System.Int32)">
-  CreateLine(int)
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Creates an array of glyphs that can be used as a connected line.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int[] CreateLine(int singleGlyph)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>singleGlyph</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The glyph to use for the connected line array.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>[]</dt>
-    <dd><p>An array of glyphs.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ICellSurface_ValidateLineStyle_" data-uid="SadConsole.ICellSurface.ValidateLineStyle*"></a>
-
-  <h3 id="SadConsole_ICellSurface_ValidateLineStyle__1___0____" data-uid="SadConsole.ICellSurface.ValidateLineStyle``1(``0[]@)">
-  ValidateLineStyle&lt;T&gt;(in T[])
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns a value that indicates a line style array is not null and contains the required number of elements.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool ValidateLineStyle&lt;T&gt;(in T[] connectedLineStyle)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>connectedLineStyle</code> T[]</dt>
-    <dd><p>The array to check based on the <a class="xref" href="SadConsole.ICellSurface.ConnectedLineIndex.html">ICellSurface.ConnectedLineIndex</a> enum.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>True when the line style is correct.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Type Parameters</h4>
-  <dl class="parameters">
-    <dt><code>T</code></dt>
-    <dd><p>Type of the array.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h2 class="section" id="events">Events
-</h2>
-
-
-
-  <h3 id="SadConsole_ICellSurface_IsDirtyChanged" data-uid="SadConsole.ICellSurface.IsDirtyChanged">
-  IsDirtyChanged
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>An event that is raised when <a class="xref" href="SadConsole.ICellSurface.html#SadConsole_ICellSurface_IsDirty">IsDirty</a> changes.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">event EventHandler IsDirtyChanged</code></pre>
-  </div>
-
-
-
-
-
-
-  <h4 class="section">Event Type</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler">EventHandler</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
 
 </article>
+          </div>
 
-        <div class="contribution d-print-none">
-        </div>
-
-
-      </div>
-
-      <div class="affix">
-        <nav id="affix"></nav>
-      </div>
-    </main>
-
-
-    <footer class="border-top text-secondary">
-      <div class="container-xxl">
-        <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          <div class="hidden-sm col-md-3" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+                <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
         </div>
       </div>
-    </footer>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
   </body>
 </html>

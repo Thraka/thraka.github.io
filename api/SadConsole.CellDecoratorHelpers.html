@@ -1,125 +1,91 @@
 ﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
 <html>
+
   <head>
     <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class CellDecoratorHelpers
- | SadConsole v10 </title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ | SadConsole v10</title>
+      <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class CellDecoratorHelpers
- | SadConsole v10 ">
-      
-      
-      <link rel="icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../public/docfx.min.css">
-      <link rel="stylesheet" href="../public/main.css">
-      <meta name="docfx:navrel" content="../toc.html">
-      <meta name="docfx:tocrel" content="toc.html">
-      
-      
-      
-      
-      
-      <meta name="loc:inThisArticle" content="In this article">
-      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
-      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
-      <meta name="loc:tocFilter" content="Filter by title">
-      <meta name="loc:nextArticle" content="Next">
-      <meta name="loc:prevArticle" content="Previous">
-      <meta name="loc:themeLight" content="Light">
-      <meta name="loc:themeDark" content="Dark">
-      <meta name="loc:themeAuto" content="Auto">
-      <meta name="loc:changeTheme" content="Change theme">
-      <meta name="loc:copy" content="Copy">
-      <meta name="loc:downloadPdf" content="Download PDF">
+ | SadConsole v10">
+    <meta name="description" content="Helpers for  and  which manages null on the property.">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/dracula.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+      <meta http-equiv='content-language' content='en-us'>
+    
+    
+    
   </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
 
-  <script type="module" src="./../public/docfx.min.js"></script>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
 
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
-
-  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
-    <header class="bg-body border-bottom">
-      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
-        <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../images/SadConsoleLogo.gif" alt="">
-            
-          </a>
-          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="bi bi-three-dots"></i>
-          </button>
-          <div class="collapse navbar-collapse" id="navpanel">
-            <div id="navbar">
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
             </div>
           </div>
-        </div>
-      </nav>
-    </header>
+        </nav>
 
-    <main class="container-xxl">
-      <div class="toc-offcanvas">
-        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-            <nav class="toc" id="toc"></nav>
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
           </div>
         </div>
-      </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
 
-      <div class="content">
-        <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
-            <i class="bi bi-list"></i>
-          </button>
-
-          <nav id="breadcrumb"></nav>
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
         </div>
+        <div class="article row grid-right">
+          <div class="col-md-9">
+            <article class="content wrap" id="_content" data-uid="SadConsole.CellDecoratorHelpers">
 
-        <article data-uid="SadConsole.CellDecoratorHelpers">
 
 
-
-  <h1 id="SadConsole_CellDecoratorHelpers" data-uid="SadConsole.CellDecoratorHelpers" class="text-break">
-    Class CellDecoratorHelpers
-  
-  </h1>
-
-  <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="SadConsole.html">SadConsole</a></dd></dl>
-  <dl><dt>Assembly</dt><dd>SadConsole.dll</dd></dl>
-  </div>
-
-  <div class="markdown summary"><p>Helpers for <a class="xref" href="SadConsole.CellDecorator.html">CellDecorator</a> and <a class="xref" href="SadConsole.ColoredGlyphBase.html#SadConsole_ColoredGlyphBase_Decorators">Decorators</a> which manages null on the property.</p>
+  <h1 id="SadConsole_CellDecoratorHelpers" data-uid="SadConsole.CellDecoratorHelpers" class="text-break">Class CellDecoratorHelpers
+</h1>
+  <div class="markdown level0 summary"><p>Helpers for <a class="xref" href="SadConsole.CellDecorator.html">CellDecorator</a> and <a class="xref" href="SadConsole.ColoredGlyphBase.html#SadConsole_ColoredGlyphBase_Decorators">Decorators</a> which manages null on the property.</p>
 </div>
-  <div class="markdown conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class CellDecoratorHelpers</code></pre>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">CellDecoratorHelpers</span></div>
   </div>
-
-
-
-
-  <dl class="typelist inheritance">
-    <dt>Inheritance</dt>
-    <dd>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><span class="xref">CellDecoratorHelpers</span></div>
-    </dd>
-  </dl>
-
-
-
-  <dl class="typelist derived">
-    <dt>Inherited Members</dt>
-    <dd>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
     </div>
@@ -141,404 +107,414 @@
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
     </div>
-  </dd></dl>
-
-
-
-
-
-
-  <h2 class="section" id="properties">Properties
-</h2>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="SadConsole.html">SadConsole</a></h6>
+  <h6><strong>Assembly</strong>: SadConsole.dll</h6>
+  <h5 id="SadConsole_CellDecoratorHelpers_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class CellDecoratorHelpers</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
 
 
   <a id="SadConsole_CellDecoratorHelpers_Pool_" data-uid="SadConsole.CellDecoratorHelpers.Pool*"></a>
-
-  <h3 id="SadConsole_CellDecoratorHelpers_Pool" data-uid="SadConsole.CellDecoratorHelpers.Pool">
-  Pool
-  
-  </h3>
-
+  <h4 id="SadConsole_CellDecoratorHelpers_Pool" data-uid="SadConsole.CellDecoratorHelpers.Pool">Pool</h4>
   <div class="markdown level1 summary"><p>The list pool used for creating the decorator lists applied to cells.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IListPool&lt;CellDecorator&gt; Pool { get; set; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Pooling.IListPool-1.html">IListPool</a>&lt;<a class="xref" href="SadConsole.CellDecorator.html">CellDecorator</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <h2 class="section" id="methods">Methods
-</h2>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Pooling.IListPool-1.html">IListPool</a>&lt;<a class="xref" href="SadConsole.CellDecorator.html">CellDecorator</a>&gt;</td>
+        <td>Helpers for  and  which manages null on the property.</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
 
 
   <a id="SadConsole_CellDecoratorHelpers_AddDecorator_" data-uid="SadConsole.CellDecoratorHelpers.AddDecorator*"></a>
-
-  <h3 id="SadConsole_CellDecoratorHelpers_AddDecorator_SadConsole_CellDecorator_SadConsole_ColoredGlyphBase_" data-uid="SadConsole.CellDecoratorHelpers.AddDecorator(SadConsole.CellDecorator,SadConsole.ColoredGlyphBase)">
-  AddDecorator(CellDecorator, ColoredGlyphBase)
-  
-  </h3>
-
+  <h4 id="SadConsole_CellDecoratorHelpers_AddDecorator_SadConsole_CellDecorator_SadConsole_ColoredGlyphBase_" data-uid="SadConsole.CellDecoratorHelpers.AddDecorator(SadConsole.CellDecorator,SadConsole.ColoredGlyphBase)">AddDecorator(CellDecorator, ColoredGlyphBase)</h4>
   <div class="markdown level1 summary"><p>Adds the specified decorator to a glyph.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static void AddDecorator(CellDecorator decorator, ColoredGlyphBase glyph)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>decorator</code> <a class="xref" href="SadConsole.CellDecorator.html">CellDecorator</a></dt>
-    <dd><p>The decorator to add.</p>
-</dd>
-    <dt><code>glyph</code> <a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a></dt>
-    <dd><p>The glyph to alter.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.CellDecorator.html">CellDecorator</a></td>
+        <td><span class="parametername">decorator</span></td>
+        <td><p>The decorator to add.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a></td>
+        <td><span class="parametername">glyph</span></td>
+        <td><p>The glyph to alter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_CellDecoratorHelpers_AddDecorators_" data-uid="SadConsole.CellDecoratorHelpers.AddDecorators*"></a>
-
-  <h3 id="SadConsole_CellDecoratorHelpers_AddDecorators_System_Collections_Generic_IEnumerable_SadConsole_CellDecorator__SadConsole_ColoredGlyphBase_" data-uid="SadConsole.CellDecoratorHelpers.AddDecorators(System.Collections.Generic.IEnumerable{SadConsole.CellDecorator},SadConsole.ColoredGlyphBase)">
-  AddDecorators(IEnumerable&lt;CellDecorator&gt;?, ColoredGlyphBase)
-  
-  </h3>
-
+  <h4 id="SadConsole_CellDecoratorHelpers_AddDecorators_System_Collections_Generic_IEnumerable_SadConsole_CellDecorator__SadConsole_ColoredGlyphBase_" data-uid="SadConsole.CellDecoratorHelpers.AddDecorators(System.Collections.Generic.IEnumerable{SadConsole.CellDecorator},SadConsole.ColoredGlyphBase)">AddDecorators(IEnumerable&lt;CellDecorator&gt;?, ColoredGlyphBase)</h4>
   <div class="markdown level1 summary"><p>Adds the decorators to a glyph.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static void AddDecorators(IEnumerable&lt;CellDecorator&gt;? decorators, ColoredGlyphBase glyph)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>decorators</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="SadConsole.CellDecorator.html">CellDecorator</a>&gt;</dt>
-    <dd><p>The decorators to add. Duplicates are skipped.</p>
-</dd>
-    <dt><code>glyph</code> <a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a></dt>
-    <dd><p>The glyph to alter.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="SadConsole.CellDecorator.html">CellDecorator</a>&gt;</td>
+        <td><span class="parametername">decorators</span></td>
+        <td><p>The decorators to add. Duplicates are skipped.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a></td>
+        <td><span class="parametername">glyph</span></td>
+        <td><p>The glyph to alter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_CellDecoratorHelpers_CloneDecorators_" data-uid="SadConsole.CellDecoratorHelpers.CloneDecorators*"></a>
-
-  <h3 id="SadConsole_CellDecoratorHelpers_CloneDecorators_SadConsole_ColoredGlyphBase_" data-uid="SadConsole.CellDecoratorHelpers.CloneDecorators(SadConsole.ColoredGlyphBase)">
-  CloneDecorators(ColoredGlyphBase)
-  
-  </h3>
-
+  <h4 id="SadConsole_CellDecoratorHelpers_CloneDecorators_SadConsole_ColoredGlyphBase_" data-uid="SadConsole.CellDecoratorHelpers.CloneDecorators(SadConsole.ColoredGlyphBase)">CloneDecorators(ColoredGlyphBase)</h4>
   <div class="markdown level1 summary"><p>Returns a new list of decorators from the <a class="xref" href="SadConsole.ColoredGlyphBase.html#SadConsole_ColoredGlyphBase_Decorators">Decorators</a> property of <code class="paramref">glyph</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static List&lt;CellDecorator&gt;? CloneDecorators(ColoredGlyphBase glyph)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>glyph</code> <a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a></dt>
-    <dd><p>The glyph to copy the decorators from.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SadConsole.CellDecorator.html">CellDecorator</a>&gt;</dt>
-    <dd><p>A list with all of the decorators from <code class="paramref">glyph</code>. If the glyph's decorators are <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> is returned.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a></td>
+        <td><span class="parametername">glyph</span></td>
+        <td><p>The glyph to copy the decorators from.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SadConsole.CellDecorator.html">CellDecorator</a>&gt;</td>
+        <td><p>A list with all of the decorators from <code class="paramref">glyph</code>. If the glyph's decorators are <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> is returned.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_CellDecoratorHelpers_ItemsMatch_" data-uid="SadConsole.CellDecoratorHelpers.ItemsMatch*"></a>
-
-  <h3 id="SadConsole_CellDecoratorHelpers_ItemsMatch_System_Collections_Generic_List_SadConsole_CellDecorator__System_Collections_Generic_List_SadConsole_CellDecorator__" data-uid="SadConsole.CellDecoratorHelpers.ItemsMatch(System.Collections.Generic.List{SadConsole.CellDecorator},System.Collections.Generic.List{SadConsole.CellDecorator})">
-  ItemsMatch(List&lt;CellDecorator&gt;?, List&lt;CellDecorator&gt;?)
-  
-  </h3>
-
+  <h4 id="SadConsole_CellDecoratorHelpers_ItemsMatch_System_Collections_Generic_List_SadConsole_CellDecorator__System_Collections_Generic_List_SadConsole_CellDecorator__" data-uid="SadConsole.CellDecoratorHelpers.ItemsMatch(System.Collections.Generic.List{SadConsole.CellDecorator},System.Collections.Generic.List{SadConsole.CellDecorator})">ItemsMatch(List&lt;CellDecorator&gt;?, List&lt;CellDecorator&gt;?)</h4>
   <div class="markdown level1 summary"><p>Determines whether the contents of two <a class="xref" href="SadConsole.CellDecorator.html">CellDecorator</a> arrays are equal.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static bool ItemsMatch(this List&lt;CellDecorator&gt;? self, List&lt;CellDecorator&gt;? other)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>self</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SadConsole.CellDecorator.html">CellDecorator</a>&gt;</dt>
-    <dd><p>The first object to compare.</p>
-</dd>
-    <dt><code>other</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SadConsole.CellDecorator.html">CellDecorator</a>&gt;</dt>
-    <dd><p>The second object to compare.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>A boolean value to indicate whether or not the two arrays are considered equal.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SadConsole.CellDecorator.html">CellDecorator</a>&gt;</td>
+        <td><span class="parametername">self</span></td>
+        <td><p>The first object to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SadConsole.CellDecorator.html">CellDecorator</a>&gt;</td>
+        <td><span class="parametername">other</span></td>
+        <td><p>The second object to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p>A boolean value to indicate whether or not the two arrays are considered equal.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_CellDecoratorHelpers_RemoveAllDecorators_" data-uid="SadConsole.CellDecoratorHelpers.RemoveAllDecorators*"></a>
-
-  <h3 id="SadConsole_CellDecoratorHelpers_RemoveAllDecorators_SadConsole_ColoredGlyphBase_" data-uid="SadConsole.CellDecoratorHelpers.RemoveAllDecorators(SadConsole.ColoredGlyphBase)">
-  RemoveAllDecorators(ColoredGlyphBase)
-  
-  </h3>
-
+  <h4 id="SadConsole_CellDecoratorHelpers_RemoveAllDecorators_SadConsole_ColoredGlyphBase_" data-uid="SadConsole.CellDecoratorHelpers.RemoveAllDecorators(SadConsole.ColoredGlyphBase)">RemoveAllDecorators(ColoredGlyphBase)</h4>
   <div class="markdown level1 summary"><p>Removes all decorators from a glyph, returns the list to the pool, and sets the <a class="xref" href="SadConsole.ColoredGlyphBase.html#SadConsole_ColoredGlyphBase_Decorators">Decorators</a> collection to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static void RemoveAllDecorators(ColoredGlyphBase glyph)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>glyph</code> <a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a></dt>
-    <dd><p>The glyph to alter.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a></td>
+        <td><span class="parametername">glyph</span></td>
+        <td><p>The glyph to alter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_CellDecoratorHelpers_RemoveDecorator_" data-uid="SadConsole.CellDecoratorHelpers.RemoveDecorator*"></a>
-
-  <h3 id="SadConsole_CellDecoratorHelpers_RemoveDecorator_SadConsole_CellDecorator_SadConsole_ColoredGlyphBase_" data-uid="SadConsole.CellDecoratorHelpers.RemoveDecorator(SadConsole.CellDecorator,SadConsole.ColoredGlyphBase)">
-  RemoveDecorator(CellDecorator, ColoredGlyphBase)
-  
-  </h3>
-
+  <h4 id="SadConsole_CellDecoratorHelpers_RemoveDecorator_SadConsole_CellDecorator_SadConsole_ColoredGlyphBase_" data-uid="SadConsole.CellDecoratorHelpers.RemoveDecorator(SadConsole.CellDecorator,SadConsole.ColoredGlyphBase)">RemoveDecorator(CellDecorator, ColoredGlyphBase)</h4>
   <div class="markdown level1 summary"><p>Removes the specified decorator from a glyph. If no decorators remain on the glyph, the <a class="xref" href="SadConsole.ColoredGlyphBase.html#SadConsole_ColoredGlyphBase_Decorators">Decorators</a> collection is set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static void RemoveDecorator(CellDecorator decorator, ColoredGlyphBase glyph)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>decorator</code> <a class="xref" href="SadConsole.CellDecorator.html">CellDecorator</a></dt>
-    <dd><p>The decorator to remove.</p>
-</dd>
-    <dt><code>glyph</code> <a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a></dt>
-    <dd><p>The glyph to alter.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.CellDecorator.html">CellDecorator</a></td>
+        <td><span class="parametername">decorator</span></td>
+        <td><p>The decorator to remove.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a></td>
+        <td><span class="parametername">glyph</span></td>
+        <td><p>The glyph to alter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_CellDecoratorHelpers_RemoveDecorators_" data-uid="SadConsole.CellDecoratorHelpers.RemoveDecorators*"></a>
-
-  <h3 id="SadConsole_CellDecoratorHelpers_RemoveDecorators_System_Collections_Generic_IEnumerable_SadConsole_CellDecorator__SadConsole_ColoredGlyphBase_" data-uid="SadConsole.CellDecoratorHelpers.RemoveDecorators(System.Collections.Generic.IEnumerable{SadConsole.CellDecorator},SadConsole.ColoredGlyphBase)">
-  RemoveDecorators(IEnumerable&lt;CellDecorator&gt;, ColoredGlyphBase)
-  
-  </h3>
-
+  <h4 id="SadConsole_CellDecoratorHelpers_RemoveDecorators_System_Collections_Generic_IEnumerable_SadConsole_CellDecorator__SadConsole_ColoredGlyphBase_" data-uid="SadConsole.CellDecoratorHelpers.RemoveDecorators(System.Collections.Generic.IEnumerable{SadConsole.CellDecorator},SadConsole.ColoredGlyphBase)">RemoveDecorators(IEnumerable&lt;CellDecorator&gt;, ColoredGlyphBase)</h4>
   <div class="markdown level1 summary"><p>Removes the specified decorators from a glyph. If no decorators remain on the glyph, the <a class="xref" href="SadConsole.ColoredGlyphBase.html#SadConsole_ColoredGlyphBase_Decorators">Decorators</a> collection is set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static void RemoveDecorators(IEnumerable&lt;CellDecorator&gt; decorators, ColoredGlyphBase glyph)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>decorators</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="SadConsole.CellDecorator.html">CellDecorator</a>&gt;</dt>
-    <dd><p>The decorators to remove.</p>
-</dd>
-    <dt><code>glyph</code> <a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a></dt>
-    <dd><p>The glyph to alter.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="SadConsole.CellDecorator.html">CellDecorator</a>&gt;</td>
+        <td><span class="parametername">decorators</span></td>
+        <td><p>The decorators to remove.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a></td>
+        <td><span class="parametername">glyph</span></td>
+        <td><p>The glyph to alter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_CellDecoratorHelpers_SetDecorator_" data-uid="SadConsole.CellDecoratorHelpers.SetDecorator*"></a>
-
-  <h3 id="SadConsole_CellDecoratorHelpers_SetDecorator_SadConsole_CellDecorator_SadConsole_ColoredGlyphBase_" data-uid="SadConsole.CellDecoratorHelpers.SetDecorator(SadConsole.CellDecorator,SadConsole.ColoredGlyphBase)">
-  SetDecorator(CellDecorator, ColoredGlyphBase)
-  
-  </h3>
-
+  <h4 id="SadConsole_CellDecoratorHelpers_SetDecorator_SadConsole_CellDecorator_SadConsole_ColoredGlyphBase_" data-uid="SadConsole.CellDecoratorHelpers.SetDecorator(SadConsole.CellDecorator,SadConsole.ColoredGlyphBase)">SetDecorator(CellDecorator, ColoredGlyphBase)</h4>
   <div class="markdown level1 summary"><p>Replaces the decorators of a glyph with a single decorator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static void SetDecorator(CellDecorator decorator, ColoredGlyphBase glyph)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>decorator</code> <a class="xref" href="SadConsole.CellDecorator.html">CellDecorator</a></dt>
-    <dd><p>The decorator to set.</p>
-</dd>
-    <dt><code>glyph</code> <a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a></dt>
-    <dd><p>The glyph to alter.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.CellDecorator.html">CellDecorator</a></td>
+        <td><span class="parametername">decorator</span></td>
+        <td><p>The decorator to set.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a></td>
+        <td><span class="parametername">glyph</span></td>
+        <td><p>The glyph to alter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_CellDecoratorHelpers_SetDecorators_" data-uid="SadConsole.CellDecoratorHelpers.SetDecorators*"></a>
-
-  <h3 id="SadConsole_CellDecoratorHelpers_SetDecorators_System_Collections_Generic_IEnumerable_SadConsole_CellDecorator__SadConsole_ColoredGlyphBase_" data-uid="SadConsole.CellDecoratorHelpers.SetDecorators(System.Collections.Generic.IEnumerable{SadConsole.CellDecorator},SadConsole.ColoredGlyphBase)">
-  SetDecorators(IEnumerable&lt;CellDecorator&gt;?, ColoredGlyphBase)
-  
-  </h3>
-
+  <h4 id="SadConsole_CellDecoratorHelpers_SetDecorators_System_Collections_Generic_IEnumerable_SadConsole_CellDecorator__SadConsole_ColoredGlyphBase_" data-uid="SadConsole.CellDecoratorHelpers.SetDecorators(System.Collections.Generic.IEnumerable{SadConsole.CellDecorator},SadConsole.ColoredGlyphBase)">SetDecorators(IEnumerable&lt;CellDecorator&gt;?, ColoredGlyphBase)</h4>
   <div class="markdown level1 summary"><p>Replaces the decorators of a glyph.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static void SetDecorators(IEnumerable&lt;CellDecorator&gt;? decorators, ColoredGlyphBase glyph)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>decorators</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="SadConsole.CellDecorator.html">CellDecorator</a>&gt;</dt>
-    <dd><p>The decorators to set. <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> clears the decorators.</p>
-</dd>
-    <dt><code>glyph</code> <a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a></dt>
-    <dd><p>The glyph to alter.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="SadConsole.CellDecorator.html">CellDecorator</a>&gt;</td>
+        <td><span class="parametername">decorators</span></td>
+        <td><p>The decorators to set. <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> clears the decorators.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a></td>
+        <td><span class="parametername">glyph</span></td>
+        <td><p>The glyph to alter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 </article>
+          </div>
 
-        <div class="contribution d-print-none">
-        </div>
-
-
-      </div>
-
-      <div class="affix">
-        <nav id="affix"></nav>
-      </div>
-    </main>
-
-
-    <footer class="border-top text-secondary">
-      <div class="container-xxl">
-        <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          <div class="hidden-sm col-md-3" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+                <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
         </div>
       </div>
-    </footer>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
   </body>
 </html>

@@ -1,136 +1,100 @@
 ﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
 <html>
+
   <head>
     <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class ControlHost
- | SadConsole v10 </title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ | SadConsole v10</title>
+      <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class ControlHost
- | SadConsole v10 ">
-      
-      
-      <link rel="icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../public/docfx.min.css">
-      <link rel="stylesheet" href="../public/main.css">
-      <meta name="docfx:navrel" content="../toc.html">
-      <meta name="docfx:tocrel" content="toc.html">
-      
-      
-      
-      
-      
-      <meta name="loc:inThisArticle" content="In this article">
-      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
-      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
-      <meta name="loc:tocFilter" content="Filter by title">
-      <meta name="loc:nextArticle" content="Next">
-      <meta name="loc:prevArticle" content="Previous">
-      <meta name="loc:themeLight" content="Light">
-      <meta name="loc:themeDark" content="Dark">
-      <meta name="loc:themeAuto" content="Auto">
-      <meta name="loc:changeTheme" content="Change theme">
-      <meta name="loc:copy" content="Copy">
-      <meta name="loc:downloadPdf" content="Download PDF">
+ | SadConsole v10">
+    <meta name="description" content="Adds the ability for a host to contain and display controls from .">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/dracula.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+      <meta http-equiv='content-language' content='en-us'>
+    
+    
+    
   </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
 
-  <script type="module" src="./../public/docfx.min.js"></script>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
 
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
-
-  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
-    <header class="bg-body border-bottom">
-      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
-        <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../images/SadConsoleLogo.gif" alt="">
-            
-          </a>
-          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="bi bi-three-dots"></i>
-          </button>
-          <div class="collapse navbar-collapse" id="navpanel">
-            <div id="navbar">
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
             </div>
           </div>
-        </div>
-      </nav>
-    </header>
+        </nav>
 
-    <main class="container-xxl">
-      <div class="toc-offcanvas">
-        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-            <nav class="toc" id="toc"></nav>
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
           </div>
         </div>
-      </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
 
-      <div class="content">
-        <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
-            <i class="bi bi-list"></i>
-          </button>
-
-          <nav id="breadcrumb"></nav>
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
         </div>
+        <div class="article row grid-right">
+          <div class="col-md-9">
+            <article class="content wrap" id="_content" data-uid="SadConsole.UI.ControlHost">
 
-        <article data-uid="SadConsole.UI.ControlHost">
 
 
-
-  <h1 id="SadConsole_UI_ControlHost" data-uid="SadConsole.UI.ControlHost" class="text-break">
-    Class ControlHost
-  
-  </h1>
-
-  <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="SadConsole.html">SadConsole</a>.<a class="xref" href="SadConsole.UI.html">UI</a></dd></dl>
-  <dl><dt>Assembly</dt><dd>SadConsole.dll</dd></dl>
-  </div>
-
-  <div class="markdown summary"><p>Adds the ability for a host to contain and display controls from <a class="xref" href="SadConsole.UI.Controls.html">SadConsole.UI.Controls</a>.</p>
+  <h1 id="SadConsole_UI_ControlHost" data-uid="SadConsole.UI.ControlHost" class="text-break">Class ControlHost
+</h1>
+  <div class="markdown level0 summary"><p>Adds the ability for a host to contain and display controls from <a class="xref" href="SadConsole.UI.Controls.html">SadConsole.UI.Controls</a>.</p>
 </div>
-  <div class="markdown conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ControlHost : IComponent, IContainer, IList&lt;ControlBase&gt;, ICollection&lt;ControlBase&gt;, IEnumerable&lt;ControlBase&gt;, IEnumerable</code></pre>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">ControlHost</span></div>
   </div>
-
-
-
-
-  <dl class="typelist inheritance">
-    <dt>Inheritance</dt>
-    <dd>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><span class="xref">ControlHost</span></div>
-    </dd>
-  </dl>
-
-  <dl class="typelist implements">
-    <dt>Implements</dt>
-    <dd>
-      <div><a class="xref" href="SadConsole.Components.IComponent.html">IComponent</a></div>
-      <div><a class="xref" href="SadConsole.UI.Controls.IContainer.html">IContainer</a></div>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a>&gt;</div>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection</a>&lt;<a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a>&gt;</div>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a>&gt;</div>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
-    </dd>
-  </dl>
-
-
-  <dl class="typelist derived">
-    <dt>Inherited Members</dt>
-    <dd>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="SadConsole.Components.IComponent.html">IComponent</a></div>
+    <div><a class="xref" href="SadConsole.UI.Controls.IContainer.html">IContainer</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a>&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection</a>&lt;<a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a>&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a>&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
     </div>
@@ -152,1484 +116,1317 @@
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
     </div>
-  </dd></dl>
-
-
-
-
-
-
-  <h2 class="section" id="constructors">Constructors
-</h2>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="SadConsole.html">SadConsole</a>.<a class="xref" href="SadConsole.UI.html">UI</a></h6>
+  <h6><strong>Assembly</strong>: SadConsole.dll</h6>
+  <h5 id="SadConsole_UI_ControlHost_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ControlHost : IComponent, IContainer, IList&lt;ControlBase&gt;, ICollection&lt;ControlBase&gt;, IEnumerable&lt;ControlBase&gt;, IEnumerable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
 
 
   <a id="SadConsole_UI_ControlHost__ctor_" data-uid="SadConsole.UI.ControlHost.#ctor*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost__ctor" data-uid="SadConsole.UI.ControlHost.#ctor">
-  ControlHost()
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost__ctor" data-uid="SadConsole.UI.ControlHost.#ctor">ControlHost()</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ControlHost()</code></pre>
   </div>
+  <h3 id="fields">Fields
+</h3>
 
 
-
-
-
-
-
-
-
-
-
-
-
-  <h2 class="section" id="fields">Fields
-</h2>
-
-
-
-  <h3 id="SadConsole_UI_ControlHost_ControlsList" data-uid="SadConsole.UI.ControlHost.ControlsList">
-  ControlsList
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_ControlsList" data-uid="SadConsole.UI.ControlHost.ControlsList">ControlsList</h4>
   <div class="markdown level1 summary"><p>The collection of controls.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[DataMember]
 protected List&lt;ControlBase&gt; ControlsList</code></pre>
   </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a>&gt;</td>
+        <td>Adds the ability for a host to contain and display controls from .</td>
+      </tr>
+    </tbody>
+  </table>
 
 
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="SadConsole_UI_ControlHost_NamedControls" data-uid="SadConsole.UI.ControlHost.NamedControls">
-  NamedControls
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_NamedControls" data-uid="SadConsole.UI.ControlHost.NamedControls">NamedControls</h4>
   <div class="markdown level1 summary"><p>The controls added which contain a <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_Name">Name</a> value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected Dictionary&lt;string, ControlBase&gt; NamedControls</code></pre>
   </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-  <h2 class="section" id="properties">Properties
-</h2>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a>&gt;</td>
+        <td>Adds the ability for a host to contain and display controls from .</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
 
 
   <a id="SadConsole_UI_ControlHost_CanTabToNextConsole_" data-uid="SadConsole.UI.ControlHost.CanTabToNextConsole*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_CanTabToNextConsole" data-uid="SadConsole.UI.ControlHost.CanTabToNextConsole">
-  CanTabToNextConsole
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_CanTabToNextConsole" data-uid="SadConsole.UI.ControlHost.CanTabToNextConsole">CanTabToNextConsole</h4>
   <div class="markdown level1 summary"><p>When true, allows the tab command to move to the next console (when there is a parent) instead of cycling back to the first control on this console.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[DataMember]
 public bool CanTabToNextConsole { get; set; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td>Adds the ability for a host to contain and display controls from .</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_ControlHost_CapturedControl_" data-uid="SadConsole.UI.ControlHost.CapturedControl*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_CapturedControl" data-uid="SadConsole.UI.ControlHost.CapturedControl">
-  CapturedControl
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_CapturedControl" data-uid="SadConsole.UI.ControlHost.CapturedControl">CapturedControl</h4>
   <div class="markdown level1 summary"><p>Gets the control currently capturing mouse events.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ControlBase? CapturedControl { get; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></td>
+        <td>Adds the ability for a host to contain and display controls from .</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_ControlHost_ClearOnAdded_" data-uid="SadConsole.UI.ControlHost.ClearOnAdded*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_ClearOnAdded" data-uid="SadConsole.UI.ControlHost.ClearOnAdded">
-  ClearOnAdded
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_ClearOnAdded" data-uid="SadConsole.UI.ControlHost.ClearOnAdded">ClearOnAdded</h4>
   <div class="markdown level1 summary"><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the component will clear the console it's attached to with the theme color.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[DataMember]
 public bool ClearOnAdded { get; set; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td>Adds the ability for a host to contain and display controls from .</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_ControlHost_Count_" data-uid="SadConsole.UI.ControlHost.Count*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_Count" data-uid="SadConsole.UI.ControlHost.Count">
-  Count
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_Count" data-uid="SadConsole.UI.ControlHost.Count">Count</h4>
   <div class="markdown level1 summary"><p>The total number of controls in this component.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td>Adds the ability for a host to contain and display controls from .</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_ControlHost_DisableControlFocusing_" data-uid="SadConsole.UI.ControlHost.DisableControlFocusing*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_DisableControlFocusing" data-uid="SadConsole.UI.ControlHost.DisableControlFocusing">
-  DisableControlFocusing
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_DisableControlFocusing" data-uid="SadConsole.UI.ControlHost.DisableControlFocusing">DisableControlFocusing</h4>
   <div class="markdown level1 summary"><p>When set to true, child controls are not alerted to focused and non-focused states.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[DataMember]
 public bool DisableControlFocusing { get; set; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td>Adds the ability for a host to contain and display controls from .</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_ControlHost_DisableCursorOnAdded_" data-uid="SadConsole.UI.ControlHost.DisableCursorOnAdded*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_DisableCursorOnAdded" data-uid="SadConsole.UI.ControlHost.DisableCursorOnAdded">
-  DisableCursorOnAdded
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_DisableCursorOnAdded" data-uid="SadConsole.UI.ControlHost.DisableCursorOnAdded">DisableCursorOnAdded</h4>
   <div class="markdown level1 summary"><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the component will disable the cursor of the console it's attached to.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[DataMember]
 public bool DisableCursorOnAdded { get; set; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td>Adds the ability for a host to contain and display controls from .</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_ControlHost_FocusedControl_" data-uid="SadConsole.UI.ControlHost.FocusedControl*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_FocusedControl" data-uid="SadConsole.UI.ControlHost.FocusedControl">
-  FocusedControl
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_FocusedControl" data-uid="SadConsole.UI.ControlHost.FocusedControl">FocusedControl</h4>
   <div class="markdown level1 summary"><p>Gets or sets the control that has keyboard focus.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ControlBase? FocusedControl { get; set; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></td>
+        <td>Adds the ability for a host to contain and display controls from .</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_ControlHost_IsDirty_" data-uid="SadConsole.UI.ControlHost.IsDirty*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_IsDirty" data-uid="SadConsole.UI.ControlHost.IsDirty">
-  IsDirty
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_IsDirty" data-uid="SadConsole.UI.ControlHost.IsDirty">IsDirty</h4>
   <div class="markdown level1 summary"><p>Indicates that the control host needs to be redrawn.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsDirty { get; set; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td>Adds the ability for a host to contain and display controls from .</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_ControlHost_IsReadOnly_" data-uid="SadConsole.UI.ControlHost.IsReadOnly*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_IsReadOnly" data-uid="SadConsole.UI.ControlHost.IsReadOnly">
-  IsReadOnly
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_IsReadOnly" data-uid="SadConsole.UI.ControlHost.IsReadOnly">IsReadOnly</h4>
   <div class="markdown level1 summary"><p>Always returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsReadOnly { get; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td>Adds the ability for a host to contain and display controls from .</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_ControlHost_Item_" data-uid="SadConsole.UI.ControlHost.Item*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_Item_System_Int32_" data-uid="SadConsole.UI.ControlHost.Item(System.Int32)">
-  this[int]
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_Item_System_Int32_" data-uid="SadConsole.UI.ControlHost.Item(System.Int32)">this[int]</h4>
   <div class="markdown level1 summary"><p>Gets a control by index.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ControlBase this[int index] { get; }</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The index of the control.</p>
-</dd>
-  </dl>
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></dt>
-    <dd><p>A control.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>The index of the control.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></td>
+        <td><p>A control.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_ControlHost_Item_" data-uid="SadConsole.UI.ControlHost.Item*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_Item_System_String_" data-uid="SadConsole.UI.ControlHost.Item(System.String)">
-  this[string]
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_Item_System_String_" data-uid="SadConsole.UI.ControlHost.Item(System.String)">this[string]</h4>
   <div class="markdown level1 summary"><p>Gets a control by its <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_Name">Name</a> property.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ControlBase this[string name] { get; }</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The name of the control.</p>
-</dd>
-  </dl>
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></dt>
-    <dd><p>The control.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The name of the control.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></td>
+        <td><p>The control.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_ControlHost_NextTabConsole_" data-uid="SadConsole.UI.ControlHost.NextTabConsole*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_NextTabConsole" data-uid="SadConsole.UI.ControlHost.NextTabConsole">
-  NextTabConsole
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_NextTabConsole" data-uid="SadConsole.UI.ControlHost.NextTabConsole">NextTabConsole</h4>
   <div class="markdown level1 summary"><p>Sets reference to the console to tab to when the <a class="xref" href="SadConsole.UI.ControlHost.html#SadConsole_UI_ControlHost_CanTabToNextConsole">CanTabToNextConsole</a> property is true. Set this to null to allow the engine to determine the next console.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IScreenSurface? NextTabConsole { get; set; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="SadConsole.IScreenSurface.html">IScreenSurface</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.IScreenSurface.html">IScreenSurface</a></td>
+        <td>Adds the ability for a host to contain and display controls from .</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_ControlHost_ParentConsole_" data-uid="SadConsole.UI.ControlHost.ParentConsole*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_ParentConsole" data-uid="SadConsole.UI.ControlHost.ParentConsole">
-  ParentConsole
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_ParentConsole" data-uid="SadConsole.UI.ControlHost.ParentConsole">ParentConsole</h4>
   <div class="markdown level1 summary"><p>The parent object hosting the controls.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IScreenSurface? ParentConsole { get; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="SadConsole.IScreenSurface.html">IScreenSurface</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.IScreenSurface.html">IScreenSurface</a></td>
+        <td>Adds the ability for a host to contain and display controls from .</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_ControlHost_PreviousTabConsole_" data-uid="SadConsole.UI.ControlHost.PreviousTabConsole*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_PreviousTabConsole" data-uid="SadConsole.UI.ControlHost.PreviousTabConsole">
-  PreviousTabConsole
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_PreviousTabConsole" data-uid="SadConsole.UI.ControlHost.PreviousTabConsole">PreviousTabConsole</h4>
   <div class="markdown level1 summary"><p>Sets reference to the console to tab to when the <a class="xref" href="SadConsole.UI.ControlHost.html#SadConsole_UI_ControlHost_CanTabToNextConsole">CanTabToNextConsole</a> property is true. Set this to null to allow the engine to determine the next console.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IScreenSurface? PreviousTabConsole { get; set; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="SadConsole.IScreenSurface.html">IScreenSurface</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.IScreenSurface.html">IScreenSurface</a></td>
+        <td>Adds the ability for a host to contain and display controls from .</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_ControlHost_SortOrder_" data-uid="SadConsole.UI.ControlHost.SortOrder*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_SortOrder" data-uid="SadConsole.UI.ControlHost.SortOrder">
-  SortOrder
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_SortOrder" data-uid="SadConsole.UI.ControlHost.SortOrder">SortOrder</h4>
   <div class="markdown level1 summary"><p>Indicates priority to other components.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public uint SortOrder { get; set; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></td>
+        <td>Adds the ability for a host to contain and display controls from .</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_ControlHost_ThemeColors_" data-uid="SadConsole.UI.ControlHost.ThemeColors*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_ThemeColors" data-uid="SadConsole.UI.ControlHost.ThemeColors">
-  ThemeColors
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_ThemeColors" data-uid="SadConsole.UI.ControlHost.ThemeColors">ThemeColors</h4>
   <div class="markdown level1 summary"><p>Gets or sets the colors to use with drawing the console and controls.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Colors? ThemeColors { get; set; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="SadConsole.UI.Colors.html">Colors</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <h2 class="section" id="methods">Methods
-</h2>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.UI.Colors.html">Colors</a></td>
+        <td>Adds the ability for a host to contain and display controls from .</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
 
 
   <a id="SadConsole_UI_ControlHost_Add_" data-uid="SadConsole.UI.ControlHost.Add*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_Add_SadConsole_UI_Controls_ControlBase_" data-uid="SadConsole.UI.ControlHost.Add(SadConsole.UI.Controls.ControlBase)">
-  Add(ControlBase)
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_Add_SadConsole_UI_Controls_ControlBase_" data-uid="SadConsole.UI.ControlHost.Add(SadConsole.UI.Controls.ControlBase)">Add(ControlBase)</h4>
   <div class="markdown level1 summary"><p>Adds an existing control to this console.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Add(ControlBase control)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>control</code> <a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></dt>
-    <dd><p>The control to add.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></td>
+        <td><span class="parametername">control</span></td>
+        <td><p>The control to add.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_ControlHost_CanFocusControl_" data-uid="SadConsole.UI.ControlHost.CanFocusControl*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_CanFocusControl_SadConsole_UI_Controls_ControlBase_" data-uid="SadConsole.UI.ControlHost.CanFocusControl(SadConsole.UI.Controls.ControlBase)">
-  CanFocusControl(ControlBase?)
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_CanFocusControl_SadConsole_UI_Controls_ControlBase_" data-uid="SadConsole.UI.ControlHost.CanFocusControl(SadConsole.UI.Controls.ControlBase)">CanFocusControl(ControlBase?)</h4>
   <div class="markdown level1 summary"><p>Determins if a control is enabled and <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_CanFocus">CanFocus</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual bool CanFocusControl(ControlBase? control)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>control</code> <a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></dt>
-    <dd><p>The control to check.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the control can be focused; otherwise false.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></td>
+        <td><span class="parametername">control</span></td>
+        <td><p>The control to check.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the control can be focused; otherwise false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_ControlHost_CaptureControl_" data-uid="SadConsole.UI.ControlHost.CaptureControl*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_CaptureControl_SadConsole_UI_Controls_ControlBase_" data-uid="SadConsole.UI.ControlHost.CaptureControl(SadConsole.UI.Controls.ControlBase)">
-  CaptureControl(ControlBase)
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_CaptureControl_SadConsole_UI_Controls_ControlBase_" data-uid="SadConsole.UI.ControlHost.CaptureControl(SadConsole.UI.Controls.ControlBase)">CaptureControl(ControlBase)</h4>
   <div class="markdown level1 summary"><p>Captures a control for exclusive mouse focus. Sets the ExclusiveMouse property to true.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void CaptureControl(ControlBase control)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>control</code> <a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></dt>
-    <dd><p>The control to capture</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></td>
+        <td><span class="parametername">control</span></td>
+        <td><p>The control to capture</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_ControlHost_Clear_" data-uid="SadConsole.UI.ControlHost.Clear*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_Clear" data-uid="SadConsole.UI.ControlHost.Clear">
-  Clear()
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_Clear" data-uid="SadConsole.UI.ControlHost.Clear">Clear()</h4>
   <div class="markdown level1 summary"><p>Removes all controls from this console.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
   </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
   <a id="SadConsole_UI_ControlHost_Contains_" data-uid="SadConsole.UI.ControlHost.Contains*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_Contains_SadConsole_UI_Controls_ControlBase_" data-uid="SadConsole.UI.ControlHost.Contains(SadConsole.UI.Controls.ControlBase)">
-  Contains(ControlBase)
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_Contains_SadConsole_UI_Controls_ControlBase_" data-uid="SadConsole.UI.ControlHost.Contains(SadConsole.UI.Controls.ControlBase)">Contains(ControlBase)</h4>
   <div class="markdown level1 summary"><p>Checks if the specified control exists in this console.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool Contains(ControlBase control)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>control</code> <a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></dt>
-    <dd><p>The control to check.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>True when the control exists in this console; otherwise false.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></td>
+        <td><span class="parametername">control</span></td>
+        <td><p>The control to check.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p>True when the control exists in this console; otherwise false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_ControlHost_CopyTo_" data-uid="SadConsole.UI.ControlHost.CopyTo*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_CopyTo_SadConsole_UI_Controls_ControlBase___System_Int32_" data-uid="SadConsole.UI.ControlHost.CopyTo(SadConsole.UI.Controls.ControlBase[],System.Int32)">
-  CopyTo(ControlBase[], int)
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_CopyTo_SadConsole_UI_Controls_ControlBase___System_Int32_" data-uid="SadConsole.UI.ControlHost.CopyTo(SadConsole.UI.Controls.ControlBase[],System.Int32)">CopyTo(ControlBase[], int)</h4>
   <div class="markdown level1 summary"><p>Copies the controls to a new array.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void CopyTo(ControlBase[] array, int arrayIndex)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>array</code> <a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a>[]</dt>
-    <dd><p>The destination array.</p>
-</dd>
-    <dt><code>arrayIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The starting index of where to copy the controls in the destination array.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a>[]</td>
+        <td><span class="parametername">array</span></td>
+        <td><p>The destination array.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">arrayIndex</span></td>
+        <td><p>The starting index of where to copy the controls in the destination array.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_ControlHost_FocusedControlChanged_" data-uid="SadConsole.UI.ControlHost.FocusedControlChanged*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_FocusedControlChanged_SadConsole_UI_Controls_ControlBase_SadConsole_UI_Controls_ControlBase_" data-uid="SadConsole.UI.ControlHost.FocusedControlChanged(SadConsole.UI.Controls.ControlBase,SadConsole.UI.Controls.ControlBase)">
-  FocusedControlChanged(ControlBase?, ControlBase?)
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_FocusedControlChanged_SadConsole_UI_Controls_ControlBase_SadConsole_UI_Controls_ControlBase_" data-uid="SadConsole.UI.ControlHost.FocusedControlChanged(SadConsole.UI.Controls.ControlBase,SadConsole.UI.Controls.ControlBase)">FocusedControlChanged(ControlBase?, ControlBase?)</h4>
   <div class="markdown level1 summary"><p>This method actually changes the variable that tracks which control is focused. It then sets the <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_IsFocused">IsFocused</a> property
 to the appropriate value for both the previously focused control and the newly focused control.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void FocusedControlChanged(ControlBase? newControl, ControlBase? oldControl)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>newControl</code> <a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></dt>
-    <dd><p>The control that should be focused.</p>
-</dd>
-    <dt><code>oldControl</code> <a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></dt>
-    <dd><p>The control that currently has focus.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></td>
+        <td><span class="parametername">newControl</span></td>
+        <td><p>The control that should be focused.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></td>
+        <td><span class="parametername">oldControl</span></td>
+        <td><p>The control that currently has focus.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_ControlHost_FocusedControlChanging_" data-uid="SadConsole.UI.ControlHost.FocusedControlChanging*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_FocusedControlChanging_SadConsole_UI_Controls_ControlBase_SadConsole_UI_Controls_ControlBase_" data-uid="SadConsole.UI.ControlHost.FocusedControlChanging(SadConsole.UI.Controls.ControlBase,SadConsole.UI.Controls.ControlBase)">
-  FocusedControlChanging(ControlBase?, ControlBase?)
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_FocusedControlChanging_SadConsole_UI_Controls_ControlBase_SadConsole_UI_Controls_ControlBase_" data-uid="SadConsole.UI.ControlHost.FocusedControlChanging(SadConsole.UI.Controls.ControlBase,SadConsole.UI.Controls.ControlBase)">FocusedControlChanging(ControlBase?, ControlBase?)</h4>
   <div class="markdown level1 summary"><p>When overridden, allows you to prevent a control from taking focus from another control.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual bool FocusedControlChanging(ControlBase? newControl, ControlBase? oldControl)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>newControl</code> <a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></dt>
-    <dd><p>The control requesting focus.</p>
-</dd>
-    <dt><code>oldControl</code> <a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></dt>
-    <dd><p>The control that has focus.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the focus change is allowed; otherwise false.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></td>
+        <td><span class="parametername">newControl</span></td>
+        <td><p>The control requesting focus.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></td>
+        <td><span class="parametername">oldControl</span></td>
+        <td><p>The control that has focus.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the focus change is allowed; otherwise false.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_ControlHost_ForceRedrawAllControls_" data-uid="SadConsole.UI.ControlHost.ForceRedrawAllControls*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_ForceRedrawAllControls" data-uid="SadConsole.UI.ControlHost.ForceRedrawAllControls">
-  ForceRedrawAllControls()
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_ForceRedrawAllControls" data-uid="SadConsole.UI.ControlHost.ForceRedrawAllControls">ForceRedrawAllControls()</h4>
   <div class="markdown level1 summary"><p>Forces each control to dirty so that the next frame will redraw each control.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ForceRedrawAllControls()</code></pre>
   </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
   <a id="SadConsole_UI_ControlHost_GetEnumerator_" data-uid="SadConsole.UI.ControlHost.GetEnumerator*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_GetEnumerator" data-uid="SadConsole.UI.ControlHost.GetEnumerator">
-  GetEnumerator()
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_GetEnumerator" data-uid="SadConsole.UI.ControlHost.GetEnumerator">GetEnumerator()</h4>
   <div class="markdown level1 summary"><p>Gets an enumerator of the controls collection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IEnumerator&lt;ControlBase&gt; GetEnumerator()</code></pre>
   </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;<a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a>&gt;</dt>
-    <dd><p>The enumerator of the controls collection.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;<a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a>&gt;</td>
+        <td><p>The enumerator of the controls collection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_ControlHost_GetThemeColors_" data-uid="SadConsole.UI.ControlHost.GetThemeColors*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_GetThemeColors" data-uid="SadConsole.UI.ControlHost.GetThemeColors">
-  GetThemeColors()
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_GetThemeColors" data-uid="SadConsole.UI.ControlHost.GetThemeColors">GetThemeColors()</h4>
   <div class="markdown level1 summary"><p>Returns the colors assigned to this console or the library default.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Colors GetThemeColors()</code></pre>
   </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="SadConsole.UI.Colors.html">Colors</a></dt>
-    <dd><p>The found colors.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.UI.Colors.html">Colors</a></td>
+        <td><p>The found colors.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_ControlHost_HasNamedControl_" data-uid="SadConsole.UI.ControlHost.HasNamedControl*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_HasNamedControl_System_String_" data-uid="SadConsole.UI.ControlHost.HasNamedControl(System.String)">
-  HasNamedControl(string)
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_HasNamedControl_System_String_" data-uid="SadConsole.UI.ControlHost.HasNamedControl(System.String)">HasNamedControl(string)</h4>
   <div class="markdown level1 summary"><p>Checks whether or not the container has a control registered with the given name.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool HasNamedControl(string name)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The name to check.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the control is found; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The name to check.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the control is found; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_ControlHost_HasNamedControl_" data-uid="SadConsole.UI.ControlHost.HasNamedControl*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_HasNamedControl_System_String_SadConsole_UI_Controls_ControlBase__" data-uid="SadConsole.UI.ControlHost.HasNamedControl(System.String,SadConsole.UI.Controls.ControlBase@)">
-  HasNamedControl(string, out ControlBase?)
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_HasNamedControl_System_String_SadConsole_UI_Controls_ControlBase__" data-uid="SadConsole.UI.ControlHost.HasNamedControl(System.String,SadConsole.UI.Controls.ControlBase@)">HasNamedControl(string, out ControlBase?)</h4>
   <div class="markdown level1 summary"><p>Checks whether or not the container has a control registered with the given name. If found, the instance is assigned to the <code class="paramref">control</code> parameter.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool HasNamedControl(string name, out ControlBase? control)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The name to check.</p>
-</dd>
-    <dt><code>control</code> <a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></dt>
-    <dd><p>The control instance found.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the control is found; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The name to check.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></td>
+        <td><span class="parametername">control</span></td>
+        <td><p>The control instance found.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the control is found; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_ControlHost_IndexOf_" data-uid="SadConsole.UI.ControlHost.IndexOf*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_IndexOf_SadConsole_UI_Controls_ControlBase_" data-uid="SadConsole.UI.ControlHost.IndexOf(SadConsole.UI.Controls.ControlBase)">
-  IndexOf(ControlBase)
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_IndexOf_SadConsole_UI_Controls_ControlBase_" data-uid="SadConsole.UI.ControlHost.IndexOf(SadConsole.UI.Controls.ControlBase)">IndexOf(ControlBase)</h4>
   <div class="markdown level1 summary"><p>Gets the index of the specified control.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int IndexOf(ControlBase control)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>control</code> <a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></dt>
-    <dd><p>The control.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The index of the control in the backing collection.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></td>
+        <td><span class="parametername">control</span></td>
+        <td><p>The control.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><p>The index of the control in the backing collection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_ControlHost_Insert_" data-uid="SadConsole.UI.ControlHost.Insert*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_Insert_System_Int32_SadConsole_UI_Controls_ControlBase_" data-uid="SadConsole.UI.ControlHost.Insert(System.Int32,SadConsole.UI.Controls.ControlBase)">
-  Insert(int, ControlBase)
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_Insert_System_Int32_SadConsole_UI_Controls_ControlBase_" data-uid="SadConsole.UI.ControlHost.Insert(System.Int32,SadConsole.UI.Controls.ControlBase)">Insert(int, ControlBase)</h4>
   <div class="markdown level1 summary"><p>Inserts an item at the specified index and sets the <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_TabIndex">TabIndex</a> to the specified index.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Insert(int index, ControlBase control)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>Index to insert at.</p>
-</dd>
-    <dt><code>control</code> <a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></dt>
-    <dd><p>The control to insert.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <h4 class="section" id="SadConsole_UI_ControlHost_Insert_System_Int32_SadConsole_UI_Controls_ControlBase__remarks">Remarks</h4>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>Index to insert at.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></td>
+        <td><span class="parametername">control</span></td>
+        <td><p>The control to insert.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="SadConsole_UI_ControlHost_Insert_System_Int32_SadConsole_UI_Controls_ControlBase__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Index within the backing collection is always based on <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_TabIndex">TabIndex</a> ranking. There may be conflicts so you're not guaranteed that the control will be available at the specified index.</p>
 </div>
 
 
-
-
   <a id="SadConsole_UI_ControlHost_ReOrderControls_" data-uid="SadConsole.UI.ControlHost.ReOrderControls*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_ReOrderControls" data-uid="SadConsole.UI.ControlHost.ReOrderControls">
-  ReOrderControls()
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_ReOrderControls" data-uid="SadConsole.UI.ControlHost.ReOrderControls">ReOrderControls()</h4>
   <div class="markdown level1 summary"><p>Reorders the control collection based on the tab index of each control.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ReOrderControls()</code></pre>
   </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
   <a id="SadConsole_UI_ControlHost_ReleaseControl_" data-uid="SadConsole.UI.ControlHost.ReleaseControl*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_ReleaseControl" data-uid="SadConsole.UI.ControlHost.ReleaseControl">
-  ReleaseControl()
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_ReleaseControl" data-uid="SadConsole.UI.ControlHost.ReleaseControl">ReleaseControl()</h4>
   <div class="markdown level1 summary"><p>Releases the control from exclusive mouse focus. Sets the ExclusiveMouse property to false and sets the CapturedControl property to null.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ReleaseControl()</code></pre>
   </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
   <a id="SadConsole_UI_ControlHost_Remove_" data-uid="SadConsole.UI.ControlHost.Remove*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_Remove_SadConsole_UI_Controls_ControlBase_" data-uid="SadConsole.UI.ControlHost.Remove(SadConsole.UI.Controls.ControlBase)">
-  Remove(ControlBase)
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_Remove_SadConsole_UI_Controls_ControlBase_" data-uid="SadConsole.UI.ControlHost.Remove(SadConsole.UI.Controls.ControlBase)">Remove(ControlBase)</h4>
   <div class="markdown level1 summary"><p>Removes a control from this console.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool Remove(ControlBase control)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>control</code> <a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></dt>
-    <dd><p>The control to remove.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if item was successfully removed; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>. This method also returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> if item is not found.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></td>
+        <td><span class="parametername">control</span></td>
+        <td><p>The control to remove.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if item was successfully removed; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>. This method also returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> if item is not found.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_ControlHost_RemoveAt_" data-uid="SadConsole.UI.ControlHost.RemoveAt*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_RemoveAt_System_Int32_" data-uid="SadConsole.UI.ControlHost.RemoveAt(System.Int32)">
-  RemoveAt(int)
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_RemoveAt_System_Int32_" data-uid="SadConsole.UI.ControlHost.RemoveAt(System.Int32)">RemoveAt(int)</h4>
   <div class="markdown level1 summary"><p>Removes a control by index.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void RemoveAt(int index)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_ControlHost_TabNextControl_" data-uid="SadConsole.UI.ControlHost.TabNextControl*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_TabNextControl" data-uid="SadConsole.UI.ControlHost.TabNextControl">
-  TabNextControl()
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_TabNextControl" data-uid="SadConsole.UI.ControlHost.TabNextControl">TabNextControl()</h4>
   <div class="markdown level1 summary"><p>Gives the focus to the next control in the tab order.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void TabNextControl()</code></pre>
   </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
   <a id="SadConsole_UI_ControlHost_TabPreviousControl_" data-uid="SadConsole.UI.ControlHost.TabPreviousControl*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_TabPreviousControl" data-uid="SadConsole.UI.ControlHost.TabPreviousControl">
-  TabPreviousControl()
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_TabPreviousControl" data-uid="SadConsole.UI.ControlHost.TabPreviousControl">TabPreviousControl()</h4>
   <div class="markdown level1 summary"><p>Gives focus to the previous control in the tab order.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void TabPreviousControl()</code></pre>
   </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
   <a id="SadConsole_UI_ControlHost_ToArray_" data-uid="SadConsole.UI.ControlHost.ToArray*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_ToArray" data-uid="SadConsole.UI.ControlHost.ToArray">
-  ToArray()
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_ToArray" data-uid="SadConsole.UI.ControlHost.ToArray">ToArray()</h4>
   <div class="markdown level1 summary"><p>Gets an array containing all of the controls this host contains.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ControlBase[] ToArray()</code></pre>
   </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a>[]</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a>[]</td>
+        <td>Adds the ability for a host to contain and display controls from .</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_ControlHost_TryTabNextConsole_" data-uid="SadConsole.UI.ControlHost.TryTabNextConsole*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_TryTabNextConsole" data-uid="SadConsole.UI.ControlHost.TryTabNextConsole">
-  TryTabNextConsole()
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_TryTabNextConsole" data-uid="SadConsole.UI.ControlHost.TryTabNextConsole">TryTabNextConsole()</h4>
   <div class="markdown level1 summary"><p>Tries to tab to the console that comes after this one in the <a class="xref" href="SadConsole.IScreenObject.html#SadConsole_IScreenObject_Parent">Parent</a> collection of <a class="xref" href="SadConsole.IScreenObject.html#SadConsole_IScreenObject_Children">Children</a>. Sets focus to the target console if found.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected bool TryTabNextConsole()</code></pre>
   </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the tab was successful; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the tab was successful; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_ControlHost_TryTabPreviousConsole_" data-uid="SadConsole.UI.ControlHost.TryTabPreviousConsole*"></a>
-
-  <h3 id="SadConsole_UI_ControlHost_TryTabPreviousConsole" data-uid="SadConsole.UI.ControlHost.TryTabPreviousConsole">
-  TryTabPreviousConsole()
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_ControlHost_TryTabPreviousConsole" data-uid="SadConsole.UI.ControlHost.TryTabPreviousConsole">TryTabPreviousConsole()</h4>
   <div class="markdown level1 summary"><p>Tries to tab to the console that comes before this one in the <a class="xref" href="SadConsole.IScreenObject.html#SadConsole_IScreenObject_Parent">Parent</a> collection of <a class="xref" href="SadConsole.IScreenObject.html#SadConsole_IScreenObject_Children">Children</a>. Sets focus to the target console if found.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected bool TryTabPreviousConsole()</code></pre>
   </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the tab was successful; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the tab was successful; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="SadConsole.Components.IComponent.html">IComponent</a>
+  </div>
+  <div>
+      <a class="xref" href="SadConsole.UI.Controls.IContainer.html">IContainer</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a>
+  </div>
 
 </article>
+          </div>
 
-        <div class="contribution d-print-none">
-        </div>
-
-
-      </div>
-
-      <div class="affix">
-        <nav id="affix"></nav>
-      </div>
-    </main>
-
-
-    <footer class="border-top text-secondary">
-      <div class="container-xxl">
-        <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          <div class="hidden-sm col-md-3" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+                <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
         </div>
       </div>
-    </footer>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
   </body>
 </html>

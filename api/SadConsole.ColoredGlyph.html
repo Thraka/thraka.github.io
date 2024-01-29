@@ -1,139 +1,98 @@
 ﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
 <html>
+
   <head>
     <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class ColoredGlyph
- | SadConsole v10 </title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ | SadConsole v10</title>
+      <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class ColoredGlyph
- | SadConsole v10 ">
-      
-      
-      <link rel="icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../public/docfx.min.css">
-      <link rel="stylesheet" href="../public/main.css">
-      <meta name="docfx:navrel" content="../toc.html">
-      <meta name="docfx:tocrel" content="toc.html">
-      
-      
-      
-      
-      
-      <meta name="loc:inThisArticle" content="In this article">
-      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
-      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
-      <meta name="loc:tocFilter" content="Filter by title">
-      <meta name="loc:nextArticle" content="Next">
-      <meta name="loc:prevArticle" content="Previous">
-      <meta name="loc:themeLight" content="Light">
-      <meta name="loc:themeDark" content="Dark">
-      <meta name="loc:themeAuto" content="Auto">
-      <meta name="loc:changeTheme" content="Change theme">
-      <meta name="loc:copy" content="Copy">
-      <meta name="loc:downloadPdf" content="Download PDF">
+ | SadConsole v10">
+    <meta name="description" content="Represents an individual piece of a  containing a glyph, foreground color, background color, and a mirror effect.">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/dracula.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+      <meta http-equiv='content-language' content='en-us'>
+    
+    
+    
   </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
 
-  <script type="module" src="./../public/docfx.min.js"></script>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
 
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
-
-  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
-    <header class="bg-body border-bottom">
-      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
-        <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../images/SadConsoleLogo.gif" alt="">
-            
-          </a>
-          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="bi bi-three-dots"></i>
-          </button>
-          <div class="collapse navbar-collapse" id="navpanel">
-            <div id="navbar">
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
             </div>
           </div>
-        </div>
-      </nav>
-    </header>
+        </nav>
 
-    <main class="container-xxl">
-      <div class="toc-offcanvas">
-        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-            <nav class="toc" id="toc"></nav>
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
           </div>
         </div>
-      </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
 
-      <div class="content">
-        <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
-            <i class="bi bi-list"></i>
-          </button>
-
-          <nav id="breadcrumb"></nav>
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
         </div>
+        <div class="article row grid-right">
+          <div class="col-md-9">
+            <article class="content wrap" id="_content" data-uid="SadConsole.ColoredGlyph">
 
-        <article data-uid="SadConsole.ColoredGlyph">
 
 
-
-  <h1 id="SadConsole_ColoredGlyph" data-uid="SadConsole.ColoredGlyph" class="text-break">
-    Class ColoredGlyph
-  
-  </h1>
-
-  <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="SadConsole.html">SadConsole</a></dd></dl>
-  <dl><dt>Assembly</dt><dd>SadConsole.dll</dd></dl>
-  </div>
-
-  <div class="markdown summary"><p>Represents an individual piece of a <a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a> containing a glyph, foreground color, background color, and a mirror effect.</p>
+  <h1 id="SadConsole_ColoredGlyph" data-uid="SadConsole.ColoredGlyph" class="text-break">Class ColoredGlyph
+</h1>
+  <div class="markdown level0 summary"><p>Represents an individual piece of a <a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a> containing a glyph, foreground color, background color, and a mirror effect.</p>
 </div>
-  <div class="markdown conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ColoredGlyph : ColoredGlyphBase, IMatchable&lt;ColoredGlyphBase&gt;, IMatchable&lt;ColoredGlyph&gt;</code></pre>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a></div>
+    <div class="level2"><span class="xref">ColoredGlyph</span></div>
+      <div class="level3"><a class="xref" href="SadConsole.ColoredGlyphAndEffect.html">ColoredGlyphAndEffect</a></div>
   </div>
-
-
-
-
-  <dl class="typelist inheritance">
-    <dt>Inheritance</dt>
-    <dd>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a></div>
-      <div><span class="xref">ColoredGlyph</span></div>
-    </dd>
-  </dl>
-
-  <dl class="typelist implements">
-    <dt>Implements</dt>
-    <dd>
-      <div><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.IMatchable-1.html">IMatchable</a>&lt;<a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a>&gt;</div>
-      <div><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.IMatchable-1.html">IMatchable</a>&lt;<a class="xref" href="SadConsole.ColoredGlyph.html">ColoredGlyph</a>&gt;</div>
-    </dd>
-  </dl>
-
-  <dl class="typelist derived">
-    <dt>Derived</dt>
-    <dd>
-      <div><a class="xref" href="SadConsole.ColoredGlyphAndEffect.html">ColoredGlyphAndEffect</a></div>
-    </dd>
-  </dl>
-
-  <dl class="typelist derived">
-    <dt>Inherited Members</dt>
-    <dd>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.IMatchable-1.html">IMatchable</a>&lt;<a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a>&gt;</div>
+    <div><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.IMatchable-1.html">IMatchable</a>&lt;<a class="xref" href="SadConsole.ColoredGlyph.html">ColoredGlyph</a>&gt;</div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
     <div>
       <a class="xref" href="SadConsole.ColoredGlyphBase.html#SadConsole_ColoredGlyphBase_CopyAppearanceTo_SadConsole_ColoredGlyphBase_System_Boolean_">ColoredGlyphBase.CopyAppearanceTo(ColoredGlyphBase, bool)</a>
     </div>
@@ -194,411 +153,422 @@
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
     </div>
-  </dd></dl>
-
-
-
-
-
-
-  <h2 class="section" id="constructors">Constructors
-</h2>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="SadConsole.html">SadConsole</a></h6>
+  <h6><strong>Assembly</strong>: SadConsole.dll</h6>
+  <h5 id="SadConsole_ColoredGlyph_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ColoredGlyph : ColoredGlyphBase, IMatchable&lt;ColoredGlyphBase&gt;, IMatchable&lt;ColoredGlyph&gt;</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
 
 
   <a id="SadConsole_ColoredGlyph__ctor_" data-uid="SadConsole.ColoredGlyph.#ctor*"></a>
-
-  <h3 id="SadConsole_ColoredGlyph__ctor" data-uid="SadConsole.ColoredGlyph.#ctor">
-  ColoredGlyph()
-  
-  </h3>
-
+  <h4 id="SadConsole_ColoredGlyph__ctor" data-uid="SadConsole.ColoredGlyph.#ctor">ColoredGlyph()</h4>
   <div class="markdown level1 summary"><p>Creates a cell with a white foreground, black background, glyph 0, and no mirror effect.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ColoredGlyph()</code></pre>
   </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
   <a id="SadConsole_ColoredGlyph__ctor_" data-uid="SadConsole.ColoredGlyph.#ctor*"></a>
-
-  <h3 id="SadConsole_ColoredGlyph__ctor_SadRogue_Primitives_Color_" data-uid="SadConsole.ColoredGlyph.#ctor(SadRogue.Primitives.Color)">
-  ColoredGlyph(Color)
-  
-  </h3>
-
+  <h4 id="SadConsole_ColoredGlyph__ctor_SadRogue_Primitives_Color_" data-uid="SadConsole.ColoredGlyph.#ctor(SadRogue.Primitives.Color)">ColoredGlyph(Color)</h4>
   <div class="markdown level1 summary"><p>Creates a cell with the specified foreground, black background, glyph 0, and no mirror effect.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ColoredGlyph(Color foreground)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>foreground</code> <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></dt>
-    <dd><p>Foreground color.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></td>
+        <td><span class="parametername">foreground</span></td>
+        <td><p>Foreground color.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_ColoredGlyph__ctor_" data-uid="SadConsole.ColoredGlyph.#ctor*"></a>
-
-  <h3 id="SadConsole_ColoredGlyph__ctor_SadRogue_Primitives_Color_SadRogue_Primitives_Color_" data-uid="SadConsole.ColoredGlyph.#ctor(SadRogue.Primitives.Color,SadRogue.Primitives.Color)">
-  ColoredGlyph(Color, Color)
-  
-  </h3>
-
+  <h4 id="SadConsole_ColoredGlyph__ctor_SadRogue_Primitives_Color_SadRogue_Primitives_Color_" data-uid="SadConsole.ColoredGlyph.#ctor(SadRogue.Primitives.Color,SadRogue.Primitives.Color)">ColoredGlyph(Color, Color)</h4>
   <div class="markdown level1 summary"><p>Creates a cell with the specified foreground, specified background, glyph 0, and no mirror effect.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ColoredGlyph(Color foreground, Color background)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>foreground</code> <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></dt>
-    <dd><p>Foreground color.</p>
-</dd>
-    <dt><code>background</code> <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></dt>
-    <dd><p>Background color.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></td>
+        <td><span class="parametername">foreground</span></td>
+        <td><p>Foreground color.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></td>
+        <td><span class="parametername">background</span></td>
+        <td><p>Background color.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_ColoredGlyph__ctor_" data-uid="SadConsole.ColoredGlyph.#ctor*"></a>
-
-  <h3 id="SadConsole_ColoredGlyph__ctor_SadRogue_Primitives_Color_SadRogue_Primitives_Color_System_Int32_" data-uid="SadConsole.ColoredGlyph.#ctor(SadRogue.Primitives.Color,SadRogue.Primitives.Color,System.Int32)">
-  ColoredGlyph(Color, Color, int)
-  
-  </h3>
-
+  <h4 id="SadConsole_ColoredGlyph__ctor_SadRogue_Primitives_Color_SadRogue_Primitives_Color_System_Int32_" data-uid="SadConsole.ColoredGlyph.#ctor(SadRogue.Primitives.Color,SadRogue.Primitives.Color,System.Int32)">ColoredGlyph(Color, Color, int)</h4>
   <div class="markdown level1 summary"><p>Creates a cell with the specified foreground, background, and glyph, with no mirror effect.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ColoredGlyph(Color foreground, Color background, int glyph)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>foreground</code> <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></dt>
-    <dd><p>Foreground color.</p>
-</dd>
-    <dt><code>background</code> <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></dt>
-    <dd><p>Background color.</p>
-</dd>
-    <dt><code>glyph</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The glyph index.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></td>
+        <td><span class="parametername">foreground</span></td>
+        <td><p>Foreground color.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></td>
+        <td><span class="parametername">background</span></td>
+        <td><p>Background color.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">glyph</span></td>
+        <td><p>The glyph index.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_ColoredGlyph__ctor_" data-uid="SadConsole.ColoredGlyph.#ctor*"></a>
-
-  <h3 id="SadConsole_ColoredGlyph__ctor_SadRogue_Primitives_Color_SadRogue_Primitives_Color_System_Int32_SadConsole_Mirror_" data-uid="SadConsole.ColoredGlyph.#ctor(SadRogue.Primitives.Color,SadRogue.Primitives.Color,System.Int32,SadConsole.Mirror)">
-  ColoredGlyph(Color, Color, int, Mirror)
-  
-  </h3>
-
+  <h4 id="SadConsole_ColoredGlyph__ctor_SadRogue_Primitives_Color_SadRogue_Primitives_Color_System_Int32_SadConsole_Mirror_" data-uid="SadConsole.ColoredGlyph.#ctor(SadRogue.Primitives.Color,SadRogue.Primitives.Color,System.Int32,SadConsole.Mirror)">ColoredGlyph(Color, Color, int, Mirror)</h4>
   <div class="markdown level1 summary"><p>Creates a cell with the specified foreground, background, glyph, and mirror effect.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ColoredGlyph(Color foreground, Color background, int glyph, Mirror mirror)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>foreground</code> <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></dt>
-    <dd><p>Foreground color.</p>
-</dd>
-    <dt><code>background</code> <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></dt>
-    <dd><p>Background color.</p>
-</dd>
-    <dt><code>glyph</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The glyph index.</p>
-</dd>
-    <dt><code>mirror</code> <a class="xref" href="SadConsole.Mirror.html">Mirror</a></dt>
-    <dd><p>The mirror effect.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></td>
+        <td><span class="parametername">foreground</span></td>
+        <td><p>Foreground color.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></td>
+        <td><span class="parametername">background</span></td>
+        <td><p>Background color.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">glyph</span></td>
+        <td><p>The glyph index.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SadConsole.Mirror.html">Mirror</a></td>
+        <td><span class="parametername">mirror</span></td>
+        <td><p>The mirror effect.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_ColoredGlyph__ctor_" data-uid="SadConsole.ColoredGlyph.#ctor*"></a>
-
-  <h3 id="SadConsole_ColoredGlyph__ctor_SadRogue_Primitives_Color_SadRogue_Primitives_Color_System_Int32_SadConsole_Mirror_System_Boolean_" data-uid="SadConsole.ColoredGlyph.#ctor(SadRogue.Primitives.Color,SadRogue.Primitives.Color,System.Int32,SadConsole.Mirror,System.Boolean)">
-  ColoredGlyph(Color, Color, int, Mirror, bool)
-  
-  </h3>
-
+  <h4 id="SadConsole_ColoredGlyph__ctor_SadRogue_Primitives_Color_SadRogue_Primitives_Color_System_Int32_SadConsole_Mirror_System_Boolean_" data-uid="SadConsole.ColoredGlyph.#ctor(SadRogue.Primitives.Color,SadRogue.Primitives.Color,System.Int32,SadConsole.Mirror,System.Boolean)">ColoredGlyph(Color, Color, int, Mirror, bool)</h4>
   <div class="markdown level1 summary"><p>Creates a cell with the specified foreground, background, glyph, mirror, and visibility.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ColoredGlyph(Color foreground, Color background, int glyph, Mirror mirror, bool isVisible)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>foreground</code> <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></dt>
-    <dd><p>Foreground color.</p>
-</dd>
-    <dt><code>background</code> <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></dt>
-    <dd><p>Background color.</p>
-</dd>
-    <dt><code>glyph</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The glyph index.</p>
-</dd>
-    <dt><code>mirror</code> <a class="xref" href="SadConsole.Mirror.html">Mirror</a></dt>
-    <dd><p>The mirror effect.</p>
-</dd>
-    <dt><code>isVisible</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>The visibility of the glyph.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></td>
+        <td><span class="parametername">foreground</span></td>
+        <td><p>Foreground color.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></td>
+        <td><span class="parametername">background</span></td>
+        <td><p>Background color.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">glyph</span></td>
+        <td><p>The glyph index.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SadConsole.Mirror.html">Mirror</a></td>
+        <td><span class="parametername">mirror</span></td>
+        <td><p>The mirror effect.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">isVisible</span></td>
+        <td><p>The visibility of the glyph.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_ColoredGlyph__ctor_" data-uid="SadConsole.ColoredGlyph.#ctor*"></a>
-
-  <h3 id="SadConsole_ColoredGlyph__ctor_SadRogue_Primitives_Color_SadRogue_Primitives_Color_System_Int32_SadConsole_Mirror_System_Boolean_System_Collections_Generic_List_SadConsole_CellDecorator__" data-uid="SadConsole.ColoredGlyph.#ctor(SadRogue.Primitives.Color,SadRogue.Primitives.Color,System.Int32,SadConsole.Mirror,System.Boolean,System.Collections.Generic.List{SadConsole.CellDecorator})">
-  ColoredGlyph(Color, Color, int, Mirror, bool, List&lt;CellDecorator&gt;)
-  
-  </h3>
-
+  <h4 id="SadConsole_ColoredGlyph__ctor_SadRogue_Primitives_Color_SadRogue_Primitives_Color_System_Int32_SadConsole_Mirror_System_Boolean_System_Collections_Generic_List_SadConsole_CellDecorator__" data-uid="SadConsole.ColoredGlyph.#ctor(SadRogue.Primitives.Color,SadRogue.Primitives.Color,System.Int32,SadConsole.Mirror,System.Boolean,System.Collections.Generic.List{SadConsole.CellDecorator})">ColoredGlyph(Color, Color, int, Mirror, bool, List&lt;CellDecorator&gt;)</h4>
   <div class="markdown level1 summary"><p>Creates a cell with the specified foreground, background, glyph, mirror effect, visibility and decorators.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ColoredGlyph(Color foreground, Color background, int glyph, Mirror mirror, bool isVisible, List&lt;CellDecorator&gt; decorators)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>foreground</code> <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></dt>
-    <dd><p>Foreground color.</p>
-</dd>
-    <dt><code>background</code> <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></dt>
-    <dd><p>Background color.</p>
-</dd>
-    <dt><code>glyph</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The glyph index.</p>
-</dd>
-    <dt><code>mirror</code> <a class="xref" href="SadConsole.Mirror.html">Mirror</a></dt>
-    <dd><p>The mirror effect.</p>
-</dd>
-    <dt><code>isVisible</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>The visibility of the glyph.</p>
-</dd>
-    <dt><code>decorators</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SadConsole.CellDecorator.html">CellDecorator</a>&gt;</dt>
-    <dd><p>Decorators for the cell.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <h2 class="section" id="methods">Methods
-</h2>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></td>
+        <td><span class="parametername">foreground</span></td>
+        <td><p>Foreground color.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></td>
+        <td><span class="parametername">background</span></td>
+        <td><p>Background color.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">glyph</span></td>
+        <td><p>The glyph index.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SadConsole.Mirror.html">Mirror</a></td>
+        <td><span class="parametername">mirror</span></td>
+        <td><p>The mirror effect.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">isVisible</span></td>
+        <td><p>The visibility of the glyph.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SadConsole.CellDecorator.html">CellDecorator</a>&gt;</td>
+        <td><span class="parametername">decorators</span></td>
+        <td><p>Decorators for the cell.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
 
 
   <a id="SadConsole_ColoredGlyph_Clear_" data-uid="SadConsole.ColoredGlyph.Clear*"></a>
-
-  <h3 id="SadConsole_ColoredGlyph_Clear" data-uid="SadConsole.ColoredGlyph.Clear">
-  Clear()
-  
-  </h3>
-
+  <h4 id="SadConsole_ColoredGlyph_Clear" data-uid="SadConsole.ColoredGlyph.Clear">Clear()</h4>
   <div class="markdown level1 summary"><p>Resets the foreground, background, glyph, mirror effect and decorators.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void Clear()</code></pre>
   </div>
-
-
-
-
-
-
-
-
-
-
-
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="SadConsole.ColoredGlyphBase.html#SadConsole_ColoredGlyphBase_Clear">ColoredGlyphBase.Clear()</a></div>
 
 
   <a id="SadConsole_ColoredGlyph_Clone_" data-uid="SadConsole.ColoredGlyph.Clone*"></a>
-
-  <h3 id="SadConsole_ColoredGlyph_Clone" data-uid="SadConsole.ColoredGlyph.Clone">
-  Clone()
-  
-  </h3>
-
+  <h4 id="SadConsole_ColoredGlyph_Clone" data-uid="SadConsole.ColoredGlyph.Clone">Clone()</h4>
   <div class="markdown level1 summary"><p>Returns a new cell with the same properties as this one.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override ColoredGlyphBase Clone()</code></pre>
   </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a></dt>
-    <dd><p>The new cell.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a></td>
+        <td><p>The new cell.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="SadConsole.ColoredGlyphBase.html#SadConsole_ColoredGlyphBase_Clone">ColoredGlyphBase.Clone()</a></div>
 
 
   <a id="SadConsole_ColoredGlyph_Matches_" data-uid="SadConsole.ColoredGlyph.Matches*"></a>
-
-  <h3 id="SadConsole_ColoredGlyph_Matches_SadConsole_ColoredGlyph_" data-uid="SadConsole.ColoredGlyph.Matches(SadConsole.ColoredGlyph)">
-  Matches(ColoredGlyph?)
-  
-  </h3>
-
+  <h4 id="SadConsole_ColoredGlyph_Matches_SadConsole_ColoredGlyph_" data-uid="SadConsole.ColoredGlyph.Matches(SadConsole.ColoredGlyph)">Matches(ColoredGlyph?)</h4>
   <div class="markdown level1 summary"><p>Checks if this <a class="xref" href="SadConsole.ColoredGlyph.html">ColoredGlyph</a> object's properties match another's.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool Matches(ColoredGlyph? other)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>other</code> <a class="xref" href="SadConsole.ColoredGlyph.html">ColoredGlyph</a></dt>
-    <dd><p>The other object to check.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the object's properties match; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.ColoredGlyph.html">ColoredGlyph</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p>The other object to check.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the object's properties match; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.IMatchable-1.html">IMatchable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.IMatchable-1.html">IMatchable&lt;T&gt;</a>
+  </div>
 
 </article>
+          </div>
 
-        <div class="contribution d-print-none">
-        </div>
-
-
-      </div>
-
-      <div class="affix">
-        <nav id="affix"></nav>
-      </div>
-    </main>
-
-
-    <footer class="border-top text-secondary">
-      <div class="container-xxl">
-        <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          <div class="hidden-sm col-md-3" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+                <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
         </div>
       </div>
-    </footer>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
   </body>
 </html>

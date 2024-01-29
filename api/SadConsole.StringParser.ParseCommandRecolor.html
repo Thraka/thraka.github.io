@@ -1,126 +1,92 @@
 ﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
 <html>
+
   <head>
     <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class ParseCommandRecolor
- | SadConsole v10 </title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ | SadConsole v10</title>
+      <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class ParseCommandRecolor
- | SadConsole v10 ">
-      
-      
-      <link rel="icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../public/docfx.min.css">
-      <link rel="stylesheet" href="../public/main.css">
-      <meta name="docfx:navrel" content="../toc.html">
-      <meta name="docfx:tocrel" content="toc.html">
-      
-      
-      
-      
-      
-      <meta name="loc:inThisArticle" content="In this article">
-      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
-      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
-      <meta name="loc:tocFilter" content="Filter by title">
-      <meta name="loc:nextArticle" content="Next">
-      <meta name="loc:prevArticle" content="Previous">
-      <meta name="loc:themeLight" content="Light">
-      <meta name="loc:themeDark" content="Dark">
-      <meta name="loc:themeAuto" content="Auto">
-      <meta name="loc:changeTheme" content="Change theme">
-      <meta name="loc:copy" content="Copy">
-      <meta name="loc:downloadPdf" content="Download PDF">
+ | SadConsole v10">
+    <meta name="description" content="Recolors a glyph.">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/dracula.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+      <meta http-equiv='content-language' content='en-us'>
+    
+    
+    
   </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
 
-  <script type="module" src="./../public/docfx.min.js"></script>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
 
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
-
-  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
-    <header class="bg-body border-bottom">
-      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
-        <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../images/SadConsoleLogo.gif" alt="">
-            
-          </a>
-          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="bi bi-three-dots"></i>
-          </button>
-          <div class="collapse navbar-collapse" id="navpanel">
-            <div id="navbar">
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
             </div>
           </div>
-        </div>
-      </nav>
-    </header>
+        </nav>
 
-    <main class="container-xxl">
-      <div class="toc-offcanvas">
-        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-            <nav class="toc" id="toc"></nav>
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
           </div>
         </div>
-      </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
 
-      <div class="content">
-        <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
-            <i class="bi bi-list"></i>
-          </button>
-
-          <nav id="breadcrumb"></nav>
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
         </div>
+        <div class="article row grid-right">
+          <div class="col-md-9">
+            <article class="content wrap" id="_content" data-uid="SadConsole.StringParser.ParseCommandRecolor">
 
-        <article data-uid="SadConsole.StringParser.ParseCommandRecolor">
 
 
-
-  <h1 id="SadConsole_StringParser_ParseCommandRecolor" data-uid="SadConsole.StringParser.ParseCommandRecolor" class="text-break">
-    Class ParseCommandRecolor
-  
-  </h1>
-
-  <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="SadConsole.html">SadConsole</a>.<a class="xref" href="SadConsole.StringParser.html">StringParser</a></dd></dl>
-  <dl><dt>Assembly</dt><dd>SadConsole.dll</dd></dl>
-  </div>
-
-  <div class="markdown summary"><p>Recolors a glyph.</p>
+  <h1 id="SadConsole_StringParser_ParseCommandRecolor" data-uid="SadConsole.StringParser.ParseCommandRecolor" class="text-break">Class ParseCommandRecolor
+</h1>
+  <div class="markdown level0 summary"><p>Recolors a glyph.</p>
 </div>
-  <div class="markdown conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class ParseCommandRecolor : ParseCommandBase</code></pre>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="SadConsole.StringParser.ParseCommandBase.html">ParseCommandBase</a></div>
+    <div class="level2"><span class="xref">ParseCommandRecolor</span></div>
   </div>
-
-
-
-
-  <dl class="typelist inheritance">
-    <dt>Inheritance</dt>
-    <dd>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><a class="xref" href="SadConsole.StringParser.ParseCommandBase.html">ParseCommandBase</a></div>
-      <div><span class="xref">ParseCommandRecolor</span></div>
-    </dd>
-  </dl>
-
-
-
-  <dl class="typelist derived">
-    <dt>Inherited Members</dt>
-    <dd>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
     <div>
       <a class="xref" href="SadConsole.StringParser.ParseCommandBase.html#SadConsole_StringParser_ParseCommandBase_CommandType">ParseCommandBase.CommandType</a>
     </div>
@@ -142,444 +108,393 @@
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
     </div>
-  </dd></dl>
-
-
-
-
-
-
-  <h2 class="section" id="constructors">Constructors
-</h2>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="SadConsole.html">SadConsole</a>.<a class="xref" href="SadConsole.StringParser.html">StringParser</a></h6>
+  <h6><strong>Assembly</strong>: SadConsole.dll</h6>
+  <h5 id="SadConsole_StringParser_ParseCommandRecolor_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class ParseCommandRecolor : ParseCommandBase</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
 
 
   <a id="SadConsole_StringParser_ParseCommandRecolor__ctor_" data-uid="SadConsole.StringParser.ParseCommandRecolor.#ctor*"></a>
-
-  <h3 id="SadConsole_StringParser_ParseCommandRecolor__ctor" data-uid="SadConsole.StringParser.ParseCommandRecolor.#ctor">
-  ParseCommandRecolor()
-  
-  </h3>
-
+  <h4 id="SadConsole_StringParser_ParseCommandRecolor__ctor" data-uid="SadConsole.StringParser.ParseCommandRecolor.#ctor">ParseCommandRecolor()</h4>
   <div class="markdown level1 summary"><p>Creates a new instance of this command.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ParseCommandRecolor()</code></pre>
   </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
   <a id="SadConsole_StringParser_ParseCommandRecolor__ctor_" data-uid="SadConsole.StringParser.ParseCommandRecolor.#ctor*"></a>
-
-  <h3 id="SadConsole_StringParser_ParseCommandRecolor__ctor_System_String_" data-uid="SadConsole.StringParser.ParseCommandRecolor.#ctor(System.String)">
-  ParseCommandRecolor(string)
-  
-  </h3>
-
+  <h4 id="SadConsole_StringParser_ParseCommandRecolor__ctor_System_String_" data-uid="SadConsole.StringParser.ParseCommandRecolor.#ctor(System.String)">ParseCommandRecolor(string)</h4>
   <div class="markdown level1 summary"><p>Creates a new instance of this command.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ParseCommandRecolor(string parameters)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>parameters</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The string to parse for parameters.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <h2 class="section" id="fields">Fields
-</h2>
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">parameters</span></td>
+        <td><p>The string to parse for parameters.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+</h3>
 
 
-  <h3 id="SadConsole_StringParser_ParseCommandRecolor_Default" data-uid="SadConsole.StringParser.ParseCommandRecolor.Default">
-  Default
-  
-  </h3>
-
+  <h4 id="SadConsole_StringParser_ParseCommandRecolor_Default" data-uid="SadConsole.StringParser.ParseCommandRecolor.Default">Default</h4>
   <div class="markdown level1 summary"><p>Use the default foreground and background based on the <a class="xref" href="SadConsole.StringParser.ParseCommandBase.html#SadConsole_StringParser_ParseCommandBase_CommandType">CommandType</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool Default</code></pre>
   </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td>Recolors a glyph.</td>
+      </tr>
+    </tbody>
+  </table>
 
 
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="SadConsole_StringParser_ParseCommandRecolor_KeepAlpha" data-uid="SadConsole.StringParser.ParseCommandRecolor.KeepAlpha">
-  KeepAlpha
-  
-  </h3>
-
+  <h4 id="SadConsole_StringParser_ParseCommandRecolor_KeepAlpha" data-uid="SadConsole.StringParser.ParseCommandRecolor.KeepAlpha">KeepAlpha</h4>
   <div class="markdown level1 summary"><p>Keeps the alpha channel of the existing color of the glyphs this command is applied to.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool KeepAlpha</code></pre>
   </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td>Recolors a glyph.</td>
+      </tr>
+    </tbody>
+  </table>
 
 
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="SadConsole_StringParser_ParseCommandRecolor_KeepBlue" data-uid="SadConsole.StringParser.ParseCommandRecolor.KeepBlue">
-  KeepBlue
-  
-  </h3>
-
+  <h4 id="SadConsole_StringParser_ParseCommandRecolor_KeepBlue" data-uid="SadConsole.StringParser.ParseCommandRecolor.KeepBlue">KeepBlue</h4>
   <div class="markdown level1 summary"><p>Keeps the blue channel of the existing color of the glyphs this command is applied to.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool KeepBlue</code></pre>
   </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td>Recolors a glyph.</td>
+      </tr>
+    </tbody>
+  </table>
 
 
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="SadConsole_StringParser_ParseCommandRecolor_KeepGreen" data-uid="SadConsole.StringParser.ParseCommandRecolor.KeepGreen">
-  KeepGreen
-  
-  </h3>
-
+  <h4 id="SadConsole_StringParser_ParseCommandRecolor_KeepGreen" data-uid="SadConsole.StringParser.ParseCommandRecolor.KeepGreen">KeepGreen</h4>
   <div class="markdown level1 summary"><p>Keeps the green channel of the existing color of the glyphs this command is applied to.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool KeepGreen</code></pre>
   </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td>Recolors a glyph.</td>
+      </tr>
+    </tbody>
+  </table>
 
 
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="SadConsole_StringParser_ParseCommandRecolor_KeepRed" data-uid="SadConsole.StringParser.ParseCommandRecolor.KeepRed">
-  KeepRed
-  
-  </h3>
-
+  <h4 id="SadConsole_StringParser_ParseCommandRecolor_KeepRed" data-uid="SadConsole.StringParser.ParseCommandRecolor.KeepRed">KeepRed</h4>
   <div class="markdown level1 summary"><p>Keeps the red channel of the existing color of the glyphs this command is applied to.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool KeepRed</code></pre>
   </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-  <h2 class="section" id="properties">Properties
-</h2>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td>Recolors a glyph.</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
 
 
   <a id="SadConsole_StringParser_ParseCommandRecolor_A_" data-uid="SadConsole.StringParser.ParseCommandRecolor.A*"></a>
-
-  <h3 id="SadConsole_StringParser_ParseCommandRecolor_A" data-uid="SadConsole.StringParser.ParseCommandRecolor.A">
-  A
-  
-  </h3>
-
+  <h4 id="SadConsole_StringParser_ParseCommandRecolor_A" data-uid="SadConsole.StringParser.ParseCommandRecolor.A">A</h4>
   <div class="markdown level1 summary"><p>The current alpha value</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public byte A { get; set; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></td>
+        <td>Recolors a glyph.</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_StringParser_ParseCommandRecolor_B_" data-uid="SadConsole.StringParser.ParseCommandRecolor.B*"></a>
-
-  <h3 id="SadConsole_StringParser_ParseCommandRecolor_B" data-uid="SadConsole.StringParser.ParseCommandRecolor.B">
-  B
-  
-  </h3>
-
+  <h4 id="SadConsole_StringParser_ParseCommandRecolor_B" data-uid="SadConsole.StringParser.ParseCommandRecolor.B">B</h4>
   <div class="markdown level1 summary"><p>The current blue value</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public byte B { get; set; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></td>
+        <td>Recolors a glyph.</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_StringParser_ParseCommandRecolor_G_" data-uid="SadConsole.StringParser.ParseCommandRecolor.G*"></a>
-
-  <h3 id="SadConsole_StringParser_ParseCommandRecolor_G" data-uid="SadConsole.StringParser.ParseCommandRecolor.G">
-  G
-  
-  </h3>
-
+  <h4 id="SadConsole_StringParser_ParseCommandRecolor_G" data-uid="SadConsole.StringParser.ParseCommandRecolor.G">G</h4>
   <div class="markdown level1 summary"><p>The current green value</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public byte G { get; set; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></td>
+        <td>Recolors a glyph.</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_StringParser_ParseCommandRecolor_R_" data-uid="SadConsole.StringParser.ParseCommandRecolor.R*"></a>
-
-  <h3 id="SadConsole_StringParser_ParseCommandRecolor_R" data-uid="SadConsole.StringParser.ParseCommandRecolor.R">
-  R
-  
-  </h3>
-
+  <h4 id="SadConsole_StringParser_ParseCommandRecolor_R" data-uid="SadConsole.StringParser.ParseCommandRecolor.R">R</h4>
   <div class="markdown level1 summary"><p>The current red value</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public byte R { get; set; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <h2 class="section" id="methods">Methods
-</h2>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></td>
+        <td>Recolors a glyph.</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
 
 
   <a id="SadConsole_StringParser_ParseCommandRecolor_Build_" data-uid="SadConsole.StringParser.ParseCommandRecolor.Build*"></a>
-
-  <h3 id="SadConsole_StringParser_ParseCommandRecolor_Build_SadConsole_ColoredGlyphAndEffect__SadConsole_ColoredGlyphAndEffect___System_Int32_SadConsole_ICellSurface_System_Int32__System_ReadOnlySpan_System_Char__SadConsole_StringParser_ParseCommandStacks_" data-uid="SadConsole.StringParser.ParseCommandRecolor.Build(SadConsole.ColoredGlyphAndEffect@,SadConsole.ColoredGlyphAndEffect[],System.Int32,SadConsole.ICellSurface,System.Int32@,System.ReadOnlySpan{System.Char},SadConsole.StringParser.ParseCommandStacks)">
-  Build(ref ColoredGlyphAndEffect, ColoredGlyphAndEffect[], int, ICellSurface?, ref int, ReadOnlySpan&lt;char&gt;, ParseCommandStacks)
-  
-  </h3>
-
+  <h4 id="SadConsole_StringParser_ParseCommandRecolor_Build_SadConsole_ColoredGlyphAndEffect__SadConsole_ColoredGlyphAndEffect___System_Int32_SadConsole_ICellSurface_System_Int32__System_ReadOnlySpan_System_Char__SadConsole_StringParser_ParseCommandStacks_" data-uid="SadConsole.StringParser.ParseCommandRecolor.Build(SadConsole.ColoredGlyphAndEffect@,SadConsole.ColoredGlyphAndEffect[],System.Int32,SadConsole.ICellSurface,System.Int32@,System.ReadOnlySpan{System.Char},SadConsole.StringParser.ParseCommandStacks)">Build(ref ColoredGlyphAndEffect, ColoredGlyphAndEffect[], int, ICellSurface?, ref int, ReadOnlySpan&lt;char&gt;, ParseCommandStacks)</h4>
   <div class="markdown level1 summary"><p>Builds a glyph.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void Build(ref ColoredGlyphAndEffect glyphState, ColoredGlyphAndEffect[] glyphString, int surfaceIndex, ICellSurface? surface, ref int stringIndex, ReadOnlySpan&lt;char&gt; processedString, ParseCommandStacks commandStack)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>glyphState</code> <a class="xref" href="SadConsole.ColoredGlyphAndEffect.html">ColoredGlyphAndEffect</a></dt>
-    <dd><p>The current glyph being built.</p>
-</dd>
-    <dt><code>glyphString</code> <a class="xref" href="SadConsole.ColoredGlyphAndEffect.html">ColoredGlyphAndEffect</a>[]</dt>
-    <dd><p>The current string of glyphs that has been processed until now.</p>
-</dd>
-    <dt><code>surfaceIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>Where on the surface this flyph will appear.</p>
-</dd>
-    <dt><code>surface</code> <a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a></dt>
-    <dd><p>The surface associated with the glyph.</p>
-</dd>
-    <dt><code>stringIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>Where in the original string this glyph is from.</p>
-</dd>
-    <dt><code>processedString</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>&gt;</dt>
-    <dd><p>The entire string being processed.</p>
-</dd>
-    <dt><code>commandStack</code> <a class="xref" href="SadConsole.StringParser.ParseCommandStacks.html">ParseCommandStacks</a></dt>
-    <dd><p>The state of commands.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.ColoredGlyphAndEffect.html">ColoredGlyphAndEffect</a></td>
+        <td><span class="parametername">glyphState</span></td>
+        <td><p>The current glyph being built.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SadConsole.ColoredGlyphAndEffect.html">ColoredGlyphAndEffect</a>[]</td>
+        <td><span class="parametername">glyphString</span></td>
+        <td><p>The current string of glyphs that has been processed until now.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">surfaceIndex</span></td>
+        <td><p>Where on the surface this flyph will appear.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a></td>
+        <td><span class="parametername">surface</span></td>
+        <td><p>The surface associated with the glyph.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">stringIndex</span></td>
+        <td><p>Where in the original string this glyph is from.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>&gt;</td>
+        <td><span class="parametername">processedString</span></td>
+        <td><p>The entire string being processed.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SadConsole.StringParser.ParseCommandStacks.html">ParseCommandStacks</a></td>
+        <td><span class="parametername">commandStack</span></td>
+        <td><p>The state of commands.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="SadConsole.StringParser.ParseCommandBase.html#SadConsole_StringParser_ParseCommandBase_Build_SadConsole_ColoredGlyphAndEffect__SadConsole_ColoredGlyphAndEffect___System_Int32_SadConsole_ICellSurface_System_Int32__System_ReadOnlySpan_System_Char__SadConsole_StringParser_ParseCommandStacks_">ParseCommandBase.Build(ref ColoredGlyphAndEffect, ColoredGlyphAndEffect[], int, ICellSurface?, ref int, ReadOnlySpan&lt;char&gt;, ParseCommandStacks)</a></div>
 
 </article>
+          </div>
 
-        <div class="contribution d-print-none">
-        </div>
-
-
-      </div>
-
-      <div class="affix">
-        <nav id="affix"></nav>
-      </div>
-    </main>
-
-
-    <footer class="border-top text-secondary">
-      <div class="container-xxl">
-        <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          <div class="hidden-sm col-md-3" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+                <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
         </div>
       </div>
-    </footer>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
   </body>
 </html>

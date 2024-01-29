@@ -1,151 +1,109 @@
 ﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
 <html>
+
   <head>
     <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class ScreenSurface
- | SadConsole v10 </title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ | SadConsole v10</title>
+      <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class ScreenSurface
- | SadConsole v10 ">
-      
-      
-      <link rel="icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../public/docfx.min.css">
-      <link rel="stylesheet" href="../public/main.css">
-      <meta name="docfx:navrel" content="../toc.html">
-      <meta name="docfx:tocrel" content="toc.html">
-      
-      
-      
-      
-      
-      <meta name="loc:inThisArticle" content="In this article">
-      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
-      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
-      <meta name="loc:tocFilter" content="Filter by title">
-      <meta name="loc:nextArticle" content="Next">
-      <meta name="loc:prevArticle" content="Previous">
-      <meta name="loc:themeLight" content="Light">
-      <meta name="loc:themeDark" content="Dark">
-      <meta name="loc:themeAuto" content="Auto">
-      <meta name="loc:changeTheme" content="Change theme">
-      <meta name="loc:copy" content="Copy">
-      <meta name="loc:downloadPdf" content="Download PDF">
+ | SadConsole v10">
+    <meta name="description" content="An object that renders a .">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/dracula.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+      <meta http-equiv='content-language' content='en-us'>
+    
+    
+    
   </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
 
-  <script type="module" src="./../public/docfx.min.js"></script>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
 
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
-
-  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
-    <header class="bg-body border-bottom">
-      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
-        <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../images/SadConsoleLogo.gif" alt="">
-            
-          </a>
-          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="bi bi-three-dots"></i>
-          </button>
-          <div class="collapse navbar-collapse" id="navpanel">
-            <div id="navbar">
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
             </div>
           </div>
-        </div>
-      </nav>
-    </header>
+        </nav>
 
-    <main class="container-xxl">
-      <div class="toc-offcanvas">
-        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-            <nav class="toc" id="toc"></nav>
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
           </div>
         </div>
-      </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
 
-      <div class="content">
-        <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
-            <i class="bi bi-list"></i>
-          </button>
-
-          <nav id="breadcrumb"></nav>
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
         </div>
+        <div class="article row grid-right">
+          <div class="col-md-9">
+            <article class="content wrap" id="_content" data-uid="SadConsole.ScreenSurface">
 
-        <article data-uid="SadConsole.ScreenSurface">
 
 
-
-  <h1 id="SadConsole_ScreenSurface" data-uid="SadConsole.ScreenSurface" class="text-break">
-    Class ScreenSurface
-  
-  </h1>
-
-  <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="SadConsole.html">SadConsole</a></dd></dl>
-  <dl><dt>Assembly</dt><dd>SadConsole.dll</dd></dl>
-  </div>
-
-  <div class="markdown summary"><p>An object that renders a <a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a>.</p>
+  <h1 id="SadConsole_ScreenSurface" data-uid="SadConsole.ScreenSurface" class="text-break">Class ScreenSurface
+</h1>
+  <div class="markdown level0 summary"><p>An object that renders a <a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a>.</p>
 </div>
-  <div class="markdown conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[DataContract]
-public class ScreenSurface : ScreenObject, IDisposable, IScreenSurfaceEditable, IScreenSurface, IScreenObject, IPositionable, IComponentHost, ISurface, ISurfaceSettable</code></pre>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="SadConsole.ScreenObject.html">ScreenObject</a></div>
+    <div class="level2"><span class="xref">ScreenSurface</span></div>
+      <div class="level3"><a class="xref" href="SadConsole.Console.html">Console</a></div>
+      <div class="level3"><a class="xref" href="SadConsole.LayeredScreenSurface.html">LayeredScreenSurface</a></div>
+      <div class="level3"><a class="xref" href="SadConsole.SplashScreens.Ansi1.html">Ansi1</a></div>
+      <div class="level3"><a class="xref" href="SadConsole.SplashScreens.PCBoot.html">PCBoot</a></div>
+      <div class="level3"><a class="xref" href="SadConsole.SplashScreens.Simple.html">Simple</a></div>
+      <div class="level3"><a class="xref" href="SadConsole.UI.Border.html">Border</a></div>
   </div>
-
-
-
-
-  <dl class="typelist inheritance">
-    <dt>Inheritance</dt>
-    <dd>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><a class="xref" href="SadConsole.ScreenObject.html">ScreenObject</a></div>
-      <div><span class="xref">ScreenSurface</span></div>
-    </dd>
-  </dl>
-
-  <dl class="typelist implements">
-    <dt>Implements</dt>
-    <dd>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
-      <div><a class="xref" href="SadConsole.IScreenSurfaceEditable.html">IScreenSurfaceEditable</a></div>
-      <div><a class="xref" href="SadConsole.IScreenSurface.html">IScreenSurface</a></div>
-      <div><a class="xref" href="SadConsole.IScreenObject.html">IScreenObject</a></div>
-      <div><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.IPositionable.html">IPositionable</a></div>
-      <div><a class="xref" href="SadConsole.Components.IComponentHost.html">IComponentHost</a></div>
-      <div><a class="xref" href="SadConsole.ISurface.html">ISurface</a></div>
-      <div><a class="xref" href="SadConsole.ISurfaceSettable.html">ISurfaceSettable</a></div>
-    </dd>
-  </dl>
-
-  <dl class="typelist derived">
-    <dt>Derived</dt>
-    <dd>
-      <div><a class="xref" href="SadConsole.Console.html">Console</a></div>
-      <div><a class="xref" href="SadConsole.LayeredScreenSurface.html">LayeredScreenSurface</a></div>
-      <div><a class="xref" href="SadConsole.SplashScreens.Ansi1.html">Ansi1</a></div>
-      <div><a class="xref" href="SadConsole.SplashScreens.PCBoot.html">PCBoot</a></div>
-      <div><a class="xref" href="SadConsole.SplashScreens.Simple.html">Simple</a></div>
-      <div><a class="xref" href="SadConsole.UI.Border.html">Border</a></div>
-    </dd>
-  </dl>
-
-  <dl class="typelist derived">
-    <dt>Inherited Members</dt>
-    <dd>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    <div><a class="xref" href="SadConsole.IScreenSurfaceEditable.html">IScreenSurfaceEditable</a></div>
+    <div><a class="xref" href="SadConsole.IScreenSurface.html">IScreenSurface</a></div>
+    <div><a class="xref" href="SadConsole.IScreenObject.html">IScreenObject</a></div>
+    <div><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.IPositionable.html">IPositionable</a></div>
+    <div><a class="xref" href="SadConsole.Components.IComponentHost.html">IComponentHost</a></div>
+    <div><a class="xref" href="SadConsole.ISurface.html">ISurface</a></div>
+    <div><a class="xref" href="SadConsole.ISurfaceSettable.html">ISurfaceSettable</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
     <div>
       <a class="xref" href="SadConsole.ScreenObject.html#SadConsole_ScreenObject_ComponentsUpdate">ScreenObject.ComponentsUpdate</a>
     </div>
@@ -296,11 +254,1523 @@ public class ScreenSurface : ScreenObject, IDisposable, IScreenSurfaceEditable, 
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
     </div>
-  </dd></dl>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="SadConsole.html">SadConsole</a></h6>
+  <h6><strong>Assembly</strong>: SadConsole.dll</h6>
+  <h5 id="SadConsole_ScreenSurface_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataContract]
+public class ScreenSurface : ScreenObject, IDisposable, IScreenSurfaceEditable, IScreenSurface, IScreenObject, IPositionable, IComponentHost, ISurface, ISurfaceSettable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
 
-  <dl class="typelist extensionMethods">
-    <dt>Extension Methods</dt>
-    <dd>
+
+  <a id="SadConsole_ScreenSurface__ctor_" data-uid="SadConsole.ScreenSurface.#ctor*"></a>
+  <h4 id="SadConsole_ScreenSurface__ctor_SadConsole_ICellSurface_SadConsole_IFont_System_Nullable_SadRogue_Primitives_Point__" data-uid="SadConsole.ScreenSurface.#ctor(SadConsole.ICellSurface,SadConsole.IFont,System.Nullable{SadRogue.Primitives.Point})">ScreenSurface(ICellSurface, IFont?, Point?)</h4>
+  <div class="markdown level1 summary"><p>Creates a new screen object wrapping an existing surface.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ScreenSurface(ICellSurface surface, IFont? font = null, Point? fontSize = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a></td>
+        <td><span class="parametername">surface</span></td>
+        <td><p>The surface.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SadConsole.IFont.html">IFont</a></td>
+        <td><span class="parametername">font</span></td>
+        <td><p>The font to use with the surface.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Point.html">Point</a>?</td>
+        <td><span class="parametername">fontSize</span></td>
+        <td><p>The font size.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface__ctor_" data-uid="SadConsole.ScreenSurface.#ctor*"></a>
+  <h4 id="SadConsole_ScreenSurface__ctor_SadRogue_Primitives_GridViews_IGridView_SadConsole_ColoredGlyphBase__System_Int32_System_Int32_" data-uid="SadConsole.ScreenSurface.#ctor(SadRogue.Primitives.GridViews.IGridView{SadConsole.ColoredGlyphBase},System.Int32,System.Int32)">ScreenSurface(IGridView&lt;ColoredGlyphBase&gt;, int, int)</h4>
+  <div class="markdown level1 summary"><p>Creates a new surface from a grid view. The cells between this object and the grid view are shared.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ScreenSurface(IGridView&lt;ColoredGlyphBase&gt; surface, int visibleWidth = 0, int visibleHeight = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.GridViews.IGridView-1.html">IGridView</a>&lt;<a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a>&gt;</td>
+        <td><span class="parametername">surface</span></td>
+        <td><p>The surface to use as the source of cells.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">visibleWidth</span></td>
+        <td><p>Optional view width. If <code>0</code>, the view width matches the width of the surface.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">visibleHeight</span></td>
+        <td><p>Optional view height. If <code>0</code>, the view width matches the height of the surface.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface__ctor_" data-uid="SadConsole.ScreenSurface.#ctor*"></a>
+  <h4 id="SadConsole_ScreenSurface__ctor_System_Int32_System_Int32_" data-uid="SadConsole.ScreenSurface.#ctor(System.Int32,System.Int32)">ScreenSurface(int, int)</h4>
+  <div class="markdown level1 summary"><p>Creates a new screen object that can render a surface.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ScreenSurface(int width, int height)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">width</span></td>
+        <td><p>The width in cells of the surface.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">height</span></td>
+        <td><p>The height in cells of the surface.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface__ctor_" data-uid="SadConsole.ScreenSurface.#ctor*"></a>
+  <h4 id="SadConsole_ScreenSurface__ctor_System_Int32_System_Int32_SadConsole_ColoredGlyphBase___" data-uid="SadConsole.ScreenSurface.#ctor(System.Int32,System.Int32,SadConsole.ColoredGlyphBase[])">ScreenSurface(int, int, ColoredGlyphBase[])</h4>
+  <div class="markdown level1 summary"><p>Creates a new screen object that can render a surface. Uses the specified cells to generate the surface.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ScreenSurface(int width, int height, ColoredGlyphBase[] initialCells)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">width</span></td>
+        <td><p>The width in cells of the surface.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">height</span></td>
+        <td><p>The height in cells of the surface.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a>[]</td>
+        <td><span class="parametername">initialCells</span></td>
+        <td><p>The initial cells to seed the surface.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface__ctor_" data-uid="SadConsole.ScreenSurface.#ctor*"></a>
+  <h4 id="SadConsole_ScreenSurface__ctor_System_Int32_System_Int32_System_Int32_System_Int32_" data-uid="SadConsole.ScreenSurface.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">ScreenSurface(int, int, int, int)</h4>
+  <div class="markdown level1 summary"><p>Creates a new surface with the specified width and height, with <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html#SadRogue_Primitives_Color_Transparent">Transparent</a> for the background and <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html#SadRogue_Primitives_Color_White">White</a> for the foreground.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ScreenSurface(int viewWidth, int viewHeight, int totalWidth, int totalHeight)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">viewWidth</span></td>
+        <td><p>The visible width of the surface in cells.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">viewHeight</span></td>
+        <td><p>The visible height of the surface in cells.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">totalWidth</span></td>
+        <td><p>The total width of the surface in cells.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">totalHeight</span></td>
+        <td><p>The total height of the surface in cells.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface__ctor_" data-uid="SadConsole.ScreenSurface.#ctor*"></a>
+  <h4 id="SadConsole_ScreenSurface__ctor_System_Int32_System_Int32_System_Int32_System_Int32_SadConsole_ColoredGlyphBase___" data-uid="SadConsole.ScreenSurface.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,SadConsole.ColoredGlyphBase[])">ScreenSurface(int, int, int, int, ColoredGlyphBase[]?)</h4>
+  <div class="markdown level1 summary"><p>Creates a new surface with the specified width and height, with <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html#SadRogue_Primitives_Color_Transparent">Transparent</a> for the background and <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html#SadRogue_Primitives_Color_White">White</a> for the foreground.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ScreenSurface(int viewWidth, int viewHeight, int totalWidth, int totalHeight, ColoredGlyphBase[]? initialCells)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">viewWidth</span></td>
+        <td><p>The width of the surface in cells to show.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">viewHeight</span></td>
+        <td><p>The height of the surface in cells to show.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">totalWidth</span></td>
+        <td><p>The total width of the surface in cells.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">totalHeight</span></td>
+        <td><p>The total height of the surface in cells.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a>[]</td>
+        <td><span class="parametername">initialCells</span></td>
+        <td><p>The cells to seed the surface with. If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, creates the cell array for you.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+</h3>
+
+
+  <h4 id="SadConsole_ScreenSurface_IsMouseOver" data-uid="SadConsole.ScreenSurface.IsMouseOver">IsMouseOver</h4>
+  <div class="markdown level1 summary"><p>Indicates that the mouse is currently over this console.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool IsMouseOver</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td>An object that renders a .</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+
+
+  <a id="SadConsole_ScreenSurface_AbsoluteArea_" data-uid="SadConsole.ScreenSurface.AbsoluteArea*"></a>
+  <h4 id="SadConsole_ScreenSurface_AbsoluteArea" data-uid="SadConsole.ScreenSurface.AbsoluteArea">AbsoluteArea</h4>
+  <div class="markdown level1 summary"><p>The pixel area on the screen this surface occupies.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Rectangle AbsoluteArea { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Rectangle.html">Rectangle</a></td>
+        <td>An object that renders a .</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface_DefaultRendererName_" data-uid="SadConsole.ScreenSurface.DefaultRendererName*"></a>
+  <h4 id="SadConsole_ScreenSurface_DefaultRendererName" data-uid="SadConsole.ScreenSurface.DefaultRendererName">DefaultRendererName</h4>
+  <div class="markdown level1 summary"><p>The name of the default renderer for this object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string DefaultRendererName { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td>An object that renders a .</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface_FocusOnMouseClick_" data-uid="SadConsole.ScreenSurface.FocusOnMouseClick*"></a>
+  <h4 id="SadConsole_ScreenSurface_FocusOnMouseClick" data-uid="SadConsole.ScreenSurface.FocusOnMouseClick">FocusOnMouseClick</h4>
+  <div class="markdown level1 summary"><p>When true, this object will set <a class="xref" href="SadConsole.IScreenObject.html#SadConsole_IScreenObject_IsFocused">IsFocused</a> to true when the mouse is clicked.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+public bool FocusOnMouseClick { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td>An object that renders a .</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface_Font_" data-uid="SadConsole.ScreenSurface.Font*"></a>
+  <h4 id="SadConsole_ScreenSurface_Font" data-uid="SadConsole.ScreenSurface.Font">Font</h4>
+  <div class="markdown level1 summary"><p>Font used with rendering.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IFont Font { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.IFont.html">IFont</a></td>
+        <td>An object that renders a .</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface_FontSize_" data-uid="SadConsole.ScreenSurface.FontSize*"></a>
+  <h4 id="SadConsole_ScreenSurface_FontSize" data-uid="SadConsole.ScreenSurface.FontSize">FontSize</h4>
+  <div class="markdown level1 summary"><p>The size of the <a class="xref" href="SadConsole.IScreenSurface.html#SadConsole_IScreenSurface_Font">Font</a> cells applied to the object when rendering.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Point FontSize { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Point.html">Point</a></td>
+        <td>An object that renders a .</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface_ForceRendererRefresh_" data-uid="SadConsole.ScreenSurface.ForceRendererRefresh*"></a>
+  <h4 id="SadConsole_ScreenSurface_ForceRendererRefresh" data-uid="SadConsole.ScreenSurface.ForceRendererRefresh">ForceRendererRefresh</h4>
+  <div class="markdown level1 summary"><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, forces the <a class="xref" href="SadConsole.IScreenSurface.html#SadConsole_IScreenSurface_Renderer">Renderer</a> to refresh the backing texture with the latest state of the object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ForceRendererRefresh { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td>An object that renders a .</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface_Height_" data-uid="SadConsole.ScreenSurface.Height*"></a>
+  <h4 id="SadConsole_ScreenSurface_Height" data-uid="SadConsole.ScreenSurface.Height">Height</h4>
+  <div class="markdown level1 summary"><p>The total height of the console.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Height { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td>An object that renders a .</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface_HeightPixels_" data-uid="SadConsole.ScreenSurface.HeightPixels*"></a>
+  <h4 id="SadConsole_ScreenSurface_HeightPixels" data-uid="SadConsole.ScreenSurface.HeightPixels">HeightPixels</h4>
+  <div class="markdown level1 summary"><p>The height of the surface in pixels.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int HeightPixels { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td>An object that renders a .</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface_IsDirty_" data-uid="SadConsole.ScreenSurface.IsDirty*"></a>
+  <h4 id="SadConsole_ScreenSurface_IsDirty" data-uid="SadConsole.ScreenSurface.IsDirty">IsDirty</h4>
+  <div class="markdown level1 summary"><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that the <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_Surface">Surface</a> needs to be redrawn; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsDirty { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td>An object that renders a .</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface_MoveToFrontOnMouseClick_" data-uid="SadConsole.ScreenSurface.MoveToFrontOnMouseClick*"></a>
+  <h4 id="SadConsole_ScreenSurface_MoveToFrontOnMouseClick" data-uid="SadConsole.ScreenSurface.MoveToFrontOnMouseClick">MoveToFrontOnMouseClick</h4>
+  <div class="markdown level1 summary"><p>When true, this object will move to the front of its parent object when the mouse is clicked.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+public bool MoveToFrontOnMouseClick { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td>An object that renders a .</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface_QuietSurfaceHandling_" data-uid="SadConsole.ScreenSurface.QuietSurfaceHandling*"></a>
+  <h4 id="SadConsole_ScreenSurface_QuietSurfaceHandling" data-uid="SadConsole.ScreenSurface.QuietSurfaceHandling">QuietSurfaceHandling</h4>
+  <div class="markdown level1 summary"><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, prevents the <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_Surface">Surface</a> property from raising events and virtual methods when the surface changes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+public bool QuietSurfaceHandling { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td>An object that renders a .</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface_Renderer_" data-uid="SadConsole.ScreenSurface.Renderer*"></a>
+  <h4 id="SadConsole_ScreenSurface_Renderer" data-uid="SadConsole.ScreenSurface.Renderer">Renderer</h4>
+  <div class="markdown level1 summary"><p>The renderer used to draw this surface.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DataMember]
+public IRenderer? Renderer { get; protected set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.Renderers.IRenderer.html">IRenderer</a></td>
+        <td>An object that renders a .</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface_Surface_" data-uid="SadConsole.ScreenSurface.Surface*"></a>
+  <h4 id="SadConsole_ScreenSurface_Surface" data-uid="SadConsole.ScreenSurface.Surface">Surface</h4>
+  <div class="markdown level1 summary"><p>The surface this screen object represents.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICellSurface Surface { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a></td>
+        <td>An object that renders a .</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface_Tint_" data-uid="SadConsole.ScreenSurface.Tint*"></a>
+  <h4 id="SadConsole_ScreenSurface_Tint" data-uid="SadConsole.ScreenSurface.Tint">Tint</h4>
+  <div class="markdown level1 summary"><p>A tint used in rendering.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Color Tint { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></td>
+        <td>An object that renders a .</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface_UsePixelPositioning_" data-uid="SadConsole.ScreenSurface.UsePixelPositioning*"></a>
+  <h4 id="SadConsole_ScreenSurface_UsePixelPositioning" data-uid="SadConsole.ScreenSurface.UsePixelPositioning">UsePixelPositioning</h4>
+  <div class="markdown level1 summary"><p>Treats the <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.IPositionable.html#SadRogue_Primitives_IPositionable_Position">Position</a> of the object as if it is pixels and not cells.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool UsePixelPositioning { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td>An object that renders a .</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface_ViewHeight_" data-uid="SadConsole.ScreenSurface.ViewHeight*"></a>
+  <h4 id="SadConsole_ScreenSurface_ViewHeight" data-uid="SadConsole.ScreenSurface.ViewHeight">ViewHeight</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the visible height of the surface in cells.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ViewHeight { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td>An object that renders a .</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface_ViewPosition_" data-uid="SadConsole.ScreenSurface.ViewPosition*"></a>
+  <h4 id="SadConsole_ScreenSurface_ViewPosition" data-uid="SadConsole.ScreenSurface.ViewPosition">ViewPosition</h4>
+  <div class="markdown level1 summary"><p>The position of the view within the console.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Point ViewPosition { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Point.html">Point</a></td>
+        <td>An object that renders a .</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface_ViewWidth_" data-uid="SadConsole.ScreenSurface.ViewWidth*"></a>
+  <h4 id="SadConsole_ScreenSurface_ViewWidth" data-uid="SadConsole.ScreenSurface.ViewWidth">ViewWidth</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the visible width of the surface in cells.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ViewWidth { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td>An object that renders a .</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface_Width_" data-uid="SadConsole.ScreenSurface.Width*"></a>
+  <h4 id="SadConsole_ScreenSurface_Width" data-uid="SadConsole.ScreenSurface.Width">Width</h4>
+  <div class="markdown level1 summary"><p>The total width of the console.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Width { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td>An object that renders a .</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface_WidthPixels_" data-uid="SadConsole.ScreenSurface.WidthPixels*"></a>
+  <h4 id="SadConsole_ScreenSurface_WidthPixels" data-uid="SadConsole.ScreenSurface.WidthPixels">WidthPixels</h4>
+  <div class="markdown level1 summary"><p>The width of the surface in pixels.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int WidthPixels { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td>An object that renders a .</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <a id="SadConsole_ScreenSurface_CallOnHostUpdated_" data-uid="SadConsole.ScreenSurface.CallOnHostUpdated*"></a>
+  <h4 id="SadConsole_ScreenSurface_CallOnHostUpdated" data-uid="SadConsole.ScreenSurface.CallOnHostUpdated">CallOnHostUpdated()</h4>
+  <div class="markdown level1 summary"><p>Calls the OnHostUpdated method on components, renderer, and rendersteps.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CallOnHostUpdated()</code></pre>
+  </div>
+
+
+  <a id="SadConsole_ScreenSurface_Dispose_" data-uid="SadConsole.ScreenSurface.Dispose*"></a>
+  <h4 id="SadConsole_ScreenSurface_Dispose" data-uid="SadConsole.ScreenSurface.Dispose">Dispose()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+
+  <a id="SadConsole_ScreenSurface_Dispose_" data-uid="SadConsole.ScreenSurface.Dispose*"></a>
+  <h4 id="SadConsole_ScreenSurface_Dispose_System_Boolean_" data-uid="SadConsole.ScreenSurface.Dispose(System.Boolean)">Dispose(bool)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">disposing</span></td>
+        <td>An object that renders a .</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface_Finalize_" data-uid="SadConsole.ScreenSurface.Finalize*"></a>
+  <h4 id="SadConsole_ScreenSurface_Finalize" data-uid="SadConsole.ScreenSurface.Finalize">~ScreenSurface()</h4>
+  <div class="markdown level1 summary"><p>Disposes <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_Renderer">Renderer</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ~ScreenSurface()</code></pre>
+  </div>
+
+
+  <a id="SadConsole_ScreenSurface_LostMouse_" data-uid="SadConsole.ScreenSurface.LostMouse*"></a>
+  <h4 id="SadConsole_ScreenSurface_LostMouse_SadConsole_Input_MouseScreenObjectState_" data-uid="SadConsole.ScreenSurface.LostMouse(SadConsole.Input.MouseScreenObjectState)">LostMouse(MouseScreenObjectState)</h4>
+  <div class="markdown level1 summary"><p>Called when the mouse is being used by something else.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void LostMouse(MouseScreenObjectState state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.Input.MouseScreenObjectState.html">MouseScreenObjectState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>The current state of the mouse based on this object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="SadConsole.ScreenObject.html#SadConsole_ScreenObject_LostMouse_SadConsole_Input_MouseScreenObjectState_">ScreenObject.LostMouse(MouseScreenObjectState)</a></div>
+
+
+  <a id="SadConsole_ScreenSurface_OnFontChanged_" data-uid="SadConsole.ScreenSurface.OnFontChanged*"></a>
+  <h4 id="SadConsole_ScreenSurface_OnFontChanged_SadConsole_IFont_SadRogue_Primitives_Point_" data-uid="SadConsole.ScreenSurface.OnFontChanged(SadConsole.IFont,SadRogue.Primitives.Point)">OnFontChanged(IFont, Point)</h4>
+  <div class="markdown level1 summary"><p>Called when the <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_Font">Font</a> or <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_FontSize">FontSize</a> property changes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnFontChanged(IFont oldFont, Point oldFontSize)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.IFont.html">IFont</a></td>
+        <td><span class="parametername">oldFont</span></td>
+        <td><p>The font prior to the change.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Point.html">Point</a></td>
+        <td><span class="parametername">oldFontSize</span></td>
+        <td><p>The font size prior to the change.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface_OnIsDirtyChanged_" data-uid="SadConsole.ScreenSurface.OnIsDirtyChanged*"></a>
+  <h4 id="SadConsole_ScreenSurface_OnIsDirtyChanged" data-uid="SadConsole.ScreenSurface.OnIsDirtyChanged">OnIsDirtyChanged()</h4>
+  <div class="markdown level1 summary"><p>Called when the <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_IsDirty">IsDirty</a> property changes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnIsDirtyChanged()</code></pre>
+  </div>
+
+
+  <a id="SadConsole_ScreenSurface_OnMouseEnter_" data-uid="SadConsole.ScreenSurface.OnMouseEnter*"></a>
+  <h4 id="SadConsole_ScreenSurface_OnMouseEnter_SadConsole_Input_MouseScreenObjectState_" data-uid="SadConsole.ScreenSurface.OnMouseEnter(SadConsole.Input.MouseScreenObjectState)">OnMouseEnter(MouseScreenObjectState)</h4>
+  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_MouseEnter">MouseEnter</a> event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnMouseEnter(MouseScreenObjectState state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.Input.MouseScreenObjectState.html">MouseScreenObjectState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>Current mouse state in relation to this console.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface_OnMouseExit_" data-uid="SadConsole.ScreenSurface.OnMouseExit*"></a>
+  <h4 id="SadConsole_ScreenSurface_OnMouseExit_SadConsole_Input_MouseScreenObjectState_" data-uid="SadConsole.ScreenSurface.OnMouseExit(SadConsole.Input.MouseScreenObjectState)">OnMouseExit(MouseScreenObjectState)</h4>
+  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_MouseExit">MouseExit</a> event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnMouseExit(MouseScreenObjectState state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.Input.MouseScreenObjectState.html">MouseScreenObjectState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>Current mouse state in relation to this console.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface_OnMouseLeftClicked_" data-uid="SadConsole.ScreenSurface.OnMouseLeftClicked*"></a>
+  <h4 id="SadConsole_ScreenSurface_OnMouseLeftClicked_SadConsole_Input_MouseScreenObjectState_" data-uid="SadConsole.ScreenSurface.OnMouseLeftClicked(SadConsole.Input.MouseScreenObjectState)">OnMouseLeftClicked(MouseScreenObjectState)</h4>
+  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_MouseButtonClicked">MouseButtonClicked</a> event. Possibly moves the console to the top of it's parent's children collection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnMouseLeftClicked(MouseScreenObjectState state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.Input.MouseScreenObjectState.html">MouseScreenObjectState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>Current mouse state in relation to this console.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface_OnMouseMove_" data-uid="SadConsole.ScreenSurface.OnMouseMove*"></a>
+  <h4 id="SadConsole_ScreenSurface_OnMouseMove_SadConsole_Input_MouseScreenObjectState_" data-uid="SadConsole.ScreenSurface.OnMouseMove(SadConsole.Input.MouseScreenObjectState)">OnMouseMove(MouseScreenObjectState)</h4>
+  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_MouseMove">MouseMove</a> event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnMouseMove(MouseScreenObjectState state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.Input.MouseScreenObjectState.html">MouseScreenObjectState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>Current mouse state in relation to this console.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface_OnRendererChanged_" data-uid="SadConsole.ScreenSurface.OnRendererChanged*"></a>
+  <h4 id="SadConsole_ScreenSurface_OnRendererChanged" data-uid="SadConsole.ScreenSurface.OnRendererChanged">OnRendererChanged()</h4>
+  <div class="markdown level1 summary"><p>Called when the <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_Renderer">Renderer</a> property is changed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnRendererChanged()</code></pre>
+  </div>
+
+
+  <a id="SadConsole_ScreenSurface_OnRightMouseClicked_" data-uid="SadConsole.ScreenSurface.OnRightMouseClicked*"></a>
+  <h4 id="SadConsole_ScreenSurface_OnRightMouseClicked_SadConsole_Input_MouseScreenObjectState_" data-uid="SadConsole.ScreenSurface.OnRightMouseClicked(SadConsole.Input.MouseScreenObjectState)">OnRightMouseClicked(MouseScreenObjectState)</h4>
+  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_MouseButtonClicked">MouseButtonClicked</a> event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnRightMouseClicked(MouseScreenObjectState state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.Input.MouseScreenObjectState.html">MouseScreenObjectState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>Current mouse state in relation to this console.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface_OnSurfaceChanged_" data-uid="SadConsole.ScreenSurface.OnSurfaceChanged*"></a>
+  <h4 id="SadConsole_ScreenSurface_OnSurfaceChanged_SadConsole_ICellSurface_" data-uid="SadConsole.ScreenSurface.OnSurfaceChanged(SadConsole.ICellSurface)">OnSurfaceChanged(ICellSurface)</h4>
+  <div class="markdown level1 summary"><p>Called when the <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_Surface">Surface</a> property is changed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnSurfaceChanged(ICellSurface oldSurface)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a></td>
+        <td><span class="parametername">oldSurface</span></td>
+        <td><p>The previous surface.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface_ProcessMouse_" data-uid="SadConsole.ScreenSurface.ProcessMouse*"></a>
+  <h4 id="SadConsole_ScreenSurface_ProcessMouse_SadConsole_Input_MouseScreenObjectState_" data-uid="SadConsole.ScreenSurface.ProcessMouse(SadConsole.Input.MouseScreenObjectState)">ProcessMouse(MouseScreenObjectState)</h4>
+  <div class="markdown level1 summary"><p>Processes the mouse.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool ProcessMouse(MouseScreenObjectState state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.Input.MouseScreenObjectState.html">MouseScreenObjectState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td><p>The mouse state related to this object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><p>True when this object should halt further mouse processing..</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="SadConsole.ScreenObject.html#SadConsole_ScreenObject_ProcessMouse_SadConsole_Input_MouseScreenObjectState_">ScreenObject.ProcessMouse(MouseScreenObjectState)</a></div>
+
+
+  <a id="SadConsole_ScreenSurface_Render_" data-uid="SadConsole.ScreenSurface.Render*"></a>
+  <h4 id="SadConsole_ScreenSurface_Render_System_TimeSpan_" data-uid="SadConsole.ScreenSurface.Render(System.TimeSpan)">Render(TimeSpan)</h4>
+  <div class="markdown level1 summary"><p>Draws the <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_Surface">Surface</a> and all <a class="xref" href="SadConsole.ScreenObject.html#SadConsole_ScreenObject_SadComponents">SadComponents</a> and <a class="xref" href="SadConsole.ScreenObject.html#SadConsole_ScreenObject_Children">Children</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Render(TimeSpan delta)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
+        <td><span class="parametername">delta</span></td>
+        <td><p>The time that has elapsed since the last call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="SadConsole.ScreenObject.html#SadConsole_ScreenObject_Render_System_TimeSpan_">ScreenObject.Render(TimeSpan)</a></div>
+
+
+  <a id="SadConsole_ScreenSurface_Resize_" data-uid="SadConsole.ScreenSurface.Resize*"></a>
+  <h4 id="SadConsole_ScreenSurface_Resize_System_Int32_System_Int32_System_Boolean_" data-uid="SadConsole.ScreenSurface.Resize(System.Int32,System.Int32,System.Boolean)">Resize(int, int, bool)</h4>
+  <div class="markdown level1 summary"><p>Resizes the surface and view to the specified width and height.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Resize(int width, int height, bool clear)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">width</span></td>
+        <td><p>The viewable width of the surface.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">height</span></td>
+        <td><p>The viewable height of the surface.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">clear</span></td>
+        <td><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, resets every cell to the <a class="xref" href="SadConsole.ICellSurface.html#SadConsole_ICellSurface_DefaultForeground">DefaultForeground</a>, <a class="xref" href="SadConsole.ICellSurface.html#SadConsole_ICellSurface_DefaultBackground">DefaultBackground</a> and glyph 0.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface_Resize_" data-uid="SadConsole.ScreenSurface.Resize*"></a>
+  <h4 id="SadConsole_ScreenSurface_Resize_System_Int32_System_Int32_System_Int32_System_Int32_System_Boolean_" data-uid="SadConsole.ScreenSurface.Resize(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)">Resize(int, int, int, int, bool)</h4>
+  <div class="markdown level1 summary"><p>Resizes the surface to the specified width and height.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Resize(int width, int height, int bufferWidth, int bufferHeight, bool clear)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">width</span></td>
+        <td><p>The viewable width of the surface.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">height</span></td>
+        <td><p>The viewable height of the surface.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">bufferWidth</span></td>
+        <td><p>The maximum width of the surface.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">bufferHeight</span></td>
+        <td><p>The maximum height of the surface.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">clear</span></td>
+        <td><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, resets every cell to the <a class="xref" href="SadConsole.ICellSurface.html#SadConsole_ICellSurface_DefaultForeground">DefaultForeground</a>, <a class="xref" href="SadConsole.ICellSurface.html#SadConsole_ICellSurface_DefaultBackground">DefaultBackground</a> and glyph 0.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_ScreenSurface_ToString_" data-uid="SadConsole.ScreenSurface.ToString*"></a>
+  <h4 id="SadConsole_ScreenSurface_ToString" data-uid="SadConsole.ScreenSurface.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Returns the value &quot;ScreenSurface&quot;.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><p>The string &quot;ScreenSurface&quot;.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="SadConsole.ScreenObject.html#SadConsole_ScreenObject_ToString">ScreenObject.ToString()</a></div>
+
+
+  <a id="SadConsole_ScreenSurface_Update_" data-uid="SadConsole.ScreenSurface.Update*"></a>
+  <h4 id="SadConsole_ScreenSurface_Update_System_TimeSpan_" data-uid="SadConsole.ScreenSurface.Update(System.TimeSpan)">Update(TimeSpan)</h4>
+  <div class="markdown level1 summary"><p>Updates the <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_Surface">Surface</a> effects and all <a class="xref" href="SadConsole.ScreenObject.html#SadConsole_ScreenObject_SadComponents">SadComponents</a> and <a class="xref" href="SadConsole.ScreenObject.html#SadConsole_ScreenObject_Children">Children</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Update(TimeSpan delta)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
+        <td><span class="parametername">delta</span></td>
+        <td><p>The time that has elapsed since this method was last called.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="SadConsole.ScreenObject.html#SadConsole_ScreenObject_Update_System_TimeSpan_">ScreenObject.Update(TimeSpan)</a></div>
+
+
+  <a id="SadConsole_ScreenSurface_UpdateAbsolutePosition_" data-uid="SadConsole.ScreenSurface.UpdateAbsolutePosition*"></a>
+  <h4 id="SadConsole_ScreenSurface_UpdateAbsolutePosition" data-uid="SadConsole.ScreenSurface.UpdateAbsolutePosition">UpdateAbsolutePosition()</h4>
+  <div class="markdown level1 summary"><p>Sets a value for <a class="xref" href="SadConsole.IScreenObject.html#SadConsole_IScreenObject_AbsolutePosition">AbsolutePosition</a> based on the Position of this instance and the <a class="xref" href="SadConsole.IScreenObject.html#SadConsole_IScreenObject_Parent">Parent</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void UpdateAbsolutePosition()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="SadConsole.ScreenObject.html#SadConsole_ScreenObject_UpdateAbsolutePosition">ScreenObject.UpdateAbsolutePosition()</a></div>
+  <h3 id="events">Events
+</h3>
+
+
+  <h4 id="SadConsole_ScreenSurface_MouseButtonClicked" data-uid="SadConsole.ScreenSurface.MouseButtonClicked">MouseButtonClicked</h4>
+  <div class="markdown level1 summary"><p>Raised when the a mouse button is clicked on this object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;MouseScreenObjectState&gt;? MouseButtonClicked</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SadConsole.Input.MouseScreenObjectState.html">MouseScreenObjectState</a>&gt;</td>
+        <td>An object that renders a .</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="SadConsole_ScreenSurface_MouseEnter" data-uid="SadConsole.ScreenSurface.MouseEnter">MouseEnter</h4>
+  <div class="markdown level1 summary"><p>Raised when the mouse enters this object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;MouseScreenObjectState&gt;? MouseEnter</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SadConsole.Input.MouseScreenObjectState.html">MouseScreenObjectState</a>&gt;</td>
+        <td>An object that renders a .</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="SadConsole_ScreenSurface_MouseExit" data-uid="SadConsole.ScreenSurface.MouseExit">MouseExit</h4>
+  <div class="markdown level1 summary"><p>Raised when the mouse exits this object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;MouseScreenObjectState&gt;? MouseExit</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SadConsole.Input.MouseScreenObjectState.html">MouseScreenObjectState</a>&gt;</td>
+        <td>An object that renders a .</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="SadConsole_ScreenSurface_MouseMove" data-uid="SadConsole.ScreenSurface.MouseMove">MouseMove</h4>
+  <div class="markdown level1 summary"><p>Raised when the mouse moves around the this object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;MouseScreenObjectState&gt;? MouseMove</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SadConsole.Input.MouseScreenObjectState.html">MouseScreenObjectState</a>&gt;</td>
+        <td>An object that renders a .</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a>
+  </div>
+  <div>
+      <a class="xref" href="SadConsole.IScreenSurfaceEditable.html">IScreenSurfaceEditable</a>
+  </div>
+  <div>
+      <a class="xref" href="SadConsole.IScreenSurface.html">IScreenSurface</a>
+  </div>
+  <div>
+      <a class="xref" href="SadConsole.IScreenObject.html">IScreenObject</a>
+  </div>
+  <div>
+      <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.IPositionable.html">IPositionable</a>
+  </div>
+  <div>
+      <a class="xref" href="SadConsole.Components.IComponentHost.html">IComponentHost</a>
+  </div>
+  <div>
+      <a class="xref" href="SadConsole.ISurface.html">ISurface</a>
+  </div>
+  <div>
+      <a class="xref" href="SadConsole.ISurfaceSettable.html">ISurfaceSettable</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="SadConsole.Quick.Keyboard.html#SadConsole_Quick_Keyboard_RemoveKeyboardHook_SadConsole_IScreenObject_System_Func_SadConsole_IScreenObject_SadConsole_Input_Keyboard_System_Boolean__">Keyboard.RemoveKeyboardHook(IScreenObject, Func&lt;IScreenObject, Keyboard, bool&gt;)</a>
   </div>
@@ -640,1773 +2110,42 @@ public class ScreenSurface : ScreenObject, IDisposable, IScreenSurfaceEditable, 
   <div>
       <a class="xref" href="SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_ShiftUp_SadConsole_ISurface_System_Int32_System_Boolean_">CellSurfaceEditor.ShiftUp(ISurface, int, bool)</a>
   </div>
-  </dd></dl>
-
-
-
-
-
-  <h2 class="section" id="constructors">Constructors
-</h2>
-
-
-  <a id="SadConsole_ScreenSurface__ctor_" data-uid="SadConsole.ScreenSurface.#ctor*"></a>
-
-  <h3 id="SadConsole_ScreenSurface__ctor_SadConsole_ICellSurface_SadConsole_IFont_System_Nullable_SadRogue_Primitives_Point__" data-uid="SadConsole.ScreenSurface.#ctor(SadConsole.ICellSurface,SadConsole.IFont,System.Nullable{SadRogue.Primitives.Point})">
-  ScreenSurface(ICellSurface, IFont?, Point?)
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Creates a new screen object wrapping an existing surface.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ScreenSurface(ICellSurface surface, IFont? font = null, Point? fontSize = null)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>surface</code> <a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a></dt>
-    <dd><p>The surface.</p>
-</dd>
-    <dt><code>font</code> <a class="xref" href="SadConsole.IFont.html">IFont</a></dt>
-    <dd><p>The font to use with the surface.</p>
-</dd>
-    <dt><code>fontSize</code> <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Point.html">Point</a>?</dt>
-    <dd><p>The font size.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface__ctor_" data-uid="SadConsole.ScreenSurface.#ctor*"></a>
-
-  <h3 id="SadConsole_ScreenSurface__ctor_SadRogue_Primitives_GridViews_IGridView_SadConsole_ColoredGlyphBase__System_Int32_System_Int32_" data-uid="SadConsole.ScreenSurface.#ctor(SadRogue.Primitives.GridViews.IGridView{SadConsole.ColoredGlyphBase},System.Int32,System.Int32)">
-  ScreenSurface(IGridView&lt;ColoredGlyphBase&gt;, int, int)
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Creates a new surface from a grid view. The cells between this object and the grid view are shared.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ScreenSurface(IGridView&lt;ColoredGlyphBase&gt; surface, int visibleWidth = 0, int visibleHeight = 0)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>surface</code> <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.GridViews.IGridView-1.html">IGridView</a>&lt;<a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a>&gt;</dt>
-    <dd><p>The surface to use as the source of cells.</p>
-</dd>
-    <dt><code>visibleWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>Optional view width. If <code>0</code>, the view width matches the width of the surface.</p>
-</dd>
-    <dt><code>visibleHeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>Optional view height. If <code>0</code>, the view width matches the height of the surface.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface__ctor_" data-uid="SadConsole.ScreenSurface.#ctor*"></a>
-
-  <h3 id="SadConsole_ScreenSurface__ctor_System_Int32_System_Int32_" data-uid="SadConsole.ScreenSurface.#ctor(System.Int32,System.Int32)">
-  ScreenSurface(int, int)
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Creates a new screen object that can render a surface.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ScreenSurface(int width, int height)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The width in cells of the surface.</p>
-</dd>
-    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The height in cells of the surface.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface__ctor_" data-uid="SadConsole.ScreenSurface.#ctor*"></a>
-
-  <h3 id="SadConsole_ScreenSurface__ctor_System_Int32_System_Int32_SadConsole_ColoredGlyphBase___" data-uid="SadConsole.ScreenSurface.#ctor(System.Int32,System.Int32,SadConsole.ColoredGlyphBase[])">
-  ScreenSurface(int, int, ColoredGlyphBase[])
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Creates a new screen object that can render a surface. Uses the specified cells to generate the surface.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ScreenSurface(int width, int height, ColoredGlyphBase[] initialCells)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The width in cells of the surface.</p>
-</dd>
-    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The height in cells of the surface.</p>
-</dd>
-    <dt><code>initialCells</code> <a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a>[]</dt>
-    <dd><p>The initial cells to seed the surface.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface__ctor_" data-uid="SadConsole.ScreenSurface.#ctor*"></a>
-
-  <h3 id="SadConsole_ScreenSurface__ctor_System_Int32_System_Int32_System_Int32_System_Int32_" data-uid="SadConsole.ScreenSurface.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
-  ScreenSurface(int, int, int, int)
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Creates a new surface with the specified width and height, with <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html#SadRogue_Primitives_Color_Transparent">Transparent</a> for the background and <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html#SadRogue_Primitives_Color_White">White</a> for the foreground.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ScreenSurface(int viewWidth, int viewHeight, int totalWidth, int totalHeight)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>viewWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The visible width of the surface in cells.</p>
-</dd>
-    <dt><code>viewHeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The visible height of the surface in cells.</p>
-</dd>
-    <dt><code>totalWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The total width of the surface in cells.</p>
-</dd>
-    <dt><code>totalHeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The total height of the surface in cells.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface__ctor_" data-uid="SadConsole.ScreenSurface.#ctor*"></a>
-
-  <h3 id="SadConsole_ScreenSurface__ctor_System_Int32_System_Int32_System_Int32_System_Int32_SadConsole_ColoredGlyphBase___" data-uid="SadConsole.ScreenSurface.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,SadConsole.ColoredGlyphBase[])">
-  ScreenSurface(int, int, int, int, ColoredGlyphBase[]?)
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Creates a new surface with the specified width and height, with <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html#SadRogue_Primitives_Color_Transparent">Transparent</a> for the background and <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html#SadRogue_Primitives_Color_White">White</a> for the foreground.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ScreenSurface(int viewWidth, int viewHeight, int totalWidth, int totalHeight, ColoredGlyphBase[]? initialCells)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>viewWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The width of the surface in cells to show.</p>
-</dd>
-    <dt><code>viewHeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The height of the surface in cells to show.</p>
-</dd>
-    <dt><code>totalWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The total width of the surface in cells.</p>
-</dd>
-    <dt><code>totalHeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The total height of the surface in cells.</p>
-</dd>
-    <dt><code>initialCells</code> <a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a>[]</dt>
-    <dd><p>The cells to seed the surface with. If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, creates the cell array for you.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <h2 class="section" id="fields">Fields
-</h2>
-
-
-
-  <h3 id="SadConsole_ScreenSurface_IsMouseOver" data-uid="SadConsole.ScreenSurface.IsMouseOver">
-  IsMouseOver
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Indicates that the mouse is currently over this console.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected bool IsMouseOver</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-  <h2 class="section" id="properties">Properties
-</h2>
-
-
-  <a id="SadConsole_ScreenSurface_AbsoluteArea_" data-uid="SadConsole.ScreenSurface.AbsoluteArea*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_AbsoluteArea" data-uid="SadConsole.ScreenSurface.AbsoluteArea">
-  AbsoluteArea
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>The pixel area on the screen this surface occupies.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Rectangle AbsoluteArea { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Rectangle.html">Rectangle</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_DefaultRendererName_" data-uid="SadConsole.ScreenSurface.DefaultRendererName*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_DefaultRendererName" data-uid="SadConsole.ScreenSurface.DefaultRendererName">
-  DefaultRendererName
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>The name of the default renderer for this object.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual string DefaultRendererName { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_FocusOnMouseClick_" data-uid="SadConsole.ScreenSurface.FocusOnMouseClick*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_FocusOnMouseClick" data-uid="SadConsole.ScreenSurface.FocusOnMouseClick">
-  FocusOnMouseClick
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>When true, this object will set <a class="xref" href="SadConsole.IScreenObject.html#SadConsole_IScreenObject_IsFocused">IsFocused</a> to true when the mouse is clicked.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[DataMember]
-public bool FocusOnMouseClick { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_Font_" data-uid="SadConsole.ScreenSurface.Font*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_Font" data-uid="SadConsole.ScreenSurface.Font">
-  Font
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Font used with rendering.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IFont Font { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="SadConsole.IFont.html">IFont</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_FontSize_" data-uid="SadConsole.ScreenSurface.FontSize*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_FontSize" data-uid="SadConsole.ScreenSurface.FontSize">
-  FontSize
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>The size of the <a class="xref" href="SadConsole.IScreenSurface.html#SadConsole_IScreenSurface_Font">Font</a> cells applied to the object when rendering.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Point FontSize { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Point.html">Point</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_ForceRendererRefresh_" data-uid="SadConsole.ScreenSurface.ForceRendererRefresh*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_ForceRendererRefresh" data-uid="SadConsole.ScreenSurface.ForceRendererRefresh">
-  ForceRendererRefresh
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, forces the <a class="xref" href="SadConsole.IScreenSurface.html#SadConsole_IScreenSurface_Renderer">Renderer</a> to refresh the backing texture with the latest state of the object.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool ForceRendererRefresh { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_Height_" data-uid="SadConsole.ScreenSurface.Height*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_Height" data-uid="SadConsole.ScreenSurface.Height">
-  Height
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>The total height of the console.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int Height { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_HeightPixels_" data-uid="SadConsole.ScreenSurface.HeightPixels*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_HeightPixels" data-uid="SadConsole.ScreenSurface.HeightPixels">
-  HeightPixels
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>The height of the surface in pixels.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int HeightPixels { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_IsDirty_" data-uid="SadConsole.ScreenSurface.IsDirty*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_IsDirty" data-uid="SadConsole.ScreenSurface.IsDirty">
-  IsDirty
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that the <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_Surface">Surface</a> needs to be redrawn; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsDirty { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_MoveToFrontOnMouseClick_" data-uid="SadConsole.ScreenSurface.MoveToFrontOnMouseClick*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_MoveToFrontOnMouseClick" data-uid="SadConsole.ScreenSurface.MoveToFrontOnMouseClick">
-  MoveToFrontOnMouseClick
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>When true, this object will move to the front of its parent object when the mouse is clicked.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[DataMember]
-public bool MoveToFrontOnMouseClick { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_QuietSurfaceHandling_" data-uid="SadConsole.ScreenSurface.QuietSurfaceHandling*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_QuietSurfaceHandling" data-uid="SadConsole.ScreenSurface.QuietSurfaceHandling">
-  QuietSurfaceHandling
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, prevents the <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_Surface">Surface</a> property from raising events and virtual methods when the surface changes.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[DataMember]
-public bool QuietSurfaceHandling { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_Renderer_" data-uid="SadConsole.ScreenSurface.Renderer*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_Renderer" data-uid="SadConsole.ScreenSurface.Renderer">
-  Renderer
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>The renderer used to draw this surface.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[DataMember]
-public IRenderer? Renderer { get; protected set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="SadConsole.Renderers.IRenderer.html">IRenderer</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_Surface_" data-uid="SadConsole.ScreenSurface.Surface*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_Surface" data-uid="SadConsole.ScreenSurface.Surface">
-  Surface
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>The surface this screen object represents.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ICellSurface Surface { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_Tint_" data-uid="SadConsole.ScreenSurface.Tint*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_Tint" data-uid="SadConsole.ScreenSurface.Tint">
-  Tint
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>A tint used in rendering.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Color Tint { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_UsePixelPositioning_" data-uid="SadConsole.ScreenSurface.UsePixelPositioning*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_UsePixelPositioning" data-uid="SadConsole.ScreenSurface.UsePixelPositioning">
-  UsePixelPositioning
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Treats the <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.IPositionable.html#SadRogue_Primitives_IPositionable_Position">Position</a> of the object as if it is pixels and not cells.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool UsePixelPositioning { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_ViewHeight_" data-uid="SadConsole.ScreenSurface.ViewHeight*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_ViewHeight" data-uid="SadConsole.ScreenSurface.ViewHeight">
-  ViewHeight
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Gets or sets the visible height of the surface in cells.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int ViewHeight { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_ViewPosition_" data-uid="SadConsole.ScreenSurface.ViewPosition*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_ViewPosition" data-uid="SadConsole.ScreenSurface.ViewPosition">
-  ViewPosition
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>The position of the view within the console.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Point ViewPosition { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Point.html">Point</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_ViewWidth_" data-uid="SadConsole.ScreenSurface.ViewWidth*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_ViewWidth" data-uid="SadConsole.ScreenSurface.ViewWidth">
-  ViewWidth
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Gets or sets the visible width of the surface in cells.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int ViewWidth { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_Width_" data-uid="SadConsole.ScreenSurface.Width*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_Width" data-uid="SadConsole.ScreenSurface.Width">
-  Width
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>The total width of the console.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int Width { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_WidthPixels_" data-uid="SadConsole.ScreenSurface.WidthPixels*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_WidthPixels" data-uid="SadConsole.ScreenSurface.WidthPixels">
-  WidthPixels
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>The width of the surface in pixels.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int WidthPixels { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <h2 class="section" id="methods">Methods
-</h2>
-
-
-  <a id="SadConsole_ScreenSurface_CallOnHostUpdated_" data-uid="SadConsole.ScreenSurface.CallOnHostUpdated*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_CallOnHostUpdated" data-uid="SadConsole.ScreenSurface.CallOnHostUpdated">
-  CallOnHostUpdated()
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Calls the OnHostUpdated method on components, renderer, and rendersteps.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void CallOnHostUpdated()</code></pre>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_Dispose_" data-uid="SadConsole.ScreenSurface.Dispose*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_Dispose" data-uid="SadConsole.ScreenSurface.Dispose">
-  Dispose()
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_Dispose_" data-uid="SadConsole.ScreenSurface.Dispose*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_Dispose_System_Boolean_" data-uid="SadConsole.ScreenSurface.Dispose(System.Boolean)">
-  Dispose(bool)
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>disposing</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_Finalize_" data-uid="SadConsole.ScreenSurface.Finalize*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_Finalize" data-uid="SadConsole.ScreenSurface.Finalize">
-  ~ScreenSurface()
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Disposes <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_Renderer">Renderer</a>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected ~ScreenSurface()</code></pre>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_LostMouse_" data-uid="SadConsole.ScreenSurface.LostMouse*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_LostMouse_SadConsole_Input_MouseScreenObjectState_" data-uid="SadConsole.ScreenSurface.LostMouse(SadConsole.Input.MouseScreenObjectState)">
-  LostMouse(MouseScreenObjectState)
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Called when the mouse is being used by something else.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override void LostMouse(MouseScreenObjectState state)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>state</code> <a class="xref" href="SadConsole.Input.MouseScreenObjectState.html">MouseScreenObjectState</a></dt>
-    <dd><p>The current state of the mouse based on this object.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_OnFontChanged_" data-uid="SadConsole.ScreenSurface.OnFontChanged*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_OnFontChanged_SadConsole_IFont_SadRogue_Primitives_Point_" data-uid="SadConsole.ScreenSurface.OnFontChanged(SadConsole.IFont,SadRogue.Primitives.Point)">
-  OnFontChanged(IFont, Point)
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Called when the <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_Font">Font</a> or <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_FontSize">FontSize</a> property changes.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void OnFontChanged(IFont oldFont, Point oldFontSize)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>oldFont</code> <a class="xref" href="SadConsole.IFont.html">IFont</a></dt>
-    <dd><p>The font prior to the change.</p>
-</dd>
-    <dt><code>oldFontSize</code> <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Point.html">Point</a></dt>
-    <dd><p>The font size prior to the change.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_OnIsDirtyChanged_" data-uid="SadConsole.ScreenSurface.OnIsDirtyChanged*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_OnIsDirtyChanged" data-uid="SadConsole.ScreenSurface.OnIsDirtyChanged">
-  OnIsDirtyChanged()
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Called when the <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_IsDirty">IsDirty</a> property changes.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void OnIsDirtyChanged()</code></pre>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_OnMouseEnter_" data-uid="SadConsole.ScreenSurface.OnMouseEnter*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_OnMouseEnter_SadConsole_Input_MouseScreenObjectState_" data-uid="SadConsole.ScreenSurface.OnMouseEnter(SadConsole.Input.MouseScreenObjectState)">
-  OnMouseEnter(MouseScreenObjectState)
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_MouseEnter">MouseEnter</a> event.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void OnMouseEnter(MouseScreenObjectState state)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>state</code> <a class="xref" href="SadConsole.Input.MouseScreenObjectState.html">MouseScreenObjectState</a></dt>
-    <dd><p>Current mouse state in relation to this console.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_OnMouseExit_" data-uid="SadConsole.ScreenSurface.OnMouseExit*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_OnMouseExit_SadConsole_Input_MouseScreenObjectState_" data-uid="SadConsole.ScreenSurface.OnMouseExit(SadConsole.Input.MouseScreenObjectState)">
-  OnMouseExit(MouseScreenObjectState)
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_MouseExit">MouseExit</a> event.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void OnMouseExit(MouseScreenObjectState state)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>state</code> <a class="xref" href="SadConsole.Input.MouseScreenObjectState.html">MouseScreenObjectState</a></dt>
-    <dd><p>Current mouse state in relation to this console.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_OnMouseLeftClicked_" data-uid="SadConsole.ScreenSurface.OnMouseLeftClicked*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_OnMouseLeftClicked_SadConsole_Input_MouseScreenObjectState_" data-uid="SadConsole.ScreenSurface.OnMouseLeftClicked(SadConsole.Input.MouseScreenObjectState)">
-  OnMouseLeftClicked(MouseScreenObjectState)
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_MouseButtonClicked">MouseButtonClicked</a> event. Possibly moves the console to the top of it's parent's children collection.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void OnMouseLeftClicked(MouseScreenObjectState state)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>state</code> <a class="xref" href="SadConsole.Input.MouseScreenObjectState.html">MouseScreenObjectState</a></dt>
-    <dd><p>Current mouse state in relation to this console.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_OnMouseMove_" data-uid="SadConsole.ScreenSurface.OnMouseMove*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_OnMouseMove_SadConsole_Input_MouseScreenObjectState_" data-uid="SadConsole.ScreenSurface.OnMouseMove(SadConsole.Input.MouseScreenObjectState)">
-  OnMouseMove(MouseScreenObjectState)
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_MouseMove">MouseMove</a> event.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void OnMouseMove(MouseScreenObjectState state)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>state</code> <a class="xref" href="SadConsole.Input.MouseScreenObjectState.html">MouseScreenObjectState</a></dt>
-    <dd><p>Current mouse state in relation to this console.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_OnRendererChanged_" data-uid="SadConsole.ScreenSurface.OnRendererChanged*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_OnRendererChanged" data-uid="SadConsole.ScreenSurface.OnRendererChanged">
-  OnRendererChanged()
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Called when the <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_Renderer">Renderer</a> property is changed.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void OnRendererChanged()</code></pre>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_OnRightMouseClicked_" data-uid="SadConsole.ScreenSurface.OnRightMouseClicked*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_OnRightMouseClicked_SadConsole_Input_MouseScreenObjectState_" data-uid="SadConsole.ScreenSurface.OnRightMouseClicked(SadConsole.Input.MouseScreenObjectState)">
-  OnRightMouseClicked(MouseScreenObjectState)
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_MouseButtonClicked">MouseButtonClicked</a> event.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void OnRightMouseClicked(MouseScreenObjectState state)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>state</code> <a class="xref" href="SadConsole.Input.MouseScreenObjectState.html">MouseScreenObjectState</a></dt>
-    <dd><p>Current mouse state in relation to this console.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_OnSurfaceChanged_" data-uid="SadConsole.ScreenSurface.OnSurfaceChanged*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_OnSurfaceChanged_SadConsole_ICellSurface_" data-uid="SadConsole.ScreenSurface.OnSurfaceChanged(SadConsole.ICellSurface)">
-  OnSurfaceChanged(ICellSurface)
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Called when the <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_Surface">Surface</a> property is changed.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void OnSurfaceChanged(ICellSurface oldSurface)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>oldSurface</code> <a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a></dt>
-    <dd><p>The previous surface.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_ProcessMouse_" data-uid="SadConsole.ScreenSurface.ProcessMouse*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_ProcessMouse_SadConsole_Input_MouseScreenObjectState_" data-uid="SadConsole.ScreenSurface.ProcessMouse(SadConsole.Input.MouseScreenObjectState)">
-  ProcessMouse(MouseScreenObjectState)
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Processes the mouse.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override bool ProcessMouse(MouseScreenObjectState state)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>state</code> <a class="xref" href="SadConsole.Input.MouseScreenObjectState.html">MouseScreenObjectState</a></dt>
-    <dd><p>The mouse state related to this object.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>True when this object should halt further mouse processing..</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_Render_" data-uid="SadConsole.ScreenSurface.Render*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_Render_System_TimeSpan_" data-uid="SadConsole.ScreenSurface.Render(System.TimeSpan)">
-  Render(TimeSpan)
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Draws the <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_Surface">Surface</a> and all <a class="xref" href="SadConsole.ScreenObject.html#SadConsole_ScreenObject_SadComponents">SadComponents</a> and <a class="xref" href="SadConsole.ScreenObject.html#SadConsole_ScreenObject_Children">Children</a>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override void Render(TimeSpan delta)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>delta</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd><p>The time that has elapsed since the last call.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_Resize_" data-uid="SadConsole.ScreenSurface.Resize*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_Resize_System_Int32_System_Int32_System_Boolean_" data-uid="SadConsole.ScreenSurface.Resize(System.Int32,System.Int32,System.Boolean)">
-  Resize(int, int, bool)
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Resizes the surface and view to the specified width and height.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Resize(int width, int height, bool clear)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The viewable width of the surface.</p>
-</dd>
-    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The viewable height of the surface.</p>
-</dd>
-    <dt><code>clear</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, resets every cell to the <a class="xref" href="SadConsole.ICellSurface.html#SadConsole_ICellSurface_DefaultForeground">DefaultForeground</a>, <a class="xref" href="SadConsole.ICellSurface.html#SadConsole_ICellSurface_DefaultBackground">DefaultBackground</a> and glyph 0.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_Resize_" data-uid="SadConsole.ScreenSurface.Resize*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_Resize_System_Int32_System_Int32_System_Int32_System_Int32_System_Boolean_" data-uid="SadConsole.ScreenSurface.Resize(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)">
-  Resize(int, int, int, int, bool)
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Resizes the surface to the specified width and height.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Resize(int width, int height, int bufferWidth, int bufferHeight, bool clear)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The viewable width of the surface.</p>
-</dd>
-    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The viewable height of the surface.</p>
-</dd>
-    <dt><code>bufferWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The maximum width of the surface.</p>
-</dd>
-    <dt><code>bufferHeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The maximum height of the surface.</p>
-</dd>
-    <dt><code>clear</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, resets every cell to the <a class="xref" href="SadConsole.ICellSurface.html#SadConsole_ICellSurface_DefaultForeground">DefaultForeground</a>, <a class="xref" href="SadConsole.ICellSurface.html#SadConsole_ICellSurface_DefaultBackground">DefaultBackground</a> and glyph 0.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_ToString_" data-uid="SadConsole.ScreenSurface.ToString*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_ToString" data-uid="SadConsole.ScreenSurface.ToString">
-  ToString()
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Returns the value &quot;ScreenSurface&quot;.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
-  </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The string &quot;ScreenSurface&quot;.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_Update_" data-uid="SadConsole.ScreenSurface.Update*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_Update_System_TimeSpan_" data-uid="SadConsole.ScreenSurface.Update(System.TimeSpan)">
-  Update(TimeSpan)
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Updates the <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_Surface">Surface</a> effects and all <a class="xref" href="SadConsole.ScreenObject.html#SadConsole_ScreenObject_SadComponents">SadComponents</a> and <a class="xref" href="SadConsole.ScreenObject.html#SadConsole_ScreenObject_Children">Children</a>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override void Update(TimeSpan delta)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>delta</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd><p>The time that has elapsed since this method was last called.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="SadConsole_ScreenSurface_UpdateAbsolutePosition_" data-uid="SadConsole.ScreenSurface.UpdateAbsolutePosition*"></a>
-
-  <h3 id="SadConsole_ScreenSurface_UpdateAbsolutePosition" data-uid="SadConsole.ScreenSurface.UpdateAbsolutePosition">
-  UpdateAbsolutePosition()
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Sets a value for <a class="xref" href="SadConsole.IScreenObject.html#SadConsole_IScreenObject_AbsolutePosition">AbsolutePosition</a> based on the Position of this instance and the <a class="xref" href="SadConsole.IScreenObject.html#SadConsole_IScreenObject_Parent">Parent</a> instance.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override void UpdateAbsolutePosition()</code></pre>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <h2 class="section" id="events">Events
-</h2>
-
-
-
-  <h3 id="SadConsole_ScreenSurface_MouseButtonClicked" data-uid="SadConsole.ScreenSurface.MouseButtonClicked">
-  MouseButtonClicked
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Raised when the a mouse button is clicked on this object.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;MouseScreenObjectState&gt;? MouseButtonClicked</code></pre>
-  </div>
-
-
-
-
-
-
-  <h4 class="section">Event Type</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SadConsole.Input.MouseScreenObjectState.html">MouseScreenObjectState</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <h3 id="SadConsole_ScreenSurface_MouseEnter" data-uid="SadConsole.ScreenSurface.MouseEnter">
-  MouseEnter
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Raised when the mouse enters this object.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;MouseScreenObjectState&gt;? MouseEnter</code></pre>
-  </div>
-
-
-
-
-
-
-  <h4 class="section">Event Type</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SadConsole.Input.MouseScreenObjectState.html">MouseScreenObjectState</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <h3 id="SadConsole_ScreenSurface_MouseExit" data-uid="SadConsole.ScreenSurface.MouseExit">
-  MouseExit
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Raised when the mouse exits this object.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;MouseScreenObjectState&gt;? MouseExit</code></pre>
-  </div>
-
-
-
-
-
-
-  <h4 class="section">Event Type</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SadConsole.Input.MouseScreenObjectState.html">MouseScreenObjectState</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <h3 id="SadConsole_ScreenSurface_MouseMove" data-uid="SadConsole.ScreenSurface.MouseMove">
-  MouseMove
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Raised when the mouse moves around the this object.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;MouseScreenObjectState&gt;? MouseMove</code></pre>
-  </div>
-
-
-
-
-
-
-  <h4 class="section">Event Type</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SadConsole.Input.MouseScreenObjectState.html">MouseScreenObjectState</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
 
 </article>
+          </div>
 
-        <div class="contribution d-print-none">
-        </div>
-
-
-      </div>
-
-      <div class="affix">
-        <nav id="affix"></nav>
-      </div>
-    </main>
-
-
-    <footer class="border-top text-secondary">
-      <div class="container-xxl">
-        <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          <div class="hidden-sm col-md-3" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+                <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
         </div>
       </div>
-    </footer>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
   </body>
 </html>

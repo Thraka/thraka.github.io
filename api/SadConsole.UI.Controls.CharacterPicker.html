@@ -1,138 +1,102 @@
 ﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
 <html>
+
   <head>
     <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class CharacterPicker
- | SadConsole v10 </title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ | SadConsole v10</title>
+      <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class CharacterPicker
- | SadConsole v10 ">
-      
-      
-      <link rel="icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../public/docfx.min.css">
-      <link rel="stylesheet" href="../public/main.css">
-      <meta name="docfx:navrel" content="../toc.html">
-      <meta name="docfx:tocrel" content="toc.html">
-      
-      
-      
-      
-      
-      <meta name="loc:inThisArticle" content="In this article">
-      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
-      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
-      <meta name="loc:tocFilter" content="Filter by title">
-      <meta name="loc:nextArticle" content="Next">
-      <meta name="loc:prevArticle" content="Previous">
-      <meta name="loc:themeLight" content="Light">
-      <meta name="loc:themeDark" content="Dark">
-      <meta name="loc:themeAuto" content="Auto">
-      <meta name="loc:changeTheme" content="Change theme">
-      <meta name="loc:copy" content="Copy">
-      <meta name="loc:downloadPdf" content="Download PDF">
+ | SadConsole v10">
+    <meta name="description" content="Displays the glyphs associated with a font and allows the user to select one.">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/dracula.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+      <meta http-equiv='content-language' content='en-us'>
+    
+    
+    
   </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
 
-  <script type="module" src="./../public/docfx.min.js"></script>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
 
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
-
-  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
-    <header class="bg-body border-bottom">
-      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
-        <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../images/SadConsoleLogo.gif" alt="">
-            
-          </a>
-          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="bi bi-three-dots"></i>
-          </button>
-          <div class="collapse navbar-collapse" id="navpanel">
-            <div id="navbar">
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
             </div>
           </div>
-        </div>
-      </nav>
-    </header>
+        </nav>
 
-    <main class="container-xxl">
-      <div class="toc-offcanvas">
-        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-            <nav class="toc" id="toc"></nav>
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
           </div>
         </div>
-      </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
 
-      <div class="content">
-        <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
-            <i class="bi bi-list"></i>
-          </button>
-
-          <nav id="breadcrumb"></nav>
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
         </div>
+        <div class="article row grid-right">
+          <div class="col-md-9">
+            <article class="content wrap" id="_content" data-uid="SadConsole.UI.Controls.CharacterPicker">
 
-        <article data-uid="SadConsole.UI.Controls.CharacterPicker">
 
 
-
-  <h1 id="SadConsole_UI_Controls_CharacterPicker" data-uid="SadConsole.UI.Controls.CharacterPicker" class="text-break">
-    Class CharacterPicker
-  
-  </h1>
-
-  <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="SadConsole.html">SadConsole</a>.<a class="xref" href="SadConsole.UI.html">UI</a>.<a class="xref" href="SadConsole.UI.Controls.html">Controls</a></dd></dl>
-  <dl><dt>Assembly</dt><dd>SadConsole.Extended.dll</dd></dl>
-  </div>
-
-  <div class="markdown summary"><p>Displays the glyphs associated with a font and allows the user to select one.</p>
+  <h1 id="SadConsole_UI_Controls_CharacterPicker" data-uid="SadConsole.UI.Controls.CharacterPicker" class="text-break">Class CharacterPicker
+</h1>
+  <div class="markdown level0 summary"><p>Displays the glyphs associated with a font and allows the user to select one.</p>
 </div>
-  <div class="markdown conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class CharacterPicker : SurfaceViewer, IContainer, IList&lt;ControlBase&gt;, ICollection&lt;ControlBase&gt;, IEnumerable&lt;ControlBase&gt;, IEnumerable</code></pre>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></div>
+    <div class="level2"><a class="xref" href="SadConsole.UI.Controls.CompositeControl.html">CompositeControl</a></div>
+    <div class="level3"><a class="xref" href="SadConsole.UI.Controls.SurfaceViewer.html">SurfaceViewer</a></div>
+    <div class="level4"><span class="xref">CharacterPicker</span></div>
   </div>
-
-
-
-
-  <dl class="typelist inheritance">
-    <dt>Inheritance</dt>
-    <dd>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></div>
-      <div><a class="xref" href="SadConsole.UI.Controls.CompositeControl.html">CompositeControl</a></div>
-      <div><a class="xref" href="SadConsole.UI.Controls.SurfaceViewer.html">SurfaceViewer</a></div>
-      <div><span class="xref">CharacterPicker</span></div>
-    </dd>
-  </dl>
-
-  <dl class="typelist implements">
-    <dt>Implements</dt>
-    <dd>
-      <div><a class="xref" href="SadConsole.UI.Controls.IContainer.html">IContainer</a></div>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a>&gt;</div>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection</a>&lt;<a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a>&gt;</div>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a>&gt;</div>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
-    </dd>
-  </dl>
-
-
-  <dl class="typelist derived">
-    <dt>Inherited Members</dt>
-    <dd>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="SadConsole.UI.Controls.IContainer.html">IContainer</a></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a>&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection</a>&lt;<a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a>&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a>&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
     <div>
       <a class="xref" href="SadConsole.UI.Controls.SurfaceViewer.html#SadConsole_UI_Controls_SurfaceViewer_HorizontalScroller">SurfaceViewer.HorizontalScroller</a>
     </div>
@@ -370,611 +334,563 @@
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
     </div>
-  </dd></dl>
-
-
-
-
-
-
-  <h2 class="section" id="constructors">Constructors
-</h2>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="SadConsole.html">SadConsole</a>.<a class="xref" href="SadConsole.UI.html">UI</a>.<a class="xref" href="SadConsole.UI.Controls.html">Controls</a></h6>
+  <h6><strong>Assembly</strong>: SadConsole.Extended.dll</h6>
+  <h5 id="SadConsole_UI_Controls_CharacterPicker_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class CharacterPicker : SurfaceViewer, IContainer, IList&lt;ControlBase&gt;, ICollection&lt;ControlBase&gt;, IEnumerable&lt;ControlBase&gt;, IEnumerable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
 
 
   <a id="SadConsole_UI_Controls_CharacterPicker__ctor_" data-uid="SadConsole.UI.Controls.CharacterPicker.#ctor*"></a>
-
-  <h3 id="SadConsole_UI_Controls_CharacterPicker__ctor_SadRogue_Primitives_Color_SadRogue_Primitives_Color_SadRogue_Primitives_Color_SadConsole_SadFont_System_Int32_System_Int32_" data-uid="SadConsole.UI.Controls.CharacterPicker.#ctor(SadRogue.Primitives.Color,SadRogue.Primitives.Color,SadRogue.Primitives.Color,SadConsole.SadFont,System.Int32,System.Int32)">
-  CharacterPicker(Color, Color, Color, SadFont, int, int)
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_Controls_CharacterPicker__ctor_SadRogue_Primitives_Color_SadRogue_Primitives_Color_SadRogue_Primitives_Color_SadConsole_SadFont_System_Int32_System_Int32_" data-uid="SadConsole.UI.Controls.CharacterPicker.#ctor(SadRogue.Primitives.Color,SadRogue.Primitives.Color,SadRogue.Primitives.Color,SadConsole.SadFont,System.Int32,System.Int32)">CharacterPicker(Color, Color, Color, SadFont, int, int)</h4>
   <div class="markdown level1 summary"><p>Creates a new picker control with the specified font.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public CharacterPicker(Color foreground, Color fill, Color selectedCharacterColor, SadFont characterFont, int visibleColumns, int visibleRows)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>foreground</code> <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></dt>
-    <dd><p>The default foreground for glyphs.</p>
-</dd>
-    <dt><code>fill</code> <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></dt>
-    <dd><p>The default backround for glyphs.</p>
-</dd>
-    <dt><code>selectedCharacterColor</code> <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></dt>
-    <dd><p>The foreground for the selected glyph.</p>
-</dd>
-    <dt><code>characterFont</code> <a class="xref" href="SadConsole.SadFont.html">SadFont</a></dt>
-    <dd><p>The font to use with the control.</p>
-</dd>
-    <dt><code>visibleColumns</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The number of columns to show. The control will be this wide plus 1.</p>
-</dd>
-    <dt><code>visibleRows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The number of rows to show. The control will be this high plus 1.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <h2 class="section" id="properties">Properties
-</h2>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></td>
+        <td><span class="parametername">foreground</span></td>
+        <td><p>The default foreground for glyphs.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></td>
+        <td><span class="parametername">fill</span></td>
+        <td><p>The default backround for glyphs.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></td>
+        <td><span class="parametername">selectedCharacterColor</span></td>
+        <td><p>The foreground for the selected glyph.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SadConsole.SadFont.html">SadFont</a></td>
+        <td><span class="parametername">characterFont</span></td>
+        <td><p>The font to use with the control.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">visibleColumns</span></td>
+        <td><p>The number of columns to show. The control will be this wide plus 1.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">visibleRows</span></td>
+        <td><p>The number of rows to show. The control will be this high plus 1.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
 
 
   <a id="SadConsole_UI_Controls_CharacterPicker_GlyphBackground_" data-uid="SadConsole.UI.Controls.CharacterPicker.GlyphBackground*"></a>
-
-  <h3 id="SadConsole_UI_Controls_CharacterPicker_GlyphBackground" data-uid="SadConsole.UI.Controls.CharacterPicker.GlyphBackground">
-  GlyphBackground
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_Controls_CharacterPicker_GlyphBackground" data-uid="SadConsole.UI.Controls.CharacterPicker.GlyphBackground">GlyphBackground</h4>
   <div class="markdown level1 summary"><p>Gets the background color used when drawing the glyphs.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Color GlyphBackground { get; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></td>
+        <td>Displays the glyphs associated with a font and allows the user to select one.</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_Controls_CharacterPicker_GlyphForeground_" data-uid="SadConsole.UI.Controls.CharacterPicker.GlyphForeground*"></a>
-
-  <h3 id="SadConsole_UI_Controls_CharacterPicker_GlyphForeground" data-uid="SadConsole.UI.Controls.CharacterPicker.GlyphForeground">
-  GlyphForeground
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_Controls_CharacterPicker_GlyphForeground" data-uid="SadConsole.UI.Controls.CharacterPicker.GlyphForeground">GlyphForeground</h4>
   <div class="markdown level1 summary"><p>Gets the foreground color used when drawing the glyphs.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Color GlyphForeground { get; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></td>
+        <td>Displays the glyphs associated with a font and allows the user to select one.</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_Controls_CharacterPicker_HighlightSelectedCharacter_" data-uid="SadConsole.UI.Controls.CharacterPicker.HighlightSelectedCharacter*"></a>
-
-  <h3 id="SadConsole_UI_Controls_CharacterPicker_HighlightSelectedCharacter" data-uid="SadConsole.UI.Controls.CharacterPicker.HighlightSelectedCharacter">
-  HighlightSelectedCharacter
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_Controls_CharacterPicker_HighlightSelectedCharacter" data-uid="SadConsole.UI.Controls.CharacterPicker.HighlightSelectedCharacter">HighlightSelectedCharacter</h4>
   <div class="markdown level1 summary"><p>When true, highlights the selected character with <a class="xref" href="SadConsole.UI.Controls.CharacterPicker.html#SadConsole_UI_Controls_CharacterPicker_SelectedGlyphForeground">SelectedGlyphForeground</a> when <a class="xref" href="SadConsole.UI.Controls.CharacterPicker.html#SadConsole_UI_Controls_CharacterPicker_HighlightSelectedCharacterWithEffect">HighlightSelectedCharacterWithEffect</a> is false;</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool HighlightSelectedCharacter { get; set; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td>Displays the glyphs associated with a font and allows the user to select one.</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_Controls_CharacterPicker_HighlightSelectedCharacterWithEffect_" data-uid="SadConsole.UI.Controls.CharacterPicker.HighlightSelectedCharacterWithEffect*"></a>
-
-  <h3 id="SadConsole_UI_Controls_CharacterPicker_HighlightSelectedCharacterWithEffect" data-uid="SadConsole.UI.Controls.CharacterPicker.HighlightSelectedCharacterWithEffect">
-  HighlightSelectedCharacterWithEffect
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_Controls_CharacterPicker_HighlightSelectedCharacterWithEffect" data-uid="SadConsole.UI.Controls.CharacterPicker.HighlightSelectedCharacterWithEffect">HighlightSelectedCharacterWithEffect</h4>
   <div class="markdown level1 summary"><p>When true, uses <a class="xref" href="SadConsole.UI.Controls.CharacterPicker.html#SadConsole_UI_Controls_CharacterPicker_SelectedGlyphEffect">SelectedGlyphEffect</a> to highlight the character.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool HighlightSelectedCharacterWithEffect { get; set; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td>Displays the glyphs associated with a font and allows the user to select one.</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_Controls_CharacterPicker_MirrorSetting_" data-uid="SadConsole.UI.Controls.CharacterPicker.MirrorSetting*"></a>
-
-  <h3 id="SadConsole_UI_Controls_CharacterPicker_MirrorSetting" data-uid="SadConsole.UI.Controls.CharacterPicker.MirrorSetting">
-  MirrorSetting
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_Controls_CharacterPicker_MirrorSetting" data-uid="SadConsole.UI.Controls.CharacterPicker.MirrorSetting">MirrorSetting</h4>
   <div class="markdown level1 summary"><p>Gets or sets the mirror effect to apply in the theme.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Mirror MirrorSetting { get; set; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="SadConsole.Mirror.html">Mirror</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.Mirror.html">Mirror</a></td>
+        <td>Displays the glyphs associated with a font and allows the user to select one.</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_Controls_CharacterPicker_NewCharacterLocation_" data-uid="SadConsole.UI.Controls.CharacterPicker.NewCharacterLocation*"></a>
-
-  <h3 id="SadConsole_UI_Controls_CharacterPicker_NewCharacterLocation" data-uid="SadConsole.UI.Controls.CharacterPicker.NewCharacterLocation">
-  NewCharacterLocation
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_Controls_CharacterPicker_NewCharacterLocation" data-uid="SadConsole.UI.Controls.CharacterPicker.NewCharacterLocation">NewCharacterLocation</h4>
   <div class="markdown level1 summary"><p>Gets the position of the newly selected character. Used by the theme.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Point NewCharacterLocation { get; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Point.html">Point</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Point.html">Point</a></td>
+        <td>Displays the glyphs associated with a font and allows the user to select one.</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_Controls_CharacterPicker_OldCharacterLocation_" data-uid="SadConsole.UI.Controls.CharacterPicker.OldCharacterLocation*"></a>
-
-  <h3 id="SadConsole_UI_Controls_CharacterPicker_OldCharacterLocation" data-uid="SadConsole.UI.Controls.CharacterPicker.OldCharacterLocation">
-  OldCharacterLocation
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_Controls_CharacterPicker_OldCharacterLocation" data-uid="SadConsole.UI.Controls.CharacterPicker.OldCharacterLocation">OldCharacterLocation</h4>
   <div class="markdown level1 summary"><p>Gets the position of the previously selected character. Used by the theme.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Point OldCharacterLocation { get; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Point.html">Point</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Point.html">Point</a></td>
+        <td>Displays the glyphs associated with a font and allows the user to select one.</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_Controls_CharacterPicker_SelectedCharacter_" data-uid="SadConsole.UI.Controls.CharacterPicker.SelectedCharacter*"></a>
-
-  <h3 id="SadConsole_UI_Controls_CharacterPicker_SelectedCharacter" data-uid="SadConsole.UI.Controls.CharacterPicker.SelectedCharacter">
-  SelectedCharacter
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_Controls_CharacterPicker_SelectedCharacter" data-uid="SadConsole.UI.Controls.CharacterPicker.SelectedCharacter">SelectedCharacter</h4>
   <div class="markdown level1 summary"><p>Gets or sets the selected glyph character.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int SelectedCharacter { get; set; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td>Displays the glyphs associated with a font and allows the user to select one.</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_Controls_CharacterPicker_SelectedGlyphEffect_" data-uid="SadConsole.UI.Controls.CharacterPicker.SelectedGlyphEffect*"></a>
-
-  <h3 id="SadConsole_UI_Controls_CharacterPicker_SelectedGlyphEffect" data-uid="SadConsole.UI.Controls.CharacterPicker.SelectedGlyphEffect">
-  SelectedGlyphEffect
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_Controls_CharacterPicker_SelectedGlyphEffect" data-uid="SadConsole.UI.Controls.CharacterPicker.SelectedGlyphEffect">SelectedGlyphEffect</h4>
   <div class="markdown level1 summary"><p>Gets the effect to apply when drawing the selected glyph.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ICellEffect? SelectedGlyphEffect { get; set; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="SadConsole.Effects.ICellEffect.html">ICellEffect</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.Effects.ICellEffect.html">ICellEffect</a></td>
+        <td>Displays the glyphs associated with a font and allows the user to select one.</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_Controls_CharacterPicker_SelectedGlyphForeground_" data-uid="SadConsole.UI.Controls.CharacterPicker.SelectedGlyphForeground*"></a>
-
-  <h3 id="SadConsole_UI_Controls_CharacterPicker_SelectedGlyphForeground" data-uid="SadConsole.UI.Controls.CharacterPicker.SelectedGlyphForeground">
-  SelectedGlyphForeground
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_Controls_CharacterPicker_SelectedGlyphForeground" data-uid="SadConsole.UI.Controls.CharacterPicker.SelectedGlyphForeground">SelectedGlyphForeground</h4>
   <div class="markdown level1 summary"><p>Gets the foreground color used when drawing the selected glyph.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Color SelectedGlyphForeground { get; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></td>
+        <td>Displays the glyphs associated with a font and allows the user to select one.</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_UI_Controls_CharacterPicker_UseFullClick_" data-uid="SadConsole.UI.Controls.CharacterPicker.UseFullClick*"></a>
-
-  <h3 id="SadConsole_UI_Controls_CharacterPicker_UseFullClick" data-uid="SadConsole.UI.Controls.CharacterPicker.UseFullClick">
-  UseFullClick
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_Controls_CharacterPicker_UseFullClick" data-uid="SadConsole.UI.Controls.CharacterPicker.UseFullClick">UseFullClick</h4>
   <div class="markdown level1 summary"><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that the control should use a mouse click to select a new character; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> to indicate that just having the mouse down will select a new character.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool UseFullClick { get; set; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <h2 class="section" id="methods">Methods
-</h2>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td>Displays the glyphs associated with a font and allows the user to select one.</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
 
 
   <a id="SadConsole_UI_Controls_CharacterPicker_CreateControlSurface_" data-uid="SadConsole.UI.Controls.CharacterPicker.CreateControlSurface*"></a>
-
-  <h3 id="SadConsole_UI_Controls_CharacterPicker_CreateControlSurface" data-uid="SadConsole.UI.Controls.CharacterPicker.CreateControlSurface">
-  CreateControlSurface()
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_Controls_CharacterPicker_CreateControlSurface" data-uid="SadConsole.UI.Controls.CharacterPicker.CreateControlSurface">CreateControlSurface()</h4>
   <div class="markdown level1 summary"><p>Generates the surface to be used by this control. This method is called internally to assign the <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_Surface">Surface</a> property a value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override ICellSurface CreateControlSurface()</code></pre>
   </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a></dt>
-    <dd><p>A surface that should be assigned to the <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_Surface">Surface</a> property.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a></td>
+        <td><p>A surface that should be assigned to the <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_Surface">Surface</a> property.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_CreateControlSurface">ControlBase.CreateControlSurface()</a></div>
 
 
   <a id="SadConsole_UI_Controls_CharacterPicker_OnLeftMouseClicked_" data-uid="SadConsole.UI.Controls.CharacterPicker.OnLeftMouseClicked*"></a>
-
-  <h3 id="SadConsole_UI_Controls_CharacterPicker_OnLeftMouseClicked_SadConsole_UI_Controls_ControlBase_ControlMouseState_" data-uid="SadConsole.UI.Controls.CharacterPicker.OnLeftMouseClicked(SadConsole.UI.Controls.ControlBase.ControlMouseState)">
-  OnLeftMouseClicked(ControlMouseState)
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_Controls_CharacterPicker_OnLeftMouseClicked_SadConsole_UI_Controls_ControlBase_ControlMouseState_" data-uid="SadConsole.UI.Controls.CharacterPicker.OnLeftMouseClicked(SadConsole.UI.Controls.ControlBase.ControlMouseState)">OnLeftMouseClicked(ControlMouseState)</h4>
   <div class="markdown level1 summary"><p>Called when the left mouse button is clicked. Raises the MouseButtonClicked event and calls the <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_DetermineState">DetermineState()</a> method.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnLeftMouseClicked(ControlBase.ControlMouseState info)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>info</code> <a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a>.<a class="xref" href="SadConsole.UI.Controls.ControlBase.ControlMouseState.html">ControlMouseState</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a>.<a class="xref" href="SadConsole.UI.Controls.ControlBase.ControlMouseState.html">ControlMouseState</a></td>
+        <td><span class="parametername">info</span></td>
+        <td>Displays the glyphs associated with a font and allows the user to select one.</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_OnLeftMouseClicked_SadConsole_UI_Controls_ControlBase_ControlMouseState_">ControlBase.OnLeftMouseClicked(ControlBase.ControlMouseState)</a></div>
 
 
   <a id="SadConsole_UI_Controls_CharacterPicker_OnMouseIn_" data-uid="SadConsole.UI.Controls.CharacterPicker.OnMouseIn*"></a>
-
-  <h3 id="SadConsole_UI_Controls_CharacterPicker_OnMouseIn_SadConsole_UI_Controls_ControlBase_ControlMouseState_" data-uid="SadConsole.UI.Controls.CharacterPicker.OnMouseIn(SadConsole.UI.Controls.ControlBase.ControlMouseState)">
-  OnMouseIn(ControlMouseState)
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_Controls_CharacterPicker_OnMouseIn_SadConsole_UI_Controls_ControlBase_ControlMouseState_" data-uid="SadConsole.UI.Controls.CharacterPicker.OnMouseIn(SadConsole.UI.Controls.ControlBase.ControlMouseState)">OnMouseIn(ControlMouseState)</h4>
   <div class="markdown level1 summary"><p>Called as the mouse moves around the control area. Raises the MouseMove event and calls the <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_DetermineState">DetermineState()</a> method.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected override void OnMouseIn(ControlBase.ControlMouseState info)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>info</code> <a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a>.<a class="xref" href="SadConsole.UI.Controls.ControlBase.ControlMouseState.html">ControlMouseState</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a>.<a class="xref" href="SadConsole.UI.Controls.ControlBase.ControlMouseState.html">ControlMouseState</a></td>
+        <td><span class="parametername">info</span></td>
+        <td>Displays the glyphs associated with a font and allows the user to select one.</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_OnMouseIn_SadConsole_UI_Controls_ControlBase_ControlMouseState_">ControlBase.OnMouseIn(ControlBase.ControlMouseState)</a></div>
 
 
   <a id="SadConsole_UI_Controls_CharacterPicker_UpdateAndRedraw_" data-uid="SadConsole.UI.Controls.CharacterPicker.UpdateAndRedraw*"></a>
-
-  <h3 id="SadConsole_UI_Controls_CharacterPicker_UpdateAndRedraw_System_TimeSpan_" data-uid="SadConsole.UI.Controls.CharacterPicker.UpdateAndRedraw(System.TimeSpan)">
-  UpdateAndRedraw(TimeSpan)
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_Controls_CharacterPicker_UpdateAndRedraw_System_TimeSpan_" data-uid="SadConsole.UI.Controls.CharacterPicker.UpdateAndRedraw(System.TimeSpan)">UpdateAndRedraw(TimeSpan)</h4>
   <div class="markdown level1 summary"><p>Updates each control hosted by this control.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void UpdateAndRedraw(TimeSpan time)</code></pre>
   </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
+        <td><span class="parametername">time</span></td>
+        <td><p>The game frame time delta.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="SadConsole.UI.Controls.SurfaceViewer.html#SadConsole_UI_Controls_SurfaceViewer_UpdateAndRedraw_System_TimeSpan_">SurfaceViewer.UpdateAndRedraw(TimeSpan)</a></div>
+  <h3 id="events">Events
+</h3>
 
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd><p>The game frame time delta.</p>
-</dd>
-  </dl>
 
-
-
-
-
-
-
-
-
-
-
-
-  <h2 class="section" id="events">Events
-</h2>
-
-
-
-  <h3 id="SadConsole_UI_Controls_CharacterPicker_SelectedCharacterChanged" data-uid="SadConsole.UI.Controls.CharacterPicker.SelectedCharacterChanged">
-  SelectedCharacterChanged
-  
-  </h3>
-
+  <h4 id="SadConsole_UI_Controls_CharacterPicker_SelectedCharacterChanged" data-uid="SadConsole.UI.Controls.CharacterPicker.SelectedCharacterChanged">SelectedCharacterChanged</h4>
   <div class="markdown level1 summary"><p>Raised when the <a class="xref" href="SadConsole.UI.Controls.CharacterPicker.html#SadConsole_UI_Controls_CharacterPicker_SelectedCharacter">SelectedCharacter</a> property changes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler&lt;ValueChangedEventArgs&lt;int&gt;&gt; SelectedCharacterChanged</code></pre>
   </div>
-
-
-
-
-
-
-  <h4 class="section">Event Type</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.ValueChangedEventArgs-1.html">ValueChangedEventArgs</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;&gt;</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.ValueChangedEventArgs-1.html">ValueChangedEventArgs</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;&gt;</td>
+        <td>Displays the glyphs associated with a font and allows the user to select one.</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="SadConsole.UI.Controls.IContainer.html">IContainer</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a>
+  </div>
 
 </article>
+          </div>
 
-        <div class="contribution d-print-none">
-        </div>
-
-
-      </div>
-
-      <div class="affix">
-        <nav id="affix"></nav>
-      </div>
-    </main>
-
-
-    <footer class="border-top text-secondary">
-      <div class="container-xxl">
-        <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          <div class="hidden-sm col-md-3" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+                <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
         </div>
       </div>
-    </footer>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
   </body>
 </html>

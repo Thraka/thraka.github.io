@@ -1,145 +1,104 @@
 ﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
 <html>
+
   <head>
     <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <title>Class InstructionBase
- | SadConsole v10 </title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ | SadConsole v10</title>
+      <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class InstructionBase
- | SadConsole v10 ">
-      
-      
-      <link rel="icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../public/docfx.min.css">
-      <link rel="stylesheet" href="../public/main.css">
-      <meta name="docfx:navrel" content="../toc.html">
-      <meta name="docfx:tocrel" content="toc.html">
-      
-      
-      
-      
-      
-      <meta name="loc:inThisArticle" content="In this article">
-      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
-      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
-      <meta name="loc:tocFilter" content="Filter by title">
-      <meta name="loc:nextArticle" content="Next">
-      <meta name="loc:prevArticle" content="Previous">
-      <meta name="loc:themeLight" content="Light">
-      <meta name="loc:themeDark" content="Dark">
-      <meta name="loc:themeAuto" content="Auto">
-      <meta name="loc:changeTheme" content="Change theme">
-      <meta name="loc:copy" content="Copy">
-      <meta name="loc:downloadPdf" content="Download PDF">
+ | SadConsole v10">
+    <meta name="description" content="Base class for all instructions.">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/dracula.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+      <meta http-equiv='content-language' content='en-us'>
+    
+    
+    
   </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
 
-  <script type="module" src="./../public/docfx.min.js"></script>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
 
-  <script>
-    const theme = localStorage.getItem('theme') || 'auto'
-    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-  </script>
-
-
-  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
-    <header class="bg-body border-bottom">
-      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
-        <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../images/SadConsoleLogo.gif" alt="">
-            
-          </a>
-          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="bi bi-three-dots"></i>
-          </button>
-          <div class="collapse navbar-collapse" id="navpanel">
-            <div id="navbar">
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
             </div>
           </div>
-        </div>
-      </nav>
-    </header>
+        </nav>
 
-    <main class="container-xxl">
-      <div class="toc-offcanvas">
-        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-            <nav class="toc" id="toc"></nav>
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
           </div>
         </div>
-      </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
 
-      <div class="content">
-        <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
-            <i class="bi bi-list"></i>
-          </button>
-
-          <nav id="breadcrumb"></nav>
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
         </div>
+        <div class="article row grid-right">
+          <div class="col-md-9">
+            <article class="content wrap" id="_content" data-uid="SadConsole.Instructions.InstructionBase">
 
-        <article data-uid="SadConsole.Instructions.InstructionBase">
 
 
-
-  <h1 id="SadConsole_Instructions_InstructionBase" data-uid="SadConsole.Instructions.InstructionBase" class="text-break">
-    Class InstructionBase
-  
-  </h1>
-
-  <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="SadConsole.html">SadConsole</a>.<a class="xref" href="SadConsole.Instructions.html">Instructions</a></dd></dl>
-  <dl><dt>Assembly</dt><dd>SadConsole.dll</dd></dl>
-  </div>
-
-  <div class="markdown summary"><p>Base class for all instructions.</p>
+  <h1 id="SadConsole_Instructions_InstructionBase" data-uid="SadConsole.Instructions.InstructionBase" class="text-break">Class InstructionBase
+</h1>
+  <div class="markdown level0 summary"><p>Base class for all instructions.</p>
 </div>
-  <div class="markdown conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class InstructionBase : UpdateComponent, IComponent</code></pre>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><a class="xref" href="SadConsole.Components.UpdateComponent.html">UpdateComponent</a></div>
+    <div class="level2"><span class="xref">InstructionBase</span></div>
+      <div class="level3"><a class="xref" href="SadConsole.Instructions.AnimatedBoxGrow.html">AnimatedBoxGrow</a></div>
+      <div class="level3"><a class="xref" href="SadConsole.Instructions.CodeInstruction.html">CodeInstruction</a></div>
+      <div class="level3"><a class="xref" href="SadConsole.Instructions.ConcurrentInstructions.html">ConcurrentInstructions</a></div>
+      <div class="level3"><a class="xref" href="SadConsole.Instructions.DrawString.html">DrawString</a></div>
+      <div class="level3"><a class="xref" href="SadConsole.Instructions.InstructionSet.html">InstructionSet</a></div>
+      <div class="level3"><a class="xref" href="SadConsole.Instructions.PredicateInstruction.html">PredicateInstruction</a></div>
+      <div class="level3"><a class="xref" href="SadConsole.Instructions.Wait.html">Wait</a></div>
+      <div class="level3"><a class="xref" href="SadConsole.Transitions.Fade.html">Fade</a></div>
   </div>
-
-
-
-
-  <dl class="typelist inheritance">
-    <dt>Inheritance</dt>
-    <dd>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><a class="xref" href="SadConsole.Components.UpdateComponent.html">UpdateComponent</a></div>
-      <div><span class="xref">InstructionBase</span></div>
-    </dd>
-  </dl>
-
-  <dl class="typelist implements">
-    <dt>Implements</dt>
-    <dd>
-      <div><a class="xref" href="SadConsole.Components.IComponent.html">IComponent</a></div>
-    </dd>
-  </dl>
-
-  <dl class="typelist derived">
-    <dt>Derived</dt>
-    <dd>
-      <div><a class="xref" href="SadConsole.Instructions.AnimatedBoxGrow.html">AnimatedBoxGrow</a></div>
-      <div><a class="xref" href="SadConsole.Instructions.CodeInstruction.html">CodeInstruction</a></div>
-      <div><a class="xref" href="SadConsole.Instructions.ConcurrentInstructions.html">ConcurrentInstructions</a></div>
-      <div><a class="xref" href="SadConsole.Instructions.DrawString.html">DrawString</a></div>
-      <div><a class="xref" href="SadConsole.Instructions.InstructionSet.html">InstructionSet</a></div>
-      <div><a class="xref" href="SadConsole.Instructions.PredicateInstruction.html">PredicateInstruction</a></div>
-      <div><a class="xref" href="SadConsole.Instructions.Wait.html">Wait</a></div>
-      <div><a class="xref" href="SadConsole.Transitions.Fade.html">Fade</a></div>
-    </dd>
-  </dl>
-
-  <dl class="typelist derived">
-    <dt>Inherited Members</dt>
-    <dd>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="SadConsole.Components.IComponent.html">IComponent</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
     <div>
       <a class="xref" href="SadConsole.Components.UpdateComponent.html#SadConsole_Components_UpdateComponent_OnAdded_SadConsole_IScreenObject_">UpdateComponent.OnAdded(IScreenObject)</a>
     </div>
@@ -170,447 +129,339 @@
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
     </div>
-  </dd></dl>
-
-
-
-
-
-
-  <h2 class="section" id="constructors">Constructors
-</h2>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="SadConsole.html">SadConsole</a>.<a class="xref" href="SadConsole.Instructions.html">Instructions</a></h6>
+  <h6><strong>Assembly</strong>: SadConsole.dll</h6>
+  <h5 id="SadConsole_Instructions_InstructionBase_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class InstructionBase : UpdateComponent, IComponent</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
 
 
   <a id="SadConsole_Instructions_InstructionBase__ctor_" data-uid="SadConsole.Instructions.InstructionBase.#ctor*"></a>
-
-  <h3 id="SadConsole_Instructions_InstructionBase__ctor" data-uid="SadConsole.Instructions.InstructionBase.#ctor">
-  InstructionBase()
-  
-  </h3>
-
+  <h4 id="SadConsole_Instructions_InstructionBase__ctor" data-uid="SadConsole.Instructions.InstructionBase.#ctor">InstructionBase()</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected InstructionBase()</code></pre>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <h2 class="section" id="properties">Properties
-</h2>
+  <h3 id="properties">Properties
+</h3>
 
 
   <a id="SadConsole_Instructions_InstructionBase_IsFinished_" data-uid="SadConsole.Instructions.InstructionBase.IsFinished*"></a>
-
-  <h3 id="SadConsole_Instructions_InstructionBase_IsFinished" data-uid="SadConsole.Instructions.InstructionBase.IsFinished">
-  IsFinished
-  
-  </h3>
-
+  <h4 id="SadConsole_Instructions_InstructionBase_IsFinished" data-uid="SadConsole.Instructions.InstructionBase.IsFinished">IsFinished</h4>
   <div class="markdown level1 summary"><p>Flags the instruction as completed or not. If completed, the <a class="xref" href="SadConsole.Instructions.InstructionBase.html#SadConsole_Instructions_InstructionBase_Finished">Finished</a> event will be raised.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsFinished { get; set; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td>Base class for all instructions.</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_Instructions_InstructionBase_RemoveOnFinished_" data-uid="SadConsole.Instructions.InstructionBase.RemoveOnFinished*"></a>
-
-  <h3 id="SadConsole_Instructions_InstructionBase_RemoveOnFinished" data-uid="SadConsole.Instructions.InstructionBase.RemoveOnFinished">
-  RemoveOnFinished
-  
-  </h3>
-
+  <h4 id="SadConsole_Instructions_InstructionBase_RemoveOnFinished" data-uid="SadConsole.Instructions.InstructionBase.RemoveOnFinished">RemoveOnFinished</h4>
   <div class="markdown level1 summary"><p>When true, this instruction will automatically remove itself from the parent's SadConsole.IScreenObject.SadComponents collection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool RemoveOnFinished { get; set; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td>Base class for all instructions.</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_Instructions_InstructionBase_RepeatCount_" data-uid="SadConsole.Instructions.InstructionBase.RepeatCount*"></a>
-
-  <h3 id="SadConsole_Instructions_InstructionBase_RepeatCount" data-uid="SadConsole.Instructions.InstructionBase.RepeatCount">
-  RepeatCount
-  
-  </h3>
-
+  <h4 id="SadConsole_Instructions_InstructionBase_RepeatCount" data-uid="SadConsole.Instructions.InstructionBase.RepeatCount">RepeatCount</h4>
   <div class="markdown level1 summary"><p>Indicates how many times this set will repeat. Use 0 to not repeat and -1 to repeat forever.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int RepeatCount { get; set; }</code></pre>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-  <h4 class="section" id="SadConsole_Instructions_InstructionBase_RepeatCount_remarks">Remarks</h4>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td>Base class for all instructions.</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="SadConsole_Instructions_InstructionBase_RepeatCount_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>This property counts down each time the instruction finishes. If set to -1 it will repeat forever. As this represents how many times to repeat, setting this value to 1 would allow the instruction to execute twice, once for the original time, and again for the repeat counter of 1.</p>
 </div>
-
-
-
-
-  <h2 class="section" id="methods">Methods
-</h2>
+  <h3 id="methods">Methods
+</h3>
 
 
   <a id="SadConsole_Instructions_InstructionBase_OnFinished_" data-uid="SadConsole.Instructions.InstructionBase.OnFinished*"></a>
-
-  <h3 id="SadConsole_Instructions_InstructionBase_OnFinished_SadConsole_IScreenObject_" data-uid="SadConsole.Instructions.InstructionBase.OnFinished(SadConsole.IScreenObject)">
-  OnFinished(IScreenObject)
-  
-  </h3>
-
+  <h4 id="SadConsole_Instructions_InstructionBase_OnFinished_SadConsole_IScreenObject_" data-uid="SadConsole.Instructions.InstructionBase.OnFinished(SadConsole.IScreenObject)">OnFinished(IScreenObject)</h4>
   <div class="markdown level1 summary"><p>Called when the instruction finishes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnFinished(IScreenObject componentHost)</code></pre>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>componentHost</code> <a class="xref" href="SadConsole.IScreenObject.html">IScreenObject</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.IScreenObject.html">IScreenObject</a></td>
+        <td><span class="parametername">componentHost</span></td>
+        <td>Base class for all instructions.</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_Instructions_InstructionBase_OnRepeating_" data-uid="SadConsole.Instructions.InstructionBase.OnRepeating*"></a>
-
-  <h3 id="SadConsole_Instructions_InstructionBase_OnRepeating" data-uid="SadConsole.Instructions.InstructionBase.OnRepeating">
-  OnRepeating()
-  
-  </h3>
-
+  <h4 id="SadConsole_Instructions_InstructionBase_OnRepeating" data-uid="SadConsole.Instructions.InstructionBase.OnRepeating">OnRepeating()</h4>
   <div class="markdown level1 summary"><p>Called when the instruction repeats.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnRepeating()</code></pre>
   </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
   <a id="SadConsole_Instructions_InstructionBase_OnStarted_" data-uid="SadConsole.Instructions.InstructionBase.OnStarted*"></a>
-
-  <h3 id="SadConsole_Instructions_InstructionBase_OnStarted" data-uid="SadConsole.Instructions.InstructionBase.OnStarted">
-  OnStarted()
-  
-  </h3>
-
+  <h4 id="SadConsole_Instructions_InstructionBase_OnStarted" data-uid="SadConsole.Instructions.InstructionBase.OnStarted">OnStarted()</h4>
   <div class="markdown level1 summary"><p>Called when the instruction first runs.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void OnStarted()</code></pre>
   </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
   <a id="SadConsole_Instructions_InstructionBase_Repeat_" data-uid="SadConsole.Instructions.InstructionBase.Repeat*"></a>
-
-  <h3 id="SadConsole_Instructions_InstructionBase_Repeat" data-uid="SadConsole.Instructions.InstructionBase.Repeat">
-  Repeat()
-  
-  </h3>
-
+  <h4 id="SadConsole_Instructions_InstructionBase_Repeat" data-uid="SadConsole.Instructions.InstructionBase.Repeat">Repeat()</h4>
   <div class="markdown level1 summary"><p>Repeats the current instruction. Decrements the <a class="xref" href="SadConsole.Instructions.InstructionBase.html#SadConsole_Instructions_InstructionBase_RepeatCount">RepeatCount</a> value (if applicable), and raises the <a class="xref" href="SadConsole.Instructions.InstructionBase.html#SadConsole_Instructions_InstructionBase_Repeating">Repeating</a> event. This method should be overridden in derived classes to customize how the object is reset for a repeat.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void Repeat()</code></pre>
   </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
   <a id="SadConsole_Instructions_InstructionBase_Reset_" data-uid="SadConsole.Instructions.InstructionBase.Reset*"></a>
-
-  <h3 id="SadConsole_Instructions_InstructionBase_Reset" data-uid="SadConsole.Instructions.InstructionBase.Reset">
-  Reset()
-  
-  </h3>
-
+  <h4 id="SadConsole_Instructions_InstructionBase_Reset" data-uid="SadConsole.Instructions.InstructionBase.Reset">Reset()</h4>
   <div class="markdown level1 summary"><p>Resets the Done flag.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual void Reset()</code></pre>
   </div>
-
-
-
-
-
-
-
-
-
-  <h4 class="section" id="SadConsole_Instructions_InstructionBase_Reset_remarks">Remarks</h4>
+  <h5 id="SadConsole_Instructions_InstructionBase_Reset_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>On the base class, resets the <a class="xref" href="SadConsole.Instructions.InstructionBase.html#SadConsole_Instructions_InstructionBase_IsFinished">IsFinished</a> to false. Override this method to reset the derived class' counters and status flags for the instruction.</p>
 </div>
 
 
-
-
   <a id="SadConsole_Instructions_InstructionBase_Update_" data-uid="SadConsole.Instructions.InstructionBase.Update*"></a>
-
-  <h3 id="SadConsole_Instructions_InstructionBase_Update_SadConsole_IScreenObject_System_TimeSpan_" data-uid="SadConsole.Instructions.InstructionBase.Update(SadConsole.IScreenObject,System.TimeSpan)">
-  Update(IScreenObject, TimeSpan)
-  
-  </h3>
-
+  <h4 id="SadConsole_Instructions_InstructionBase_Update_SadConsole_IScreenObject_System_TimeSpan_" data-uid="SadConsole.Instructions.InstructionBase.Update(SadConsole.IScreenObject,System.TimeSpan)">Update(IScreenObject, TimeSpan)</h4>
   <div class="markdown level1 summary"><p>Executes the instruction. This base class method should be called from derived classes. If the IsFinished property is set to true, will try to repeat if needed and will raise all appropriate events.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override void Update(IScreenObject componentHost, TimeSpan delta)</code></pre>
   </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.IScreenObject.html">IScreenObject</a></td>
+        <td><span class="parametername">componentHost</span></td>
+        <td><p>The object that hosts this instruction.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
+        <td><span class="parametername">delta</span></td>
+        <td><p>The time that has elapsed since this method was last called.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="SadConsole.Components.UpdateComponent.html#SadConsole_Components_UpdateComponent_Update_SadConsole_IScreenObject_System_TimeSpan_">UpdateComponent.Update(IScreenObject, TimeSpan)</a></div>
+  <h3 id="events">Events
+</h3>
 
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>componentHost</code> <a class="xref" href="SadConsole.IScreenObject.html">IScreenObject</a></dt>
-    <dd><p>The object that hosts this instruction.</p>
-</dd>
-    <dt><code>delta</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd><p>The time that has elapsed since this method was last called.</p>
-</dd>
-  </dl>
 
-
-
-
-
-
-
-
-
-
-
-
-  <h2 class="section" id="events">Events
-</h2>
-
-
-
-  <h3 id="SadConsole_Instructions_InstructionBase_Finished" data-uid="SadConsole.Instructions.InstructionBase.Finished">
-  Finished
-  
-  </h3>
-
+  <h4 id="SadConsole_Instructions_InstructionBase_Finished" data-uid="SadConsole.Instructions.InstructionBase.Finished">Finished</h4>
   <div class="markdown level1 summary"><p>Raised when the instruction completes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler? Finished</code></pre>
   </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler">EventHandler</a></td>
+        <td>Base class for all instructions.</td>
+      </tr>
+    </tbody>
+  </table>
 
 
-
-
-
-
-  <h4 class="section">Event Type</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler">EventHandler</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <h3 id="SadConsole_Instructions_InstructionBase_Repeating" data-uid="SadConsole.Instructions.InstructionBase.Repeating">
-  Repeating
-  
-  </h3>
-
+  <h4 id="SadConsole_Instructions_InstructionBase_Repeating" data-uid="SadConsole.Instructions.InstructionBase.Repeating">Repeating</h4>
   <div class="markdown level1 summary"><p>Raised when the instruction completes but is going to repeat.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler? Repeating</code></pre>
   </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler">EventHandler</a></td>
+        <td>Base class for all instructions.</td>
+      </tr>
+    </tbody>
+  </table>
 
 
-
-
-
-
-  <h4 class="section">Event Type</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler">EventHandler</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <h3 id="SadConsole_Instructions_InstructionBase_Started" data-uid="SadConsole.Instructions.InstructionBase.Started">
-  Started
-  
-  </h3>
-
+  <h4 id="SadConsole_Instructions_InstructionBase_Started" data-uid="SadConsole.Instructions.InstructionBase.Started">Started</h4>
   <div class="markdown level1 summary"><p>Raised when the instruction starts.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public event EventHandler? Started</code></pre>
   </div>
-
-
-
-
-
-
-  <h4 class="section">Event Type</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler">EventHandler</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler">EventHandler</a></td>
+        <td>Base class for all instructions.</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="SadConsole.Components.IComponent.html">IComponent</a>
+  </div>
 
 </article>
+          </div>
 
-        <div class="contribution d-print-none">
-        </div>
-
-
-      </div>
-
-      <div class="affix">
-        <nav id="affix"></nav>
-      </div>
-    </main>
-
-
-    <footer class="border-top text-secondary">
-      <div class="container-xxl">
-        <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          <div class="hidden-sm col-md-3" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+                <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
         </div>
       </div>
-    </footer>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
   </body>
 </html>
