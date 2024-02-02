@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>How to connect lines on a surface | SadConsole v10</title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="How to connect lines on a surface | SadConsole v10">
+    <meta name="description" content="Learn how to connect lines on a surface so that they use junction glyphs to create smoothly connected intersections, in SadConsole.">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/dracula.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+      <meta http-equiv='content-language' content='en-us'>
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-9">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="connect-lines-on-a-surface">Connect lines on a surface</h1>
+
+<p>When you draw lines or boxes over each other, they overlay eachother, replacing the glyphs, creating gaps. Consider the following piece of code:</p>
+<pre><code class="lang-csharp">Surface.DrawBox(new Rectangle(2, 2, 10, 6), ShapeParameters.CreateStyledBoxThin(Color.AliceBlue));
+Surface.DrawBox(new Rectangle(11, 3, 10, 3), ShapeParameters.CreateStyledBoxThin(Color.Green));
+Surface.DrawBox(new Rectangle(13, 3, 4, 10), ShapeParameters.CreateStyledBoxThin(Color.Purple));
+Surface.DrawBox(new Rectangle(11, 7, 10, 4), ShapeParameters.CreateStyledBoxThin(Color.RosyBrown));
+Surface.DrawLine((4, 1), (4, 16), ICellSurface.ConnectedLineThin[0], Color.SteelBlue);
+</code></pre>
+<p>This code creates four boxes that intersect with each other. There's a single line drawn through the first box. The glyphs used in the boxes and the line come from the same &quot;set&quot; of glyphs, <code>ICellSurface.ConnectedLineThin</code>. As the following image shows, the lines for each shape have erased the previous glyph where they intersect. Also, the glyph used in the single vertical line doesn't look right:</p>
+<p><img src="images/how-to-connect-lines/before.png" alt="Four boxes and a single line. The glyphs for each box don't join each other cleanly."></p>
+<p>The <a class="xref" href="../api/SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_ConnectLines_SadConsole_ISurface_System_Int32___">ConnectLines(ISurface, int[])</a> editing methods connects those characters to make intersecting lines. The method takes the array that's composed of of line character glyphs in a specific sequence and connects them together. There are at least two line sequences provided by SadConsole, <a class="xref" href="../api/SadConsole.ICellSurface.html#SadConsole_ICellSurface_ConnectedLineThin">ICellSurface.ConnectedLineThin</a> and <a class="xref" href="../api/SadConsole.ICellSurface.html#SadConsole_ICellSurface_ConnectedLineThick">ICellSurface.ConnectedLineThick</a>. Lines from one set won't intersect and auto connect to another set.</p>
+<p>After all lines and boxes have been drawn, call the <code>ConnectLines</code> method to connect them. Be sure to use the same line style array.</p>
+<pre><code class="lang-csharp">Surface.ConnectLines(ICellSurface.ConnectedLineThin);
+</code></pre>
+<p>Now the entire surface is connected.</p>
+<p><img src="images/how-to-connect-lines/after.png" alt="Four boxes and a single line. The glyphs for each box cleanly join each other."></p>
+<p>Because the single vertical line used one of the characters from the line style array, it too was straightened out. You don't have to worry about drawing each character in the box or line appropriately, you just need to use one of the characters from the line style array.</p>
+<h2 id="example">Example</h2>
+<p>The following code is a SadConsole v10 program class.</p>
+<pre><code class="lang-csharp">using SadConsole.Configuration;
+
+Settings.WindowTitle = &quot;ConnectLines demo&quot;;
+
+Builder config =
+    new Builder()
+        .SetScreenSize(80, 25)
+        .IsStartingScreenFocused(true)
+        .SetStartingScreen&lt;ExampleConsole&gt;();
+
+Game.Create(config);
+Game.Instance.Run();
+Game.Instance.Dispose();
+
+class ExampleConsole : ScreenSurface
+{
+    public ExampleConsole() : base(130, 50)
+    {
+        Surface.DrawBox(new Rectangle(2, 2, 10, 6), ShapeParameters.CreateStyledBoxThin(Color.AliceBlue));
+        Surface.DrawBox(new Rectangle(11, 3, 10, 3), ShapeParameters.CreateStyledBoxThin(Color.Green));
+        Surface.DrawBox(new Rectangle(13, 3, 4, 10), ShapeParameters.CreateStyledBoxThin(Color.Purple));
+        Surface.DrawBox(new Rectangle(11, 7, 10, 4), ShapeParameters.CreateStyledBoxThin(Color.RosyBrown));
+        Surface.DrawLine((4, 1), (4, 16), ICellSurface.ConnectedLineThin[0], Color.SteelBlue);
+
+        Surface.ConnectLines(ICellSurface.ConnectedLineThin);
+    }
+}
+</code></pre>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-3" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+                <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
