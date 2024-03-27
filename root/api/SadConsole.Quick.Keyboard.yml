@@ -18,8 +18,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Quick
-  summary: Adds keyboard-related extension methods for <xref href="SadConsole.IScreenObject" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: public static class Keyboard
     content.vb: Public Module Keyboard
@@ -48,17 +46,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Quick
-  summary: Adds a keyboard handler to a <xref href="SadConsole.IScreenObject" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: public static IScreenObject WithKeyboard(this IScreenObject screenObject, Func<IScreenObject, Keyboard, bool> handler)
     parameters:
     - id: screenObject
       type: SadConsole.IScreenObject
-      description: The object to use.
     - id: handler
       type: System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean}
-      description: The handler callback.
     return:
       type: SadConsole.IScreenObject
     content.vb: Public Shared Function WithKeyboard(screenObject As IScreenObject, handler As Func(Of IScreenObject, Keyboard, Boolean)) As IScreenObject
@@ -81,14 +75,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Quick
-  summary: Removes all of the keyboard hooks added with <xref href="SadConsole.Quick.Keyboard.WithKeyboard(SadConsole.IScreenObject%2cSystem.Func%7bSadConsole.IScreenObject%2cSadConsole.Input.Keyboard%2cSystem.Boolean%7d)" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: public static IScreenObject RemoveKeyboardHooks(this IScreenObject screenObject)
     parameters:
     - id: screenObject
       type: SadConsole.IScreenObject
-      description: The object to use.
     return:
       type: SadConsole.IScreenObject
     content.vb: Public Shared Function RemoveKeyboardHooks(screenObject As IScreenObject) As IScreenObject
@@ -108,17 +99,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Quick
-  summary: Removes the specified handler that was added with <xref href="SadConsole.Quick.Keyboard.WithKeyboard(SadConsole.IScreenObject%2cSystem.Func%7bSadConsole.IScreenObject%2cSadConsole.Input.Keyboard%2cSystem.Boolean%7d)" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: public static IScreenObject RemoveKeyboardHook(this IScreenObject screenObject, Func<IScreenObject, Keyboard, bool> handler)
     parameters:
     - id: screenObject
       type: SadConsole.IScreenObject
-      description: The object to use.
     - id: handler
       type: System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean}
-      description: The handler callback.
     return:
       type: SadConsole.IScreenObject
     content.vb: Public Shared Function RemoveKeyboardHook(screenObject As IScreenObject, handler As Func(Of IScreenObject, Keyboard, Boolean)) As IScreenObject
@@ -127,14 +114,6 @@ items:
   fullName.vb: SadConsole.Quick.Keyboard.RemoveKeyboardHook(SadConsole.IScreenObject, System.Func(Of SadConsole.IScreenObject, SadConsole.Input.Keyboard, Boolean))
   name.vb: RemoveKeyboardHook(IScreenObject, Func(Of IScreenObject, Keyboard, Boolean))
 references:
-- uid: SadConsole.IScreenObject
-  commentId: T:SadConsole.IScreenObject
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.IScreenObject.html
-  name: IScreenObject
-  nameWithType: IScreenObject
-  fullName: SadConsole.IScreenObject
 - uid: SadConsole.Quick
   commentId: N:SadConsole.Quick
   isExternal: true
@@ -392,13 +371,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
-- uid: SadConsole
-  commentId: N:SadConsole
-  isExternal: true
-  href: SadConsole.html
-  name: SadConsole
-  nameWithType: SadConsole
-  fullName: SadConsole
 - uid: System
   commentId: N:System
   isExternal: true
@@ -413,6 +385,14 @@ references:
   name: WithKeyboard
   nameWithType: Keyboard.WithKeyboard
   fullName: SadConsole.Quick.Keyboard.WithKeyboard
+- uid: SadConsole.IScreenObject
+  commentId: T:SadConsole.IScreenObject
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IScreenObject.html
+  name: IScreenObject
+  nameWithType: IScreenObject
+  fullName: SadConsole.IScreenObject
 - uid: System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean}
   commentId: T:System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean}
   parent: System
@@ -472,6 +452,13 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.boolean
   - name: )
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
 - uid: System.Func`3
   commentId: T:System.Func`3
   isExternal: true
@@ -511,88 +498,6 @@ references:
   - name: ','
   - name: " "
   - name: TResult
-  - name: )
-- uid: SadConsole.Quick.Keyboard.WithKeyboard(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
-  commentId: M:SadConsole.Quick.Keyboard.WithKeyboard(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
-  isExternal: true
-  href: SadConsole.Quick.Keyboard.html#SadConsole_Quick_Keyboard_WithKeyboard_SadConsole_IScreenObject_System_Func_SadConsole_IScreenObject_SadConsole_Input_Keyboard_System_Boolean__
-  name: WithKeyboard(IScreenObject, Func<IScreenObject, Keyboard, bool>)
-  nameWithType: Keyboard.WithKeyboard(IScreenObject, Func<IScreenObject, Keyboard, bool>)
-  fullName: SadConsole.Quick.Keyboard.WithKeyboard(SadConsole.IScreenObject, System.Func<SadConsole.IScreenObject, SadConsole.Input.Keyboard, bool>)
-  nameWithType.vb: Keyboard.WithKeyboard(IScreenObject, Func(Of IScreenObject, Keyboard, Boolean))
-  fullName.vb: SadConsole.Quick.Keyboard.WithKeyboard(SadConsole.IScreenObject, System.Func(Of SadConsole.IScreenObject, SadConsole.Input.Keyboard, Boolean))
-  name.vb: WithKeyboard(IScreenObject, Func(Of IScreenObject, Keyboard, Boolean))
-  spec.csharp:
-  - uid: SadConsole.Quick.Keyboard.WithKeyboard(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
-    name: WithKeyboard
-    isExternal: true
-    href: SadConsole.Quick.Keyboard.html#SadConsole_Quick_Keyboard_WithKeyboard_SadConsole_IScreenObject_System_Func_SadConsole_IScreenObject_SadConsole_Input_Keyboard_System_Boolean__
-  - name: (
-  - uid: SadConsole.IScreenObject
-    name: IScreenObject
-    isExternal: true
-    href: SadConsole.IScreenObject.html
-  - name: ','
-  - name: " "
-  - uid: System.Func`3
-    name: Func
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.func-3
-  - name: <
-  - uid: SadConsole.IScreenObject
-    name: IScreenObject
-    isExternal: true
-    href: SadConsole.IScreenObject.html
-  - name: ','
-  - name: " "
-  - uid: SadConsole.Input.Keyboard
-    name: Keyboard
-    isExternal: true
-    href: SadConsole.Input.Keyboard.html
-  - name: ','
-  - name: " "
-  - uid: System.Boolean
-    name: bool
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: '>'
-  - name: )
-  spec.vb:
-  - uid: SadConsole.Quick.Keyboard.WithKeyboard(SadConsole.IScreenObject,System.Func{SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean})
-    name: WithKeyboard
-    isExternal: true
-    href: SadConsole.Quick.Keyboard.html#SadConsole_Quick_Keyboard_WithKeyboard_SadConsole_IScreenObject_System_Func_SadConsole_IScreenObject_SadConsole_Input_Keyboard_System_Boolean__
-  - name: (
-  - uid: SadConsole.IScreenObject
-    name: IScreenObject
-    isExternal: true
-    href: SadConsole.IScreenObject.html
-  - name: ','
-  - name: " "
-  - uid: System.Func`3
-    name: Func
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.func-3
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: SadConsole.IScreenObject
-    name: IScreenObject
-    isExternal: true
-    href: SadConsole.IScreenObject.html
-  - name: ','
-  - name: " "
-  - uid: SadConsole.Input.Keyboard
-    name: Keyboard
-    isExternal: true
-    href: SadConsole.Input.Keyboard.html
-  - name: ','
-  - name: " "
-  - uid: System.Boolean
-    name: Boolean
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: )
   - name: )
 - uid: SadConsole.Quick.Keyboard.RemoveKeyboardHooks*
   commentId: Overload:SadConsole.Quick.Keyboard.RemoveKeyboardHooks

@@ -26,8 +26,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: Chains one effect after another.
-  example: []
   syntax:
     content: >-
       [DataContract]
@@ -77,20 +75,16 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: Applies the state of the effect to a cell.
   example: []
   syntax:
     content: public override bool ApplyToCell(ColoredGlyphBase cell, ColoredGlyphBase originalState)
     parameters:
     - id: cell
       type: SadConsole.ColoredGlyphBase
-      description: The surface cell using this effect.
     - id: originalState
       type: SadConsole.ColoredGlyphBase
-      description: The state of the cell prior to the effect being applied.
     return:
       type: System.Boolean
-      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when this method modified the <code class="paramref">cell</code>; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Public Overrides Function ApplyToCell(cell As ColoredGlyphBase, originalState As ColoredGlyphBase) As Boolean
   overridden: SadConsole.Effects.CellEffectBase.ApplyToCell(SadConsole.ColoredGlyphBase,SadConsole.ColoredGlyphBase)
   overload: SadConsole.Effects.EffectSet.ApplyToCell*
@@ -108,14 +102,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: Updates the state of the effect.
   example: []
   syntax:
     content: public override void Update(TimeSpan delta)
     parameters:
     - id: delta
       type: System.TimeSpan
-      description: Time since the last call to this effect.
     content.vb: Public Overrides Sub Update(delta As TimeSpan)
   overridden: SadConsole.Effects.CellEffectBase.Update(System.TimeSpan)
   overload: SadConsole.Effects.EffectSet.Update*
@@ -133,7 +125,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: Restarts the cell effect but does not reset it.
   example: []
   syntax:
     content: public override void Restart()
@@ -154,13 +145,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: Returns a duplicate of this effect.
   example: []
   syntax:
     content: public override ICellEffect Clone()
     return:
       type: SadConsole.Effects.ICellEffect
-      description: A new copy of this effect.
     content.vb: Public Overrides Function Clone() As ICellEffect
   overridden: SadConsole.Effects.CellEffectBase.Clone
   overload: SadConsole.Effects.EffectSet.Clone*
@@ -200,13 +189,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: Gets an enumerator of all the effects.
   example: []
   syntax:
     content: public IEnumerator<ICellEffect> GetEnumerator()
     return:
       type: System.Collections.Generic.IEnumerator{SadConsole.Effects.ICellEffect}
-      description: The enumerator.
     content.vb: Public Function GetEnumerator() As IEnumerator(Of ICellEffect)
   overload: SadConsole.Effects.EffectSet.GetEnumerator*
   implements:
@@ -225,14 +212,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: Adds an effect to the end of the <xref href="SadConsole.Effects.EffectSet.Effects" data-throw-if-not-resolved="false"></xref> collection.
-  example: []
   syntax:
     content: public void Add(ICellEffect effect)
     parameters:
     - id: effect
       type: SadConsole.Effects.ICellEffect
-      description: The effect to add.
     content.vb: Public Sub Add(effect As ICellEffect)
   overload: SadConsole.Effects.EffectSet.Add*
 - uid: SadConsole.Effects.EffectSet.#ctor
@@ -270,8 +254,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: The list of effects to process.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -303,8 +285,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, instead of ending when finished, it will repeat. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -336,8 +316,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: An artificial delay between each effect.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1148,13 +1126,6 @@ references:
   - name: " "
   - name: T
   - name: )
-- uid: SadConsole.Effects.EffectSet.Effects
-  commentId: P:SadConsole.Effects.EffectSet.Effects
-  isExternal: true
-  href: SadConsole.Effects.EffectSet.html#SadConsole_Effects_EffectSet_Effects
-  name: Effects
-  nameWithType: EffectSet.Effects
-  fullName: SadConsole.Effects.EffectSet.Effects
 - uid: SadConsole.Effects.EffectSet.Add*
   commentId: Overload:SadConsole.Effects.EffectSet.Add
   isExternal: true

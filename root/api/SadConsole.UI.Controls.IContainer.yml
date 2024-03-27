@@ -6,6 +6,7 @@ items:
   parent: SadConsole.UI.Controls
   children:
   - SadConsole.UI.Controls.IContainer.AbsolutePosition
+  - SadConsole.UI.Controls.IContainer.GetNamedControl(System.String)
   - SadConsole.UI.Controls.IContainer.HasNamedControl(System.String)
   - SadConsole.UI.Controls.IContainer.HasNamedControl(System.String,SadConsole.UI.Controls.ControlBase@)
   - SadConsole.UI.Controls.IContainer.Host
@@ -20,8 +21,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: A simple container for controls.
-  example: []
   syntax:
     content: 'public interface IContainer : IList<ControlBase>, ICollection<ControlBase>, IEnumerable<ControlBase>, IEnumerable'
     content.vb: Public Interface IContainer Inherits IList(Of ControlBase), ICollection(Of ControlBase), IEnumerable(Of ControlBase), IEnumerable
@@ -52,17 +51,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Checks whether or not the container has a control registered with the given name.
-  example: []
   syntax:
     content: bool HasNamedControl(string name)
     parameters:
     - id: name
       type: System.String
-      description: The name to check.
     return:
       type: System.Boolean
-      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the control is found; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Function HasNamedControl(name As String) As Boolean
   overload: SadConsole.UI.Controls.IContainer.HasNamedControl*
   nameWithType.vb: IContainer.HasNamedControl(String)
@@ -82,25 +77,46 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Checks whether or not the container has a control registered with the given name. If found, the instance is assigned to the <code class="paramref">control</code> parameter.
-  example: []
   syntax:
     content: bool HasNamedControl(string name, out ControlBase? control)
     parameters:
     - id: name
       type: System.String
-      description: The name to check.
     - id: control
       type: SadConsole.UI.Controls.ControlBase
-      description: The control instance found.
     return:
       type: System.Boolean
-      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the control is found; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Function HasNamedControl(name As String, control As ControlBase) As Boolean
   overload: SadConsole.UI.Controls.IContainer.HasNamedControl*
   nameWithType.vb: IContainer.HasNamedControl(String, ControlBase)
   fullName.vb: SadConsole.UI.Controls.IContainer.HasNamedControl(String, SadConsole.UI.Controls.ControlBase)
   name.vb: HasNamedControl(String, ControlBase)
+- uid: SadConsole.UI.Controls.IContainer.GetNamedControl(System.String)
+  commentId: M:SadConsole.UI.Controls.IContainer.GetNamedControl(System.String)
+  id: GetNamedControl(System.String)
+  parent: SadConsole.UI.Controls.IContainer
+  langs:
+  - csharp
+  - vb
+  name: GetNamedControl(string)
+  nameWithType: IContainer.GetNamedControl(string)
+  fullName: SadConsole.UI.Controls.IContainer.GetNamedControl(string)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  syntax:
+    content: ControlBase GetNamedControl(string name)
+    parameters:
+    - id: name
+      type: System.String
+    return:
+      type: SadConsole.UI.Controls.ControlBase
+    content.vb: Function GetNamedControl(name As String) As ControlBase
+  overload: SadConsole.UI.Controls.IContainer.GetNamedControl*
+  nameWithType.vb: IContainer.GetNamedControl(String)
+  fullName.vb: SadConsole.UI.Controls.IContainer.GetNamedControl(String)
+  name.vb: GetNamedControl(String)
 - uid: SadConsole.UI.Controls.IContainer.AbsolutePosition
   commentId: P:SadConsole.UI.Controls.IContainer.AbsolutePosition
   id: AbsolutePosition
@@ -115,8 +131,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Gets the position of the container based on any parents position.
-  example: []
   syntax:
     content: Point AbsolutePosition { get; }
     parameters: []
@@ -138,8 +152,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: The host owning this container.
-  example: []
   syntax:
     content: ControlHost? Host { get; }
     parameters: []
@@ -161,17 +173,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Gets a control by its <xref href="SadConsole.UI.Controls.ControlBase.Name" data-throw-if-not-resolved="false"></xref> property.
-  example: []
   syntax:
     content: ControlBase this[string name] { get; }
     parameters:
     - id: name
       type: System.String
-      description: The name of the control.
     return:
       type: SadConsole.UI.Controls.ControlBase
-      description: The control.
     content.vb: ReadOnly Default Property this[](name As String) As ControlBase
   overload: SadConsole.UI.Controls.IContainer.Item*
   nameWithType.vb: IContainer.this[](String)
@@ -1143,6 +1151,13 @@ references:
   name: ControlBase
   nameWithType: ControlBase
   fullName: SadConsole.UI.Controls.ControlBase
+- uid: SadConsole.UI.Controls.IContainer.GetNamedControl*
+  commentId: Overload:SadConsole.UI.Controls.IContainer.GetNamedControl
+  isExternal: true
+  href: SadConsole.UI.Controls.IContainer.html#SadConsole_UI_Controls_IContainer_GetNamedControl_System_String_
+  name: GetNamedControl
+  nameWithType: IContainer.GetNamedControl
+  fullName: SadConsole.UI.Controls.IContainer.GetNamedControl
 - uid: SadConsole.UI.Controls.IContainer.AbsolutePosition*
   commentId: Overload:SadConsole.UI.Controls.IContainer.AbsolutePosition
   isExternal: true
@@ -1226,14 +1241,6 @@ references:
     name: UI
     isExternal: true
     href: SadConsole.UI.html
-- uid: SadConsole.UI.Controls.ControlBase.Name
-  commentId: P:SadConsole.UI.Controls.ControlBase.Name
-  parent: SadConsole.UI.Controls.ControlBase
-  isExternal: true
-  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_Name
-  name: Name
-  nameWithType: ControlBase.Name
-  fullName: SadConsole.UI.Controls.ControlBase.Name
 - uid: SadConsole.UI.Controls.IContainer.Item*
   commentId: Overload:SadConsole.UI.Controls.IContainer.Item
   isExternal: true

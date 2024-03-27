@@ -20,8 +20,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: Runs one or more instructions at the same time. This instruction completes when all added instructions have finished.
-  example: []
   syntax:
     content: 'public class ConcurrentInstructions : InstructionBase, IComponent'
     content.vb: Public Class ConcurrentInstructions Inherits InstructionBase Implements IComponent
@@ -65,14 +63,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: Creates a new instruction that runs the provided instructions concurrently.
-  example: []
   syntax:
     content: public ConcurrentInstructions(IEnumerable<InstructionBase> instructions)
     parameters:
     - id: instructions
       type: System.Collections.Generic.IEnumerable{SadConsole.Instructions.InstructionBase}
-      description: The instructions
     content.vb: Public Sub New(instructions As IEnumerable(Of InstructionBase))
   overload: SadConsole.Instructions.ConcurrentInstructions.#ctor*
   nameWithType.vb: ConcurrentInstructions.New(IEnumerable(Of InstructionBase))
@@ -92,17 +87,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: Executes the instruction. This base class method should be called from derived classes. If the IsFinished property is set to true, will try to repeat if needed and will raise all appropriate events.
   example: []
   syntax:
     content: public override void Update(IScreenObject componentHost, TimeSpan delta)
     parameters:
     - id: componentHost
       type: SadConsole.IScreenObject
-      description: The object that hosts this instruction.
     - id: delta
       type: System.TimeSpan
-      description: The time that has elapsed since this method was last called.
     content.vb: Public Overrides Sub Update(componentHost As IScreenObject, delta As TimeSpan)
   overridden: SadConsole.Instructions.InstructionBase.Update(SadConsole.IScreenObject,System.TimeSpan)
   overload: SadConsole.Instructions.ConcurrentInstructions.Update*
@@ -120,7 +112,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: Repeats the current instruction. Decrements the <xref href="SadConsole.Instructions.InstructionBase.RepeatCount" data-throw-if-not-resolved="false"></xref> value (if applicable), and raises the <xref href="SadConsole.Instructions.InstructionBase.Repeating" data-throw-if-not-resolved="false"></xref> event. This method should be overridden in derived classes to customize how the object is reset for a repeat.
   example: []
   syntax:
     content: public override void Repeat()
@@ -141,8 +132,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: Resets the Done flag.
-  remarks: On the base class, resets the <xref href="SadConsole.Instructions.InstructionBase.IsFinished" data-throw-if-not-resolved="false"></xref> to false. Override this method to reset the derived class' counters and status flags for the instruction.
   example: []
   syntax:
     content: public override void Reset()
@@ -163,8 +152,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: The instructions to run concurrently.
-  example: []
   syntax:
     content: public IEnumerable<InstructionBase> Instructions { get; set; }
     parameters: []

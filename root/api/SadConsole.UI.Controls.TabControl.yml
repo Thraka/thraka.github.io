@@ -44,8 +44,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: A control with tabs along the edge of the control. Each tab sets the content of the control.
-  example: []
   syntax:
     content: 'public class TabControl : CompositeControl, IContainer, IList<ControlBase>, ICollection<ControlBase>, IEnumerable<ControlBase>, IEnumerable'
     content.vb: Public Class TabControl Inherits CompositeControl Implements IContainer, IList(Of ControlBase), ICollection(Of ControlBase), IEnumerable(Of ControlBase), IEnumerable
@@ -67,8 +65,6 @@ items:
   - SadConsole.UI.Controls.CompositeControl.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
   - SadConsole.UI.Controls.CompositeControl.AddControl(SadConsole.UI.Controls.ControlBase)
   - SadConsole.UI.Controls.CompositeControl.RemoveControl(SadConsole.UI.Controls.ControlBase)
-  - SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String)
-  - SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String,SadConsole.UI.Controls.ControlBase@)
   - SadConsole.UI.Controls.CompositeControl.Count
   - SadConsole.UI.Controls.ControlBase.MouseState_IsMouseOver
   - SadConsole.UI.Controls.ControlBase.MouseState_EnteredWithButtonDown
@@ -85,6 +81,7 @@ items:
   - SadConsole.UI.Controls.ControlBase.DetermineState
   - SadConsole.UI.Controls.ControlBase.OnStateChanged(SadConsole.UI.Controls.ControlStates,SadConsole.UI.Controls.ControlStates)
   - SadConsole.UI.Controls.ControlBase.OnSurfaceChanged(SadConsole.ICellSurface,SadConsole.ICellSurface)
+  - SadConsole.UI.Controls.ControlBase.FindThemeFont
   - SadConsole.UI.Controls.ControlBase.FindThemeColors
   - SadConsole.UI.Controls.ControlBase.SetThemeColors(SadConsole.UI.Colors)
   - SadConsole.UI.Controls.ControlBase.HasThemeColors
@@ -148,8 +145,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: The index used when there isn't an active tab.
-  example: []
   syntax:
     content: public const int InvalidActiveTabIndex = -1
     return:
@@ -169,8 +164,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: The mouse position recorded from the last time the mouse was over the control.
-  example: []
   syntax:
     content: protected Point CachedMousePosition
     return:
@@ -190,8 +183,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: The region of the control where a tab item's content should be displayed.
-  example: []
   syntax:
     content: protected Rectangle ContentRegion
     return:
@@ -211,8 +202,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: The region of the control where a tab headers should be displayed.
-  example: []
   syntax:
     content: protected Rectangle TabsRegion
     return:
@@ -232,20 +221,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Creates a new tab control with the specified tab items.
-  example: []
   syntax:
     content: public TabControl(IEnumerable<TabItem> tabItems, int width, int height)
     parameters:
     - id: tabItems
       type: System.Collections.Generic.IEnumerable{SadConsole.UI.Controls.TabItem}
-      description: Tabs that are present on the tabcontrol
     - id: width
       type: System.Int32
-      description: Width of the content area
     - id: height
       type: System.Int32
-      description: Heigh of the content area
     content.vb: Public Sub New(tabItems As IEnumerable(Of TabItem), width As Integer, height As Integer)
   overload: SadConsole.UI.Controls.TabControl.#ctor*
   nameWithType.vb: TabControl.New(IEnumerable(Of TabItem), Integer, Integer)
@@ -265,23 +249,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Creates a new tab control with the specified tab items.
-  example: []
   syntax:
     content: public TabControl(IEnumerable<TabItem> tabItems, int activeTabIndex, int width, int height)
     parameters:
     - id: tabItems
       type: System.Collections.Generic.IEnumerable{SadConsole.UI.Controls.TabItem}
-      description: Tabs that are present on the tabcontrol
     - id: activeTabIndex
       type: System.Int32
-      description: What tab to be active on initialization
     - id: width
       type: System.Int32
-      description: Width of the content area
     - id: height
       type: System.Int32
-      description: Heigh of the content area
     content.vb: Public Sub New(tabItems As IEnumerable(Of TabItem), activeTabIndex As Integer, width As Integer, height As Integer)
   overload: SadConsole.UI.Controls.TabControl.#ctor*
   nameWithType.vb: TabControl.New(IEnumerable(Of TabItem), Integer, Integer, Integer)
@@ -301,14 +279,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Adds a tab to the control.
-  example: []
   syntax:
     content: public void AddTab(TabItem tab)
     parameters:
     - id: tab
       type: SadConsole.UI.Controls.TabItem
-      description: TabItem with header and associated console for tab content
     content.vb: Public Sub AddTab(tab As TabItem)
   overload: SadConsole.UI.Controls.TabControl.AddTab*
 - uid: SadConsole.UI.Controls.TabControl.AddTab(System.String,SadConsole.UI.Controls.Panel)
@@ -325,20 +300,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Creates and adds a tab to the control.
-  example: []
   syntax:
     content: public TabItem AddTab(string header, Panel content)
     parameters:
     - id: header
       type: System.String
-      description: The header of the new tab.
     - id: content
       type: SadConsole.UI.Controls.Panel
-      description: Associated content for the new tab.
     return:
       type: SadConsole.UI.Controls.TabItem
-      description: The new tab item.
     content.vb: Public Function AddTab(header As String, content As Panel) As TabItem
   overload: SadConsole.UI.Controls.TabControl.AddTab*
   nameWithType.vb: TabControl.AddTab(String, Panel)
@@ -358,14 +328,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Removes a tab from the control.
-  example: []
   syntax:
     content: public void RemoveTab(TabItem tab)
     parameters:
     - id: tab
       type: SadConsole.UI.Controls.TabItem
-      description: TabItem that should be removed
     content.vb: Public Sub RemoveTab(tab As TabItem)
   overload: SadConsole.UI.Controls.TabControl.RemoveTab*
 - uid: SadConsole.UI.Controls.TabControl.RemoveTab(System.Int32)
@@ -382,14 +349,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Removes a tab by index.
-  example: []
   syntax:
     content: public void RemoveTab(int index)
     parameters:
     - id: index
       type: System.Int32
-      description: The index of the tab to remove.
     content.vb: Public Sub RemoveTab(index As Integer)
   overload: SadConsole.UI.Controls.TabControl.RemoveTab*
   nameWithType.vb: TabControl.RemoveTab(Integer)
@@ -409,14 +373,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Sets the tab specified by the <code class="paramref">index</code> as active.
-  example: []
   syntax:
     content: public void SetActiveTab(int index)
     parameters:
     - id: index
       type: System.Int32
-      description: Index of the tab.
     content.vb: Public Sub SetActiveTab(index As Integer)
   overload: SadConsole.UI.Controls.TabControl.SetActiveTab*
   nameWithType.vb: TabControl.SetActiveTab(Integer)
@@ -436,17 +397,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Raises the <xref href="SadConsole.UI.Controls.TabControl.ActiveTabItemChanged" data-throw-if-not-resolved="false"></xref> event.
-  example: []
   syntax:
     content: protected void OnActiveTabItem(int previousActiveIndex, int activeIndex)
     parameters:
     - id: previousActiveIndex
       type: System.Int32
-      description: The tab index of the previous item.
     - id: activeIndex
       type: System.Int32
-      description: The index of the active tab.
     content.vb: Protected Sub OnActiveTabItem(previousActiveIndex As Integer, activeIndex As Integer)
   overload: SadConsole.UI.Controls.TabControl.OnActiveTabItem*
   nameWithType.vb: TabControl.OnActiveTabItem(Integer, Integer)
@@ -466,17 +423,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Gets the index of a tab
-  example: []
   syntax:
     content: public int GetTabIndex(TabItem tab)
     parameters:
     - id: tab
       type: SadConsole.UI.Controls.TabItem
-      description: Tab you need the index of
     return:
       type: System.Int32
-      description: 0 based index of the tab
     content.vb: Public Function GetTabIndex(tab As TabItem) As Integer
   overload: SadConsole.UI.Controls.TabControl.GetTabIndex*
 - uid: SadConsole.UI.Controls.TabControl.ContainsTab(SadConsole.UI.Controls.TabItem)
@@ -493,17 +446,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Determines whether a tab is contained in this control.
-  example: []
   syntax:
     content: public bool ContainsTab(TabItem tab)
     parameters:
     - id: tab
       type: SadConsole.UI.Controls.TabItem
-      description: The tab to check.
     return:
       type: System.Boolean
-      description: Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the tab is in the control; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Public Function ContainsTab(tab As TabItem) As Boolean
   overload: SadConsole.UI.Controls.TabControl.ContainsTab*
 - uid: SadConsole.UI.Controls.TabControl.SelectNextTab
@@ -520,13 +469,10 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Sets the next tab as active. Stops at the last tab.
-  example: []
   syntax:
     content: public bool SelectNextTab()
     return:
       type: System.Boolean
-      description: Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the active tab changes; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Public Function SelectNextTab() As Boolean
   overload: SadConsole.UI.Controls.TabControl.SelectNextTab*
 - uid: SadConsole.UI.Controls.TabControl.SelectPreviousTab
@@ -543,13 +489,10 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Sets the previous tab as active. Stops at the first tab.
-  example: []
   syntax:
     content: public bool SelectPreviousTab()
     return:
       type: System.Boolean
-      description: Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the active tab changes; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Public Function SelectPreviousTab() As Boolean
   overload: SadConsole.UI.Controls.TabControl.SelectPreviousTab*
 - uid: SadConsole.UI.Controls.TabControl.OnLeftMouseClicked(SadConsole.UI.Controls.ControlBase.ControlMouseState)
@@ -566,14 +509,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Called when the left mouse button is clicked. Raises the MouseButtonClicked event and calls the <xref href="SadConsole.UI.Controls.ControlBase.DetermineState" data-throw-if-not-resolved="false"></xref> method.
   example: []
   syntax:
     content: protected override void OnLeftMouseClicked(ControlBase.ControlMouseState state)
     parameters:
     - id: state
       type: SadConsole.UI.Controls.ControlBase.ControlMouseState
-      description: The current mouse data
     content.vb: Protected Overrides Sub OnLeftMouseClicked(state As ControlBase.ControlMouseState)
   overridden: SadConsole.UI.Controls.ControlBase.OnLeftMouseClicked(SadConsole.UI.Controls.ControlBase.ControlMouseState)
   overload: SadConsole.UI.Controls.TabControl.OnLeftMouseClicked*
@@ -591,14 +532,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Called as the mouse moves around the control area. Raises the MouseMove event and calls the <xref href="SadConsole.UI.Controls.ControlBase.DetermineState" data-throw-if-not-resolved="false"></xref> method.
   example: []
   syntax:
     content: protected override void OnMouseIn(ControlBase.ControlMouseState state)
     parameters:
     - id: state
       type: SadConsole.UI.Controls.ControlBase.ControlMouseState
-      description: The current mouse data
     content.vb: Protected Overrides Sub OnMouseIn(state As ControlBase.ControlMouseState)
   overridden: SadConsole.UI.Controls.ControlBase.OnMouseIn(SadConsole.UI.Controls.ControlBase.ControlMouseState)
   overload: SadConsole.UI.Controls.TabControl.OnMouseIn*
@@ -616,7 +555,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Resizes the tab item.
   example: []
   syntax:
     content: protected override void OnResized()
@@ -637,8 +575,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Sets the <xref href="SadConsole.UI.Controls.TabControl.ContentRegion" data-throw-if-not-resolved="false"></xref> rectangle to how much space the tab control should give to tab item content.
-  example: []
   syntax:
     content: protected void ThemeDetermineContentRegion()
     content.vb: Protected Sub ThemeDetermineContentRegion()
@@ -657,14 +593,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Updates each control hosted by this control.
   example: []
   syntax:
     content: public override void UpdateAndRedraw(TimeSpan time)
     parameters:
     - id: time
       type: System.TimeSpan
-      description: The game frame time delta.
     content.vb: Public Overrides Sub UpdateAndRedraw(time As TimeSpan)
   overridden: SadConsole.UI.Controls.CompositeControl.UpdateAndRedraw(System.TimeSpan)
   overload: SadConsole.UI.Controls.TabControl.UpdateAndRedraw*
@@ -682,8 +616,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: The list of tab items displayed by the control.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -715,8 +647,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Gets a list of tabs in this control.
-  example: []
   syntax:
     content: public ListEnumerator<TabItem> Tabs { get; }
     parameters: []
@@ -738,8 +668,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: The index of the active tab. If <xref href="SadConsole.UI.Controls.TabControl.InvalidActiveTabIndex" data-throw-if-not-resolved="false"></xref> is returned, there is no active tab.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -771,8 +699,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Retursn the current tab.
-  example: []
   syntax:
     content: public TabItem CurrentTab { get; }
     parameters: []
@@ -794,8 +720,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Sets the position of the tab strip to the top or bottom of the control.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -827,8 +751,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: An array of glyphs indexed by <xref href="SadConsole.ICellSurface.ConnectedLineIndex" data-throw-if-not-resolved="false"></xref>. Defaults to <xref href="SadConsole.ICellSurface.ConnectedLineThin" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -860,17 +782,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Gets or sets the tab item at the specified index.
-  example: []
   syntax:
     content: public TabItem this[int index] { get; set; }
     parameters:
     - id: index
       type: System.Int32
-      description: The index of the tab item to get or set.
     return:
       type: SadConsole.UI.Controls.TabItem
-      description: The tab item content.
     content.vb: Public Default Property this[](index As Integer) As TabItem
   overload: SadConsole.UI.Controls.TabControl.Item*
   nameWithType.vb: TabControl.this[](Integer)
@@ -890,8 +808,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Raised when the active tab changes.
-  example: []
   syntax:
     content: public event EventHandler<ValueChangedEventArgs<TabItem?>>? ActiveTabItemChanged
     return:
@@ -1239,86 +1155,6 @@ references:
     isExternal: true
     href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_RemoveControl_SadConsole_UI_Controls_ControlBase_
   - name: (
-  - uid: SadConsole.UI.Controls.ControlBase
-    name: ControlBase
-    isExternal: true
-    href: SadConsole.UI.Controls.ControlBase.html
-  - name: )
-- uid: SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String)
-  commentId: M:SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String)
-  parent: SadConsole.UI.Controls.CompositeControl
-  isExternal: true
-  href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_HasNamedControl_System_String_
-  name: HasNamedControl(string)
-  nameWithType: CompositeControl.HasNamedControl(string)
-  fullName: SadConsole.UI.Controls.CompositeControl.HasNamedControl(string)
-  nameWithType.vb: CompositeControl.HasNamedControl(String)
-  fullName.vb: SadConsole.UI.Controls.CompositeControl.HasNamedControl(String)
-  name.vb: HasNamedControl(String)
-  spec.csharp:
-  - uid: SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String)
-    name: HasNamedControl
-    isExternal: true
-    href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_HasNamedControl_System_String_
-  - name: (
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-  spec.vb:
-  - uid: SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String)
-    name: HasNamedControl
-    isExternal: true
-    href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_HasNamedControl_System_String_
-  - name: (
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-- uid: SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String,SadConsole.UI.Controls.ControlBase@)
-  commentId: M:SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String,SadConsole.UI.Controls.ControlBase@)
-  parent: SadConsole.UI.Controls.CompositeControl
-  isExternal: true
-  href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_HasNamedControl_System_String_SadConsole_UI_Controls_ControlBase__
-  name: HasNamedControl(string, out ControlBase)
-  nameWithType: CompositeControl.HasNamedControl(string, out ControlBase)
-  fullName: SadConsole.UI.Controls.CompositeControl.HasNamedControl(string, out SadConsole.UI.Controls.ControlBase)
-  nameWithType.vb: CompositeControl.HasNamedControl(String, ControlBase)
-  fullName.vb: SadConsole.UI.Controls.CompositeControl.HasNamedControl(String, SadConsole.UI.Controls.ControlBase)
-  name.vb: HasNamedControl(String, ControlBase)
-  spec.csharp:
-  - uid: SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String,SadConsole.UI.Controls.ControlBase@)
-    name: HasNamedControl
-    isExternal: true
-    href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_HasNamedControl_System_String_SadConsole_UI_Controls_ControlBase__
-  - name: (
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - name: out
-  - name: " "
-  - uid: SadConsole.UI.Controls.ControlBase
-    name: ControlBase
-    isExternal: true
-    href: SadConsole.UI.Controls.ControlBase.html
-  - name: )
-  spec.vb:
-  - uid: SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String,SadConsole.UI.Controls.ControlBase@)
-    name: HasNamedControl
-    isExternal: true
-    href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_HasNamedControl_System_String_SadConsole_UI_Controls_ControlBase__
-  - name: (
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
   - uid: SadConsole.UI.Controls.ControlBase
     name: ControlBase
     isExternal: true
@@ -1694,6 +1530,28 @@ references:
     name: ICellSurface
     isExternal: true
     href: SadConsole.ICellSurface.html
+  - name: )
+- uid: SadConsole.UI.Controls.ControlBase.FindThemeFont
+  commentId: M:SadConsole.UI.Controls.ControlBase.FindThemeFont
+  parent: SadConsole.UI.Controls.ControlBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeFont
+  name: FindThemeFont()
+  nameWithType: ControlBase.FindThemeFont()
+  fullName: SadConsole.UI.Controls.ControlBase.FindThemeFont()
+  spec.csharp:
+  - uid: SadConsole.UI.Controls.ControlBase.FindThemeFont
+    name: FindThemeFont
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeFont
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.Controls.ControlBase.FindThemeFont
+    name: FindThemeFont
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeFont
+  - name: (
   - name: )
 - uid: SadConsole.UI.Controls.ControlBase.FindThemeColors
   commentId: M:SadConsole.UI.Controls.ControlBase.FindThemeColors
@@ -2739,13 +2597,6 @@ references:
   name: SetActiveTab
   nameWithType: TabControl.SetActiveTab
   fullName: SadConsole.UI.Controls.TabControl.SetActiveTab
-- uid: SadConsole.UI.Controls.TabControl.ActiveTabItemChanged
-  commentId: E:SadConsole.UI.Controls.TabControl.ActiveTabItemChanged
-  isExternal: true
-  href: SadConsole.UI.Controls.TabControl.html#SadConsole_UI_Controls_TabControl_ActiveTabItemChanged
-  name: ActiveTabItemChanged
-  nameWithType: TabControl.ActiveTabItemChanged
-  fullName: SadConsole.UI.Controls.TabControl.ActiveTabItemChanged
 - uid: SadConsole.UI.Controls.TabControl.OnActiveTabItem*
   commentId: Overload:SadConsole.UI.Controls.TabControl.OnActiveTabItem
   isExternal: true
@@ -2923,13 +2774,6 @@ references:
   name: OnResized
   nameWithType: TabControl.OnResized
   fullName: SadConsole.UI.Controls.TabControl.OnResized
-- uid: SadConsole.UI.Controls.TabControl.ContentRegion
-  commentId: F:SadConsole.UI.Controls.TabControl.ContentRegion
-  isExternal: true
-  href: SadConsole.UI.Controls.TabControl.html#SadConsole_UI_Controls_TabControl_ContentRegion
-  name: ContentRegion
-  nameWithType: TabControl.ContentRegion
-  fullName: SadConsole.UI.Controls.TabControl.ContentRegion
 - uid: SadConsole.UI.Controls.TabControl.ThemeDetermineContentRegion*
   commentId: Overload:SadConsole.UI.Controls.TabControl.ThemeDetermineContentRegion
   isExternal: true
@@ -3117,13 +2961,6 @@ references:
   - name: " "
   - name: T
   - name: )
-- uid: SadConsole.UI.Controls.TabControl.InvalidActiveTabIndex
-  commentId: F:SadConsole.UI.Controls.TabControl.InvalidActiveTabIndex
-  isExternal: true
-  href: SadConsole.UI.Controls.TabControl.html#SadConsole_UI_Controls_TabControl_InvalidActiveTabIndex
-  name: InvalidActiveTabIndex
-  nameWithType: TabControl.InvalidActiveTabIndex
-  fullName: SadConsole.UI.Controls.TabControl.InvalidActiveTabIndex
 - uid: SadConsole.UI.Controls.TabControl.ActiveTabIndex*
   commentId: Overload:SadConsole.UI.Controls.TabControl.ActiveTabIndex
   isExternal: true
@@ -3173,41 +3010,6 @@ references:
     name: Orientation
     isExternal: true
     href: SadConsole.UI.Controls.TabControl.Orientation.html
-- uid: SadConsole.ICellSurface.ConnectedLineIndex
-  commentId: T:SadConsole.ICellSurface.ConnectedLineIndex
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.ICellSurface.html
-  name: ICellSurface.ConnectedLineIndex
-  nameWithType: ICellSurface.ConnectedLineIndex
-  fullName: SadConsole.ICellSurface.ConnectedLineIndex
-  spec.csharp:
-  - uid: SadConsole.ICellSurface
-    name: ICellSurface
-    isExternal: true
-    href: SadConsole.ICellSurface.html
-  - name: .
-  - uid: SadConsole.ICellSurface.ConnectedLineIndex
-    name: ConnectedLineIndex
-    isExternal: true
-    href: SadConsole.ICellSurface.ConnectedLineIndex.html
-  spec.vb:
-  - uid: SadConsole.ICellSurface
-    name: ICellSurface
-    isExternal: true
-    href: SadConsole.ICellSurface.html
-  - name: .
-  - uid: SadConsole.ICellSurface.ConnectedLineIndex
-    name: ConnectedLineIndex
-    isExternal: true
-    href: SadConsole.ICellSurface.ConnectedLineIndex.html
-- uid: SadConsole.ICellSurface.ConnectedLineThin
-  commentId: P:SadConsole.ICellSurface.ConnectedLineThin
-  isExternal: true
-  href: SadConsole.ICellSurface.html#SadConsole_ICellSurface_ConnectedLineThin
-  name: ConnectedLineThin
-  nameWithType: ICellSurface.ConnectedLineThin
-  fullName: SadConsole.ICellSurface.ConnectedLineThin
 - uid: SadConsole.UI.Controls.TabControl.ConnectedLineStyle*
   commentId: Overload:SadConsole.UI.Controls.TabControl.ConnectedLineStyle
   isExternal: true
@@ -3238,13 +3040,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: (
   - name: )
-- uid: SadConsole
-  commentId: N:SadConsole
-  isExternal: true
-  href: SadConsole.html
-  name: SadConsole
-  nameWithType: SadConsole
-  fullName: SadConsole
 - uid: SadConsole.UI.Controls.TabControl.Item*
   commentId: Overload:SadConsole.UI.Controls.TabControl.Item
   isExternal: true

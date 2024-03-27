@@ -21,8 +21,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: Represents an instruction to pause for a specified duration.
-  example: []
   syntax:
     content: 'public class Wait : InstructionBase, IComponent'
     content.vb: Public Class Wait Inherits InstructionBase Implements IComponent
@@ -69,8 +67,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: How much time has passed.
-  example: []
   syntax:
     content: protected TimeSpan CountedTime
     return:
@@ -90,14 +86,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: Creates a new wait timer with the specified duration.
-  example: []
   syntax:
     content: public Wait(TimeSpan duration)
     parameters:
     - id: duration
       type: System.TimeSpan
-      description: How long this instruction waits until it signals <xref href="SadConsole.Instructions.InstructionBase.IsFinished" data-throw-if-not-resolved="false"></xref>.
     content.vb: Public Sub New(duration As TimeSpan)
   overload: SadConsole.Instructions.Wait.#ctor*
   nameWithType.vb: Wait.New(TimeSpan)
@@ -117,8 +110,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: Creates a new wait timer with a 1-second delay.
-  example: []
   syntax:
     content: public Wait()
     content.vb: Public Sub New()
@@ -140,17 +131,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: Executes the instruction. This base class method should be called from derived classes. If the IsFinished property is set to true, will try to repeat if needed and will raise all appropriate events.
   example: []
   syntax:
     content: public override void Update(IScreenObject componentHost, TimeSpan delta)
     parameters:
     - id: componentHost
       type: SadConsole.IScreenObject
-      description: The object that hosts this instruction.
     - id: delta
       type: System.TimeSpan
-      description: The time that has elapsed since this method was last called.
     content.vb: Public Overrides Sub Update(componentHost As IScreenObject, delta As TimeSpan)
   overridden: SadConsole.Instructions.InstructionBase.Update(SadConsole.IScreenObject,System.TimeSpan)
   overload: SadConsole.Instructions.Wait.Update*
@@ -168,8 +156,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: Resets the Done flag.
-  remarks: On the base class, resets the <xref href="SadConsole.Instructions.InstructionBase.IsFinished" data-throw-if-not-resolved="false"></xref> to false. Override this method to reset the derived class' counters and status flags for the instruction.
   example: []
   syntax:
     content: public override void Reset()
@@ -190,8 +176,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: The duration of the wait.
-  example: []
   syntax:
     content: public TimeSpan Duration { get; set; }
     parameters: []

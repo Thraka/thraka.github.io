@@ -61,7 +61,7 @@ items:
   assemblies:
   - SadConsole.Host.MonoGame
   namespace: SadConsole.Renderers
-  summary: Not used.
+  summary: Sets an alternative <xref href="SadConsole.IScreenSurface" data-throw-if-not-resolved="false"></xref> to render. If null, the surface associated with the parent renderer is drawn.
   example: []
   syntax:
     content: public void SetData(object data)
@@ -89,7 +89,6 @@ items:
   assemblies:
   - SadConsole.Host.MonoGame
   namespace: SadConsole.Renderers
-  summary: Called when the step should reset any state or texture information.
   example: []
   syntax:
     content: public void Reset()
@@ -111,26 +110,20 @@ items:
   assemblies:
   - SadConsole.Host.MonoGame
   namespace: SadConsole.Renderers
-  summary: Called to redraw the render step if needed.
   example: []
   syntax:
     content: public bool Refresh(IRenderer renderer, IScreenSurface screenObject, bool backingTextureChanged, bool isForced)
     parameters:
     - id: renderer
       type: SadConsole.Renderers.IRenderer
-      description: The renderer the render step is using.
     - id: screenObject
       type: SadConsole.IScreenSurface
-      description: The surface associated with the renderer. This may be null.
     - id: backingTextureChanged
       type: System.Boolean
-      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> to indicate the <xref href="SadConsole.Renderers.IRenderer.Output" data-throw-if-not-resolved="false"></xref> changed; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     - id: isForced
       type: System.Boolean
-      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when refresh is being forced; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     return:
       type: System.Boolean
-      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the step is going to draw something new and is requesting a <xref href="SadConsole.Renderers.IRenderStep.Composing(SadConsole.Renderers.IRenderer%2cSadConsole.IScreenSurface)" data-throw-if-not-resolved="false"></xref> step; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Public Function Refresh(renderer As IRenderer, screenObject As IScreenSurface, backingTextureChanged As Boolean, isForced As Boolean) As Boolean
   overload: SadConsole.Renderers.SurfaceRenderStep.Refresh*
   implements:
@@ -152,17 +145,14 @@ items:
   assemblies:
   - SadConsole.Host.MonoGame
   namespace: SadConsole.Renderers
-  summary: Called when the renderer needs to redraw the <xref href="SadConsole.Renderers.IRenderer.Output" data-throw-if-not-resolved="false"></xref> texture.
   example: []
   syntax:
     content: public void Composing(IRenderer renderer, IScreenSurface screenObject)
     parameters:
     - id: renderer
       type: SadConsole.Renderers.IRenderer
-      description: The renderer the render step is using.
     - id: screenObject
       type: SadConsole.IScreenSurface
-      description: The surface associated with the renderer. This may be null.
     content.vb: Public Sub Composing(renderer As IRenderer, screenObject As IScreenSurface)
   overload: SadConsole.Renderers.SurfaceRenderStep.Composing*
   implements:
@@ -181,17 +171,14 @@ items:
   assemblies:
   - SadConsole.Host.MonoGame
   namespace: SadConsole.Renderers
-  summary: Called when building draw calls for the render pipeline.
   example: []
   syntax:
     content: public void Render(IRenderer renderer, IScreenSurface screenObject)
     parameters:
     - id: renderer
       type: SadConsole.Renderers.IRenderer
-      description: The renderer the render step is using.
     - id: screenObject
       type: SadConsole.IScreenSurface
-      description: The surface associated with the renderer. This may be null.
     content.vb: Public Sub Render(renderer As IRenderer, screenObject As IScreenSurface)
   overload: SadConsole.Renderers.SurfaceRenderStep.Render*
   implements:
@@ -305,7 +292,7 @@ items:
   summary: The cached texture of the drawn surface.
   example: []
   syntax:
-    content: public RenderTarget2D BackingTexture { get; }
+    content: public RenderTarget2D? BackingTexture { get; }
     parameters: []
     return:
       type: Microsoft.Xna.Framework.Graphics.RenderTarget2D
@@ -325,10 +312,9 @@ items:
   assemblies:
   - SadConsole.Host.MonoGame
   namespace: SadConsole.Renderers
-  summary: The texture created by the render step.
   example: []
   syntax:
-    content: public ITexture CachedTexture { get; }
+    content: public ITexture? CachedTexture { get; }
     parameters: []
     return:
       type: SadConsole.ITexture
@@ -350,7 +336,6 @@ items:
   assemblies:
   - SadConsole.Host.MonoGame
   namespace: SadConsole.Renderers
-  summary: The name of the render step.
   example: []
   syntax:
     content: public string Name { get; }
@@ -375,7 +360,6 @@ items:
   assemblies:
   - SadConsole.Host.MonoGame
   namespace: SadConsole.Renderers
-  summary: Indicates priority related to other steps. Lowest runs first.
   example: []
   syntax:
     content: public uint SortOrder { get; set; }
@@ -754,56 +738,6 @@ references:
     isExternal: true
   - name: (
   - name: )
-- uid: SadConsole.Renderers.IRenderer.Output
-  commentId: P:SadConsole.Renderers.IRenderer.Output
-  parent: SadConsole.Renderers.IRenderer
-  isExternal: true
-  href: SadConsole.Renderers.IRenderer.html#SadConsole_Renderers_IRenderer_Output
-  name: Output
-  nameWithType: IRenderer.Output
-  fullName: SadConsole.Renderers.IRenderer.Output
-- uid: SadConsole.Renderers.IRenderStep.Composing(SadConsole.Renderers.IRenderer,SadConsole.IScreenSurface)
-  commentId: M:SadConsole.Renderers.IRenderStep.Composing(SadConsole.Renderers.IRenderer,SadConsole.IScreenSurface)
-  parent: SadConsole.Renderers.IRenderStep
-  isExternal: true
-  href: SadConsole.Renderers.IRenderStep.html#SadConsole_Renderers_IRenderStep_Composing_SadConsole_Renderers_IRenderer_SadConsole_IScreenSurface_
-  name: Composing(IRenderer, IScreenSurface)
-  nameWithType: IRenderStep.Composing(IRenderer, IScreenSurface)
-  fullName: SadConsole.Renderers.IRenderStep.Composing(SadConsole.Renderers.IRenderer, SadConsole.IScreenSurface)
-  spec.csharp:
-  - uid: SadConsole.Renderers.IRenderStep.Composing(SadConsole.Renderers.IRenderer,SadConsole.IScreenSurface)
-    name: Composing
-    isExternal: true
-    href: SadConsole.Renderers.IRenderStep.html#SadConsole_Renderers_IRenderStep_Composing_SadConsole_Renderers_IRenderer_SadConsole_IScreenSurface_
-  - name: (
-  - uid: SadConsole.Renderers.IRenderer
-    name: IRenderer
-    isExternal: true
-    href: SadConsole.Renderers.IRenderer.html
-  - name: ','
-  - name: " "
-  - uid: SadConsole.IScreenSurface
-    name: IScreenSurface
-    isExternal: true
-    href: SadConsole.IScreenSurface.html
-  - name: )
-  spec.vb:
-  - uid: SadConsole.Renderers.IRenderStep.Composing(SadConsole.Renderers.IRenderer,SadConsole.IScreenSurface)
-    name: Composing
-    isExternal: true
-    href: SadConsole.Renderers.IRenderStep.html#SadConsole_Renderers_IRenderStep_Composing_SadConsole_Renderers_IRenderer_SadConsole_IScreenSurface_
-  - name: (
-  - uid: SadConsole.Renderers.IRenderer
-    name: IRenderer
-    isExternal: true
-    href: SadConsole.Renderers.IRenderer.html
-  - name: ','
-  - name: " "
-  - uid: SadConsole.IScreenSurface
-    name: IScreenSurface
-    isExternal: true
-    href: SadConsole.IScreenSurface.html
-  - name: )
 - uid: SadConsole.Renderers.SurfaceRenderStep.Refresh*
   commentId: Overload:SadConsole.Renderers.SurfaceRenderStep.Refresh
   isExternal: true
@@ -900,6 +834,41 @@ references:
   name: Composing
   nameWithType: SurfaceRenderStep.Composing
   fullName: SadConsole.Renderers.SurfaceRenderStep.Composing
+- uid: SadConsole.Renderers.IRenderStep.Composing(SadConsole.Renderers.IRenderer,SadConsole.IScreenSurface)
+  commentId: M:SadConsole.Renderers.IRenderStep.Composing(SadConsole.Renderers.IRenderer,SadConsole.IScreenSurface)
+  parent: SadConsole.Renderers.IRenderStep
+  isExternal: true
+  name: Composing(IRenderer, IScreenSurface)
+  nameWithType: IRenderStep.Composing(IRenderer, IScreenSurface)
+  fullName: SadConsole.Renderers.IRenderStep.Composing(SadConsole.Renderers.IRenderer, SadConsole.IScreenSurface)
+  spec.csharp:
+  - uid: SadConsole.Renderers.IRenderStep.Composing(SadConsole.Renderers.IRenderer,SadConsole.IScreenSurface)
+    name: Composing
+    isExternal: true
+  - name: (
+  - uid: SadConsole.Renderers.IRenderer
+    name: IRenderer
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: SadConsole.IScreenSurface
+    name: IScreenSurface
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Renderers.IRenderStep.Composing(SadConsole.Renderers.IRenderer,SadConsole.IScreenSurface)
+    name: Composing
+    isExternal: true
+  - name: (
+  - uid: SadConsole.Renderers.IRenderer
+    name: IRenderer
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: SadConsole.IScreenSurface
+    name: IScreenSurface
+    isExternal: true
+  - name: )
 - uid: SadConsole.Renderers.SurfaceRenderStep.Render*
   commentId: Overload:SadConsole.Renderers.SurfaceRenderStep.Render
   isExternal: true
@@ -1134,7 +1103,6 @@ references:
   commentId: P:SadConsole.Renderers.IRenderStep.SortOrder
   parent: SadConsole.Renderers.IRenderStep
   isExternal: true
-  href: SadConsole.Renderers.IRenderStep.html#SadConsole_Renderers_IRenderStep_SortOrder
   name: SortOrder
   nameWithType: IRenderStep.SortOrder
   fullName: SadConsole.Renderers.IRenderStep.SortOrder

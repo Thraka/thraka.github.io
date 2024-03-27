@@ -22,8 +22,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
-  summary: Playscii converter. Check this excellent ascii editor out at http://vectorpoem.com/playscii/
-  example: []
   syntax:
     content: public class Playscii
     content.vb: Public Class Playscii
@@ -51,8 +49,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
-  summary: Name of the font file.
-  example: []
   syntax:
     content: public string charset
     return:
@@ -72,8 +68,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
-  summary: Hold all the animation frames.
-  example: []
   syntax:
     content: public Playscii.Frame[] frames
     return:
@@ -93,8 +87,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
-  summary: Surface height.
-  example: []
   syntax:
     content: public int height
     return:
@@ -114,8 +106,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
-  summary: Name of the palette file.
-  example: []
   syntax:
     content: public string palette
     return:
@@ -135,8 +125,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
-  summary: Surface width.
-  example: []
   syntax:
     content: public int width
     return:
@@ -156,30 +144,19 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
-  summary: Converts a <xref href="SadConsole.Readers.Playscii" data-throw-if-not-resolved="false"></xref> file to a SadConsole <xref href="SadConsole.ScreenSurface" data-throw-if-not-resolved="false"></xref>.
-  remarks: >-
-    SadConsole does not support all the Playscii features at the moment, so the conversion will not be perfect.<br />
-                Do not use tile rotation and set Z-Depth to 0 on all Playscii layers.<br />
-                Transparent glyph foreground is fine, but it will not cut through the <xref href="SadConsole.ColoredGlyphBase" data-throw-if-not-resolved="false"></xref> background like it does in Playscii.
-  example: []
   syntax:
     content: public static ScreenSurface ToScreenSurface(string fileName, IFont font, string paletteFileName = "", string zipArchiveName = "")
     parameters:
     - id: fileName
       type: System.String
-      description: Name and path of the <xref href="SadConsole.Readers.Playscii" data-throw-if-not-resolved="false"></xref> file (give only file name if <code class="paramref">zipArchiveName</code> is used).
     - id: font
       type: SadConsole.IFont
-      description: <xref href="SadConsole.IFont" data-throw-if-not-resolved="false"></xref> to be used when converting the <xref href="SadConsole.Readers.Playscii" data-throw-if-not-resolved="false"></xref> file.
     - id: paletteFileName
       type: System.String
-      description: Path to an alternative palette file rather than the one specified in the playscii records.
     - id: zipArchiveName
       type: System.String
-      description: If specified, the playscii file will be read from this zip archive.
     return:
       type: SadConsole.ScreenSurface
-      description: <xref href="SadConsole.ScreenSurface" data-throw-if-not-resolved="false"></xref> containing the first frame from the <xref href="SadConsole.Readers.Playscii" data-throw-if-not-resolved="false"></xref> file.
     content.vb: Public Shared Function ToScreenSurface(fileName As String, font As IFont, paletteFileName As String = "", zipArchiveName As String = "") As ScreenSurface
   overload: SadConsole.Readers.Playscii.ToScreenSurface*
   nameWithType.vb: Playscii.ToScreenSurface(String, IFont, String, String)
@@ -516,21 +493,13 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
-- uid: SadConsole.Readers.Playscii
-  commentId: T:SadConsole.Readers.Playscii
+- uid: SadConsole.Readers.Playscii.ToScreenSurface*
+  commentId: Overload:SadConsole.Readers.Playscii.ToScreenSurface
   isExternal: true
-  href: SadConsole.Readers.Playscii.html
-  name: Playscii
-  nameWithType: Playscii
-  fullName: SadConsole.Readers.Playscii
-- uid: SadConsole.ScreenSurface
-  commentId: T:SadConsole.ScreenSurface
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.ScreenSurface.html
-  name: ScreenSurface
-  nameWithType: ScreenSurface
-  fullName: SadConsole.ScreenSurface
+  href: SadConsole.Readers.Playscii.html#SadConsole_Readers_Playscii_ToScreenSurface_System_String_SadConsole_IFont_System_String_System_String_
+  name: ToScreenSurface
+  nameWithType: Playscii.ToScreenSurface
+  fullName: SadConsole.Readers.Playscii.ToScreenSurface
 - uid: SadConsole.IFont
   commentId: T:SadConsole.IFont
   parent: SadConsole
@@ -539,21 +508,14 @@ references:
   name: IFont
   nameWithType: IFont
   fullName: SadConsole.IFont
-- uid: SadConsole.ColoredGlyphBase
-  commentId: T:SadConsole.ColoredGlyphBase
+- uid: SadConsole.ScreenSurface
+  commentId: T:SadConsole.ScreenSurface
   parent: SadConsole
   isExternal: true
-  href: SadConsole.ColoredGlyphBase.html
-  name: ColoredGlyphBase
-  nameWithType: ColoredGlyphBase
-  fullName: SadConsole.ColoredGlyphBase
-- uid: SadConsole.Readers.Playscii.ToScreenSurface*
-  commentId: Overload:SadConsole.Readers.Playscii.ToScreenSurface
-  isExternal: true
-  href: SadConsole.Readers.Playscii.html#SadConsole_Readers_Playscii_ToScreenSurface_System_String_SadConsole_IFont_System_String_System_String_
-  name: ToScreenSurface
-  nameWithType: Playscii.ToScreenSurface
-  fullName: SadConsole.Readers.Playscii.ToScreenSurface
+  href: SadConsole.ScreenSurface.html
+  name: ScreenSurface
+  nameWithType: ScreenSurface
+  fullName: SadConsole.ScreenSurface
 - uid: SadConsole
   commentId: N:SadConsole
   isExternal: true

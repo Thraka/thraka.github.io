@@ -18,8 +18,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Quick
-  summary: Adds logic extension methods for <xref href="SadConsole.IScreenObject" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: public static class Update
     content.vb: Public Module Update
@@ -48,17 +46,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Quick
-  summary: Adds a keyboard handler to a <xref href="SadConsole.IScreenObject" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: public static IScreenObject WithUpdate(this IScreenObject screenObject, Action<IScreenObject, TimeSpan> handler)
     parameters:
     - id: screenObject
       type: SadConsole.IScreenObject
-      description: The object to use.
     - id: handler
       type: System.Action{SadConsole.IScreenObject,System.TimeSpan}
-      description: The handler callback.
     return:
       type: SadConsole.IScreenObject
     content.vb: Public Shared Function WithUpdate(screenObject As IScreenObject, handler As Action(Of IScreenObject, TimeSpan)) As IScreenObject
@@ -81,14 +75,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Quick
-  summary: Removes all of the keyboard hooks added with <xref href="SadConsole.Quick.Update.WithUpdate(SadConsole.IScreenObject%2cSystem.Action%7bSadConsole.IScreenObject%2cSystem.TimeSpan%7d)" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: public static IScreenObject RemoveUpdateHooks(this IScreenObject screenObject)
     parameters:
     - id: screenObject
       type: SadConsole.IScreenObject
-      description: The object to use.
     return:
       type: SadConsole.IScreenObject
     content.vb: Public Shared Function RemoveUpdateHooks(screenObject As IScreenObject) As IScreenObject
@@ -108,17 +99,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Quick
-  summary: Removes the specified handler that was added with <xref href="SadConsole.Quick.Update.WithUpdate(SadConsole.IScreenObject%2cSystem.Action%7bSadConsole.IScreenObject%2cSystem.TimeSpan%7d)" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: public static IScreenObject RemoveUpdateHook(this IScreenObject screenObject, Action<IScreenObject, TimeSpan> handler)
     parameters:
     - id: screenObject
       type: SadConsole.IScreenObject
-      description: The object to use.
     - id: handler
       type: System.Action{SadConsole.IScreenObject,System.TimeSpan}
-      description: The handler callback.
     return:
       type: SadConsole.IScreenObject
     content.vb: Public Shared Function RemoveUpdateHook(screenObject As IScreenObject, handler As Action(Of IScreenObject, TimeSpan)) As IScreenObject
@@ -127,14 +114,6 @@ items:
   fullName.vb: SadConsole.Quick.Update.RemoveUpdateHook(SadConsole.IScreenObject, System.Action(Of SadConsole.IScreenObject, System.TimeSpan))
   name.vb: RemoveUpdateHook(IScreenObject, Action(Of IScreenObject, TimeSpan))
 references:
-- uid: SadConsole.IScreenObject
-  commentId: T:SadConsole.IScreenObject
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.IScreenObject.html
-  name: IScreenObject
-  nameWithType: IScreenObject
-  fullName: SadConsole.IScreenObject
 - uid: SadConsole.Quick
   commentId: N:SadConsole.Quick
   isExternal: true
@@ -392,13 +371,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
-- uid: SadConsole
-  commentId: N:SadConsole
-  isExternal: true
-  href: SadConsole.html
-  name: SadConsole
-  nameWithType: SadConsole
-  fullName: SadConsole
 - uid: System
   commentId: N:System
   isExternal: true
@@ -413,6 +385,14 @@ references:
   name: WithUpdate
   nameWithType: Update.WithUpdate
   fullName: SadConsole.Quick.Update.WithUpdate
+- uid: SadConsole.IScreenObject
+  commentId: T:SadConsole.IScreenObject
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IScreenObject.html
+  name: IScreenObject
+  nameWithType: IScreenObject
+  fullName: SadConsole.IScreenObject
 - uid: System.Action{SadConsole.IScreenObject,System.TimeSpan}
   commentId: T:System.Action{SadConsole.IScreenObject,System.TimeSpan}
   parent: System
@@ -460,6 +440,13 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.timespan
   - name: )
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
 - uid: System.Action`2
   commentId: T:System.Action`2
   isExternal: true
@@ -493,76 +480,6 @@ references:
   - name: ','
   - name: " "
   - name: T2
-  - name: )
-- uid: SadConsole.Quick.Update.WithUpdate(SadConsole.IScreenObject,System.Action{SadConsole.IScreenObject,System.TimeSpan})
-  commentId: M:SadConsole.Quick.Update.WithUpdate(SadConsole.IScreenObject,System.Action{SadConsole.IScreenObject,System.TimeSpan})
-  isExternal: true
-  href: SadConsole.Quick.Update.html#SadConsole_Quick_Update_WithUpdate_SadConsole_IScreenObject_System_Action_SadConsole_IScreenObject_System_TimeSpan__
-  name: WithUpdate(IScreenObject, Action<IScreenObject, TimeSpan>)
-  nameWithType: Update.WithUpdate(IScreenObject, Action<IScreenObject, TimeSpan>)
-  fullName: SadConsole.Quick.Update.WithUpdate(SadConsole.IScreenObject, System.Action<SadConsole.IScreenObject, System.TimeSpan>)
-  nameWithType.vb: Update.WithUpdate(IScreenObject, Action(Of IScreenObject, TimeSpan))
-  fullName.vb: SadConsole.Quick.Update.WithUpdate(SadConsole.IScreenObject, System.Action(Of SadConsole.IScreenObject, System.TimeSpan))
-  name.vb: WithUpdate(IScreenObject, Action(Of IScreenObject, TimeSpan))
-  spec.csharp:
-  - uid: SadConsole.Quick.Update.WithUpdate(SadConsole.IScreenObject,System.Action{SadConsole.IScreenObject,System.TimeSpan})
-    name: WithUpdate
-    isExternal: true
-    href: SadConsole.Quick.Update.html#SadConsole_Quick_Update_WithUpdate_SadConsole_IScreenObject_System_Action_SadConsole_IScreenObject_System_TimeSpan__
-  - name: (
-  - uid: SadConsole.IScreenObject
-    name: IScreenObject
-    isExternal: true
-    href: SadConsole.IScreenObject.html
-  - name: ','
-  - name: " "
-  - uid: System.Action`2
-    name: Action
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.action-2
-  - name: <
-  - uid: SadConsole.IScreenObject
-    name: IScreenObject
-    isExternal: true
-    href: SadConsole.IScreenObject.html
-  - name: ','
-  - name: " "
-  - uid: System.TimeSpan
-    name: TimeSpan
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.timespan
-  - name: '>'
-  - name: )
-  spec.vb:
-  - uid: SadConsole.Quick.Update.WithUpdate(SadConsole.IScreenObject,System.Action{SadConsole.IScreenObject,System.TimeSpan})
-    name: WithUpdate
-    isExternal: true
-    href: SadConsole.Quick.Update.html#SadConsole_Quick_Update_WithUpdate_SadConsole_IScreenObject_System_Action_SadConsole_IScreenObject_System_TimeSpan__
-  - name: (
-  - uid: SadConsole.IScreenObject
-    name: IScreenObject
-    isExternal: true
-    href: SadConsole.IScreenObject.html
-  - name: ','
-  - name: " "
-  - uid: System.Action`2
-    name: Action
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.action-2
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: SadConsole.IScreenObject
-    name: IScreenObject
-    isExternal: true
-    href: SadConsole.IScreenObject.html
-  - name: ','
-  - name: " "
-  - uid: System.TimeSpan
-    name: TimeSpan
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.timespan
-  - name: )
   - name: )
 - uid: SadConsole.Quick.Update.RemoveUpdateHooks*
   commentId: Overload:SadConsole.Quick.Update.RemoveUpdateHooks

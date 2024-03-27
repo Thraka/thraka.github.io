@@ -27,8 +27,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: A set of instructions to be executed sequentially.
-  example: []
   syntax:
     content: 'public class InstructionSet : InstructionBase, IComponent'
     content.vb: Public Class InstructionSet Inherits InstructionBase Implements IComponent
@@ -73,8 +71,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: Resets the Done flag.
-  remarks: On the base class, resets the <xref href="SadConsole.Instructions.InstructionBase.IsFinished" data-throw-if-not-resolved="false"></xref> to false. Override this method to reset the derived class' counters and status flags for the instruction.
   example: []
   syntax:
     content: public override void Reset()
@@ -95,7 +91,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: Runs the instruction set. Once all instructions are finished, this set will set the <xref href="SadConsole.Instructions.InstructionBase.IsFinished" data-throw-if-not-resolved="false"></xref> property will be set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
   example: []
   syntax:
     content: public override void Update(IScreenObject componentHost, TimeSpan delta)
@@ -121,17 +116,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: Adds a new <xref href="SadConsole.Instructions.Wait" data-throw-if-not-resolved="false"></xref> instruction with the specified duration to the end of this set.
-  example: []
   syntax:
     content: public InstructionSet Wait(TimeSpan duration)
     parameters:
     - id: duration
       type: System.TimeSpan
-      description: The time to wait.
     return:
       type: SadConsole.Instructions.InstructionSet
-      description: This instruction set.
     content.vb: Public Function Wait(duration As TimeSpan) As InstructionSet
   overload: SadConsole.Instructions.InstructionSet.Wait*
 - uid: SadConsole.Instructions.InstructionSet.Instruct(SadConsole.Instructions.InstructionBase)
@@ -148,17 +139,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: Adds an instruction to the end of this set.
-  example: []
   syntax:
     content: public InstructionSet Instruct(InstructionBase instruction)
     parameters:
     - id: instruction
       type: SadConsole.Instructions.InstructionBase
-      description: ''
     return:
       type: SadConsole.Instructions.InstructionSet
-      description: This instruction set.
     content.vb: Public Function Instruct(instruction As InstructionBase) As InstructionSet
   overload: SadConsole.Instructions.InstructionSet.Instruct*
 - uid: SadConsole.Instructions.InstructionSet.Code(System.Func{SadConsole.IScreenObject,System.TimeSpan,System.Boolean})
@@ -175,17 +162,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: Adds a new <xref href="SadConsole.Instructions.CodeInstruction" data-throw-if-not-resolved="false"></xref> instruction with the specified callback to the end of this set.
-  example: []
   syntax:
     content: public InstructionSet Code(Func<IScreenObject, TimeSpan, bool> expression)
     parameters:
     - id: expression
       type: System.Func{SadConsole.IScreenObject,System.TimeSpan,System.Boolean}
-      description: The code callback.
     return:
       type: SadConsole.Instructions.InstructionSet
-      description: This instruction set.
     content.vb: Public Function Code(expression As Func(Of IScreenObject, TimeSpan, Boolean)) As InstructionSet
   overload: SadConsole.Instructions.InstructionSet.Code*
   nameWithType.vb: InstructionSet.Code(Func(Of IScreenObject, TimeSpan, Boolean))
@@ -205,17 +188,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: Adds a new <xref href="SadConsole.Instructions.CodeInstruction" data-throw-if-not-resolved="false"></xref> instruction with the specified callback to the end of this set.
-  example: []
   syntax:
     content: public InstructionSet Code(Action expression)
     parameters:
     - id: expression
       type: System.Action
-      description: The code callback.
     return:
       type: SadConsole.Instructions.InstructionSet
-      description: This instruction set.
     content.vb: Public Function Code(expression As Action) As InstructionSet
   overload: SadConsole.Instructions.InstructionSet.Code*
 - uid: SadConsole.Instructions.InstructionSet.WaitTrue(System.Func{System.Boolean})
@@ -232,17 +211,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: Adds a new <xref href="SadConsole.Instructions.PredicateInstruction" data-throw-if-not-resolved="false"></xref> instruction with the specified callback to the end of this set.
-  example: []
   syntax:
     content: public InstructionSet WaitTrue(Func<bool> expression)
     parameters:
     - id: expression
       type: System.Func{System.Boolean}
-      description: The code callback.
     return:
       type: SadConsole.Instructions.InstructionSet
-      description: This instruction set.
     content.vb: Public Function WaitTrue(expression As Func(Of Boolean)) As InstructionSet
   overload: SadConsole.Instructions.InstructionSet.WaitTrue*
   nameWithType.vb: InstructionSet.WaitTrue(Func(Of Boolean))
@@ -262,17 +237,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: Adds a <xref href="SadConsole.Instructions.ConcurrentInstructions" data-throw-if-not-resolved="false"></xref> to the end of this set.
-  example: []
   syntax:
     content: public InstructionSet InstructConcurrent(params InstructionBase[] instructions)
     parameters:
     - id: instructions
       type: SadConsole.Instructions.InstructionBase[]
-      description: Instructions to add. Must be two or more instructions.
     return:
       type: SadConsole.Instructions.InstructionSet
-      description: This instruction set.
     content.vb: Public Function InstructConcurrent(ParamArray instructions As InstructionBase()) As InstructionSet
   overload: SadConsole.Instructions.InstructionSet.InstructConcurrent*
   nameWithType.vb: InstructionSet.InstructConcurrent(ParamArray InstructionBase())
@@ -313,8 +284,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: All instructions in this set.
-  example: []
   syntax:
     content: public LinkedList<InstructionBase> Instructions { get; }
     parameters: []
@@ -336,8 +305,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: The name of this instruction to identify it apart from other instruction sets.
-  example: []
   syntax:
     content: public string Name { get; set; }
     parameters: []
@@ -359,8 +326,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: Represents the current instruction if this set is currently executing.
-  example: []
   syntax:
     content: public InstructionBase? CurrentInstruction { get; }
     parameters: []
@@ -997,14 +962,6 @@ references:
   name: SadConsole
   nameWithType: SadConsole
   fullName: SadConsole
-- uid: SadConsole.Instructions.Wait
-  commentId: T:SadConsole.Instructions.Wait
-  parent: SadConsole.Instructions
-  isExternal: true
-  href: SadConsole.Instructions.Wait.html
-  name: Wait
-  nameWithType: Wait
-  fullName: SadConsole.Instructions.Wait
 - uid: SadConsole.Instructions.InstructionSet.Wait*
   commentId: Overload:SadConsole.Instructions.InstructionSet.Wait
   isExternal: true
@@ -1027,13 +984,6 @@ references:
   name: Instruct
   nameWithType: InstructionSet.Instruct
   fullName: SadConsole.Instructions.InstructionSet.Instruct
-- uid: SadConsole.Instructions.CodeInstruction
-  commentId: T:SadConsole.Instructions.CodeInstruction
-  isExternal: true
-  href: SadConsole.Instructions.CodeInstruction.html
-  name: CodeInstruction
-  nameWithType: CodeInstruction
-  fullName: SadConsole.Instructions.CodeInstruction
 - uid: SadConsole.Instructions.InstructionSet.Code*
   commentId: Overload:SadConsole.Instructions.InstructionSet.Code
   isExternal: true
@@ -1148,13 +1098,6 @@ references:
   name: Action
   nameWithType: Action
   fullName: System.Action
-- uid: SadConsole.Instructions.PredicateInstruction
-  commentId: T:SadConsole.Instructions.PredicateInstruction
-  isExternal: true
-  href: SadConsole.Instructions.PredicateInstruction.html
-  name: PredicateInstruction
-  nameWithType: PredicateInstruction
-  fullName: SadConsole.Instructions.PredicateInstruction
 - uid: SadConsole.Instructions.InstructionSet.WaitTrue*
   commentId: Overload:SadConsole.Instructions.InstructionSet.WaitTrue
   isExternal: true
@@ -1225,13 +1168,6 @@ references:
   - name: " "
   - name: TResult
   - name: )
-- uid: SadConsole.Instructions.ConcurrentInstructions
-  commentId: T:SadConsole.Instructions.ConcurrentInstructions
-  isExternal: true
-  href: SadConsole.Instructions.ConcurrentInstructions.html
-  name: ConcurrentInstructions
-  nameWithType: ConcurrentInstructions
-  fullName: SadConsole.Instructions.ConcurrentInstructions
 - uid: SadConsole.Instructions.InstructionSet.InstructConcurrent*
   commentId: Overload:SadConsole.Instructions.InstructionSet.InstructConcurrent
   isExternal: true

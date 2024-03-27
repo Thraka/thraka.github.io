@@ -21,8 +21,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
-  summary: Holds the state of keystrokes by a keyboard.
-  example: []
   syntax:
     content: public interface IKeyboardState
     content.vb: Public Interface IKeyboardState
@@ -40,17 +38,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
-  summary: Gets whether given key is currently being pressed.
-  example: []
   syntax:
     content: bool IsKeyDown(Keys key)
     parameters:
     - id: key
       type: SadConsole.Input.Keys
-      description: The key to query.
     return:
       type: System.Boolean
-      description: true if the key is pressed; false otherwise.
     content.vb: Function IsKeyDown(key As Keys) As Boolean
   overload: SadConsole.Input.IKeyboardState.IsKeyDown*
 - uid: SadConsole.Input.IKeyboardState.IsKeyUp(SadConsole.Input.Keys)
@@ -67,17 +61,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
-  summary: Gets whether given key is currently being not pressed.
-  example: []
   syntax:
     content: bool IsKeyUp(Keys key)
     parameters:
     - id: key
       type: SadConsole.Input.Keys
-      description: The key to query.
     return:
       type: System.Boolean
-      description: true if the key is not pressed; false otherwise.
     content.vb: Function IsKeyUp(key As Keys) As Boolean
   overload: SadConsole.Input.IKeyboardState.IsKeyUp*
 - uid: SadConsole.Input.IKeyboardState.GetPressedKeys
@@ -94,13 +84,10 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
-  summary: Returns an array of values holding keys that are currently being pressed.
-  example: []
   syntax:
     content: Keys[] GetPressedKeys()
     return:
       type: SadConsole.Input.Keys[]
-      description: The keys that are currently being pressed.
     content.vb: Function GetPressedKeys() As Keys()
   overload: SadConsole.Input.IKeyboardState.GetPressedKeys*
 - uid: SadConsole.Input.IKeyboardState.Refresh
@@ -117,8 +104,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
-  summary: If applicable to the host implementation, refreshes the keyboard state.
-  example: []
   syntax:
     content: void Refresh()
     content.vb: Sub Refresh()
@@ -137,8 +122,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
-  summary: Gets the current state of the Caps Lock key.
-  example: []
   syntax:
     content: bool CapsLock { get; }
     parameters: []
@@ -160,8 +143,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
-  summary: Gets the current state of the Num Lock key.
-  example: []
   syntax:
     content: bool NumLock { get; }
     parameters: []

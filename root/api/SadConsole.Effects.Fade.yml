@@ -33,8 +33,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: Fades both the background and foreground to separate colors.
-  example: []
   syntax:
     content: >-
       [DataContract]
@@ -82,8 +80,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: A value used in lerping the fade.
-  example: []
   syntax:
     content: protected double _calculatedValue
     return:
@@ -103,8 +99,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: Indicates the fade is currently in reverse.
-  example: []
   syntax:
     content: protected bool _goingDown
     return:
@@ -124,8 +118,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: Creates a new instance of the effect.
-  example: []
   syntax:
     content: public Fade()
     content.vb: Public Sub New()
@@ -147,20 +139,16 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: Applies the state of the effect to a cell.
   example: []
   syntax:
     content: public override bool ApplyToCell(ColoredGlyphBase cell, ColoredGlyphBase originalState)
     parameters:
     - id: cell
       type: SadConsole.ColoredGlyphBase
-      description: The surface cell using this effect.
     - id: originalState
       type: SadConsole.ColoredGlyphBase
-      description: The state of the cell prior to the effect being applied.
     return:
       type: System.Boolean
-      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when this method modified the <code class="paramref">cell</code>; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Public Overrides Function ApplyToCell(cell As ColoredGlyphBase, originalState As ColoredGlyphBase) As Boolean
   overridden: SadConsole.Effects.CellEffectBase.ApplyToCell(SadConsole.ColoredGlyphBase,SadConsole.ColoredGlyphBase)
   overload: SadConsole.Effects.Fade.ApplyToCell*
@@ -178,14 +166,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: Updates the state of the effect.
   example: []
   syntax:
     content: public override void Update(TimeSpan delta)
     parameters:
     - id: delta
       type: System.TimeSpan
-      description: Time since the last call to this effect.
     content.vb: Public Overrides Sub Update(delta As TimeSpan)
   overridden: SadConsole.Effects.CellEffectBase.Update(System.TimeSpan)
   overload: SadConsole.Effects.Fade.Update*
@@ -203,7 +189,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: Restarts the cell effect.
   example: []
   syntax:
     content: public override void Restart()
@@ -224,13 +209,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: Returns a duplicate of this effect.
   example: []
   syntax:
     content: public override ICellEffect Clone()
     return:
       type: SadConsole.Effects.ICellEffect
-      description: A new copy of this effect.
     content.vb: Public Overrides Function Clone() As ICellEffect
   overridden: SadConsole.Effects.CellEffectBase.Clone
   overload: SadConsole.Effects.Fade.Clone*
@@ -270,8 +253,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: Gets or sets the color gradient used to fade for the cell background.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -303,8 +284,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: Gets or sets the color gradient used to fade for the cell background.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -336,8 +315,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: Gets or sets how long the fade takes to complete in seconds.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -369,8 +346,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: Gets or sets a value to indicate that the fade effect should repeat.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -402,8 +377,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: Gets or sets a value to indicate that the color gradient used with the <xref href="SadConsole.Effects.Fade.DestinationForeground" data-throw-if-not-resolved="false"></xref> should replace its first color stop with the cell's foreground color.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -435,8 +408,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: Gets or sets a value to indicate that the color gradient used with the <xref href="SadConsole.Effects.Fade.DestinationBackground" data-throw-if-not-resolved="false"></xref> should replace its first color stop with the cell's background color.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -468,8 +439,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: Gets or sets a value to indicate that the fade effect should use the foreground color on the cell's foreground.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -501,8 +470,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: Gets or sets a value to indicate that the fade effect should use the background color on the cell's background.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -534,8 +501,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: Gets or sets a value to indicate that the fade effect should automatically reverse itself when it finishes going up the color spectrum. By setting this to true, and setting the <xref href="SadConsole.Effects.Fade.Repeat" data-throw-if-not-resolved="false"></xref> property to true, you can create a pulse effect.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -567,8 +532,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: When <xref href="SadConsole.Effects.Fade.UseCellForeground" data-throw-if-not-resolved="false"></xref> or <xref href="SadConsole.Effects.Fade.UseCellBackground" data-throw-if-not-resolved="false"></xref> is set, and this is true, the last color in the fade will be set to the cell instead of the first.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1210,13 +1173,6 @@ references:
   name: Repeat
   nameWithType: Fade.Repeat
   fullName: SadConsole.Effects.Fade.Repeat
-- uid: SadConsole.Effects.Fade.DestinationForeground
-  commentId: P:SadConsole.Effects.Fade.DestinationForeground
-  isExternal: true
-  href: SadConsole.Effects.Fade.html#SadConsole_Effects_Fade_DestinationForeground
-  name: DestinationForeground
-  nameWithType: Fade.DestinationForeground
-  fullName: SadConsole.Effects.Fade.DestinationForeground
 - uid: SadConsole.Effects.Fade.UseCellForeground*
   commentId: Overload:SadConsole.Effects.Fade.UseCellForeground
   isExternal: true
@@ -1224,13 +1180,6 @@ references:
   name: UseCellForeground
   nameWithType: Fade.UseCellForeground
   fullName: SadConsole.Effects.Fade.UseCellForeground
-- uid: SadConsole.Effects.Fade.DestinationBackground
-  commentId: P:SadConsole.Effects.Fade.DestinationBackground
-  isExternal: true
-  href: SadConsole.Effects.Fade.html#SadConsole_Effects_Fade_DestinationBackground
-  name: DestinationBackground
-  nameWithType: Fade.DestinationBackground
-  fullName: SadConsole.Effects.Fade.DestinationBackground
 - uid: SadConsole.Effects.Fade.UseCellBackground*
   commentId: Overload:SadConsole.Effects.Fade.UseCellBackground
   isExternal: true
@@ -1252,13 +1201,6 @@ references:
   name: FadeBackground
   nameWithType: Fade.FadeBackground
   fullName: SadConsole.Effects.Fade.FadeBackground
-- uid: SadConsole.Effects.Fade.Repeat
-  commentId: P:SadConsole.Effects.Fade.Repeat
-  isExternal: true
-  href: SadConsole.Effects.Fade.html#SadConsole_Effects_Fade_Repeat
-  name: Repeat
-  nameWithType: Fade.Repeat
-  fullName: SadConsole.Effects.Fade.Repeat
 - uid: SadConsole.Effects.Fade.AutoReverse*
   commentId: Overload:SadConsole.Effects.Fade.AutoReverse
   isExternal: true
@@ -1266,20 +1208,6 @@ references:
   name: AutoReverse
   nameWithType: Fade.AutoReverse
   fullName: SadConsole.Effects.Fade.AutoReverse
-- uid: SadConsole.Effects.Fade.UseCellForeground
-  commentId: P:SadConsole.Effects.Fade.UseCellForeground
-  isExternal: true
-  href: SadConsole.Effects.Fade.html#SadConsole_Effects_Fade_UseCellForeground
-  name: UseCellForeground
-  nameWithType: Fade.UseCellForeground
-  fullName: SadConsole.Effects.Fade.UseCellForeground
-- uid: SadConsole.Effects.Fade.UseCellBackground
-  commentId: P:SadConsole.Effects.Fade.UseCellBackground
-  isExternal: true
-  href: SadConsole.Effects.Fade.html#SadConsole_Effects_Fade_UseCellBackground
-  name: UseCellBackground
-  nameWithType: Fade.UseCellBackground
-  fullName: SadConsole.Effects.Fade.UseCellBackground
 - uid: SadConsole.Effects.Fade.UseCellDestinationReverse*
   commentId: Overload:SadConsole.Effects.Fade.UseCellDestinationReverse
   isExternal: true

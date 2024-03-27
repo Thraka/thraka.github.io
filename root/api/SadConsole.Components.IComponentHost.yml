@@ -20,8 +20,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Provides a collection of <xref href="SadConsole.Components.IComponent" data-throw-if-not-resolved="false"></xref> objects.
-  example: []
   syntax:
     content: public interface IComponentHost
     content.vb: Public Interface IComponentHost
@@ -39,16 +37,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Gets the first component of the specified type.
-  example: []
   syntax:
     content: 'TComponent? GetSadComponent<TComponent>() where TComponent : class, IComponent'
     typeParameters:
     - id: TComponent
-      description: The component to find.
     return:
       type: '{TComponent}'
-      description: The component if found, otherwise null.
     content.vb: Function GetSadComponent(Of TComponent As {Class, IComponent})() As TComponent
   overload: SadConsole.Components.IComponentHost.GetSadComponent*
   nameWithType.vb: IComponentHost.GetSadComponent(Of TComponent)()
@@ -68,16 +62,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Gets components of the specified types.
-  example: []
   syntax:
     content: 'IEnumerable<TComponent> GetSadComponents<TComponent>() where TComponent : class, IComponent'
     typeParameters:
     - id: TComponent
-      description: The component to find
     return:
       type: System.Collections.Generic.IEnumerable{{TComponent}}
-      description: The components found.
     content.vb: Function GetSadComponents(Of TComponent As {Class, IComponent})() As IEnumerable(Of TComponent)
   overload: SadConsole.Components.IComponentHost.GetSadComponents*
   nameWithType.vb: IComponentHost.GetSadComponents(Of TComponent)()
@@ -97,8 +87,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Indicates whether or not the component exists in the <xref href="SadConsole.Components.IComponentHost.SadComponents" data-throw-if-not-resolved="false"></xref> collection.
-  example: []
   syntax:
     content: 'bool HasSadComponent<TComponent>(out TComponent? component) where TComponent : class, IComponent'
     parameters:
@@ -106,10 +94,8 @@ items:
       type: '{TComponent}'
     typeParameters:
     - id: TComponent
-      description: The component to find.
     return:
       type: System.Boolean
-      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the component exists; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Function HasSadComponent(Of TComponent As {Class, IComponent})(component As TComponent) As Boolean
   overload: SadConsole.Components.IComponentHost.HasSadComponent*
   nameWithType.vb: IComponentHost.HasSadComponent(Of TComponent)(TComponent)
@@ -129,20 +115,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Uses the <xref href="SadConsole.Components.IComponent.SortOrder" data-throw-if-not-resolved="false"></xref> to compare the <code class="paramref">left</code> component with the <code class="paramref">right</code> component.
-  example: []
   syntax:
     content: public static int CompareComponent(IComponent left, IComponent right)
     parameters:
     - id: left
       type: SadConsole.Components.IComponent
-      description: The first component to compare.
     - id: right
       type: SadConsole.Components.IComponent
-      description: The second component to compare.
     return:
       type: System.Int32
-      description: <pre><code class="lang-csharp">1</code></pre> when the <code class="paramref">left</code> sort order is greater than <code class="paramref">right</code>; <pre><code class="lang-csharp">-1</code></pre> when <code class="paramref">left</code> is less than <code class="paramref">right</code>; <pre><code class="lang-csharp">0</code></pre> when they are equal.
     content.vb: Public Shared Function CompareComponent(left As IComponent, right As IComponent) As Integer
   overload: SadConsole.Components.IComponentHost.CompareComponent*
 - uid: SadConsole.Components.IComponentHost.SadComponents
@@ -159,8 +140,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: A collection of components processed by this console.
-  example: []
   syntax:
     content: ObservableCollection<IComponent> SadComponents { get; }
     parameters: []
@@ -169,14 +148,6 @@ items:
     content.vb: ReadOnly Property SadComponents As ObservableCollection(Of IComponent)
   overload: SadConsole.Components.IComponentHost.SadComponents*
 references:
-- uid: SadConsole.Components.IComponent
-  commentId: T:SadConsole.Components.IComponent
-  parent: SadConsole.Components
-  isExternal: true
-  href: SadConsole.Components.IComponent.html
-  name: IComponent
-  nameWithType: IComponent
-  fullName: SadConsole.Components.IComponent
 - uid: SadConsole.Components
   commentId: N:SadConsole.Components
   isExternal: true
@@ -322,14 +293,6 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: SadConsole.Components.IComponentHost.SadComponents
-  commentId: P:SadConsole.Components.IComponentHost.SadComponents
-  parent: SadConsole.Components.IComponentHost
-  isExternal: true
-  href: SadConsole.Components.IComponentHost.html#SadConsole_Components_IComponentHost_SadComponents
-  name: SadComponents
-  nameWithType: IComponentHost.SadComponents
-  fullName: SadConsole.Components.IComponentHost.SadComponents
 - uid: SadConsole.Components.IComponentHost.HasSadComponent*
   commentId: Overload:SadConsole.Components.IComponentHost.HasSadComponent
   isExternal: true
@@ -348,14 +311,6 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
-- uid: SadConsole.Components.IComponentHost
-  commentId: T:SadConsole.Components.IComponentHost
-  parent: SadConsole.Components
-  isExternal: true
-  href: SadConsole.Components.IComponentHost.html
-  name: IComponentHost
-  nameWithType: IComponentHost
-  fullName: SadConsole.Components.IComponentHost
 - uid: System
   commentId: N:System
   isExternal: true
@@ -363,14 +318,6 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: SadConsole.Components.IComponent.SortOrder
-  commentId: P:SadConsole.Components.IComponent.SortOrder
-  parent: SadConsole.Components.IComponent
-  isExternal: true
-  href: SadConsole.Components.IComponent.html#SadConsole_Components_IComponent_SortOrder
-  name: SortOrder
-  nameWithType: IComponent.SortOrder
-  fullName: SadConsole.Components.IComponent.SortOrder
 - uid: SadConsole.Components.IComponentHost.CompareComponent*
   commentId: Overload:SadConsole.Components.IComponentHost.CompareComponent
   isExternal: true
@@ -378,6 +325,14 @@ references:
   name: CompareComponent
   nameWithType: IComponentHost.CompareComponent
   fullName: SadConsole.Components.IComponentHost.CompareComponent
+- uid: SadConsole.Components.IComponent
+  commentId: T:SadConsole.Components.IComponent
+  parent: SadConsole.Components
+  isExternal: true
+  href: SadConsole.Components.IComponent.html
+  name: IComponent
+  nameWithType: IComponent
+  fullName: SadConsole.Components.IComponent
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System

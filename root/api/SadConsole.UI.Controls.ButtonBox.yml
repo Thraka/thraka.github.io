@@ -19,8 +19,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: A button control that is drawn using lines around it.
-  example: []
   syntax:
     content: >-
       [DataContract]
@@ -61,6 +59,7 @@ items:
   - SadConsole.UI.Controls.ControlBase.DetermineState
   - SadConsole.UI.Controls.ControlBase.OnStateChanged(SadConsole.UI.Controls.ControlStates,SadConsole.UI.Controls.ControlStates)
   - SadConsole.UI.Controls.ControlBase.OnSurfaceChanged(SadConsole.ICellSurface,SadConsole.ICellSurface)
+  - SadConsole.UI.Controls.ControlBase.FindThemeFont
   - SadConsole.UI.Controls.ControlBase.FindThemeColors
   - SadConsole.UI.Controls.ControlBase.SetThemeColors(SadConsole.UI.Colors)
   - SadConsole.UI.Controls.ControlBase.HasThemeColors
@@ -127,17 +126,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Creates an instance of the button control with the specified width and height.
-  example: []
   syntax:
     content: public ButtonBox(int width, int height)
     parameters:
     - id: width
       type: System.Int32
-      description: Width of the control.
     - id: height
       type: System.Int32
-      description: Height of the control (default is 1).
     content.vb: Public Sub New(width As Integer, height As Integer)
   overload: SadConsole.UI.Controls.ButtonBox.#ctor*
   nameWithType.vb: ButtonBox.New(Integer, Integer)
@@ -157,14 +152,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Updates the <xref href="SadConsole.UI.Controls.ControlBase.ThemeState" data-throw-if-not-resolved="false"></xref> by calling <xref href="SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)" data-throw-if-not-resolved="false"></xref> with the provided colors. Override this method to adjust how colors are used by the <xref href="SadConsole.UI.Controls.ControlBase.ThemeState" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: protected override void RefreshThemeStateColors(Colors colors)
     parameters:
     - id: colors
       type: SadConsole.UI.Colors
-      description: The colors to apply to the theme state.
     content.vb: Protected Overrides Sub RefreshThemeStateColors(colors As Colors)
   overridden: SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
   overload: SadConsole.UI.Controls.ButtonBox.RefreshThemeStateColors*
@@ -182,14 +175,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Redraws the control if applicable.
   example: []
   syntax:
     content: public override void UpdateAndRedraw(TimeSpan time)
     parameters:
     - id: time
       type: System.TimeSpan
-      description: The duration of thecurrent frame.
     content.vb: Public Overrides Sub UpdateAndRedraw(time As TimeSpan)
   overridden: SadConsole.UI.Controls.ControlBase.UpdateAndRedraw(System.TimeSpan)
   overload: SadConsole.UI.Controls.ButtonBox.UpdateAndRedraw*
@@ -207,8 +198,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that the lines of the theme should use the extended SadConsole font characters if available.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -868,6 +857,28 @@ references:
     name: ICellSurface
     isExternal: true
     href: SadConsole.ICellSurface.html
+  - name: )
+- uid: SadConsole.UI.Controls.ControlBase.FindThemeFont
+  commentId: M:SadConsole.UI.Controls.ControlBase.FindThemeFont
+  parent: SadConsole.UI.Controls.ControlBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeFont
+  name: FindThemeFont()
+  nameWithType: ControlBase.FindThemeFont()
+  fullName: SadConsole.UI.Controls.ControlBase.FindThemeFont()
+  spec.csharp:
+  - uid: SadConsole.UI.Controls.ControlBase.FindThemeFont
+    name: FindThemeFont
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeFont
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.Controls.ControlBase.FindThemeFont
+    name: FindThemeFont
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeFont
+  - name: (
   - name: )
 - uid: SadConsole.UI.Controls.ControlBase.FindThemeColors
   commentId: M:SadConsole.UI.Controls.ControlBase.FindThemeColors
@@ -1603,36 +1614,6 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
-- uid: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
-  commentId: M:SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
-  parent: SadConsole.UI.ThemeStates
-  isExternal: true
-  href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_RefreshTheme_SadConsole_UI_Colors_
-  name: RefreshTheme(Colors)
-  nameWithType: ThemeStates.RefreshTheme(Colors)
-  fullName: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
-  spec.csharp:
-  - uid: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
-    name: RefreshTheme
-    isExternal: true
-    href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_RefreshTheme_SadConsole_UI_Colors_
-  - name: (
-  - uid: SadConsole.UI.Colors
-    name: Colors
-    isExternal: true
-    href: SadConsole.UI.Colors.html
-  - name: )
-  spec.vb:
-  - uid: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
-    name: RefreshTheme
-    isExternal: true
-    href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_RefreshTheme_SadConsole_UI_Colors_
-  - name: (
-  - uid: SadConsole.UI.Colors
-    name: Colors
-    isExternal: true
-    href: SadConsole.UI.Colors.html
-  - name: )
 - uid: SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
   commentId: M:SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
   parent: SadConsole.UI.Controls.ControlBase
@@ -1678,14 +1659,6 @@ references:
   name: Colors
   nameWithType: Colors
   fullName: SadConsole.UI.Colors
-- uid: SadConsole.UI.ThemeStates
-  commentId: T:SadConsole.UI.ThemeStates
-  parent: SadConsole.UI
-  isExternal: true
-  href: SadConsole.UI.ThemeStates.html
-  name: ThemeStates
-  nameWithType: ThemeStates
-  fullName: SadConsole.UI.ThemeStates
 - uid: SadConsole.UI
   commentId: N:SadConsole.UI
   isExternal: true

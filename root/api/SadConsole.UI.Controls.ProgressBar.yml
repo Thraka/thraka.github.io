@@ -40,8 +40,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: A control that fills an area (vertical or horizontal) according to a value.
-  example: []
   syntax:
     content: >-
       [DataContract]
@@ -70,6 +68,7 @@ items:
   - SadConsole.UI.Controls.ControlBase.DetermineState
   - SadConsole.UI.Controls.ControlBase.OnStateChanged(SadConsole.UI.Controls.ControlStates,SadConsole.UI.Controls.ControlStates)
   - SadConsole.UI.Controls.ControlBase.OnSurfaceChanged(SadConsole.ICellSurface,SadConsole.ICellSurface)
+  - SadConsole.UI.Controls.ControlBase.FindThemeFont
   - SadConsole.UI.Controls.ControlBase.FindThemeColors
   - SadConsole.UI.Controls.ControlBase.SetThemeColors(SadConsole.UI.Colors)
   - SadConsole.UI.Controls.ControlBase.HasThemeColors
@@ -139,8 +138,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: The progress bar fill value. Between 0f and 1f.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -170,8 +167,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: The size of the bar.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -201,8 +196,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: For theme use only. The size of the bar currently filled based on the <xref href="SadConsole.UI.Controls.ProgressBar.Progress" data-throw-if-not-resolved="false"></xref> property.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -232,8 +225,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Flag to indicate this bar was created horizontal.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -263,8 +254,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: The alignment if the bar is horizontal.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -294,8 +283,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: The alignment if the bar is vertical.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -325,26 +312,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Creates a new horizontal progress bar.
-  example: []
   syntax:
     content: public ProgressBar(int width, int height, HorizontalAlignment horizontalAlignment)
     parameters:
     - id: width
       type: System.Int32
-      description: Width of the control.
     - id: height
       type: System.Int32
-      description: Height of the control.
     - id: horizontalAlignment
       type: SadConsole.HorizontalAlignment
-      description: Sets the control to be horizontal, starting from the specified side. Center/Stretch is invalid.
     content.vb: Public Sub New(width As Integer, height As Integer, horizontalAlignment As HorizontalAlignment)
   overload: SadConsole.UI.Controls.ProgressBar.#ctor*
-  exceptions:
-  - type: System.InvalidOperationException
-    commentId: T:System.InvalidOperationException
-    description: Thrown when <code class="paramref">horizontalAlignment</code> is set to either <xref href="SadConsole.HorizontalAlignment.Center" data-throw-if-not-resolved="false"></xref> or <xref href="SadConsole.HorizontalAlignment.Stretch" data-throw-if-not-resolved="false"></xref>.
   nameWithType.vb: ProgressBar.New(Integer, Integer, HorizontalAlignment)
   fullName.vb: SadConsole.UI.Controls.ProgressBar.New(Integer, Integer, SadConsole.HorizontalAlignment)
   name.vb: New(Integer, Integer, HorizontalAlignment)
@@ -362,26 +340,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Creates a new vertical progress bar.
-  example: []
   syntax:
     content: public ProgressBar(int width, int height, VerticalAlignment verticalAlignment)
     parameters:
     - id: width
       type: System.Int32
-      description: Width of the control.
     - id: height
       type: System.Int32
-      description: Height of the control.
     - id: verticalAlignment
       type: SadConsole.VerticalAlignment
-      description: Sets the control to be vertical, starting from the specified side. Center/Stretch is invalid.
     content.vb: Public Sub New(width As Integer, height As Integer, verticalAlignment As VerticalAlignment)
   overload: SadConsole.UI.Controls.ProgressBar.#ctor*
-  exceptions:
-  - type: System.InvalidOperationException
-    commentId: T:System.InvalidOperationException
-    description: Thrown when <code class="paramref">verticalAlignment</code> is set to either <xref href="SadConsole.VerticalAlignment.Center" data-throw-if-not-resolved="false"></xref> or <xref href="SadConsole.VerticalAlignment.Stretch" data-throw-if-not-resolved="false"></xref>.
   nameWithType.vb: ProgressBar.New(Integer, Integer, VerticalAlignment)
   fullName.vb: SadConsole.UI.Controls.ProgressBar.New(Integer, Integer, SadConsole.VerticalAlignment)
   name.vb: New(Integer, Integer, VerticalAlignment)
@@ -399,17 +368,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Called when the control should process keyboard information.
   example: []
   syntax:
     content: public override bool ProcessKeyboard(Keyboard info)
     parameters:
     - id: info
       type: SadConsole.Input.Keyboard
-      description: The keyboard information.
     return:
       type: System.Boolean
-      description: True if the keyboard was handled by this control.
     content.vb: Public Overrides Function ProcessKeyboard(info As Keyboard) As Boolean
   overridden: SadConsole.UI.Controls.ControlBase.ProcessKeyboard(SadConsole.Input.Keyboard)
   overload: SadConsole.UI.Controls.ProgressBar.ProcessKeyboard*
@@ -427,14 +393,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Updates the <xref href="SadConsole.UI.Controls.ControlBase.ThemeState" data-throw-if-not-resolved="false"></xref> by calling <xref href="SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)" data-throw-if-not-resolved="false"></xref> with the provided colors. Override this method to adjust how colors are used by the <xref href="SadConsole.UI.Controls.ControlBase.ThemeState" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: protected override void RefreshThemeStateColors(Colors colors)
     parameters:
     - id: colors
       type: SadConsole.UI.Colors
-      description: The colors to apply to the theme state.
     content.vb: Protected Overrides Sub RefreshThemeStateColors(colors As Colors)
   overridden: SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
   overload: SadConsole.UI.Controls.ProgressBar.RefreshThemeStateColors*
@@ -452,14 +416,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Redraws the control if applicable.
   example: []
   syntax:
     content: public override void UpdateAndRedraw(TimeSpan time)
     parameters:
     - id: time
       type: System.TimeSpan
-      description: The duration of thecurrent frame.
     content.vb: Public Overrides Sub UpdateAndRedraw(time As TimeSpan)
   overridden: SadConsole.UI.Controls.ControlBase.UpdateAndRedraw(System.TimeSpan)
   overload: SadConsole.UI.Controls.ProgressBar.UpdateAndRedraw*
@@ -477,8 +439,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: An optional text to display on the bar. If set to <code>"%"</code>, displays the percentage of the progress.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -510,8 +470,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Alignment to print the <xref href="SadConsole.UI.Controls.ProgressBar.DisplayText" data-throw-if-not-resolved="false"></xref>. <xref href="SadConsole.HorizontalAlignment.Stretch" data-throw-if-not-resolved="false"></xref> is invalid for the property.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -543,8 +501,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: The horizontal orientation used when <xref href="SadConsole.UI.Controls.ProgressBar.IsHorizontal" data-throw-if-not-resolved="false"></xref> is set to true.
-  example: []
   syntax:
     content: public HorizontalAlignment HorizontalAlignment { get; set; }
     parameters: []
@@ -552,10 +508,6 @@ items:
       type: SadConsole.HorizontalAlignment
     content.vb: Public Property HorizontalAlignment As HorizontalAlignment
   overload: SadConsole.UI.Controls.ProgressBar.HorizontalAlignment*
-  exceptions:
-  - type: System.InvalidOperationException
-    commentId: T:System.InvalidOperationException
-    description: Thrown when the value is set to either <xref href="SadConsole.HorizontalAlignment.Center" data-throw-if-not-resolved="false"></xref> or <xref href="SadConsole.HorizontalAlignment.Stretch" data-throw-if-not-resolved="false"></xref>.
 - uid: SadConsole.UI.Controls.ProgressBar.VerticalAlignment
   commentId: P:SadConsole.UI.Controls.ProgressBar.VerticalAlignment
   id: VerticalAlignment
@@ -570,8 +522,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: The vertical orientation used when <xref href="SadConsole.UI.Controls.ProgressBar.IsHorizontal" data-throw-if-not-resolved="false"></xref> is set to false.
-  example: []
   syntax:
     content: public VerticalAlignment VerticalAlignment { get; set; }
     parameters: []
@@ -579,10 +529,6 @@ items:
       type: SadConsole.VerticalAlignment
     content.vb: Public Property VerticalAlignment As VerticalAlignment
   overload: SadConsole.UI.Controls.ProgressBar.VerticalAlignment*
-  exceptions:
-  - type: System.InvalidOperationException
-    commentId: T:System.InvalidOperationException
-    description: Thrown when the value is set to either <xref href="SadConsole.VerticalAlignment.Center" data-throw-if-not-resolved="false"></xref> or <xref href="SadConsole.VerticalAlignment.Stretch" data-throw-if-not-resolved="false"></xref>.
 - uid: SadConsole.UI.Controls.ProgressBar.IsHorizontal
   commentId: P:SadConsole.UI.Controls.ProgressBar.IsHorizontal
   id: IsHorizontal
@@ -597,8 +543,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: When true, the progress bar uses the <xref href="SadConsole.UI.Controls.ProgressBar.HorizontalAlignment" data-throw-if-not-resolved="false"></xref> property to determine the starting fill direction. When false, uses the <xref href="SadConsole.UI.Controls.ProgressBar.VerticalAlignment" data-throw-if-not-resolved="false"></xref> property.
-  example: []
   syntax:
     content: public bool IsHorizontal { get; set; }
     parameters: []
@@ -620,8 +564,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Gets or sets the value of the scrollbar between the minimum and maximum values.
-  example: []
   syntax:
     content: public float Progress { get; set; }
     parameters: []
@@ -643,8 +585,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: The theme of the progressed part of the bar.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -676,8 +616,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: The theme of the text displayed on the bar.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -709,8 +647,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: The glyph to use when drawing the unfilled part of the bar.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -742,8 +678,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: The glyph to use when drawing the filled part of the bar.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -775,8 +709,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: The color to print the <xref href="SadConsole.UI.Controls.ProgressBar.DisplayText" data-throw-if-not-resolved="false"></xref> string.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -808,8 +740,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: The color to print the filled part of the progress bar.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -841,8 +771,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, prints the <xref href="SadConsole.UI.Controls.Label.DisplayText" data-throw-if-not-resolved="false"></xref> on the control in decorators instead of replacing the portation of the bar that overlaps the text.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -874,8 +802,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Called when the <xref href="SadConsole.UI.Controls.ProgressBar.Progress" data-throw-if-not-resolved="false"></xref> property value changes.
-  example: []
   syntax:
     content: public event EventHandler? ProgressChanged
     return:
@@ -1300,6 +1226,28 @@ references:
     name: ICellSurface
     isExternal: true
     href: SadConsole.ICellSurface.html
+  - name: )
+- uid: SadConsole.UI.Controls.ControlBase.FindThemeFont
+  commentId: M:SadConsole.UI.Controls.ControlBase.FindThemeFont
+  parent: SadConsole.UI.Controls.ControlBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeFont
+  name: FindThemeFont()
+  nameWithType: ControlBase.FindThemeFont()
+  fullName: SadConsole.UI.Controls.ControlBase.FindThemeFont()
+  spec.csharp:
+  - uid: SadConsole.UI.Controls.ControlBase.FindThemeFont
+    name: FindThemeFont
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeFont
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.Controls.ControlBase.FindThemeFont
+    name: FindThemeFont
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeFont
+  - name: (
   - name: )
 - uid: SadConsole.UI.Controls.ControlBase.FindThemeColors
   commentId: M:SadConsole.UI.Controls.ControlBase.FindThemeColors
@@ -2126,13 +2074,6 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
-- uid: SadConsole.UI.Controls.ProgressBar.Progress
-  commentId: P:SadConsole.UI.Controls.ProgressBar.Progress
-  isExternal: true
-  href: SadConsole.UI.Controls.ProgressBar.html#SadConsole_UI_Controls_ProgressBar_Progress
-  name: Progress
-  nameWithType: ProgressBar.Progress
-  fullName: SadConsole.UI.Controls.ProgressBar.Progress
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -2167,27 +2108,6 @@ references:
   name: VerticalAlignment
   nameWithType: VerticalAlignment
   fullName: SadConsole.VerticalAlignment
-- uid: SadConsole.HorizontalAlignment.Center
-  commentId: F:SadConsole.HorizontalAlignment.Center
-  isExternal: true
-  href: SadConsole.HorizontalAlignment.html#SadConsole_HorizontalAlignment_Center
-  name: Center
-  nameWithType: HorizontalAlignment.Center
-  fullName: SadConsole.HorizontalAlignment.Center
-- uid: SadConsole.HorizontalAlignment.Stretch
-  commentId: F:SadConsole.HorizontalAlignment.Stretch
-  isExternal: true
-  href: SadConsole.HorizontalAlignment.html#SadConsole_HorizontalAlignment_Stretch
-  name: Stretch
-  nameWithType: HorizontalAlignment.Stretch
-  fullName: SadConsole.HorizontalAlignment.Stretch
-- uid: System.InvalidOperationException
-  commentId: T:System.InvalidOperationException
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
-  name: InvalidOperationException
-  nameWithType: InvalidOperationException
-  fullName: System.InvalidOperationException
 - uid: SadConsole.UI.Controls.ProgressBar.#ctor*
   commentId: Overload:SadConsole.UI.Controls.ProgressBar.#ctor
   isExternal: true
@@ -2198,20 +2118,6 @@ references:
   nameWithType.vb: ProgressBar.New
   fullName.vb: SadConsole.UI.Controls.ProgressBar.New
   name.vb: New
-- uid: SadConsole.VerticalAlignment.Center
-  commentId: F:SadConsole.VerticalAlignment.Center
-  isExternal: true
-  href: SadConsole.VerticalAlignment.html#SadConsole_VerticalAlignment_Center
-  name: Center
-  nameWithType: VerticalAlignment.Center
-  fullName: SadConsole.VerticalAlignment.Center
-- uid: SadConsole.VerticalAlignment.Stretch
-  commentId: F:SadConsole.VerticalAlignment.Stretch
-  isExternal: true
-  href: SadConsole.VerticalAlignment.html#SadConsole_VerticalAlignment_Stretch
-  name: Stretch
-  nameWithType: VerticalAlignment.Stretch
-  fullName: SadConsole.VerticalAlignment.Stretch
 - uid: SadConsole.UI.Controls.ControlBase.ProcessKeyboard(SadConsole.Input.Keyboard)
   commentId: M:SadConsole.UI.Controls.ControlBase.ProcessKeyboard(SadConsole.Input.Keyboard)
   parent: SadConsole.UI.Controls.ControlBase
@@ -2284,36 +2190,6 @@ references:
     name: Input
     isExternal: true
     href: SadConsole.Input.html
-- uid: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
-  commentId: M:SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
-  parent: SadConsole.UI.ThemeStates
-  isExternal: true
-  href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_RefreshTheme_SadConsole_UI_Colors_
-  name: RefreshTheme(Colors)
-  nameWithType: ThemeStates.RefreshTheme(Colors)
-  fullName: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
-  spec.csharp:
-  - uid: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
-    name: RefreshTheme
-    isExternal: true
-    href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_RefreshTheme_SadConsole_UI_Colors_
-  - name: (
-  - uid: SadConsole.UI.Colors
-    name: Colors
-    isExternal: true
-    href: SadConsole.UI.Colors.html
-  - name: )
-  spec.vb:
-  - uid: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
-    name: RefreshTheme
-    isExternal: true
-    href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_RefreshTheme_SadConsole_UI_Colors_
-  - name: (
-  - uid: SadConsole.UI.Colors
-    name: Colors
-    isExternal: true
-    href: SadConsole.UI.Colors.html
-  - name: )
 - uid: SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
   commentId: M:SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
   parent: SadConsole.UI.Controls.ControlBase
@@ -2359,14 +2235,6 @@ references:
   name: Colors
   nameWithType: Colors
   fullName: SadConsole.UI.Colors
-- uid: SadConsole.UI.ThemeStates
-  commentId: T:SadConsole.UI.ThemeStates
-  parent: SadConsole.UI
-  isExternal: true
-  href: SadConsole.UI.ThemeStates.html
-  name: ThemeStates
-  nameWithType: ThemeStates
-  fullName: SadConsole.UI.ThemeStates
 - uid: SadConsole.UI
   commentId: N:SadConsole.UI
   isExternal: true
@@ -2457,13 +2325,6 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: SadConsole.UI.Controls.ProgressBar.DisplayText
-  commentId: P:SadConsole.UI.Controls.ProgressBar.DisplayText
-  isExternal: true
-  href: SadConsole.UI.Controls.ProgressBar.html#SadConsole_UI_Controls_ProgressBar_DisplayText
-  name: DisplayText
-  nameWithType: ProgressBar.DisplayText
-  fullName: SadConsole.UI.Controls.ProgressBar.DisplayText
 - uid: SadConsole.UI.Controls.ProgressBar.DisplayTextAlignment*
   commentId: Overload:SadConsole.UI.Controls.ProgressBar.DisplayTextAlignment
   isExternal: true
@@ -2471,13 +2332,6 @@ references:
   name: DisplayTextAlignment
   nameWithType: ProgressBar.DisplayTextAlignment
   fullName: SadConsole.UI.Controls.ProgressBar.DisplayTextAlignment
-- uid: SadConsole.UI.Controls.ProgressBar.IsHorizontal
-  commentId: P:SadConsole.UI.Controls.ProgressBar.IsHorizontal
-  isExternal: true
-  href: SadConsole.UI.Controls.ProgressBar.html#SadConsole_UI_Controls_ProgressBar_IsHorizontal
-  name: IsHorizontal
-  nameWithType: ProgressBar.IsHorizontal
-  fullName: SadConsole.UI.Controls.ProgressBar.IsHorizontal
 - uid: SadConsole.UI.Controls.ProgressBar.HorizontalAlignment*
   commentId: Overload:SadConsole.UI.Controls.ProgressBar.HorizontalAlignment
   isExternal: true
@@ -2487,20 +2341,6 @@ references:
   fullName: SadConsole.UI.Controls.ProgressBar.HorizontalAlignment
 - uid: SadConsole.UI.Controls.ProgressBar.VerticalAlignment*
   commentId: Overload:SadConsole.UI.Controls.ProgressBar.VerticalAlignment
-  isExternal: true
-  href: SadConsole.UI.Controls.ProgressBar.html#SadConsole_UI_Controls_ProgressBar_VerticalAlignment
-  name: VerticalAlignment
-  nameWithType: ProgressBar.VerticalAlignment
-  fullName: SadConsole.UI.Controls.ProgressBar.VerticalAlignment
-- uid: SadConsole.UI.Controls.ProgressBar.HorizontalAlignment
-  commentId: P:SadConsole.UI.Controls.ProgressBar.HorizontalAlignment
-  isExternal: true
-  href: SadConsole.UI.Controls.ProgressBar.html#SadConsole_UI_Controls_ProgressBar_HorizontalAlignment
-  name: HorizontalAlignment
-  nameWithType: ProgressBar.HorizontalAlignment
-  fullName: SadConsole.UI.Controls.ProgressBar.HorizontalAlignment
-- uid: SadConsole.UI.Controls.ProgressBar.VerticalAlignment
-  commentId: P:SadConsole.UI.Controls.ProgressBar.VerticalAlignment
   isExternal: true
   href: SadConsole.UI.Controls.ProgressBar.html#SadConsole_UI_Controls_ProgressBar_VerticalAlignment
   name: VerticalAlignment
@@ -2527,6 +2367,14 @@ references:
   name: ThemeStateBar
   nameWithType: ProgressBar.ThemeStateBar
   fullName: SadConsole.UI.Controls.ProgressBar.ThemeStateBar
+- uid: SadConsole.UI.ThemeStates
+  commentId: T:SadConsole.UI.ThemeStates
+  parent: SadConsole.UI
+  isExternal: true
+  href: SadConsole.UI.ThemeStates.html
+  name: ThemeStates
+  nameWithType: ThemeStates
+  fullName: SadConsole.UI.ThemeStates
 - uid: SadConsole.UI.Controls.ProgressBar.DisplayTextStates*
   commentId: Overload:SadConsole.UI.Controls.ProgressBar.DisplayTextStates
   isExternal: true
@@ -2607,13 +2455,6 @@ references:
   name: BarColor
   nameWithType: ProgressBar.BarColor
   fullName: SadConsole.UI.Controls.ProgressBar.BarColor
-- uid: SadConsole.UI.Controls.Label.DisplayText
-  commentId: P:SadConsole.UI.Controls.Label.DisplayText
-  isExternal: true
-  href: SadConsole.UI.Controls.Label.html#SadConsole_UI_Controls_Label_DisplayText
-  name: DisplayText
-  nameWithType: Label.DisplayText
-  fullName: SadConsole.UI.Controls.Label.DisplayText
 - uid: SadConsole.UI.Controls.ProgressBar.PrintDisplayAsDecorator*
   commentId: Overload:SadConsole.UI.Controls.ProgressBar.PrintDisplayAsDecorator
   isExternal: true

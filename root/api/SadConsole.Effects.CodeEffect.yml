@@ -25,8 +25,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: Effect that runs code for the apply and update actions of an effect.
-  example: []
   syntax:
     content: 'public class CodeEffect : CellEffectBase, ICellEffect'
     content.vb: Public Class CodeEffect Inherits CellEffectBase Implements ICellEffect
@@ -64,23 +62,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: Creates a cell effect that runs custom code instead of hardcoded effect actions.
-  example: []
   syntax:
     content: public CodeEffect(string id, Func<CodeEffect, ColoredGlyphBase, ColoredGlyphBase, bool> apply, Action<CodeEffect, TimeSpan> update, Action<CodeEffect> restart)
     parameters:
     - id: id
       type: System.String
-      description: A user-definable identifier.
     - id: apply
       type: System.Func{SadConsole.Effects.CodeEffect,SadConsole.ColoredGlyphBase,SadConsole.ColoredGlyphBase,System.Boolean}
-      description: The code to run for <xref href="SadConsole.Effects.ICellEffect.ApplyToCell(SadConsole.ColoredGlyphBase%2cSadConsole.ColoredGlyphBase)" data-throw-if-not-resolved="false"></xref>.
     - id: update
       type: System.Action{SadConsole.Effects.CodeEffect,System.TimeSpan}
-      description: The code to run for <xref href="SadConsole.Effects.ICellEffect.Update(System.TimeSpan)" data-throw-if-not-resolved="false"></xref>.
     - id: restart
       type: System.Action{SadConsole.Effects.CodeEffect}
-      description: The code to run for <xref href="SadConsole.Effects.ICellEffect.Restart" data-throw-if-not-resolved="false"></xref>.
     content.vb: Public Sub New(id As String, apply As Func(Of CodeEffect, ColoredGlyphBase, ColoredGlyphBase, Boolean), update As Action(Of CodeEffect, TimeSpan), restart As Action(Of CodeEffect))
   overload: SadConsole.Effects.CodeEffect.#ctor*
   nameWithType.vb: CodeEffect.New(String, Func(Of CodeEffect, ColoredGlyphBase, ColoredGlyphBase, Boolean), Action(Of CodeEffect, TimeSpan), Action(Of CodeEffect))
@@ -100,20 +92,16 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: Applies the state of the effect to a cell.
   example: []
   syntax:
     content: public override bool ApplyToCell(ColoredGlyphBase cell, ColoredGlyphBase originalState)
     parameters:
     - id: cell
       type: SadConsole.ColoredGlyphBase
-      description: The surface cell using this effect.
     - id: originalState
       type: SadConsole.ColoredGlyphBase
-      description: The state of the cell prior to the effect being applied.
     return:
       type: System.Boolean
-      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when this method modified the <code class="paramref">cell</code>; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Public Overrides Function ApplyToCell(cell As ColoredGlyphBase, originalState As ColoredGlyphBase) As Boolean
   overridden: SadConsole.Effects.CellEffectBase.ApplyToCell(SadConsole.ColoredGlyphBase,SadConsole.ColoredGlyphBase)
   overload: SadConsole.Effects.CodeEffect.ApplyToCell*
@@ -131,7 +119,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: Not supported.
   example: []
   syntax:
     content: public override ICellEffect Clone()
@@ -154,14 +141,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: Updates the state of the effect.
   example: []
   syntax:
     content: public override void Update(TimeSpan delta)
     parameters:
     - id: delta
       type: System.TimeSpan
-      description: Time since the last call to this effect.
     content.vb: Public Overrides Sub Update(delta As TimeSpan)
   overridden: SadConsole.Effects.CellEffectBase.Update(System.TimeSpan)
   overload: SadConsole.Effects.CodeEffect.Update*
@@ -179,7 +164,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: Restarts the cell effect.
   example: []
   syntax:
     content: public override void Restart()
@@ -222,8 +206,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: A user defined identifier of the effect.
-  example: []
   syntax:
     content: public string Id { get; set; }
     parameters: []
@@ -245,8 +227,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: An object associated with this effect.
-  example: []
   syntax:
     content: public object? Tag { get; set; }
     parameters: []
@@ -268,8 +248,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, uses the <xref href="SadConsole.Effects.CodeEffect.Duration" data-throw-if-not-resolved="false"></xref> timer to stop this effect; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
-  example: []
   syntax:
     content: public bool UseDuration { get; set; }
     parameters: []
@@ -291,8 +269,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
-  summary: The amount of time this effect runs for in seconds.
-  example: []
   syntax:
     content: public TimeSpan Duration { get; set; }
     parameters: []
@@ -621,100 +597,6 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: SadConsole.Effects.ICellEffect.ApplyToCell(SadConsole.ColoredGlyphBase,SadConsole.ColoredGlyphBase)
-  commentId: M:SadConsole.Effects.ICellEffect.ApplyToCell(SadConsole.ColoredGlyphBase,SadConsole.ColoredGlyphBase)
-  parent: SadConsole.Effects.ICellEffect
-  isExternal: true
-  href: SadConsole.Effects.ICellEffect.html#SadConsole_Effects_ICellEffect_ApplyToCell_SadConsole_ColoredGlyphBase_SadConsole_ColoredGlyphBase_
-  name: ApplyToCell(ColoredGlyphBase, ColoredGlyphBase)
-  nameWithType: ICellEffect.ApplyToCell(ColoredGlyphBase, ColoredGlyphBase)
-  fullName: SadConsole.Effects.ICellEffect.ApplyToCell(SadConsole.ColoredGlyphBase, SadConsole.ColoredGlyphBase)
-  spec.csharp:
-  - uid: SadConsole.Effects.ICellEffect.ApplyToCell(SadConsole.ColoredGlyphBase,SadConsole.ColoredGlyphBase)
-    name: ApplyToCell
-    isExternal: true
-    href: SadConsole.Effects.ICellEffect.html#SadConsole_Effects_ICellEffect_ApplyToCell_SadConsole_ColoredGlyphBase_SadConsole_ColoredGlyphBase_
-  - name: (
-  - uid: SadConsole.ColoredGlyphBase
-    name: ColoredGlyphBase
-    isExternal: true
-    href: SadConsole.ColoredGlyphBase.html
-  - name: ','
-  - name: " "
-  - uid: SadConsole.ColoredGlyphBase
-    name: ColoredGlyphBase
-    isExternal: true
-    href: SadConsole.ColoredGlyphBase.html
-  - name: )
-  spec.vb:
-  - uid: SadConsole.Effects.ICellEffect.ApplyToCell(SadConsole.ColoredGlyphBase,SadConsole.ColoredGlyphBase)
-    name: ApplyToCell
-    isExternal: true
-    href: SadConsole.Effects.ICellEffect.html#SadConsole_Effects_ICellEffect_ApplyToCell_SadConsole_ColoredGlyphBase_SadConsole_ColoredGlyphBase_
-  - name: (
-  - uid: SadConsole.ColoredGlyphBase
-    name: ColoredGlyphBase
-    isExternal: true
-    href: SadConsole.ColoredGlyphBase.html
-  - name: ','
-  - name: " "
-  - uid: SadConsole.ColoredGlyphBase
-    name: ColoredGlyphBase
-    isExternal: true
-    href: SadConsole.ColoredGlyphBase.html
-  - name: )
-- uid: SadConsole.Effects.ICellEffect.Update(System.TimeSpan)
-  commentId: M:SadConsole.Effects.ICellEffect.Update(System.TimeSpan)
-  parent: SadConsole.Effects.ICellEffect
-  isExternal: true
-  href: SadConsole.Effects.ICellEffect.html#SadConsole_Effects_ICellEffect_Update_System_TimeSpan_
-  name: Update(TimeSpan)
-  nameWithType: ICellEffect.Update(TimeSpan)
-  fullName: SadConsole.Effects.ICellEffect.Update(System.TimeSpan)
-  spec.csharp:
-  - uid: SadConsole.Effects.ICellEffect.Update(System.TimeSpan)
-    name: Update
-    isExternal: true
-    href: SadConsole.Effects.ICellEffect.html#SadConsole_Effects_ICellEffect_Update_System_TimeSpan_
-  - name: (
-  - uid: System.TimeSpan
-    name: TimeSpan
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.timespan
-  - name: )
-  spec.vb:
-  - uid: SadConsole.Effects.ICellEffect.Update(System.TimeSpan)
-    name: Update
-    isExternal: true
-    href: SadConsole.Effects.ICellEffect.html#SadConsole_Effects_ICellEffect_Update_System_TimeSpan_
-  - name: (
-  - uid: System.TimeSpan
-    name: TimeSpan
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.timespan
-  - name: )
-- uid: SadConsole.Effects.ICellEffect.Restart
-  commentId: M:SadConsole.Effects.ICellEffect.Restart
-  parent: SadConsole.Effects.ICellEffect
-  isExternal: true
-  href: SadConsole.Effects.ICellEffect.html#SadConsole_Effects_ICellEffect_Restart
-  name: Restart()
-  nameWithType: ICellEffect.Restart()
-  fullName: SadConsole.Effects.ICellEffect.Restart()
-  spec.csharp:
-  - uid: SadConsole.Effects.ICellEffect.Restart
-    name: Restart
-    isExternal: true
-    href: SadConsole.Effects.ICellEffect.html#SadConsole_Effects_ICellEffect_Restart
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: SadConsole.Effects.ICellEffect.Restart
-    name: Restart
-    isExternal: true
-    href: SadConsole.Effects.ICellEffect.html#SadConsole_Effects_ICellEffect_Restart
-  - name: (
-  - name: )
 - uid: SadConsole.Effects.CodeEffect.#ctor*
   commentId: Overload:SadConsole.Effects.CodeEffect.#ctor
   isExternal: true
@@ -1220,13 +1102,6 @@ references:
   name: Tag
   nameWithType: CodeEffect.Tag
   fullName: SadConsole.Effects.CodeEffect.Tag
-- uid: SadConsole.Effects.CodeEffect.Duration
-  commentId: P:SadConsole.Effects.CodeEffect.Duration
-  isExternal: true
-  href: SadConsole.Effects.CodeEffect.html#SadConsole_Effects_CodeEffect_Duration
-  name: Duration
-  nameWithType: CodeEffect.Duration
-  fullName: SadConsole.Effects.CodeEffect.Duration
 - uid: SadConsole.Effects.CodeEffect.UseDuration*
   commentId: Overload:SadConsole.Effects.CodeEffect.UseDuration
   isExternal: true

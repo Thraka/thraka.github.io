@@ -78,8 +78,6 @@ items:
   - SadConsole.UI.Controls.CompositeControl.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
   - SadConsole.UI.Controls.CompositeControl.AddControl(SadConsole.UI.Controls.ControlBase)
   - SadConsole.UI.Controls.CompositeControl.RemoveControl(SadConsole.UI.Controls.ControlBase)
-  - SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String)
-  - SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String,SadConsole.UI.Controls.ControlBase@)
   - SadConsole.UI.Controls.CompositeControl.Count
   - SadConsole.UI.Controls.CompositeControl.Item(System.Int32)
   - SadConsole.UI.Controls.ControlBase.MouseState_IsMouseOver
@@ -96,6 +94,7 @@ items:
   - SadConsole.UI.Controls.ControlBase.DetermineState
   - SadConsole.UI.Controls.ControlBase.OnStateChanged(SadConsole.UI.Controls.ControlStates,SadConsole.UI.Controls.ControlStates)
   - SadConsole.UI.Controls.ControlBase.OnSurfaceChanged(SadConsole.ICellSurface,SadConsole.ICellSurface)
+  - SadConsole.UI.Controls.ControlBase.FindThemeFont
   - SadConsole.UI.Controls.ControlBase.FindThemeColors
   - SadConsole.UI.Controls.ControlBase.SetThemeColors(SadConsole.UI.Colors)
   - SadConsole.UI.Controls.ControlBase.HasThemeColors
@@ -245,7 +244,7 @@ items:
   summary: The current folder displayed by the listbox.
   example: []
   syntax:
-    content: public string CurrentFolder { get; set; }
+    content: public string? CurrentFolder { get; set; }
     parameters: []
     return:
       type: System.String
@@ -337,7 +336,7 @@ items:
   summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, only displays files that match <xref href="SadConsole.UI.Controls.FileDirectoryListbox.FileFilter" data-throw-if-not-resolved="false"></xref>; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> to display all files.
   example: []
   syntax:
-    content: public string HighlightedExtentions { get; set; }
+    content: public string? HighlightedExtentions { get; set; }
     parameters: []
     return:
       type: System.String
@@ -854,7 +853,6 @@ references:
   commentId: P:SadConsole.UI.Controls.ListBox.ScrollBar
   parent: SadConsole.UI.Controls.ListBox
   isExternal: true
-  href: SadConsole.UI.Controls.ListBox.html#SadConsole_UI_Controls_ListBox_ScrollBar
   name: ScrollBar
   nameWithType: ListBox.ScrollBar
   fullName: SadConsole.UI.Controls.ListBox.ScrollBar
@@ -911,7 +909,6 @@ references:
   commentId: P:SadConsole.UI.Controls.ListBox.SelectedItem
   parent: SadConsole.UI.Controls.ListBox
   isExternal: true
-  href: SadConsole.UI.Controls.ListBox.html#SadConsole_UI_Controls_ListBox_SelectedItem
   name: SelectedItem
   nameWithType: ListBox.SelectedItem
   fullName: SadConsole.UI.Controls.ListBox.SelectedItem
@@ -933,7 +930,6 @@ references:
   commentId: P:SadConsole.UI.Controls.ListBox.DrawBorder
   parent: SadConsole.UI.Controls.ListBox
   isExternal: true
-  href: SadConsole.UI.Controls.ListBox.html#SadConsole_UI_Controls_ListBox_DrawBorder
   name: DrawBorder
   nameWithType: ListBox.DrawBorder
   fullName: SadConsole.UI.Controls.ListBox.DrawBorder
@@ -955,7 +951,6 @@ references:
   commentId: E:SadConsole.UI.Controls.ListBox.SelectedItemChanged
   parent: SadConsole.UI.Controls.ListBox
   isExternal: true
-  href: SadConsole.UI.Controls.ListBox.html#SadConsole_UI_Controls_ListBox_SelectedItemChanged
   name: SelectedItemChanged
   nameWithType: ListBox.SelectedItemChanged
   fullName: SadConsole.UI.Controls.ListBox.SelectedItemChanged
@@ -970,7 +965,6 @@ references:
   commentId: E:SadConsole.UI.Controls.ListBox.SelectedItemExecuted
   parent: SadConsole.UI.Controls.ListBox
   isExternal: true
-  href: SadConsole.UI.Controls.ListBox.html#SadConsole_UI_Controls_ListBox_SelectedItemExecuted
   name: SelectedItemExecuted
   nameWithType: ListBox.SelectedItemExecuted
   fullName: SadConsole.UI.Controls.ListBox.SelectedItemExecuted
@@ -1130,86 +1124,6 @@ references:
     isExternal: true
     href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_RemoveControl_SadConsole_UI_Controls_ControlBase_
   - name: (
-  - uid: SadConsole.UI.Controls.ControlBase
-    name: ControlBase
-    isExternal: true
-    href: SadConsole.UI.Controls.ControlBase.html
-  - name: )
-- uid: SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String)
-  commentId: M:SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String)
-  parent: SadConsole.UI.Controls.CompositeControl
-  isExternal: true
-  href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_HasNamedControl_System_String_
-  name: HasNamedControl(string)
-  nameWithType: CompositeControl.HasNamedControl(string)
-  fullName: SadConsole.UI.Controls.CompositeControl.HasNamedControl(string)
-  nameWithType.vb: CompositeControl.HasNamedControl(String)
-  fullName.vb: SadConsole.UI.Controls.CompositeControl.HasNamedControl(String)
-  name.vb: HasNamedControl(String)
-  spec.csharp:
-  - uid: SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String)
-    name: HasNamedControl
-    isExternal: true
-    href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_HasNamedControl_System_String_
-  - name: (
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-  spec.vb:
-  - uid: SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String)
-    name: HasNamedControl
-    isExternal: true
-    href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_HasNamedControl_System_String_
-  - name: (
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-- uid: SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String,SadConsole.UI.Controls.ControlBase@)
-  commentId: M:SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String,SadConsole.UI.Controls.ControlBase@)
-  parent: SadConsole.UI.Controls.CompositeControl
-  isExternal: true
-  href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_HasNamedControl_System_String_SadConsole_UI_Controls_ControlBase__
-  name: HasNamedControl(string, out ControlBase)
-  nameWithType: CompositeControl.HasNamedControl(string, out ControlBase)
-  fullName: SadConsole.UI.Controls.CompositeControl.HasNamedControl(string, out SadConsole.UI.Controls.ControlBase)
-  nameWithType.vb: CompositeControl.HasNamedControl(String, ControlBase)
-  fullName.vb: SadConsole.UI.Controls.CompositeControl.HasNamedControl(String, SadConsole.UI.Controls.ControlBase)
-  name.vb: HasNamedControl(String, ControlBase)
-  spec.csharp:
-  - uid: SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String,SadConsole.UI.Controls.ControlBase@)
-    name: HasNamedControl
-    isExternal: true
-    href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_HasNamedControl_System_String_SadConsole_UI_Controls_ControlBase__
-  - name: (
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - name: out
-  - name: " "
-  - uid: SadConsole.UI.Controls.ControlBase
-    name: ControlBase
-    isExternal: true
-    href: SadConsole.UI.Controls.ControlBase.html
-  - name: )
-  spec.vb:
-  - uid: SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String,SadConsole.UI.Controls.ControlBase@)
-    name: HasNamedControl
-    isExternal: true
-    href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_HasNamedControl_System_String_SadConsole_UI_Controls_ControlBase__
-  - name: (
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
   - uid: SadConsole.UI.Controls.ControlBase
     name: ControlBase
     isExternal: true
@@ -1585,6 +1499,28 @@ references:
     name: ICellSurface
     isExternal: true
     href: SadConsole.ICellSurface.html
+  - name: )
+- uid: SadConsole.UI.Controls.ControlBase.FindThemeFont
+  commentId: M:SadConsole.UI.Controls.ControlBase.FindThemeFont
+  parent: SadConsole.UI.Controls.ControlBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeFont
+  name: FindThemeFont()
+  nameWithType: ControlBase.FindThemeFont()
+  fullName: SadConsole.UI.Controls.ControlBase.FindThemeFont()
+  spec.csharp:
+  - uid: SadConsole.UI.Controls.ControlBase.FindThemeFont
+    name: FindThemeFont
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeFont
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.Controls.ControlBase.FindThemeFont
+    name: FindThemeFont
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeFont
+  - name: (
   - name: )
 - uid: SadConsole.UI.Controls.ControlBase.FindThemeColors
   commentId: M:SadConsole.UI.Controls.ControlBase.FindThemeColors

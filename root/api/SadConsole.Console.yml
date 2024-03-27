@@ -26,8 +26,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: A surface that has a cursor.
-  example: []
   syntax:
     content: >-
       [DataContract]
@@ -277,17 +275,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Creates a new console.
-  example: []
   syntax:
     content: public Console(int width, int height)
     parameters:
     - id: width
       type: System.Int32
-      description: The width in cells of the surface.
     - id: height
       type: System.Int32
-      description: The height in cells of the surface.
     content.vb: Public Sub New(width As Integer, height As Integer)
   overload: SadConsole.Console.#ctor*
   nameWithType.vb: Console.New(Integer, Integer)
@@ -307,20 +301,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Creates a new screen object that can render a surface. Uses the specified cells to generate the surface.
-  example: []
   syntax:
     content: public Console(int width, int height, ColoredGlyphBase[] initialCells)
     parameters:
     - id: width
       type: System.Int32
-      description: The width in cells of the surface.
     - id: height
       type: System.Int32
-      description: The height in cells of the surface.
     - id: initialCells
       type: SadConsole.ColoredGlyphBase[]
-      description: The initial cells to seed the surface.
     content.vb: Public Sub New(width As Integer, height As Integer, initialCells As ColoredGlyphBase())
   overload: SadConsole.Console.#ctor*
   nameWithType.vb: Console.New(Integer, Integer, ColoredGlyphBase())
@@ -340,23 +329,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Creates a new console with the specified width and height, with <xref href="SadRogue.Primitives.Color.Transparent" data-throw-if-not-resolved="false"></xref> for the background and <xref href="SadRogue.Primitives.Color.White" data-throw-if-not-resolved="false"></xref> for the foreground.
-  example: []
   syntax:
     content: public Console(int width, int height, int bufferWidth, int bufferHeight)
     parameters:
     - id: width
       type: System.Int32
-      description: The visible width of the console in cells.
     - id: height
       type: System.Int32
-      description: The visible height of the console in cells.
     - id: bufferWidth
       type: System.Int32
-      description: The total width of the console in cells.
     - id: bufferHeight
       type: System.Int32
-      description: The total height of the console in cells.
     content.vb: Public Sub New(width As Integer, height As Integer, bufferWidth As Integer, bufferHeight As Integer)
   overload: SadConsole.Console.#ctor*
   nameWithType.vb: Console.New(Integer, Integer, Integer, Integer)
@@ -376,26 +359,19 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Creates a console with the specified width and height, with <xref href="SadRogue.Primitives.Color.Transparent" data-throw-if-not-resolved="false"></xref> for the background and <xref href="SadRogue.Primitives.Color.White" data-throw-if-not-resolved="false"></xref> for the foreground.
-  example: []
   syntax:
     content: public Console(int width, int height, int bufferWidth, int bufferHeight, ColoredGlyphBase[]? initialCells)
     parameters:
     - id: width
       type: System.Int32
-      description: The width of the console in cells.
     - id: height
       type: System.Int32
-      description: The height of the console in cells.
     - id: bufferWidth
       type: System.Int32
-      description: The total width of the console in cells.
     - id: bufferHeight
       type: System.Int32
-      description: The total height of the console in cells.
     - id: initialCells
       type: SadConsole.ColoredGlyphBase[]
-      description: The cells to seed the console with. If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, creates the cells for you.
     content.vb: Public Sub New(width As Integer, height As Integer, bufferWidth As Integer, bufferHeight As Integer, initialCells As ColoredGlyphBase())
   overload: SadConsole.Console.#ctor*
   nameWithType.vb: Console.New(Integer, Integer, Integer, Integer, ColoredGlyphBase())
@@ -415,20 +391,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Creates a new console using the existing surface.
-  example: []
   syntax:
     content: public Console(ICellSurface surface, IFont? font = null, Point? fontSize = null)
     parameters:
     - id: surface
       type: SadConsole.ICellSurface
-      description: The surface.
     - id: font
       type: SadConsole.IFont
-      description: The font to use with the surface.
     - id: fontSize
       type: System.Nullable{SadRogue.Primitives.Point}
-      description: The font size.
     content.vb: Public Sub New(surface As ICellSurface, font As IFont = Nothing, fontSize As Point? = Nothing)
   overload: SadConsole.Console.#ctor*
   nameWithType.vb: Console.New(ICellSurface, IFont, Point?)
@@ -448,7 +419,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Called when the visibility of the object changes.
   example: []
   syntax:
     content: protected override void OnVisibleChanged()
@@ -469,7 +439,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Called when this console's focus has been lost. Hides the <xref href="SadConsole.Console.Cursor" data-throw-if-not-resolved="false"></xref> if <xref href="SadConsole.Console.AutoCursorOnFocus" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
   example: []
   syntax:
     content: public override void OnFocusLost()
@@ -490,7 +459,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Called when this console is focused. Shows the <xref href="SadConsole.Console.Cursor" data-throw-if-not-resolved="false"></xref> if <xref href="SadConsole.Console.AutoCursorOnFocus" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
   example: []
   syntax:
     content: public override void OnFocused()
@@ -511,13 +479,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Returns the value "Console".
   example: []
   syntax:
     content: public override string ToString()
     return:
       type: System.String
-      description: The string "Console".
     content.vb: Public Overrides Function ToString() As String
   overridden: SadConsole.ScreenSurface.ToString
   overload: SadConsole.Console.ToString*
@@ -535,8 +501,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The virtual cursor reference.
-  example: []
   syntax:
     content: public Cursor Cursor { get; protected set; }
     parameters: []
@@ -558,8 +522,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Toggles the cursor as visible\hidden when the console if focused\unfocused.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -17996,18 +17958,6 @@ references:
     href: SadConsole.ColoredGlyphBase.html
   - name: (
   - name: )
-- uid: SadRogue.Primitives.Color.Transparent
-  commentId: F:SadRogue.Primitives.Color.Transparent
-  isExternal: true
-  name: Transparent
-  nameWithType: Color.Transparent
-  fullName: SadRogue.Primitives.Color.Transparent
-- uid: SadRogue.Primitives.Color.White
-  commentId: F:SadRogue.Primitives.Color.White
-  isExternal: true
-  name: White
-  nameWithType: Color.White
-  fullName: SadRogue.Primitives.Color.White
 - uid: SadConsole.ICellSurface
   commentId: T:SadConsole.ICellSurface
   parent: SadConsole
@@ -18098,22 +18048,6 @@ references:
   name: OnVisibleChanged
   nameWithType: Console.OnVisibleChanged
   fullName: SadConsole.Console.OnVisibleChanged
-- uid: SadConsole.Console.Cursor
-  commentId: P:SadConsole.Console.Cursor
-  parent: SadConsole.Console
-  isExternal: true
-  href: SadConsole.Console.html#SadConsole_Console_Cursor
-  name: Cursor
-  nameWithType: Console.Cursor
-  fullName: SadConsole.Console.Cursor
-- uid: SadConsole.Console.AutoCursorOnFocus
-  commentId: P:SadConsole.Console.AutoCursorOnFocus
-  parent: SadConsole.Console
-  isExternal: true
-  href: SadConsole.Console.html#SadConsole_Console_AutoCursorOnFocus
-  name: AutoCursorOnFocus
-  nameWithType: Console.AutoCursorOnFocus
-  fullName: SadConsole.Console.AutoCursorOnFocus
 - uid: SadConsole.ScreenObject.OnFocusLost
   commentId: M:SadConsole.ScreenObject.OnFocusLost
   parent: SadConsole.ScreenObject
@@ -18143,14 +18077,6 @@ references:
   name: OnFocusLost
   nameWithType: Console.OnFocusLost
   fullName: SadConsole.Console.OnFocusLost
-- uid: SadConsole.Console
-  commentId: T:SadConsole.Console
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.Console.html
-  name: Console
-  nameWithType: Console
-  fullName: SadConsole.Console
 - uid: SadConsole.ScreenObject.OnFocused
   commentId: M:SadConsole.ScreenObject.OnFocused
   parent: SadConsole.ScreenObject

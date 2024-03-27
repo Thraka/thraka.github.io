@@ -25,8 +25,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Represents an individual piece of a <xref href="SadConsole.ICellSurface" data-throw-if-not-resolved="false"></xref> containing a glyph, foreground color, background color, and a mirror effect.
-  example: []
   syntax:
     content: 'public class ColoredGlyph : ColoredGlyphBase, IMatchable<ColoredGlyphBase>, IMatchable<ColoredGlyph>'
     content.vb: Public Class ColoredGlyph Inherits ColoredGlyphBase Implements IMatchable(Of ColoredGlyphBase), IMatchable(Of ColoredGlyph)
@@ -73,8 +71,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Creates a cell with a white foreground, black background, glyph 0, and no mirror effect.
-  example: []
   syntax:
     content: public ColoredGlyph()
     content.vb: Public Sub New()
@@ -96,14 +92,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Creates a cell with the specified foreground, black background, glyph 0, and no mirror effect.
-  example: []
   syntax:
     content: public ColoredGlyph(Color foreground)
     parameters:
     - id: foreground
       type: SadRogue.Primitives.Color
-      description: Foreground color.
     content.vb: Public Sub New(foreground As Color)
   overload: SadConsole.ColoredGlyph.#ctor*
   nameWithType.vb: ColoredGlyph.New(Color)
@@ -123,17 +116,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Creates a cell with the specified foreground, specified background, glyph 0, and no mirror effect.
-  example: []
   syntax:
     content: public ColoredGlyph(Color foreground, Color background)
     parameters:
     - id: foreground
       type: SadRogue.Primitives.Color
-      description: Foreground color.
     - id: background
       type: SadRogue.Primitives.Color
-      description: Background color.
     content.vb: Public Sub New(foreground As Color, background As Color)
   overload: SadConsole.ColoredGlyph.#ctor*
   nameWithType.vb: ColoredGlyph.New(Color, Color)
@@ -153,20 +142,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Creates a cell with the specified foreground, background, and glyph, with no mirror effect.
-  example: []
   syntax:
     content: public ColoredGlyph(Color foreground, Color background, int glyph)
     parameters:
     - id: foreground
       type: SadRogue.Primitives.Color
-      description: Foreground color.
     - id: background
       type: SadRogue.Primitives.Color
-      description: Background color.
     - id: glyph
       type: System.Int32
-      description: The glyph index.
     content.vb: Public Sub New(foreground As Color, background As Color, glyph As Integer)
   overload: SadConsole.ColoredGlyph.#ctor*
   nameWithType.vb: ColoredGlyph.New(Color, Color, Integer)
@@ -186,23 +170,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Creates a cell with the specified foreground, background, glyph, and mirror effect.
-  example: []
   syntax:
     content: public ColoredGlyph(Color foreground, Color background, int glyph, Mirror mirror)
     parameters:
     - id: foreground
       type: SadRogue.Primitives.Color
-      description: Foreground color.
     - id: background
       type: SadRogue.Primitives.Color
-      description: Background color.
     - id: glyph
       type: System.Int32
-      description: The glyph index.
     - id: mirror
       type: SadConsole.Mirror
-      description: The mirror effect.
     content.vb: Public Sub New(foreground As Color, background As Color, glyph As Integer, mirror As Mirror)
   overload: SadConsole.ColoredGlyph.#ctor*
   nameWithType.vb: ColoredGlyph.New(Color, Color, Integer, Mirror)
@@ -222,26 +200,19 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Creates a cell with the specified foreground, background, glyph, mirror, and visibility.
-  example: []
   syntax:
     content: public ColoredGlyph(Color foreground, Color background, int glyph, Mirror mirror, bool isVisible)
     parameters:
     - id: foreground
       type: SadRogue.Primitives.Color
-      description: Foreground color.
     - id: background
       type: SadRogue.Primitives.Color
-      description: Background color.
     - id: glyph
       type: System.Int32
-      description: The glyph index.
     - id: mirror
       type: SadConsole.Mirror
-      description: The mirror effect.
     - id: isVisible
       type: System.Boolean
-      description: The visibility of the glyph.
     content.vb: Public Sub New(foreground As Color, background As Color, glyph As Integer, mirror As Mirror, isVisible As Boolean)
   overload: SadConsole.ColoredGlyph.#ctor*
   nameWithType.vb: ColoredGlyph.New(Color, Color, Integer, Mirror, Boolean)
@@ -261,29 +232,21 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Creates a cell with the specified foreground, background, glyph, mirror effect, visibility and decorators.
-  example: []
   syntax:
     content: public ColoredGlyph(Color foreground, Color background, int glyph, Mirror mirror, bool isVisible, List<CellDecorator> decorators)
     parameters:
     - id: foreground
       type: SadRogue.Primitives.Color
-      description: Foreground color.
     - id: background
       type: SadRogue.Primitives.Color
-      description: Background color.
     - id: glyph
       type: System.Int32
-      description: The glyph index.
     - id: mirror
       type: SadConsole.Mirror
-      description: The mirror effect.
     - id: isVisible
       type: System.Boolean
-      description: The visibility of the glyph.
     - id: decorators
       type: System.Collections.Generic.List{SadConsole.CellDecorator}
-      description: Decorators for the cell.
     content.vb: Public Sub New(foreground As Color, background As Color, glyph As Integer, mirror As Mirror, isVisible As Boolean, decorators As List(Of CellDecorator))
   overload: SadConsole.ColoredGlyph.#ctor*
   nameWithType.vb: ColoredGlyph.New(Color, Color, Integer, Mirror, Boolean, List(Of CellDecorator))
@@ -303,7 +266,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Resets the foreground, background, glyph, mirror effect and decorators.
   example: []
   syntax:
     content: public override void Clear()
@@ -324,13 +286,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Returns a new cell with the same properties as this one.
   example: []
   syntax:
     content: public override ColoredGlyphBase Clone()
     return:
       type: SadConsole.ColoredGlyphBase
-      description: The new cell.
     content.vb: Public Overrides Function Clone() As ColoredGlyphBase
   overridden: SadConsole.ColoredGlyphBase.Clone
   overload: SadConsole.ColoredGlyph.Clone*
@@ -348,17 +308,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Checks if this <xref href="SadConsole.ColoredGlyph" data-throw-if-not-resolved="false"></xref> object's properties match another's.
+  summary: >-
+    Returns true if the given object is considered "equal" to the current one, based on the definition
+
+    of equality for the object.
   example: []
   syntax:
     content: public bool Matches(ColoredGlyph? other)
     parameters:
     - id: other
       type: SadConsole.ColoredGlyph
-      description: The other object to check.
+      description: Object to compare to.
     return:
       type: System.Boolean
-      description: Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the object's properties match; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+      description: True if the objects are considered equal, false, otherwise.
     content.vb: Public Function Matches(other As ColoredGlyph) As Boolean
   overload: SadConsole.ColoredGlyph.Matches*
   implements:
@@ -367,14 +330,6 @@ items:
   fullName.vb: SadConsole.ColoredGlyph.Matches(SadConsole.ColoredGlyph)
   name.vb: Matches(ColoredGlyph)
 references:
-- uid: SadConsole.ICellSurface
-  commentId: T:SadConsole.ICellSurface
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.ICellSurface.html
-  name: ICellSurface
-  nameWithType: ICellSurface
-  fullName: SadConsole.ICellSurface
 - uid: SadConsole
   commentId: N:SadConsole
   isExternal: true
@@ -1175,14 +1130,6 @@ references:
   name: Clone
   nameWithType: ColoredGlyph.Clone
   fullName: SadConsole.ColoredGlyph.Clone
-- uid: SadConsole.ColoredGlyph
-  commentId: T:SadConsole.ColoredGlyph
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.ColoredGlyph.html
-  name: ColoredGlyph
-  nameWithType: ColoredGlyph
-  fullName: SadConsole.ColoredGlyph
 - uid: SadConsole.ColoredGlyph.Matches*
   commentId: Overload:SadConsole.ColoredGlyph.Matches
   isExternal: true
@@ -1220,6 +1167,14 @@ references:
     isExternal: true
     href: SadConsole.ColoredGlyph.html
   - name: )
+- uid: SadConsole.ColoredGlyph
+  commentId: T:SadConsole.ColoredGlyph
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ColoredGlyph.html
+  name: ColoredGlyph
+  nameWithType: ColoredGlyph
+  fullName: SadConsole.ColoredGlyph
 - uid: SadRogue.Primitives.IMatchable`1.Matches(`0)
   commentId: M:SadRogue.Primitives.IMatchable`1.Matches(`0)
   isExternal: true

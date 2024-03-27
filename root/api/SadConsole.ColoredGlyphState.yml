@@ -24,8 +24,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: A <xref href="SadConsole.ColoredGlyphBase" data-throw-if-not-resolved="false"></xref> with state information.
-  example: []
   syntax:
     content: public readonly struct ColoredGlyphState
     content.vb: Public Structure ColoredGlyphState
@@ -50,14 +48,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Creates a new state from a cell.
-  example: []
   syntax:
     content: public ColoredGlyphState(ColoredGlyphBase cell)
     parameters:
     - id: cell
       type: SadConsole.ColoredGlyphBase
-      description: The colored glyph this state is a copy of.
     content.vb: Public Sub New(cell As ColoredGlyphBase)
   overload: SadConsole.ColoredGlyphState.#ctor*
   nameWithType.vb: ColoredGlyphState.New(ColoredGlyphBase)
@@ -77,29 +72,21 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Creates a new state.
-  example: []
   syntax:
     content: public ColoredGlyphState(CellDecorator[] decorators, Color foreground, Color background, int glyph, Mirror mirror, bool isVisible)
     parameters:
     - id: decorators
       type: SadConsole.CellDecorator[]
-      description: Decorators for the cell.
     - id: foreground
       type: SadRogue.Primitives.Color
-      description: Foreground color.
     - id: background
       type: SadRogue.Primitives.Color
-      description: Background color.
     - id: glyph
       type: System.Int32
-      description: The glyph index.
     - id: mirror
       type: SadConsole.Mirror
-      description: The mirror effect.
     - id: isVisible
       type: System.Boolean
-      description: The visibility of the glyph.
     content.vb: Public Sub New(decorators As CellDecorator(), foreground As Color, background As Color, glyph As Integer, mirror As Mirror, isVisible As Boolean)
   overload: SadConsole.ColoredGlyphState.#ctor*
   nameWithType.vb: ColoredGlyphState.New(CellDecorator(), Color, Color, Integer, Mirror, Boolean)
@@ -119,8 +106,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Restores this state to the specified cell.
-  example: []
   syntax:
     content: public void RestoreState(ref ColoredGlyphBase cell)
     parameters:
@@ -145,8 +130,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: A copy of the <xref href="SadConsole.ColoredGlyphBase.Decorators" data-throw-if-not-resolved="false"></xref> property.
-  example: []
   syntax:
     content: public CellDecorator[] Decorators { get; }
     parameters: []
@@ -168,8 +151,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: A copy of the <xref href="SadConsole.ColoredGlyphBase.Foreground" data-throw-if-not-resolved="false"></xref> property.
-  example: []
   syntax:
     content: public Color Foreground { get; }
     parameters: []
@@ -191,8 +172,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: A copy of the <xref href="SadConsole.ColoredGlyphBase.Background" data-throw-if-not-resolved="false"></xref> property.
-  example: []
   syntax:
     content: public Color Background { get; }
     parameters: []
@@ -214,8 +193,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: A copy of the <xref href="SadConsole.ColoredGlyphBase.Glyph" data-throw-if-not-resolved="false"></xref> property.
-  example: []
   syntax:
     content: public int Glyph { get; }
     parameters: []
@@ -237,8 +214,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: A copy of the <xref href="SadConsole.ColoredGlyphBase.Mirror" data-throw-if-not-resolved="false"></xref> property.
-  example: []
   syntax:
     content: public Mirror Mirror { get; }
     parameters: []
@@ -260,8 +235,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: A copy of the <xref href="SadConsole.ColoredGlyphBase.IsVisible" data-throw-if-not-resolved="false"></xref> property.
-  example: []
   syntax:
     content: public bool IsVisible { get; }
     parameters: []
@@ -270,14 +243,6 @@ items:
     content.vb: Public ReadOnly Property IsVisible As Boolean
   overload: SadConsole.ColoredGlyphState.IsVisible*
 references:
-- uid: SadConsole.ColoredGlyphBase
-  commentId: T:SadConsole.ColoredGlyphBase
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.ColoredGlyphBase.html
-  name: ColoredGlyphBase
-  nameWithType: ColoredGlyphBase
-  fullName: SadConsole.ColoredGlyphBase
 - uid: SadConsole
   commentId: N:SadConsole
   isExternal: true
@@ -512,6 +477,14 @@ references:
   nameWithType.vb: ColoredGlyphState.New
   fullName.vb: SadConsole.ColoredGlyphState.New
   name.vb: New
+- uid: SadConsole.ColoredGlyphBase
+  commentId: T:SadConsole.ColoredGlyphBase
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ColoredGlyphBase.html
+  name: ColoredGlyphBase
+  nameWithType: ColoredGlyphBase
+  fullName: SadConsole.ColoredGlyphBase
 - uid: SadConsole.CellDecorator[]
   isExternal: true
   href: SadConsole.CellDecorator.html
@@ -606,14 +579,6 @@ references:
   name: RestoreState
   nameWithType: ColoredGlyphState.RestoreState
   fullName: SadConsole.ColoredGlyphState.RestoreState
-- uid: SadConsole.ColoredGlyphBase.Decorators
-  commentId: P:SadConsole.ColoredGlyphBase.Decorators
-  parent: SadConsole.ColoredGlyphBase
-  isExternal: true
-  href: SadConsole.ColoredGlyphBase.html#SadConsole_ColoredGlyphBase_Decorators
-  name: Decorators
-  nameWithType: ColoredGlyphBase.Decorators
-  fullName: SadConsole.ColoredGlyphBase.Decorators
 - uid: SadConsole.ColoredGlyphState.Decorators*
   commentId: Overload:SadConsole.ColoredGlyphState.Decorators
   isExternal: true
@@ -621,14 +586,6 @@ references:
   name: Decorators
   nameWithType: ColoredGlyphState.Decorators
   fullName: SadConsole.ColoredGlyphState.Decorators
-- uid: SadConsole.ColoredGlyphBase.Foreground
-  commentId: P:SadConsole.ColoredGlyphBase.Foreground
-  parent: SadConsole.ColoredGlyphBase
-  isExternal: true
-  href: SadConsole.ColoredGlyphBase.html#SadConsole_ColoredGlyphBase_Foreground
-  name: Foreground
-  nameWithType: ColoredGlyphBase.Foreground
-  fullName: SadConsole.ColoredGlyphBase.Foreground
 - uid: SadConsole.ColoredGlyphState.Foreground*
   commentId: Overload:SadConsole.ColoredGlyphState.Foreground
   isExternal: true
@@ -636,14 +593,6 @@ references:
   name: Foreground
   nameWithType: ColoredGlyphState.Foreground
   fullName: SadConsole.ColoredGlyphState.Foreground
-- uid: SadConsole.ColoredGlyphBase.Background
-  commentId: P:SadConsole.ColoredGlyphBase.Background
-  parent: SadConsole.ColoredGlyphBase
-  isExternal: true
-  href: SadConsole.ColoredGlyphBase.html#SadConsole_ColoredGlyphBase_Background
-  name: Background
-  nameWithType: ColoredGlyphBase.Background
-  fullName: SadConsole.ColoredGlyphBase.Background
 - uid: SadConsole.ColoredGlyphState.Background*
   commentId: Overload:SadConsole.ColoredGlyphState.Background
   isExternal: true
@@ -651,14 +600,6 @@ references:
   name: Background
   nameWithType: ColoredGlyphState.Background
   fullName: SadConsole.ColoredGlyphState.Background
-- uid: SadConsole.ColoredGlyphBase.Glyph
-  commentId: P:SadConsole.ColoredGlyphBase.Glyph
-  parent: SadConsole.ColoredGlyphBase
-  isExternal: true
-  href: SadConsole.ColoredGlyphBase.html#SadConsole_ColoredGlyphBase_Glyph
-  name: Glyph
-  nameWithType: ColoredGlyphBase.Glyph
-  fullName: SadConsole.ColoredGlyphBase.Glyph
 - uid: SadConsole.ColoredGlyphState.Glyph*
   commentId: Overload:SadConsole.ColoredGlyphState.Glyph
   isExternal: true
@@ -666,14 +607,6 @@ references:
   name: Glyph
   nameWithType: ColoredGlyphState.Glyph
   fullName: SadConsole.ColoredGlyphState.Glyph
-- uid: SadConsole.ColoredGlyphBase.Mirror
-  commentId: P:SadConsole.ColoredGlyphBase.Mirror
-  parent: SadConsole.ColoredGlyphBase
-  isExternal: true
-  href: SadConsole.ColoredGlyphBase.html#SadConsole_ColoredGlyphBase_Mirror
-  name: Mirror
-  nameWithType: ColoredGlyphBase.Mirror
-  fullName: SadConsole.ColoredGlyphBase.Mirror
 - uid: SadConsole.ColoredGlyphState.Mirror*
   commentId: Overload:SadConsole.ColoredGlyphState.Mirror
   isExternal: true
@@ -681,14 +614,6 @@ references:
   name: Mirror
   nameWithType: ColoredGlyphState.Mirror
   fullName: SadConsole.ColoredGlyphState.Mirror
-- uid: SadConsole.ColoredGlyphBase.IsVisible
-  commentId: P:SadConsole.ColoredGlyphBase.IsVisible
-  parent: SadConsole.ColoredGlyphBase
-  isExternal: true
-  href: SadConsole.ColoredGlyphBase.html#SadConsole_ColoredGlyphBase_IsVisible
-  name: IsVisible
-  nameWithType: ColoredGlyphBase.IsVisible
-  fullName: SadConsole.ColoredGlyphBase.IsVisible
 - uid: SadConsole.ColoredGlyphState.IsVisible*
   commentId: Overload:SadConsole.ColoredGlyphState.IsVisible
   isExternal: true

@@ -13,9 +13,13 @@ items:
   - SadConsole.UI.Controls.Panel.CopyTo(SadConsole.UI.Controls.ControlBase[],System.Int32)
   - SadConsole.UI.Controls.Panel.DrawBorder
   - SadConsole.UI.Controls.Panel.GetEnumerator
+  - SadConsole.UI.Controls.Panel.GetNamedControl(System.String)
+  - SadConsole.UI.Controls.Panel.HasNamedControl(System.String)
+  - SadConsole.UI.Controls.Panel.HasNamedControl(System.String,SadConsole.UI.Controls.ControlBase@)
   - SadConsole.UI.Controls.Panel.IndexOf(SadConsole.UI.Controls.ControlBase)
   - SadConsole.UI.Controls.Panel.Insert(System.Int32,SadConsole.UI.Controls.ControlBase)
   - SadConsole.UI.Controls.Panel.Item(System.Int32)
+  - SadConsole.UI.Controls.Panel.Item(System.String)
   - SadConsole.UI.Controls.Panel.OnIsDirtyChanged
   - SadConsole.UI.Controls.Panel.OnMouseExit(SadConsole.UI.Controls.ControlBase.ControlMouseState)
   - SadConsole.UI.Controls.Panel.ProcessKeyboard(SadConsole.Input.Keyboard)
@@ -36,8 +40,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: A control container that processes the mouse on each child. <xref href="SadConsole.UI.Controls.ControlBase.TabStop" data-throw-if-not-resolved="false"></xref> defaults to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
-  example: []
   syntax:
     content: >-
       [DataContract]
@@ -65,8 +67,6 @@ items:
   - SadConsole.UI.Controls.CompositeControl.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
   - SadConsole.UI.Controls.CompositeControl.AddControl(SadConsole.UI.Controls.ControlBase)
   - SadConsole.UI.Controls.CompositeControl.RemoveControl(SadConsole.UI.Controls.ControlBase)
-  - SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String)
-  - SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String,SadConsole.UI.Controls.ControlBase@)
   - SadConsole.UI.Controls.CompositeControl.Count
   - SadConsole.UI.Controls.ControlBase.MouseState_IsMouseOver
   - SadConsole.UI.Controls.ControlBase.MouseState_EnteredWithButtonDown
@@ -81,6 +81,7 @@ items:
   - SadConsole.UI.Controls.ControlBase.DetermineState
   - SadConsole.UI.Controls.ControlBase.OnStateChanged(SadConsole.UI.Controls.ControlStates,SadConsole.UI.Controls.ControlStates)
   - SadConsole.UI.Controls.ControlBase.OnSurfaceChanged(SadConsole.ICellSurface,SadConsole.ICellSurface)
+  - SadConsole.UI.Controls.ControlBase.FindThemeFont
   - SadConsole.UI.Controls.ControlBase.FindThemeColors
   - SadConsole.UI.Controls.ControlBase.SetThemeColors(SadConsole.UI.Colors)
   - SadConsole.UI.Controls.ControlBase.HasThemeColors
@@ -150,17 +151,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Creates a new drawing surface control with the specified width and height.
-  example: []
   syntax:
     content: public Panel(int width, int height)
     parameters:
     - id: width
       type: System.Int32
-      description: Width of the control.
     - id: height
       type: System.Int32
-      description: Height of the control.
     content.vb: Public Sub New(width As Integer, height As Integer)
   overload: SadConsole.UI.Controls.Panel.#ctor*
   nameWithType.vb: Panel.New(Integer, Integer)
@@ -180,7 +177,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Removes all controls.
   example: []
   syntax:
     content: public void Clear()
@@ -252,14 +248,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Removes a control at the specified index.
   example: []
   syntax:
     content: public void RemoveAt(int index)
     parameters:
     - id: index
       type: System.Int32
-      description: The index of the control to remove.
     content.vb: Public Sub RemoveAt(index As Integer)
   overload: SadConsole.UI.Controls.Panel.RemoveAt*
   implements:
@@ -281,17 +275,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Returns the index of the specified control.
   example: []
   syntax:
     content: public int IndexOf(ControlBase control)
     parameters:
     - id: control
       type: SadConsole.UI.Controls.ControlBase
-      description: The control to search for.
     return:
       type: System.Int32
-      description: The index of the control.
     content.vb: Public Function IndexOf(control As ControlBase) As Integer
   overload: SadConsole.UI.Controls.Panel.IndexOf*
   implements:
@@ -310,17 +301,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Inserts the control at the specified index.
   example: []
   syntax:
     content: public void Insert(int index, ControlBase control)
     parameters:
     - id: index
       type: System.Int32
-      description: The index to insert at.
     - id: control
       type: SadConsole.UI.Controls.ControlBase
-      description: The control to insert.
     content.vb: Public Sub Insert(index As Integer, control As ControlBase)
   overload: SadConsole.UI.Controls.Panel.Insert*
   implements:
@@ -397,14 +385,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Called when the mouse exits the area of the control. Raises the MouseExit event and calls the <xref href="SadConsole.UI.Controls.ControlBase.DetermineState" data-throw-if-not-resolved="false"></xref> method.
   example: []
   syntax:
     content: protected override void OnMouseExit(ControlBase.ControlMouseState state)
     parameters:
     - id: state
       type: SadConsole.UI.Controls.ControlBase.ControlMouseState
-      description: The current mouse data
     content.vb: Protected Overrides Sub OnMouseExit(state As ControlBase.ControlMouseState)
   overridden: SadConsole.UI.Controls.ControlBase.OnMouseExit(SadConsole.UI.Controls.ControlBase.ControlMouseState)
   overload: SadConsole.UI.Controls.Panel.OnMouseExit*
@@ -422,14 +408,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Called when the keyboard is used on this control.
   example: []
   syntax:
     content: public override bool ProcessKeyboard(Keyboard state)
     parameters:
     - id: state
       type: SadConsole.Input.Keyboard
-      description: The state of the keyboard.
     return:
       type: System.Boolean
     content.vb: Public Overrides Function ProcessKeyboard(state As Keyboard) As Boolean
@@ -449,13 +433,92 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: When <xref href="SadConsole.UI.Controls.ControlBase.IsDirty" data-throw-if-not-resolved="false"></xref> is set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, changes the child controls to also be dirty.
   example: []
   syntax:
     content: protected override void OnIsDirtyChanged()
     content.vb: Protected Overrides Sub OnIsDirtyChanged()
   overridden: SadConsole.UI.Controls.ControlBase.OnIsDirtyChanged
   overload: SadConsole.UI.Controls.Panel.OnIsDirtyChanged*
+- uid: SadConsole.UI.Controls.Panel.HasNamedControl(System.String)
+  commentId: M:SadConsole.UI.Controls.Panel.HasNamedControl(System.String)
+  id: HasNamedControl(System.String)
+  parent: SadConsole.UI.Controls.Panel
+  langs:
+  - csharp
+  - vb
+  name: HasNamedControl(string)
+  nameWithType: Panel.HasNamedControl(string)
+  fullName: SadConsole.UI.Controls.Panel.HasNamedControl(string)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  syntax:
+    content: public bool HasNamedControl(string name)
+    parameters:
+    - id: name
+      type: System.String
+    return:
+      type: System.Boolean
+    content.vb: Public Function HasNamedControl(name As String) As Boolean
+  overload: SadConsole.UI.Controls.Panel.HasNamedControl*
+  nameWithType.vb: Panel.HasNamedControl(String)
+  fullName.vb: SadConsole.UI.Controls.Panel.HasNamedControl(String)
+  name.vb: HasNamedControl(String)
+- uid: SadConsole.UI.Controls.Panel.HasNamedControl(System.String,SadConsole.UI.Controls.ControlBase@)
+  commentId: M:SadConsole.UI.Controls.Panel.HasNamedControl(System.String,SadConsole.UI.Controls.ControlBase@)
+  id: HasNamedControl(System.String,SadConsole.UI.Controls.ControlBase@)
+  parent: SadConsole.UI.Controls.Panel
+  langs:
+  - csharp
+  - vb
+  name: HasNamedControl(string, out ControlBase?)
+  nameWithType: Panel.HasNamedControl(string, out ControlBase?)
+  fullName: SadConsole.UI.Controls.Panel.HasNamedControl(string, out SadConsole.UI.Controls.ControlBase?)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  syntax:
+    content: public bool HasNamedControl(string name, out ControlBase? control)
+    parameters:
+    - id: name
+      type: System.String
+    - id: control
+      type: SadConsole.UI.Controls.ControlBase
+    return:
+      type: System.Boolean
+    content.vb: Public Function HasNamedControl(name As String, control As ControlBase) As Boolean
+  overload: SadConsole.UI.Controls.Panel.HasNamedControl*
+  nameWithType.vb: Panel.HasNamedControl(String, ControlBase)
+  fullName.vb: SadConsole.UI.Controls.Panel.HasNamedControl(String, SadConsole.UI.Controls.ControlBase)
+  name.vb: HasNamedControl(String, ControlBase)
+- uid: SadConsole.UI.Controls.Panel.GetNamedControl(System.String)
+  commentId: M:SadConsole.UI.Controls.Panel.GetNamedControl(System.String)
+  id: GetNamedControl(System.String)
+  parent: SadConsole.UI.Controls.Panel
+  langs:
+  - csharp
+  - vb
+  name: GetNamedControl(string)
+  nameWithType: Panel.GetNamedControl(string)
+  fullName: SadConsole.UI.Controls.Panel.GetNamedControl(string)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  syntax:
+    content: public ControlBase GetNamedControl(string name)
+    parameters:
+    - id: name
+      type: System.String
+    return:
+      type: SadConsole.UI.Controls.ControlBase
+    content.vb: Public Function GetNamedControl(name As String) As ControlBase
+  overload: SadConsole.UI.Controls.Panel.GetNamedControl*
+  nameWithType.vb: Panel.GetNamedControl(String)
+  fullName.vb: SadConsole.UI.Controls.Panel.GetNamedControl(String)
+  name.vb: GetNamedControl(String)
 - uid: SadConsole.UI.Controls.Panel.GetEnumerator
   commentId: M:SadConsole.UI.Controls.Panel.GetEnumerator
   id: GetEnumerator
@@ -470,13 +533,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Gets an enumerator that iterates over the controls in this panel.
   example: []
   syntax:
     content: public IEnumerator<ControlBase> GetEnumerator()
     return:
       type: System.Collections.Generic.IEnumerator{SadConsole.UI.Controls.ControlBase}
-      description: The enumerator.
     content.vb: Public Function GetEnumerator() As IEnumerator(Of ControlBase)
   overload: SadConsole.UI.Controls.Panel.GetEnumerator*
   implements:
@@ -495,14 +556,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Updates each control hosted by this control.
   example: []
   syntax:
     content: public override void UpdateAndRedraw(TimeSpan time)
     parameters:
     - id: time
       type: System.TimeSpan
-      description: The game frame time delta.
     content.vb: Public Overrides Sub UpdateAndRedraw(time As TimeSpan)
   overridden: SadConsole.UI.Controls.CompositeControl.UpdateAndRedraw(System.TimeSpan)
   overload: SadConsole.UI.Controls.Panel.UpdateAndRedraw*
@@ -520,28 +579,47 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Gets or sets a control in the collection of controls.
   example: []
   syntax:
     content: public ControlBase this[int index] { get; set; }
     parameters:
     - id: index
       type: System.Int32
-      description: The index of the control.
     return:
       type: SadConsole.UI.Controls.ControlBase
-      description: The control at the specified index.
     content.vb: Public Default Property this[](index As Integer) As ControlBase
   overload: SadConsole.UI.Controls.Panel.Item*
-  exceptions:
-  - type: System.IndexOutOfRangeException
-    commentId: T:System.IndexOutOfRangeException
-    description: Thrown when the index doesn't exist in the collection.
   implements:
   - System.Collections.Generic.IList{SadConsole.UI.Controls.ControlBase}.Item(System.Int32)
   nameWithType.vb: Panel.this[](Integer)
   fullName.vb: SadConsole.UI.Controls.Panel.this[](Integer)
   name.vb: this[](Integer)
+- uid: SadConsole.UI.Controls.Panel.Item(System.String)
+  commentId: P:SadConsole.UI.Controls.Panel.Item(System.String)
+  id: Item(System.String)
+  parent: SadConsole.UI.Controls.Panel
+  langs:
+  - csharp
+  - vb
+  name: this[string]
+  nameWithType: Panel.this[string]
+  fullName: SadConsole.UI.Controls.Panel.this[string]
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  syntax:
+    content: public ControlBase this[string name] { get; }
+    parameters:
+    - id: name
+      type: System.String
+    return:
+      type: SadConsole.UI.Controls.ControlBase
+    content.vb: Public ReadOnly Default Property this[](name As String) As ControlBase
+  overload: SadConsole.UI.Controls.Panel.Item*
+  nameWithType.vb: Panel.this[](String)
+  fullName.vb: SadConsole.UI.Controls.Panel.this[](String)
+  name.vb: this[](String)
 - uid: SadConsole.UI.Controls.Panel.UseNormalStateOnly
   commentId: P:SadConsole.UI.Controls.Panel.UseNormalStateOnly
   id: UseNormalStateOnly
@@ -556,8 +634,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: When true, only uses <xref href="SadConsole.UI.ThemeStates.Normal" data-throw-if-not-resolved="false"></xref> for drawing.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -589,8 +665,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: When true, ignores all states and doesn't draw anything.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -622,8 +696,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that the theme should draw along the inner bounds of the panel.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -655,8 +727,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that the lines of the theme should use the extended SadConsole font characters if available.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -688,8 +758,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that the border colors should make it appear like the border is inset.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -721,8 +789,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: The current Appearance based on the control state.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -741,14 +807,6 @@ items:
     ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
     arguments: []
 references:
-- uid: SadConsole.UI.Controls.ControlBase.TabStop
-  commentId: P:SadConsole.UI.Controls.ControlBase.TabStop
-  parent: SadConsole.UI.Controls.ControlBase
-  isExternal: true
-  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_TabStop
-  name: TabStop
-  nameWithType: ControlBase.TabStop
-  fullName: SadConsole.UI.Controls.ControlBase.TabStop
 - uid: SadConsole.UI.Controls
   commentId: N:SadConsole.UI.Controls
   isExternal: true
@@ -1095,86 +1153,6 @@ references:
     isExternal: true
     href: SadConsole.UI.Controls.ControlBase.html
   - name: )
-- uid: SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String)
-  commentId: M:SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String)
-  parent: SadConsole.UI.Controls.CompositeControl
-  isExternal: true
-  href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_HasNamedControl_System_String_
-  name: HasNamedControl(string)
-  nameWithType: CompositeControl.HasNamedControl(string)
-  fullName: SadConsole.UI.Controls.CompositeControl.HasNamedControl(string)
-  nameWithType.vb: CompositeControl.HasNamedControl(String)
-  fullName.vb: SadConsole.UI.Controls.CompositeControl.HasNamedControl(String)
-  name.vb: HasNamedControl(String)
-  spec.csharp:
-  - uid: SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String)
-    name: HasNamedControl
-    isExternal: true
-    href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_HasNamedControl_System_String_
-  - name: (
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-  spec.vb:
-  - uid: SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String)
-    name: HasNamedControl
-    isExternal: true
-    href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_HasNamedControl_System_String_
-  - name: (
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-- uid: SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String,SadConsole.UI.Controls.ControlBase@)
-  commentId: M:SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String,SadConsole.UI.Controls.ControlBase@)
-  parent: SadConsole.UI.Controls.CompositeControl
-  isExternal: true
-  href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_HasNamedControl_System_String_SadConsole_UI_Controls_ControlBase__
-  name: HasNamedControl(string, out ControlBase)
-  nameWithType: CompositeControl.HasNamedControl(string, out ControlBase)
-  fullName: SadConsole.UI.Controls.CompositeControl.HasNamedControl(string, out SadConsole.UI.Controls.ControlBase)
-  nameWithType.vb: CompositeControl.HasNamedControl(String, ControlBase)
-  fullName.vb: SadConsole.UI.Controls.CompositeControl.HasNamedControl(String, SadConsole.UI.Controls.ControlBase)
-  name.vb: HasNamedControl(String, ControlBase)
-  spec.csharp:
-  - uid: SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String,SadConsole.UI.Controls.ControlBase@)
-    name: HasNamedControl
-    isExternal: true
-    href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_HasNamedControl_System_String_SadConsole_UI_Controls_ControlBase__
-  - name: (
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - name: out
-  - name: " "
-  - uid: SadConsole.UI.Controls.ControlBase
-    name: ControlBase
-    isExternal: true
-    href: SadConsole.UI.Controls.ControlBase.html
-  - name: )
-  spec.vb:
-  - uid: SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String,SadConsole.UI.Controls.ControlBase@)
-    name: HasNamedControl
-    isExternal: true
-    href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_HasNamedControl_System_String_SadConsole_UI_Controls_ControlBase__
-  - name: (
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - uid: SadConsole.UI.Controls.ControlBase
-    name: ControlBase
-    isExternal: true
-    href: SadConsole.UI.Controls.ControlBase.html
-  - name: )
 - uid: SadConsole.UI.Controls.CompositeControl.Count
   commentId: P:SadConsole.UI.Controls.CompositeControl.Count
   parent: SadConsole.UI.Controls.CompositeControl
@@ -1493,6 +1471,28 @@ references:
     name: ICellSurface
     isExternal: true
     href: SadConsole.ICellSurface.html
+  - name: )
+- uid: SadConsole.UI.Controls.ControlBase.FindThemeFont
+  commentId: M:SadConsole.UI.Controls.ControlBase.FindThemeFont
+  parent: SadConsole.UI.Controls.ControlBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeFont
+  name: FindThemeFont()
+  nameWithType: ControlBase.FindThemeFont()
+  fullName: SadConsole.UI.Controls.ControlBase.FindThemeFont()
+  spec.csharp:
+  - uid: SadConsole.UI.Controls.ControlBase.FindThemeFont
+    name: FindThemeFont
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeFont
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.Controls.ControlBase.FindThemeFont
+    name: FindThemeFont
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeFont
+  - name: (
   - name: )
 - uid: SadConsole.UI.Controls.ControlBase.FindThemeColors
   commentId: M:SadConsole.UI.Controls.ControlBase.FindThemeColors
@@ -1911,6 +1911,14 @@ references:
   name: Tag
   nameWithType: ControlBase.Tag
   fullName: SadConsole.UI.Controls.ControlBase.Tag
+- uid: SadConsole.UI.Controls.ControlBase.TabStop
+  commentId: P:SadConsole.UI.Controls.ControlBase.TabStop
+  parent: SadConsole.UI.Controls.ControlBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_TabStop
+  name: TabStop
+  nameWithType: ControlBase.TabStop
+  fullName: SadConsole.UI.Controls.ControlBase.TabStop
 - uid: SadConsole.UI.Controls.ControlBase.TabIndex
   commentId: P:SadConsole.UI.Controls.ControlBase.TabIndex
   parent: SadConsole.UI.Controls.ControlBase
@@ -3228,6 +3236,31 @@ references:
   name: OnIsDirtyChanged
   nameWithType: Panel.OnIsDirtyChanged
   fullName: SadConsole.UI.Controls.Panel.OnIsDirtyChanged
+- uid: SadConsole.UI.Controls.Panel.HasNamedControl*
+  commentId: Overload:SadConsole.UI.Controls.Panel.HasNamedControl
+  isExternal: true
+  href: SadConsole.UI.Controls.Panel.html#SadConsole_UI_Controls_Panel_HasNamedControl_System_String_
+  name: HasNamedControl
+  nameWithType: Panel.HasNamedControl
+  fullName: SadConsole.UI.Controls.Panel.HasNamedControl
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: SadConsole.UI.Controls.Panel.GetNamedControl*
+  commentId: Overload:SadConsole.UI.Controls.Panel.GetNamedControl
+  isExternal: true
+  href: SadConsole.UI.Controls.Panel.html#SadConsole_UI_Controls_Panel_GetNamedControl_System_String_
+  name: GetNamedControl
+  nameWithType: Panel.GetNamedControl
+  fullName: SadConsole.UI.Controls.Panel.GetNamedControl
 - uid: SadConsole.UI.Controls.Panel.GetEnumerator*
   commentId: Overload:SadConsole.UI.Controls.Panel.GetEnumerator
   isExternal: true
@@ -3390,13 +3423,6 @@ references:
   name: TimeSpan
   nameWithType: TimeSpan
   fullName: System.TimeSpan
-- uid: System.IndexOutOfRangeException
-  commentId: T:System.IndexOutOfRangeException
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.indexoutofrangeexception
-  name: IndexOutOfRangeException
-  nameWithType: IndexOutOfRangeException
-  fullName: System.IndexOutOfRangeException
 - uid: SadConsole.UI.Controls.Panel.Item*
   commentId: Overload:SadConsole.UI.Controls.Panel.Item
   isExternal: true
@@ -3466,14 +3492,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: )
-- uid: SadConsole.UI.ThemeStates.Normal
-  commentId: P:SadConsole.UI.ThemeStates.Normal
-  parent: SadConsole.UI.ThemeStates
-  isExternal: true
-  href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_Normal
-  name: Normal
-  nameWithType: ThemeStates.Normal
-  fullName: SadConsole.UI.ThemeStates.Normal
 - uid: SadConsole.UI.Controls.Panel.UseNormalStateOnly*
   commentId: Overload:SadConsole.UI.Controls.Panel.UseNormalStateOnly
   isExternal: true
@@ -3481,41 +3499,6 @@ references:
   name: UseNormalStateOnly
   nameWithType: Panel.UseNormalStateOnly
   fullName: SadConsole.UI.Controls.Panel.UseNormalStateOnly
-- uid: SadConsole.UI.ThemeStates
-  commentId: T:SadConsole.UI.ThemeStates
-  parent: SadConsole.UI
-  isExternal: true
-  href: SadConsole.UI.ThemeStates.html
-  name: ThemeStates
-  nameWithType: ThemeStates
-  fullName: SadConsole.UI.ThemeStates
-- uid: SadConsole.UI
-  commentId: N:SadConsole.UI
-  isExternal: true
-  href: SadConsole.html
-  name: SadConsole.UI
-  nameWithType: SadConsole.UI
-  fullName: SadConsole.UI
-  spec.csharp:
-  - uid: SadConsole
-    name: SadConsole
-    isExternal: true
-    href: SadConsole.html
-  - name: .
-  - uid: SadConsole.UI
-    name: UI
-    isExternal: true
-    href: SadConsole.UI.html
-  spec.vb:
-  - uid: SadConsole
-    name: SadConsole
-    isExternal: true
-    href: SadConsole.html
-  - name: .
-  - uid: SadConsole.UI
-    name: UI
-    isExternal: true
-    href: SadConsole.UI.html
 - uid: SadConsole.UI.Controls.Panel.SkipDrawing*
   commentId: Overload:SadConsole.UI.Controls.Panel.SkipDrawing
   isExternal: true

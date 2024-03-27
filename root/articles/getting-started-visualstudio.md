@@ -101,7 +101,7 @@ Your project file should look similar to this, though the `<TargetFramework>` ma
 
   <ItemGroup>
     <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.1.303" />
-    <PackageReference Include="SadConsole.Host.MonoGame" Version="10.0.0-beta2-debug" />
+    <PackageReference Include="SadConsole.Host.MonoGame" Version="10.0.3" />
   </ItemGroup>
 
   <ItemGroup>

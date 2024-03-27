@@ -67,8 +67,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: An object that renders a <xref href="SadConsole.ICellSurface" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: >-
       [DataContract]
@@ -280,8 +278,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Indicates that the mouse is currently over this console.
-  example: []
   syntax:
     content: protected bool IsMouseOver
     return:
@@ -301,17 +297,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Creates a new screen object that can render a surface.
-  example: []
   syntax:
     content: public ScreenSurface(int width, int height)
     parameters:
     - id: width
       type: System.Int32
-      description: The width in cells of the surface.
     - id: height
       type: System.Int32
-      description: The height in cells of the surface.
     content.vb: Public Sub New(width As Integer, height As Integer)
   overload: SadConsole.ScreenSurface.#ctor*
   nameWithType.vb: ScreenSurface.New(Integer, Integer)
@@ -331,20 +323,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Creates a new screen object that can render a surface. Uses the specified cells to generate the surface.
-  example: []
   syntax:
     content: public ScreenSurface(int width, int height, ColoredGlyphBase[] initialCells)
     parameters:
     - id: width
       type: System.Int32
-      description: The width in cells of the surface.
     - id: height
       type: System.Int32
-      description: The height in cells of the surface.
     - id: initialCells
       type: SadConsole.ColoredGlyphBase[]
-      description: The initial cells to seed the surface.
     content.vb: Public Sub New(width As Integer, height As Integer, initialCells As ColoredGlyphBase())
   overload: SadConsole.ScreenSurface.#ctor*
   nameWithType.vb: ScreenSurface.New(Integer, Integer, ColoredGlyphBase())
@@ -364,23 +351,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Creates a new surface with the specified width and height, with <xref href="SadRogue.Primitives.Color.Transparent" data-throw-if-not-resolved="false"></xref> for the background and <xref href="SadRogue.Primitives.Color.White" data-throw-if-not-resolved="false"></xref> for the foreground.
-  example: []
   syntax:
     content: public ScreenSurface(int viewWidth, int viewHeight, int totalWidth, int totalHeight)
     parameters:
     - id: viewWidth
       type: System.Int32
-      description: The visible width of the surface in cells.
     - id: viewHeight
       type: System.Int32
-      description: The visible height of the surface in cells.
     - id: totalWidth
       type: System.Int32
-      description: The total width of the surface in cells.
     - id: totalHeight
       type: System.Int32
-      description: The total height of the surface in cells.
     content.vb: Public Sub New(viewWidth As Integer, viewHeight As Integer, totalWidth As Integer, totalHeight As Integer)
   overload: SadConsole.ScreenSurface.#ctor*
   nameWithType.vb: ScreenSurface.New(Integer, Integer, Integer, Integer)
@@ -400,20 +381,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Creates a new surface from a grid view. The cells between this object and the grid view are shared.
-  example: []
   syntax:
     content: public ScreenSurface(IGridView<ColoredGlyphBase> surface, int visibleWidth = 0, int visibleHeight = 0)
     parameters:
     - id: surface
       type: SadRogue.Primitives.GridViews.IGridView{SadConsole.ColoredGlyphBase}
-      description: The surface to use as the source of cells.
     - id: visibleWidth
       type: System.Int32
-      description: Optional view width. If <code>0</code>, the view width matches the width of the surface.
     - id: visibleHeight
       type: System.Int32
-      description: Optional view height. If <code>0</code>, the view width matches the height of the surface.
     content.vb: Public Sub New(surface As IGridView(Of ColoredGlyphBase), visibleWidth As Integer = 0, visibleHeight As Integer = 0)
   overload: SadConsole.ScreenSurface.#ctor*
   nameWithType.vb: ScreenSurface.New(IGridView(Of ColoredGlyphBase), Integer, Integer)
@@ -433,26 +409,19 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Creates a new surface with the specified width and height, with <xref href="SadRogue.Primitives.Color.Transparent" data-throw-if-not-resolved="false"></xref> for the background and <xref href="SadRogue.Primitives.Color.White" data-throw-if-not-resolved="false"></xref> for the foreground.
-  example: []
   syntax:
     content: public ScreenSurface(int viewWidth, int viewHeight, int totalWidth, int totalHeight, ColoredGlyphBase[]? initialCells)
     parameters:
     - id: viewWidth
       type: System.Int32
-      description: The width of the surface in cells to show.
     - id: viewHeight
       type: System.Int32
-      description: The height of the surface in cells to show.
     - id: totalWidth
       type: System.Int32
-      description: The total width of the surface in cells.
     - id: totalHeight
       type: System.Int32
-      description: The total height of the surface in cells.
     - id: initialCells
       type: SadConsole.ColoredGlyphBase[]
-      description: The cells to seed the surface with. If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, creates the cell array for you.
     content.vb: Public Sub New(viewWidth As Integer, viewHeight As Integer, totalWidth As Integer, totalHeight As Integer, initialCells As ColoredGlyphBase())
   overload: SadConsole.ScreenSurface.#ctor*
   nameWithType.vb: ScreenSurface.New(Integer, Integer, Integer, Integer, ColoredGlyphBase())
@@ -472,20 +441,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Creates a new screen object wrapping an existing surface.
-  example: []
   syntax:
     content: public ScreenSurface(ICellSurface surface, IFont? font = null, Point? fontSize = null)
     parameters:
     - id: surface
       type: SadConsole.ICellSurface
-      description: The surface.
     - id: font
       type: SadConsole.IFont
-      description: The font to use with the surface.
     - id: fontSize
       type: System.Nullable{SadRogue.Primitives.Point}
-      description: The font size.
     content.vb: Public Sub New(surface As ICellSurface, font As IFont = Nothing, fontSize As Point? = Nothing)
   overload: SadConsole.ScreenSurface.#ctor*
   nameWithType.vb: ScreenSurface.New(ICellSurface, IFont, Point?)
@@ -505,26 +469,19 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Resizes the surface to the specified width and height.
-  example: []
   syntax:
     content: public void Resize(int width, int height, int bufferWidth, int bufferHeight, bool clear)
     parameters:
     - id: width
       type: System.Int32
-      description: The viewable width of the surface.
     - id: height
       type: System.Int32
-      description: The viewable height of the surface.
     - id: bufferWidth
       type: System.Int32
-      description: The maximum width of the surface.
     - id: bufferHeight
       type: System.Int32
-      description: The maximum height of the surface.
     - id: clear
       type: System.Boolean
-      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, resets every cell to the <xref href="SadConsole.ICellSurface.DefaultForeground" data-throw-if-not-resolved="false"></xref>, <xref href="SadConsole.ICellSurface.DefaultBackground" data-throw-if-not-resolved="false"></xref> and glyph 0.
     content.vb: Public Sub Resize(width As Integer, height As Integer, bufferWidth As Integer, bufferHeight As Integer, clear As Boolean)
   overload: SadConsole.ScreenSurface.Resize*
   nameWithType.vb: ScreenSurface.Resize(Integer, Integer, Integer, Integer, Boolean)
@@ -544,20 +501,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Resizes the surface and view to the specified width and height.
-  example: []
   syntax:
     content: public void Resize(int width, int height, bool clear)
     parameters:
     - id: width
       type: System.Int32
-      description: The viewable width of the surface.
     - id: height
       type: System.Int32
-      description: The viewable height of the surface.
     - id: clear
       type: System.Boolean
-      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, resets every cell to the <xref href="SadConsole.ICellSurface.DefaultForeground" data-throw-if-not-resolved="false"></xref>, <xref href="SadConsole.ICellSurface.DefaultBackground" data-throw-if-not-resolved="false"></xref> and glyph 0.
     content.vb: Public Sub Resize(width As Integer, height As Integer, clear As Boolean)
   overload: SadConsole.ScreenSurface.Resize*
   nameWithType.vb: ScreenSurface.Resize(Integer, Integer, Boolean)
@@ -577,7 +529,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Sets a value for <xref href="SadConsole.IScreenObject.AbsolutePosition" data-throw-if-not-resolved="false"></xref> based on the Position of this instance and the <xref href="SadConsole.IScreenObject.Parent" data-throw-if-not-resolved="false"></xref> instance.
   example: []
   syntax:
     content: public override void UpdateAbsolutePosition()
@@ -600,14 +551,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Draws the <xref href="SadConsole.ScreenSurface.Surface" data-throw-if-not-resolved="false"></xref> and all <xref href="SadConsole.ScreenObject.SadComponents" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.ScreenObject.Children" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: public override void Render(TimeSpan delta)
     parameters:
     - id: delta
       type: System.TimeSpan
-      description: The time that has elapsed since the last call.
     content.vb: Public Overrides Sub Render(delta As TimeSpan)
   overridden: SadConsole.ScreenObject.Render(System.TimeSpan)
   overload: SadConsole.ScreenSurface.Render*
@@ -627,14 +576,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Updates the <xref href="SadConsole.ScreenSurface.Surface" data-throw-if-not-resolved="false"></xref> effects and all <xref href="SadConsole.ScreenObject.SadComponents" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.ScreenObject.Children" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: public override void Update(TimeSpan delta)
     parameters:
     - id: delta
       type: System.TimeSpan
-      description: The time that has elapsed since this method was last called.
     content.vb: Public Overrides Sub Update(delta As TimeSpan)
   overridden: SadConsole.ScreenObject.Update(System.TimeSpan)
   overload: SadConsole.ScreenSurface.Update*
@@ -654,8 +601,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Called when the <xref href="SadConsole.ScreenSurface.IsDirty" data-throw-if-not-resolved="false"></xref> property changes.
-  example: []
   syntax:
     content: protected virtual void OnIsDirtyChanged()
     content.vb: Protected Overridable Sub OnIsDirtyChanged()
@@ -674,17 +619,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Called when the <xref href="SadConsole.ScreenSurface.Font" data-throw-if-not-resolved="false"></xref> or <xref href="SadConsole.ScreenSurface.FontSize" data-throw-if-not-resolved="false"></xref> property changes.
-  example: []
   syntax:
     content: protected virtual void OnFontChanged(IFont oldFont, Point oldFontSize)
     parameters:
     - id: oldFont
       type: SadConsole.IFont
-      description: The font prior to the change.
     - id: oldFontSize
       type: SadRogue.Primitives.Point
-      description: The font size prior to the change.
     content.vb: Protected Overridable Sub OnFontChanged(oldFont As IFont, oldFontSize As Point)
   overload: SadConsole.ScreenSurface.OnFontChanged*
 - uid: SadConsole.ScreenSurface.OnSurfaceChanged(SadConsole.ICellSurface)
@@ -701,14 +642,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Called when the <xref href="SadConsole.ScreenSurface.Surface" data-throw-if-not-resolved="false"></xref> property is changed.
-  example: []
   syntax:
     content: protected virtual void OnSurfaceChanged(ICellSurface oldSurface)
     parameters:
     - id: oldSurface
       type: SadConsole.ICellSurface
-      description: The previous surface.
     content.vb: Protected Overridable Sub OnSurfaceChanged(oldSurface As ICellSurface)
   overload: SadConsole.ScreenSurface.OnSurfaceChanged*
 - uid: SadConsole.ScreenSurface.OnRendererChanged
@@ -725,8 +663,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Called when the <xref href="SadConsole.ScreenSurface.Renderer" data-throw-if-not-resolved="false"></xref> property is changed.
-  example: []
   syntax:
     content: protected virtual void OnRendererChanged()
     content.vb: Protected Overridable Sub OnRendererChanged()
@@ -745,13 +681,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Returns the value "ScreenSurface".
   example: []
   syntax:
     content: public override string ToString()
     return:
       type: System.String
-      description: The string "ScreenSurface".
     content.vb: Public Overrides Function ToString() As String
   overridden: SadConsole.ScreenObject.ToString
   overload: SadConsole.ScreenSurface.ToString*
@@ -769,8 +703,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Calls the OnHostUpdated method on components, renderer, and rendersteps.
-  example: []
   syntax:
     content: public void CallOnHostUpdated()
     content.vb: Public Sub CallOnHostUpdated()
@@ -789,7 +721,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  example: []
   syntax:
     content: protected virtual void Dispose(bool disposing)
     parameters:
@@ -814,8 +745,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Disposes <xref href="SadConsole.ScreenSurface.Renderer" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: protected ~ScreenSurface()
     content.vb: 'Protected '
@@ -858,14 +787,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Raises the <xref href="SadConsole.ScreenSurface.MouseEnter" data-throw-if-not-resolved="false"></xref> event.
-  example: []
   syntax:
     content: protected virtual void OnMouseEnter(MouseScreenObjectState state)
     parameters:
     - id: state
       type: SadConsole.Input.MouseScreenObjectState
-      description: Current mouse state in relation to this console.
     content.vb: Protected Overridable Sub OnMouseEnter(state As MouseScreenObjectState)
   overload: SadConsole.ScreenSurface.OnMouseEnter*
 - uid: SadConsole.ScreenSurface.OnMouseExit(SadConsole.Input.MouseScreenObjectState)
@@ -882,14 +808,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Raises the <xref href="SadConsole.ScreenSurface.MouseExit" data-throw-if-not-resolved="false"></xref> event.
-  example: []
   syntax:
     content: protected virtual void OnMouseExit(MouseScreenObjectState state)
     parameters:
     - id: state
       type: SadConsole.Input.MouseScreenObjectState
-      description: Current mouse state in relation to this console.
     content.vb: Protected Overridable Sub OnMouseExit(state As MouseScreenObjectState)
   overload: SadConsole.ScreenSurface.OnMouseExit*
 - uid: SadConsole.ScreenSurface.OnMouseMove(SadConsole.Input.MouseScreenObjectState)
@@ -906,14 +829,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Raises the <xref href="SadConsole.ScreenSurface.MouseMove" data-throw-if-not-resolved="false"></xref> event.
-  example: []
   syntax:
     content: protected virtual void OnMouseMove(MouseScreenObjectState state)
     parameters:
     - id: state
       type: SadConsole.Input.MouseScreenObjectState
-      description: Current mouse state in relation to this console.
     content.vb: Protected Overridable Sub OnMouseMove(state As MouseScreenObjectState)
   overload: SadConsole.ScreenSurface.OnMouseMove*
 - uid: SadConsole.ScreenSurface.OnMouseLeftClicked(SadConsole.Input.MouseScreenObjectState)
@@ -930,14 +850,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Raises the <xref href="SadConsole.ScreenSurface.MouseButtonClicked" data-throw-if-not-resolved="false"></xref> event. Possibly moves the console to the top of it's parent's children collection.
-  example: []
   syntax:
     content: protected virtual void OnMouseLeftClicked(MouseScreenObjectState state)
     parameters:
     - id: state
       type: SadConsole.Input.MouseScreenObjectState
-      description: Current mouse state in relation to this console.
     content.vb: Protected Overridable Sub OnMouseLeftClicked(state As MouseScreenObjectState)
   overload: SadConsole.ScreenSurface.OnMouseLeftClicked*
 - uid: SadConsole.ScreenSurface.OnRightMouseClicked(SadConsole.Input.MouseScreenObjectState)
@@ -954,14 +871,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Raises the <xref href="SadConsole.ScreenSurface.MouseButtonClicked" data-throw-if-not-resolved="false"></xref> event.
-  example: []
   syntax:
     content: protected virtual void OnRightMouseClicked(MouseScreenObjectState state)
     parameters:
     - id: state
       type: SadConsole.Input.MouseScreenObjectState
-      description: Current mouse state in relation to this console.
     content.vb: Protected Overridable Sub OnRightMouseClicked(state As MouseScreenObjectState)
   overload: SadConsole.ScreenSurface.OnRightMouseClicked*
 - uid: SadConsole.ScreenSurface.LostMouse(SadConsole.Input.MouseScreenObjectState)
@@ -978,14 +892,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Called when the mouse is being used by something else.
   example: []
   syntax:
     content: public override void LostMouse(MouseScreenObjectState state)
     parameters:
     - id: state
       type: SadConsole.Input.MouseScreenObjectState
-      description: The current state of the mouse based on this object.
     content.vb: Public Overrides Sub LostMouse(state As MouseScreenObjectState)
   overridden: SadConsole.ScreenObject.LostMouse(SadConsole.Input.MouseScreenObjectState)
   overload: SadConsole.ScreenSurface.LostMouse*
@@ -1005,17 +917,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Processes the mouse.
   example: []
   syntax:
     content: public override bool ProcessMouse(MouseScreenObjectState state)
     parameters:
     - id: state
       type: SadConsole.Input.MouseScreenObjectState
-      description: The mouse state related to this object.
     return:
       type: System.Boolean
-      description: True when this object should halt further mouse processing..
     content.vb: Public Overrides Function ProcessMouse(state As MouseScreenObjectState) As Boolean
   overridden: SadConsole.ScreenObject.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
   overload: SadConsole.ScreenSurface.ProcessMouse*
@@ -1035,7 +944,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, forces the <xref href="SadConsole.IScreenSurface.Renderer" data-throw-if-not-resolved="false"></xref> to refresh the backing texture with the latest state of the object.
   example: []
   syntax:
     content: public bool ForceRendererRefresh { get; set; }
@@ -1060,7 +968,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The name of the default renderer for this object.
   example: []
   syntax:
     content: public virtual string DefaultRendererName { get; }
@@ -1085,7 +992,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The renderer used to draw this surface.
   example: []
   syntax:
     content: >-
@@ -1120,8 +1026,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, prevents the <xref href="SadConsole.ScreenSurface.Surface" data-throw-if-not-resolved="false"></xref> property from raising events and virtual methods when the surface changes.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1153,7 +1057,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The surface this screen object represents.
   example: []
   syntax:
     content: public ICellSurface Surface { get; set; }
@@ -1180,7 +1083,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that the <xref href="SadConsole.ScreenSurface.Surface" data-throw-if-not-resolved="false"></xref> needs to be redrawn; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
   example: []
   syntax:
     content: public bool IsDirty { get; set; }
@@ -1205,7 +1107,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Font used with rendering.
   example: []
   syntax:
     content: public IFont Font { get; set; }
@@ -1230,7 +1131,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The size of the <xref href="SadConsole.IScreenSurface.Font" data-throw-if-not-resolved="false"></xref> cells applied to the object when rendering.
   example: []
   syntax:
     content: public Point FontSize { get; set; }
@@ -1255,7 +1155,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: A tint used in rendering.
   example: []
   syntax:
     content: public Color Tint { get; set; }
@@ -1280,7 +1179,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The pixel area on the screen this surface occupies.
   example: []
   syntax:
     content: public Rectangle AbsoluteArea { get; }
@@ -1305,7 +1203,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Treats the <xref href="SadRogue.Primitives.IPositionable.Position" data-throw-if-not-resolved="false"></xref> of the object as if it is pixels and not cells.
   example: []
   syntax:
     content: public bool UsePixelPositioning { get; set; }
@@ -1330,7 +1227,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The width of the surface in pixels.
   example: []
   syntax:
     content: public int WidthPixels { get; }
@@ -1355,7 +1251,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The height of the surface in pixels.
   example: []
   syntax:
     content: public int HeightPixels { get; }
@@ -1380,8 +1275,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The total width of the console.
-  example: []
   syntax:
     content: public int Width { get; }
     parameters: []
@@ -1403,8 +1296,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The total height of the console.
-  example: []
   syntax:
     content: public int Height { get; }
     parameters: []
@@ -1426,8 +1317,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Gets or sets the visible width of the surface in cells.
-  example: []
   syntax:
     content: public int ViewWidth { get; set; }
     parameters: []
@@ -1449,8 +1338,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Gets or sets the visible height of the surface in cells.
-  example: []
   syntax:
     content: public int ViewHeight { get; set; }
     parameters: []
@@ -1472,8 +1359,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The position of the view within the console.
-  example: []
   syntax:
     content: public Point ViewPosition { get; set; }
     parameters: []
@@ -1495,7 +1380,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: When true, this object will move to the front of its parent object when the mouse is clicked.
   example: []
   syntax:
     content: >-
@@ -1530,7 +1414,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: When true, this object will set <xref href="SadConsole.IScreenObject.IsFocused" data-throw-if-not-resolved="false"></xref> to true when the mouse is clicked.
   example: []
   syntax:
     content: >-
@@ -1565,7 +1448,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Raised when the a mouse button is clicked on this object.
   example: []
   syntax:
     content: public event EventHandler<MouseScreenObjectState>? MouseButtonClicked
@@ -1588,7 +1470,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Raised when the mouse moves around the this object.
   example: []
   syntax:
     content: public event EventHandler<MouseScreenObjectState>? MouseMove
@@ -1611,7 +1492,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Raised when the mouse exits this object.
   example: []
   syntax:
     content: public event EventHandler<MouseScreenObjectState>? MouseExit
@@ -1634,7 +1514,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Raised when the mouse enters this object.
   example: []
   syntax:
     content: public event EventHandler<MouseScreenObjectState>? MouseEnter
@@ -1644,14 +1523,6 @@ items:
   implements:
   - SadConsole.IScreenSurface.MouseEnter
 references:
-- uid: SadConsole.ICellSurface
-  commentId: T:SadConsole.ICellSurface
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.ICellSurface.html
-  name: ICellSurface
-  nameWithType: ICellSurface
-  fullName: SadConsole.ICellSurface
 - uid: SadConsole
   commentId: N:SadConsole
   isExternal: true
@@ -18318,18 +18189,6 @@ references:
     href: SadConsole.ColoredGlyphBase.html
   - name: (
   - name: )
-- uid: SadRogue.Primitives.Color.Transparent
-  commentId: F:SadRogue.Primitives.Color.Transparent
-  isExternal: true
-  name: Transparent
-  nameWithType: Color.Transparent
-  fullName: SadRogue.Primitives.Color.Transparent
-- uid: SadRogue.Primitives.Color.White
-  commentId: F:SadRogue.Primitives.Color.White
-  isExternal: true
-  name: White
-  nameWithType: Color.White
-  fullName: SadRogue.Primitives.Color.White
 - uid: SadRogue.Primitives.GridViews.IGridView{SadConsole.ColoredGlyphBase}
   commentId: T:SadRogue.Primitives.GridViews.IGridView{SadConsole.ColoredGlyphBase}
   parent: SadRogue.Primitives.GridViews
@@ -18418,6 +18277,14 @@ references:
   - uid: SadRogue.Primitives.GridViews
     name: GridViews
     isExternal: true
+- uid: SadConsole.ICellSurface
+  commentId: T:SadConsole.ICellSurface
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ICellSurface.html
+  name: ICellSurface
+  nameWithType: ICellSurface
+  fullName: SadConsole.ICellSurface
 - uid: SadConsole.IFont
   commentId: T:SadConsole.IFont
   parent: SadConsole
@@ -18471,22 +18338,6 @@ references:
   - name: " "
   - name: T
   - name: )
-- uid: SadConsole.ICellSurface.DefaultForeground
-  commentId: P:SadConsole.ICellSurface.DefaultForeground
-  parent: SadConsole.ICellSurface
-  isExternal: true
-  href: SadConsole.ICellSurface.html#SadConsole_ICellSurface_DefaultForeground
-  name: DefaultForeground
-  nameWithType: ICellSurface.DefaultForeground
-  fullName: SadConsole.ICellSurface.DefaultForeground
-- uid: SadConsole.ICellSurface.DefaultBackground
-  commentId: P:SadConsole.ICellSurface.DefaultBackground
-  parent: SadConsole.ICellSurface
-  isExternal: true
-  href: SadConsole.ICellSurface.html#SadConsole_ICellSurface_DefaultBackground
-  name: DefaultBackground
-  nameWithType: ICellSurface.DefaultBackground
-  fullName: SadConsole.ICellSurface.DefaultBackground
 - uid: SadConsole.ScreenSurface.Resize*
   commentId: Overload:SadConsole.ScreenSurface.Resize
   isExternal: true
@@ -18494,22 +18345,6 @@ references:
   name: Resize
   nameWithType: ScreenSurface.Resize
   fullName: SadConsole.ScreenSurface.Resize
-- uid: SadConsole.IScreenObject.AbsolutePosition
-  commentId: P:SadConsole.IScreenObject.AbsolutePosition
-  parent: SadConsole.IScreenObject
-  isExternal: true
-  href: SadConsole.IScreenObject.html#SadConsole_IScreenObject_AbsolutePosition
-  name: AbsolutePosition
-  nameWithType: IScreenObject.AbsolutePosition
-  fullName: SadConsole.IScreenObject.AbsolutePosition
-- uid: SadConsole.IScreenObject.Parent
-  commentId: P:SadConsole.IScreenObject.Parent
-  parent: SadConsole.IScreenObject
-  isExternal: true
-  href: SadConsole.IScreenObject.html#SadConsole_IScreenObject_Parent
-  name: Parent
-  nameWithType: IScreenObject.Parent
-  fullName: SadConsole.IScreenObject.Parent
 - uid: SadConsole.ScreenObject.UpdateAbsolutePosition
   commentId: M:SadConsole.ScreenObject.UpdateAbsolutePosition
   parent: SadConsole.ScreenObject
@@ -18561,14 +18396,6 @@ references:
     href: SadConsole.IScreenObject.html#SadConsole_IScreenObject_UpdateAbsolutePosition
   - name: (
   - name: )
-- uid: SadConsole.ScreenSurface.Surface
-  commentId: P:SadConsole.ScreenSurface.Surface
-  parent: SadConsole.ScreenSurface
-  isExternal: true
-  href: SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_Surface
-  name: Surface
-  nameWithType: ScreenSurface.Surface
-  fullName: SadConsole.ScreenSurface.Surface
 - uid: SadConsole.ScreenObject.Render(System.TimeSpan)
   commentId: M:SadConsole.ScreenObject.Render(System.TimeSpan)
   parent: SadConsole.ScreenObject
@@ -18644,14 +18471,6 @@ references:
   name: TimeSpan
   nameWithType: TimeSpan
   fullName: System.TimeSpan
-- uid: SadConsole.ScreenSurface
-  commentId: T:SadConsole.ScreenSurface
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.ScreenSurface.html
-  name: ScreenSurface
-  nameWithType: ScreenSurface
-  fullName: SadConsole.ScreenSurface
 - uid: SadConsole.ScreenObject.Update(System.TimeSpan)
   commentId: M:SadConsole.ScreenObject.Update(System.TimeSpan)
   parent: SadConsole.ScreenObject
@@ -18719,14 +18538,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.timespan
   - name: )
-- uid: SadConsole.ScreenSurface.IsDirty
-  commentId: P:SadConsole.ScreenSurface.IsDirty
-  parent: SadConsole.ScreenSurface
-  isExternal: true
-  href: SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_IsDirty
-  name: IsDirty
-  nameWithType: ScreenSurface.IsDirty
-  fullName: SadConsole.ScreenSurface.IsDirty
 - uid: SadConsole.ScreenSurface.OnIsDirtyChanged*
   commentId: Overload:SadConsole.ScreenSurface.OnIsDirtyChanged
   isExternal: true
@@ -18734,22 +18545,6 @@ references:
   name: OnIsDirtyChanged
   nameWithType: ScreenSurface.OnIsDirtyChanged
   fullName: SadConsole.ScreenSurface.OnIsDirtyChanged
-- uid: SadConsole.ScreenSurface.Font
-  commentId: P:SadConsole.ScreenSurface.Font
-  parent: SadConsole.ScreenSurface
-  isExternal: true
-  href: SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_Font
-  name: Font
-  nameWithType: ScreenSurface.Font
-  fullName: SadConsole.ScreenSurface.Font
-- uid: SadConsole.ScreenSurface.FontSize
-  commentId: P:SadConsole.ScreenSurface.FontSize
-  parent: SadConsole.ScreenSurface
-  isExternal: true
-  href: SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_FontSize
-  name: FontSize
-  nameWithType: ScreenSurface.FontSize
-  fullName: SadConsole.ScreenSurface.FontSize
 - uid: SadConsole.ScreenSurface.OnFontChanged*
   commentId: Overload:SadConsole.ScreenSurface.OnFontChanged
   isExternal: true
@@ -18771,14 +18566,6 @@ references:
   name: OnSurfaceChanged
   nameWithType: ScreenSurface.OnSurfaceChanged
   fullName: SadConsole.ScreenSurface.OnSurfaceChanged
-- uid: SadConsole.ScreenSurface.Renderer
-  commentId: P:SadConsole.ScreenSurface.Renderer
-  parent: SadConsole.ScreenSurface
-  isExternal: true
-  href: SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_Renderer
-  name: Renderer
-  nameWithType: ScreenSurface.Renderer
-  fullName: SadConsole.ScreenSurface.Renderer
 - uid: SadConsole.ScreenSurface.OnRendererChanged*
   commentId: Overload:SadConsole.ScreenSurface.OnRendererChanged
   isExternal: true
@@ -18875,14 +18662,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
   - name: (
   - name: )
-- uid: SadConsole.ScreenSurface.MouseEnter
-  commentId: E:SadConsole.ScreenSurface.MouseEnter
-  parent: SadConsole.ScreenSurface
-  isExternal: true
-  href: SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_MouseEnter
-  name: MouseEnter
-  nameWithType: ScreenSurface.MouseEnter
-  fullName: SadConsole.ScreenSurface.MouseEnter
 - uid: SadConsole.ScreenSurface.OnMouseEnter*
   commentId: Overload:SadConsole.ScreenSurface.OnMouseEnter
   isExternal: true
@@ -18925,14 +18704,6 @@ references:
     name: Input
     isExternal: true
     href: SadConsole.Input.html
-- uid: SadConsole.ScreenSurface.MouseExit
-  commentId: E:SadConsole.ScreenSurface.MouseExit
-  parent: SadConsole.ScreenSurface
-  isExternal: true
-  href: SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_MouseExit
-  name: MouseExit
-  nameWithType: ScreenSurface.MouseExit
-  fullName: SadConsole.ScreenSurface.MouseExit
 - uid: SadConsole.ScreenSurface.OnMouseExit*
   commentId: Overload:SadConsole.ScreenSurface.OnMouseExit
   isExternal: true
@@ -18940,14 +18711,6 @@ references:
   name: OnMouseExit
   nameWithType: ScreenSurface.OnMouseExit
   fullName: SadConsole.ScreenSurface.OnMouseExit
-- uid: SadConsole.ScreenSurface.MouseMove
-  commentId: E:SadConsole.ScreenSurface.MouseMove
-  parent: SadConsole.ScreenSurface
-  isExternal: true
-  href: SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_MouseMove
-  name: MouseMove
-  nameWithType: ScreenSurface.MouseMove
-  fullName: SadConsole.ScreenSurface.MouseMove
 - uid: SadConsole.ScreenSurface.OnMouseMove*
   commentId: Overload:SadConsole.ScreenSurface.OnMouseMove
   isExternal: true
@@ -18955,14 +18718,6 @@ references:
   name: OnMouseMove
   nameWithType: ScreenSurface.OnMouseMove
   fullName: SadConsole.ScreenSurface.OnMouseMove
-- uid: SadConsole.ScreenSurface.MouseButtonClicked
-  commentId: E:SadConsole.ScreenSurface.MouseButtonClicked
-  parent: SadConsole.ScreenSurface
-  isExternal: true
-  href: SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_MouseButtonClicked
-  name: MouseButtonClicked
-  nameWithType: ScreenSurface.MouseButtonClicked
-  fullName: SadConsole.ScreenSurface.MouseButtonClicked
 - uid: SadConsole.ScreenSurface.OnMouseLeftClicked*
   commentId: Overload:SadConsole.ScreenSurface.OnMouseLeftClicked
   isExternal: true
@@ -19111,14 +18866,6 @@ references:
     isExternal: true
     href: SadConsole.Input.MouseScreenObjectState.html
   - name: )
-- uid: SadConsole.IScreenSurface.Renderer
-  commentId: P:SadConsole.IScreenSurface.Renderer
-  parent: SadConsole.IScreenSurface
-  isExternal: true
-  href: SadConsole.IScreenSurface.html#SadConsole_IScreenSurface_Renderer
-  name: Renderer
-  nameWithType: IScreenSurface.Renderer
-  fullName: SadConsole.IScreenSurface.Renderer
 - uid: SadConsole.ScreenSurface.ForceRendererRefresh*
   commentId: Overload:SadConsole.ScreenSurface.ForceRendererRefresh
   isExternal: true
@@ -19156,6 +18903,14 @@ references:
   name: Renderer
   nameWithType: ScreenSurface.Renderer
   fullName: SadConsole.ScreenSurface.Renderer
+- uid: SadConsole.IScreenSurface.Renderer
+  commentId: P:SadConsole.IScreenSurface.Renderer
+  parent: SadConsole.IScreenSurface
+  isExternal: true
+  href: SadConsole.IScreenSurface.html#SadConsole_IScreenSurface_Renderer
+  name: Renderer
+  nameWithType: IScreenSurface.Renderer
+  fullName: SadConsole.IScreenSurface.Renderer
 - uid: SadConsole.Renderers.IRenderer
   commentId: T:SadConsole.Renderers.IRenderer
   parent: SadConsole.Renderers
@@ -19318,13 +19073,6 @@ references:
   name: Rectangle
   nameWithType: Rectangle
   fullName: SadRogue.Primitives.Rectangle
-- uid: SadRogue.Primitives.IPositionable.Position
-  commentId: P:SadRogue.Primitives.IPositionable.Position
-  parent: SadRogue.Primitives.IPositionable
-  isExternal: true
-  name: Position
-  nameWithType: IPositionable.Position
-  fullName: SadRogue.Primitives.IPositionable.Position
 - uid: SadConsole.ScreenSurface.UsePixelPositioning*
   commentId: Overload:SadConsole.ScreenSurface.UsePixelPositioning
   isExternal: true
@@ -19420,14 +19168,6 @@ references:
   name: MoveToFrontOnMouseClick
   nameWithType: IScreenSurface.MoveToFrontOnMouseClick
   fullName: SadConsole.IScreenSurface.MoveToFrontOnMouseClick
-- uid: SadConsole.IScreenObject.IsFocused
-  commentId: P:SadConsole.IScreenObject.IsFocused
-  parent: SadConsole.IScreenObject
-  isExternal: true
-  href: SadConsole.IScreenObject.html#SadConsole_IScreenObject_IsFocused
-  name: IsFocused
-  nameWithType: IScreenObject.IsFocused
-  fullName: SadConsole.IScreenObject.IsFocused
 - uid: SadConsole.ScreenSurface.FocusOnMouseClick*
   commentId: Overload:SadConsole.ScreenSurface.FocusOnMouseClick
   isExternal: true

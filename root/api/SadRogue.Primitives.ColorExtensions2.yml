@@ -50,8 +50,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Various extension methods to <xref href="SadRogue.Primitives.Color" data-throw-if-not-resolved="false"></xref> class.
-  example: []
   syntax:
     content: public static class ColorExtensions2
     content.vb: Public Module ColorExtensions2
@@ -79,8 +77,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Custom color mappings for the <xref href="SadRogue.Primitives.ColorExtensions2.FromName(System.String)" data-throw-if-not-resolved="false"></xref> and <xref href="SadRogue.Primitives.ColorExtensions2.FromParser(SadRogue.Primitives.Color%2cSystem.String%2cSystem.Boolean%40%2cSystem.Boolean%40%2cSystem.Boolean%40%2cSystem.Boolean%40%2cSystem.Boolean%40)" data-throw-if-not-resolved="false"></xref> methods. Key names should be lowercase.
-  example: []
   syntax:
     content: public static Dictionary<string, Color> ColorMappings
     return:
@@ -101,23 +97,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Creates an array of colors that includes the <code class="paramref">color</code> and <code class="paramref">endingColor</code> and <code class="paramref">steps</code> of colors between them.
-  example: []
   syntax:
     content: public static Color[] LerpSteps(this Color color, Color endingColor, int steps)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
-      description: The starting color which will be at index 0 in the array.
     - id: endingColor
       type: SadRogue.Primitives.Color
-      description: The ending color which will be at index `steps - 1` in the array.
     - id: steps
       type: System.Int32
-      description: The gradient steps in the array which uses <xref href="SadRogue.Primitives.Color.Lerp(SadRogue.Primitives.Color%2cSadRogue.Primitives.Color%2cSystem.Single)" data-throw-if-not-resolved="false"></xref>.
     return:
       type: SadRogue.Primitives.Color[]
-      description: An array of colors.
     content.vb: Public Shared Function LerpSteps(color As Color, endingColor As Color, steps As Integer) As Color()
   overload: SadRogue.Primitives.ColorExtensions2.LerpSteps*
   nameWithType.vb: ColorExtensions2.LerpSteps(Color, Color, Integer)
@@ -138,24 +128,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Sets the color values based on HSL instead of RGB.
-  remarks: Taken from http://www.easyrgb.com/index.php?X=MATH&amp;H=19#text19
-  example: []
   syntax:
     content: public static Color SetHSL(this Color color, float h, float s, float l)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
-      description: The color to change.
     - id: h
       type: System.Single
-      description: The hue amount.
     - id: s
       type: System.Single
-      description: The saturation amount.
     - id: l
       type: System.Single
-      description: The luminance amount.
     return:
       type: SadRogue.Primitives.Color
     content.vb: Public Shared Function SetHSL(color As Color, h As Single, s As Single, l As Single) As Color
@@ -178,20 +161,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Gets a random color.
-  example: []
   syntax:
     content: public static Color GetRandomColor(this Color color, Random random)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
-      description: The color object to start with. Will be overridden.
     - id: random
       type: System.Random
-      description: A random object to get numbers from.
     return:
       type: SadRogue.Primitives.Color
-      description: A new color.
     content.vb: Public Shared Function GetRandomColor(color As Color, random As Random) As Color
   overload: SadRogue.Primitives.ColorExtensions2.GetRandomColor*
 - uid: SadRogue.Primitives.ColorExtensions2.GetDark(SadRogue.Primitives.Color)
@@ -209,17 +187,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Gets a darker version of the color. R,G,B channels are * 0.25f.
-  example: []
   syntax:
     content: public static Color GetDark(this Color color)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
-      description: Object instance.
     return:
       type: SadRogue.Primitives.Color
-      description: A darker color.
     content.vb: Public Shared Function GetDark(color As Color) As Color
   overload: SadRogue.Primitives.ColorExtensions2.GetDark*
 - uid: SadRogue.Primitives.ColorExtensions2.GetDarker(SadRogue.Primitives.Color)
@@ -237,17 +211,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Gets a darker version of the color. R,G,B channels are * 0.50f.
-  example: []
   syntax:
     content: public static Color GetDarker(this Color color)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
-      description: Object instance.
     return:
       type: SadRogue.Primitives.Color
-      description: A darker color.
     content.vb: Public Shared Function GetDarker(color As Color) As Color
   overload: SadRogue.Primitives.ColorExtensions2.GetDarker*
 - uid: SadRogue.Primitives.ColorExtensions2.GetDarkest(SadRogue.Primitives.Color)
@@ -265,17 +235,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Gets a darker version of the color. R,G,B channels are * 0.75f.
-  example: []
   syntax:
     content: public static Color GetDarkest(this Color color)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
-      description: Object instance.
     return:
       type: SadRogue.Primitives.Color
-      description: A darker color.
     content.vb: Public Shared Function GetDarkest(color As Color) As Color
   overload: SadRogue.Primitives.ColorExtensions2.GetDarkest*
 - uid: SadRogue.Primitives.ColorExtensions2.GetBright(SadRogue.Primitives.Color)
@@ -293,17 +259,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Gets a brighter version of the color. R,G,B channels are * 1.25f.
-  example: []
   syntax:
     content: public static Color GetBright(this Color color)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
-      description: Object instance.
     return:
       type: SadRogue.Primitives.Color
-      description: A darker color.
     content.vb: Public Shared Function GetBright(color As Color) As Color
   overload: SadRogue.Primitives.ColorExtensions2.GetBright*
 - uid: SadRogue.Primitives.ColorExtensions2.GetBrighter(SadRogue.Primitives.Color)
@@ -321,17 +283,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Gets a brighter version of the color. R,G,B channels are * 1.50f.
-  example: []
   syntax:
     content: public static Color GetBrighter(this Color color)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
-      description: Object instance.
     return:
       type: SadRogue.Primitives.Color
-      description: A darker color.
     content.vb: Public Shared Function GetBrighter(color As Color) As Color
   overload: SadRogue.Primitives.ColorExtensions2.GetBrighter*
 - uid: SadRogue.Primitives.ColorExtensions2.GetBrightest(SadRogue.Primitives.Color)
@@ -349,17 +307,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Gets a brighter version of the color. R,G,B channels are * 1.75f.
-  example: []
   syntax:
     content: public static Color GetBrightest(this Color color)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
-      description: Object instance.
     return:
       type: SadRogue.Primitives.Color
-      description: A darker color.
     content.vb: Public Shared Function GetBrightest(color As Color) As Color
   overload: SadRogue.Primitives.ColorExtensions2.GetBrightest*
 - uid: SadRogue.Primitives.ColorExtensions2.RedOnly(SadRogue.Primitives.Color)
@@ -377,17 +331,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Returns a new Color using only the Red value of this color.
-  example: []
   syntax:
     content: public static Color RedOnly(this Color color)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
-      description: Object instance.
     return:
       type: SadRogue.Primitives.Color
-      description: A color with only the red channel set.
     content.vb: Public Shared Function RedOnly(color As Color) As Color
   overload: SadRogue.Primitives.ColorExtensions2.RedOnly*
 - uid: SadRogue.Primitives.ColorExtensions2.GreenOnly(SadRogue.Primitives.Color)
@@ -405,17 +355,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Returns a new Color using only the Green value of this color.
-  example: []
   syntax:
     content: public static Color GreenOnly(this Color color)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
-      description: Object instance.
     return:
       type: SadRogue.Primitives.Color
-      description: A color with only the green channel set.
     content.vb: Public Shared Function GreenOnly(color As Color) As Color
   overload: SadRogue.Primitives.ColorExtensions2.GreenOnly*
 - uid: SadRogue.Primitives.ColorExtensions2.BlueOnly(SadRogue.Primitives.Color)
@@ -433,17 +379,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Returns a new Color using only the Blue value of this color.
-  example: []
   syntax:
     content: public static Color BlueOnly(this Color color)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
-      description: Object instance.
     return:
       type: SadRogue.Primitives.Color
-      description: A color with only the blue channel set.
     content.vb: Public Shared Function BlueOnly(color As Color) As Color
   overload: SadRogue.Primitives.ColorExtensions2.BlueOnly*
 - uid: SadRogue.Primitives.ColorExtensions2.AlphaOnly(SadRogue.Primitives.Color)
@@ -461,17 +403,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Returns a new Color using only the Alpha value of this color.
-  example: []
   syntax:
     content: public static Color AlphaOnly(this Color color)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
-      description: Object instance.
     return:
       type: SadRogue.Primitives.Color
-      description: A color with only the alpha channel set.
     content.vb: Public Shared Function AlphaOnly(color As Color) As Color
   overload: SadRogue.Primitives.ColorExtensions2.AlphaOnly*
 - uid: SadRogue.Primitives.ColorExtensions2.ClearRed(SadRogue.Primitives.Color)
@@ -489,17 +427,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Returns a new color with the red channel set to 0.
-  example: []
   syntax:
     content: public static Color ClearRed(this Color color)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
-      description: Object instance.
     return:
       type: SadRogue.Primitives.Color
-      description: A color with the red channel cleared.
     content.vb: Public Shared Function ClearRed(color As Color) As Color
   overload: SadRogue.Primitives.ColorExtensions2.ClearRed*
 - uid: SadRogue.Primitives.ColorExtensions2.ClearGreen(SadRogue.Primitives.Color)
@@ -517,17 +451,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Returns a new color with the green channel set to 0.
-  example: []
   syntax:
     content: public static Color ClearGreen(this Color color)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
-      description: Object instance.
     return:
       type: SadRogue.Primitives.Color
-      description: A color with the green channel cleared.
     content.vb: Public Shared Function ClearGreen(color As Color) As Color
   overload: SadRogue.Primitives.ColorExtensions2.ClearGreen*
 - uid: SadRogue.Primitives.ColorExtensions2.ClearBlue(SadRogue.Primitives.Color)
@@ -545,17 +475,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Returns a new color with the blue channel set to 0.
-  example: []
   syntax:
     content: public static Color ClearBlue(this Color color)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
-      description: Object instance.
     return:
       type: SadRogue.Primitives.Color
-      description: A color with the blue channel cleared.
     content.vb: Public Shared Function ClearBlue(color As Color) As Color
   overload: SadRogue.Primitives.ColorExtensions2.ClearBlue*
 - uid: SadRogue.Primitives.ColorExtensions2.ClearAlpha(SadRogue.Primitives.Color)
@@ -573,17 +499,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Returns a new color with the alpha channel set to 0.
-  example: []
   syntax:
     content: public static Color ClearAlpha(this Color color)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
-      description: Object instance.
     return:
       type: SadRogue.Primitives.Color
-      description: A color with the alpha channel cleared.
     content.vb: Public Shared Function ClearAlpha(color As Color) As Color
   overload: SadRogue.Primitives.ColorExtensions2.ClearAlpha*
 - uid: SadRogue.Primitives.ColorExtensions2.FillRed(SadRogue.Primitives.Color)
@@ -601,17 +523,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Returns a new color with the red channel set to 255.
-  example: []
   syntax:
     content: public static Color FillRed(this Color color)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
-      description: Object instance.
     return:
       type: SadRogue.Primitives.Color
-      description: A color with the red channel fully set.
     content.vb: Public Shared Function FillRed(color As Color) As Color
   overload: SadRogue.Primitives.ColorExtensions2.FillRed*
 - uid: SadRogue.Primitives.ColorExtensions2.FillGreen(SadRogue.Primitives.Color)
@@ -629,17 +547,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Returns a new color with the green channel set to 255.
-  example: []
   syntax:
     content: public static Color FillGreen(this Color color)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
-      description: Object instance.
     return:
       type: SadRogue.Primitives.Color
-      description: A color with the green channel fully set.
     content.vb: Public Shared Function FillGreen(color As Color) As Color
   overload: SadRogue.Primitives.ColorExtensions2.FillGreen*
 - uid: SadRogue.Primitives.ColorExtensions2.FillBlue(SadRogue.Primitives.Color)
@@ -657,17 +571,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Returns a new color with the blue channel set to 255.
-  example: []
   syntax:
     content: public static Color FillBlue(this Color color)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
-      description: Object instance.
     return:
       type: SadRogue.Primitives.Color
-      description: A color with the blue channel fully set.
     content.vb: Public Shared Function FillBlue(color As Color) As Color
   overload: SadRogue.Primitives.ColorExtensions2.FillBlue*
 - uid: SadRogue.Primitives.ColorExtensions2.FillAlpha(SadRogue.Primitives.Color)
@@ -685,17 +595,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Returns a new color with the alpha channel set to 255.
-  example: []
   syntax:
     content: public static Color FillAlpha(this Color color)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
-      description: Object instance.
     return:
       type: SadRogue.Primitives.Color
-      description: A color with the alpha channel fully set.
     content.vb: Public Shared Function FillAlpha(color As Color) As Color
   overload: SadRogue.Primitives.ColorExtensions2.FillAlpha*
 - uid: SadRogue.Primitives.ColorExtensions2.SetRed(SadRogue.Primitives.Color,System.Byte)
@@ -713,20 +619,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Returns a new color with the red channel set to the specified value.
-  example: []
   syntax:
     content: public static Color SetRed(this Color color, byte value)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
-      description: Object instance.
     - id: value
       type: System.Byte
-      description: The new value for the red channel.
     return:
       type: SadRogue.Primitives.Color
-      description: A color with the red channel altered.
     content.vb: Public Shared Function SetRed(color As Color, value As Byte) As Color
   overload: SadRogue.Primitives.ColorExtensions2.SetRed*
   nameWithType.vb: ColorExtensions2.SetRed(Color, Byte)
@@ -747,20 +648,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Returns a new color with the green channel set to the specified value.
-  example: []
   syntax:
     content: public static Color SetGreen(this Color color, byte value)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
-      description: Object instance.
     - id: value
       type: System.Byte
-      description: The new value for the green channel.
     return:
       type: SadRogue.Primitives.Color
-      description: A color with the green channel altered.
     content.vb: Public Shared Function SetGreen(color As Color, value As Byte) As Color
   overload: SadRogue.Primitives.ColorExtensions2.SetGreen*
   nameWithType.vb: ColorExtensions2.SetGreen(Color, Byte)
@@ -781,20 +677,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Returns a new color with the blue channel set to the specified value.
-  example: []
   syntax:
     content: public static Color SetBlue(this Color color, byte value)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
-      description: Object instance.
     - id: value
       type: System.Byte
-      description: The new value for the blue channel.
     return:
       type: SadRogue.Primitives.Color
-      description: A color with the blue channel altered.
     content.vb: Public Shared Function SetBlue(color As Color, value As Byte) As Color
   overload: SadRogue.Primitives.ColorExtensions2.SetBlue*
   nameWithType.vb: ColorExtensions2.SetBlue(Color, Byte)
@@ -815,20 +706,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Returns a new color with the alpha channel set to the specified value.
-  example: []
   syntax:
     content: public static Color SetAlpha(this Color color, byte value)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
-      description: Object instance.
     - id: value
       type: System.Byte
-      description: The new value for the alpha channel.
     return:
       type: SadRogue.Primitives.Color
-      description: A color with the alpha channel altered.
     content.vb: Public Shared Function SetAlpha(color As Color, value As Byte) As Color
   overload: SadRogue.Primitives.ColorExtensions2.SetAlpha*
   nameWithType.vb: ColorExtensions2.SetAlpha(Color, Byte)
@@ -849,17 +735,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Gets the luma of an existing color.
-  example: []
   syntax:
     content: public static float GetLuma(this Color color)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
-      description: The color to calculate the luma from.
     return:
       type: System.Single
-      description: 'A value based on this code: (color.R + color.R + color.B + color.G + color.G + color.G) / 6f'
     content.vb: Public Shared Function GetLuma(color As Color) As Single
   overload: SadRogue.Primitives.ColorExtensions2.GetLuma*
 - uid: SadRogue.Primitives.ColorExtensions2.GetBrightness(SadRogue.Primitives.Color)
@@ -877,18 +759,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Gets the brightness of a color.
-  remarks: Taken from the mono source code.
-  example: []
   syntax:
     content: public static float GetBrightness(this Color color)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
-      description: The color to process.
     return:
       type: System.Single
-      description: The brightness value.
     content.vb: Public Shared Function GetBrightness(color As Color) As Single
   overload: SadRogue.Primitives.ColorExtensions2.GetBrightness*
 - uid: SadRogue.Primitives.ColorExtensions2.GetSaturation(SadRogue.Primitives.Color)
@@ -906,18 +783,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Gets the saturation of a color.
-  remarks: Taken from the mono source code.
-  example: []
   syntax:
     content: public static float GetSaturation(this Color color)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
-      description: The color to process.
     return:
       type: System.Single
-      description: The saturation value.
     content.vb: Public Shared Function GetSaturation(color As Color) As Single
   overload: SadRogue.Primitives.ColorExtensions2.GetSaturation*
 - uid: SadRogue.Primitives.ColorExtensions2.GetHue(SadRogue.Primitives.Color)
@@ -935,18 +807,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Gets the hue of a color.
-  remarks: Taken from the mono source code.
-  example: []
   syntax:
     content: public static float GetHue(this Color color)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
-      description: The color to process.
     return:
       type: System.Single
-      description: The hue value.
     content.vb: Public Shared Function GetHue(color As Color) As Single
   overload: SadRogue.Primitives.ColorExtensions2.GetHue*
 - uid: SadRogue.Primitives.ColorExtensions2.ToParser(SadRogue.Primitives.Color)
@@ -964,17 +831,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Converts a color to the format used by <xref href="SadConsole.StringParser.ParseCommandRecolor" data-throw-if-not-resolved="false"></xref> command.
-  example: []
   syntax:
     content: public static string ToParser(this Color color)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
-      description: The color to convert.
     return:
       type: System.String
-      description: A string in this format R,G,B,A so for <xref href="SadRogue.Primitives.Color.Green" data-throw-if-not-resolved="false"></xref> you would get <pre><code class="lang-csharp">0,128,0,255</code></pre>.
     content.vb: Public Shared Function ToParser(color As Color) As String
   overload: SadRogue.Primitives.ColorExtensions2.ToParser*
 - uid: SadRogue.Primitives.ColorExtensions2.FromParser(SadRogue.Primitives.Color,System.String,System.Boolean@,System.Boolean@,System.Boolean@,System.Boolean@,System.Boolean@)
@@ -992,35 +855,25 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Gets a color in the format of <xref href="SadConsole.StringParser.ParseCommandRecolor" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: public static Color FromParser(this Color color, string value, out bool keepR, out bool keepG, out bool keepB, out bool keepA, out bool useDefault)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
-      description: The color to use as a base.
     - id: value
       type: System.String
-      description: The string parser color command.
     - id: keepR
       type: System.Boolean
-      description: Indicates that command wanted to keep the Red color channel.
     - id: keepG
       type: System.Boolean
-      description: Indicates that command wanted to keep the Green color channel.
     - id: keepB
       type: System.Boolean
-      description: Indicates that command wanted to keep the Blue color channel.
     - id: keepA
       type: System.Boolean
-      description: Indicates that command wanted to keep the Alpha color channel.
     - id: useDefault
       type: System.Boolean
-      description: Indicates that command wanted to use the default values passed.
     return:
       type: SadRogue.Primitives.Color
-      description: ''
     content.vb: Public Shared Function FromParser(color As Color, value As String, keepR As Boolean, keepG As Boolean, keepB As Boolean, keepA As Boolean, useDefault As Boolean) As Color
   overload: SadRogue.Primitives.ColorExtensions2.FromParser*
   nameWithType.vb: ColorExtensions2.FromParser(Color, String, Boolean, Boolean, Boolean, Boolean, Boolean)
@@ -1040,17 +893,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Searches <xref href="SadRogue.Primitives.ColorExtensions2.ColorMappings" data-throw-if-not-resolved="false"></xref> for a defined color.
-  example: []
   syntax:
     content: public static Color FromName(string name)
     parameters:
     - id: name
       type: System.String
-      description: The name of a color.
     return:
       type: SadRogue.Primitives.Color
-      description: A color.
     content.vb: Public Shared Function FromName(name As String) As Color
   overload: SadRogue.Primitives.ColorExtensions2.FromName*
   nameWithType.vb: ColorExtensions2.FromName(String)
@@ -1070,20 +919,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Searches <xref href="SadRogue.Primitives.ColorExtensions2.ColorMappings" data-throw-if-not-resolved="false"></xref> for a defined color. If color is not defined, the color specified by <code class="paramref">defaultColor</code> is returned.
-  example: []
   syntax:
     content: public static Color FromName(string name, Color defaultColor)
     parameters:
     - id: name
       type: System.String
-      description: The name of a color.
     - id: defaultColor
       type: SadRogue.Primitives.Color
-      description: Fallback color.
     return:
       type: SadRogue.Primitives.Color
-      description: A color.
     content.vb: Public Shared Function FromName(name As String, defaultColor As Color) As Color
   overload: SadRogue.Primitives.ColorExtensions2.FromName*
   nameWithType.vb: ColorExtensions2.FromName(String, Color)
@@ -1104,33 +948,21 @@ items:
   assemblies:
   - SadConsole
   namespace: SadRogue.Primitives
-  summary: Creates a <xref href="SadConsole.ColoredString" data-throw-if-not-resolved="false"></xref> object using the current gradient.
-  example: []
   syntax:
     content: public static ColoredString ToColoredString(this Gradient gradient, string text)
     parameters:
     - id: gradient
       type: SadRogue.Primitives.Gradient
-      description: The gradient to work with.
     - id: text
       type: System.String
-      description: The text to use for the colored string.
     return:
       type: SadConsole.ColoredString
-      description: A new colored string object.
     content.vb: Public Shared Function ToColoredString(gradient As Gradient, text As String) As ColoredString
   overload: SadRogue.Primitives.ColorExtensions2.ToColoredString*
   nameWithType.vb: ColorExtensions2.ToColoredString(Gradient, String)
   fullName.vb: SadRogue.Primitives.ColorExtensions2.ToColoredString(SadRogue.Primitives.Gradient, String)
   name.vb: ToColoredString(Gradient, String)
 references:
-- uid: SadRogue.Primitives.Color
-  commentId: T:SadRogue.Primitives.Color
-  parent: SadRogue.Primitives
-  isExternal: true
-  name: Color
-  nameWithType: Color
-  fullName: SadRogue.Primitives.Color
 - uid: SadRogue.Primitives
   commentId: N:SadRogue.Primitives
   isExternal: true
@@ -1395,150 +1227,6 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: SadRogue.Primitives.ColorExtensions2.FromName(System.String)
-  commentId: M:SadRogue.Primitives.ColorExtensions2.FromName(System.String)
-  isExternal: true
-  href: SadRogue.Primitives.ColorExtensions2.html#SadRogue_Primitives_ColorExtensions2_FromName_System_String_
-  name: FromName(string)
-  nameWithType: ColorExtensions2.FromName(string)
-  fullName: SadRogue.Primitives.ColorExtensions2.FromName(string)
-  nameWithType.vb: ColorExtensions2.FromName(String)
-  fullName.vb: SadRogue.Primitives.ColorExtensions2.FromName(String)
-  name.vb: FromName(String)
-  spec.csharp:
-  - uid: SadRogue.Primitives.ColorExtensions2.FromName(System.String)
-    name: FromName
-    isExternal: true
-    href: SadRogue.Primitives.ColorExtensions2.html#SadRogue_Primitives_ColorExtensions2_FromName_System_String_
-  - name: (
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-  spec.vb:
-  - uid: SadRogue.Primitives.ColorExtensions2.FromName(System.String)
-    name: FromName
-    isExternal: true
-    href: SadRogue.Primitives.ColorExtensions2.html#SadRogue_Primitives_ColorExtensions2_FromName_System_String_
-  - name: (
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-- uid: SadRogue.Primitives.ColorExtensions2.FromParser(SadRogue.Primitives.Color,System.String,System.Boolean@,System.Boolean@,System.Boolean@,System.Boolean@,System.Boolean@)
-  commentId: M:SadRogue.Primitives.ColorExtensions2.FromParser(SadRogue.Primitives.Color,System.String,System.Boolean@,System.Boolean@,System.Boolean@,System.Boolean@,System.Boolean@)
-  isExternal: true
-  href: SadRogue.Primitives.ColorExtensions2.html#SadRogue_Primitives_ColorExtensions2_FromParser_SadRogue_Primitives_Color_System_String_System_Boolean__System_Boolean__System_Boolean__System_Boolean__System_Boolean__
-  name: FromParser(Color, string, out bool, out bool, out bool, out bool, out bool)
-  nameWithType: ColorExtensions2.FromParser(Color, string, out bool, out bool, out bool, out bool, out bool)
-  fullName: SadRogue.Primitives.ColorExtensions2.FromParser(SadRogue.Primitives.Color, string, out bool, out bool, out bool, out bool, out bool)
-  nameWithType.vb: ColorExtensions2.FromParser(Color, String, Boolean, Boolean, Boolean, Boolean, Boolean)
-  fullName.vb: SadRogue.Primitives.ColorExtensions2.FromParser(SadRogue.Primitives.Color, String, Boolean, Boolean, Boolean, Boolean, Boolean)
-  name.vb: FromParser(Color, String, Boolean, Boolean, Boolean, Boolean, Boolean)
-  spec.csharp:
-  - uid: SadRogue.Primitives.ColorExtensions2.FromParser(SadRogue.Primitives.Color,System.String,System.Boolean@,System.Boolean@,System.Boolean@,System.Boolean@,System.Boolean@)
-    name: FromParser
-    isExternal: true
-    href: SadRogue.Primitives.ColorExtensions2.html#SadRogue_Primitives_ColorExtensions2_FromParser_SadRogue_Primitives_Color_System_String_System_Boolean__System_Boolean__System_Boolean__System_Boolean__System_Boolean__
-  - name: (
-  - uid: SadRogue.Primitives.Color
-    name: Color
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - name: out
-  - name: " "
-  - uid: System.Boolean
-    name: bool
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: ','
-  - name: " "
-  - name: out
-  - name: " "
-  - uid: System.Boolean
-    name: bool
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: ','
-  - name: " "
-  - name: out
-  - name: " "
-  - uid: System.Boolean
-    name: bool
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: ','
-  - name: " "
-  - name: out
-  - name: " "
-  - uid: System.Boolean
-    name: bool
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: ','
-  - name: " "
-  - name: out
-  - name: " "
-  - uid: System.Boolean
-    name: bool
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: )
-  spec.vb:
-  - uid: SadRogue.Primitives.ColorExtensions2.FromParser(SadRogue.Primitives.Color,System.String,System.Boolean@,System.Boolean@,System.Boolean@,System.Boolean@,System.Boolean@)
-    name: FromParser
-    isExternal: true
-    href: SadRogue.Primitives.ColorExtensions2.html#SadRogue_Primitives_ColorExtensions2_FromParser_SadRogue_Primitives_Color_System_String_System_Boolean__System_Boolean__System_Boolean__System_Boolean__System_Boolean__
-  - name: (
-  - uid: SadRogue.Primitives.Color
-    name: Color
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - uid: System.Boolean
-    name: Boolean
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: ','
-  - name: " "
-  - uid: System.Boolean
-    name: Boolean
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: ','
-  - name: " "
-  - uid: System.Boolean
-    name: Boolean
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: ','
-  - name: " "
-  - uid: System.Boolean
-    name: Boolean
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: ','
-  - name: " "
-  - uid: System.Boolean
-    name: Boolean
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: )
 - uid: System.Collections.Generic.Dictionary{System.String,SadRogue.Primitives.Color}
   commentId: T:System.Collections.Generic.Dictionary{System.String,SadRogue.Primitives.Color}
   parent: System.Collections.Generic
@@ -1655,56 +1343,6 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: SadRogue.Primitives.Color.Lerp(SadRogue.Primitives.Color,SadRogue.Primitives.Color,System.Single)
-  commentId: M:SadRogue.Primitives.Color.Lerp(SadRogue.Primitives.Color,SadRogue.Primitives.Color,System.Single)
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.single
-  name: Lerp(Color, Color, float)
-  nameWithType: Color.Lerp(Color, Color, float)
-  fullName: SadRogue.Primitives.Color.Lerp(SadRogue.Primitives.Color, SadRogue.Primitives.Color, float)
-  nameWithType.vb: Color.Lerp(Color, Color, Single)
-  fullName.vb: SadRogue.Primitives.Color.Lerp(SadRogue.Primitives.Color, SadRogue.Primitives.Color, Single)
-  name.vb: Lerp(Color, Color, Single)
-  spec.csharp:
-  - uid: SadRogue.Primitives.Color.Lerp(SadRogue.Primitives.Color,SadRogue.Primitives.Color,System.Single)
-    name: Lerp
-    isExternal: true
-  - name: (
-  - uid: SadRogue.Primitives.Color
-    name: Color
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: SadRogue.Primitives.Color
-    name: Color
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: System.Single
-    name: float
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.single
-  - name: )
-  spec.vb:
-  - uid: SadRogue.Primitives.Color.Lerp(SadRogue.Primitives.Color,SadRogue.Primitives.Color,System.Single)
-    name: Lerp
-    isExternal: true
-  - name: (
-  - uid: SadRogue.Primitives.Color
-    name: Color
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: SadRogue.Primitives.Color
-    name: Color
-    isExternal: true
-  - name: ','
-  - name: " "
-  - uid: System.Single
-    name: Single
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.single
-  - name: )
 - uid: SadRogue.Primitives.ColorExtensions2.LerpSteps*
   commentId: Overload:SadRogue.Primitives.ColorExtensions2.LerpSteps
   isExternal: true
@@ -1712,6 +1350,13 @@ references:
   name: LerpSteps
   nameWithType: ColorExtensions2.LerpSteps
   fullName: SadRogue.Primitives.ColorExtensions2.LerpSteps
+- uid: SadRogue.Primitives.Color
+  commentId: T:SadRogue.Primitives.Color
+  parent: SadRogue.Primitives
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: SadRogue.Primitives.Color
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System
@@ -1969,19 +1614,6 @@ references:
   name: GetHue
   nameWithType: ColorExtensions2.GetHue
   fullName: SadRogue.Primitives.ColorExtensions2.GetHue
-- uid: SadConsole.StringParser.ParseCommandRecolor
-  commentId: T:SadConsole.StringParser.ParseCommandRecolor
-  isExternal: true
-  href: SadConsole.StringParser.ParseCommandRecolor.html
-  name: ParseCommandRecolor
-  nameWithType: ParseCommandRecolor
-  fullName: SadConsole.StringParser.ParseCommandRecolor
-- uid: SadRogue.Primitives.Color.Green
-  commentId: F:SadRogue.Primitives.Color.Green
-  isExternal: true
-  name: Green
-  nameWithType: Color.Green
-  fullName: SadRogue.Primitives.Color.Green
 - uid: SadRogue.Primitives.ColorExtensions2.ToParser*
   commentId: Overload:SadRogue.Primitives.ColorExtensions2.ToParser
   isExternal: true
@@ -2018,13 +1650,6 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
-- uid: SadRogue.Primitives.ColorExtensions2.ColorMappings
-  commentId: F:SadRogue.Primitives.ColorExtensions2.ColorMappings
-  isExternal: true
-  href: SadRogue.Primitives.ColorExtensions2.html#SadRogue_Primitives_ColorExtensions2_ColorMappings
-  name: ColorMappings
-  nameWithType: ColorExtensions2.ColorMappings
-  fullName: SadRogue.Primitives.ColorExtensions2.ColorMappings
 - uid: SadRogue.Primitives.ColorExtensions2.FromName*
   commentId: Overload:SadRogue.Primitives.ColorExtensions2.FromName
   isExternal: true
@@ -2032,14 +1657,6 @@ references:
   name: FromName
   nameWithType: ColorExtensions2.FromName
   fullName: SadRogue.Primitives.ColorExtensions2.FromName
-- uid: SadConsole.ColoredString
-  commentId: T:SadConsole.ColoredString
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.ColoredString.html
-  name: ColoredString
-  nameWithType: ColoredString
-  fullName: SadConsole.ColoredString
 - uid: SadRogue.Primitives.ColorExtensions2.ToColoredString*
   commentId: Overload:SadRogue.Primitives.ColorExtensions2.ToColoredString
   isExternal: true
@@ -2054,6 +1671,14 @@ references:
   name: Gradient
   nameWithType: Gradient
   fullName: SadRogue.Primitives.Gradient
+- uid: SadConsole.ColoredString
+  commentId: T:SadConsole.ColoredString
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ColoredString.html
+  name: ColoredString
+  nameWithType: ColoredString
+  fullName: SadConsole.ColoredString
 - uid: SadConsole
   commentId: N:SadConsole
   isExternal: true

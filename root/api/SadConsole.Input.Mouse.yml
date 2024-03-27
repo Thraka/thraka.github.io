@@ -38,8 +38,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
-  summary: The state of the mouse.
-  example: []
   syntax:
     content: public class Mouse
     content.vb: Public Class Mouse
@@ -67,14 +65,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
-  summary: Reads the mouse state from <xref href="SadConsole.GameHost.GetMouseState" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: public void Update(TimeSpan elapsedSeconds)
     parameters:
     - id: elapsedSeconds
       type: System.TimeSpan
-      description: Fractional seconds passed since Update was called.
     content.vb: Public Sub Update(elapsedSeconds As TimeSpan)
   overload: SadConsole.Input.Mouse.Update*
 - uid: SadConsole.Input.Mouse.Clear
@@ -91,8 +86,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
-  summary: Clears the buttons, position, wheel information.
-  example: []
   syntax:
     content: public void Clear()
     content.vb: Public Sub Clear()
@@ -111,8 +104,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
-  summary: Builds information about the mouse state based on the <xref href="SadConsole.GameHost.FocusedScreenObjects" data-throw-if-not-resolved="false"></xref> or <xref href="SadConsole.GameHost.Screen" data-throw-if-not-resolved="false"></xref>. Should be called each frame.
-  example: []
   syntax:
     content: public virtual void Process()
     content.vb: Public Overridable Sub Process()
@@ -131,8 +122,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
-  summary: Unlocks the last screen object the mouse was locked to. Allows another console to become locked to the mouse.
-  example: []
   syntax:
     content: public void ClearLastMouseScreenObject()
     content.vb: Public Sub ClearLastMouseScreenObject()
@@ -151,17 +140,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
-  summary: Returns true when the mouse is currently over the provided screen object.
-  example: []
   syntax:
     content: public bool IsMouseOverScreenObjectSurface(IScreenSurface screenObject)
     parameters:
     - id: screenObject
       type: SadConsole.IScreenSurface
-      description: The screen object to check.
     return:
       type: System.Boolean
-      description: True or false indicating if the mouse is over the screen object.
     content.vb: Public Function IsMouseOverScreenObjectSurface(screenObject As IScreenSurface) As Boolean
   overload: SadConsole.Input.Mouse.IsMouseOverScreenObjectSurface*
 - uid: SadConsole.Input.Mouse.Clone
@@ -178,13 +163,10 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
-  summary: Clones this mouse into a new object.
-  example: []
   syntax:
     content: public Mouse Clone()
     return:
       type: SadConsole.Input.Mouse
-      description: A clone.
     content.vb: Public Function Clone() As Mouse
   overload: SadConsole.Input.Mouse.Clone*
 - uid: SadConsole.Input.Mouse.#ctor
@@ -222,8 +204,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
-  summary: The pixel position of the mouse on the screen.
-  example: []
   syntax:
     content: public Point ScreenPosition { get; set; }
     parameters: []
@@ -245,8 +225,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
-  summary: Indicates the middle mouse button is currently being pressed.
-  example: []
   syntax:
     content: public bool MiddleButtonDown { get; set; }
     parameters: []
@@ -268,8 +246,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
-  summary: The amount of time the middle button has been held down.
-  example: []
   syntax:
     content: public TimeSpan MiddleButtonDownDuration { get; }
     parameters: []
@@ -291,8 +267,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
-  summary: Indicates the middle mouse button was clicked. (Held and then released)
-  example: []
   syntax:
     content: public bool MiddleClicked { get; set; }
     parameters: []
@@ -314,8 +288,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
-  summary: Indicates the middle mouse button was double-clicked within one second.
-  example: []
   syntax:
     content: public bool MiddleDoubleClicked { get; set; }
     parameters: []
@@ -337,8 +309,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
-  summary: Indicates the left mouse button is currently being pressed.
-  example: []
   syntax:
     content: public bool LeftButtonDown { get; set; }
     parameters: []
@@ -360,8 +330,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
-  summary: The amount of time the left button has been held down.
-  example: []
   syntax:
     content: public TimeSpan LeftButtonDownDuration { get; }
     parameters: []
@@ -383,8 +351,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
-  summary: Indicates the left mouse button was clicked. (Held and then released)
-  example: []
   syntax:
     content: public bool LeftClicked { get; set; }
     parameters: []
@@ -406,8 +372,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
-  summary: Indicates the left mouse button was double-clicked within one second.
-  example: []
   syntax:
     content: public bool LeftDoubleClicked { get; set; }
     parameters: []
@@ -429,8 +393,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
-  summary: Indicates the right mouse button is currently being pressed.
-  example: []
   syntax:
     content: public bool RightButtonDown { get; set; }
     parameters: []
@@ -452,8 +414,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
-  summary: The amount of time the right button has been held down.
-  example: []
   syntax:
     content: public TimeSpan RightButtonDownDuration { get; }
     parameters: []
@@ -475,8 +435,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
-  summary: Indicates the right mouse button was clicked. (Held and then released)
-  example: []
   syntax:
     content: public bool RightClicked { get; set; }
     parameters: []
@@ -498,8 +456,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
-  summary: Indicates the right mouse button was double-clicked within one second.
-  example: []
   syntax:
     content: public bool RightDoubleClicked { get; set; }
     parameters: []
@@ -521,8 +477,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
-  summary: The cumulative value of the scroll wheel.
-  example: []
   syntax:
     content: public int ScrollWheelValue { get; set; }
     parameters: []
@@ -544,8 +498,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
-  summary: The scroll wheel value change between frames.
-  example: []
   syntax:
     content: public int ScrollWheelValueChange { get; set; }
     parameters: []
@@ -567,8 +519,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
-  summary: Indicates that the mouse is currently within the bounds of the rendering area.
-  example: []
   syntax:
     content: public bool IsOnScreen { get; }
     parameters: []
@@ -841,28 +791,6 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: SadConsole.GameHost.GetMouseState
-  commentId: M:SadConsole.GameHost.GetMouseState
-  parent: SadConsole.GameHost
-  isExternal: true
-  href: SadConsole.GameHost.html#SadConsole_GameHost_GetMouseState
-  name: GetMouseState()
-  nameWithType: GameHost.GetMouseState()
-  fullName: SadConsole.GameHost.GetMouseState()
-  spec.csharp:
-  - uid: SadConsole.GameHost.GetMouseState
-    name: GetMouseState
-    isExternal: true
-    href: SadConsole.GameHost.html#SadConsole_GameHost_GetMouseState
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: SadConsole.GameHost.GetMouseState
-    name: GetMouseState
-    isExternal: true
-    href: SadConsole.GameHost.html#SadConsole_GameHost_GetMouseState
-  - name: (
-  - name: )
 - uid: SadConsole.Input.Mouse.Update*
   commentId: Overload:SadConsole.Input.Mouse.Update
   isExternal: true
@@ -878,21 +806,6 @@ references:
   name: TimeSpan
   nameWithType: TimeSpan
   fullName: System.TimeSpan
-- uid: SadConsole.GameHost
-  commentId: T:SadConsole.GameHost
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.GameHost.html
-  name: GameHost
-  nameWithType: GameHost
-  fullName: SadConsole.GameHost
-- uid: SadConsole
-  commentId: N:SadConsole
-  isExternal: true
-  href: SadConsole.html
-  name: SadConsole
-  nameWithType: SadConsole
-  fullName: SadConsole
 - uid: SadConsole.Input.Mouse.Clear*
   commentId: Overload:SadConsole.Input.Mouse.Clear
   isExternal: true
@@ -900,22 +813,6 @@ references:
   name: Clear
   nameWithType: Mouse.Clear
   fullName: SadConsole.Input.Mouse.Clear
-- uid: SadConsole.GameHost.FocusedScreenObjects
-  commentId: P:SadConsole.GameHost.FocusedScreenObjects
-  parent: SadConsole.GameHost
-  isExternal: true
-  href: SadConsole.GameHost.html#SadConsole_GameHost_FocusedScreenObjects
-  name: FocusedScreenObjects
-  nameWithType: GameHost.FocusedScreenObjects
-  fullName: SadConsole.GameHost.FocusedScreenObjects
-- uid: SadConsole.GameHost.Screen
-  commentId: P:SadConsole.GameHost.Screen
-  parent: SadConsole.GameHost
-  isExternal: true
-  href: SadConsole.GameHost.html#SadConsole_GameHost_Screen
-  name: Screen
-  nameWithType: GameHost.Screen
-  fullName: SadConsole.GameHost.Screen
 - uid: SadConsole.Input.Mouse.Process*
   commentId: Overload:SadConsole.Input.Mouse.Process
   isExternal: true
@@ -956,6 +853,13 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
 - uid: SadConsole.Input.Mouse.Clone*
   commentId: Overload:SadConsole.Input.Mouse.Clone
   isExternal: true

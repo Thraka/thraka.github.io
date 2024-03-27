@@ -27,8 +27,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Represents a texture provided by a game host.
-  example: []
   syntax:
     content: 'public interface ITexture : IDisposable'
     content.vb: Public Interface ITexture Inherits IDisposable
@@ -48,8 +46,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Gets an array of colors.
-  example: []
   syntax:
     content: Color[] GetPixels()
     return:
@@ -70,14 +66,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Sets colors in the texture.
-  example: []
   syntax:
     content: void SetPixels(Color[] colors)
     parameters:
     - id: colors
       type: SadRogue.Primitives.Color[]
-      description: The individual pixel colors to set.
     content.vb: Sub SetPixels(colors As Color())
   overload: SadConsole.ITexture.SetPixels*
   nameWithType.vb: ITexture.SetPixels(Color())
@@ -97,14 +90,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Sets colors in the texture.
-  example: []
   syntax:
     content: void SetPixels(ReadOnlySpan<Color> colors)
     parameters:
     - id: colors
       type: System.ReadOnlySpan{SadRogue.Primitives.Color}
-      description: The individual pixel colors to set.
     content.vb: Sub SetPixels(colors As ReadOnlySpan(Of Color))
   overload: SadConsole.ITexture.SetPixels*
   nameWithType.vb: ITexture.SetPixels(ReadOnlySpan(Of Color))
@@ -124,17 +114,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Sets a specific pixel in the texture to a color by x,y coordinate.
-  example: []
   syntax:
     content: void SetPixel(Point position, Color color)
     parameters:
     - id: position
       type: SadRogue.Primitives.Point
-      description: The position of the pixel to set.
     - id: color
       type: SadRogue.Primitives.Color
-      description: The color to set.
     content.vb: Sub SetPixel(position As Point, color As Color)
   overload: SadConsole.ITexture.SetPixel*
 - uid: SadConsole.ITexture.SetPixel(System.Int32,SadRogue.Primitives.Color)
@@ -151,17 +137,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Sets a specific pixel in the texture to a color by index. Row-major ordered.
-  example: []
   syntax:
     content: void SetPixel(int index, Color color)
     parameters:
     - id: index
       type: System.Int32
-      description: ''
     - id: color
       type: SadRogue.Primitives.Color
-      description: ''
     content.vb: Sub SetPixel(index As Integer, color As Color)
   overload: SadConsole.ITexture.SetPixel*
   nameWithType.vb: ITexture.SetPixel(Integer, Color)
@@ -181,17 +163,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Gets a pixel in the texture by x,y coordinate.
-  example: []
   syntax:
     content: Color GetPixel(Point position)
     parameters:
     - id: position
       type: SadRogue.Primitives.Point
-      description: The x,y coordinate of the pixel.
     return:
       type: SadRogue.Primitives.Color
-      description: The color of the pixel.
     content.vb: Function GetPixel(position As Point) As Color
   overload: SadConsole.ITexture.GetPixel*
 - uid: SadConsole.ITexture.GetPixel(System.Int32)
@@ -208,17 +186,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Gets a pixel in the texture by index.
-  example: []
   syntax:
     content: Color GetPixel(int index)
     parameters:
     - id: index
       type: System.Int32
-      description: The index of the pixel.
     return:
       type: SadRogue.Primitives.Color
-      description: The color of the pixel.
     content.vb: Function GetPixel(index As Integer) As Color
   overload: SadConsole.ITexture.GetPixel*
   nameWithType.vb: ITexture.GetPixel(Integer)
@@ -238,36 +212,25 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Converts the texture into a cell surface based on the specified mode.
-  remarks: ''
-  example: []
   syntax:
     content: ICellSurface ToSurface(TextureConvertMode mode, int surfaceWidth, int surfaceHeight, TextureConvertBackgroundStyle backgroundStyle = TextureConvertBackgroundStyle.Pixel, TextureConvertForegroundStyle foregroundStyle = TextureConvertForegroundStyle.Block, Color[]? cachedColorArray = null, ICellSurface? cachedSurface = null)
     parameters:
     - id: mode
       type: SadConsole.TextureConvertMode
-      description: The mode used when converting the texture to a surface.
     - id: surfaceWidth
       type: System.Int32
-      description: How many cells wide the returned surface is.
     - id: surfaceHeight
       type: System.Int32
-      description: How many cells high the returned surface is.
     - id: backgroundStyle
       type: SadConsole.TextureConvertBackgroundStyle
-      description: The style to use when <code class="paramref">mode</code> is <xref href="SadConsole.TextureConvertMode.Background" data-throw-if-not-resolved="false"></xref>.
     - id: foregroundStyle
       type: SadConsole.TextureConvertForegroundStyle
-      description: The style to use when <code class="paramref">mode</code> is <xref href="SadConsole.TextureConvertMode.Foreground" data-throw-if-not-resolved="false"></xref>.
     - id: cachedColorArray
       type: SadRogue.Primitives.Color[]
-      description: When provided, this array is used for color data. It must match the texture's expected <xref href="SadConsole.ITexture.GetPixels" data-throw-if-not-resolved="false"></xref> bounds. Used with <code class="paramref">cachedColorArray</code>.
     - id: cachedSurface
       type: SadConsole.ICellSurface
-      description: The cell surface to use instead of creating a new one. Used with <code class="paramref">cachedColorArray</code>.
     return:
       type: SadConsole.ICellSurface
-      description: A new surface.
     content.vb: Function ToSurface(mode As TextureConvertMode, surfaceWidth As Integer, surfaceHeight As Integer, backgroundStyle As TextureConvertBackgroundStyle = TextureConvertBackgroundStyle.Pixel, foregroundStyle As TextureConvertForegroundStyle = TextureConvertForegroundStyle.Block, cachedColorArray As Color() = Nothing, cachedSurface As ICellSurface = Nothing) As ICellSurface
   overload: SadConsole.ITexture.ToSurface*
   nameWithType.vb: ITexture.ToSurface(TextureConvertMode, Integer, Integer, TextureConvertBackgroundStyle, TextureConvertForegroundStyle, Color(), ICellSurface)
@@ -287,8 +250,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The file path to the texture.
-  example: []
   syntax:
     content: string ResourcePath { get; }
     parameters: []
@@ -310,8 +271,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The height of the texture.
-  example: []
   syntax:
     content: int Height { get; }
     parameters: []
@@ -333,8 +292,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The width of the texture.
-  example: []
   syntax:
     content: int Width { get; }
     parameters: []
@@ -356,8 +313,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Size of the texture. Generally, the count of pixels.
-  example: []
   syntax:
     content: int Size { get; }
     parameters: []
@@ -571,42 +526,6 @@ references:
   name: GetPixel
   nameWithType: ITexture.GetPixel
   fullName: SadConsole.ITexture.GetPixel
-- uid: SadConsole.TextureConvertMode.Background
-  commentId: F:SadConsole.TextureConvertMode.Background
-  isExternal: true
-  href: SadConsole.TextureConvertMode.html#SadConsole_TextureConvertMode_Background
-  name: Background
-  nameWithType: TextureConvertMode.Background
-  fullName: SadConsole.TextureConvertMode.Background
-- uid: SadConsole.TextureConvertMode.Foreground
-  commentId: F:SadConsole.TextureConvertMode.Foreground
-  isExternal: true
-  href: SadConsole.TextureConvertMode.html#SadConsole_TextureConvertMode_Foreground
-  name: Foreground
-  nameWithType: TextureConvertMode.Foreground
-  fullName: SadConsole.TextureConvertMode.Foreground
-- uid: SadConsole.ITexture.GetPixels
-  commentId: M:SadConsole.ITexture.GetPixels
-  parent: SadConsole.ITexture
-  isExternal: true
-  href: SadConsole.ITexture.html#SadConsole_ITexture_GetPixels
-  name: GetPixels()
-  nameWithType: ITexture.GetPixels()
-  fullName: SadConsole.ITexture.GetPixels()
-  spec.csharp:
-  - uid: SadConsole.ITexture.GetPixels
-    name: GetPixels
-    isExternal: true
-    href: SadConsole.ITexture.html#SadConsole_ITexture_GetPixels
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: SadConsole.ITexture.GetPixels
-    name: GetPixels
-    isExternal: true
-    href: SadConsole.ITexture.html#SadConsole_ITexture_GetPixels
-  - name: (
-  - name: )
 - uid: SadConsole.ITexture.ToSurface*
   commentId: Overload:SadConsole.ITexture.ToSurface
   isExternal: true
@@ -646,14 +565,6 @@ references:
   name: ICellSurface
   nameWithType: ICellSurface
   fullName: SadConsole.ICellSurface
-- uid: SadConsole.ITexture
-  commentId: T:SadConsole.ITexture
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.ITexture.html
-  name: ITexture
-  nameWithType: ITexture
-  fullName: SadConsole.ITexture
 - uid: SadConsole.ITexture.ResourcePath*
   commentId: Overload:SadConsole.ITexture.ResourcePath
   isExternal: true

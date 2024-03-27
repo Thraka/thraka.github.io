@@ -69,8 +69,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: A cursor that is attached to a <xref href="SadConsole.Console" data-throw-if-not-resolved="false"></xref> used for printing.
-  example: []
   syntax:
     content: >-
       [DataContract]
@@ -110,8 +108,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: The default glyph used for a new cursor. Value 219.
-  example: []
   syntax:
     content: public static readonly int DefaultCursorGlyph
     return:
@@ -131,8 +127,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Creates a new instance of the cursor as a component.
-  example: []
   syntax:
     content: public Cursor()
     content.vb: Public Sub New()
@@ -154,14 +148,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Creates a new instance of the cursor that works with the specified surface.
-  example: []
   syntax:
     content: public Cursor(ICellSurface surface)
     parameters:
     - id: surface
       type: SadConsole.ICellSurface
-      description: ''
     content.vb: Public Sub New(surface As ICellSurface)
   overload: SadConsole.Components.Cursor.#ctor*
   nameWithType.vb: Cursor.New(ICellSurface)
@@ -181,8 +172,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Resets the <xref href="SadConsole.Components.Cursor.CursorRenderEffect" data-throw-if-not-resolved="false"></xref> back to the default.
-  example: []
   syntax:
     content: public Cursor ApplyDefaultCursorEffect()
     return:
@@ -203,13 +192,10 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Clones and reassigns <xref href="SadConsole.Components.Cursor.CursorRenderEffect" data-throw-if-not-resolved="false"></xref> to restart it.
-  example: []
   syntax:
     content: public Cursor RestartCursorEffect()
     return:
       type: SadConsole.Components.Cursor
-      description: ''
     content.vb: Public Function RestartCursorEffect() As Cursor
   overload: SadConsole.Components.Cursor.RestartCursorEffect*
 - uid: SadConsole.Components.Cursor.SetPrintAppearanceToHost
@@ -226,19 +212,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Sets the cursor appearance to the console's default foreground and background.
-  example: []
   syntax:
     content: public Cursor SetPrintAppearanceToHost()
     return:
       type: SadConsole.Components.Cursor
-      description: This cursor object.
     content.vb: Public Function SetPrintAppearanceToHost() As Cursor
   overload: SadConsole.Components.Cursor.SetPrintAppearanceToHost*
-  exceptions:
-  - type: System.Exception
-    commentId: T:System.Exception
-    description: Thrown when the cursor is not attached to any surface.
 - uid: SadConsole.Components.Cursor.SetPrintAppearance(SadConsole.ColoredGlyphBase)
   commentId: M:SadConsole.Components.Cursor.SetPrintAppearance(SadConsole.ColoredGlyphBase)
   id: SetPrintAppearance(SadConsole.ColoredGlyphBase)
@@ -253,17 +232,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Sets <xref href="SadConsole.Components.Cursor.PrintAppearance" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: public Cursor SetPrintAppearance(ColoredGlyphBase appearance)
     parameters:
     - id: appearance
       type: SadConsole.ColoredGlyphBase
-      description: The appearance to set.
     return:
       type: SadConsole.Components.Cursor
-      description: This cursor object.
     content.vb: Public Function SetPrintAppearance(appearance As ColoredGlyphBase) As Cursor
   overload: SadConsole.Components.Cursor.SetPrintAppearance*
 - uid: SadConsole.Components.Cursor.SetPrintAppearance(SadRogue.Primitives.Color,SadRogue.Primitives.Color)
@@ -280,20 +255,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Sets <xref href="SadConsole.Components.Cursor.PrintAppearance" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: public Cursor SetPrintAppearance(Color foreground, Color background)
     parameters:
     - id: foreground
       type: SadRogue.Primitives.Color
-      description: The foreground color.
     - id: background
       type: SadRogue.Primitives.Color
-      description: The background color
     return:
       type: SadConsole.Components.Cursor
-      description: This cursor object.
     content.vb: Public Function SetPrintAppearance(foreground As Color, background As Color) As Cursor
   overload: SadConsole.Components.Cursor.SetPrintAppearance*
 - uid: SadConsole.Components.Cursor.SetPrintAppearance(SadRogue.Primitives.Color)
@@ -310,17 +280,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Sets <xref href="SadConsole.Components.Cursor.PrintAppearance" data-throw-if-not-resolved="false"></xref>, only changing the foreground color.
-  example: []
   syntax:
     content: public Cursor SetPrintAppearance(Color foreground)
     parameters:
     - id: foreground
       type: SadRogue.Primitives.Color
-      description: The foreground color.
     return:
       type: SadConsole.Components.Cursor
-      description: This cursor object.
     content.vb: Public Function SetPrintAppearance(foreground As Color) As Cursor
   overload: SadConsole.Components.Cursor.SetPrintAppearance*
 - uid: SadConsole.Components.Cursor.Print(System.String)
@@ -337,17 +303,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Prints text to the console using the default print appearance.
-  example: []
   syntax:
     content: public Cursor Print(string text)
     parameters:
     - id: text
       type: System.String
-      description: The text to print.
     return:
       type: SadConsole.Components.Cursor
-      description: Returns this cursor object.
     content.vb: Public Function Print(text As String) As Cursor
   overload: SadConsole.Components.Cursor.Print*
   nameWithType.vb: Cursor.Print(String)
@@ -367,23 +329,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Prints text on the console.
-  example: []
   syntax:
     content: public Cursor Print(string text, ColoredGlyphBase template, ICellEffect? templateEffect)
     parameters:
     - id: text
       type: System.String
-      description: The text to print.
     - id: template
       type: SadConsole.ColoredGlyphBase
-      description: The way the text will look when it is printed.
     - id: templateEffect
       type: SadConsole.Effects.ICellEffect
-      description: Effect to apply to the text as its printed. Can be <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
     return:
       type: SadConsole.Components.Cursor
-      description: Returns this cursor object.
     content.vb: Public Function Print(text As String, template As ColoredGlyphBase, templateEffect As ICellEffect) As Cursor
   overload: SadConsole.Components.Cursor.Print*
   nameWithType.vb: Cursor.Print(String, ColoredGlyphBase, ICellEffect)
@@ -403,17 +359,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Prints text to the console using the appearance of the colored string.
-  example: []
   syntax:
     content: public Cursor Print(ColoredString text)
     parameters:
     - id: text
       type: SadConsole.ColoredString
-      description: The text to print.
     return:
       type: SadConsole.Components.Cursor
-      description: Returns this cursor object.
     content.vb: Public Function Print(text As ColoredString) As Cursor
   overload: SadConsole.Components.Cursor.Print*
 - uid: SadConsole.Components.Cursor.CarriageReturn
@@ -430,13 +382,10 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Returns the cursor to the start of the current line.
-  example: []
   syntax:
     content: public Cursor CarriageReturn()
     return:
       type: SadConsole.Components.Cursor
-      description: The current cursor object.
     content.vb: Public Function CarriageReturn() As Cursor
   overload: SadConsole.Components.Cursor.CarriageReturn*
 - uid: SadConsole.Components.Cursor.LineFeed
@@ -453,13 +402,10 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Moves the cursor down a line.
-  example: []
   syntax:
     content: public Cursor LineFeed()
     return:
       type: SadConsole.Components.Cursor
-      description: The current cursor object.
     content.vb: Public Function LineFeed() As Cursor
   overload: SadConsole.Components.Cursor.LineFeed*
 - uid: SadConsole.Components.Cursor.NewLine
@@ -476,13 +422,10 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Calls the <xref href="SadConsole.Components.Cursor.CarriageReturn" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.Components.Cursor.LineFeed" data-throw-if-not-resolved="false"></xref> methods in a single call.
-  example: []
   syntax:
     content: public Cursor NewLine()
     return:
       type: SadConsole.Components.Cursor
-      description: The current cursor object.
     content.vb: Public Function NewLine() As Cursor
   overload: SadConsole.Components.Cursor.NewLine*
 - uid: SadConsole.Components.Cursor.Move(SadRogue.Primitives.Point)
@@ -499,17 +442,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Moves the cursor to the specified position.
-  example: []
   syntax:
     content: public Cursor Move(Point position)
     parameters:
     - id: position
       type: SadRogue.Primitives.Point
-      description: The destination of the cursor.
     return:
       type: SadConsole.Components.Cursor
-      description: This cursor object.
     content.vb: Public Function Move(position As Point) As Cursor
   overload: SadConsole.Components.Cursor.Move*
 - uid: SadConsole.Components.Cursor.Move(System.Int32,System.Int32)
@@ -526,20 +465,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Moves the cursor to the specified position.
-  example: []
   syntax:
     content: public Cursor Move(int x, int y)
     parameters:
     - id: x
       type: System.Int32
-      description: The x (horizontal) of the position.
     - id: y
       type: System.Int32
-      description: The x (vertical) of the position.
     return:
       type: SadConsole.Components.Cursor
-      description: ''
     content.vb: Public Function Move(x As Integer, y As Integer) As Cursor
   overload: SadConsole.Components.Cursor.Move*
   nameWithType.vb: Cursor.Move(Integer, Integer)
@@ -559,17 +493,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Moves the cusor up by the specified amount of lines.
-  example: []
   syntax:
     content: public Cursor Up(int amount)
     parameters:
     - id: amount
       type: System.Int32
-      description: The amount of lines to move the cursor
     return:
       type: SadConsole.Components.Cursor
-      description: This cursor object.
     content.vb: Public Function Up(amount As Integer) As Cursor
   overload: SadConsole.Components.Cursor.Up*
   nameWithType.vb: Cursor.Up(Integer)
@@ -589,17 +519,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Moves the cusor down by the specified amount of lines.
-  example: []
   syntax:
     content: public Cursor Down(int amount)
     parameters:
     - id: amount
       type: System.Int32
-      description: The amount of lines to move the cursor
     return:
       type: SadConsole.Components.Cursor
-      description: This cursor object.
     content.vb: Public Function Down(amount As Integer) As Cursor
   overload: SadConsole.Components.Cursor.Down*
   nameWithType.vb: Cursor.Down(Integer)
@@ -619,17 +545,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Moves the cusor left by the specified amount of columns.
-  example: []
   syntax:
     content: public Cursor Left(int amount)
     parameters:
     - id: amount
       type: System.Int32
-      description: The amount of columns to move the cursor
     return:
       type: SadConsole.Components.Cursor
-      description: This cursor object.
     content.vb: Public Function Left(amount As Integer) As Cursor
   overload: SadConsole.Components.Cursor.Left*
   nameWithType.vb: Cursor.Left(Integer)
@@ -649,17 +571,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Moves the cusor left by the specified amount of columns, wrapping the cursor if needed.
-  example: []
   syntax:
     content: public Cursor LeftWrap(int amount)
     parameters:
     - id: amount
       type: System.Int32
-      description: The amount of columns to move the cursor
     return:
       type: SadConsole.Components.Cursor
-      description: This cursor object.
     content.vb: Public Function LeftWrap(amount As Integer) As Cursor
   overload: SadConsole.Components.Cursor.LeftWrap*
   nameWithType.vb: Cursor.LeftWrap(Integer)
@@ -679,17 +597,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Moves the cusor right by the specified amount of columns.
-  example: []
   syntax:
     content: public Cursor Right(int amount)
     parameters:
     - id: amount
       type: System.Int32
-      description: The amount of columns to move the cursor
     return:
       type: SadConsole.Components.Cursor
-      description: This cursor object.
     content.vb: Public Function Right(amount As Integer) As Cursor
   overload: SadConsole.Components.Cursor.Right*
   nameWithType.vb: Cursor.Right(Integer)
@@ -709,17 +623,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Moves the cusor right by the specified amount of columns, wrapping the cursor if needed.
-  example: []
   syntax:
     content: public Cursor RightWrap(int amount)
     parameters:
     - id: amount
       type: System.Int32
-      description: The amount of columns to move the cursor
     return:
       type: SadConsole.Components.Cursor
-      description: This cursor object.
     content.vb: Public Function RightWrap(amount As Integer) As Cursor
   overload: SadConsole.Components.Cursor.RightWrap*
   nameWithType.vb: Cursor.RightWrap(Integer)
@@ -739,23 +649,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Clears the cell at the position of the cursor.
-  example: []
   syntax:
     content: public Cursor Erase(int glyph = 0)
     parameters:
     - id: glyph
       type: System.Int32
-      description: The glyph to set on the erased cell. Defaults to glyph index 0.
     return:
       type: SadConsole.Components.Cursor
-      description: The cursor object.
     content.vb: Public Function [Erase](glyph As Integer = 0) As Cursor
   overload: SadConsole.Components.Cursor.Erase*
-  exceptions:
-  - type: System.Exception
-    commentId: T:System.Exception
-    description: Thrown when a host isn't attached to the cursor.
   nameWithType.vb: Cursor.Erase(Integer)
   fullName.vb: SadConsole.Components.Cursor.Erase(Integer)
   name.vb: Erase(Integer)
@@ -773,23 +675,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Clears the cells in the same column as the cursor.
-  example: []
   syntax:
     content: public Cursor EraseColumn(int glyph = 0)
     parameters:
     - id: glyph
       type: System.Int32
-      description: The glyph to set on the erased cells. Defaults to glyph index 0.
     return:
       type: SadConsole.Components.Cursor
-      description: The cursor object.
     content.vb: Public Function EraseColumn(glyph As Integer = 0) As Cursor
   overload: SadConsole.Components.Cursor.EraseColumn*
-  exceptions:
-  - type: System.Exception
-    commentId: T:System.Exception
-    description: Thrown when a host isn't attached to the cursor.
   nameWithType.vb: Cursor.EraseColumn(Integer)
   fullName.vb: SadConsole.Components.Cursor.EraseColumn(Integer)
   name.vb: EraseColumn(Integer)
@@ -807,23 +701,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Clears the cells in the same row as the cursor.
-  example: []
   syntax:
     content: public Cursor EraseRow(int glyph = 0)
     parameters:
     - id: glyph
       type: System.Int32
-      description: The glyph to set on the erased cells. Defaults to glyph index 0.
     return:
       type: SadConsole.Components.Cursor
-      description: The cursor object.
     content.vb: Public Function EraseRow(glyph As Integer = 0) As Cursor
   overload: SadConsole.Components.Cursor.EraseRow*
-  exceptions:
-  - type: System.Exception
-    commentId: T:System.Exception
-    description: Thrown when a host isn't attached to the cursor.
   nameWithType.vb: Cursor.EraseRow(Integer)
   fullName.vb: SadConsole.Components.Cursor.EraseRow(Integer)
   name.vb: EraseRow(Integer)
@@ -841,23 +727,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Clears the cells above the cursor.
-  example: []
   syntax:
     content: public Cursor EraseUp(int glyph = 0)
     parameters:
     - id: glyph
       type: System.Int32
-      description: The glyph to set on the erased cells. Defaults to glyph index 0.
     return:
       type: SadConsole.Components.Cursor
-      description: The cursor object.
     content.vb: Public Function EraseUp(glyph As Integer = 0) As Cursor
   overload: SadConsole.Components.Cursor.EraseUp*
-  exceptions:
-  - type: System.Exception
-    commentId: T:System.Exception
-    description: Thrown when a host isn't attached to the cursor.
   nameWithType.vb: Cursor.EraseUp(Integer)
   fullName.vb: SadConsole.Components.Cursor.EraseUp(Integer)
   name.vb: EraseUp(Integer)
@@ -875,23 +753,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Clears the cells below the cursor.
-  example: []
   syntax:
     content: public Cursor EraseDown(int glyph = 0)
     parameters:
     - id: glyph
       type: System.Int32
-      description: The glyph to set on the erased cells. Defaults to glyph index 0.
     return:
       type: SadConsole.Components.Cursor
-      description: The cursor object.
     content.vb: Public Function EraseDown(glyph As Integer = 0) As Cursor
   overload: SadConsole.Components.Cursor.EraseDown*
-  exceptions:
-  - type: System.Exception
-    commentId: T:System.Exception
-    description: Thrown when a host isn't attached to the cursor.
   nameWithType.vb: Cursor.EraseDown(Integer)
   fullName.vb: SadConsole.Components.Cursor.EraseDown(Integer)
   name.vb: EraseDown(Integer)
@@ -909,23 +779,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Clears the cells to the left of the cursor.
-  example: []
   syntax:
     content: public Cursor EraseLeft(int glyph = 0)
     parameters:
     - id: glyph
       type: System.Int32
-      description: The glyph to set on the erased cells. Defaults to glyph index 0.
     return:
       type: SadConsole.Components.Cursor
-      description: The cursor object.
     content.vb: Public Function EraseLeft(glyph As Integer = 0) As Cursor
   overload: SadConsole.Components.Cursor.EraseLeft*
-  exceptions:
-  - type: System.Exception
-    commentId: T:System.Exception
-    description: Thrown when a host isn't attached to the cursor.
   nameWithType.vb: Cursor.EraseLeft(Integer)
   fullName.vb: SadConsole.Components.Cursor.EraseLeft(Integer)
   name.vb: EraseLeft(Integer)
@@ -943,23 +805,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Clears the cells to the right of the cursor.
-  example: []
   syntax:
     content: public Cursor EraseRight(int glyph = 0)
     parameters:
     - id: glyph
       type: System.Int32
-      description: The glyph to set on the erased cells. Defaults to glyph index 0.
     return:
       type: SadConsole.Components.Cursor
-      description: The cursor object.
     content.vb: Public Function EraseRight(glyph As Integer = 0) As Cursor
   overload: SadConsole.Components.Cursor.EraseRight*
-  exceptions:
-  - type: System.Exception
-    commentId: T:System.Exception
-    description: Thrown when a host isn't attached to the cursor.
   nameWithType.vb: Cursor.EraseRight(Integer)
   fullName.vb: SadConsole.Components.Cursor.EraseRight(Integer)
   name.vb: EraseRight(Integer)
@@ -977,8 +831,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Cell used to render the cursor on the screen.
-  example: []
   syntax:
     content: >-
       [DataMember(Order = 0)]
@@ -1014,8 +866,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Used in rendering. The cell after the effect has been applied.
-  example: []
   syntax:
     content: public ColoredGlyphBase CursorRenderCellActiveState { get; }
     parameters: []
@@ -1037,8 +887,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Appearance used when printing text. <xref href="SadConsole.Components.Cursor.PrintOnlyCharacterData" data-throw-if-not-resolved="false"></xref> must be set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> for this to apply.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1070,8 +918,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, printing will use the host's <xref href="SadConsole.ICellSurface.DefaultForeground" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.ICellSurface.DefaultBackground" data-throw-if-not-resolved="false"></xref> color properties.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1103,8 +949,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: This effect is applied to each cell printed by the cursor.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1136,8 +980,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: This is the cursor visible effect, like blinking.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1169,8 +1011,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Sets the glyph used in rendering. A shortcut to <xref href="SadConsole.Components.Cursor.CursorRenderCell" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: public int CursorGlyph { get; set; }
     parameters: []
@@ -1192,8 +1032,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that the cursor, when printing, should not use the <xref href="SadConsole.Components.Cursor.PrintAppearance" data-throw-if-not-resolved="false"></xref> property in determining the color/effect of the cell, but keep the cell the same as it was.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1225,8 +1063,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, left-clicking on the host surface will reposition the cursor to the clicked position.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1258,8 +1094,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, returns a handled status from the mouse processor when the <xref href="SadConsole.Components.Cursor.MouseClickReposition" data-throw-if-not-resolved="false"></xref> is enabled. This prevents further left-mouse processing on the host.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1291,8 +1125,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Shows or hides the cursor. This does not affect how the cursor operates.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1324,8 +1156,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, prevents the cursor from running on the host.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1357,8 +1187,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, prevents the <xref href="SadConsole.Components.Cursor.CursorRenderEffect" data-throw-if-not-resolved="false"></xref> from being applied.
-  example: []
   syntax:
     content: public bool ApplyCursorEffect { get; set; }
     parameters: []
@@ -1380,8 +1208,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, applies the <xref href="SadConsole.Components.Cursor.PrintEffect" data-throw-if-not-resolved="false"></xref> to the cursor when it prints.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1413,8 +1239,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Gets or sets the location of the cursor on the console.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1446,8 +1270,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: When true, prevents any print method from breaking words up by spaces when wrapping lines.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1479,8 +1301,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, printing characters to the end of a line won't wrap to the next line. Defaults to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, which moves the cursor to the next line if printing goes past the end of the line.
-  example: []
   syntax:
     content: public bool DisablePrintAutomaticLineFeed { get; set; }
     parameters: []
@@ -1502,8 +1322,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Enables linux-like string parsing where a \n behaves like a \r\n.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1535,8 +1353,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Indicates this cursor should process te string through the <xref href="SadConsole.StringParser.IParser.Parse(System.ReadOnlySpan%7bSystem.Char%7d%2cSystem.Int32%2cSadConsole.ICellSurface%2cSadConsole.StringParser.ParseCommandStacks)" data-throw-if-not-resolved="false"></xref> method from <xref href="SadConsole.ColoredString.Parser" data-throw-if-not-resolved="false"></xref> to create a colored string when using <xref href="SadConsole.Components.Cursor.Print(System.String)" data-throw-if-not-resolved="false"></xref> or <xref href="SadConsole.Components.Cursor.Print(System.String%2cSadConsole.ColoredGlyphBase%2cSadConsole.Effects.ICellEffect)" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1568,8 +1384,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Gets or sets the row of the cursor postion.
-  example: []
   syntax:
     content: public int Row { get; set; }
     parameters: []
@@ -1591,8 +1405,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Gets or sets the column of the cursor postion.
-  example: []
   syntax:
     content: public int Column { get; set; }
     parameters: []
@@ -1614,8 +1426,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Indicates that when the cursor goes past the last cell of the console, that the rows should be shifted up when the cursor is automatically reset to the next line.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1647,7 +1457,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Sets the sort order of this component within the host.
   example: []
   syntax:
     content: >-
@@ -1682,22 +1491,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Raised when the keyboard is processing keys. Each key is sent to this event and can be cancelled
-  example: []
   syntax:
     content: public event EventHandler<KeyboardHandledKeyEventArgs>? KeyboardPreview
     return:
       type: System.EventHandler{SadConsole.Input.KeyboardHandledKeyEventArgs}
     content.vb: Public Event KeyboardPreview As EventHandler(Of KeyboardHandledKeyEventArgs)
 references:
-- uid: SadConsole.Console
-  commentId: T:SadConsole.Console
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.Console.html
-  name: Console
-  nameWithType: Console
-  fullName: SadConsole.Console
 - uid: SadConsole.Components
   commentId: N:SadConsole.Components
   isExternal: true
@@ -1963,13 +1762,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
-- uid: SadConsole
-  commentId: N:SadConsole
-  isExternal: true
-  href: SadConsole.html
-  name: SadConsole
-  nameWithType: SadConsole
-  fullName: SadConsole
 - uid: System
   commentId: N:System
   isExternal: true
@@ -2006,13 +1798,13 @@ references:
   name: ICellSurface
   nameWithType: ICellSurface
   fullName: SadConsole.ICellSurface
-- uid: SadConsole.Components.Cursor.CursorRenderEffect
-  commentId: P:SadConsole.Components.Cursor.CursorRenderEffect
+- uid: SadConsole
+  commentId: N:SadConsole
   isExternal: true
-  href: SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_CursorRenderEffect
-  name: CursorRenderEffect
-  nameWithType: Cursor.CursorRenderEffect
-  fullName: SadConsole.Components.Cursor.CursorRenderEffect
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
 - uid: SadConsole.Components.Cursor.ApplyDefaultCursorEffect*
   commentId: Overload:SadConsole.Components.Cursor.ApplyDefaultCursorEffect
   isExternal: true
@@ -2035,14 +1827,6 @@ references:
   name: RestartCursorEffect
   nameWithType: Cursor.RestartCursorEffect
   fullName: SadConsole.Components.Cursor.RestartCursorEffect
-- uid: System.Exception
-  commentId: T:System.Exception
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.exception
-  name: Exception
-  nameWithType: Exception
-  fullName: System.Exception
 - uid: SadConsole.Components.Cursor.SetPrintAppearanceToHost*
   commentId: Overload:SadConsole.Components.Cursor.SetPrintAppearanceToHost
   isExternal: true
@@ -2050,13 +1834,6 @@ references:
   name: SetPrintAppearanceToHost
   nameWithType: Cursor.SetPrintAppearanceToHost
   fullName: SadConsole.Components.Cursor.SetPrintAppearanceToHost
-- uid: SadConsole.Components.Cursor.PrintAppearance
-  commentId: P:SadConsole.Components.Cursor.PrintAppearance
-  isExternal: true
-  href: SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_PrintAppearance
-  name: PrintAppearance
-  nameWithType: Cursor.PrintAppearance
-  fullName: SadConsole.Components.Cursor.PrintAppearance
 - uid: SadConsole.Components.Cursor.SetPrintAppearance*
   commentId: Overload:SadConsole.Components.Cursor.SetPrintAppearance
   isExternal: true
@@ -2181,48 +1958,6 @@ references:
   name: LineFeed
   nameWithType: Cursor.LineFeed
   fullName: SadConsole.Components.Cursor.LineFeed
-- uid: SadConsole.Components.Cursor.CarriageReturn
-  commentId: M:SadConsole.Components.Cursor.CarriageReturn
-  isExternal: true
-  href: SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_CarriageReturn
-  name: CarriageReturn()
-  nameWithType: Cursor.CarriageReturn()
-  fullName: SadConsole.Components.Cursor.CarriageReturn()
-  spec.csharp:
-  - uid: SadConsole.Components.Cursor.CarriageReturn
-    name: CarriageReturn
-    isExternal: true
-    href: SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_CarriageReturn
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: SadConsole.Components.Cursor.CarriageReturn
-    name: CarriageReturn
-    isExternal: true
-    href: SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_CarriageReturn
-  - name: (
-  - name: )
-- uid: SadConsole.Components.Cursor.LineFeed
-  commentId: M:SadConsole.Components.Cursor.LineFeed
-  isExternal: true
-  href: SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_LineFeed
-  name: LineFeed()
-  nameWithType: Cursor.LineFeed()
-  fullName: SadConsole.Components.Cursor.LineFeed()
-  spec.csharp:
-  - uid: SadConsole.Components.Cursor.LineFeed
-    name: LineFeed
-    isExternal: true
-    href: SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_LineFeed
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: SadConsole.Components.Cursor.LineFeed
-    name: LineFeed
-    isExternal: true
-    href: SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_LineFeed
-  - name: (
-  - name: )
 - uid: SadConsole.Components.Cursor.NewLine*
   commentId: Overload:SadConsole.Components.Cursor.NewLine
   isExternal: true
@@ -2349,13 +2084,6 @@ references:
   name: CursorRenderCellActiveState
   nameWithType: Cursor.CursorRenderCellActiveState
   fullName: SadConsole.Components.Cursor.CursorRenderCellActiveState
-- uid: SadConsole.Components.Cursor.PrintOnlyCharacterData
-  commentId: P:SadConsole.Components.Cursor.PrintOnlyCharacterData
-  isExternal: true
-  href: SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_PrintOnlyCharacterData
-  name: PrintOnlyCharacterData
-  nameWithType: Cursor.PrintOnlyCharacterData
-  fullName: SadConsole.Components.Cursor.PrintOnlyCharacterData
 - uid: SadConsole.Components.Cursor.PrintAppearance*
   commentId: Overload:SadConsole.Components.Cursor.PrintAppearance
   isExternal: true
@@ -2363,22 +2091,6 @@ references:
   name: PrintAppearance
   nameWithType: Cursor.PrintAppearance
   fullName: SadConsole.Components.Cursor.PrintAppearance
-- uid: SadConsole.ICellSurface.DefaultForeground
-  commentId: P:SadConsole.ICellSurface.DefaultForeground
-  parent: SadConsole.ICellSurface
-  isExternal: true
-  href: SadConsole.ICellSurface.html#SadConsole_ICellSurface_DefaultForeground
-  name: DefaultForeground
-  nameWithType: ICellSurface.DefaultForeground
-  fullName: SadConsole.ICellSurface.DefaultForeground
-- uid: SadConsole.ICellSurface.DefaultBackground
-  commentId: P:SadConsole.ICellSurface.DefaultBackground
-  parent: SadConsole.ICellSurface
-  isExternal: true
-  href: SadConsole.ICellSurface.html#SadConsole_ICellSurface_DefaultBackground
-  name: DefaultBackground
-  nameWithType: ICellSurface.DefaultBackground
-  fullName: SadConsole.ICellSurface.DefaultBackground
 - uid: SadConsole.Components.Cursor.PrintAppearanceMatchesHost*
   commentId: Overload:SadConsole.Components.Cursor.PrintAppearanceMatchesHost
   isExternal: true
@@ -2411,13 +2123,6 @@ references:
   name: CursorRenderEffect
   nameWithType: Cursor.CursorRenderEffect
   fullName: SadConsole.Components.Cursor.CursorRenderEffect
-- uid: SadConsole.Components.Cursor.CursorRenderCell
-  commentId: P:SadConsole.Components.Cursor.CursorRenderCell
-  isExternal: true
-  href: SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_CursorRenderCell
-  name: CursorRenderCell
-  nameWithType: Cursor.CursorRenderCell
-  fullName: SadConsole.Components.Cursor.CursorRenderCell
 - uid: SadConsole.Components.Cursor.CursorGlyph*
   commentId: Overload:SadConsole.Components.Cursor.CursorGlyph
   isExternal: true
@@ -2434,13 +2139,6 @@ references:
   fullName: SadConsole.Components.Cursor.PrintOnlyCharacterData
 - uid: SadConsole.Components.Cursor.MouseClickReposition*
   commentId: Overload:SadConsole.Components.Cursor.MouseClickReposition
-  isExternal: true
-  href: SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_MouseClickReposition
-  name: MouseClickReposition
-  nameWithType: Cursor.MouseClickReposition
-  fullName: SadConsole.Components.Cursor.MouseClickReposition
-- uid: SadConsole.Components.Cursor.MouseClickReposition
-  commentId: P:SadConsole.Components.Cursor.MouseClickReposition
   isExternal: true
   href: SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_MouseClickReposition
   name: MouseClickReposition
@@ -2474,13 +2172,6 @@ references:
   name: ApplyCursorEffect
   nameWithType: Cursor.ApplyCursorEffect
   fullName: SadConsole.Components.Cursor.ApplyCursorEffect
-- uid: SadConsole.Components.Cursor.PrintEffect
-  commentId: P:SadConsole.Components.Cursor.PrintEffect
-  isExternal: true
-  href: SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_PrintEffect
-  name: PrintEffect
-  nameWithType: Cursor.PrintEffect
-  fullName: SadConsole.Components.Cursor.PrintEffect
 - uid: SadConsole.Components.Cursor.UsePrintEffect*
   commentId: Overload:SadConsole.Components.Cursor.UsePrintEffect
   isExternal: true
@@ -2516,184 +2207,6 @@ references:
   name: UseLinuxLineEndings
   nameWithType: Cursor.UseLinuxLineEndings
   fullName: SadConsole.Components.Cursor.UseLinuxLineEndings
-- uid: SadConsole.StringParser.IParser.Parse(System.ReadOnlySpan{System.Char},System.Int32,SadConsole.ICellSurface,SadConsole.StringParser.ParseCommandStacks)
-  commentId: M:SadConsole.StringParser.IParser.Parse(System.ReadOnlySpan{System.Char},System.Int32,SadConsole.ICellSurface,SadConsole.StringParser.ParseCommandStacks)
-  parent: SadConsole.StringParser.IParser
-  isExternal: true
-  href: SadConsole.StringParser.IParser.html#SadConsole_StringParser_IParser_Parse_System_ReadOnlySpan_System_Char__System_Int32_SadConsole_ICellSurface_SadConsole_StringParser_ParseCommandStacks_
-  name: Parse(ReadOnlySpan<char>, int, ICellSurface, ParseCommandStacks)
-  nameWithType: IParser.Parse(ReadOnlySpan<char>, int, ICellSurface, ParseCommandStacks)
-  fullName: SadConsole.StringParser.IParser.Parse(System.ReadOnlySpan<char>, int, SadConsole.ICellSurface, SadConsole.StringParser.ParseCommandStacks)
-  nameWithType.vb: IParser.Parse(ReadOnlySpan(Of Char), Integer, ICellSurface, ParseCommandStacks)
-  fullName.vb: SadConsole.StringParser.IParser.Parse(System.ReadOnlySpan(Of Char), Integer, SadConsole.ICellSurface, SadConsole.StringParser.ParseCommandStacks)
-  name.vb: Parse(ReadOnlySpan(Of Char), Integer, ICellSurface, ParseCommandStacks)
-  spec.csharp:
-  - uid: SadConsole.StringParser.IParser.Parse(System.ReadOnlySpan{System.Char},System.Int32,SadConsole.ICellSurface,SadConsole.StringParser.ParseCommandStacks)
-    name: Parse
-    isExternal: true
-    href: SadConsole.StringParser.IParser.html#SadConsole_StringParser_IParser_Parse_System_ReadOnlySpan_System_Char__System_Int32_SadConsole_ICellSurface_SadConsole_StringParser_ParseCommandStacks_
-  - name: (
-  - uid: System.ReadOnlySpan`1
-    name: ReadOnlySpan
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
-  - name: <
-  - uid: System.Char
-    name: char
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.char
-  - name: '>'
-  - name: ','
-  - name: " "
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: ','
-  - name: " "
-  - uid: SadConsole.ICellSurface
-    name: ICellSurface
-    isExternal: true
-    href: SadConsole.ICellSurface.html
-  - name: ','
-  - name: " "
-  - uid: SadConsole.StringParser.ParseCommandStacks
-    name: ParseCommandStacks
-    isExternal: true
-    href: SadConsole.StringParser.ParseCommandStacks.html
-  - name: )
-  spec.vb:
-  - uid: SadConsole.StringParser.IParser.Parse(System.ReadOnlySpan{System.Char},System.Int32,SadConsole.ICellSurface,SadConsole.StringParser.ParseCommandStacks)
-    name: Parse
-    isExternal: true
-    href: SadConsole.StringParser.IParser.html#SadConsole_StringParser_IParser_Parse_System_ReadOnlySpan_System_Char__System_Int32_SadConsole_ICellSurface_SadConsole_StringParser_ParseCommandStacks_
-  - name: (
-  - uid: System.ReadOnlySpan`1
-    name: ReadOnlySpan
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: System.Char
-    name: Char
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.char
-  - name: )
-  - name: ','
-  - name: " "
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: ','
-  - name: " "
-  - uid: SadConsole.ICellSurface
-    name: ICellSurface
-    isExternal: true
-    href: SadConsole.ICellSurface.html
-  - name: ','
-  - name: " "
-  - uid: SadConsole.StringParser.ParseCommandStacks
-    name: ParseCommandStacks
-    isExternal: true
-    href: SadConsole.StringParser.ParseCommandStacks.html
-  - name: )
-- uid: SadConsole.ColoredString.Parser
-  commentId: P:SadConsole.ColoredString.Parser
-  isExternal: true
-  href: SadConsole.ColoredString.html#SadConsole_ColoredString_Parser
-  name: Parser
-  nameWithType: ColoredString.Parser
-  fullName: SadConsole.ColoredString.Parser
-- uid: SadConsole.Components.Cursor.Print(System.String)
-  commentId: M:SadConsole.Components.Cursor.Print(System.String)
-  isExternal: true
-  href: SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_Print_System_String_
-  name: Print(string)
-  nameWithType: Cursor.Print(string)
-  fullName: SadConsole.Components.Cursor.Print(string)
-  nameWithType.vb: Cursor.Print(String)
-  fullName.vb: SadConsole.Components.Cursor.Print(String)
-  name.vb: Print(String)
-  spec.csharp:
-  - uid: SadConsole.Components.Cursor.Print(System.String)
-    name: Print
-    isExternal: true
-    href: SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_Print_System_String_
-  - name: (
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-  spec.vb:
-  - uid: SadConsole.Components.Cursor.Print(System.String)
-    name: Print
-    isExternal: true
-    href: SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_Print_System_String_
-  - name: (
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-- uid: SadConsole.Components.Cursor.Print(System.String,SadConsole.ColoredGlyphBase,SadConsole.Effects.ICellEffect)
-  commentId: M:SadConsole.Components.Cursor.Print(System.String,SadConsole.ColoredGlyphBase,SadConsole.Effects.ICellEffect)
-  isExternal: true
-  href: SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_Print_System_String_SadConsole_ColoredGlyphBase_SadConsole_Effects_ICellEffect_
-  name: Print(string, ColoredGlyphBase, ICellEffect)
-  nameWithType: Cursor.Print(string, ColoredGlyphBase, ICellEffect)
-  fullName: SadConsole.Components.Cursor.Print(string, SadConsole.ColoredGlyphBase, SadConsole.Effects.ICellEffect)
-  nameWithType.vb: Cursor.Print(String, ColoredGlyphBase, ICellEffect)
-  fullName.vb: SadConsole.Components.Cursor.Print(String, SadConsole.ColoredGlyphBase, SadConsole.Effects.ICellEffect)
-  name.vb: Print(String, ColoredGlyphBase, ICellEffect)
-  spec.csharp:
-  - uid: SadConsole.Components.Cursor.Print(System.String,SadConsole.ColoredGlyphBase,SadConsole.Effects.ICellEffect)
-    name: Print
-    isExternal: true
-    href: SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_Print_System_String_SadConsole_ColoredGlyphBase_SadConsole_Effects_ICellEffect_
-  - name: (
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - uid: SadConsole.ColoredGlyphBase
-    name: ColoredGlyphBase
-    isExternal: true
-    href: SadConsole.ColoredGlyphBase.html
-  - name: ','
-  - name: " "
-  - uid: SadConsole.Effects.ICellEffect
-    name: ICellEffect
-    isExternal: true
-    href: SadConsole.Effects.ICellEffect.html
-  - name: )
-  spec.vb:
-  - uid: SadConsole.Components.Cursor.Print(System.String,SadConsole.ColoredGlyphBase,SadConsole.Effects.ICellEffect)
-    name: Print
-    isExternal: true
-    href: SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_Print_System_String_SadConsole_ColoredGlyphBase_SadConsole_Effects_ICellEffect_
-  - name: (
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - uid: SadConsole.ColoredGlyphBase
-    name: ColoredGlyphBase
-    isExternal: true
-    href: SadConsole.ColoredGlyphBase.html
-  - name: ','
-  - name: " "
-  - uid: SadConsole.Effects.ICellEffect
-    name: ICellEffect
-    isExternal: true
-    href: SadConsole.Effects.ICellEffect.html
-  - name: )
 - uid: SadConsole.Components.Cursor.UseStringParser*
   commentId: Overload:SadConsole.Components.Cursor.UseStringParser
   isExternal: true
@@ -2701,41 +2214,6 @@ references:
   name: UseStringParser
   nameWithType: Cursor.UseStringParser
   fullName: SadConsole.Components.Cursor.UseStringParser
-- uid: SadConsole.StringParser.IParser
-  commentId: T:SadConsole.StringParser.IParser
-  parent: SadConsole.StringParser
-  isExternal: true
-  href: SadConsole.StringParser.IParser.html
-  name: IParser
-  nameWithType: IParser
-  fullName: SadConsole.StringParser.IParser
-- uid: SadConsole.StringParser
-  commentId: N:SadConsole.StringParser
-  isExternal: true
-  href: SadConsole.html
-  name: SadConsole.StringParser
-  nameWithType: SadConsole.StringParser
-  fullName: SadConsole.StringParser
-  spec.csharp:
-  - uid: SadConsole
-    name: SadConsole
-    isExternal: true
-    href: SadConsole.html
-  - name: .
-  - uid: SadConsole.StringParser
-    name: StringParser
-    isExternal: true
-    href: SadConsole.StringParser.html
-  spec.vb:
-  - uid: SadConsole
-    name: SadConsole
-    isExternal: true
-    href: SadConsole.html
-  - name: .
-  - uid: SadConsole.StringParser
-    name: StringParser
-    isExternal: true
-    href: SadConsole.StringParser.html
 - uid: SadConsole.Components.Cursor.Row*
   commentId: Overload:SadConsole.Components.Cursor.Row
   isExternal: true

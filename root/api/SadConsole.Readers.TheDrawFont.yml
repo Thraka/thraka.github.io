@@ -25,8 +25,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
-  summary: Represents a TheDraw ascii font. http://www.roysac.com/thedrawfonts-tdf.html
-  example: []
   syntax:
     content: public class TheDrawFont
     content.vb: Public Class TheDrawFont
@@ -54,17 +52,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
-  summary: Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the specified character glyph is supported by this font; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
-  example: []
   syntax:
     content: public bool IsCharacterSupported(int glyph)
     parameters:
     - id: glyph
       type: System.Int32
-      description: ''
     return:
       type: System.Boolean
-      description: A boolean value indicating whether or not the specified glyph is supported.
     content.vb: Public Function IsCharacterSupported(glyph As Integer) As Boolean
   overload: SadConsole.Readers.TheDrawFont.IsCharacterSupported*
   nameWithType.vb: TheDrawFont.IsCharacterSupported(Integer)
@@ -84,26 +78,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
-  summary: Gets a character from this font by character code.
-  example: []
   syntax:
     content: public TheDrawFont.Character GetCharacter(int glyph)
     parameters:
     - id: glyph
       type: System.Int32
-      description: The character to get.
     return:
       type: SadConsole.Readers.TheDrawFont.Character
-      description: The specified character.
     content.vb: Public Function GetCharacter(glyph As Integer) As TheDrawFont.Character
   overload: SadConsole.Readers.TheDrawFont.GetCharacter*
-  exceptions:
-  - type: System.InvalidOperationException
-    commentId: T:System.InvalidOperationException
-    description: The character glyph index is valid but isn't included in this font.
-  - type: System.IndexOutOfRangeException
-    commentId: T:System.IndexOutOfRangeException
-    description: The character glyph index isn't in range. It must be between 33 and 126.
   nameWithType.vb: TheDrawFont.GetCharacter(Integer)
   fullName.vb: SadConsole.Readers.TheDrawFont.GetCharacter(Integer)
   name.vb: GetCharacter(Integer)
@@ -121,17 +104,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
-  summary: Generates a surface from the specified glyph using a white foreground and black background for the individual glyphs of the character.
-  example: []
   syntax:
     content: public CellSurface? GetSurface(int glyph)
     parameters:
     - id: glyph
       type: System.Int32
-      description: The glyph index.
     return:
       type: SadConsole.CellSurface
-      description: A surface of just the glyph. Width and height of the surface is based on the TheDraw's font.
     content.vb: Public Function GetSurface(glyph As Integer) As CellSurface
   overload: SadConsole.Readers.TheDrawFont.GetSurface*
   nameWithType.vb: TheDrawFont.GetSurface(Integer)
@@ -151,23 +130,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
-  summary: Generates a surface from the specified glyph using the specified foreground and background for the individual glyphs of the character.
-  example: []
   syntax:
     content: public CellSurface? GetSurface(int glyph, Color alternateForeground, Color alternateBackground)
     parameters:
     - id: glyph
       type: System.Int32
-      description: The glyph index.
     - id: alternateForeground
       type: SadRogue.Primitives.Color
-      description: Foreground color used to draw the glyph.
     - id: alternateBackground
       type: SadRogue.Primitives.Color
-      description: Background color used to draw the glyph.
     return:
       type: SadConsole.CellSurface
-      description: A surface of just the glyph. Width and height of the surface is based on the TheDraw's font.
     content.vb: Public Function GetSurface(glyph As Integer, alternateForeground As Color, alternateBackground As Color) As CellSurface
   overload: SadConsole.Readers.TheDrawFont.GetSurface*
   nameWithType.vb: TheDrawFont.GetSurface(Integer, Color, Color)
@@ -234,8 +207,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
-  summary: The title of the font.
-  example: []
   syntax:
     content: public string Title { get; set; }
     parameters: []
@@ -257,8 +228,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
-  summary: The type of font.
-  example: []
   syntax:
     content: public TheDrawFont.FontType Type { get; set; }
     parameters: []
@@ -280,8 +249,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
-  summary: The empty characters between letters when drawing.
-  example: []
   syntax:
     content: public int LetterSpacing { get; set; }
     parameters: []
@@ -303,8 +270,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
-  summary: An array indexed by character code, indicating if a glyph character is supported by the font. Characters 33 to 126 are supported, starting at index 0.
-  example: []
   syntax:
     content: public bool[] CharactersSupported { get; set; }
     parameters: []
@@ -606,20 +571,6 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
-- uid: System.InvalidOperationException
-  commentId: T:System.InvalidOperationException
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
-  name: InvalidOperationException
-  nameWithType: InvalidOperationException
-  fullName: System.InvalidOperationException
-- uid: System.IndexOutOfRangeException
-  commentId: T:System.IndexOutOfRangeException
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.indexoutofrangeexception
-  name: IndexOutOfRangeException
-  nameWithType: IndexOutOfRangeException
-  fullName: System.IndexOutOfRangeException
 - uid: SadConsole.Readers.TheDrawFont.GetCharacter*
   commentId: Overload:SadConsole.Readers.TheDrawFont.GetCharacter
   isExternal: true

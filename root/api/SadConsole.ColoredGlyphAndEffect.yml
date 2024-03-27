@@ -23,8 +23,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: A <xref href="SadConsole.ColoredGlyphBase" data-throw-if-not-resolved="false"></xref> with a <xref href="SadConsole.Effects.ICellEffect" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: 'public sealed class ColoredGlyphAndEffect : ColoredGlyph, IMatchable<ColoredGlyphBase>, IMatchable<ColoredGlyph>, IMatchable<ColoredGlyphAndEffect>'
     content.vb: Public NotInheritable Class ColoredGlyphAndEffect Inherits ColoredGlyph Implements IMatchable(Of ColoredGlyphBase), IMatchable(Of ColoredGlyph), IMatchable(Of ColoredGlyphAndEffect)
@@ -71,20 +69,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Creates a new <xref href="SadConsole.ColoredGlyphAndEffect" data-throw-if-not-resolved="false"></xref> from a <xref href="SadConsole.ColoredGlyphBase" data-throw-if-not-resolved="false"></xref> with the specified effect.
-  example: []
   syntax:
     content: public static ColoredGlyphAndEffect FromColoredGlyph(ColoredGlyphBase glyph, ICellEffect? effect = null)
     parameters:
     - id: glyph
       type: SadConsole.ColoredGlyphBase
-      description: The glyph.
     - id: effect
       type: SadConsole.Effects.ICellEffect
-      description: When provided, sets the <xref href="SadConsole.ColoredGlyphAndEffect.Effect" data-throw-if-not-resolved="false"></xref>.
     return:
       type: SadConsole.ColoredGlyphAndEffect
-      description: ''
     content.vb: Public Shared Function FromColoredGlyph(glyph As ColoredGlyphBase, effect As ICellEffect = Nothing) As ColoredGlyphAndEffect
   overload: SadConsole.ColoredGlyphAndEffect.FromColoredGlyph*
   nameWithType.vb: ColoredGlyphAndEffect.FromColoredGlyph(ColoredGlyphBase, ICellEffect)
@@ -104,20 +97,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Copies the visual appearance to the specified cell. This includes foreground, background, glyph, mirror effect and decorators.
-  example: []
   syntax:
     content: public void CopyAppearanceTo(ColoredGlyphAndEffect cell, bool deepCopy = true)
     parameters:
     - id: cell
       type: SadConsole.ColoredGlyphAndEffect
-      description: The target cell to copy to.
     - id: deepCopy
       type: System.Boolean
-      description: >-
-        Whether to perform a deep copy.  Decorators are copied to a new array when true; when false, the old
-
-        decorator array reference is moved directly.
     content.vb: Public Sub CopyAppearanceTo(cell As ColoredGlyphAndEffect, deepCopy As Boolean = True)
   overload: SadConsole.ColoredGlyphAndEffect.CopyAppearanceTo*
   nameWithType.vb: ColoredGlyphAndEffect.CopyAppearanceTo(ColoredGlyphAndEffect, Boolean)
@@ -137,20 +123,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Sets the foreground, background, glyph, mirror effect and decorators to the same as the specified cell.
-  example: []
   syntax:
     content: public void CopyAppearanceFrom(ColoredGlyphAndEffect cell, bool deepCopy = true)
     parameters:
     - id: cell
       type: SadConsole.ColoredGlyphAndEffect
-      description: The target cell to copy from.
     - id: deepCopy
       type: System.Boolean
-      description: >-
-        Whether to perform a deep copy.  Decorators are copied to a new array when true; when false, the old
-
-        decorator array reference is moved directly.
     content.vb: Public Sub CopyAppearanceFrom(cell As ColoredGlyphAndEffect, deepCopy As Boolean = True)
   overload: SadConsole.ColoredGlyphAndEffect.CopyAppearanceFrom*
   nameWithType.vb: ColoredGlyphAndEffect.CopyAppearanceFrom(ColoredGlyphAndEffect, Boolean)
@@ -170,7 +149,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Resets the foreground, background, glyph, mirror effect and decorators.
   example: []
   syntax:
     content: public override void Clear()
@@ -191,13 +169,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Returns a new cell with the same properties as this one.
   example: []
   syntax:
     content: public override ColoredGlyphBase Clone()
     return:
       type: SadConsole.ColoredGlyphBase
-      description: The new cell.
     content.vb: Public Overrides Function Clone() As ColoredGlyphBase
   overridden: SadConsole.ColoredGlyph.Clone
   overload: SadConsole.ColoredGlyphAndEffect.Clone*
@@ -215,17 +191,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Checks if this <xref href="SadConsole.ColoredGlyphAndEffect" data-throw-if-not-resolved="false"></xref> object's properties match another's.
+  summary: >-
+    Returns true if the given object is considered "equal" to the current one, based on the definition
+
+    of equality for the object.
   example: []
   syntax:
     content: public bool Matches(ColoredGlyphAndEffect? other)
     parameters:
     - id: other
       type: SadConsole.ColoredGlyphAndEffect
-      description: The other object to check.
+      description: Object to compare to.
     return:
       type: System.Boolean
-      description: Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the object's properties match; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+      description: True if the objects are considered equal, false, otherwise.
     content.vb: Public Function Matches(other As ColoredGlyphAndEffect) As Boolean
   overload: SadConsole.ColoredGlyphAndEffect.Matches*
   implements:
@@ -268,8 +247,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The effect of this cell.
-  example: []
   syntax:
     content: public ICellEffect? Effect { get; set; }
     parameters: []
@@ -278,22 +255,6 @@ items:
     content.vb: Public Property Effect As ICellEffect
   overload: SadConsole.ColoredGlyphAndEffect.Effect*
 references:
-- uid: SadConsole.ColoredGlyphBase
-  commentId: T:SadConsole.ColoredGlyphBase
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.ColoredGlyphBase.html
-  name: ColoredGlyphBase
-  nameWithType: ColoredGlyphBase
-  fullName: SadConsole.ColoredGlyphBase
-- uid: SadConsole.Effects.ICellEffect
-  commentId: T:SadConsole.Effects.ICellEffect
-  parent: SadConsole.Effects
-  isExternal: true
-  href: SadConsole.Effects.ICellEffect.html
-  name: ICellEffect
-  nameWithType: ICellEffect
-  fullName: SadConsole.Effects.ICellEffect
 - uid: SadConsole
   commentId: N:SadConsole
   isExternal: true
@@ -312,6 +273,14 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: SadConsole.ColoredGlyphBase
+  commentId: T:SadConsole.ColoredGlyphBase
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ColoredGlyphBase.html
+  name: ColoredGlyphBase
+  nameWithType: ColoredGlyphBase
+  fullName: SadConsole.ColoredGlyphBase
 - uid: SadConsole.ColoredGlyph
   commentId: T:SadConsole.ColoredGlyph
   parent: SadConsole
@@ -869,33 +838,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
-- uid: SadConsole.Effects
-  commentId: N:SadConsole.Effects
-  isExternal: true
-  href: SadConsole.html
-  name: SadConsole.Effects
-  nameWithType: SadConsole.Effects
-  fullName: SadConsole.Effects
-  spec.csharp:
-  - uid: SadConsole
-    name: SadConsole
-    isExternal: true
-    href: SadConsole.html
-  - name: .
-  - uid: SadConsole.Effects
-    name: Effects
-    isExternal: true
-    href: SadConsole.Effects.html
-  spec.vb:
-  - uid: SadConsole
-    name: SadConsole
-    isExternal: true
-    href: SadConsole.html
-  - name: .
-  - uid: SadConsole.Effects
-    name: Effects
-    isExternal: true
-    href: SadConsole.Effects.html
 - uid: System
   commentId: N:System
   isExternal: true
@@ -955,6 +897,21 @@ references:
     name: Primitives
     isExternal: true
     href: SadRogue.Primitives.html
+- uid: SadConsole.ColoredGlyphAndEffect.FromColoredGlyph*
+  commentId: Overload:SadConsole.ColoredGlyphAndEffect.FromColoredGlyph
+  isExternal: true
+  href: SadConsole.ColoredGlyphAndEffect.html#SadConsole_ColoredGlyphAndEffect_FromColoredGlyph_SadConsole_ColoredGlyphBase_SadConsole_Effects_ICellEffect_
+  name: FromColoredGlyph
+  nameWithType: ColoredGlyphAndEffect.FromColoredGlyph
+  fullName: SadConsole.ColoredGlyphAndEffect.FromColoredGlyph
+- uid: SadConsole.Effects.ICellEffect
+  commentId: T:SadConsole.Effects.ICellEffect
+  parent: SadConsole.Effects
+  isExternal: true
+  href: SadConsole.Effects.ICellEffect.html
+  name: ICellEffect
+  nameWithType: ICellEffect
+  fullName: SadConsole.Effects.ICellEffect
 - uid: SadConsole.ColoredGlyphAndEffect
   commentId: T:SadConsole.ColoredGlyphAndEffect
   parent: SadConsole
@@ -963,20 +920,33 @@ references:
   name: ColoredGlyphAndEffect
   nameWithType: ColoredGlyphAndEffect
   fullName: SadConsole.ColoredGlyphAndEffect
-- uid: SadConsole.ColoredGlyphAndEffect.Effect
-  commentId: P:SadConsole.ColoredGlyphAndEffect.Effect
+- uid: SadConsole.Effects
+  commentId: N:SadConsole.Effects
   isExternal: true
-  href: SadConsole.ColoredGlyphAndEffect.html#SadConsole_ColoredGlyphAndEffect_Effect
-  name: Effect
-  nameWithType: ColoredGlyphAndEffect.Effect
-  fullName: SadConsole.ColoredGlyphAndEffect.Effect
-- uid: SadConsole.ColoredGlyphAndEffect.FromColoredGlyph*
-  commentId: Overload:SadConsole.ColoredGlyphAndEffect.FromColoredGlyph
-  isExternal: true
-  href: SadConsole.ColoredGlyphAndEffect.html#SadConsole_ColoredGlyphAndEffect_FromColoredGlyph_SadConsole_ColoredGlyphBase_SadConsole_Effects_ICellEffect_
-  name: FromColoredGlyph
-  nameWithType: ColoredGlyphAndEffect.FromColoredGlyph
-  fullName: SadConsole.ColoredGlyphAndEffect.FromColoredGlyph
+  href: SadConsole.html
+  name: SadConsole.Effects
+  nameWithType: SadConsole.Effects
+  fullName: SadConsole.Effects
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Effects
+    name: Effects
+    isExternal: true
+    href: SadConsole.Effects.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Effects
+    name: Effects
+    isExternal: true
+    href: SadConsole.Effects.html
 - uid: SadConsole.ColoredGlyphAndEffect.CopyAppearanceTo*
   commentId: Overload:SadConsole.ColoredGlyphAndEffect.CopyAppearanceTo
   isExternal: true

@@ -5,6 +5,7 @@ items:
   id: CharacterPicker
   parent: SadConsole.UI.Controls
   children:
+  - SadConsole.UI.Controls.CharacterPicker.#ctor(SadRogue.Primitives.Color,SadRogue.Primitives.Color,SadRogue.Primitives.Color,SadConsole.IFont,System.Int32,System.Int32,System.Int32)
   - SadConsole.UI.Controls.CharacterPicker.#ctor(SadRogue.Primitives.Color,SadRogue.Primitives.Color,SadRogue.Primitives.Color,SadConsole.SadFont,System.Int32,System.Int32)
   - SadConsole.UI.Controls.CharacterPicker.CreateControlSurface
   - SadConsole.UI.Controls.CharacterPicker.GlyphBackground
@@ -16,6 +17,7 @@ items:
   - SadConsole.UI.Controls.CharacterPicker.OldCharacterLocation
   - SadConsole.UI.Controls.CharacterPicker.OnLeftMouseClicked(SadConsole.UI.Controls.ControlBase.ControlMouseState)
   - SadConsole.UI.Controls.CharacterPicker.OnMouseIn(SadConsole.UI.Controls.ControlBase.ControlMouseState)
+  - SadConsole.UI.Controls.CharacterPicker.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
   - SadConsole.UI.Controls.CharacterPicker.SelectedCharacter
   - SadConsole.UI.Controls.CharacterPicker.SelectedCharacterChanged
   - SadConsole.UI.Controls.CharacterPicker.SelectedGlyphEffect
@@ -58,11 +60,8 @@ items:
   - SadConsole.UI.Controls.CompositeControl.NamedControls
   - SadConsole.UI.Controls.CompositeControl.CreateChildControls
   - SadConsole.UI.Controls.CompositeControl.IsDirtyEventHandler(System.Boolean)
-  - SadConsole.UI.Controls.CompositeControl.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
   - SadConsole.UI.Controls.CompositeControl.AddControl(SadConsole.UI.Controls.ControlBase)
   - SadConsole.UI.Controls.CompositeControl.RemoveControl(SadConsole.UI.Controls.ControlBase)
-  - SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String)
-  - SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String,SadConsole.UI.Controls.ControlBase@)
   - SadConsole.UI.Controls.CompositeControl.Count
   - SadConsole.UI.Controls.CompositeControl.Item(System.Int32)
   - SadConsole.UI.Controls.ControlBase.MouseState_IsMouseOver
@@ -79,6 +78,7 @@ items:
   - SadConsole.UI.Controls.ControlBase.PlaceRelativeTo(SadConsole.UI.Controls.ControlBase,SadRogue.Primitives.Direction.Types,System.Int32)
   - SadConsole.UI.Controls.ControlBase.DetermineState
   - SadConsole.UI.Controls.ControlBase.OnStateChanged(SadConsole.UI.Controls.ControlStates,SadConsole.UI.Controls.ControlStates)
+  - SadConsole.UI.Controls.ControlBase.FindThemeFont
   - SadConsole.UI.Controls.ControlBase.FindThemeColors
   - SadConsole.UI.Controls.ControlBase.SetThemeColors(SadConsole.UI.Colors)
   - SadConsole.UI.Controls.ControlBase.HasThemeColors
@@ -128,6 +128,51 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+- uid: SadConsole.UI.Controls.CharacterPicker.#ctor(SadRogue.Primitives.Color,SadRogue.Primitives.Color,SadRogue.Primitives.Color,SadConsole.IFont,System.Int32,System.Int32,System.Int32)
+  commentId: M:SadConsole.UI.Controls.CharacterPicker.#ctor(SadRogue.Primitives.Color,SadRogue.Primitives.Color,SadRogue.Primitives.Color,SadConsole.IFont,System.Int32,System.Int32,System.Int32)
+  id: '#ctor(SadRogue.Primitives.Color,SadRogue.Primitives.Color,SadRogue.Primitives.Color,SadConsole.IFont,System.Int32,System.Int32,System.Int32)'
+  parent: SadConsole.UI.Controls.CharacterPicker
+  langs:
+  - csharp
+  - vb
+  name: CharacterPicker(Color, Color, Color, IFont, int, int, int)
+  nameWithType: CharacterPicker.CharacterPicker(Color, Color, Color, IFont, int, int, int)
+  fullName: SadConsole.UI.Controls.CharacterPicker.CharacterPicker(SadRogue.Primitives.Color, SadRogue.Primitives.Color, SadRogue.Primitives.Color, SadConsole.IFont, int, int, int)
+  type: Constructor
+  assemblies:
+  - SadConsole.Extended
+  namespace: SadConsole.UI.Controls
+  summary: Creates a new character picker control.
+  example: []
+  syntax:
+    content: public CharacterPicker(Color foreground, Color fill, Color selectedCharacterColor, IFont characterFont, int visibleColumns, int visibleRows, int fontColumns)
+    parameters:
+    - id: foreground
+      type: SadRogue.Primitives.Color
+      description: Foreground color of all the glyphs.
+    - id: fill
+      type: SadRogue.Primitives.Color
+      description: Background color of all the glyphs.
+    - id: selectedCharacterColor
+      type: SadRogue.Primitives.Color
+      description: The foreground color displayed on the selected glyph.
+    - id: characterFont
+      type: SadConsole.IFont
+      description: The font used to display the glyphs.
+    - id: visibleColumns
+      type: System.Int32
+      description: The number of columns to show. The control will be this wide plus 1.
+    - id: visibleRows
+      type: System.Int32
+      description: The number of rows to show. The control will be this high plus 1.
+    - id: fontColumns
+      type: System.Int32
+      description: How many columns are defined in the font file.
+    content.vb: Public Sub New(foreground As Color, fill As Color, selectedCharacterColor As Color, characterFont As IFont, visibleColumns As Integer, visibleRows As Integer, fontColumns As Integer)
+  overload: SadConsole.UI.Controls.CharacterPicker.#ctor*
+  nameWithType.vb: CharacterPicker.New(Color, Color, Color, IFont, Integer, Integer, Integer)
+  fullName.vb: SadConsole.UI.Controls.CharacterPicker.New(SadRogue.Primitives.Color, SadRogue.Primitives.Color, SadRogue.Primitives.Color, SadConsole.IFont, Integer, Integer, Integer)
+  name.vb: New(Color, Color, Color, IFont, Integer, Integer, Integer)
 - uid: SadConsole.UI.Controls.CharacterPicker.#ctor(SadRogue.Primitives.Color,SadRogue.Primitives.Color,SadRogue.Primitives.Color,SadConsole.SadFont,System.Int32,System.Int32)
   commentId: M:SadConsole.UI.Controls.CharacterPicker.#ctor(SadRogue.Primitives.Color,SadRogue.Primitives.Color,SadRogue.Primitives.Color,SadConsole.SadFont,System.Int32,System.Int32)
   id: '#ctor(SadRogue.Primitives.Color,SadRogue.Primitives.Color,SadRogue.Primitives.Color,SadConsole.SadFont,System.Int32,System.Int32)'
@@ -149,16 +194,16 @@ items:
     parameters:
     - id: foreground
       type: SadRogue.Primitives.Color
-      description: The default foreground for glyphs.
+      description: Foreground color of all the glyphs.
     - id: fill
       type: SadRogue.Primitives.Color
-      description: The default backround for glyphs.
+      description: Background color of all the glyphs.
     - id: selectedCharacterColor
       type: SadRogue.Primitives.Color
-      description: The foreground for the selected glyph.
+      description: The foreground color displayed on the selected glyph.
     - id: characterFont
       type: SadConsole.SadFont
-      description: The font to use with the control.
+      description: The font used to display the glyphs.
     - id: visibleColumns
       type: System.Int32
       description: The number of columns to show. The control will be this wide plus 1.
@@ -184,7 +229,6 @@ items:
   assemblies:
   - SadConsole.Extended
   namespace: SadConsole.UI.Controls
-  summary: Called as the mouse moves around the control area. Raises the MouseMove event and calls the <xref href="SadConsole.UI.Controls.ControlBase.DetermineState" data-throw-if-not-resolved="false"></xref> method.
   example: []
   syntax:
     content: protected override void OnMouseIn(ControlBase.ControlMouseState info)
@@ -208,7 +252,6 @@ items:
   assemblies:
   - SadConsole.Extended
   namespace: SadConsole.UI.Controls
-  summary: Called when the left mouse button is clicked. Raises the MouseButtonClicked event and calls the <xref href="SadConsole.UI.Controls.ControlBase.DetermineState" data-throw-if-not-resolved="false"></xref> method.
   example: []
   syntax:
     content: protected override void OnLeftMouseClicked(ControlBase.ControlMouseState info)
@@ -218,6 +261,31 @@ items:
     content.vb: Protected Overrides Sub OnLeftMouseClicked(info As ControlBase.ControlMouseState)
   overridden: SadConsole.UI.Controls.ControlBase.OnLeftMouseClicked(SadConsole.UI.Controls.ControlBase.ControlMouseState)
   overload: SadConsole.UI.Controls.CharacterPicker.OnLeftMouseClicked*
+- uid: SadConsole.UI.Controls.CharacterPicker.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
+  commentId: M:SadConsole.UI.Controls.CharacterPicker.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
+  id: ProcessMouse(SadConsole.Input.MouseScreenObjectState)
+  parent: SadConsole.UI.Controls.CharacterPicker
+  langs:
+  - csharp
+  - vb
+  name: ProcessMouse(MouseScreenObjectState)
+  nameWithType: CharacterPicker.ProcessMouse(MouseScreenObjectState)
+  fullName: SadConsole.UI.Controls.CharacterPicker.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
+  type: Method
+  assemblies:
+  - SadConsole.Extended
+  namespace: SadConsole.UI.Controls
+  example: []
+  syntax:
+    content: public override bool ProcessMouse(MouseScreenObjectState state)
+    parameters:
+    - id: state
+      type: SadConsole.Input.MouseScreenObjectState
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function ProcessMouse(state As MouseScreenObjectState) As Boolean
+  overridden: SadConsole.UI.Controls.CompositeControl.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
+  overload: SadConsole.UI.Controls.CharacterPicker.ProcessMouse*
 - uid: SadConsole.UI.Controls.CharacterPicker.CreateControlSurface
   commentId: M:SadConsole.UI.Controls.CharacterPicker.CreateControlSurface
   id: CreateControlSurface
@@ -232,13 +300,11 @@ items:
   assemblies:
   - SadConsole.Extended
   namespace: SadConsole.UI.Controls
-  summary: Generates the surface to be used by this control. This method is called internally to assign the <xref href="SadConsole.UI.Controls.ControlBase.Surface" data-throw-if-not-resolved="false"></xref> property a value.
   example: []
   syntax:
     content: protected override ICellSurface CreateControlSurface()
     return:
       type: SadConsole.ICellSurface
-      description: A surface that should be assigned to the <xref href="SadConsole.UI.Controls.ControlBase.Surface" data-throw-if-not-resolved="false"></xref> property.
     content.vb: Protected Overrides Function CreateControlSurface() As ICellSurface
   overridden: SadConsole.UI.Controls.ControlBase.CreateControlSurface
   overload: SadConsole.UI.Controls.CharacterPicker.CreateControlSurface*
@@ -256,14 +322,12 @@ items:
   assemblies:
   - SadConsole.Extended
   namespace: SadConsole.UI.Controls
-  summary: Updates each control hosted by this control.
   example: []
   syntax:
     content: public override void UpdateAndRedraw(TimeSpan time)
     parameters:
     - id: time
       type: System.TimeSpan
-      description: The game frame time delta.
     content.vb: Public Overrides Sub UpdateAndRedraw(time As TimeSpan)
   overridden: SadConsole.UI.Controls.SurfaceViewer.UpdateAndRedraw(System.TimeSpan)
   overload: SadConsole.UI.Controls.CharacterPicker.UpdateAndRedraw*
@@ -537,7 +601,7 @@ items:
   summary: Raised when the <xref href="SadConsole.UI.Controls.CharacterPicker.SelectedCharacter" data-throw-if-not-resolved="false"></xref> property changes.
   example: []
   syntax:
-    content: public event EventHandler<ValueChangedEventArgs<int>> SelectedCharacterChanged
+    content: public event EventHandler<ValueChangedEventArgs<int>>? SelectedCharacterChanged
     return:
       type: System.EventHandler{SadRogue.Primitives.ValueChangedEventArgs{System.Int32}}
     content.vb: Public Event SelectedCharacterChanged As EventHandler(Of ValueChangedEventArgs(Of Integer))
@@ -881,36 +945,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.boolean
   - name: )
-- uid: SadConsole.UI.Controls.CompositeControl.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
-  commentId: M:SadConsole.UI.Controls.CompositeControl.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
-  parent: SadConsole.UI.Controls.CompositeControl
-  isExternal: true
-  href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_ProcessMouse_SadConsole_Input_MouseScreenObjectState_
-  name: ProcessMouse(MouseScreenObjectState)
-  nameWithType: CompositeControl.ProcessMouse(MouseScreenObjectState)
-  fullName: SadConsole.UI.Controls.CompositeControl.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
-  spec.csharp:
-  - uid: SadConsole.UI.Controls.CompositeControl.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
-    name: ProcessMouse
-    isExternal: true
-    href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_ProcessMouse_SadConsole_Input_MouseScreenObjectState_
-  - name: (
-  - uid: SadConsole.Input.MouseScreenObjectState
-    name: MouseScreenObjectState
-    isExternal: true
-    href: SadConsole.Input.MouseScreenObjectState.html
-  - name: )
-  spec.vb:
-  - uid: SadConsole.UI.Controls.CompositeControl.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
-    name: ProcessMouse
-    isExternal: true
-    href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_ProcessMouse_SadConsole_Input_MouseScreenObjectState_
-  - name: (
-  - uid: SadConsole.Input.MouseScreenObjectState
-    name: MouseScreenObjectState
-    isExternal: true
-    href: SadConsole.Input.MouseScreenObjectState.html
-  - name: )
 - uid: SadConsole.UI.Controls.CompositeControl.AddControl(SadConsole.UI.Controls.ControlBase)
   commentId: M:SadConsole.UI.Controls.CompositeControl.AddControl(SadConsole.UI.Controls.ControlBase)
   parent: SadConsole.UI.Controls.CompositeControl
@@ -966,86 +1000,6 @@ references:
     isExternal: true
     href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_RemoveControl_SadConsole_UI_Controls_ControlBase_
   - name: (
-  - uid: SadConsole.UI.Controls.ControlBase
-    name: ControlBase
-    isExternal: true
-    href: SadConsole.UI.Controls.ControlBase.html
-  - name: )
-- uid: SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String)
-  commentId: M:SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String)
-  parent: SadConsole.UI.Controls.CompositeControl
-  isExternal: true
-  href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_HasNamedControl_System_String_
-  name: HasNamedControl(string)
-  nameWithType: CompositeControl.HasNamedControl(string)
-  fullName: SadConsole.UI.Controls.CompositeControl.HasNamedControl(string)
-  nameWithType.vb: CompositeControl.HasNamedControl(String)
-  fullName.vb: SadConsole.UI.Controls.CompositeControl.HasNamedControl(String)
-  name.vb: HasNamedControl(String)
-  spec.csharp:
-  - uid: SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String)
-    name: HasNamedControl
-    isExternal: true
-    href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_HasNamedControl_System_String_
-  - name: (
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-  spec.vb:
-  - uid: SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String)
-    name: HasNamedControl
-    isExternal: true
-    href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_HasNamedControl_System_String_
-  - name: (
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: )
-- uid: SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String,SadConsole.UI.Controls.ControlBase@)
-  commentId: M:SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String,SadConsole.UI.Controls.ControlBase@)
-  parent: SadConsole.UI.Controls.CompositeControl
-  isExternal: true
-  href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_HasNamedControl_System_String_SadConsole_UI_Controls_ControlBase__
-  name: HasNamedControl(string, out ControlBase)
-  nameWithType: CompositeControl.HasNamedControl(string, out ControlBase)
-  fullName: SadConsole.UI.Controls.CompositeControl.HasNamedControl(string, out SadConsole.UI.Controls.ControlBase)
-  nameWithType.vb: CompositeControl.HasNamedControl(String, ControlBase)
-  fullName.vb: SadConsole.UI.Controls.CompositeControl.HasNamedControl(String, SadConsole.UI.Controls.ControlBase)
-  name.vb: HasNamedControl(String, ControlBase)
-  spec.csharp:
-  - uid: SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String,SadConsole.UI.Controls.ControlBase@)
-    name: HasNamedControl
-    isExternal: true
-    href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_HasNamedControl_System_String_SadConsole_UI_Controls_ControlBase__
-  - name: (
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - name: out
-  - name: " "
-  - uid: SadConsole.UI.Controls.ControlBase
-    name: ControlBase
-    isExternal: true
-    href: SadConsole.UI.Controls.ControlBase.html
-  - name: )
-  spec.vb:
-  - uid: SadConsole.UI.Controls.CompositeControl.HasNamedControl(System.String,SadConsole.UI.Controls.ControlBase@)
-    name: HasNamedControl
-    isExternal: true
-    href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_HasNamedControl_System_String_SadConsole_UI_Controls_ControlBase__
-  - name: (
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
   - uid: SadConsole.UI.Controls.ControlBase
     name: ControlBase
     isExternal: true
@@ -1409,6 +1363,28 @@ references:
     name: ControlStates
     isExternal: true
     href: SadConsole.UI.Controls.ControlStates.html
+  - name: )
+- uid: SadConsole.UI.Controls.ControlBase.FindThemeFont
+  commentId: M:SadConsole.UI.Controls.ControlBase.FindThemeFont
+  parent: SadConsole.UI.Controls.ControlBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeFont
+  name: FindThemeFont()
+  nameWithType: ControlBase.FindThemeFont()
+  fullName: SadConsole.UI.Controls.ControlBase.FindThemeFont()
+  spec.csharp:
+  - uid: SadConsole.UI.Controls.ControlBase.FindThemeFont
+    name: FindThemeFont
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeFont
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.Controls.ControlBase.FindThemeFont
+    name: FindThemeFont
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeFont
+  - name: (
   - name: )
 - uid: SadConsole.UI.Controls.ControlBase.FindThemeColors
   commentId: M:SadConsole.UI.Controls.ControlBase.FindThemeColors
@@ -2312,7 +2288,7 @@ references:
 - uid: SadConsole.UI.Controls.CharacterPicker.#ctor*
   commentId: Overload:SadConsole.UI.Controls.CharacterPicker.#ctor
   isExternal: true
-  href: SadConsole.UI.Controls.CharacterPicker.html#SadConsole_UI_Controls_CharacterPicker__ctor_SadRogue_Primitives_Color_SadRogue_Primitives_Color_SadRogue_Primitives_Color_SadConsole_SadFont_System_Int32_System_Int32_
+  href: SadConsole.UI.Controls.CharacterPicker.html#SadConsole_UI_Controls_CharacterPicker__ctor_SadRogue_Primitives_Color_SadRogue_Primitives_Color_SadRogue_Primitives_Color_SadConsole_IFont_System_Int32_System_Int32_System_Int32_
   name: CharacterPicker
   nameWithType: CharacterPicker.CharacterPicker
   fullName: SadConsole.UI.Controls.CharacterPicker.CharacterPicker
@@ -2326,14 +2302,14 @@ references:
   name: Color
   nameWithType: Color
   fullName: SadRogue.Primitives.Color
-- uid: SadConsole.SadFont
-  commentId: T:SadConsole.SadFont
+- uid: SadConsole.IFont
+  commentId: T:SadConsole.IFont
   parent: SadConsole
   isExternal: true
-  href: SadConsole.SadFont.html
-  name: SadFont
-  nameWithType: SadFont
-  fullName: SadConsole.SadFont
+  href: SadConsole.IFont.html
+  name: IFont
+  nameWithType: IFont
+  fullName: SadConsole.IFont
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System
@@ -2379,6 +2355,14 @@ references:
   name: SadConsole
   nameWithType: SadConsole
   fullName: SadConsole
+- uid: SadConsole.SadFont
+  commentId: T:SadConsole.SadFont
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.SadFont.html
+  name: SadFont
+  nameWithType: SadFont
+  fullName: SadConsole.SadFont
 - uid: SadConsole.UI.Controls.ControlBase.OnMouseIn(SadConsole.UI.Controls.ControlBase.ControlMouseState)
   commentId: M:SadConsole.UI.Controls.ControlBase.OnMouseIn(SadConsole.UI.Controls.ControlBase.ControlMouseState)
   parent: SadConsole.UI.Controls.ControlBase
@@ -2481,6 +2465,89 @@ references:
   name: OnLeftMouseClicked
   nameWithType: CharacterPicker.OnLeftMouseClicked
   fullName: SadConsole.UI.Controls.CharacterPicker.OnLeftMouseClicked
+- uid: SadConsole.UI.Controls.CompositeControl.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
+  commentId: M:SadConsole.UI.Controls.CompositeControl.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
+  parent: SadConsole.UI.Controls.CompositeControl
+  isExternal: true
+  href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_ProcessMouse_SadConsole_Input_MouseScreenObjectState_
+  name: ProcessMouse(MouseScreenObjectState)
+  nameWithType: CompositeControl.ProcessMouse(MouseScreenObjectState)
+  fullName: SadConsole.UI.Controls.CompositeControl.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
+  spec.csharp:
+  - uid: SadConsole.UI.Controls.CompositeControl.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
+    name: ProcessMouse
+    isExternal: true
+    href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_ProcessMouse_SadConsole_Input_MouseScreenObjectState_
+  - name: (
+  - uid: SadConsole.Input.MouseScreenObjectState
+    name: MouseScreenObjectState
+    isExternal: true
+    href: SadConsole.Input.MouseScreenObjectState.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.Controls.CompositeControl.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
+    name: ProcessMouse
+    isExternal: true
+    href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_ProcessMouse_SadConsole_Input_MouseScreenObjectState_
+  - name: (
+  - uid: SadConsole.Input.MouseScreenObjectState
+    name: MouseScreenObjectState
+    isExternal: true
+    href: SadConsole.Input.MouseScreenObjectState.html
+  - name: )
+- uid: SadConsole.UI.Controls.CharacterPicker.ProcessMouse*
+  commentId: Overload:SadConsole.UI.Controls.CharacterPicker.ProcessMouse
+  isExternal: true
+  href: SadConsole.UI.Controls.CharacterPicker.html#SadConsole_UI_Controls_CharacterPicker_ProcessMouse_SadConsole_Input_MouseScreenObjectState_
+  name: ProcessMouse
+  nameWithType: CharacterPicker.ProcessMouse
+  fullName: SadConsole.UI.Controls.CharacterPicker.ProcessMouse
+- uid: SadConsole.Input.MouseScreenObjectState
+  commentId: T:SadConsole.Input.MouseScreenObjectState
+  parent: SadConsole.Input
+  isExternal: true
+  href: SadConsole.Input.MouseScreenObjectState.html
+  name: MouseScreenObjectState
+  nameWithType: MouseScreenObjectState
+  fullName: SadConsole.Input.MouseScreenObjectState
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: SadConsole.Input
+  commentId: N:SadConsole.Input
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Input
+  nameWithType: SadConsole.Input
+  fullName: SadConsole.Input
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Input
+    name: Input
+    isExternal: true
+    href: SadConsole.Input.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Input
+    name: Input
+    isExternal: true
+    href: SadConsole.Input.html
 - uid: SadConsole.UI.Controls.ControlBase.CreateControlSurface
   commentId: M:SadConsole.UI.Controls.ControlBase.CreateControlSurface
   parent: SadConsole.UI.Controls.ControlBase
@@ -2568,17 +2635,6 @@ references:
   name: UseFullClick
   nameWithType: CharacterPicker.UseFullClick
   fullName: SadConsole.UI.Controls.CharacterPicker.UseFullClick
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
 - uid: SadConsole.UI.Controls.CharacterPicker.OldCharacterLocation*
   commentId: Overload:SadConsole.UI.Controls.CharacterPicker.OldCharacterLocation
   isExternal: true

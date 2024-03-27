@@ -17,8 +17,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
-  summary: Pops a behavior off of a <xref href="SadConsole.StringParser.ParseCommandStacks" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: 'public sealed class ParseCommandUndo : ParseCommandBase'
     content.vb: Public NotInheritable Class ParseCommandUndo Inherits ParseCommandBase
@@ -47,17 +45,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
-  summary: Creates a new instance of this command.
-  example: []
   syntax:
     content: public ParseCommandUndo(string parameters, ParseCommandStacks stacks)
     parameters:
     - id: parameters
       type: System.String
-      description: The string to parse for parameters.
     - id: stacks
       type: SadConsole.StringParser.ParseCommandStacks
-      description: The current commands for the string.
     content.vb: Public Sub New(parameters As String, stacks As ParseCommandStacks)
   overload: SadConsole.StringParser.ParseCommandUndo.#ctor*
   nameWithType.vb: ParseCommandUndo.New(String, ParseCommandStacks)
@@ -77,32 +71,24 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
-  summary: Builds a glyph.
   example: []
   syntax:
     content: public override void Build(ref ColoredGlyphAndEffect glyphState, ColoredGlyphAndEffect[] glyphString, int surfaceIndex, ICellSurface? surface, ref int stringIndex, ReadOnlySpan<char> processedString, ParseCommandStacks commandStack)
     parameters:
     - id: glyphState
       type: SadConsole.ColoredGlyphAndEffect
-      description: The current glyph being built.
     - id: glyphString
       type: SadConsole.ColoredGlyphAndEffect[]
-      description: The current string of glyphs that has been processed until now.
     - id: surfaceIndex
       type: System.Int32
-      description: Where on the surface this flyph will appear.
     - id: surface
       type: SadConsole.ICellSurface
-      description: The surface associated with the glyph.
     - id: stringIndex
       type: System.Int32
-      description: Where in the original string this glyph is from.
     - id: processedString
       type: System.ReadOnlySpan{System.Char}
-      description: The entire string being processed.
     - id: commandStack
       type: SadConsole.StringParser.ParseCommandStacks
-      description: The state of commands.
     content.vb: Public Overrides Sub Build(glyphState As ColoredGlyphAndEffect, glyphString As ColoredGlyphAndEffect(), surfaceIndex As Integer, surface As ICellSurface, stringIndex As Integer, processedString As ReadOnlySpan(Of Char), commandStack As ParseCommandStacks)
   overridden: SadConsole.StringParser.ParseCommandBase.Build(SadConsole.ColoredGlyphAndEffect@,SadConsole.ColoredGlyphAndEffect[],System.Int32,SadConsole.ICellSurface,System.Int32@,System.ReadOnlySpan{System.Char},SadConsole.StringParser.ParseCommandStacks)
   overload: SadConsole.StringParser.ParseCommandUndo.Build*
@@ -110,14 +96,6 @@ items:
   fullName.vb: SadConsole.StringParser.ParseCommandUndo.Build(SadConsole.ColoredGlyphAndEffect, SadConsole.ColoredGlyphAndEffect(), Integer, SadConsole.ICellSurface, Integer, System.ReadOnlySpan(Of Char), SadConsole.StringParser.ParseCommandStacks)
   name.vb: Build(ColoredGlyphAndEffect, ColoredGlyphAndEffect(), Integer, ICellSurface, Integer, ReadOnlySpan(Of Char), ParseCommandStacks)
 references:
-- uid: SadConsole.StringParser.ParseCommandStacks
-  commentId: T:SadConsole.StringParser.ParseCommandStacks
-  parent: SadConsole.StringParser
-  isExternal: true
-  href: SadConsole.StringParser.ParseCommandStacks.html
-  name: ParseCommandStacks
-  nameWithType: ParseCommandStacks
-  fullName: SadConsole.StringParser.ParseCommandStacks
 - uid: SadConsole.StringParser
   commentId: N:SadConsole.StringParser
   isExternal: true
@@ -395,6 +373,14 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
+- uid: SadConsole.StringParser.ParseCommandStacks
+  commentId: T:SadConsole.StringParser.ParseCommandStacks
+  parent: SadConsole.StringParser
+  isExternal: true
+  href: SadConsole.StringParser.ParseCommandStacks.html
+  name: ParseCommandStacks
+  nameWithType: ParseCommandStacks
+  fullName: SadConsole.StringParser.ParseCommandStacks
 - uid: SadConsole.StringParser.ParseCommandBase.Build(SadConsole.ColoredGlyphAndEffect@,SadConsole.ColoredGlyphAndEffect[],System.Int32,SadConsole.ICellSurface,System.Int32@,System.ReadOnlySpan{System.Char},SadConsole.StringParser.ParseCommandStacks)
   commentId: M:SadConsole.StringParser.ParseCommandBase.Build(SadConsole.ColoredGlyphAndEffect@,SadConsole.ColoredGlyphAndEffect[],System.Int32,SadConsole.ICellSurface,System.Int32@,System.ReadOnlySpan{System.Char},SadConsole.StringParser.ParseCommandStacks)
   parent: SadConsole.StringParser.ParseCommandBase

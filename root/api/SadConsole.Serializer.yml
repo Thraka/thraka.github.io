@@ -20,8 +20,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Common serialization tasks for SadConsole.
-  example: []
   syntax:
     content: public static class Serializer
     content.vb: Public Module Serializer
@@ -49,20 +47,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: A shortcut for serialization that uses <xref href="Newtonsoft.Json.JsonConvert.SerializeObject(System.Object%2cSystem.Type%2cNewtonsoft.Json.JsonSerializerSettings)" data-throw-if-not-resolved="false"></xref> with the <xref href="SadConsole.Serializer.Settings" data-throw-if-not-resolved="false"></xref> property defined by this class.
-  example: []
   syntax:
     content: public static string Serialize<T>(T instance)
     parameters:
     - id: instance
       type: '{T}'
-      description: The object to serialize.
     typeParameters:
     - id: T
-      description: The object type to serialize.
     return:
       type: System.String
-      description: A json encoded string.
     content.vb: Public Shared Function Serialize(Of T)(instance As T) As String
   overload: SadConsole.Serializer.Serialize*
   nameWithType.vb: Serializer.Serialize(Of T)(T)
@@ -82,19 +75,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: A shortcut for serialization that uses <xref href="Newtonsoft.Json.JsonConvert.DeserializeObject(System.String%2cSystem.Type%2cNewtonsoft.Json.JsonSerializerSettings)" data-throw-if-not-resolved="false"></xref> with the <xref href="SadConsole.Serializer.Settings" data-throw-if-not-resolved="false"></xref> property defined by this class.
-  example: []
   syntax:
     content: public static T Deserialize<T>(string json)
     parameters:
     - id: json
       type: System.String
-      description: The json string to create an object from.
     typeParameters:
     - id: T
     return:
       type: '{T}'
-      description: An object created from the <code class="paramref">json</code> parameter.
     content.vb: Public Shared Function Deserialize(Of T)(json As String) As T
   overload: SadConsole.Serializer.Deserialize*
   nameWithType.vb: Serializer.Deserialize(Of T)(String)
@@ -114,26 +103,19 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Serializes the <code class="paramref">instance</code> to the specified file.
-  example: []
   syntax:
     content: public static void Save<T>(T instance, string file, bool compress, JsonSerializerSettings? settings = null)
     parameters:
     - id: instance
       type: '{T}'
-      description: The object to serialize.
     - id: file
       type: System.String
-      description: The file to save the object to.
     - id: compress
       type: System.Boolean
-      description: When true, uses GZIP compression on the json string saved to the <code class="paramref">file</code>
     - id: settings
       type: Newtonsoft.Json.JsonSerializerSettings
-      description: Optional settings to use during serialization. If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, uses the <xref href="SadConsole.Serializer.Settings" data-throw-if-not-resolved="false"></xref> property.
     typeParameters:
     - id: T
-      description: Type of object to serialize
     content.vb: Public Shared Sub Save(Of T)(instance As T, file As String, compress As Boolean, settings As JsonSerializerSettings = Nothing)
   overload: SadConsole.Serializer.Save*
   nameWithType.vb: Serializer.Save(Of T)(T, String, Boolean, JsonSerializerSettings)
@@ -153,26 +135,19 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Deserializes a new instance of <code class="typeparamref">T</code> from the specified file.
-  example: []
   syntax:
     content: public static T Load<T>(string file, bool isCompressed, JsonSerializerSettings? settings = null)
     parameters:
     - id: file
       type: System.String
-      description: The file to load from.
     - id: isCompressed
       type: System.Boolean
-      description: When true, indicates that the json <code class="paramref">file</code> should be decompressed with GZIP compression.
     - id: settings
       type: Newtonsoft.Json.JsonSerializerSettings
-      description: Optional settings to use during deserialization. If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, uses the <xref href="SadConsole.Serializer.Settings" data-throw-if-not-resolved="false"></xref> property.
     typeParameters:
     - id: T
-      description: The type of object to deserialize.
     return:
       type: '{T}'
-      description: A new object instance.
     content.vb: Public Shared Function Load(Of T)(file As String, isCompressed As Boolean, settings As JsonSerializerSettings = Nothing) As T
   overload: SadConsole.Serializer.Load*
   nameWithType.vb: Serializer.Load(Of T)(String, Boolean, JsonSerializerSettings)
@@ -192,8 +167,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The settings to use during <xref href="SadConsole.Serializer.Save%60%601(%60%600%2cSystem.String%2cSystem.Boolean%2cNewtonsoft.Json.JsonSerializerSettings)" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.Serializer.Load%60%601(System.String%2cSystem.Boolean%2cNewtonsoft.Json.JsonSerializerSettings)" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: public static JsonSerializerSettings Settings { get; set; }
     parameters: []
@@ -446,16 +419,6 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Newtonsoft.Json.JsonConvert.SerializeObject(System.Object,System.Type,Newtonsoft.Json.JsonSerializerSettings)
-  commentId: M:Newtonsoft.Json.JsonConvert.SerializeObject(System.Object,System.Type,Newtonsoft.Json.JsonSerializerSettings)
-  isExternal: true
-- uid: SadConsole.Serializer.Settings
-  commentId: P:SadConsole.Serializer.Settings
-  isExternal: true
-  href: SadConsole.Serializer.html#SadConsole_Serializer_Settings
-  name: Settings
-  nameWithType: Serializer.Settings
-  fullName: SadConsole.Serializer.Settings
 - uid: SadConsole.Serializer.Serialize*
   commentId: Overload:SadConsole.Serializer.Serialize
   isExternal: true
@@ -484,9 +447,6 @@ references:
   name: T
   nameWithType: T
   fullName: T
-- uid: Newtonsoft.Json.JsonConvert.DeserializeObject(System.String,System.Type,Newtonsoft.Json.JsonSerializerSettings)
-  commentId: M:Newtonsoft.Json.JsonConvert.DeserializeObject(System.String,System.Type,Newtonsoft.Json.JsonSerializerSettings)
-  isExternal: true
 - uid: SadConsole.Serializer.Deserialize*
   commentId: Overload:SadConsole.Serializer.Deserialize
   isExternal: true
@@ -524,12 +484,6 @@ references:
   name: Load
   nameWithType: Serializer.Load
   fullName: SadConsole.Serializer.Load
-- uid: SadConsole.Serializer.Save``1(``0,System.String,System.Boolean,Newtonsoft.Json.JsonSerializerSettings)
-  commentId: M:SadConsole.Serializer.Save``1(``0,System.String,System.Boolean,Newtonsoft.Json.JsonSerializerSettings)
-  isExternal: true
-- uid: SadConsole.Serializer.Load``1(System.String,System.Boolean,Newtonsoft.Json.JsonSerializerSettings)
-  commentId: M:SadConsole.Serializer.Load``1(System.String,System.Boolean,Newtonsoft.Json.JsonSerializerSettings)
-  isExternal: true
 - uid: SadConsole.Serializer.Settings*
   commentId: Overload:SadConsole.Serializer.Settings
   isExternal: true

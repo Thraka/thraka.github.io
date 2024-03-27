@@ -111,7 +111,13 @@ items:
     Makes the cursor visible, disables word breaks and the string parser, and prints the prompt.
 
 
-    If the host is a <xref href="SadConsole.Console" data-throw-if-not-resolved="false"></xref>, it uses the <xref href="SadConsole.Components.C64KeyboardHandler._attachedCursor" data-throw-if-not-resolved="false"></xref> property, caching reference to it. You can't change the cursor reference unless you re-add this component. If the host is a <xref href="SadConsole.IScreenObject" data-throw-if-not-resolved="false"></xref>, the first instance of a cursor in the IScreenObject.SadComponents collection is used. If there is no cursor, an exception is thrown.
+    If the host is a <xref href="SadConsole.Console" data-throw-if-not-resolved="false"></xref>, it uses the <xref href="SadConsole.Components.C64KeyboardHandler._attachedCursor" data-throw-if-not-resolved="false"></xref> property, caching reference to it.
+
+    You can't change the cursor reference unless you re-add this component. If the host is a <xref href="SadConsole.IScreenObject" data-throw-if-not-resolved="false"></xref>,
+
+    the first instance of a cursor in the <xref href="SadConsole.Components.IComponentHost.SadComponents" data-throw-if-not-resolved="false"></xref> collection is used.
+
+    If there is no cursor, an exception is thrown.
   example: []
   syntax:
     content: public override void OnAdded(IScreenObject host)
@@ -156,7 +162,6 @@ items:
   assemblies:
   - SadConsole.Extended
   namespace: SadConsole.Components
-  summary: Called by a host when the keyboard is being processed.
   example: []
   syntax:
     content: public override void ProcessKeyboard(IScreenObject consoleObject, Keyboard info, out bool handled)
@@ -167,7 +172,6 @@ items:
       type: SadConsole.Input.Keyboard
     - id: handled
       type: System.Boolean
-      description: When set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> informs the host caller that we handled the mouse and to stop others from handling.
     content.vb: Public Overrides Sub ProcessKeyboard(consoleObject As IScreenObject, info As Keyboard, handled As Boolean)
   overridden: SadConsole.Components.KeyboardConsoleComponent.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
   overload: SadConsole.Components.C64KeyboardHandler.ProcessKeyboard*
@@ -732,6 +736,14 @@ references:
   name: IScreenObject
   nameWithType: IScreenObject
   fullName: SadConsole.IScreenObject
+- uid: SadConsole.Components.IComponentHost.SadComponents
+  commentId: P:SadConsole.Components.IComponentHost.SadComponents
+  parent: SadConsole.Components.IComponentHost
+  isExternal: true
+  href: SadConsole.Components.IComponentHost.html#SadConsole_Components_IComponentHost_SadComponents
+  name: SadComponents
+  nameWithType: IComponentHost.SadComponents
+  fullName: SadConsole.Components.IComponentHost.SadComponents
 - uid: SadConsole.Components.KeyboardConsoleComponent.OnAdded(SadConsole.IScreenObject)
   commentId: M:SadConsole.Components.KeyboardConsoleComponent.OnAdded(SadConsole.IScreenObject)
   parent: SadConsole.Components.KeyboardConsoleComponent
@@ -776,6 +788,14 @@ references:
   name: SadConsole
   nameWithType: SadConsole
   fullName: SadConsole
+- uid: SadConsole.Components.IComponentHost
+  commentId: T:SadConsole.Components.IComponentHost
+  parent: SadConsole.Components
+  isExternal: true
+  href: SadConsole.Components.IComponentHost.html
+  name: IComponentHost
+  nameWithType: IComponentHost
+  fullName: SadConsole.Components.IComponentHost
 - uid: SadConsole.Components.C64KeyboardHandler.PrintPrompt*
   commentId: Overload:SadConsole.Components.C64KeyboardHandler.PrintPrompt
   isExternal: true

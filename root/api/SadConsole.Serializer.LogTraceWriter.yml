@@ -19,8 +19,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: A simple log writer that helps debug the JSON serialization.
-  example: []
   syntax:
     content: 'public class Serializer.LogTraceWriter : ITraceWriter'
     content.vb: Public Class Serializer.LogTraceWriter Implements ITraceWriter
@@ -50,8 +48,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: THe string containing the log.
-  example: []
   syntax:
     content: public readonly StringBuilder Log
     return:
@@ -71,20 +67,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Captures a JSON log event.
-  example: []
   syntax:
     content: public void Trace(TraceLevel level, string message, Exception? ex)
     parameters:
     - id: level
       type: System.Diagnostics.TraceLevel
-      description: The log level.
     - id: message
       type: System.String
-      description: The message.
     - id: ex
       type: System.Exception
-      description: The exception associated with the log event.
     content.vb: Public Sub Trace(level As TraceLevel, message As String, ex As Exception)
   overload: SadConsole.Serializer.LogTraceWriter.Trace*
   nameWithType.vb: Serializer.LogTraceWriter.Trace(TraceLevel, String, Exception)
@@ -125,8 +116,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: THe level filter for the log.
-  example: []
   syntax:
     content: public TraceLevel LevelFilter { get; }
     parameters: []

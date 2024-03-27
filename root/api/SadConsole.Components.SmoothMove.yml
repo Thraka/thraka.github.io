@@ -194,14 +194,12 @@ items:
   assemblies:
   - SadConsole.Extended
   namespace: SadConsole.Components
-  summary: Called when the component is removed from the host.
   example: []
   syntax:
     content: public override void OnRemoved(IScreenObject host)
     parameters:
     - id: host
       type: SadConsole.IScreenObject
-      description: The host that removed the component.
     content.vb: Public Overrides Sub OnRemoved(host As IScreenObject)
   overridden: SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
   overload: SadConsole.Components.SmoothMove.OnRemoved*
@@ -319,7 +317,7 @@ items:
   summary: The easing function applied to smoothing the objects movement.
   example: []
   syntax:
-    content: public EasingBase TransitionEasingFunction { get; set; }
+    content: public EasingBase? TransitionEasingFunction { get; set; }
     parameters: []
     return:
       type: SadConsole.EasingFunctions.EasingBase
@@ -365,7 +363,7 @@ items:
   summary: Raised when the smoothing component starts moving an object.
   example: []
   syntax:
-    content: public event EventHandler MoveStarted
+    content: public event EventHandler? MoveStarted
     return:
       type: System.EventHandler
     content.vb: Public Event MoveStarted As EventHandler
@@ -386,7 +384,7 @@ items:
   summary: Raised when the smoothing component ends moving an object.
   example: []
   syntax:
-    content: public event EventHandler MoveEnded
+    content: public event EventHandler? MoveEnded
     return:
       type: System.EventHandler
     content.vb: Public Event MoveEnded As EventHandler

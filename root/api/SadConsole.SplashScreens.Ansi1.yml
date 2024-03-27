@@ -19,8 +19,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.SplashScreens
-  summary: A simple splashscreen that fades in a screen specifying "Powered by SadConsole".
-  example: []
   syntax:
     content: 'public class Ansi1 : ScreenSurface, IDisposable, IScreenSurfaceEditable, IScreenSurface, IScreenObject, IPositionable, IComponentHost, ISurface, ISurfaceSettable'
     content.vb: Public Class Ansi1 Inherits ScreenSurface Implements IDisposable, IScreenSurfaceEditable, IScreenSurface, IScreenObject, IPositionable, IComponentHost, ISurface, ISurfaceSettable
@@ -260,17 +258,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.SplashScreens
-  summary: Creates the ansi splash screen using the specified font and size.
-  example: []
   syntax:
     content: public Ansi1(IFont font, IFont.Sizes fontSize)
     parameters:
     - id: font
       type: SadConsole.IFont
-      description: The font to use.
     - id: fontSize
       type: SadConsole.IFont.Sizes
-      description: The font size to use.
     content.vb: Public Sub New(font As IFont, fontSize As IFont.Sizes)
   overload: SadConsole.SplashScreens.Ansi1.#ctor*
   nameWithType.vb: Ansi1.New(IFont, IFont.Sizes)
@@ -290,14 +284,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.SplashScreens
-  summary: Creates the ansi splash screen using the <xref href="SadConsole.GameHost.EmbeddedFont" data-throw-if-not-resolved="false"></xref> and the specified font size.
-  example: []
   syntax:
     content: public Ansi1(IFont.Sizes fontSize)
     parameters:
     - id: fontSize
       type: SadConsole.IFont.Sizes
-      description: The size of font to use.
     content.vb: Public Sub New(fontSize As IFont.Sizes)
   overload: SadConsole.SplashScreens.Ansi1.#ctor*
   nameWithType.vb: Ansi1.New(IFont.Sizes)
@@ -317,8 +308,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.SplashScreens
-  summary: Creates the ansi splash screen using the <xref href="SadConsole.GameHost.EmbeddedFont" data-throw-if-not-resolved="false"></xref> and a font size of <xref href="SadConsole.IFont.Sizes.One" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: public Ansi1()
     content.vb: Public Sub New()
@@ -340,17 +329,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.SplashScreens
-  summary: Ends the animation when a key is pressed.
   example: []
   syntax:
     content: public override bool ProcessKeyboard(Keyboard keyboard)
     parameters:
     - id: keyboard
       type: SadConsole.Input.Keyboard
-      description: The keyboard state.
     return:
       type: System.Boolean
-      description: The base implementation of the keyboard.
     content.vb: Public Overrides Function ProcessKeyboard(keyboard As Keyboard) As Boolean
   overridden: SadConsole.ScreenObject.ProcessKeyboard(SadConsole.Input.Keyboard)
   overload: SadConsole.SplashScreens.Ansi1.ProcessKeyboard*
@@ -17860,29 +17846,6 @@ references:
     name: Sizes
     isExternal: true
     href: SadConsole.IFont.Sizes.html
-- uid: SadConsole.GameHost.EmbeddedFont
-  commentId: P:SadConsole.GameHost.EmbeddedFont
-  parent: SadConsole.GameHost
-  isExternal: true
-  href: SadConsole.GameHost.html#SadConsole_GameHost_EmbeddedFont
-  name: EmbeddedFont
-  nameWithType: GameHost.EmbeddedFont
-  fullName: SadConsole.GameHost.EmbeddedFont
-- uid: SadConsole.GameHost
-  commentId: T:SadConsole.GameHost
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.GameHost.html
-  name: GameHost
-  nameWithType: GameHost
-  fullName: SadConsole.GameHost
-- uid: SadConsole.IFont.Sizes.One
-  commentId: F:SadConsole.IFont.Sizes.One
-  isExternal: true
-  href: SadConsole.IFont.Sizes.html#SadConsole_IFont_Sizes_One
-  name: One
-  nameWithType: IFont.Sizes.One
-  fullName: SadConsole.IFont.Sizes.One
 - uid: SadConsole.ScreenObject.ProcessKeyboard(SadConsole.Input.Keyboard)
   commentId: M:SadConsole.ScreenObject.ProcessKeyboard(SadConsole.Input.Keyboard)
   parent: SadConsole.ScreenObject

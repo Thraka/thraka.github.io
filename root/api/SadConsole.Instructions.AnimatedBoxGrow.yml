@@ -64,17 +64,26 @@ items:
   assemblies:
   - SadConsole.Extended
   namespace: SadConsole.Instructions
+  summary: Creates a new animated box defined by the <code class="paramref">area</code>. The box is animated over time and drawn with the set of shape parameters provided.
+  example: []
   syntax:
     content: public AnimatedBoxGrow(Rectangle area, TimeSpan duration, ShapeParameters shapeParameters)
     parameters:
     - id: area
       type: SadRogue.Primitives.Rectangle
+      description: The final area the box is shown on the screen.
     - id: duration
       type: System.TimeSpan
+      description: How long it takes to animate.
     - id: shapeParameters
       type: SadConsole.ShapeParameters
+      description: The shape parameters that define how the box looks.
     content.vb: Public Sub New(area As Rectangle, duration As TimeSpan, shapeParameters As ShapeParameters)
   overload: SadConsole.Instructions.AnimatedBoxGrow.#ctor*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: ''
   nameWithType.vb: AnimatedBoxGrow.New(Rectangle, TimeSpan, ShapeParameters)
   fullName.vb: SadConsole.Instructions.AnimatedBoxGrow.New(SadRogue.Primitives.Rectangle, System.TimeSpan, SadConsole.ShapeParameters)
   name.vb: New(Rectangle, TimeSpan, ShapeParameters)
@@ -92,17 +101,14 @@ items:
   assemblies:
   - SadConsole.Extended
   namespace: SadConsole.Instructions
-  summary: Executes the instruction. This base class method should be called from derived classes. If the IsFinished property is set to true, will try to repeat if needed and will raise all appropriate events.
   example: []
   syntax:
     content: public override void Update(IScreenObject componentHost, TimeSpan delta)
     parameters:
     - id: componentHost
       type: SadConsole.IScreenObject
-      description: The object that hosts this instruction.
     - id: delta
       type: System.TimeSpan
-      description: The time that has elapsed since this method was last called.
     content.vb: Public Overrides Sub Update(componentHost As IScreenObject, delta As TimeSpan)
   overridden: SadConsole.Instructions.InstructionBase.Update(SadConsole.IScreenObject,System.TimeSpan)
   overload: SadConsole.Instructions.AnimatedBoxGrow.Update*
@@ -120,14 +126,12 @@ items:
   assemblies:
   - SadConsole.Extended
   namespace: SadConsole.Instructions
-  summary: Called when the component is added to a host.
   example: []
   syntax:
     content: public override void OnAdded(IScreenObject host)
     parameters:
     - id: host
       type: SadConsole.IScreenObject
-      description: The host that added the component.
     content.vb: Public Overrides Sub OnAdded(host As IScreenObject)
   overridden: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
   overload: SadConsole.Instructions.AnimatedBoxGrow.OnAdded*
@@ -651,6 +655,13 @@ references:
     name: Components
     isExternal: true
     href: SadConsole.Components.html
+- uid: System.ArgumentOutOfRangeException
+  commentId: T:System.ArgumentOutOfRangeException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception
+  name: ArgumentOutOfRangeException
+  nameWithType: ArgumentOutOfRangeException
+  fullName: System.ArgumentOutOfRangeException
 - uid: SadConsole.Instructions.AnimatedBoxGrow.#ctor*
   commentId: Overload:SadConsole.Instructions.AnimatedBoxGrow.#ctor
   isExternal: true

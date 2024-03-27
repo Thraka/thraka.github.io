@@ -20,8 +20,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Base class for toggle button controls, such as <xref href="SadConsole.UI.Controls.CheckBox" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.UI.Controls.RadioButton" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: >-
       [DataContract]
@@ -66,6 +64,7 @@ items:
   - SadConsole.UI.Controls.ControlBase.DetermineState
   - SadConsole.UI.Controls.ControlBase.OnStateChanged(SadConsole.UI.Controls.ControlStates,SadConsole.UI.Controls.ControlStates)
   - SadConsole.UI.Controls.ControlBase.OnSurfaceChanged(SadConsole.ICellSurface,SadConsole.ICellSurface)
+  - SadConsole.UI.Controls.ControlBase.FindThemeFont
   - SadConsole.UI.Controls.ControlBase.FindThemeColors
   - SadConsole.UI.Controls.ControlBase.SetThemeColors(SadConsole.UI.Colors)
   - SadConsole.UI.Controls.ControlBase.HasThemeColors
@@ -134,8 +133,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Raises the <xref href="SadConsole.UI.Controls.ToggleButtonBase.IsSelectedChanged" data-throw-if-not-resolved="false"></xref> event.
-  example: []
   syntax:
     content: protected virtual void OnIsSelected()
     content.vb: Protected Overridable Sub OnIsSelected()
@@ -154,17 +151,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Creates an instance of the button control with the specified width and height.
-  example: []
   syntax:
     content: protected ToggleButtonBase(int width, int height)
     parameters:
     - id: width
       type: System.Int32
-      description: Width of the control.
     - id: height
       type: System.Int32
-      description: Height of the control (default is 1).
     content.vb: Protected Sub New(width As Integer, height As Integer)
   overload: SadConsole.UI.Controls.ToggleButtonBase.#ctor*
   nameWithType.vb: ToggleButtonBase.New(Integer, Integer)
@@ -184,8 +177,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Creates an automatically sized button.
-  example: []
   syntax:
     content: protected ToggleButtonBase()
     content.vb: Protected Sub New()
@@ -207,9 +198,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Gets or sets the selected state of the radio button.
-  remarks: Radio buttons within the same group will set their IsSelected property to the opposite of this radio button when you set this property.
-  example: []
   syntax:
     content: public bool IsSelected { get; set; }
     parameters: []
@@ -231,29 +219,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Raised when the selected state of the radio button is changed.
-  example: []
   syntax:
     content: public event EventHandler? IsSelectedChanged
     return:
       type: System.EventHandler
     content.vb: Public Event IsSelectedChanged As EventHandler
 references:
-- uid: SadConsole.UI.Controls.CheckBox
-  commentId: T:SadConsole.UI.Controls.CheckBox
-  parent: SadConsole.UI.Controls
-  isExternal: true
-  href: SadConsole.UI.Controls.CheckBox.html
-  name: CheckBox
-  nameWithType: CheckBox
-  fullName: SadConsole.UI.Controls.CheckBox
-- uid: SadConsole.UI.Controls.RadioButton
-  commentId: T:SadConsole.UI.Controls.RadioButton
-  isExternal: true
-  href: SadConsole.UI.Controls.RadioButton.html
-  name: RadioButton
-  nameWithType: RadioButton
-  fullName: SadConsole.UI.Controls.RadioButton
 - uid: SadConsole.UI.Controls
   commentId: N:SadConsole.UI.Controls
   isExternal: true
@@ -895,6 +866,28 @@ references:
     name: ICellSurface
     isExternal: true
     href: SadConsole.ICellSurface.html
+  - name: )
+- uid: SadConsole.UI.Controls.ControlBase.FindThemeFont
+  commentId: M:SadConsole.UI.Controls.ControlBase.FindThemeFont
+  parent: SadConsole.UI.Controls.ControlBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeFont
+  name: FindThemeFont()
+  nameWithType: ControlBase.FindThemeFont()
+  fullName: SadConsole.UI.Controls.ControlBase.FindThemeFont()
+  spec.csharp:
+  - uid: SadConsole.UI.Controls.ControlBase.FindThemeFont
+    name: FindThemeFont
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeFont
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.Controls.ControlBase.FindThemeFont
+    name: FindThemeFont
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeFont
+  - name: (
   - name: )
 - uid: SadConsole.UI.Controls.ControlBase.FindThemeColors
   commentId: M:SadConsole.UI.Controls.ControlBase.FindThemeColors
@@ -1669,14 +1662,6 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: SadConsole.UI.Controls.ToggleButtonBase.IsSelectedChanged
-  commentId: E:SadConsole.UI.Controls.ToggleButtonBase.IsSelectedChanged
-  parent: SadConsole.UI.Controls.ToggleButtonBase
-  isExternal: true
-  href: SadConsole.UI.Controls.ToggleButtonBase.html#SadConsole_UI_Controls_ToggleButtonBase_IsSelectedChanged
-  name: IsSelectedChanged
-  nameWithType: ToggleButtonBase.IsSelectedChanged
-  fullName: SadConsole.UI.Controls.ToggleButtonBase.IsSelectedChanged
 - uid: SadConsole.UI.Controls.ToggleButtonBase.OnIsSelected*
   commentId: Overload:SadConsole.UI.Controls.ToggleButtonBase.OnIsSelected
   isExternal: true
@@ -1684,14 +1669,6 @@ references:
   name: OnIsSelected
   nameWithType: ToggleButtonBase.OnIsSelected
   fullName: SadConsole.UI.Controls.ToggleButtonBase.OnIsSelected
-- uid: SadConsole.UI.Controls.ToggleButtonBase
-  commentId: T:SadConsole.UI.Controls.ToggleButtonBase
-  parent: SadConsole.UI.Controls
-  isExternal: true
-  href: SadConsole.UI.Controls.ToggleButtonBase.html
-  name: ToggleButtonBase
-  nameWithType: ToggleButtonBase
-  fullName: SadConsole.UI.Controls.ToggleButtonBase
 - uid: SadConsole.UI.Controls.ToggleButtonBase.#ctor*
   commentId: Overload:SadConsole.UI.Controls.ToggleButtonBase.#ctor
   isExternal: true

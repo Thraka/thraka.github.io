@@ -55,8 +55,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: Manages a set of entities. Adds a render step and only renders the entities that are in the parent <xref href="SadConsole.IScreenSurface" data-throw-if-not-resolved="false"></xref> visible area.
-  example: []
   syntax:
     content: >-
       [DataContract]
@@ -104,8 +102,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: Indicates that the entity renderer has been added to a parent object.
-  example: []
   syntax:
     content: protected bool IsAttached
     return:
@@ -125,8 +121,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: The entities to process.
-  example: []
   syntax:
     content: >-
       [DataMember(Name = "Entities")]
@@ -160,8 +154,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: The entities currently visible.
-  example: []
   syntax:
     content: protected List<Entity> _entitiesVisible
     return:
@@ -181,8 +173,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: The parent screen hosting this component.
-  example: []
   syntax:
     content: protected IScreenSurface? _screen
     return:
@@ -202,8 +192,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: Cached rectangle for rendering.
-  example: []
   syntax:
     content: protected Rectangle _offsetAreaPixels
     return:
@@ -223,8 +211,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: A cached copy of the <xref href="SadConsole.ICellSurface.View" data-throw-if-not-resolved="false"></xref> of the hosting screen surface.
-  example: []
   syntax:
     content: protected Rectangle _screenCachedView
     return:
@@ -244,8 +230,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: A cached copy of the <xref href="SadConsole.IScreenSurface.Font" data-throw-if-not-resolved="false"></xref> of the hosting screen surface.
-  example: []
   syntax:
     content: protected IFont? _screenCachedFont
     return:
@@ -265,8 +249,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: A cached copy of the <xref href="SadConsole.IScreenSurface.FontSize" data-throw-if-not-resolved="false"></xref> of the hosting screen surface.
-  example: []
   syntax:
     content: protected Point _screenCachedFontSize
     return:
@@ -286,8 +268,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: Internal use only
-  example: []
   syntax:
     content: public IRenderStep? RenderStep
     return:
@@ -307,14 +287,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: Adds an entity to this manager.
   example: []
   syntax:
     content: public void Add(Entity entity)
     parameters:
     - id: entity
       type: SadConsole.Entities.Entity
-      description: The entity to add.
     content.vb: Public Sub Add(entity As Entity)
   overload: SadConsole.Entities.EntityManager.Add*
   implements:
@@ -333,14 +311,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: Adds a collection of entities to this manager.
-  example: []
   syntax:
     content: public void AddRange(IEnumerable<Entity> entities)
     parameters:
     - id: entities
       type: System.Collections.Generic.IEnumerable{SadConsole.Entities.Entity}
-      description: The entities to add.
     content.vb: Public Sub AddRange(entities As IEnumerable(Of Entity))
   overload: SadConsole.Entities.EntityManager.AddRange*
   nameWithType.vb: EntityManager.AddRange(IEnumerable(Of Entity))
@@ -360,17 +335,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: Adds an entity to the collection, subscribes to events, and calls <xref href="SadConsole.Entities.EntityManager.OnEntityAdded(SadConsole.Entities.Entity)" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.Entities.EntityManager.OnEntityChangedPosition(SadConsole.Entities.Entity%2cSadRogue.Primitives.ValueChangedEventArgs%7bSadRogue.Primitives.Point%7d)" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: protected void AddEntity(Entity entity, bool skipSort)
     parameters:
     - id: entity
       type: SadConsole.Entities.Entity
-      description: The entity to remove.
     - id: skipSort
       type: System.Boolean
-      description: When true, skips sorting when <xref href="SadConsole.Entities.EntityManager.CalculateEntityVisibilityProtected(SadConsole.Entities.Entity%2cSystem.Boolean)" data-throw-if-not-resolved="false"></xref> is called inside this method.
     content.vb: Protected Sub AddEntity(entity As Entity, skipSort As Boolean)
   overload: SadConsole.Entities.EntityManager.AddEntity*
   nameWithType.vb: EntityManager.AddEntity(Entity, Boolean)
@@ -390,14 +361,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: Adds an entity to the collection, unsubscribes to events, and calls <xref href="SadConsole.Entities.EntityManager.OnEntityRemoved(SadConsole.Entities.Entity)" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: protected bool RemoveEntity(Entity entity)
     parameters:
     - id: entity
       type: SadConsole.Entities.Entity
-      description: The entity to remove.
     return:
       type: System.Boolean
     content.vb: Protected Function RemoveEntity(entity As Entity) As Boolean
@@ -416,14 +384,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: Removes an entity from this manager.
   example: []
   syntax:
     content: public bool Remove(Entity entity)
     parameters:
     - id: entity
       type: SadConsole.Entities.Entity
-      description: The entity to remove.
     return:
       type: System.Boolean
     content.vb: Public Function Remove(entity As Entity) As Boolean
@@ -444,7 +410,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: Removes all entities from this renderer.
   example: []
   syntax:
     content: public void Clear()
@@ -466,14 +431,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: Called when the component is added to a host.
   example: []
   syntax:
     content: public override void OnAdded(IScreenObject host)
     parameters:
     - id: host
       type: SadConsole.IScreenObject
-      description: The host that added the component.
     content.vb: Public Overrides Sub OnAdded(host As IScreenObject)
   overridden: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
   overload: SadConsole.Entities.EntityManager.OnAdded*
@@ -493,14 +456,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: Called when the component is removed from the host.
   example: []
   syntax:
     content: public override void OnRemoved(IScreenObject host)
     parameters:
     - id: host
       type: SadConsole.IScreenObject
-      description: The host that removed the component.
     content.vb: Public Overrides Sub OnRemoved(host As IScreenObject)
   overridden: SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
   overload: SadConsole.Entities.EntityManager.OnRemoved*
@@ -520,17 +481,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: Called by a host on the update frame.
   example: []
   syntax:
     content: public override void Update(IScreenObject host, TimeSpan delta)
     parameters:
     - id: host
       type: SadConsole.IScreenObject
-      description: The host calling the component.
     - id: delta
       type: System.TimeSpan
-      description: The time that has elapsed since this method was last called.
     content.vb: Public Overrides Sub Update(host As IScreenObject, delta As TimeSpan)
   overridden: SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
   overload: SadConsole.Entities.EntityManager.Update*
@@ -550,20 +508,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: Gets a render rectangle for a position.
-  example: []
   syntax:
     content: public Rectangle GetRenderRectangle(Point position, bool isPixel)
     parameters:
     - id: position
       type: SadRogue.Primitives.Point
-      description: The position of the entity.
     - id: isPixel
       type: System.Boolean
-      description: Indicates the entity is pixel positioned.
     return:
       type: SadRogue.Primitives.Rectangle
-      description: ''
     content.vb: Public Function GetRenderRectangle(position As Point, isPixel As Boolean) As Rectangle
   overload: SadConsole.Entities.EntityManager.GetRenderRectangle*
   nameWithType.vb: EntityManager.GetRenderRectangle(Point, Boolean)
@@ -583,8 +536,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: Sorts the <xref href="SadConsole.Entities.EntityManager.EntitiesVisible" data-throw-if-not-resolved="false"></xref> collection according to the <xref href="SadConsole.Entities.Entity.ZIndex" data-throw-if-not-resolved="false"></xref> value.
-  example: []
   syntax:
     content: public void SortVisibleEntities()
     content.vb: Public Sub SortVisibleEntities()
@@ -603,17 +554,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: Called when an entity changes position.
-  example: []
   syntax:
     content: protected virtual void OnEntityChangedPosition(Entity entity, ValueChangedEventArgs<Point> e)
     parameters:
     - id: entity
       type: SadConsole.Entities.Entity
-      description: The entity that moved.
     - id: e
       type: SadRogue.Primitives.ValueChangedEventArgs{SadRogue.Primitives.Point}
-      description: The previous and new values of the position.
     content.vb: Protected Overridable Sub OnEntityChangedPosition(entity As Entity, e As ValueChangedEventArgs(Of Point))
   overload: SadConsole.Entities.EntityManager.OnEntityChangedPosition*
   nameWithType.vb: EntityManager.OnEntityChangedPosition(Entity, ValueChangedEventArgs(Of Point))
@@ -633,14 +580,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: Called when an entity is added.
-  example: []
   syntax:
     content: protected virtual void OnEntityAdded(Entity entity)
     parameters:
     - id: entity
       type: SadConsole.Entities.Entity
-      description: The entity.
     content.vb: Protected Overridable Sub OnEntityAdded(entity As Entity)
   overload: SadConsole.Entities.EntityManager.OnEntityAdded*
 - uid: SadConsole.Entities.EntityManager.OnEntityRemoved(SadConsole.Entities.Entity)
@@ -657,14 +601,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: Called when an entity is removed.
-  example: []
   syntax:
     content: protected virtual void OnEntityRemoved(Entity entity)
     parameters:
     - id: entity
       type: SadConsole.Entities.Entity
-      description: The entity.
     content.vb: Protected Overridable Sub OnEntityRemoved(entity As Entity)
   overload: SadConsole.Entities.EntityManager.OnEntityRemoved*
 - uid: SadConsole.Entities.EntityManager.CalculateEntityVisibility(SadConsole.Entities.Entity)
@@ -681,23 +622,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: Updates the visibility state of an entity.
-  example: []
   syntax:
     content: public bool CalculateEntityVisibility(Entity entity)
     parameters:
     - id: entity
       type: SadConsole.Entities.Entity
-      description: The entity to check.
     return:
       type: System.Boolean
-      description: Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when this entity is considered visible; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Public Function CalculateEntityVisibility(entity As Entity) As Boolean
   overload: SadConsole.Entities.EntityManager.CalculateEntityVisibility*
-  exceptions:
-  - type: System.ArgumentException
-    commentId: T:System.ArgumentException
-    description: ''
 - uid: SadConsole.Entities.EntityManager.CalculateEntityVisibilityProtected(SadConsole.Entities.Entity,System.Boolean)
   commentId: M:SadConsole.Entities.EntityManager.CalculateEntityVisibilityProtected(SadConsole.Entities.Entity,System.Boolean)
   id: CalculateEntityVisibilityProtected(SadConsole.Entities.Entity,System.Boolean)
@@ -712,20 +645,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: Detects a visibility state change of an entity and changes its internal list position.
-  example: []
   syntax:
     content: protected bool CalculateEntityVisibilityProtected(Entity entity, bool skipSort)
     parameters:
     - id: entity
       type: SadConsole.Entities.Entity
-      description: The entity to check.
     - id: skipSort
       type: System.Boolean
-      description: If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, skips sorting the visible.
     return:
       type: System.Boolean
-      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the entity is visible; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Protected Function CalculateEntityVisibilityProtected(entity As Entity, skipSort As Boolean) As Boolean
   overload: SadConsole.Entities.EntityManager.CalculateEntityVisibilityProtected*
   nameWithType.vb: EntityManager.CalculateEntityVisibilityProtected(Entity, Boolean)
@@ -745,8 +673,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: Updates the cached view area based on the parent surface.
-  example: []
   syntax:
     content: protected void UpdateCachedVisibilityArea()
     content.vb: Protected Sub UpdateCachedVisibilityArea()
@@ -890,8 +816,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: The entities associated with this manager.
-  example: []
   syntax:
     content: public IReadOnlyList<Entity> Entities { get; }
     parameters: []
@@ -913,8 +837,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: The entities within the visible portion of the parent surface.
-  example: []
   syntax:
     content: public IReadOnlyList<Entity> EntitiesVisible { get; }
     parameters: []
@@ -936,8 +858,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that this object needs to be redrawn; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
-  example: []
   syntax:
     content: public bool IsDirty { get; set; }
     parameters: []
@@ -959,8 +879,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates this manager should call <xref href="SadConsole.IScreenObject.Update(System.TimeSpan)" data-throw-if-not-resolved="false"></xref> on each entity; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
-  example: []
   syntax:
     content: public bool DoEntityUpdate { get; set; }
     parameters: []
@@ -982,8 +900,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the <xref href="SadConsole.Entities.EntityManager.Add(SadConsole.Entities.Entity)" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.Entities.EntityManager.Remove(SadConsole.Entities.Entity)" data-throw-if-not-resolved="false"></xref> won't check if the entity exists before doing its operation.
-  example: []
   syntax:
     content: public bool SkipExistsChecks { get; set; }
     parameters: []
@@ -1005,8 +921,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: An alternative font to use when drawing the entities. If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, the hosting surface's font is used.
-  example: []
   syntax:
     content: public IFont? AlternativeFont { get; set; }
     parameters: []
@@ -1028,7 +942,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: The number of entities in the renderer.
   example: []
   syntax:
     content: public int Count { get; }
@@ -1053,7 +966,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: Always returns false.
   example: []
   syntax:
     content: public bool IsReadOnly { get; }
@@ -1078,37 +990,22 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: Gets an entity by index.
   example: []
   syntax:
     content: public Entity this[int index] { get; set; }
     parameters:
     - id: index
       type: System.Int32
-      description: ''
     return:
       type: SadConsole.Entities.Entity
-      description: The entity.
     content.vb: Public Default Property this[](index As Integer) As Entity
   overload: SadConsole.Entities.EntityManager.Item*
-  exceptions:
-  - type: System.NotSupportedException
-    commentId: T:System.NotSupportedException
-    description: ''
   implements:
   - System.Collections.Generic.IList{SadConsole.Entities.Entity}.Item(System.Int32)
   nameWithType.vb: EntityManager.this[](Integer)
   fullName.vb: SadConsole.Entities.EntityManager.this[](Integer)
   name.vb: this[](Integer)
 references:
-- uid: SadConsole.IScreenSurface
-  commentId: T:SadConsole.IScreenSurface
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.IScreenSurface.html
-  name: IScreenSurface
-  nameWithType: IScreenSurface
-  fullName: SadConsole.IScreenSurface
 - uid: SadConsole.Entities
   commentId: N:SadConsole.Entities
   isExternal: true
@@ -1503,13 +1400,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
-- uid: SadConsole
-  commentId: N:SadConsole
-  isExternal: true
-  href: SadConsole.html
-  name: SadConsole
-  nameWithType: SadConsole
-  fullName: SadConsole
 - uid: System
   commentId: N:System
   isExternal: true
@@ -1766,6 +1656,21 @@ references:
   - name: " "
   - name: T
   - name: )
+- uid: SadConsole.IScreenSurface
+  commentId: T:SadConsole.IScreenSurface
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IScreenSurface.html
+  name: IScreenSurface
+  nameWithType: IScreenSurface
+  fullName: SadConsole.IScreenSurface
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
 - uid: SadRogue.Primitives.Rectangle
   commentId: T:SadRogue.Primitives.Rectangle
   parent: SadRogue.Primitives
@@ -1800,30 +1705,6 @@ references:
     name: Primitives
     isExternal: true
     href: SadRogue.Primitives.html
-- uid: SadConsole.ICellSurface.View
-  commentId: P:SadConsole.ICellSurface.View
-  parent: SadConsole.ICellSurface
-  isExternal: true
-  href: SadConsole.ICellSurface.html#SadConsole_ICellSurface_View
-  name: View
-  nameWithType: ICellSurface.View
-  fullName: SadConsole.ICellSurface.View
-- uid: SadConsole.ICellSurface
-  commentId: T:SadConsole.ICellSurface
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.ICellSurface.html
-  name: ICellSurface
-  nameWithType: ICellSurface
-  fullName: SadConsole.ICellSurface
-- uid: SadConsole.IScreenSurface.Font
-  commentId: P:SadConsole.IScreenSurface.Font
-  parent: SadConsole.IScreenSurface
-  isExternal: true
-  href: SadConsole.IScreenSurface.html#SadConsole_IScreenSurface_Font
-  name: Font
-  nameWithType: IScreenSurface.Font
-  fullName: SadConsole.IScreenSurface.Font
 - uid: SadConsole.IFont
   commentId: T:SadConsole.IFont
   parent: SadConsole
@@ -1832,14 +1713,6 @@ references:
   name: IFont
   nameWithType: IFont
   fullName: SadConsole.IFont
-- uid: SadConsole.IScreenSurface.FontSize
-  commentId: P:SadConsole.IScreenSurface.FontSize
-  parent: SadConsole.IScreenSurface
-  isExternal: true
-  href: SadConsole.IScreenSurface.html#SadConsole_IScreenSurface_FontSize
-  name: FontSize
-  nameWithType: IScreenSurface.FontSize
-  fullName: SadConsole.IScreenSurface.FontSize
 - uid: SadRogue.Primitives.Point
   commentId: T:SadRogue.Primitives.Point
   parent: SadRogue.Primitives
@@ -1961,136 +1834,6 @@ references:
   name: AddRange
   nameWithType: EntityManager.AddRange
   fullName: SadConsole.Entities.EntityManager.AddRange
-- uid: SadConsole.Entities.EntityManager.OnEntityAdded(SadConsole.Entities.Entity)
-  commentId: M:SadConsole.Entities.EntityManager.OnEntityAdded(SadConsole.Entities.Entity)
-  parent: SadConsole.Entities.EntityManager
-  isExternal: true
-  href: SadConsole.Entities.EntityManager.html#SadConsole_Entities_EntityManager_OnEntityAdded_SadConsole_Entities_Entity_
-  name: OnEntityAdded(Entity)
-  nameWithType: EntityManager.OnEntityAdded(Entity)
-  fullName: SadConsole.Entities.EntityManager.OnEntityAdded(SadConsole.Entities.Entity)
-  spec.csharp:
-  - uid: SadConsole.Entities.EntityManager.OnEntityAdded(SadConsole.Entities.Entity)
-    name: OnEntityAdded
-    isExternal: true
-    href: SadConsole.Entities.EntityManager.html#SadConsole_Entities_EntityManager_OnEntityAdded_SadConsole_Entities_Entity_
-  - name: (
-  - uid: SadConsole.Entities.Entity
-    name: Entity
-    isExternal: true
-    href: SadConsole.Entities.Entity.html
-  - name: )
-  spec.vb:
-  - uid: SadConsole.Entities.EntityManager.OnEntityAdded(SadConsole.Entities.Entity)
-    name: OnEntityAdded
-    isExternal: true
-    href: SadConsole.Entities.EntityManager.html#SadConsole_Entities_EntityManager_OnEntityAdded_SadConsole_Entities_Entity_
-  - name: (
-  - uid: SadConsole.Entities.Entity
-    name: Entity
-    isExternal: true
-    href: SadConsole.Entities.Entity.html
-  - name: )
-- uid: SadConsole.Entities.EntityManager.OnEntityChangedPosition(SadConsole.Entities.Entity,SadRogue.Primitives.ValueChangedEventArgs{SadRogue.Primitives.Point})
-  commentId: M:SadConsole.Entities.EntityManager.OnEntityChangedPosition(SadConsole.Entities.Entity,SadRogue.Primitives.ValueChangedEventArgs{SadRogue.Primitives.Point})
-  parent: SadConsole.Entities.EntityManager
-  isExternal: true
-  href: SadConsole.Entities.EntityManager.html#SadConsole_Entities_EntityManager_OnEntityChangedPosition_SadConsole_Entities_Entity_SadRogue_Primitives_ValueChangedEventArgs_SadRogue_Primitives_Point__
-  name: OnEntityChangedPosition(Entity, ValueChangedEventArgs<Point>)
-  nameWithType: EntityManager.OnEntityChangedPosition(Entity, ValueChangedEventArgs<Point>)
-  fullName: SadConsole.Entities.EntityManager.OnEntityChangedPosition(SadConsole.Entities.Entity, SadRogue.Primitives.ValueChangedEventArgs<SadRogue.Primitives.Point>)
-  nameWithType.vb: EntityManager.OnEntityChangedPosition(Entity, ValueChangedEventArgs(Of Point))
-  fullName.vb: SadConsole.Entities.EntityManager.OnEntityChangedPosition(SadConsole.Entities.Entity, SadRogue.Primitives.ValueChangedEventArgs(Of SadRogue.Primitives.Point))
-  name.vb: OnEntityChangedPosition(Entity, ValueChangedEventArgs(Of Point))
-  spec.csharp:
-  - uid: SadConsole.Entities.EntityManager.OnEntityChangedPosition(SadConsole.Entities.Entity,SadRogue.Primitives.ValueChangedEventArgs{SadRogue.Primitives.Point})
-    name: OnEntityChangedPosition
-    isExternal: true
-    href: SadConsole.Entities.EntityManager.html#SadConsole_Entities_EntityManager_OnEntityChangedPosition_SadConsole_Entities_Entity_SadRogue_Primitives_ValueChangedEventArgs_SadRogue_Primitives_Point__
-  - name: (
-  - uid: SadConsole.Entities.Entity
-    name: Entity
-    isExternal: true
-    href: SadConsole.Entities.Entity.html
-  - name: ','
-  - name: " "
-  - uid: SadRogue.Primitives.ValueChangedEventArgs`1
-    name: ValueChangedEventArgs
-    isExternal: true
-  - name: <
-  - uid: SadRogue.Primitives.Point
-    name: Point
-    isExternal: true
-  - name: '>'
-  - name: )
-  spec.vb:
-  - uid: SadConsole.Entities.EntityManager.OnEntityChangedPosition(SadConsole.Entities.Entity,SadRogue.Primitives.ValueChangedEventArgs{SadRogue.Primitives.Point})
-    name: OnEntityChangedPosition
-    isExternal: true
-    href: SadConsole.Entities.EntityManager.html#SadConsole_Entities_EntityManager_OnEntityChangedPosition_SadConsole_Entities_Entity_SadRogue_Primitives_ValueChangedEventArgs_SadRogue_Primitives_Point__
-  - name: (
-  - uid: SadConsole.Entities.Entity
-    name: Entity
-    isExternal: true
-    href: SadConsole.Entities.Entity.html
-  - name: ','
-  - name: " "
-  - uid: SadRogue.Primitives.ValueChangedEventArgs`1
-    name: ValueChangedEventArgs
-    isExternal: true
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: SadRogue.Primitives.Point
-    name: Point
-    isExternal: true
-  - name: )
-  - name: )
-- uid: SadConsole.Entities.EntityManager.CalculateEntityVisibilityProtected(SadConsole.Entities.Entity,System.Boolean)
-  commentId: M:SadConsole.Entities.EntityManager.CalculateEntityVisibilityProtected(SadConsole.Entities.Entity,System.Boolean)
-  parent: SadConsole.Entities.EntityManager
-  isExternal: true
-  href: SadConsole.Entities.EntityManager.html#SadConsole_Entities_EntityManager_CalculateEntityVisibilityProtected_SadConsole_Entities_Entity_System_Boolean_
-  name: CalculateEntityVisibilityProtected(Entity, bool)
-  nameWithType: EntityManager.CalculateEntityVisibilityProtected(Entity, bool)
-  fullName: SadConsole.Entities.EntityManager.CalculateEntityVisibilityProtected(SadConsole.Entities.Entity, bool)
-  nameWithType.vb: EntityManager.CalculateEntityVisibilityProtected(Entity, Boolean)
-  fullName.vb: SadConsole.Entities.EntityManager.CalculateEntityVisibilityProtected(SadConsole.Entities.Entity, Boolean)
-  name.vb: CalculateEntityVisibilityProtected(Entity, Boolean)
-  spec.csharp:
-  - uid: SadConsole.Entities.EntityManager.CalculateEntityVisibilityProtected(SadConsole.Entities.Entity,System.Boolean)
-    name: CalculateEntityVisibilityProtected
-    isExternal: true
-    href: SadConsole.Entities.EntityManager.html#SadConsole_Entities_EntityManager_CalculateEntityVisibilityProtected_SadConsole_Entities_Entity_System_Boolean_
-  - name: (
-  - uid: SadConsole.Entities.Entity
-    name: Entity
-    isExternal: true
-    href: SadConsole.Entities.Entity.html
-  - name: ','
-  - name: " "
-  - uid: System.Boolean
-    name: bool
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: )
-  spec.vb:
-  - uid: SadConsole.Entities.EntityManager.CalculateEntityVisibilityProtected(SadConsole.Entities.Entity,System.Boolean)
-    name: CalculateEntityVisibilityProtected
-    isExternal: true
-    href: SadConsole.Entities.EntityManager.html#SadConsole_Entities_EntityManager_CalculateEntityVisibilityProtected_SadConsole_Entities_Entity_System_Boolean_
-  - name: (
-  - uid: SadConsole.Entities.Entity
-    name: Entity
-    isExternal: true
-    href: SadConsole.Entities.Entity.html
-  - name: ','
-  - name: " "
-  - uid: System.Boolean
-    name: Boolean
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: )
 - uid: SadConsole.Entities.EntityManager.AddEntity*
   commentId: Overload:SadConsole.Entities.EntityManager.AddEntity
   isExternal: true
@@ -2098,44 +1841,6 @@ references:
   name: AddEntity
   nameWithType: EntityManager.AddEntity
   fullName: SadConsole.Entities.EntityManager.AddEntity
-- uid: SadConsole.Entities.EntityManager
-  commentId: T:SadConsole.Entities.EntityManager
-  parent: SadConsole.Entities
-  isExternal: true
-  href: SadConsole.Entities.EntityManager.html
-  name: EntityManager
-  nameWithType: EntityManager
-  fullName: SadConsole.Entities.EntityManager
-- uid: SadConsole.Entities.EntityManager.OnEntityRemoved(SadConsole.Entities.Entity)
-  commentId: M:SadConsole.Entities.EntityManager.OnEntityRemoved(SadConsole.Entities.Entity)
-  parent: SadConsole.Entities.EntityManager
-  isExternal: true
-  href: SadConsole.Entities.EntityManager.html#SadConsole_Entities_EntityManager_OnEntityRemoved_SadConsole_Entities_Entity_
-  name: OnEntityRemoved(Entity)
-  nameWithType: EntityManager.OnEntityRemoved(Entity)
-  fullName: SadConsole.Entities.EntityManager.OnEntityRemoved(SadConsole.Entities.Entity)
-  spec.csharp:
-  - uid: SadConsole.Entities.EntityManager.OnEntityRemoved(SadConsole.Entities.Entity)
-    name: OnEntityRemoved
-    isExternal: true
-    href: SadConsole.Entities.EntityManager.html#SadConsole_Entities_EntityManager_OnEntityRemoved_SadConsole_Entities_Entity_
-  - name: (
-  - uid: SadConsole.Entities.Entity
-    name: Entity
-    isExternal: true
-    href: SadConsole.Entities.Entity.html
-  - name: )
-  spec.vb:
-  - uid: SadConsole.Entities.EntityManager.OnEntityRemoved(SadConsole.Entities.Entity)
-    name: OnEntityRemoved
-    isExternal: true
-    href: SadConsole.Entities.EntityManager.html#SadConsole_Entities_EntityManager_OnEntityRemoved_SadConsole_Entities_Entity_
-  - name: (
-  - uid: SadConsole.Entities.Entity
-    name: Entity
-    isExternal: true
-    href: SadConsole.Entities.Entity.html
-  - name: )
 - uid: SadConsole.Entities.EntityManager.RemoveEntity*
   commentId: Overload:SadConsole.Entities.EntityManager.RemoveEntity
   isExternal: true
@@ -2509,21 +2214,6 @@ references:
   name: GetRenderRectangle
   nameWithType: EntityManager.GetRenderRectangle
   fullName: SadConsole.Entities.EntityManager.GetRenderRectangle
-- uid: SadConsole.Entities.EntityManager.EntitiesVisible
-  commentId: P:SadConsole.Entities.EntityManager.EntitiesVisible
-  parent: SadConsole.Entities.EntityManager
-  isExternal: true
-  href: SadConsole.Entities.EntityManager.html#SadConsole_Entities_EntityManager_EntitiesVisible
-  name: EntitiesVisible
-  nameWithType: EntityManager.EntitiesVisible
-  fullName: SadConsole.Entities.EntityManager.EntitiesVisible
-- uid: SadConsole.Entities.Entity.ZIndex
-  commentId: P:SadConsole.Entities.Entity.ZIndex
-  isExternal: true
-  href: SadConsole.Entities.Entity.html#SadConsole_Entities_Entity_ZIndex
-  name: ZIndex
-  nameWithType: Entity.ZIndex
-  fullName: SadConsole.Entities.Entity.ZIndex
 - uid: SadConsole.Entities.EntityManager.SortVisibleEntities*
   commentId: Overload:SadConsole.Entities.EntityManager.SortVisibleEntities
   isExternal: true
@@ -2607,13 +2297,6 @@ references:
   name: OnEntityRemoved
   nameWithType: EntityManager.OnEntityRemoved
   fullName: SadConsole.Entities.EntityManager.OnEntityRemoved
-- uid: System.ArgumentException
-  commentId: T:System.ArgumentException
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
-  name: ArgumentException
-  nameWithType: ArgumentException
-  fullName: System.ArgumentException
 - uid: SadConsole.Entities.EntityManager.CalculateEntityVisibility*
   commentId: Overload:SadConsole.Entities.EntityManager.CalculateEntityVisibility
   isExternal: true
@@ -3106,36 +2789,6 @@ references:
   name: IsDirty
   nameWithType: EntityManager.IsDirty
   fullName: SadConsole.Entities.EntityManager.IsDirty
-- uid: SadConsole.IScreenObject.Update(System.TimeSpan)
-  commentId: M:SadConsole.IScreenObject.Update(System.TimeSpan)
-  parent: SadConsole.IScreenObject
-  isExternal: true
-  href: SadConsole.IScreenObject.html#SadConsole_IScreenObject_Update_System_TimeSpan_
-  name: Update(TimeSpan)
-  nameWithType: IScreenObject.Update(TimeSpan)
-  fullName: SadConsole.IScreenObject.Update(System.TimeSpan)
-  spec.csharp:
-  - uid: SadConsole.IScreenObject.Update(System.TimeSpan)
-    name: Update
-    isExternal: true
-    href: SadConsole.IScreenObject.html#SadConsole_IScreenObject_Update_System_TimeSpan_
-  - name: (
-  - uid: System.TimeSpan
-    name: TimeSpan
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.timespan
-  - name: )
-  spec.vb:
-  - uid: SadConsole.IScreenObject.Update(System.TimeSpan)
-    name: Update
-    isExternal: true
-    href: SadConsole.IScreenObject.html#SadConsole_IScreenObject_Update_System_TimeSpan_
-  - name: (
-  - uid: System.TimeSpan
-    name: TimeSpan
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.timespan
-  - name: )
 - uid: SadConsole.Entities.EntityManager.DoEntityUpdate*
   commentId: Overload:SadConsole.Entities.EntityManager.DoEntityUpdate
   isExternal: true
@@ -3143,66 +2796,6 @@ references:
   name: DoEntityUpdate
   nameWithType: EntityManager.DoEntityUpdate
   fullName: SadConsole.Entities.EntityManager.DoEntityUpdate
-- uid: SadConsole.Entities.EntityManager.Add(SadConsole.Entities.Entity)
-  commentId: M:SadConsole.Entities.EntityManager.Add(SadConsole.Entities.Entity)
-  parent: SadConsole.Entities.EntityManager
-  isExternal: true
-  href: SadConsole.Entities.EntityManager.html#SadConsole_Entities_EntityManager_Add_SadConsole_Entities_Entity_
-  name: Add(Entity)
-  nameWithType: EntityManager.Add(Entity)
-  fullName: SadConsole.Entities.EntityManager.Add(SadConsole.Entities.Entity)
-  spec.csharp:
-  - uid: SadConsole.Entities.EntityManager.Add(SadConsole.Entities.Entity)
-    name: Add
-    isExternal: true
-    href: SadConsole.Entities.EntityManager.html#SadConsole_Entities_EntityManager_Add_SadConsole_Entities_Entity_
-  - name: (
-  - uid: SadConsole.Entities.Entity
-    name: Entity
-    isExternal: true
-    href: SadConsole.Entities.Entity.html
-  - name: )
-  spec.vb:
-  - uid: SadConsole.Entities.EntityManager.Add(SadConsole.Entities.Entity)
-    name: Add
-    isExternal: true
-    href: SadConsole.Entities.EntityManager.html#SadConsole_Entities_EntityManager_Add_SadConsole_Entities_Entity_
-  - name: (
-  - uid: SadConsole.Entities.Entity
-    name: Entity
-    isExternal: true
-    href: SadConsole.Entities.Entity.html
-  - name: )
-- uid: SadConsole.Entities.EntityManager.Remove(SadConsole.Entities.Entity)
-  commentId: M:SadConsole.Entities.EntityManager.Remove(SadConsole.Entities.Entity)
-  parent: SadConsole.Entities.EntityManager
-  isExternal: true
-  href: SadConsole.Entities.EntityManager.html#SadConsole_Entities_EntityManager_Remove_SadConsole_Entities_Entity_
-  name: Remove(Entity)
-  nameWithType: EntityManager.Remove(Entity)
-  fullName: SadConsole.Entities.EntityManager.Remove(SadConsole.Entities.Entity)
-  spec.csharp:
-  - uid: SadConsole.Entities.EntityManager.Remove(SadConsole.Entities.Entity)
-    name: Remove
-    isExternal: true
-    href: SadConsole.Entities.EntityManager.html#SadConsole_Entities_EntityManager_Remove_SadConsole_Entities_Entity_
-  - name: (
-  - uid: SadConsole.Entities.Entity
-    name: Entity
-    isExternal: true
-    href: SadConsole.Entities.Entity.html
-  - name: )
-  spec.vb:
-  - uid: SadConsole.Entities.EntityManager.Remove(SadConsole.Entities.Entity)
-    name: Remove
-    isExternal: true
-    href: SadConsole.Entities.EntityManager.html#SadConsole_Entities_EntityManager_Remove_SadConsole_Entities_Entity_
-  - name: (
-  - uid: SadConsole.Entities.Entity
-    name: Entity
-    isExternal: true
-    href: SadConsole.Entities.Entity.html
-  - name: )
 - uid: SadConsole.Entities.EntityManager.SkipExistsChecks*
   commentId: Overload:SadConsole.Entities.EntityManager.SkipExistsChecks
   isExternal: true
@@ -3269,13 +2862,6 @@ references:
   fullName: System.Collections.Generic.ICollection<T>.IsReadOnly
   nameWithType.vb: ICollection(Of T).IsReadOnly
   fullName.vb: System.Collections.Generic.ICollection(Of T).IsReadOnly
-- uid: System.NotSupportedException
-  commentId: T:System.NotSupportedException
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.notsupportedexception
-  name: NotSupportedException
-  nameWithType: NotSupportedException
-  fullName: System.NotSupportedException
 - uid: SadConsole.Entities.EntityManager.Item*
   commentId: Overload:SadConsole.Entities.EntityManager.Item
   isExternal: true

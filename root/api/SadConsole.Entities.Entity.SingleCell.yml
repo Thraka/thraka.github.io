@@ -21,8 +21,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: An entity that is a single cell.
-  example: []
   syntax:
     content: >-
       [DataContract]
@@ -60,20 +58,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: Creates a new entity with the specified foreground, background, and glyph.
-  example: []
   syntax:
     content: public SingleCell(Color foreground, Color background, int glyph)
     parameters:
     - id: foreground
       type: SadRogue.Primitives.Color
-      description: The foreground color of the entity.
     - id: background
       type: SadRogue.Primitives.Color
-      description: The background color of the entity.
     - id: glyph
       type: System.Int32
-      description: The glyph color of the entity.
     content.vb: Public Sub New(foreground As Color, background As Color, glyph As Integer)
   overload: SadConsole.Entities.Entity.SingleCell.#ctor*
   nameWithType.vb: Entity.SingleCell.New(Color, Color, Integer)
@@ -93,14 +86,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: Creates a new entity, references the provided glyph as the appearance.
-  example: []
   syntax:
     content: public SingleCell(ColoredGlyphBase appearance)
     parameters:
     - id: appearance
       type: SadConsole.ColoredGlyphBase
-      description: The appearance of the entity.
     content.vb: Public Sub New(appearance As ColoredGlyphBase)
   overload: SadConsole.Entities.Entity.SingleCell.#ctor*
   nameWithType.vb: Entity.SingleCell.New(ColoredGlyphBase)
@@ -120,14 +110,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: If an effect is applied to the cell, updates the effect.
-  example: []
   syntax:
     content: public void Update(TimeSpan delta)
     parameters:
     - id: delta
       type: System.TimeSpan
-      description: ''
     content.vb: Public Sub Update(delta As TimeSpan)
   overload: SadConsole.Entities.Entity.SingleCell.Update*
 - uid: SadConsole.Entities.Entity.SingleCell.IsDirty
@@ -144,8 +131,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that this cell is dirty and needs to be redrawn.
-  example: []
   syntax:
     content: public bool IsDirty { get; set; }
     parameters: []
@@ -167,8 +152,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: Represents what the entity looks like.
-  example: []
   syntax:
     content: public ColoredGlyphBase Appearance { get; protected set; }
     parameters: []
@@ -190,8 +173,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
-  summary: An effect that can be applied to the <xref href="SadConsole.Entities.Entity.SingleCell.Appearance" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: public ICellEffect? Effect { get; set; }
     parameters: []
@@ -569,13 +550,6 @@ references:
   name.vb: Boolean
 - uid: SadConsole.Entities.Entity.SingleCell.Appearance*
   commentId: Overload:SadConsole.Entities.Entity.SingleCell.Appearance
-  isExternal: true
-  href: SadConsole.Entities.Entity.SingleCell.html#SadConsole_Entities_Entity_SingleCell_Appearance
-  name: Appearance
-  nameWithType: Entity.SingleCell.Appearance
-  fullName: SadConsole.Entities.Entity.SingleCell.Appearance
-- uid: SadConsole.Entities.Entity.SingleCell.Appearance
-  commentId: P:SadConsole.Entities.Entity.SingleCell.Appearance
   isExternal: true
   href: SadConsole.Entities.Entity.SingleCell.html#SadConsole_Entities_Entity_SingleCell_Appearance
   name: Appearance

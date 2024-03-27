@@ -176,8 +176,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Time counter for the animation
-  example: []
   syntax:
     content: protected TimeSpan AddedTime
     return:
@@ -197,8 +195,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The current frame index being animated.
-  example: []
   syntax:
     content: protected int CurrentFrameIndexValue
     return:
@@ -218,8 +214,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: How much time per animated frame should be used.
-  example: []
   syntax:
     content: protected TimeSpan TimePerFrame
     return:
@@ -239,8 +233,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Indicates that the mouse is currently over this console.
-  example: []
   syntax:
     content: protected bool IsMouseOver
     return:
@@ -260,8 +252,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The width to assign a frame when <xref href="SadConsole.AnimatedScreenObject.CreateFrame" data-throw-if-not-resolved="false"></xref> is called.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -291,8 +281,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The height to assign a frame when <xref href="SadConsole.AnimatedScreenObject.CreateFrame" data-throw-if-not-resolved="false"></xref> is called.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -322,13 +310,10 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Creates a new frame with the same dimensions as this entity and adds it to the Frames collection of the entity.
-  example: []
   syntax:
     content: public ICellSurface CreateFrame()
     return:
       type: SadConsole.ICellSurface
-      description: The created frame.
     content.vb: Public Function CreateFrame() As ICellSurface
   overload: SadConsole.AnimatedScreenObject.CreateFrame*
 - uid: SadConsole.AnimatedScreenObject.Stop
@@ -345,8 +330,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Stops animating.
-  example: []
   syntax:
     content: public void Stop()
     content.vb: Public Sub [Stop]()
@@ -365,8 +348,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Starts animating the frames.
-  example: []
   syntax:
     content: public void Start()
     content.vb: Public Sub Start()
@@ -385,8 +366,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Restarts the animation from the first frame.
-  example: []
   syntax:
     content: public void Restart()
     content.vb: Public Sub Restart()
@@ -405,32 +384,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Creates an animated surface that looks like static noise.
-  example: []
   syntax:
     content: public static AnimatedScreenObject CreateStatic(int width, int height, int frames, double blankChance, Color? background = null, Color? foreground = null)
     parameters:
     - id: width
       type: System.Int32
-      description: The width of the surface.
     - id: height
       type: System.Int32
-      description: The height of the surface.
     - id: frames
       type: System.Int32
-      description: How many frames the animation should have.
     - id: blankChance
       type: System.Double
-      description: Chance a character will be blank. Characters are between index 48-158. Chance is evaluated versus <xref href="System.Random.NextDouble" data-throw-if-not-resolved="false"></xref>.
     - id: background
       type: System.Nullable{SadRogue.Primitives.Color}
-      description: The background color of the animation. Defaults to transparent.
     - id: foreground
       type: System.Nullable{SadRogue.Primitives.Color}
-      description: The foreground color of the animation. Defaults to white.
     return:
       type: SadConsole.AnimatedScreenObject
-      description: An animation.
     content.vb: Public Shared Function CreateStatic(width As Integer, height As Integer, frames As Integer, blankChance As Double, background As Color? = Nothing, foreground As Color? = Nothing) As AnimatedScreenObject
   overload: SadConsole.AnimatedScreenObject.CreateStatic*
   nameWithType.vb: AnimatedScreenObject.CreateStatic(Integer, Integer, Integer, Double, Color?, Color?)
@@ -450,53 +420,33 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Converts an image file containing frames to an instance of <xref href="SadConsole.AnimatedScreenObject" data-throw-if-not-resolved="false"></xref>.
-  remarks: >-
-    This method assumes the image file contains only frames and optional padding between the frames, no border space.
-
-                Frame count is calculated by multiplying rows and columns from the frame layout. It can by limited by specifying frame start and finish indexes.
-
-                Frame size and the subsequent AnimatedScreenSurface size is calculated from the size of the image file, number of frames, padding and the font size ratio.
-  example: []
   syntax:
     content: public static AnimatedScreenObject FromImage(string name, string filePath, Point frameLayout, TimeSpan frameDuration, Point? pixelPadding = null, Point? frameStartAndFinish = null, IFont? font = null, Action<ColoredGlyphBase>? action = null, TextureConvertMode convertMode = TextureConvertMode.Foreground, TextureConvertForegroundStyle convertForegroundStyle = TextureConvertForegroundStyle.Block, TextureConvertBackgroundStyle convertBackgroundStyle = TextureConvertBackgroundStyle.Pixel)
     parameters:
     - id: name
       type: System.String
-      description: Name for the animation.
     - id: filePath
       type: System.String
-      description: File path to the image file.
     - id: frameLayout
       type: SadRogue.Primitives.Point
-      description: 'Layout of frames in the image file: X number of columns, Y number of rows.'
     - id: frameDuration
       type: System.TimeSpan
-      description: Duration for a frame in the animation.
     - id: pixelPadding
       type: System.Nullable{SadRogue.Primitives.Point}
-      description: 'Pixel padding separating frames: X between the columns, Y between the rows.'
     - id: frameStartAndFinish
       type: System.Nullable{SadRogue.Primitives.Point}
-      description: Limits the number of frames copied to the animation. X first frame index, Y last frame index.
     - id: font
       type: SadConsole.IFont
-      description: <xref href="SadConsole.IFont" data-throw-if-not-resolved="false"></xref> to be used when creating the <xref href="SadConsole.AnimatedScreenObject" data-throw-if-not-resolved="false"></xref>.
     - id: action
       type: System.Action{SadConsole.ColoredGlyphBase}
-      description: Callback that will be applied to each <xref href="SadConsole.ColoredGlyphBase" data-throw-if-not-resolved="false"></xref> when creating a frame.
     - id: convertMode
       type: SadConsole.TextureConvertMode
-      description: The mode used when converting the texture to a surface.
     - id: convertForegroundStyle
       type: SadConsole.TextureConvertForegroundStyle
-      description: The style to use when <code class="paramref">convertMode</code> is <xref href="SadConsole.TextureConvertMode.Foreground" data-throw-if-not-resolved="false"></xref>.
     - id: convertBackgroundStyle
       type: SadConsole.TextureConvertBackgroundStyle
-      description: The style to use when <code class="paramref">convertMode</code> is <xref href="SadConsole.TextureConvertMode.Background" data-throw-if-not-resolved="false"></xref>.
     return:
       type: SadConsole.AnimatedScreenObject
-      description: An instance of <xref href="SadConsole.AnimatedScreenObject" data-throw-if-not-resolved="false"></xref> with converted frames.
     content.vb: Public Shared Function FromImage(name As String, filePath As String, frameLayout As Point, frameDuration As TimeSpan, pixelPadding As Point? = Nothing, frameStartAndFinish As Point? = Nothing, font As IFont = Nothing, action As Action(Of ColoredGlyphBase) = Nothing, convertMode As TextureConvertMode = TextureConvertMode.Foreground, convertForegroundStyle As TextureConvertForegroundStyle = TextureConvertForegroundStyle.Block, convertBackgroundStyle As TextureConvertBackgroundStyle = TextureConvertBackgroundStyle.Pixel) As AnimatedScreenObject
   overload: SadConsole.AnimatedScreenObject.FromImage*
   nameWithType.vb: AnimatedScreenObject.FromImage(String, String, Point, TimeSpan, Point?, Point?, IFont, Action(Of ColoredGlyphBase), TextureConvertMode, TextureConvertForegroundStyle, TextureConvertBackgroundStyle)
@@ -516,14 +466,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Saves the <xref href="SadConsole.AnimatedScreenObject" data-throw-if-not-resolved="false"></xref> to a file.
-  example: []
   syntax:
     content: public void Save(string file)
     parameters:
     - id: file
       type: System.String
-      description: The destination file.
     content.vb: Public Sub Save(file As String)
   overload: SadConsole.AnimatedScreenObject.Save*
   nameWithType.vb: AnimatedScreenObject.Save(String)
@@ -543,17 +490,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Loads a <xref href="SadConsole.AnimatedScreenObject" data-throw-if-not-resolved="false"></xref> from a file.
-  example: []
   syntax:
     content: public static AnimatedScreenObject Load(string file)
     parameters:
     - id: file
       type: System.String
-      description: The source file.
     return:
       type: SadConsole.AnimatedScreenObject
-      description: The animated surface.
     content.vb: Public Shared Function Load(file As String) As AnimatedScreenObject
   overload: SadConsole.AnimatedScreenObject.Load*
   nameWithType.vb: AnimatedScreenObject.Load(String)
@@ -573,14 +516,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Raises the <xref href="SadConsole.AnimatedScreenObject.MouseEnter" data-throw-if-not-resolved="false"></xref> event.
-  example: []
   syntax:
     content: protected virtual void OnMouseEnter(MouseScreenObjectState state)
     parameters:
     - id: state
       type: SadConsole.Input.MouseScreenObjectState
-      description: Current mouse state in relation to this console.
     content.vb: Protected Overridable Sub OnMouseEnter(state As MouseScreenObjectState)
   overload: SadConsole.AnimatedScreenObject.OnMouseEnter*
 - uid: SadConsole.AnimatedScreenObject.OnMouseExit(SadConsole.Input.MouseScreenObjectState)
@@ -597,14 +537,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Raises the <xref href="SadConsole.AnimatedScreenObject.MouseExit" data-throw-if-not-resolved="false"></xref> event.
-  example: []
   syntax:
     content: protected virtual void OnMouseExit(MouseScreenObjectState state)
     parameters:
     - id: state
       type: SadConsole.Input.MouseScreenObjectState
-      description: Current mouse state in relation to this console.
     content.vb: Protected Overridable Sub OnMouseExit(state As MouseScreenObjectState)
   overload: SadConsole.AnimatedScreenObject.OnMouseExit*
 - uid: SadConsole.AnimatedScreenObject.OnMouseMove(SadConsole.Input.MouseScreenObjectState)
@@ -621,14 +558,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Raises the <xref href="SadConsole.AnimatedScreenObject.MouseMove" data-throw-if-not-resolved="false"></xref> event.
-  example: []
   syntax:
     content: protected virtual void OnMouseMove(MouseScreenObjectState state)
     parameters:
     - id: state
       type: SadConsole.Input.MouseScreenObjectState
-      description: Current mouse state in relation to this console.
     content.vb: Protected Overridable Sub OnMouseMove(state As MouseScreenObjectState)
   overload: SadConsole.AnimatedScreenObject.OnMouseMove*
 - uid: SadConsole.AnimatedScreenObject.OnMouseLeftClicked(SadConsole.Input.MouseScreenObjectState)
@@ -645,14 +579,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Raises the <xref href="SadConsole.AnimatedScreenObject.MouseButtonClicked" data-throw-if-not-resolved="false"></xref> event. Possibly moves the console to the top of it's parent's children collection.
-  example: []
   syntax:
     content: protected virtual void OnMouseLeftClicked(MouseScreenObjectState state)
     parameters:
     - id: state
       type: SadConsole.Input.MouseScreenObjectState
-      description: Current mouse state in relation to this console.
     content.vb: Protected Overridable Sub OnMouseLeftClicked(state As MouseScreenObjectState)
   overload: SadConsole.AnimatedScreenObject.OnMouseLeftClicked*
 - uid: SadConsole.AnimatedScreenObject.OnRightMouseClicked(SadConsole.Input.MouseScreenObjectState)
@@ -669,14 +600,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Raises the <xref href="SadConsole.AnimatedScreenObject.MouseButtonClicked" data-throw-if-not-resolved="false"></xref> event.
-  example: []
   syntax:
     content: protected virtual void OnRightMouseClicked(MouseScreenObjectState state)
     parameters:
     - id: state
       type: SadConsole.Input.MouseScreenObjectState
-      description: Current mouse state in relation to this console.
     content.vb: Protected Overridable Sub OnRightMouseClicked(state As MouseScreenObjectState)
   overload: SadConsole.AnimatedScreenObject.OnRightMouseClicked*
 - uid: SadConsole.AnimatedScreenObject.LostMouse(SadConsole.Input.MouseScreenObjectState)
@@ -693,14 +621,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Called when the mouse is being used by something else.
   example: []
   syntax:
     content: public override void LostMouse(MouseScreenObjectState state)
     parameters:
     - id: state
       type: SadConsole.Input.MouseScreenObjectState
-      description: The current state of the mouse based on this object.
     content.vb: Public Overrides Sub LostMouse(state As MouseScreenObjectState)
   overridden: SadConsole.ScreenObject.LostMouse(SadConsole.Input.MouseScreenObjectState)
   overload: SadConsole.AnimatedScreenObject.LostMouse*
@@ -720,17 +646,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Processes the mouse.
   example: []
   syntax:
     content: public override bool ProcessMouse(MouseScreenObjectState state)
     parameters:
     - id: state
       type: SadConsole.Input.MouseScreenObjectState
-      description: The mouse state related to this object.
     return:
       type: System.Boolean
-      description: True when this object should halt further mouse processing..
     content.vb: Public Overrides Function ProcessMouse(state As MouseScreenObjectState) As Boolean
   overridden: SadConsole.ScreenObject.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
   overload: SadConsole.AnimatedScreenObject.ProcessMouse*
@@ -750,20 +673,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Creates a new animation with the specified name, width, and height.
-  example: []
   syntax:
     content: public AnimatedScreenObject(string name, int width, int height)
     parameters:
     - id: name
       type: System.String
-      description: The name of the animation.
     - id: width
       type: System.Int32
-      description: The width of each frame this animation will have.
     - id: height
       type: System.Int32
-      description: The height of each frame this animation will have.
     content.vb: Public Sub New(name As String, width As Integer, height As Integer)
   overload: SadConsole.AnimatedScreenObject.#ctor*
   nameWithType.vb: AnimatedScreenObject.New(String, Integer, Integer)
@@ -783,17 +701,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Creates a new animation with the specified name and frames.
-  example: []
   syntax:
     content: public AnimatedScreenObject(string name, IEnumerable<ICellSurface> frames)
     parameters:
     - id: name
       type: System.String
-      description: The name of the animation.
     - id: frames
       type: System.Collections.Generic.IEnumerable{SadConsole.ICellSurface}
-      description: The frames that make up the animation.
     content.vb: Public Sub New(name As String, frames As IEnumerable(Of ICellSurface))
   overload: SadConsole.AnimatedScreenObject.#ctor*
   nameWithType.vb: AnimatedScreenObject.New(String, IEnumerable(Of ICellSurface))
@@ -875,7 +789,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Sets a value for <xref href="SadConsole.IScreenObject.AbsolutePosition" data-throw-if-not-resolved="false"></xref> based on the Position of this instance and the <xref href="SadConsole.IScreenObject.Parent" data-throw-if-not-resolved="false"></xref> instance.
   example: []
   syntax:
     content: public override void UpdateAbsolutePosition()
@@ -898,14 +811,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Draws the animation's current frame and all <xref href="SadConsole.ScreenObject.SadComponents" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.ScreenObject.Children" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: public override void Render(TimeSpan delta)
     parameters:
     - id: delta
       type: System.TimeSpan
-      description: The time that has elapsed since the last call.
     content.vb: Public Overrides Sub Render(delta As TimeSpan)
   overridden: SadConsole.ScreenObject.Render(System.TimeSpan)
   overload: SadConsole.AnimatedScreenObject.Render*
@@ -925,14 +836,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Updates the <xref href="SadConsole.AnimatedScreenObject" data-throw-if-not-resolved="false"></xref> effects and all <xref href="SadConsole.ScreenObject.SadComponents" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.ScreenObject.Children" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: public override void Update(TimeSpan delta)
     parameters:
     - id: delta
       type: System.TimeSpan
-      description: The time that has elapsed since this method was last called.
     content.vb: Public Overrides Sub Update(delta As TimeSpan)
   overridden: SadConsole.ScreenObject.Update(System.TimeSpan)
   overload: SadConsole.AnimatedScreenObject.Update*
@@ -952,13 +861,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Returns the value "ScreenSurface".
   example: []
   syntax:
     content: public override string ToString()
     return:
       type: System.String
-      description: The string "ScreenSurface".
     content.vb: Public Overrides Function ToString() As String
   overridden: SadConsole.ScreenObject.ToString
   overload: SadConsole.AnimatedScreenObject.ToString*
@@ -976,7 +883,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  example: []
   syntax:
     content: protected virtual void Dispose(bool disposing)
     parameters:
@@ -1001,8 +907,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Disposes <xref href="SadConsole.AnimatedScreenObject.Renderer" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: protected ~AnimatedScreenObject()
     content.vb: 'Protected '
@@ -1024,7 +928,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  example: []
   syntax:
     content: public void Dispose()
     content.vb: Public Sub Dispose()
@@ -1043,8 +946,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Center of the animation used in positioning.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1076,8 +977,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Indicates whether or not this animation will repeat once it has finished animating.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1109,8 +1008,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: When true, Indicates the animation is currently animating. The <xref href="SadConsole.AnimatedScreenObject.Update(System.TimeSpan)" data-throw-if-not-resolved="false"></xref> method will advance the frames.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1142,8 +1039,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The length of the animation.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1175,8 +1070,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Gets or sets the current frame index to animate.
-  example: []
   syntax:
     content: public int CurrentFrameIndex { get; set; }
     parameters: []
@@ -1198,8 +1091,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Indicates the animation is empty.
-  example: []
   syntax:
     content: public bool IsEmpty { get; }
     parameters: []
@@ -1221,8 +1112,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The frames of the animated surface.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1254,8 +1143,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Gets the name of this animation.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1287,8 +1174,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Gets the current animation state.
-  example: []
   syntax:
     content: public AnimatedScreenObject.AnimationState State { get; set; }
     parameters: []
@@ -1310,7 +1195,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: When true, this object will move to the front of its parent object when the mouse is clicked.
   example: []
   syntax:
     content: >-
@@ -1345,7 +1229,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: When true, this object will set <xref href="SadConsole.IScreenObject.IsFocused" data-throw-if-not-resolved="false"></xref> to true when the mouse is clicked.
   example: []
   syntax:
     content: >-
@@ -1380,7 +1263,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, forces the <xref href="SadConsole.IScreenSurface.Renderer" data-throw-if-not-resolved="false"></xref> to refresh the backing texture with the latest state of the object.
   example: []
   syntax:
     content: public bool ForceRendererRefresh { get; set; }
@@ -1405,7 +1287,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The name of the default renderer for this object.
   example: []
   syntax:
     content: public virtual string DefaultRendererName { get; }
@@ -1430,7 +1311,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The renderer used to draw this surface.
   example: []
   syntax:
     content: >-
@@ -1465,7 +1345,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that the animation needs to be redrawn; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
   example: []
   syntax:
     content: public bool IsDirty { get; set; }
@@ -1490,7 +1369,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Font used with rendering.
   example: []
   syntax:
     content: public IFont Font { get; set; }
@@ -1515,7 +1393,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The size of the <xref href="SadConsole.IScreenSurface.Font" data-throw-if-not-resolved="false"></xref> cells applied to the object when rendering.
   example: []
   syntax:
     content: public Point FontSize { get; set; }
@@ -1540,7 +1417,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: A tint used in rendering.
   example: []
   syntax:
     content: public Color Tint { get; set; }
@@ -1565,7 +1441,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The pixel area on the screen this surface occupies.
   example: []
   syntax:
     content: public Rectangle AbsoluteArea { get; }
@@ -1590,7 +1465,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Treats the <xref href="SadRogue.Primitives.IPositionable.Position" data-throw-if-not-resolved="false"></xref> of the object as if it is pixels and not cells.
   example: []
   syntax:
     content: public bool UsePixelPositioning { get; set; }
@@ -1615,7 +1489,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The width of the surface in pixels.
   example: []
   syntax:
     content: public int WidthPixels { get; }
@@ -1640,7 +1513,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The height of the surface in pixels.
   example: []
   syntax:
     content: public int HeightPixels { get; }
@@ -1665,8 +1537,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The total width of the console.
-  example: []
   syntax:
     content: public int Width { get; }
     parameters: []
@@ -1688,8 +1558,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The total height of the console.
-  example: []
   syntax:
     content: public int Height { get; }
     parameters: []
@@ -1711,8 +1579,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Gets or sets the visible width of the surface in cells.
-  example: []
   syntax:
     content: public int ViewWidth { get; set; }
     parameters: []
@@ -1734,8 +1600,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Gets or sets the visible height of the surface in cells.
-  example: []
   syntax:
     content: public int ViewHeight { get; set; }
     parameters: []
@@ -1757,8 +1621,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The position of the view within the console.
-  example: []
   syntax:
     content: public Point ViewPosition { get; set; }
     parameters: []
@@ -1780,8 +1642,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Gets the current animation frame surface. A shortcut for <pre><code class="lang-csharp">Frames[CurrentFrameIndex]</code></pre>
-  example: []
   syntax:
     content: public ICellSurface CurrentFrame { get; }
     parameters: []
@@ -1803,8 +1663,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Raised when the <xref href="SadConsole.AnimatedScreenObject.AnimationState" data-throw-if-not-resolved="false"></xref> changes.
-  example: []
   syntax:
     content: public event EventHandler<AnimatedScreenObject.AnimationStateChangedEventArgs>? AnimationStateChanged
     return:
@@ -1824,7 +1682,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Raised when the a mouse button is clicked on this object.
   example: []
   syntax:
     content: public event EventHandler<MouseScreenObjectState>? MouseButtonClicked
@@ -1847,7 +1704,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Raised when the mouse moves around the this object.
   example: []
   syntax:
     content: public event EventHandler<MouseScreenObjectState>? MouseMove
@@ -1870,7 +1726,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Raised when the mouse exits this object.
   example: []
   syntax:
     content: public event EventHandler<MouseScreenObjectState>? MouseExit
@@ -1893,7 +1748,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Raised when the mouse enters this object.
   example: []
   syntax:
     content: public event EventHandler<MouseScreenObjectState>? MouseEnter
@@ -4588,27 +4442,6 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
-- uid: SadConsole.AnimatedScreenObject.CreateFrame
-  commentId: M:SadConsole.AnimatedScreenObject.CreateFrame
-  isExternal: true
-  href: SadConsole.AnimatedScreenObject.html#SadConsole_AnimatedScreenObject_CreateFrame
-  name: CreateFrame()
-  nameWithType: AnimatedScreenObject.CreateFrame()
-  fullName: SadConsole.AnimatedScreenObject.CreateFrame()
-  spec.csharp:
-  - uid: SadConsole.AnimatedScreenObject.CreateFrame
-    name: CreateFrame
-    isExternal: true
-    href: SadConsole.AnimatedScreenObject.html#SadConsole_AnimatedScreenObject_CreateFrame
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: SadConsole.AnimatedScreenObject.CreateFrame
-    name: CreateFrame
-    isExternal: true
-    href: SadConsole.AnimatedScreenObject.html#SadConsole_AnimatedScreenObject_CreateFrame
-  - name: (
-  - name: )
 - uid: SadConsole.AnimatedScreenObject.CreateFrame*
   commentId: Overload:SadConsole.AnimatedScreenObject.CreateFrame
   isExternal: true
@@ -4645,27 +4478,6 @@ references:
   name: Restart
   nameWithType: AnimatedScreenObject.Restart
   fullName: SadConsole.AnimatedScreenObject.Restart
-- uid: System.Random.NextDouble
-  commentId: M:System.Random.NextDouble
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.random.nextdouble
-  name: NextDouble()
-  nameWithType: Random.NextDouble()
-  fullName: System.Random.NextDouble()
-  spec.csharp:
-  - uid: System.Random.NextDouble
-    name: NextDouble
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.random.nextdouble
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Random.NextDouble
-    name: NextDouble
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.random.nextdouble
-  - name: (
-  - name: )
 - uid: SadConsole.AnimatedScreenObject.CreateStatic*
   commentId: Overload:SadConsole.AnimatedScreenObject.CreateStatic
   isExternal: true
@@ -4737,36 +4549,6 @@ references:
   - name: " "
   - name: T
   - name: )
-- uid: SadConsole.IFont
-  commentId: T:SadConsole.IFont
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.IFont.html
-  name: IFont
-  nameWithType: IFont
-  fullName: SadConsole.IFont
-- uid: SadConsole.ColoredGlyphBase
-  commentId: T:SadConsole.ColoredGlyphBase
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.ColoredGlyphBase.html
-  name: ColoredGlyphBase
-  nameWithType: ColoredGlyphBase
-  fullName: SadConsole.ColoredGlyphBase
-- uid: SadConsole.TextureConvertMode.Background
-  commentId: F:SadConsole.TextureConvertMode.Background
-  isExternal: true
-  href: SadConsole.TextureConvertMode.html#SadConsole_TextureConvertMode_Background
-  name: Background
-  nameWithType: TextureConvertMode.Background
-  fullName: SadConsole.TextureConvertMode.Background
-- uid: SadConsole.TextureConvertMode.Foreground
-  commentId: F:SadConsole.TextureConvertMode.Foreground
-  isExternal: true
-  href: SadConsole.TextureConvertMode.html#SadConsole_TextureConvertMode_Foreground
-  name: Foreground
-  nameWithType: TextureConvertMode.Foreground
-  fullName: SadConsole.TextureConvertMode.Foreground
 - uid: SadConsole.AnimatedScreenObject.FromImage*
   commentId: Overload:SadConsole.AnimatedScreenObject.FromImage
   isExternal: true
@@ -4809,6 +4591,14 @@ references:
     name: Point
     isExternal: true
   - name: '?'
+- uid: SadConsole.IFont
+  commentId: T:SadConsole.IFont
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IFont.html
+  name: IFont
+  nameWithType: IFont
+  fullName: SadConsole.IFont
 - uid: System.Action{SadConsole.ColoredGlyphBase}
   commentId: T:System.Action{SadConsole.ColoredGlyphBase}
   parent: System
@@ -4910,13 +4700,6 @@ references:
   name: Load
   nameWithType: AnimatedScreenObject.Load
   fullName: SadConsole.AnimatedScreenObject.Load
-- uid: SadConsole.AnimatedScreenObject.MouseEnter
-  commentId: E:SadConsole.AnimatedScreenObject.MouseEnter
-  isExternal: true
-  href: SadConsole.AnimatedScreenObject.html#SadConsole_AnimatedScreenObject_MouseEnter
-  name: MouseEnter
-  nameWithType: AnimatedScreenObject.MouseEnter
-  fullName: SadConsole.AnimatedScreenObject.MouseEnter
 - uid: SadConsole.AnimatedScreenObject.OnMouseEnter*
   commentId: Overload:SadConsole.AnimatedScreenObject.OnMouseEnter
   isExternal: true
@@ -4959,13 +4742,6 @@ references:
     name: Input
     isExternal: true
     href: SadConsole.Input.html
-- uid: SadConsole.AnimatedScreenObject.MouseExit
-  commentId: E:SadConsole.AnimatedScreenObject.MouseExit
-  isExternal: true
-  href: SadConsole.AnimatedScreenObject.html#SadConsole_AnimatedScreenObject_MouseExit
-  name: MouseExit
-  nameWithType: AnimatedScreenObject.MouseExit
-  fullName: SadConsole.AnimatedScreenObject.MouseExit
 - uid: SadConsole.AnimatedScreenObject.OnMouseExit*
   commentId: Overload:SadConsole.AnimatedScreenObject.OnMouseExit
   isExternal: true
@@ -4973,13 +4749,6 @@ references:
   name: OnMouseExit
   nameWithType: AnimatedScreenObject.OnMouseExit
   fullName: SadConsole.AnimatedScreenObject.OnMouseExit
-- uid: SadConsole.AnimatedScreenObject.MouseMove
-  commentId: E:SadConsole.AnimatedScreenObject.MouseMove
-  isExternal: true
-  href: SadConsole.AnimatedScreenObject.html#SadConsole_AnimatedScreenObject_MouseMove
-  name: MouseMove
-  nameWithType: AnimatedScreenObject.MouseMove
-  fullName: SadConsole.AnimatedScreenObject.MouseMove
 - uid: SadConsole.AnimatedScreenObject.OnMouseMove*
   commentId: Overload:SadConsole.AnimatedScreenObject.OnMouseMove
   isExternal: true
@@ -4987,13 +4756,6 @@ references:
   name: OnMouseMove
   nameWithType: AnimatedScreenObject.OnMouseMove
   fullName: SadConsole.AnimatedScreenObject.OnMouseMove
-- uid: SadConsole.AnimatedScreenObject.MouseButtonClicked
-  commentId: E:SadConsole.AnimatedScreenObject.MouseButtonClicked
-  isExternal: true
-  href: SadConsole.AnimatedScreenObject.html#SadConsole_AnimatedScreenObject_MouseButtonClicked
-  name: MouseButtonClicked
-  nameWithType: AnimatedScreenObject.MouseButtonClicked
-  fullName: SadConsole.AnimatedScreenObject.MouseButtonClicked
 - uid: SadConsole.AnimatedScreenObject.OnMouseLeftClicked*
   commentId: Overload:SadConsole.AnimatedScreenObject.OnMouseLeftClicked
   isExternal: true
@@ -5252,22 +5014,6 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: SadConsole.IScreenObject.AbsolutePosition
-  commentId: P:SadConsole.IScreenObject.AbsolutePosition
-  parent: SadConsole.IScreenObject
-  isExternal: true
-  href: SadConsole.IScreenObject.html#SadConsole_IScreenObject_AbsolutePosition
-  name: AbsolutePosition
-  nameWithType: IScreenObject.AbsolutePosition
-  fullName: SadConsole.IScreenObject.AbsolutePosition
-- uid: SadConsole.IScreenObject.Parent
-  commentId: P:SadConsole.IScreenObject.Parent
-  parent: SadConsole.IScreenObject
-  isExternal: true
-  href: SadConsole.IScreenObject.html#SadConsole_IScreenObject_Parent
-  name: Parent
-  nameWithType: IScreenObject.Parent
-  fullName: SadConsole.IScreenObject.Parent
 - uid: SadConsole.ScreenObject.UpdateAbsolutePosition
   commentId: M:SadConsole.ScreenObject.UpdateAbsolutePosition
   parent: SadConsole.ScreenObject
@@ -5489,13 +5235,6 @@ references:
   name: Dispose
   nameWithType: AnimatedScreenObject.Dispose
   fullName: SadConsole.AnimatedScreenObject.Dispose
-- uid: SadConsole.AnimatedScreenObject.Renderer
-  commentId: P:SadConsole.AnimatedScreenObject.Renderer
-  isExternal: true
-  href: SadConsole.AnimatedScreenObject.html#SadConsole_AnimatedScreenObject_Renderer
-  name: Renderer
-  nameWithType: AnimatedScreenObject.Renderer
-  fullName: SadConsole.AnimatedScreenObject.Renderer
 - uid: SadConsole.AnimatedScreenObject.Finalize*
   commentId: Overload:SadConsole.AnimatedScreenObject.Finalize
   isExternal: true
@@ -5523,35 +5262,6 @@ references:
   name: Repeat
   nameWithType: AnimatedScreenObject.Repeat
   fullName: SadConsole.AnimatedScreenObject.Repeat
-- uid: SadConsole.AnimatedScreenObject.Update(System.TimeSpan)
-  commentId: M:SadConsole.AnimatedScreenObject.Update(System.TimeSpan)
-  isExternal: true
-  href: SadConsole.AnimatedScreenObject.html#SadConsole_AnimatedScreenObject_Update_System_TimeSpan_
-  name: Update(TimeSpan)
-  nameWithType: AnimatedScreenObject.Update(TimeSpan)
-  fullName: SadConsole.AnimatedScreenObject.Update(System.TimeSpan)
-  spec.csharp:
-  - uid: SadConsole.AnimatedScreenObject.Update(System.TimeSpan)
-    name: Update
-    isExternal: true
-    href: SadConsole.AnimatedScreenObject.html#SadConsole_AnimatedScreenObject_Update_System_TimeSpan_
-  - name: (
-  - uid: System.TimeSpan
-    name: TimeSpan
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.timespan
-  - name: )
-  spec.vb:
-  - uid: SadConsole.AnimatedScreenObject.Update(System.TimeSpan)
-    name: Update
-    isExternal: true
-    href: SadConsole.AnimatedScreenObject.html#SadConsole_AnimatedScreenObject_Update_System_TimeSpan_
-  - name: (
-  - uid: System.TimeSpan
-    name: TimeSpan
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.timespan
-  - name: )
 - uid: SadConsole.AnimatedScreenObject.IsPlaying*
   commentId: Overload:SadConsole.AnimatedScreenObject.IsPlaying
   isExternal: true
@@ -5707,14 +5417,6 @@ references:
   name: MoveToFrontOnMouseClick
   nameWithType: IScreenSurface.MoveToFrontOnMouseClick
   fullName: SadConsole.IScreenSurface.MoveToFrontOnMouseClick
-- uid: SadConsole.IScreenObject.IsFocused
-  commentId: P:SadConsole.IScreenObject.IsFocused
-  parent: SadConsole.IScreenObject
-  isExternal: true
-  href: SadConsole.IScreenObject.html#SadConsole_IScreenObject_IsFocused
-  name: IsFocused
-  nameWithType: IScreenObject.IsFocused
-  fullName: SadConsole.IScreenObject.IsFocused
 - uid: SadConsole.AnimatedScreenObject.FocusOnMouseClick*
   commentId: Overload:SadConsole.AnimatedScreenObject.FocusOnMouseClick
   isExternal: true
@@ -5730,14 +5432,6 @@ references:
   name: FocusOnMouseClick
   nameWithType: IScreenSurface.FocusOnMouseClick
   fullName: SadConsole.IScreenSurface.FocusOnMouseClick
-- uid: SadConsole.IScreenSurface.Renderer
-  commentId: P:SadConsole.IScreenSurface.Renderer
-  parent: SadConsole.IScreenSurface
-  isExternal: true
-  href: SadConsole.IScreenSurface.html#SadConsole_IScreenSurface_Renderer
-  name: Renderer
-  nameWithType: IScreenSurface.Renderer
-  fullName: SadConsole.IScreenSurface.Renderer
 - uid: SadConsole.AnimatedScreenObject.ForceRendererRefresh*
   commentId: Overload:SadConsole.AnimatedScreenObject.ForceRendererRefresh
   isExternal: true
@@ -5775,6 +5469,14 @@ references:
   name: Renderer
   nameWithType: AnimatedScreenObject.Renderer
   fullName: SadConsole.AnimatedScreenObject.Renderer
+- uid: SadConsole.IScreenSurface.Renderer
+  commentId: P:SadConsole.IScreenSurface.Renderer
+  parent: SadConsole.IScreenSurface
+  isExternal: true
+  href: SadConsole.IScreenSurface.html#SadConsole_IScreenSurface_Renderer
+  name: Renderer
+  nameWithType: IScreenSurface.Renderer
+  fullName: SadConsole.IScreenSurface.Renderer
 - uid: SadConsole.Renderers.IRenderer
   commentId: T:SadConsole.Renderers.IRenderer
   parent: SadConsole.Renderers
@@ -5899,13 +5601,6 @@ references:
   name: Rectangle
   nameWithType: Rectangle
   fullName: SadRogue.Primitives.Rectangle
-- uid: SadRogue.Primitives.IPositionable.Position
-  commentId: P:SadRogue.Primitives.IPositionable.Position
-  parent: SadRogue.Primitives.IPositionable
-  isExternal: true
-  name: Position
-  nameWithType: IPositionable.Position
-  fullName: SadRogue.Primitives.IPositionable.Position
 - uid: SadConsole.AnimatedScreenObject.UsePixelPositioning*
   commentId: Overload:SadConsole.AnimatedScreenObject.UsePixelPositioning
   isExternal: true

@@ -22,8 +22,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: A stack of screen objects. The top-most of the stack is considered active and represented by the <xref href="SadConsole.IScreenObject" data-throw-if-not-resolved="false"></xref> property.
-  example: []
   syntax:
     content: public class FocusedScreenObjectStack
     content.vb: Public Class FocusedScreenObjectStack
@@ -51,8 +49,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Creates a new instance of the class.
-  example: []
   syntax:
     content: public FocusedScreenObjectStack()
     content.vb: Public Sub New()
@@ -74,8 +70,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Clears all screen objects from the active stack along with the current active screen object.
-  example: []
   syntax:
     content: public void Clear()
     content.vb: Public Sub Clear()
@@ -94,14 +88,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Adds another screen object to active stack, setting it as the active (top most in the stack) screen object.
-  example: []
   syntax:
     content: public void Push(IScreenObject screenObject)
     parameters:
     - id: screenObject
       type: SadConsole.IScreenObject
-      description: ''
     content.vb: Public Sub Push(screenObject As IScreenObject)
   overload: SadConsole.FocusedScreenObjectStack.Push*
 - uid: SadConsole.FocusedScreenObjectStack.Set(SadConsole.IScreenObject)
@@ -118,14 +109,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Replaces the top screen object (active screen object) with the provided instance. Sets <xref href="SadConsole.IScreenObject" data-throw-if-not-resolved="false"></xref> to this instance.
-  example: []
   syntax:
     content: public void Set(IScreenObject screenObject)
     parameters:
     - id: screenObject
       type: SadConsole.IScreenObject
-      description: The screen object to make active.
     content.vb: Public Sub [Set](screenObject As IScreenObject)
   overload: SadConsole.FocusedScreenObjectStack.Set*
 - uid: SadConsole.FocusedScreenObjectStack.Pop(SadConsole.IScreenObject)
@@ -142,14 +130,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Removes the screen object from the active stack. If the instance is the current active screen object, the active screen object is set to the last screen object in the previous screen object.
-  example: []
   syntax:
     content: public void Pop(IScreenObject screenObject)
     parameters:
     - id: screenObject
       type: SadConsole.IScreenObject
-      description: The screen object to remove.
     content.vb: Public Sub Pop(screenObject As IScreenObject)
   overload: SadConsole.FocusedScreenObjectStack.Pop*
 - uid: SadConsole.FocusedScreenObjectStack.Pop
@@ -166,8 +151,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Removes the top screen object from the stack.
-  example: []
   syntax:
     content: public void Pop()
     content.vb: Public Sub Pop()
@@ -186,8 +169,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Gets the current active screen object.
-  example: []
   syntax:
     content: public IScreenObject? ScreenObject { get; }
     parameters: []
@@ -196,14 +177,6 @@ items:
     content.vb: Public ReadOnly Property ScreenObject As IScreenObject
   overload: SadConsole.FocusedScreenObjectStack.ScreenObject*
 references:
-- uid: SadConsole.IScreenObject
-  commentId: T:SadConsole.IScreenObject
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.IScreenObject.html
-  name: IScreenObject
-  nameWithType: IScreenObject
-  fullName: SadConsole.IScreenObject
 - uid: SadConsole
   commentId: N:SadConsole
   isExternal: true
@@ -472,6 +445,14 @@ references:
   name: Push
   nameWithType: FocusedScreenObjectStack.Push
   fullName: SadConsole.FocusedScreenObjectStack.Push
+- uid: SadConsole.IScreenObject
+  commentId: T:SadConsole.IScreenObject
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IScreenObject.html
+  name: IScreenObject
+  nameWithType: IScreenObject
+  fullName: SadConsole.IScreenObject
 - uid: SadConsole.FocusedScreenObjectStack.Set*
   commentId: Overload:SadConsole.FocusedScreenObjectStack.Set
   isExternal: true

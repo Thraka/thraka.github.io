@@ -42,8 +42,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Manages a set of surface layers.
-  example: []
   syntax:
     content: >-
       [DataContract]
@@ -89,8 +87,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: The parent screen hosting this component.
-  example: []
   syntax:
     content: protected IScreenSurface? _screen
     return:
@@ -110,8 +106,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: A cached copy of the <xref href="SadConsole.ICellSurface.View" data-throw-if-not-resolved="false"></xref> of the hosting screen surface.
-  example: []
   syntax:
     content: protected Rectangle _screenCachedView
     return:
@@ -131,8 +125,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: The entities to process.
-  example: []
   syntax:
     content: >-
       [DataMember(Name = "Layers")]
@@ -166,8 +158,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Internal use only
-  example: []
   syntax:
     content: public IRenderStep? RenderStep
     return:
@@ -187,14 +177,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Adds a layer to this component.
   example: []
   syntax:
     content: public void Add(ICellSurface layer)
     parameters:
     - id: layer
       type: SadConsole.ICellSurface
-      description: The layer to add.
     content.vb: Public Sub Add(layer As ICellSurface)
   overload: SadConsole.Components.LayeredSurface.Add*
   implements:
@@ -213,14 +201,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Adds a collection if layers to this component.
-  example: []
   syntax:
     content: public void AddRange(IEnumerable<ICellSurface> layers)
     parameters:
     - id: layers
       type: System.Collections.Generic.IEnumerable{SadConsole.ICellSurface}
-      description: The layers to add.
     content.vb: Public Sub AddRange(layers As IEnumerable(Of ICellSurface))
   overload: SadConsole.Components.LayeredSurface.AddRange*
   nameWithType.vb: LayeredSurface.AddRange(IEnumerable(Of ICellSurface))
@@ -240,32 +225,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Replaces a layer with a new instance.
-  example: []
   syntax:
     content: public void Replace(ICellSurface oldLayer, ICellSurface newLayer)
     parameters:
     - id: oldLayer
       type: SadConsole.ICellSurface
-      description: The layer to remove.
     - id: newLayer
       type: SadConsole.ICellSurface
-      description: The layer to add.
     content.vb: Public Sub Replace(oldLayer As ICellSurface, newLayer As ICellSurface)
   overload: SadConsole.Components.LayeredSurface.Replace*
-  exceptions:
-  - type: System.ArgumentException
-    commentId: T:System.ArgumentException
-    description: >-
-      <p>Thrown when the old layer doesn't exist in this collection.</p>
-
-      <p>- or -</p>
-
-      <p>Thrown when the new layer already exists in this collection.</p>
-
-      <p>- or -</p>
-
-      <p>Thrown when the new layer isn't the same size as the other layers.</p>
 - uid: SadConsole.Components.LayeredSurface.Remove(SadConsole.ICellSurface)
   commentId: M:SadConsole.Components.LayeredSurface.Remove(SadConsole.ICellSurface)
   id: Remove(SadConsole.ICellSurface)
@@ -280,14 +248,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Removes a layer from this component.
   example: []
   syntax:
     content: public bool Remove(ICellSurface layer)
     parameters:
     - id: layer
       type: SadConsole.ICellSurface
-      description: The layer to remove.
     return:
       type: System.Boolean
     content.vb: Public Function Remove(layer As ICellSurface) As Boolean
@@ -308,17 +274,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Returns the index of the specified layer.
   example: []
   syntax:
     content: public int IndexOf(ICellSurface layer)
     parameters:
     - id: layer
       type: SadConsole.ICellSurface
-      description: The layer to search for.
     return:
       type: System.Int32
-      description: The index of the layer.
     content.vb: Public Function IndexOf(layer As ICellSurface) As Integer
   overload: SadConsole.Components.LayeredSurface.IndexOf*
   implements:
@@ -337,17 +300,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Inserts the layer at the specified index.
   example: []
   syntax:
     content: public void Insert(int index, ICellSurface layer)
     parameters:
     - id: index
       type: System.Int32
-      description: The index to insert at.
     - id: layer
       type: SadConsole.ICellSurface
-      description: The layer to insert.
     content.vb: Public Sub Insert(index As Integer, layer As ICellSurface)
   overload: SadConsole.Components.LayeredSurface.Insert*
   implements:
@@ -369,14 +329,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Removes a layer at the specified index.
   example: []
   syntax:
     content: public void RemoveAt(int index)
     parameters:
     - id: index
       type: System.Int32
-      description: The index of the layer to remove.
     content.vb: Public Sub RemoveAt(index As Integer)
   overload: SadConsole.Components.LayeredSurface.RemoveAt*
   implements:
@@ -398,7 +356,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Removes all layers.
   example: []
   syntax:
     content: public void Clear()
@@ -420,14 +377,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Removes all layers and adds the <code class="paramref">initialLayer</code> parameter as the first layer.
-  example: []
   syntax:
     content: public void Clear(ICellSurface initialLayer)
     parameters:
     - id: initialLayer
       type: SadConsole.ICellSurface
-      description: The new first layer.
     content.vb: Public Sub Clear(initialLayer As ICellSurface)
   overload: SadConsole.Components.LayeredSurface.Clear*
 - uid: SadConsole.Components.LayeredSurface.Contains(SadConsole.ICellSurface)
@@ -522,19 +476,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Adds a new layer. The layer is based on the first layer's width and height.
-  example: []
   syntax:
     content: public CellSurface Create()
     return:
       type: SadConsole.CellSurface
-      description: ''
     content.vb: Public Function Create() As CellSurface
   overload: SadConsole.Components.LayeredSurface.Create*
-  exceptions:
-  - type: System.Exception
-    commentId: T:System.Exception
-    description: ''
 - uid: SadConsole.Components.LayeredSurface.OnAdded(SadConsole.IScreenObject)
   commentId: M:SadConsole.Components.LayeredSurface.OnAdded(SadConsole.IScreenObject)
   id: OnAdded(SadConsole.IScreenObject)
@@ -549,14 +496,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Called when the component is added to a host.
   example: []
   syntax:
     content: public override void OnAdded(IScreenObject host)
     parameters:
     - id: host
       type: SadConsole.IScreenObject
-      description: The host that added the component.
     content.vb: Public Overrides Sub OnAdded(host As IScreenObject)
   overridden: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
   overload: SadConsole.Components.LayeredSurface.OnAdded*
@@ -576,14 +521,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Called when the component is removed from the host.
   example: []
   syntax:
     content: public override void OnRemoved(IScreenObject host)
     parameters:
     - id: host
       type: SadConsole.IScreenObject
-      description: The host that removed the component.
     content.vb: Public Overrides Sub OnRemoved(host As IScreenObject)
   overridden: SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
   overload: SadConsole.Components.LayeredSurface.OnRemoved*
@@ -603,17 +546,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Called by a host on the update frame.
   example: []
   syntax:
     content: public override void Update(IScreenObject host, TimeSpan delta)
     parameters:
     - id: host
       type: SadConsole.IScreenObject
-      description: The host calling the component.
     - id: delta
       type: System.TimeSpan
-      description: The time that has elapsed since this method was last called.
     content.vb: Public Overrides Sub Update(host As IScreenObject, delta As TimeSpan)
   overridden: SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
   overload: SadConsole.Components.LayeredSurface.Update*
@@ -654,8 +594,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Indicates that the entity renderer has been added to a parent object.
-  example: []
   syntax:
     content: protected bool IsAttached { get; set; }
     parameters: []
@@ -677,8 +615,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: The visible portion of the surface layers.
-  example: []
   syntax:
     content: public Rectangle View { get; set; }
     parameters: []
@@ -700,8 +636,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: The default color to clear the rendering surface. This is used instead of the individual layer's default background.
-  example: []
   syntax:
     content: public Color DefaultBackground { get; set; }
     parameters: []
@@ -723,7 +657,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: The numbers of layers.
   example: []
   syntax:
     content: public int Count { get; }
@@ -748,7 +681,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Always returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
   example: []
   syntax:
     content: public bool IsReadOnly { get; }
@@ -773,17 +705,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Gets or sets a layer by index.
   example: []
   syntax:
     content: public ICellSurface this[int index] { get; set; }
     parameters:
     - id: index
       type: System.Int32
-      description: The index of the layer to get or set.
     return:
       type: SadConsole.ICellSurface
-      description: The layer.
     content.vb: Public Default Property this[](index As Integer) As ICellSurface
   overload: SadConsole.Components.LayeredSurface.Item*
   implements:
@@ -1356,14 +1285,6 @@ references:
   name: SadConsole
   nameWithType: SadConsole
   fullName: SadConsole
-- uid: SadConsole.ICellSurface.View
-  commentId: P:SadConsole.ICellSurface.View
-  parent: SadConsole.ICellSurface
-  isExternal: true
-  href: SadConsole.ICellSurface.html#SadConsole_ICellSurface_View
-  name: View
-  nameWithType: ICellSurface.View
-  fullName: SadConsole.ICellSurface.View
 - uid: SadRogue.Primitives.Rectangle
   commentId: T:SadRogue.Primitives.Rectangle
   parent: SadRogue.Primitives
@@ -1371,14 +1292,6 @@ references:
   name: Rectangle
   nameWithType: Rectangle
   fullName: SadRogue.Primitives.Rectangle
-- uid: SadConsole.ICellSurface
-  commentId: T:SadConsole.ICellSurface
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.ICellSurface.html
-  name: ICellSurface
-  nameWithType: ICellSurface
-  fullName: SadConsole.ICellSurface
 - uid: SadRogue.Primitives
   commentId: N:SadRogue.Primitives
   isExternal: true
@@ -1543,6 +1456,14 @@ references:
     isExternal: true
     href: SadConsole.ICellSurface.html
   - name: )
+- uid: SadConsole.ICellSurface
+  commentId: T:SadConsole.ICellSurface
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ICellSurface.html
+  name: ICellSurface
+  nameWithType: ICellSurface
+  fullName: SadConsole.ICellSurface
 - uid: System.Collections.Generic.ICollection`1.Add(`0)
   commentId: M:System.Collections.Generic.ICollection`1.Add(`0)
   isExternal: true
@@ -1575,13 +1496,6 @@ references:
   name: AddRange
   nameWithType: LayeredSurface.AddRange
   fullName: SadConsole.Components.LayeredSurface.AddRange
-- uid: System.ArgumentException
-  commentId: T:System.ArgumentException
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
-  name: ArgumentException
-  nameWithType: ArgumentException
-  fullName: System.ArgumentException
 - uid: SadConsole.Components.LayeredSurface.Replace*
   commentId: Overload:SadConsole.Components.LayeredSurface.Replace
   isExternal: true
@@ -2257,14 +2171,6 @@ references:
   - name: " "
   - name: T
   - name: )
-- uid: System.Exception
-  commentId: T:System.Exception
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.exception
-  name: Exception
-  nameWithType: Exception
-  fullName: System.Exception
 - uid: SadConsole.Components.LayeredSurface.Create*
   commentId: Overload:SadConsole.Components.LayeredSurface.Create
   isExternal: true

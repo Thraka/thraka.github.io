@@ -31,7 +31,7 @@ dotnet new install SadConsole.Templates
 ```
 
 > [!TIP]
-> The `dotnet` commands used here are based on .NET 7. If you're using .NET 6 they're slightly different with `dotnet new --install SadConsole.Templates` and `dotnet new --list sadconsole`.
+> The `dotnet` commands used here are based on .NET 7+. If you're using .NET 6 they're slightly different with `dotnet new --install SadConsole.Templates` and `dotnet new --list sadconsole`.
 
 When this command runs, it lists every template installed. You can run a command to list the SadConsole related templates:
 

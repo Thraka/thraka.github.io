@@ -35,8 +35,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Manages the parent and children relationship for <xref href="SadConsole.IScreenObject" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: 'public class ScreenObjectCollection<TScreenObject> : IReadOnlyList<TScreenObject>, IReadOnlyCollection<TScreenObject>, IEnumerable<TScreenObject>, IEnumerable where TScreenObject : class, IScreenObject'
     typeParameters:
@@ -76,8 +74,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Internal list of objects.
-  example: []
   syntax:
     content: protected List<TScreenObject> _objects
     return:
@@ -99,8 +95,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The parent object.
-  example: []
   syntax:
     content: protected IScreenObject _owningObject
     return:
@@ -122,14 +116,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Creates a new object collection and parents it to the <code class="paramref">owner</code> object.
-  example: []
   syntax:
     content: public ScreenObjectCollection(IScreenObject owner)
     parameters:
     - id: owner
       type: SadConsole.IScreenObject
-      description: The owning object of this collection.
     content.vb: Public Sub New(owner As IScreenObject)
   overload: SadConsole.ScreenObjectCollection`1.#ctor*
   nameWithType.vb: ScreenObjectCollection(Of TScreenObject).New(IScreenObject)
@@ -149,8 +140,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Removes all consoles.
-  example: []
   syntax:
     content: public void Clear()
     content.vb: Public Sub Clear()
@@ -171,17 +160,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Returns true if this console list contains the specified <code class="paramref">obj</code>.
-  example: []
   syntax:
     content: public bool Contains(TScreenObject obj)
     parameters:
     - id: obj
       type: '{TScreenObject}'
-      description: The console to search for.
     return:
       type: System.Boolean
-      description: ''
     content.vb: Public Function Contains(obj As TScreenObject) As Boolean
   overload: SadConsole.ScreenObjectCollection`1.Contains*
   nameWithType.vb: ScreenObjectCollection(Of TScreenObject).Contains(TScreenObject)
@@ -200,17 +185,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: When true, indicates that the <code class="paramref">obj</code> is at the top of the collection stack.
-  example: []
   syntax:
     content: public bool IsTop(TScreenObject obj)
     parameters:
     - id: obj
       type: '{TScreenObject}'
-      description: The obj object to check.
     return:
       type: System.Boolean
-      description: True when the object is on the top.
     content.vb: Public Function IsTop(obj As TScreenObject) As Boolean
   overload: SadConsole.ScreenObjectCollection`1.IsTop*
   nameWithType.vb: ScreenObjectCollection(Of TScreenObject).IsTop(TScreenObject)
@@ -229,17 +210,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: When true, indicates that the <code class="paramref">obj</code> is at the bottom of the collection stack.
-  example: []
   syntax:
     content: public bool IsBottom(TScreenObject obj)
     parameters:
     - id: obj
       type: '{TScreenObject}'
-      description: The obj object to check.
     return:
       type: System.Boolean
-      description: True when the object is on the bottom.
     content.vb: Public Function IsBottom(obj As TScreenObject) As Boolean
   overload: SadConsole.ScreenObjectCollection`1.IsBottom*
   nameWithType.vb: ScreenObjectCollection(Of TScreenObject).IsBottom(TScreenObject)
@@ -258,20 +235,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Adds a new child object to this collection.
-  example: []
   syntax:
     content: public void Add(TScreenObject obj)
     parameters:
     - id: obj
       type: '{TScreenObject}'
-      description: The child object.
     content.vb: Public Sub Add(obj As TScreenObject)
   overload: SadConsole.ScreenObjectCollection`1.Add*
-  exceptions:
-  - type: System.Exception
-    commentId: T:System.Exception
-    description: Thrown when the <xref href="SadConsole.ScreenObjectCollection%601.IsLocked" data-throw-if-not-resolved="false"></xref> property is set to true.
   nameWithType.vb: ScreenObjectCollection(Of TScreenObject).Add(TScreenObject)
   fullName.vb: SadConsole.ScreenObjectCollection(Of TScreenObject).Add(TScreenObject)
 - uid: SadConsole.ScreenObjectCollection`1.Insert(System.Int32,`0)
@@ -288,23 +258,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Inserts a child object at the specified <code class="paramref">index</code>.
-  example: []
   syntax:
     content: public void Insert(int index, TScreenObject obj)
     parameters:
     - id: index
       type: System.Int32
-      description: The 0-based index to insert the object at.
     - id: obj
       type: '{TScreenObject}'
-      description: The child object.
     content.vb: Public Sub Insert(index As Integer, obj As TScreenObject)
   overload: SadConsole.ScreenObjectCollection`1.Insert*
-  exceptions:
-  - type: System.Exception
-    commentId: T:System.Exception
-    description: Thrown when the <xref href="SadConsole.ScreenObjectCollection%601.IsLocked" data-throw-if-not-resolved="false"></xref> property is set to true.
   nameWithType.vb: ScreenObjectCollection(Of TScreenObject).Insert(Integer, TScreenObject)
   fullName.vb: SadConsole.ScreenObjectCollection(Of TScreenObject).Insert(Integer, TScreenObject)
   name.vb: Insert(Integer, TScreenObject)
@@ -322,20 +284,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Removes a new child object from this collection.
-  example: []
   syntax:
     content: public void Remove(TScreenObject obj)
     parameters:
     - id: obj
       type: '{TScreenObject}'
-      description: The child object.
     content.vb: Public Sub Remove(obj As TScreenObject)
   overload: SadConsole.ScreenObjectCollection`1.Remove*
-  exceptions:
-  - type: System.Exception
-    commentId: T:System.Exception
-    description: Thrown when the <xref href="SadConsole.ScreenObjectCollection%601.IsLocked" data-throw-if-not-resolved="false"></xref> property is set to true.
   nameWithType.vb: ScreenObjectCollection(Of TScreenObject).Remove(TScreenObject)
   fullName.vb: SadConsole.ScreenObjectCollection(Of TScreenObject).Remove(TScreenObject)
 - uid: SadConsole.ScreenObjectCollection`1.Sort(System.Collections.Generic.IComparer{SadConsole.IScreenObject})
@@ -352,20 +307,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Sorts the collection based on <xref href="SadConsole.IScreenObject.SortOrder" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: public void Sort(IComparer<IScreenObject> comparer)
     parameters:
     - id: comparer
       type: System.Collections.Generic.IComparer{SadConsole.IScreenObject}
-      description: The comparer to use
     content.vb: Public Sub Sort(comparer As IComparer(Of IScreenObject))
   overload: SadConsole.ScreenObjectCollection`1.Sort*
-  exceptions:
-  - type: System.Exception
-    commentId: T:System.Exception
-    description: Thrown when the <xref href="SadConsole.ScreenObjectCollection%601.IsLocked" data-throw-if-not-resolved="false"></xref> property is set to true.
   nameWithType.vb: ScreenObjectCollection(Of TScreenObject).Sort(IComparer(Of IScreenObject))
   fullName.vb: SadConsole.ScreenObjectCollection(Of TScreenObject).Sort(System.Collections.Generic.IComparer(Of SadConsole.IScreenObject))
   name.vb: Sort(IComparer(Of IScreenObject))
@@ -383,13 +331,10 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Copies the collections item to an array.
-  example: []
   syntax:
     content: public TScreenObject[] ToArray()
     return:
       type: '{TScreenObject}[]'
-      description: A new array consisting of all of the objects in this collection.
     content.vb: Public Function ToArray() As TScreenObject()
   overload: SadConsole.ScreenObjectCollection`1.ToArray*
   nameWithType.vb: ScreenObjectCollection(Of TScreenObject).ToArray()
@@ -408,14 +353,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Moves the specified <code class="paramref">obj</code>  to the top of the collection.
-  example: []
   syntax:
     content: public void MoveToTop(TScreenObject obj)
     parameters:
     - id: obj
       type: '{TScreenObject}'
-      description: The child object.
     content.vb: Public Sub MoveToTop(obj As TScreenObject)
   overload: SadConsole.ScreenObjectCollection`1.MoveToTop*
   nameWithType.vb: ScreenObjectCollection(Of TScreenObject).MoveToTop(TScreenObject)
@@ -434,14 +376,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Moves the specified <code class="paramref">obj</code>  to the bottom of the collection.
-  example: []
   syntax:
     content: public void MoveToBottom(TScreenObject obj)
     parameters:
     - id: obj
       type: '{TScreenObject}'
-      description: The child object.
     content.vb: Public Sub MoveToBottom(obj As TScreenObject)
   overload: SadConsole.ScreenObjectCollection`1.MoveToBottom*
   nameWithType.vb: ScreenObjectCollection(Of TScreenObject).MoveToBottom(TScreenObject)
@@ -460,14 +399,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Gets the 0-based index of the <code class="paramref">obj</code>.
-  example: []
   syntax:
     content: public int IndexOf(TScreenObject obj)
     parameters:
     - id: obj
       type: '{TScreenObject}'
-      description: The child object.
     return:
       type: System.Int32
     content.vb: Public Function IndexOf(obj As TScreenObject) As Integer
@@ -513,7 +449,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Returns the total number of objects in this collection.
   example: []
   syntax:
     content: public int Count { get; }
@@ -540,8 +475,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: When true, the collection cannot be modified.
-  example: []
   syntax:
     content: public bool IsLocked { get; set; }
     parameters: []
@@ -565,17 +498,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Gets or sets a child object for this collection.
   example: []
   syntax:
     content: public TScreenObject this[int index] { get; set; }
     parameters:
     - id: index
       type: System.Int32
-      description: The index of the child object.
     return:
       type: '{TScreenObject}'
-      description: The wanted object.
     content.vb: Public Default Property this[](index As Integer) As TScreenObject
   overload: SadConsole.ScreenObjectCollection`1.Item*
   implements:
@@ -597,8 +527,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Raised when the items in this collection are added, removed, or repositioned.
-  example: []
   syntax:
     content: public event EventHandler? CollectionChanged
     return:
@@ -607,14 +535,6 @@ items:
   nameWithType.vb: ScreenObjectCollection(Of TScreenObject).CollectionChanged
   fullName.vb: SadConsole.ScreenObjectCollection(Of TScreenObject).CollectionChanged
 references:
-- uid: SadConsole.IScreenObject
-  commentId: T:SadConsole.IScreenObject
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.IScreenObject.html
-  name: IScreenObject
-  nameWithType: IScreenObject
-  fullName: SadConsole.IScreenObject
 - uid: SadConsole
   commentId: N:SadConsole
   isExternal: true
@@ -1159,6 +1079,14 @@ references:
   - name: " "
   - name: T
   - name: )
+- uid: SadConsole.IScreenObject
+  commentId: T:SadConsole.IScreenObject
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IScreenObject.html
+  name: IScreenObject
+  nameWithType: IScreenObject
+  fullName: SadConsole.IScreenObject
 - uid: SadConsole.ScreenObjectCollection`1.#ctor*
   commentId: Overload:SadConsole.ScreenObjectCollection`1.#ctor
   isExternal: true
@@ -1226,23 +1154,6 @@ references:
   fullName: SadConsole.ScreenObjectCollection<TScreenObject>.IsBottom
   nameWithType.vb: ScreenObjectCollection(Of TScreenObject).IsBottom
   fullName.vb: SadConsole.ScreenObjectCollection(Of TScreenObject).IsBottom
-- uid: SadConsole.ScreenObjectCollection`1.IsLocked
-  commentId: P:SadConsole.ScreenObjectCollection`1.IsLocked
-  isExternal: true
-  href: SadConsole.ScreenObjectCollection-1.html#SadConsole_ScreenObjectCollection_1_IsLocked
-  name: IsLocked
-  nameWithType: ScreenObjectCollection<TScreenObject>.IsLocked
-  fullName: SadConsole.ScreenObjectCollection<TScreenObject>.IsLocked
-  nameWithType.vb: ScreenObjectCollection(Of TScreenObject).IsLocked
-  fullName.vb: SadConsole.ScreenObjectCollection(Of TScreenObject).IsLocked
-- uid: System.Exception
-  commentId: T:System.Exception
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.exception
-  name: Exception
-  nameWithType: Exception
-  fullName: System.Exception
 - uid: SadConsole.ScreenObjectCollection`1.Add*
   commentId: Overload:SadConsole.ScreenObjectCollection`1.Add
   isExternal: true
@@ -1281,14 +1192,6 @@ references:
   fullName: SadConsole.ScreenObjectCollection<TScreenObject>.Remove
   nameWithType.vb: ScreenObjectCollection(Of TScreenObject).Remove
   fullName.vb: SadConsole.ScreenObjectCollection(Of TScreenObject).Remove
-- uid: SadConsole.IScreenObject.SortOrder
-  commentId: P:SadConsole.IScreenObject.SortOrder
-  parent: SadConsole.IScreenObject
-  isExternal: true
-  href: SadConsole.IScreenObject.html#SadConsole_IScreenObject_SortOrder
-  name: SortOrder
-  nameWithType: IScreenObject.SortOrder
-  fullName: SadConsole.IScreenObject.SortOrder
 - uid: SadConsole.ScreenObjectCollection`1.Sort*
   commentId: Overload:SadConsole.ScreenObjectCollection`1.Sort
   isExternal: true

@@ -9,6 +9,7 @@ items:
   - SadConsole.Components.ClassicConsoleKeyboardHandler.CursorLastY
   - SadConsole.Components.ClassicConsoleKeyboardHandler.EnterPressedAction
   - SadConsole.Components.ClassicConsoleKeyboardHandler.EraseGlyph
+  - SadConsole.Components.ClassicConsoleKeyboardHandler.IsReady
   - SadConsole.Components.ClassicConsoleKeyboardHandler.OnAdded(SadConsole.IScreenObject)
   - SadConsole.Components.ClassicConsoleKeyboardHandler.PrintPrompt
   - SadConsole.Components.ClassicConsoleKeyboardHandler.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
@@ -111,7 +112,13 @@ items:
     Makes the cursor visible, disables word breaks and the string parser, and prints the prompt.
 
 
-    If the host is a <xref href="SadConsole.Console" data-throw-if-not-resolved="false"></xref>, it uses the <xref href="SadConsole.Components.ClassicConsoleKeyboardHandler._attachedCursor" data-throw-if-not-resolved="false"></xref> property, caching reference to it. You can't change the cursor reference unless you re-add this component. If the host is a <xref href="SadConsole.IScreenObject" data-throw-if-not-resolved="false"></xref>, the first instance of a cursor in the IScreenObject.SadComponents collection is used. If there is no cursor, an exception is thrown.
+    If the host is a <xref href="SadConsole.Console" data-throw-if-not-resolved="false"></xref>, it uses the <xref href="SadConsole.Components.ClassicConsoleKeyboardHandler._attachedCursor" data-throw-if-not-resolved="false"></xref> property, caching reference to it.
+
+    You can't change the cursor reference unless you re-add this component. If the host is a <xref href="SadConsole.IScreenObject" data-throw-if-not-resolved="false"></xref>,
+
+    the first instance of a cursor in the <xref href="SadConsole.Components.IComponentHost.SadComponents" data-throw-if-not-resolved="false"></xref> collection is used.
+
+    If there is no cursor, an exception is thrown.
   example: []
   syntax:
     content: public override void OnAdded(IScreenObject host)
@@ -156,7 +163,6 @@ items:
   assemblies:
   - SadConsole.Extended
   namespace: SadConsole.Components
-  summary: Called by a host when the keyboard is being processed.
   example: []
   syntax:
     content: public override void ProcessKeyboard(IScreenObject consoleObject, Keyboard info, out bool handled)
@@ -167,13 +173,35 @@ items:
       type: SadConsole.Input.Keyboard
     - id: handled
       type: System.Boolean
-      description: When set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> informs the host caller that we handled the mouse and to stop others from handling.
     content.vb: Public Overrides Sub ProcessKeyboard(consoleObject As IScreenObject, info As Keyboard, handled As Boolean)
   overridden: SadConsole.Components.KeyboardConsoleComponent.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
   overload: SadConsole.Components.ClassicConsoleKeyboardHandler.ProcessKeyboard*
   nameWithType.vb: ClassicConsoleKeyboardHandler.ProcessKeyboard(IScreenObject, Keyboard, Boolean)
   fullName.vb: SadConsole.Components.ClassicConsoleKeyboardHandler.ProcessKeyboard(SadConsole.IScreenObject, SadConsole.Input.Keyboard, Boolean)
   name.vb: ProcessKeyboard(IScreenObject, Keyboard, Boolean)
+- uid: SadConsole.Components.ClassicConsoleKeyboardHandler.IsReady
+  commentId: P:SadConsole.Components.ClassicConsoleKeyboardHandler.IsReady
+  id: IsReady
+  parent: SadConsole.Components.ClassicConsoleKeyboardHandler
+  langs:
+  - csharp
+  - vb
+  name: IsReady
+  nameWithType: ClassicConsoleKeyboardHandler.IsReady
+  fullName: SadConsole.Components.ClassicConsoleKeyboardHandler.IsReady
+  type: Property
+  assemblies:
+  - SadConsole.Extended
+  namespace: SadConsole.Components
+  summary: A flag that when set to true prints a new line and the prompt.
+  example: []
+  syntax:
+    content: public bool IsReady { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsReady As Boolean
+  overload: SadConsole.Components.ClassicConsoleKeyboardHandler.IsReady*
 - uid: SadConsole.Components.ClassicConsoleKeyboardHandler.Prompt
   commentId: P:SadConsole.Components.ClassicConsoleKeyboardHandler.Prompt
   id: Prompt
@@ -730,6 +758,14 @@ references:
   name: IScreenObject
   nameWithType: IScreenObject
   fullName: SadConsole.IScreenObject
+- uid: SadConsole.Components.IComponentHost.SadComponents
+  commentId: P:SadConsole.Components.IComponentHost.SadComponents
+  parent: SadConsole.Components.IComponentHost
+  isExternal: true
+  href: SadConsole.Components.IComponentHost.html#SadConsole_Components_IComponentHost_SadComponents
+  name: SadComponents
+  nameWithType: IComponentHost.SadComponents
+  fullName: SadConsole.Components.IComponentHost.SadComponents
 - uid: SadConsole.Components.KeyboardConsoleComponent.OnAdded(SadConsole.IScreenObject)
   commentId: M:SadConsole.Components.KeyboardConsoleComponent.OnAdded(SadConsole.IScreenObject)
   parent: SadConsole.Components.KeyboardConsoleComponent
@@ -774,6 +810,14 @@ references:
   name: SadConsole
   nameWithType: SadConsole
   fullName: SadConsole
+- uid: SadConsole.Components.IComponentHost
+  commentId: T:SadConsole.Components.IComponentHost
+  parent: SadConsole.Components
+  isExternal: true
+  href: SadConsole.Components.IComponentHost.html
+  name: IComponentHost
+  nameWithType: IComponentHost
+  fullName: SadConsole.Components.IComponentHost
 - uid: SadConsole.Components.ClassicConsoleKeyboardHandler.PrintPrompt*
   commentId: Overload:SadConsole.Components.ClassicConsoleKeyboardHandler.PrintPrompt
   isExternal: true
@@ -893,6 +937,13 @@ references:
     name: Input
     isExternal: true
     href: SadConsole.Input.html
+- uid: SadConsole.Components.ClassicConsoleKeyboardHandler.IsReady*
+  commentId: Overload:SadConsole.Components.ClassicConsoleKeyboardHandler.IsReady
+  isExternal: true
+  href: SadConsole.Components.ClassicConsoleKeyboardHandler.html#SadConsole_Components_ClassicConsoleKeyboardHandler_IsReady
+  name: IsReady
+  nameWithType: ClassicConsoleKeyboardHandler.IsReady
+  fullName: SadConsole.Components.ClassicConsoleKeyboardHandler.IsReady
 - uid: SadConsole.Components.ClassicConsoleKeyboardHandler.Prompt*
   commentId: Overload:SadConsole.Components.ClassicConsoleKeyboardHandler.Prompt
   isExternal: true

@@ -24,8 +24,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Simple button control with a height of 1.
-  example: []
   syntax:
     content: >-
       [DataContract]
@@ -68,6 +66,7 @@ items:
   - SadConsole.UI.Controls.ControlBase.DetermineState
   - SadConsole.UI.Controls.ControlBase.OnStateChanged(SadConsole.UI.Controls.ControlStates,SadConsole.UI.Controls.ControlStates)
   - SadConsole.UI.Controls.ControlBase.OnSurfaceChanged(SadConsole.ICellSurface,SadConsole.ICellSurface)
+  - SadConsole.UI.Controls.ControlBase.FindThemeFont
   - SadConsole.UI.Controls.ControlBase.FindThemeColors
   - SadConsole.UI.Controls.ControlBase.SetThemeColors(SadConsole.UI.Colors)
   - SadConsole.UI.Controls.ControlBase.HasThemeColors
@@ -133,17 +132,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Creates an instance of the button control with the specified width and height.
-  example: []
   syntax:
     content: public Button(int width, int height = 1)
     parameters:
     - id: width
       type: System.Int32
-      description: Width of the control.
     - id: height
       type: System.Int32
-      description: Height of the control (default is 1).
     content.vb: Public Sub New(width As Integer, height As Integer = 1)
   overload: SadConsole.UI.Controls.Button.#ctor*
   nameWithType.vb: Button.New(Integer, Integer)
@@ -163,14 +158,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Creates an auto sizing button with the specified text.
-  example: []
   syntax:
     content: public Button(string text)
     parameters:
     - id: text
       type: System.String
-      description: The text to display on the button.
     content.vb: Public Sub New(text As String)
   overload: SadConsole.UI.Controls.Button.#ctor*
   nameWithType.vb: Button.New(String)
@@ -190,14 +182,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Updates the <xref href="SadConsole.UI.Controls.ControlBase.ThemeState" data-throw-if-not-resolved="false"></xref> by calling <xref href="SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)" data-throw-if-not-resolved="false"></xref> with the provided colors. Override this method to adjust how colors are used by the <xref href="SadConsole.UI.Controls.ControlBase.ThemeState" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: protected override void RefreshThemeStateColors(Colors colors)
     parameters:
     - id: colors
       type: SadConsole.UI.Colors
-      description: The colors to apply to the theme state.
     content.vb: Protected Overrides Sub RefreshThemeStateColors(colors As Colors)
   overridden: SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
   overload: SadConsole.UI.Controls.Button.RefreshThemeStateColors*
@@ -215,14 +205,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Redraws the control if applicable.
   example: []
   syntax:
     content: public override void UpdateAndRedraw(TimeSpan time)
     parameters:
     - id: time
       type: System.TimeSpan
-      description: The duration of thecurrent frame.
     content.vb: Public Overrides Sub UpdateAndRedraw(time As TimeSpan)
   overridden: SadConsole.UI.Controls.ControlBase.UpdateAndRedraw(System.TimeSpan)
   overload: SadConsole.UI.Controls.Button.UpdateAndRedraw*
@@ -240,13 +228,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Resizes the control surface based on <xref href="SadConsole.UI.Controls.ButtonBase.AutoSize" data-throw-if-not-resolved="false"></xref> or the <xref href="SadConsole.UI.Controls.ControlBase.Width" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.UI.Controls.ControlBase.Height" data-throw-if-not-resolved="false"></xref> properties.
   example: []
   syntax:
     content: protected override ICellSurface CreateControlSurface()
     return:
       type: SadConsole.ICellSurface
-      description: The control's surface.
     content.vb: Protected Overrides Function CreateControlSurface() As ICellSurface
   overridden: SadConsole.UI.Controls.ControlBase.CreateControlSurface
   overload: SadConsole.UI.Controls.Button.CreateControlSurface*
@@ -264,8 +250,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: When true, renders the "end" glyphs on the button.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -297,8 +281,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: The theme state used with the left end of the button.Defaults to '&lt;'.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -330,8 +312,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: The theme state used with the right end of the button. Defaults to '&gt;'.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -363,8 +343,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: The theme state used with the left end of the button.
-  example: []
   syntax:
     content: public ThemeStates EndsThemeState { get; protected set; }
     parameters: []
@@ -1014,6 +992,28 @@ references:
     name: ICellSurface
     isExternal: true
     href: SadConsole.ICellSurface.html
+  - name: )
+- uid: SadConsole.UI.Controls.ControlBase.FindThemeFont
+  commentId: M:SadConsole.UI.Controls.ControlBase.FindThemeFont
+  parent: SadConsole.UI.Controls.ControlBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeFont
+  name: FindThemeFont()
+  nameWithType: ControlBase.FindThemeFont()
+  fullName: SadConsole.UI.Controls.ControlBase.FindThemeFont()
+  spec.csharp:
+  - uid: SadConsole.UI.Controls.ControlBase.FindThemeFont
+    name: FindThemeFont
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeFont
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.Controls.ControlBase.FindThemeFont
+    name: FindThemeFont
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeFont
+  - name: (
   - name: )
 - uid: SadConsole.UI.Controls.ControlBase.FindThemeColors
   commentId: M:SadConsole.UI.Controls.ControlBase.FindThemeColors
@@ -1738,36 +1738,6 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
-  commentId: M:SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
-  parent: SadConsole.UI.ThemeStates
-  isExternal: true
-  href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_RefreshTheme_SadConsole_UI_Colors_
-  name: RefreshTheme(Colors)
-  nameWithType: ThemeStates.RefreshTheme(Colors)
-  fullName: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
-  spec.csharp:
-  - uid: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
-    name: RefreshTheme
-    isExternal: true
-    href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_RefreshTheme_SadConsole_UI_Colors_
-  - name: (
-  - uid: SadConsole.UI.Colors
-    name: Colors
-    isExternal: true
-    href: SadConsole.UI.Colors.html
-  - name: )
-  spec.vb:
-  - uid: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
-    name: RefreshTheme
-    isExternal: true
-    href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_RefreshTheme_SadConsole_UI_Colors_
-  - name: (
-  - uid: SadConsole.UI.Colors
-    name: Colors
-    isExternal: true
-    href: SadConsole.UI.Colors.html
-  - name: )
 - uid: SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
   commentId: M:SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
   parent: SadConsole.UI.Controls.ControlBase
@@ -1813,14 +1783,6 @@ references:
   name: Colors
   nameWithType: Colors
   fullName: SadConsole.UI.Colors
-- uid: SadConsole.UI.ThemeStates
-  commentId: T:SadConsole.UI.ThemeStates
-  parent: SadConsole.UI
-  isExternal: true
-  href: SadConsole.UI.ThemeStates.html
-  name: ThemeStates
-  nameWithType: ThemeStates
-  fullName: SadConsole.UI.ThemeStates
 - uid: SadConsole.UI
   commentId: N:SadConsole.UI
   isExternal: true
@@ -1976,3 +1938,11 @@ references:
   name: EndsThemeState
   nameWithType: Button.EndsThemeState
   fullName: SadConsole.UI.Controls.Button.EndsThemeState
+- uid: SadConsole.UI.ThemeStates
+  commentId: T:SadConsole.UI.ThemeStates
+  parent: SadConsole.UI
+  isExternal: true
+  href: SadConsole.UI.ThemeStates.html
+  name: ThemeStates
+  nameWithType: ThemeStates
+  fullName: SadConsole.UI.ThemeStates

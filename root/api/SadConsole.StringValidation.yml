@@ -21,8 +21,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Validates a string
-  example: []
   syntax:
     content: public static class StringValidation
     content.vb: Public Module StringValidation
@@ -50,17 +48,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Always validates to true.
-  example: []
   syntax:
     content: public static StringValidation.Result None(string input)
     parameters:
     - id: input
       type: System.String
-      description: The string to validate.
     return:
       type: SadConsole.StringValidation.Result
-      description: A positive validation result.
     content.vb: Public Shared Function None(input As String) As StringValidation.Result
   overload: SadConsole.StringValidation.None*
   nameWithType.vb: StringValidation.None(String)
@@ -80,17 +74,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Returns a <xref href="SadConsole.StringValidation.Validator" data-throw-if-not-resolved="false"></xref> delegate that validates whether or not a string can be parsed by the <xref href="System.Int64.TryParse(System.String%2cSystem.Int64%40)" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: public static StringValidation.Validator Integer(string errorMessage)
     parameters:
     - id: errorMessage
       type: System.String
-      description: A message to provide to the result if the validation fails.
     return:
       type: SadConsole.StringValidation.Validator
-      description: The validation result.
     content.vb: Public Shared Function [Integer](errorMessage As String) As StringValidation.Validator
   overload: SadConsole.StringValidation.Integer*
   nameWithType.vb: StringValidation.Integer(String)
@@ -110,17 +100,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Returns a <xref href="SadConsole.StringValidation.Validator" data-throw-if-not-resolved="false"></xref> delegate that validates whether or not a string can be parsed by the <xref href="System.Double.TryParse(System.String%2cSystem.Double%40)" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: public static StringValidation.Validator Decimal(string errorMessage)
     parameters:
     - id: errorMessage
       type: System.String
-      description: A message to provide to the result if the validation fails.
     return:
       type: SadConsole.StringValidation.Validator
-      description: The validation result.
     content.vb: Public Shared Function [Decimal](errorMessage As String) As StringValidation.Validator
   overload: SadConsole.StringValidation.Decimal*
   nameWithType.vb: StringValidation.Decimal(String)
@@ -140,23 +126,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Returns a <xref href="SadConsole.StringValidation.Validator" data-throw-if-not-resolved="false"></xref> delegate that validates whether or not a length of a string falls within the specified range.
-  example: []
   syntax:
     content: public static StringValidation.Validator LengthRange(int min, int max, string errorMessage)
     parameters:
     - id: min
       type: System.Int32
-      description: ''
     - id: max
       type: System.Int32
-      description: ''
     - id: errorMessage
       type: System.String
-      description: A message to provide to the result if the validation fails.
     return:
       type: SadConsole.StringValidation.Validator
-      description: The validation result.
     content.vb: Public Shared Function LengthRange(min As Integer, max As Integer, errorMessage As String) As StringValidation.Validator
   overload: SadConsole.StringValidation.LengthRange*
   nameWithType.vb: StringValidation.LengthRange(Integer, Integer, String)
@@ -176,17 +156,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Uses multiple <xref href="SadConsole.StringValidation.Validator" data-throw-if-not-resolved="false"></xref> delegates to validate a string. All validators must pass.
-  example: []
   syntax:
     content: public static StringValidation.Validator All(params StringValidation.Validator[] validators)
     parameters:
     - id: validators
       type: SadConsole.StringValidation.Validator[]
-      description: Each <xref href="SadConsole.StringValidation.Validator" data-throw-if-not-resolved="false"></xref> to use.
     return:
       type: SadConsole.StringValidation.Validator
-      description: When all validators pass, a successful result; otherwise, the failed result.
     content.vb: Public Shared Function All(ParamArray validators As StringValidation.Validator()) As StringValidation.Validator
   overload: SadConsole.StringValidation.All*
   nameWithType.vb: StringValidation.All(ParamArray StringValidation.Validator())
@@ -206,17 +182,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Returns a <xref href="SadConsole.StringValidation.Validator" data-throw-if-not-resolved="false"></xref> delegate that validates whether or not a string contains only letters.
-  example: []
   syntax:
     content: public static StringValidation.Validator Letters(string errorMessage)
     parameters:
     - id: errorMessage
       type: System.String
-      description: A message to provide to the result if the validation fails.
     return:
       type: SadConsole.StringValidation.Validator
-      description: The validation result.
     content.vb: Public Shared Function Letters(errorMessage As String) As StringValidation.Validator
   overload: SadConsole.StringValidation.Letters*
   nameWithType.vb: StringValidation.Letters(String)
@@ -513,6 +485,13 @@ references:
     name: Result
     isExternal: true
     href: SadConsole.StringValidation.Result.html
+- uid: SadConsole.StringValidation.Integer*
+  commentId: Overload:SadConsole.StringValidation.Integer
+  isExternal: true
+  href: SadConsole.StringValidation.html#SadConsole_StringValidation_Integer_System_String_
+  name: Integer
+  nameWithType: StringValidation.Integer
+  fullName: SadConsole.StringValidation.Integer
 - uid: SadConsole.StringValidation.Validator
   commentId: T:SadConsole.StringValidation.Validator
   parent: SadConsole
@@ -541,105 +520,6 @@ references:
     name: Validator
     isExternal: true
     href: SadConsole.StringValidation.Validator.html
-- uid: System.Int64.TryParse(System.String,System.Int64@)
-  commentId: M:System.Int64.TryParse(System.String,System.Int64@)
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int64.tryparse#system-int64-tryparse(system-string-system-int64@)
-  name: TryParse(string, out long)
-  nameWithType: long.TryParse(string, out long)
-  fullName: long.TryParse(string, out long)
-  nameWithType.vb: Long.TryParse(String, Long)
-  fullName.vb: Long.TryParse(String, Long)
-  name.vb: TryParse(String, Long)
-  spec.csharp:
-  - uid: System.Int64.TryParse(System.String,System.Int64@)
-    name: TryParse
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int64.tryparse#system-int64-tryparse(system-string-system-int64@)
-  - name: (
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - name: out
-  - name: " "
-  - uid: System.Int64
-    name: long
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int64
-  - name: )
-  spec.vb:
-  - uid: System.Int64.TryParse(System.String,System.Int64@)
-    name: TryParse
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int64.tryparse#system-int64-tryparse(system-string-system-int64@)
-  - name: (
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - uid: System.Int64
-    name: Long
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int64
-  - name: )
-- uid: SadConsole.StringValidation.Integer*
-  commentId: Overload:SadConsole.StringValidation.Integer
-  isExternal: true
-  href: SadConsole.StringValidation.html#SadConsole_StringValidation_Integer_System_String_
-  name: Integer
-  nameWithType: StringValidation.Integer
-  fullName: SadConsole.StringValidation.Integer
-- uid: System.Double.TryParse(System.String,System.Double@)
-  commentId: M:System.Double.TryParse(System.String,System.Double@)
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.double.tryparse#system-double-tryparse(system-string-system-double@)
-  name: TryParse(string, out double)
-  nameWithType: double.TryParse(string, out double)
-  fullName: double.TryParse(string, out double)
-  nameWithType.vb: Double.TryParse(String, Double)
-  fullName.vb: Double.TryParse(String, Double)
-  name.vb: TryParse(String, Double)
-  spec.csharp:
-  - uid: System.Double.TryParse(System.String,System.Double@)
-    name: TryParse
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.double.tryparse#system-double-tryparse(system-string-system-double@)
-  - name: (
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - name: out
-  - name: " "
-  - uid: System.Double
-    name: double
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.double
-  - name: )
-  spec.vb:
-  - uid: System.Double.TryParse(System.String,System.Double@)
-    name: TryParse
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.double.tryparse#system-double-tryparse(system-string-system-double@)
-  - name: (
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - uid: System.Double
-    name: Double
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.double
-  - name: )
 - uid: SadConsole.StringValidation.Decimal*
   commentId: Overload:SadConsole.StringValidation.Decimal
   isExternal: true

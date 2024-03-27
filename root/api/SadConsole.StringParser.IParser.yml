@@ -16,8 +16,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
-  summary: Describes a parser
-  example: []
   syntax:
     content: public interface IParser
     content.vb: Public Interface IParser
@@ -35,26 +33,19 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
-  summary: Generates a colored string from a string of characters.
-  example: []
   syntax:
     content: ColoredString Parse(ReadOnlySpan<char> value, int surfaceIndex = -1, ICellSurface? surface = null, ParseCommandStacks? initialBehaviors = null)
     parameters:
     - id: value
       type: System.ReadOnlySpan{System.Char}
-      description: The characters to process.
     - id: surfaceIndex
       type: System.Int32
-      description: The index on the backing surface, if it applies.
     - id: surface
       type: SadConsole.ICellSurface
-      description: The backing surface the parser is interacting with, if it applies.
     - id: initialBehaviors
       type: SadConsole.StringParser.ParseCommandStacks
-      description: A set of known behaviors to apply to the parser.
     return:
       type: SadConsole.ColoredString
-      description: ''
     content.vb: Function Parse(value As ReadOnlySpan(Of Char), surfaceIndex As Integer = -1, surface As ICellSurface = Nothing, initialBehaviors As ParseCommandStacks = Nothing) As ColoredString
   overload: SadConsole.StringParser.IParser.Parse*
   nameWithType.vb: IParser.Parse(ReadOnlySpan(Of Char), Integer, ICellSurface, ParseCommandStacks)

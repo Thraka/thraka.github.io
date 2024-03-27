@@ -56,8 +56,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Represents a windowed controls console.
-  example: []
   syntax:
     content: >-
       [DataContract]
@@ -74,6 +72,7 @@ items:
   - SadConsole.Console
   derivedClasses:
   - SadConsole.UI.Windows.ColorPickerPopup
+  - SadConsole.UI.Windows.GlyphSelectPopup
   - SadConsole.UI.Windows.OtherColorsPopup
   implements:
   - System.IDisposable
@@ -311,8 +310,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: The mouse state of the previous update frame.
-  example: []
   syntax:
     content: protected bool PreviousMouseLeftButtonDown
     return:
@@ -332,17 +329,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Creates a new window.
-  example: []
   syntax:
     content: public Window(int width, int height)
     parameters:
     - id: width
       type: System.Int32
-      description: The width in cells of the surface.
     - id: height
       type: System.Int32
-      description: The height in cells of the surface.
     content.vb: Public Sub New(width As Integer, height As Integer)
   overload: SadConsole.UI.Window.#ctor*
   nameWithType.vb: Window.New(Integer, Integer)
@@ -362,20 +355,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Creates a new screen object that can render a surface. Uses the specified cells to generate the surface.
-  example: []
   syntax:
     content: public Window(int width, int height, ColoredGlyphBase[]? initialCells)
     parameters:
     - id: width
       type: System.Int32
-      description: The width in cells of the surface.
     - id: height
       type: System.Int32
-      description: The height in cells of the surface.
     - id: initialCells
       type: SadConsole.ColoredGlyphBase[]
-      description: The initial cells to seed the surface.
     content.vb: Public Sub New(width As Integer, height As Integer, initialCells As ColoredGlyphBase())
   overload: SadConsole.UI.Window.#ctor*
   nameWithType.vb: Window.New(Integer, Integer, ColoredGlyphBase())
@@ -395,23 +383,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Creates a new window with the specified width and height, with <xref href="SadRogue.Primitives.Color.Transparent" data-throw-if-not-resolved="false"></xref> for the background and <xref href="SadRogue.Primitives.Color.White" data-throw-if-not-resolved="false"></xref> for the foreground.
-  example: []
   syntax:
     content: public Window(int width, int height, int bufferWidth, int bufferHeight)
     parameters:
     - id: width
       type: System.Int32
-      description: The visible width of the window in cells.
     - id: height
       type: System.Int32
-      description: The visible height of the window in cells.
     - id: bufferWidth
       type: System.Int32
-      description: The total width of the window in cells.
     - id: bufferHeight
       type: System.Int32
-      description: The total height of the window in cells.
     content.vb: Public Sub New(width As Integer, height As Integer, bufferWidth As Integer, bufferHeight As Integer)
   overload: SadConsole.UI.Window.#ctor*
   nameWithType.vb: Window.New(Integer, Integer, Integer, Integer)
@@ -431,26 +413,19 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Creates a window with the specified width and height, with <xref href="SadRogue.Primitives.Color.Transparent" data-throw-if-not-resolved="false"></xref> for the background and <xref href="SadRogue.Primitives.Color.White" data-throw-if-not-resolved="false"></xref> for the foreground.
-  example: []
   syntax:
     content: public Window(int width, int height, int bufferWidth, int bufferHeight, ColoredGlyphBase[]? initialCells)
     parameters:
     - id: width
       type: System.Int32
-      description: The width of the window in cells.
     - id: height
       type: System.Int32
-      description: The height of the window in cells.
     - id: bufferWidth
       type: System.Int32
-      description: The total width of the window in cells.
     - id: bufferHeight
       type: System.Int32
-      description: The total height of the window in cells.
     - id: initialCells
       type: SadConsole.ColoredGlyphBase[]
-      description: The cells to seed the window with. If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, creates the cells for you.
     content.vb: Public Sub New(width As Integer, height As Integer, bufferWidth As Integer, bufferHeight As Integer, initialCells As ColoredGlyphBase())
   overload: SadConsole.UI.Window.#ctor*
   nameWithType.vb: Window.New(Integer, Integer, Integer, Integer, ColoredGlyphBase())
@@ -470,20 +445,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Creates a new window using the existing surface.
-  example: []
   syntax:
     content: public Window(ICellSurface surface, IFont? font = null, Point? fontSize = null)
     parameters:
     - id: surface
       type: SadConsole.ICellSurface
-      description: The surface.
     - id: font
       type: SadConsole.IFont
-      description: The font to use with the surface.
     - id: fontSize
       type: System.Nullable{SadRogue.Primitives.Point}
-      description: The font size.
     content.vb: Public Sub New(surface As ICellSurface, font As IFont = Nothing, fontSize As Point? = Nothing)
   overload: SadConsole.UI.Window.#ctor*
   nameWithType.vb: Window.New(ICellSurface, IFont, Point?)
@@ -503,17 +473,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Processes the mouse.
   example: []
   syntax:
     content: public override bool ProcessMouse(MouseScreenObjectState state)
     parameters:
     - id: state
       type: SadConsole.Input.MouseScreenObjectState
-      description: The mouse state related to this object.
     return:
       type: System.Boolean
-      description: True when this object should halt further mouse processing..
     content.vb: Public Overrides Function ProcessMouse(state As MouseScreenObjectState) As Boolean
   overridden: SadConsole.ScreenSurface.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
   overload: SadConsole.UI.Window.ProcessMouse*
@@ -531,7 +498,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  example: []
   syntax:
     content: protected virtual void DrawBorder()
     content.vb: Protected Overridable Sub DrawBorder()
@@ -550,14 +516,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Processes the keyboard looking for the ESC key press to close the window, if required. Otherwise the base ControlsConsole will process the keyboard.
   example: []
   syntax:
     content: public override bool ProcessKeyboard(Keyboard info)
     parameters:
     - id: info
       type: SadConsole.Input.Keyboard
-      description: Keyboard state.
     return:
       type: System.Boolean
     content.vb: Public Overrides Function ProcessKeyboard(info As Keyboard) As Boolean
@@ -577,7 +541,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Depending on if the window is visible, calls <xref href="SadConsole.UI.Window.Show(System.Boolean)" data-throw-if-not-resolved="false"></xref> or <xref href="SadConsole.UI.Window.Hide" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: protected override void OnVisibleChanged()
@@ -598,8 +561,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: User-definable code called when the window is shown.
-  example: []
   syntax:
     content: protected virtual void OnShown()
     content.vb: Protected Overridable Sub OnShown()
@@ -618,8 +579,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: User-definable code called when the window is hidden.
-  example: []
   syntax:
     content: protected virtual void OnHidden()
     content.vb: Protected Overridable Sub OnHidden()
@@ -638,8 +597,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Displays this window using the modal value of the <xref href="SadConsole.UI.Window.IsModalDefault" data-throw-if-not-resolved="false"></xref> property.
-  example: []
   syntax:
     content: public void Show()
     content.vb: Public Sub Show()
@@ -658,14 +615,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Displays this window.
-  example: []
   syntax:
     content: public virtual void Show(bool modal)
     parameters:
     - id: modal
       type: System.Boolean
-      description: When true, the window will be displayed as modal; otherwise false.
     content.vb: Public Overridable Sub Show(modal As Boolean)
   overload: SadConsole.UI.Window.Show*
   nameWithType.vb: Window.Show(Boolean)
@@ -685,8 +639,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Hides the window.
-  example: []
   syntax:
     content: public virtual void Hide()
     content.vb: Public Overridable Sub Hide()
@@ -705,8 +657,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Centers the window within the bounds of <xref href="SadConsole.Settings.Rendering.RenderWidth" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.Settings.Rendering.RenderHeight" data-throw-if-not-resolved="false"></xref>
-  example: []
   syntax:
     content: public void Center()
     content.vb: Public Sub Center()
@@ -725,13 +675,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Returns the value "Window".
   example: []
   syntax:
     content: public override string ToString()
     return:
       type: System.String
-      description: The string "Window".
     content.vb: Public Overrides Function ToString() As String
   overridden: SadConsole.Console.ToString
   overload: SadConsole.UI.Window.ToString*
@@ -749,32 +697,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Displays a window with an input box and an optional validator with a text prompt.
-  example: []
   syntax:
     content: public static void Ask(string message, string acceptPrompt, string cancelPrompt, Action<bool, string>? closedCallback, StringValidation.Validator? validator = null, string? defaultValue = null, Colors? colors = null)
     parameters:
     - id: message
       type: System.String
-      description: The message to print in the window.
     - id: acceptPrompt
       type: System.String
-      description: The text of the accept button.
     - id: cancelPrompt
       type: System.String
-      description: The text of the cancel button.
     - id: closedCallback
       type: System.Action{System.Boolean,System.String}
-      description: A delegate called when the window is closed.
     - id: validator
       type: SadConsole.StringValidation.Validator
-      description: An optional validator to validate the input text.
     - id: defaultValue
       type: System.String
-      description: An optional default value of the input text box.
     - id: colors
       type: SadConsole.UI.Colors
-      description: An optional set of colors to apply to the window.
     content.vb: Public Shared Sub Ask(message As String, acceptPrompt As String, cancelPrompt As String, closedCallback As Action(Of Boolean, String), validator As StringValidation.Validator = Nothing, defaultValue As String = Nothing, colors As Colors = Nothing)
   overload: SadConsole.UI.Window.Ask*
   nameWithType.vb: Window.Ask(String, String, String, Action(Of Boolean, String), StringValidation.Validator, String, Colors)
@@ -794,32 +733,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Displays a window with an input box and an optional validator, using a <xref href="SadConsole.ColoredString" data-throw-if-not-resolved="false"></xref> as the prompt text.
-  example: []
   syntax:
     content: public static void Ask(ColoredString message, string acceptPrompt, string cancelPrompt, Action<bool, string>? closedCallback, StringValidation.Validator? validator = null, string? defaultValue = null, Colors? colors = null)
     parameters:
     - id: message
       type: SadConsole.ColoredString
-      description: The message to print in the window.
     - id: acceptPrompt
       type: System.String
-      description: The text of the accept button.
     - id: cancelPrompt
       type: System.String
-      description: The text of the cancel button.
     - id: closedCallback
       type: System.Action{System.Boolean,System.String}
-      description: A delegate called when the window is closed.
     - id: validator
       type: SadConsole.StringValidation.Validator
-      description: An optional validator to validate the input text.
     - id: defaultValue
       type: System.String
-      description: An optional default value of the input text box.
     - id: colors
       type: SadConsole.UI.Colors
-      description: An optional set of colors to apply to the window.
     content.vb: Public Shared Sub Ask(message As ColoredString, acceptPrompt As String, cancelPrompt As String, closedCallback As Action(Of Boolean, String), validator As StringValidation.Validator = Nothing, defaultValue As String = Nothing, colors As Colors = Nothing)
   overload: SadConsole.UI.Window.Ask*
   nameWithType.vb: Window.Ask(ColoredString, String, String, Action(Of Boolean, String), StringValidation.Validator, String, Colors)
@@ -839,26 +769,19 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Shows a window prompt with two buttons for the user to click.
-  example: []
   syntax:
     content: public static void Prompt(string message, string yesPrompt, string noPrompt, Action<bool>? closedCallback, Colors? colors = null)
     parameters:
     - id: message
       type: System.String
-      description: The text to display.
     - id: yesPrompt
       type: System.String
-      description: The yes button's text.
     - id: noPrompt
       type: System.String
-      description: The no button's text.
     - id: closedCallback
       type: System.Action{System.Boolean}
-      description: Callback with the yes (true) or no (false) result.
     - id: colors
       type: SadConsole.UI.Colors
-      description: The colors to apply for the message box and buttons. If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
     content.vb: Public Shared Sub Prompt(message As String, yesPrompt As String, noPrompt As String, closedCallback As Action(Of Boolean), colors As Colors = Nothing)
   overload: SadConsole.UI.Window.Prompt*
   nameWithType.vb: Window.Prompt(String, String, String, Action(Of Boolean), Colors)
@@ -878,26 +801,19 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Shows a window prompt with two buttons for the user to click.
-  example: []
   syntax:
     content: public static void Prompt(ColoredString message, string yesPrompt, string noPrompt, Action<bool>? closedCallback, Colors? colors = null)
     parameters:
     - id: message
       type: SadConsole.ColoredString
-      description: The text to display. (background color is ignored)
     - id: yesPrompt
       type: System.String
-      description: The yes button's text.
     - id: noPrompt
       type: System.String
-      description: The no button's text.
     - id: closedCallback
       type: System.Action{System.Boolean}
-      description: Callback with the yes (true) or no (false) result.
     - id: colors
       type: SadConsole.UI.Colors
-      description: The colors to apply for the message box and buttons. If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
     content.vb: Public Shared Sub Prompt(message As ColoredString, yesPrompt As String, noPrompt As String, closedCallback As Action(Of Boolean), colors As Colors = Nothing)
   overload: SadConsole.UI.Window.Prompt*
   nameWithType.vb: Window.Prompt(ColoredString, String, String, Action(Of Boolean), Colors)
@@ -917,23 +833,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Displays a dialog to the user with a specific message.
-  example: []
   syntax:
     content: public static void Message(string message, string closeButtonText, Action? closedCallback = null, Colors? colors = null)
     parameters:
     - id: message
       type: System.String
-      description: The message.
     - id: closeButtonText
       type: System.String
-      description: The text of the dialog's close button.
     - id: closedCallback
       type: System.Action
-      description: A callback indicating the message was dismissed.
     - id: colors
       type: SadConsole.UI.Colors
-      description: The colors to apply for the message box and buttons. If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
     content.vb: Public Shared Sub Message(message As String, closeButtonText As String, closedCallback As Action = Nothing, colors As Colors = Nothing)
   overload: SadConsole.UI.Window.Message*
   nameWithType.vb: Window.Message(String, String, Action, Colors)
@@ -953,23 +863,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Displays a dialog to the user with a specific message.
-  example: []
   syntax:
     content: public static void Message(ColoredString message, string closeButtonText, Action? closedCallback = null, Colors? colors = null)
     parameters:
     - id: message
       type: SadConsole.ColoredString
-      description: The message. (background color is ignored)
     - id: closeButtonText
       type: System.String
-      description: The text of the dialog's close button.
     - id: closedCallback
       type: System.Action
-      description: A callback indicating the message was dismissed.
     - id: colors
       type: SadConsole.UI.Colors
-      description: The colors to apply for the message box and buttons. If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
     content.vb: Public Shared Sub Message(message As ColoredString, closeButtonText As String, closedCallback As Action = Nothing, colors As Colors = Nothing)
   overload: SadConsole.UI.Window.Message*
   nameWithType.vb: Window.Message(ColoredString, String, Action, Colors)
@@ -989,7 +893,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: The controls host holding all the controls.
   example: []
   syntax:
     content: public ControlHost Controls { get; }
@@ -1014,8 +917,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: The Y coordinate of the title drawing area. This can be set to any value &gt; 0 and &lt; the height.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1047,8 +948,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: The X coordinate of the title drawing area. This is automatically set by the theme.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1080,8 +979,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: The width of the title drawing area. This is automatically set by the theme.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1113,8 +1010,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: The line style for the border.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1146,8 +1041,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: The position of the cell that the window drag started at.
-  example: []
   syntax:
     content: >-
       [IgnoreDataMember]
@@ -1179,8 +1072,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Temporary value to hold the state of <xref href="SadConsole.IScreenObject.IsExclusiveMouse" data-throw-if-not-resolved="false"></xref> prior to dragging.
-  example: []
   syntax:
     content: >-
       [IgnoreDataMember]
@@ -1212,8 +1103,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that the window has been added to a parent; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
-  example: []
   syntax:
     content: >-
       [IgnoreDataMember]
@@ -1245,8 +1134,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that the window is being dragged; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
-  example: []
   syntax:
     content: >-
       [IgnoreDataMember]
@@ -1278,8 +1165,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Gets or sets the alignment of the window title.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1311,7 +1196,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Gets the whether or not the window is being shown as modal.
   example: []
   syntax:
     content: >-
@@ -1346,8 +1230,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Gets or sets whether or not this window can be moved with the mouse.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1379,8 +1261,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Gets or sets whether or not this window can be closed when the escape key is pressed.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1412,8 +1292,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Gets or set the dialog result status of the window.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1445,8 +1323,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Indicates that when this window is shown by the <xref href="SadConsole.UI.Window.Show" data-throw-if-not-resolved="false"></xref> method or by setting the <xref href="SadConsole.IScreenObject.IsVisible" data-throw-if-not-resolved="false"></xref> property to true, the window will be shown as modal.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1478,8 +1354,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Gets or sets the title displayed on the window.
-  example: []
   syntax:
     content: public string Title { get; set; }
     parameters: []
@@ -1501,8 +1375,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Raised when the window is closed.
-  example: []
   syntax:
     content: public event EventHandler? Closed
     return:
@@ -1522,8 +1394,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Raised when the window is shown.
-  example: []
   syntax:
     content: public event EventHandler? Shown
     return:
@@ -19029,18 +18899,6 @@ references:
     href: SadConsole.ColoredGlyphBase.html
   - name: (
   - name: )
-- uid: SadRogue.Primitives.Color.Transparent
-  commentId: F:SadRogue.Primitives.Color.Transparent
-  isExternal: true
-  name: Transparent
-  nameWithType: Color.Transparent
-  fullName: SadRogue.Primitives.Color.Transparent
-- uid: SadRogue.Primitives.Color.White
-  commentId: F:SadRogue.Primitives.Color.White
-  isExternal: true
-  name: White
-  nameWithType: Color.White
-  fullName: SadRogue.Primitives.Color.White
 - uid: SadConsole.ICellSurface
   commentId: T:SadConsole.ICellSurface
   parent: SadConsole
@@ -19226,61 +19084,6 @@ references:
   name: Keyboard
   nameWithType: Keyboard
   fullName: SadConsole.Input.Keyboard
-- uid: SadConsole.UI.Window.Show(System.Boolean)
-  commentId: M:SadConsole.UI.Window.Show(System.Boolean)
-  parent: SadConsole.UI.Window
-  isExternal: true
-  href: SadConsole.UI.Window.html#SadConsole_UI_Window_Show_System_Boolean_
-  name: Show(bool)
-  nameWithType: Window.Show(bool)
-  fullName: SadConsole.UI.Window.Show(bool)
-  nameWithType.vb: Window.Show(Boolean)
-  fullName.vb: SadConsole.UI.Window.Show(Boolean)
-  name.vb: Show(Boolean)
-  spec.csharp:
-  - uid: SadConsole.UI.Window.Show(System.Boolean)
-    name: Show
-    isExternal: true
-    href: SadConsole.UI.Window.html#SadConsole_UI_Window_Show_System_Boolean_
-  - name: (
-  - uid: System.Boolean
-    name: bool
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: )
-  spec.vb:
-  - uid: SadConsole.UI.Window.Show(System.Boolean)
-    name: Show
-    isExternal: true
-    href: SadConsole.UI.Window.html#SadConsole_UI_Window_Show_System_Boolean_
-  - name: (
-  - uid: System.Boolean
-    name: Boolean
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: )
-- uid: SadConsole.UI.Window.Hide
-  commentId: M:SadConsole.UI.Window.Hide
-  parent: SadConsole.UI.Window
-  isExternal: true
-  href: SadConsole.UI.Window.html#SadConsole_UI_Window_Hide
-  name: Hide()
-  nameWithType: Window.Hide()
-  fullName: SadConsole.UI.Window.Hide()
-  spec.csharp:
-  - uid: SadConsole.UI.Window.Hide
-    name: Hide
-    isExternal: true
-    href: SadConsole.UI.Window.html#SadConsole_UI_Window_Hide
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: SadConsole.UI.Window.Hide
-    name: Hide
-    isExternal: true
-    href: SadConsole.UI.Window.html#SadConsole_UI_Window_Hide
-  - name: (
-  - name: )
 - uid: SadConsole.Console.OnVisibleChanged
   commentId: M:SadConsole.Console.OnVisibleChanged
   parent: SadConsole.Console
@@ -19310,14 +19113,6 @@ references:
   name: OnVisibleChanged
   nameWithType: Window.OnVisibleChanged
   fullName: SadConsole.UI.Window.OnVisibleChanged
-- uid: SadConsole.UI.Window
-  commentId: T:SadConsole.UI.Window
-  parent: SadConsole.UI
-  isExternal: true
-  href: SadConsole.UI.Window.html
-  name: Window
-  nameWithType: Window
-  fullName: SadConsole.UI.Window
 - uid: SadConsole.UI.Window.OnShown*
   commentId: Overload:SadConsole.UI.Window.OnShown
   isExternal: true
@@ -19332,14 +19127,6 @@ references:
   name: OnHidden
   nameWithType: Window.OnHidden
   fullName: SadConsole.UI.Window.OnHidden
-- uid: SadConsole.UI.Window.IsModalDefault
-  commentId: P:SadConsole.UI.Window.IsModalDefault
-  parent: SadConsole.UI.Window
-  isExternal: true
-  href: SadConsole.UI.Window.html#SadConsole_UI_Window_IsModalDefault
-  name: IsModalDefault
-  nameWithType: Window.IsModalDefault
-  fullName: SadConsole.UI.Window.IsModalDefault
 - uid: SadConsole.UI.Window.Show*
   commentId: Overload:SadConsole.UI.Window.Show
   isExternal: true
@@ -19354,20 +19141,6 @@ references:
   name: Hide
   nameWithType: Window.Hide
   fullName: SadConsole.UI.Window.Hide
-- uid: SadConsole.Settings.Rendering.RenderWidth
-  commentId: P:SadConsole.Settings.Rendering.RenderWidth
-  isExternal: true
-  href: SadConsole.Settings.Rendering.html#SadConsole_Settings_Rendering_RenderWidth
-  name: RenderWidth
-  nameWithType: Settings.Rendering.RenderWidth
-  fullName: SadConsole.Settings.Rendering.RenderWidth
-- uid: SadConsole.Settings.Rendering.RenderHeight
-  commentId: P:SadConsole.Settings.Rendering.RenderHeight
-  isExternal: true
-  href: SadConsole.Settings.Rendering.html#SadConsole_Settings_Rendering_RenderHeight
-  name: RenderHeight
-  nameWithType: Settings.Rendering.RenderHeight
-  fullName: SadConsole.Settings.Rendering.RenderHeight
 - uid: SadConsole.UI.Window.Center*
   commentId: Overload:SadConsole.UI.Window.Center
   isExternal: true
@@ -19720,14 +19493,6 @@ references:
   name: Point
   nameWithType: Point
   fullName: SadRogue.Primitives.Point
-- uid: SadConsole.IScreenObject.IsExclusiveMouse
-  commentId: P:SadConsole.IScreenObject.IsExclusiveMouse
-  parent: SadConsole.IScreenObject
-  isExternal: true
-  href: SadConsole.IScreenObject.html#SadConsole_IScreenObject_IsExclusiveMouse
-  name: IsExclusiveMouse
-  nameWithType: IScreenObject.IsExclusiveMouse
-  fullName: SadConsole.IScreenObject.IsExclusiveMouse
 - uid: SadConsole.UI.Window.PreviousMouseExclusiveDrag*
   commentId: Overload:SadConsole.UI.Window.PreviousMouseExclusiveDrag
   isExternal: true
@@ -19800,36 +19565,6 @@ references:
   name: DialogResult
   nameWithType: Window.DialogResult
   fullName: SadConsole.UI.Window.DialogResult
-- uid: SadConsole.UI.Window.Show
-  commentId: M:SadConsole.UI.Window.Show
-  parent: SadConsole.UI.Window
-  isExternal: true
-  href: SadConsole.UI.Window.html#SadConsole_UI_Window_Show
-  name: Show()
-  nameWithType: Window.Show()
-  fullName: SadConsole.UI.Window.Show()
-  spec.csharp:
-  - uid: SadConsole.UI.Window.Show
-    name: Show
-    isExternal: true
-    href: SadConsole.UI.Window.html#SadConsole_UI_Window_Show
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: SadConsole.UI.Window.Show
-    name: Show
-    isExternal: true
-    href: SadConsole.UI.Window.html#SadConsole_UI_Window_Show
-  - name: (
-  - name: )
-- uid: SadConsole.IScreenObject.IsVisible
-  commentId: P:SadConsole.IScreenObject.IsVisible
-  parent: SadConsole.IScreenObject
-  isExternal: true
-  href: SadConsole.IScreenObject.html#SadConsole_IScreenObject_IsVisible
-  name: IsVisible
-  nameWithType: IScreenObject.IsVisible
-  fullName: SadConsole.IScreenObject.IsVisible
 - uid: SadConsole.UI.Window.IsModalDefault*
   commentId: Overload:SadConsole.UI.Window.IsModalDefault
   isExternal: true

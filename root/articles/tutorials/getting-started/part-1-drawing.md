@@ -43,7 +43,7 @@ The previous section leads you to material that helps you create a SadConsole pr
     
       <ItemGroup>
         <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.1.303" />
-        <PackageReference Include="SadConsole.Host.MonoGame" Version="10.0.0" />
+        <PackageReference Include="SadConsole.Host.MonoGame" Version="10.0.3" />
       </ItemGroup>
     
     </Project>

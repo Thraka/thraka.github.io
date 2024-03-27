@@ -8,6 +8,7 @@ items:
   - SadConsole.Renderers.ScreenSurfaceRenderer.#ctor
   - SadConsole.Renderers.ScreenSurfaceRenderer.AddDefaultSteps
   - SadConsole.Renderers.ScreenSurfaceRenderer.BackingTextureRecreated
+  - SadConsole.Renderers.ScreenSurfaceRenderer.BackingTextureUsageMode
   - SadConsole.Renderers.ScreenSurfaceRenderer.CachedRenderRects
   - SadConsole.Renderers.ScreenSurfaceRenderer.Dispose
   - SadConsole.Renderers.ScreenSurfaceRenderer.Dispose(System.Boolean)
@@ -178,7 +179,6 @@ items:
   assemblies:
   - SadConsole.Host.MonoGame
   namespace: SadConsole.Renderers
-  summary: Refreshes a cached drawing state.
   example: []
   syntax:
     content: public virtual void Refresh(IScreenSurface screen, bool force = false)
@@ -187,7 +187,6 @@ items:
       type: SadConsole.IScreenSurface
     - id: force
       type: System.Boolean
-      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates the refresh should happen even if a surface isn't dirty.
     content.vb: Public Overridable Sub Refresh(screen As IScreenSurface, force As Boolean = False)
   overload: SadConsole.Renderers.ScreenSurfaceRenderer.Refresh*
   implements:
@@ -209,7 +208,6 @@ items:
   assemblies:
   - SadConsole.Host.MonoGame
   namespace: SadConsole.Renderers
-  summary: Creates a drawcall in the drawing pipeline.
   example: []
   syntax:
     content: public virtual void Render(IScreenSurface screen)
@@ -325,7 +323,6 @@ items:
   assemblies:
   - SadConsole.Host.MonoGame
   namespace: SadConsole.Renderers
-  summary: The name used to create the renderer from the host.
   example: []
   syntax:
     content: public string Name { get; set; }
@@ -386,6 +383,29 @@ items:
   overload: SadConsole.Renderers.ScreenSurfaceRenderer.MonoGameBlendState*
   implements:
   - SadConsole.Renderers.IRendererMonoGame.MonoGameBlendState
+- uid: SadConsole.Renderers.ScreenSurfaceRenderer.BackingTextureUsageMode
+  commentId: P:SadConsole.Renderers.ScreenSurfaceRenderer.BackingTextureUsageMode
+  id: BackingTextureUsageMode
+  parent: SadConsole.Renderers.ScreenSurfaceRenderer
+  langs:
+  - csharp
+  - vb
+  name: BackingTextureUsageMode
+  nameWithType: ScreenSurfaceRenderer.BackingTextureUsageMode
+  fullName: SadConsole.Renderers.ScreenSurfaceRenderer.BackingTextureUsageMode
+  type: Property
+  assemblies:
+  - SadConsole.Host.MonoGame
+  namespace: SadConsole.Renderers
+  summary: Used when creating the <xref href="SadConsole.Renderers.ScreenSurfaceRenderer._backingTexture" data-throw-if-not-resolved="false"></xref> variable.
+  example: []
+  syntax:
+    content: public RenderTargetUsage BackingTextureUsageMode { get; set; }
+    parameters: []
+    return:
+      type: Microsoft.Xna.Framework.Graphics.RenderTargetUsage
+    content.vb: Public Property BackingTextureUsageMode As RenderTargetUsage
+  overload: SadConsole.Renderers.ScreenSurfaceRenderer.BackingTextureUsageMode*
 - uid: SadConsole.Renderers.ScreenSurfaceRenderer.Opacity
   commentId: P:SadConsole.Renderers.ScreenSurfaceRenderer.Opacity
   id: Opacity
@@ -400,7 +420,7 @@ items:
   assemblies:
   - SadConsole.Host.MonoGame
   namespace: SadConsole.Renderers
-  summary: A 0 to 255 value represening how transparent the surface is when it's drawn to the screen. 255 represents full visibility.
+  summary: A 0 to 255 value representing how transparent the surface is when it's drawn to the screen. 255 represents full visibility.
   example: []
   syntax:
     content: public byte Opacity { get; set; }
@@ -425,7 +445,6 @@ items:
   assemblies:
   - SadConsole.Host.MonoGame
   namespace: SadConsole.Renderers
-  summary: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the renderer is being forced to be redrawn this frame; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
   example: []
   syntax:
     content: public bool IsForced { get; set; }
@@ -450,7 +469,6 @@ items:
   assemblies:
   - SadConsole.Host.MonoGame
   namespace: SadConsole.Renderers
-  summary: The render steps for the renderer.
   example: []
   syntax:
     content: public List<IRenderStep> Steps { get; set; }
@@ -1105,7 +1123,6 @@ references:
   commentId: P:SadConsole.Renderers.IRenderer.Name
   parent: SadConsole.Renderers.IRenderer
   isExternal: true
-  href: SadConsole.Renderers.IRenderer.html#SadConsole_Renderers_IRenderer_Name
   name: Name
   nameWithType: IRenderer.Name
   fullName: SadConsole.Renderers.IRenderer.Name
@@ -1131,7 +1148,6 @@ references:
   commentId: P:SadConsole.Renderers.IRenderer.Output
   parent: SadConsole.Renderers.IRenderer
   isExternal: true
-  href: SadConsole.Renderers.IRenderer.html#SadConsole_Renderers_IRenderer_Output
   name: Output
   nameWithType: IRenderer.Output
   fullName: SadConsole.Renderers.IRenderer.Output
@@ -1165,6 +1181,36 @@ references:
   name: BlendState
   nameWithType: BlendState
   fullName: Microsoft.Xna.Framework.Graphics.BlendState
+- uid: SadConsole.Renderers.ScreenSurfaceRenderer._backingTexture
+  commentId: F:SadConsole.Renderers.ScreenSurfaceRenderer._backingTexture
+  parent: SadConsole.Renderers.ScreenSurfaceRenderer
+  isExternal: true
+  href: SadConsole.Renderers.ScreenSurfaceRenderer.html#SadConsole_Renderers_ScreenSurfaceRenderer__backingTexture
+  name: _backingTexture
+  nameWithType: ScreenSurfaceRenderer._backingTexture
+  fullName: SadConsole.Renderers.ScreenSurfaceRenderer._backingTexture
+- uid: SadConsole.Renderers.ScreenSurfaceRenderer.BackingTextureUsageMode*
+  commentId: Overload:SadConsole.Renderers.ScreenSurfaceRenderer.BackingTextureUsageMode
+  isExternal: true
+  href: SadConsole.Renderers.ScreenSurfaceRenderer.html#SadConsole_Renderers_ScreenSurfaceRenderer_BackingTextureUsageMode
+  name: BackingTextureUsageMode
+  nameWithType: ScreenSurfaceRenderer.BackingTextureUsageMode
+  fullName: SadConsole.Renderers.ScreenSurfaceRenderer.BackingTextureUsageMode
+- uid: Microsoft.Xna.Framework.Graphics.RenderTargetUsage
+  commentId: T:Microsoft.Xna.Framework.Graphics.RenderTargetUsage
+  parent: Microsoft.Xna.Framework.Graphics
+  isExternal: true
+  name: RenderTargetUsage
+  nameWithType: RenderTargetUsage
+  fullName: Microsoft.Xna.Framework.Graphics.RenderTargetUsage
+- uid: SadConsole.Renderers.ScreenSurfaceRenderer
+  commentId: T:SadConsole.Renderers.ScreenSurfaceRenderer
+  parent: SadConsole.Renderers
+  isExternal: true
+  href: SadConsole.Renderers.ScreenSurfaceRenderer.html
+  name: ScreenSurfaceRenderer
+  nameWithType: ScreenSurfaceRenderer
+  fullName: SadConsole.Renderers.ScreenSurfaceRenderer
 - uid: SadConsole.Renderers.ScreenSurfaceRenderer.Opacity*
   commentId: Overload:SadConsole.Renderers.ScreenSurfaceRenderer.Opacity
   isExternal: true
@@ -1353,14 +1399,6 @@ references:
     isExternal: true
   - name: (
   - name: )
-- uid: SadConsole.Renderers.ScreenSurfaceRenderer._backingTexture
-  commentId: F:SadConsole.Renderers.ScreenSurfaceRenderer._backingTexture
-  parent: SadConsole.Renderers.ScreenSurfaceRenderer
-  isExternal: true
-  href: SadConsole.Renderers.ScreenSurfaceRenderer.html#SadConsole_Renderers_ScreenSurfaceRenderer__backingTexture
-  name: _backingTexture
-  nameWithType: ScreenSurfaceRenderer._backingTexture
-  fullName: SadConsole.Renderers.ScreenSurfaceRenderer._backingTexture
 - uid: System.EventHandler
   commentId: T:System.EventHandler
   parent: System
@@ -1369,11 +1407,3 @@ references:
   name: EventHandler
   nameWithType: EventHandler
   fullName: System.EventHandler
-- uid: SadConsole.Renderers.ScreenSurfaceRenderer
-  commentId: T:SadConsole.Renderers.ScreenSurfaceRenderer
-  parent: SadConsole.Renderers
-  isExternal: true
-  href: SadConsole.Renderers.ScreenSurfaceRenderer.html
-  name: ScreenSurfaceRenderer
-  nameWithType: ScreenSurfaceRenderer
-  fullName: SadConsole.Renderers.ScreenSurfaceRenderer

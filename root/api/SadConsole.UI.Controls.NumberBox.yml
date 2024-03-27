@@ -7,18 +7,35 @@ items:
   children:
   - SadConsole.UI.Controls.NumberBox.#ctor(System.Int32)
   - SadConsole.UI.Controls.NumberBox.AllowDecimal
+  - SadConsole.UI.Controls.NumberBox.DecreaseNumber(System.Double)
+  - SadConsole.UI.Controls.NumberBox.DecreaseNumber(System.Int64)
   - SadConsole.UI.Controls.NumberBox.DefaultDecimalValue
   - SadConsole.UI.Controls.NumberBox.DefaultValue
+  - SadConsole.UI.Controls.NumberBox.DownButtonGlyph
+  - SadConsole.UI.Controls.NumberBox.DownButtonStep
+  - SadConsole.UI.Controls.NumberBox.DownButtonStepDecimal
   - SadConsole.UI.Controls.NumberBox.GetCulture
   - SadConsole.UI.Controls.NumberBox.GetCultureDecimalSeperator
+  - SadConsole.UI.Controls.NumberBox.IncreaseNumber(System.Double)
+  - SadConsole.UI.Controls.NumberBox.IncreaseNumber(System.Int64)
   - SadConsole.UI.Controls.NumberBox.IsEditingNumberInvalid
+  - SadConsole.UI.Controls.NumberBox.NumberBoxInvalidNumberForeground
   - SadConsole.UI.Controls.NumberBox.NumberMaximum
   - SadConsole.UI.Controls.NumberBox.NumberMinimum
   - SadConsole.UI.Controls.NumberBox.OnFocused
+  - SadConsole.UI.Controls.NumberBox.OnResized
   - SadConsole.UI.Controls.NumberBox.OnUnfocused
   - SadConsole.UI.Controls.NumberBox.ProcessKeyboard(SadConsole.Input.Keyboard)
+  - SadConsole.UI.Controls.NumberBox.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
+  - SadConsole.UI.Controls.NumberBox.ShowUpDownButtons
+  - SadConsole.UI.Controls.NumberBox.State_IsMouseOverDownButton
+  - SadConsole.UI.Controls.NumberBox.State_IsMouseOverUpButton
   - SadConsole.UI.Controls.NumberBox.TextAsDouble
   - SadConsole.UI.Controls.NumberBox.TextAsLong
+  - SadConsole.UI.Controls.NumberBox.UpButtonGlyph
+  - SadConsole.UI.Controls.NumberBox.UpButtonStep
+  - SadConsole.UI.Controls.NumberBox.UpButtonStepDecimal
+  - SadConsole.UI.Controls.NumberBox.UpdateAndRedraw(System.TimeSpan)
   - SadConsole.UI.Controls.NumberBox._allowDecimalPoint
   langs:
   - csharp
@@ -30,8 +47,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: InputBox control that allows text input.
-  example: []
   syntax:
     content: >-
       [DataContract]
@@ -53,7 +68,6 @@ items:
   - SadConsole.UI.Controls.TextBox.ValidateCursorPosition(System.String)
   - SadConsole.UI.Controls.TextBox.CheckKeyPressCancel(SadConsole.Input.AsciiKey)
   - SadConsole.UI.Controls.TextBox.OnLeftMouseClicked(SadConsole.UI.Controls.ControlBase.ControlMouseState)
-  - SadConsole.UI.Controls.TextBox.UpdateAndRedraw(System.TimeSpan)
   - SadConsole.UI.Controls.TextBox.Mask
   - SadConsole.UI.Controls.TextBox.LeftDrawOffset
   - SadConsole.UI.Controls.TextBox.DisableMouse
@@ -63,7 +77,8 @@ items:
   - SadConsole.UI.Controls.TextBox.CaretPosition
   - SadConsole.UI.Controls.TextBox.Text
   - SadConsole.UI.Controls.TextBox.CaretEffect
-  - SadConsole.UI.Controls.TextBox.NumberBoxInvalidNumberForeground
+  - SadConsole.UI.Controls.TextBox.UseDifferentTextAreaWidth
+  - SadConsole.UI.Controls.TextBox.TextAreaWidth
   - SadConsole.UI.Controls.TextBox.TextChanged
   - SadConsole.UI.Controls.TextBox.TextChangedPreview
   - SadConsole.UI.Controls.TextBox.KeyPressed
@@ -73,7 +88,6 @@ items:
   - SadConsole.UI.Controls.ControlBase.MouseState_IsMouseLeftDown
   - SadConsole.UI.Controls.ControlBase.MouseState_IsMouseRightDown
   - SadConsole.UI.Controls.ControlBase.OnIsDirtyChanged
-  - SadConsole.UI.Controls.ControlBase.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
   - SadConsole.UI.Controls.ControlBase.LostMouse(SadConsole.Input.MouseScreenObjectState)
   - SadConsole.UI.Controls.ControlBase.OnParentChanged
   - SadConsole.UI.Controls.ControlBase.OnPositionChanged
@@ -81,10 +95,10 @@ items:
   - SadConsole.UI.Controls.ControlBase.DetermineState
   - SadConsole.UI.Controls.ControlBase.OnStateChanged(SadConsole.UI.Controls.ControlStates,SadConsole.UI.Controls.ControlStates)
   - SadConsole.UI.Controls.ControlBase.OnSurfaceChanged(SadConsole.ICellSurface,SadConsole.ICellSurface)
+  - SadConsole.UI.Controls.ControlBase.FindThemeFont
   - SadConsole.UI.Controls.ControlBase.FindThemeColors
   - SadConsole.UI.Controls.ControlBase.SetThemeColors(SadConsole.UI.Colors)
   - SadConsole.UI.Controls.ControlBase.HasThemeColors
-  - SadConsole.UI.Controls.ControlBase.OnResized
   - SadConsole.UI.Controls.ControlBase.CreateControlSurface
   - SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
   - SadConsole.UI.Controls.ControlBase.OnMouseEnter(SadConsole.UI.Controls.ControlBase.ControlMouseState)
@@ -149,8 +163,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Indicates that the input box (when numeric) will accept decimal points.
-  example: []
   syntax:
     content: >-
       [DataMember(Name = "AllowDecimalPoint")]
@@ -184,19 +196,112 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Creates a new instance of the input box.
-  example: []
   syntax:
     content: public NumberBox(int width)
     parameters:
     - id: width
       type: System.Int32
-      description: The width of the input box.
     content.vb: Public Sub New(width As Integer)
   overload: SadConsole.UI.Controls.NumberBox.#ctor*
   nameWithType.vb: NumberBox.New(Integer)
   fullName.vb: SadConsole.UI.Controls.NumberBox.New(Integer)
   name.vb: New(Integer)
+- uid: SadConsole.UI.Controls.NumberBox.IncreaseNumber(System.Int64)
+  commentId: M:SadConsole.UI.Controls.NumberBox.IncreaseNumber(System.Int64)
+  id: IncreaseNumber(System.Int64)
+  parent: SadConsole.UI.Controls.NumberBox
+  langs:
+  - csharp
+  - vb
+  name: IncreaseNumber(long)
+  nameWithType: NumberBox.IncreaseNumber(long)
+  fullName: SadConsole.UI.Controls.NumberBox.IncreaseNumber(long)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  syntax:
+    content: public void IncreaseNumber(long amount)
+    parameters:
+    - id: amount
+      type: System.Int64
+    content.vb: Public Sub IncreaseNumber(amount As Long)
+  overload: SadConsole.UI.Controls.NumberBox.IncreaseNumber*
+  nameWithType.vb: NumberBox.IncreaseNumber(Long)
+  fullName.vb: SadConsole.UI.Controls.NumberBox.IncreaseNumber(Long)
+  name.vb: IncreaseNumber(Long)
+- uid: SadConsole.UI.Controls.NumberBox.IncreaseNumber(System.Double)
+  commentId: M:SadConsole.UI.Controls.NumberBox.IncreaseNumber(System.Double)
+  id: IncreaseNumber(System.Double)
+  parent: SadConsole.UI.Controls.NumberBox
+  langs:
+  - csharp
+  - vb
+  name: IncreaseNumber(double)
+  nameWithType: NumberBox.IncreaseNumber(double)
+  fullName: SadConsole.UI.Controls.NumberBox.IncreaseNumber(double)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  syntax:
+    content: public void IncreaseNumber(double amount)
+    parameters:
+    - id: amount
+      type: System.Double
+    content.vb: Public Sub IncreaseNumber(amount As Double)
+  overload: SadConsole.UI.Controls.NumberBox.IncreaseNumber*
+  nameWithType.vb: NumberBox.IncreaseNumber(Double)
+  fullName.vb: SadConsole.UI.Controls.NumberBox.IncreaseNumber(Double)
+  name.vb: IncreaseNumber(Double)
+- uid: SadConsole.UI.Controls.NumberBox.DecreaseNumber(System.Int64)
+  commentId: M:SadConsole.UI.Controls.NumberBox.DecreaseNumber(System.Int64)
+  id: DecreaseNumber(System.Int64)
+  parent: SadConsole.UI.Controls.NumberBox
+  langs:
+  - csharp
+  - vb
+  name: DecreaseNumber(long)
+  nameWithType: NumberBox.DecreaseNumber(long)
+  fullName: SadConsole.UI.Controls.NumberBox.DecreaseNumber(long)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  syntax:
+    content: public void DecreaseNumber(long amount)
+    parameters:
+    - id: amount
+      type: System.Int64
+    content.vb: Public Sub DecreaseNumber(amount As Long)
+  overload: SadConsole.UI.Controls.NumberBox.DecreaseNumber*
+  nameWithType.vb: NumberBox.DecreaseNumber(Long)
+  fullName.vb: SadConsole.UI.Controls.NumberBox.DecreaseNumber(Long)
+  name.vb: DecreaseNumber(Long)
+- uid: SadConsole.UI.Controls.NumberBox.DecreaseNumber(System.Double)
+  commentId: M:SadConsole.UI.Controls.NumberBox.DecreaseNumber(System.Double)
+  id: DecreaseNumber(System.Double)
+  parent: SadConsole.UI.Controls.NumberBox
+  langs:
+  - csharp
+  - vb
+  name: DecreaseNumber(double)
+  nameWithType: NumberBox.DecreaseNumber(double)
+  fullName: SadConsole.UI.Controls.NumberBox.DecreaseNumber(double)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  syntax:
+    content: public void DecreaseNumber(double amount)
+    parameters:
+    - id: amount
+      type: System.Double
+    content.vb: Public Sub DecreaseNumber(amount As Double)
+  overload: SadConsole.UI.Controls.NumberBox.DecreaseNumber*
+  nameWithType.vb: NumberBox.DecreaseNumber(Double)
+  fullName.vb: SadConsole.UI.Controls.NumberBox.DecreaseNumber(Double)
+  name.vb: DecreaseNumber(Double)
 - uid: SadConsole.UI.Controls.NumberBox.OnFocused
   commentId: M:SadConsole.UI.Controls.NumberBox.OnFocused
   id: OnFocused
@@ -211,7 +316,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Called when the control is focused.
   example: []
   syntax:
     content: protected override void OnFocused()
@@ -232,7 +336,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Called when the control loses focus.
   example: []
   syntax:
     content: protected override void OnUnfocused()
@@ -253,13 +356,10 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Returns the <xref href="SadConsole.UI.Controls.TextBox.Text" data-throw-if-not-resolved="false"></xref> property as parsed by <xref href="System.Int64.TryParse(System.String%2cSystem.Globalization.NumberStyles%2cSystem.IFormatProvider%2cSystem.Int64%40)" data-throw-if-not-resolved="false"></xref> with the current culture.
-  example: []
   syntax:
     content: public long TextAsLong()
     return:
       type: System.Int64
-      description: The parsed text value.
     content.vb: Public Function TextAsLong() As Long
   overload: SadConsole.UI.Controls.NumberBox.TextAsLong*
 - uid: SadConsole.UI.Controls.NumberBox.TextAsDouble
@@ -276,13 +376,10 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Returns the <xref href="SadConsole.UI.Controls.TextBox.Text" data-throw-if-not-resolved="false"></xref> property as parsed by <xref href="System.Double.TryParse(System.String%2cSystem.Globalization.NumberStyles%2cSystem.IFormatProvider%2cSystem.Double%40)" data-throw-if-not-resolved="false"></xref> with the current culture.
-  example: []
   syntax:
     content: public double TextAsDouble()
     return:
       type: System.Double
-      description: The parsed text value.
     content.vb: Public Function TextAsDouble() As Double
   overload: SadConsole.UI.Controls.NumberBox.TextAsDouble*
 - uid: SadConsole.UI.Controls.NumberBox.ProcessKeyboard(SadConsole.Input.Keyboard)
@@ -299,20 +396,62 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Called when the control should process keyboard information.
   example: []
   syntax:
     content: public override bool ProcessKeyboard(Keyboard info)
     parameters:
     - id: info
       type: SadConsole.Input.Keyboard
-      description: The keyboard information.
     return:
       type: System.Boolean
-      description: True if the keyboard was handled by this control.
     content.vb: Public Overrides Function ProcessKeyboard(info As Keyboard) As Boolean
   overridden: SadConsole.UI.Controls.TextBox.ProcessKeyboard(SadConsole.Input.Keyboard)
   overload: SadConsole.UI.Controls.NumberBox.ProcessKeyboard*
+- uid: SadConsole.UI.Controls.NumberBox.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
+  commentId: M:SadConsole.UI.Controls.NumberBox.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
+  id: ProcessMouse(SadConsole.Input.MouseScreenObjectState)
+  parent: SadConsole.UI.Controls.NumberBox
+  langs:
+  - csharp
+  - vb
+  name: ProcessMouse(MouseScreenObjectState)
+  nameWithType: NumberBox.ProcessMouse(MouseScreenObjectState)
+  fullName: SadConsole.UI.Controls.NumberBox.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  example: []
+  syntax:
+    content: public override bool ProcessMouse(MouseScreenObjectState state)
+    parameters:
+    - id: state
+      type: SadConsole.Input.MouseScreenObjectState
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function ProcessMouse(state As MouseScreenObjectState) As Boolean
+  overridden: SadConsole.UI.Controls.ControlBase.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
+  overload: SadConsole.UI.Controls.NumberBox.ProcessMouse*
+- uid: SadConsole.UI.Controls.NumberBox.OnResized
+  commentId: M:SadConsole.UI.Controls.NumberBox.OnResized
+  id: OnResized
+  parent: SadConsole.UI.Controls.NumberBox
+  langs:
+  - csharp
+  - vb
+  name: OnResized()
+  nameWithType: NumberBox.OnResized()
+  fullName: SadConsole.UI.Controls.NumberBox.OnResized()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  example: []
+  syntax:
+    content: protected override void OnResized()
+    content.vb: Protected Overrides Sub OnResized()
+  overridden: SadConsole.UI.Controls.ControlBase.OnResized
+  overload: SadConsole.UI.Controls.NumberBox.OnResized*
 - uid: SadConsole.UI.Controls.NumberBox.GetCultureDecimalSeperator
   commentId: M:SadConsole.UI.Controls.NumberBox.GetCultureDecimalSeperator
   id: GetCultureDecimalSeperator
@@ -327,13 +466,10 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Gets the current culture's decimal separator.
-  example: []
   syntax:
     content: protected char GetCultureDecimalSeperator()
     return:
       type: System.Char
-      description: The current culture.
     content.vb: Protected Function GetCultureDecimalSeperator() As Char
   overload: SadConsole.UI.Controls.NumberBox.GetCultureDecimalSeperator*
 - uid: SadConsole.UI.Controls.NumberBox.GetCulture
@@ -350,15 +486,35 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Returns the current culture.
-  example: []
   syntax:
     content: protected CultureInfo GetCulture()
     return:
       type: System.Globalization.CultureInfo
-      description: The current culture.
     content.vb: Protected Function GetCulture() As CultureInfo
   overload: SadConsole.UI.Controls.NumberBox.GetCulture*
+- uid: SadConsole.UI.Controls.NumberBox.UpdateAndRedraw(System.TimeSpan)
+  commentId: M:SadConsole.UI.Controls.NumberBox.UpdateAndRedraw(System.TimeSpan)
+  id: UpdateAndRedraw(System.TimeSpan)
+  parent: SadConsole.UI.Controls.NumberBox
+  langs:
+  - csharp
+  - vb
+  name: UpdateAndRedraw(TimeSpan)
+  nameWithType: NumberBox.UpdateAndRedraw(TimeSpan)
+  fullName: SadConsole.UI.Controls.NumberBox.UpdateAndRedraw(System.TimeSpan)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  example: []
+  syntax:
+    content: public override void UpdateAndRedraw(TimeSpan time)
+    parameters:
+    - id: time
+      type: System.TimeSpan
+    content.vb: Public Overrides Sub UpdateAndRedraw(time As TimeSpan)
+  overridden: SadConsole.UI.Controls.TextBox.UpdateAndRedraw(System.TimeSpan)
+  overload: SadConsole.UI.Controls.NumberBox.UpdateAndRedraw*
 - uid: SadConsole.UI.Controls.NumberBox.AllowDecimal
   commentId: P:SadConsole.UI.Controls.NumberBox.AllowDecimal
   id: AllowDecimal
@@ -373,8 +529,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Gets or sets whether or not this input box should restrict numeric input should allow a decimal point.
-  example: []
   syntax:
     content: public bool AllowDecimal { get; set; }
     parameters: []
@@ -396,9 +550,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: The maximum number that can be set for this text box.
-  remarks: Set both <xref href="SadConsole.UI.Controls.NumberBox.NumberMaximum" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.UI.Controls.NumberBox.NumberMinimum" data-throw-if-not-resolved="false"></xref> to 0 to disable number bounds checking.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -430,9 +581,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: The minimum number that can be set for this text box.
-  remarks: Set both <xref href="SadConsole.UI.Controls.NumberBox.NumberMaximum" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.UI.Controls.NumberBox.NumberMinimum" data-throw-if-not-resolved="false"></xref> to 0 to disable number bounds checking.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -464,8 +612,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: The default value to use when the current value is invalid and <xref href="SadConsole.UI.Controls.NumberBox.AllowDecimal" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -497,8 +643,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: The default value to use when the current value is invalid and <xref href="SadConsole.UI.Controls.NumberBox.AllowDecimal" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -512,6 +656,161 @@ items:
 
       Public Property DefaultDecimalValue As Double
   overload: SadConsole.UI.Controls.NumberBox.DefaultDecimalValue*
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: SadConsole.UI.Controls.NumberBox.ShowUpDownButtons
+  commentId: P:SadConsole.UI.Controls.NumberBox.ShowUpDownButtons
+  id: ShowUpDownButtons
+  parent: SadConsole.UI.Controls.NumberBox
+  langs:
+  - csharp
+  - vb
+  name: ShowUpDownButtons
+  nameWithType: NumberBox.ShowUpDownButtons
+  fullName: SadConsole.UI.Controls.NumberBox.ShowUpDownButtons
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  syntax:
+    content: >-
+      [DataMember]
+
+      public bool ShowUpDownButtons { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <DataMember>
+
+      Public Property ShowUpDownButtons As Boolean
+  overload: SadConsole.UI.Controls.NumberBox.ShowUpDownButtons*
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: SadConsole.UI.Controls.NumberBox.UpButtonStep
+  commentId: P:SadConsole.UI.Controls.NumberBox.UpButtonStep
+  id: UpButtonStep
+  parent: SadConsole.UI.Controls.NumberBox
+  langs:
+  - csharp
+  - vb
+  name: UpButtonStep
+  nameWithType: NumberBox.UpButtonStep
+  fullName: SadConsole.UI.Controls.NumberBox.UpButtonStep
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  syntax:
+    content: >-
+      [DataMember]
+
+      public long UpButtonStep { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: >-
+      <DataMember>
+
+      Public Property UpButtonStep As Long
+  overload: SadConsole.UI.Controls.NumberBox.UpButtonStep*
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: SadConsole.UI.Controls.NumberBox.DownButtonStep
+  commentId: P:SadConsole.UI.Controls.NumberBox.DownButtonStep
+  id: DownButtonStep
+  parent: SadConsole.UI.Controls.NumberBox
+  langs:
+  - csharp
+  - vb
+  name: DownButtonStep
+  nameWithType: NumberBox.DownButtonStep
+  fullName: SadConsole.UI.Controls.NumberBox.DownButtonStep
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  syntax:
+    content: >-
+      [DataMember]
+
+      public long DownButtonStep { get; set; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: >-
+      <DataMember>
+
+      Public Property DownButtonStep As Long
+  overload: SadConsole.UI.Controls.NumberBox.DownButtonStep*
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: SadConsole.UI.Controls.NumberBox.UpButtonStepDecimal
+  commentId: P:SadConsole.UI.Controls.NumberBox.UpButtonStepDecimal
+  id: UpButtonStepDecimal
+  parent: SadConsole.UI.Controls.NumberBox
+  langs:
+  - csharp
+  - vb
+  name: UpButtonStepDecimal
+  nameWithType: NumberBox.UpButtonStepDecimal
+  fullName: SadConsole.UI.Controls.NumberBox.UpButtonStepDecimal
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  syntax:
+    content: >-
+      [DataMember]
+
+      public double UpButtonStepDecimal { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: >-
+      <DataMember>
+
+      Public Property UpButtonStepDecimal As Double
+  overload: SadConsole.UI.Controls.NumberBox.UpButtonStepDecimal*
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: SadConsole.UI.Controls.NumberBox.DownButtonStepDecimal
+  commentId: P:SadConsole.UI.Controls.NumberBox.DownButtonStepDecimal
+  id: DownButtonStepDecimal
+  parent: SadConsole.UI.Controls.NumberBox
+  langs:
+  - csharp
+  - vb
+  name: DownButtonStepDecimal
+  nameWithType: NumberBox.DownButtonStepDecimal
+  fullName: SadConsole.UI.Controls.NumberBox.DownButtonStepDecimal
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  syntax:
+    content: >-
+      [DataMember]
+
+      public double DownButtonStepDecimal { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: >-
+      <DataMember>
+
+      Public Property DownButtonStepDecimal As Double
+  overload: SadConsole.UI.Controls.NumberBox.DownButtonStepDecimal*
   attributes:
   - type: System.Runtime.Serialization.DataMemberAttribute
     ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
@@ -530,9 +829,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that the number is either out of bounds of the <xref href="SadConsole.UI.Controls.NumberBox.NumberMinimum" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.UI.Controls.NumberBox.NumberMaximum" data-throw-if-not-resolved="false"></xref> range, or it can't be property parsed. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>
-  remarks: Used by the theme system.
-  example: []
   syntax:
     content: public bool IsEditingNumberInvalid { get; }
     parameters: []
@@ -540,6 +836,141 @@ items:
       type: System.Boolean
     content.vb: Public ReadOnly Property IsEditingNumberInvalid As Boolean
   overload: SadConsole.UI.Controls.NumberBox.IsEditingNumberInvalid*
+- uid: SadConsole.UI.Controls.NumberBox.State_IsMouseOverUpButton
+  commentId: P:SadConsole.UI.Controls.NumberBox.State_IsMouseOverUpButton
+  id: State_IsMouseOverUpButton
+  parent: SadConsole.UI.Controls.NumberBox
+  langs:
+  - csharp
+  - vb
+  name: State_IsMouseOverUpButton
+  nameWithType: NumberBox.State_IsMouseOverUpButton
+  fullName: SadConsole.UI.Controls.NumberBox.State_IsMouseOverUpButton
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  syntax:
+    content: public bool State_IsMouseOverUpButton { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property State_IsMouseOverUpButton As Boolean
+  overload: SadConsole.UI.Controls.NumberBox.State_IsMouseOverUpButton*
+- uid: SadConsole.UI.Controls.NumberBox.State_IsMouseOverDownButton
+  commentId: P:SadConsole.UI.Controls.NumberBox.State_IsMouseOverDownButton
+  id: State_IsMouseOverDownButton
+  parent: SadConsole.UI.Controls.NumberBox
+  langs:
+  - csharp
+  - vb
+  name: State_IsMouseOverDownButton
+  nameWithType: NumberBox.State_IsMouseOverDownButton
+  fullName: SadConsole.UI.Controls.NumberBox.State_IsMouseOverDownButton
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  syntax:
+    content: public bool State_IsMouseOverDownButton { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property State_IsMouseOverDownButton As Boolean
+  overload: SadConsole.UI.Controls.NumberBox.State_IsMouseOverDownButton*
+- uid: SadConsole.UI.Controls.NumberBox.NumberBoxInvalidNumberForeground
+  commentId: P:SadConsole.UI.Controls.NumberBox.NumberBoxInvalidNumberForeground
+  id: NumberBoxInvalidNumberForeground
+  parent: SadConsole.UI.Controls.NumberBox
+  langs:
+  - csharp
+  - vb
+  name: NumberBoxInvalidNumberForeground
+  nameWithType: NumberBox.NumberBoxInvalidNumberForeground
+  fullName: SadConsole.UI.Controls.NumberBox.NumberBoxInvalidNumberForeground
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  syntax:
+    content: >-
+      [DataMember]
+
+      public Color? NumberBoxInvalidNumberForeground { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{SadRogue.Primitives.Color}
+    content.vb: >-
+      <DataMember>
+
+      Public Property NumberBoxInvalidNumberForeground As Color?
+  overload: SadConsole.UI.Controls.NumberBox.NumberBoxInvalidNumberForeground*
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: SadConsole.UI.Controls.NumberBox.UpButtonGlyph
+  commentId: P:SadConsole.UI.Controls.NumberBox.UpButtonGlyph
+  id: UpButtonGlyph
+  parent: SadConsole.UI.Controls.NumberBox
+  langs:
+  - csharp
+  - vb
+  name: UpButtonGlyph
+  nameWithType: NumberBox.UpButtonGlyph
+  fullName: SadConsole.UI.Controls.NumberBox.UpButtonGlyph
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  syntax:
+    content: >-
+      [DataMember]
+
+      public int UpButtonGlyph { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <DataMember>
+
+      Public Property UpButtonGlyph As Integer
+  overload: SadConsole.UI.Controls.NumberBox.UpButtonGlyph*
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: SadConsole.UI.Controls.NumberBox.DownButtonGlyph
+  commentId: P:SadConsole.UI.Controls.NumberBox.DownButtonGlyph
+  id: DownButtonGlyph
+  parent: SadConsole.UI.Controls.NumberBox
+  langs:
+  - csharp
+  - vb
+  name: DownButtonGlyph
+  nameWithType: NumberBox.DownButtonGlyph
+  fullName: SadConsole.UI.Controls.NumberBox.DownButtonGlyph
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  syntax:
+    content: >-
+      [DataMember]
+
+      public int DownButtonGlyph { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <DataMember>
+
+      Public Property DownButtonGlyph As Integer
+  overload: SadConsole.UI.Controls.NumberBox.DownButtonGlyph*
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
 references:
 - uid: SadConsole.UI.Controls
   commentId: N:SadConsole.UI.Controls
@@ -767,36 +1198,6 @@ references:
     isExternal: true
     href: SadConsole.UI.Controls.ControlBase.ControlMouseState.html
   - name: )
-- uid: SadConsole.UI.Controls.TextBox.UpdateAndRedraw(System.TimeSpan)
-  commentId: M:SadConsole.UI.Controls.TextBox.UpdateAndRedraw(System.TimeSpan)
-  parent: SadConsole.UI.Controls.TextBox
-  isExternal: true
-  href: SadConsole.UI.Controls.TextBox.html#SadConsole_UI_Controls_TextBox_UpdateAndRedraw_System_TimeSpan_
-  name: UpdateAndRedraw(TimeSpan)
-  nameWithType: TextBox.UpdateAndRedraw(TimeSpan)
-  fullName: SadConsole.UI.Controls.TextBox.UpdateAndRedraw(System.TimeSpan)
-  spec.csharp:
-  - uid: SadConsole.UI.Controls.TextBox.UpdateAndRedraw(System.TimeSpan)
-    name: UpdateAndRedraw
-    isExternal: true
-    href: SadConsole.UI.Controls.TextBox.html#SadConsole_UI_Controls_TextBox_UpdateAndRedraw_System_TimeSpan_
-  - name: (
-  - uid: System.TimeSpan
-    name: TimeSpan
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.timespan
-  - name: )
-  spec.vb:
-  - uid: SadConsole.UI.Controls.TextBox.UpdateAndRedraw(System.TimeSpan)
-    name: UpdateAndRedraw
-    isExternal: true
-    href: SadConsole.UI.Controls.TextBox.html#SadConsole_UI_Controls_TextBox_UpdateAndRedraw_System_TimeSpan_
-  - name: (
-  - uid: System.TimeSpan
-    name: TimeSpan
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.timespan
-  - name: )
 - uid: SadConsole.UI.Controls.TextBox.Mask
   commentId: P:SadConsole.UI.Controls.TextBox.Mask
   parent: SadConsole.UI.Controls.TextBox
@@ -869,14 +1270,22 @@ references:
   name: CaretEffect
   nameWithType: TextBox.CaretEffect
   fullName: SadConsole.UI.Controls.TextBox.CaretEffect
-- uid: SadConsole.UI.Controls.TextBox.NumberBoxInvalidNumberForeground
-  commentId: P:SadConsole.UI.Controls.TextBox.NumberBoxInvalidNumberForeground
+- uid: SadConsole.UI.Controls.TextBox.UseDifferentTextAreaWidth
+  commentId: P:SadConsole.UI.Controls.TextBox.UseDifferentTextAreaWidth
   parent: SadConsole.UI.Controls.TextBox
   isExternal: true
-  href: SadConsole.UI.Controls.TextBox.html#SadConsole_UI_Controls_TextBox_NumberBoxInvalidNumberForeground
-  name: NumberBoxInvalidNumberForeground
-  nameWithType: TextBox.NumberBoxInvalidNumberForeground
-  fullName: SadConsole.UI.Controls.TextBox.NumberBoxInvalidNumberForeground
+  href: SadConsole.UI.Controls.TextBox.html#SadConsole_UI_Controls_TextBox_UseDifferentTextAreaWidth
+  name: UseDifferentTextAreaWidth
+  nameWithType: TextBox.UseDifferentTextAreaWidth
+  fullName: SadConsole.UI.Controls.TextBox.UseDifferentTextAreaWidth
+- uid: SadConsole.UI.Controls.TextBox.TextAreaWidth
+  commentId: P:SadConsole.UI.Controls.TextBox.TextAreaWidth
+  parent: SadConsole.UI.Controls.TextBox
+  isExternal: true
+  href: SadConsole.UI.Controls.TextBox.html#SadConsole_UI_Controls_TextBox_TextAreaWidth
+  name: TextAreaWidth
+  nameWithType: TextBox.TextAreaWidth
+  fullName: SadConsole.UI.Controls.TextBox.TextAreaWidth
 - uid: SadConsole.UI.Controls.TextBox.TextChanged
   commentId: E:SadConsole.UI.Controls.TextBox.TextChanged
   parent: SadConsole.UI.Controls.TextBox
@@ -962,36 +1371,6 @@ references:
     isExternal: true
     href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_OnIsDirtyChanged
   - name: (
-  - name: )
-- uid: SadConsole.UI.Controls.ControlBase.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
-  commentId: M:SadConsole.UI.Controls.ControlBase.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
-  parent: SadConsole.UI.Controls.ControlBase
-  isExternal: true
-  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_ProcessMouse_SadConsole_Input_MouseScreenObjectState_
-  name: ProcessMouse(MouseScreenObjectState)
-  nameWithType: ControlBase.ProcessMouse(MouseScreenObjectState)
-  fullName: SadConsole.UI.Controls.ControlBase.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
-  spec.csharp:
-  - uid: SadConsole.UI.Controls.ControlBase.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
-    name: ProcessMouse
-    isExternal: true
-    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_ProcessMouse_SadConsole_Input_MouseScreenObjectState_
-  - name: (
-  - uid: SadConsole.Input.MouseScreenObjectState
-    name: MouseScreenObjectState
-    isExternal: true
-    href: SadConsole.Input.MouseScreenObjectState.html
-  - name: )
-  spec.vb:
-  - uid: SadConsole.UI.Controls.ControlBase.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
-    name: ProcessMouse
-    isExternal: true
-    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_ProcessMouse_SadConsole_Input_MouseScreenObjectState_
-  - name: (
-  - uid: SadConsole.Input.MouseScreenObjectState
-    name: MouseScreenObjectState
-    isExternal: true
-    href: SadConsole.Input.MouseScreenObjectState.html
   - name: )
 - uid: SadConsole.UI.Controls.ControlBase.LostMouse(SadConsole.Input.MouseScreenObjectState)
   commentId: M:SadConsole.UI.Controls.ControlBase.LostMouse(SadConsole.Input.MouseScreenObjectState)
@@ -1228,6 +1607,28 @@ references:
     isExternal: true
     href: SadConsole.ICellSurface.html
   - name: )
+- uid: SadConsole.UI.Controls.ControlBase.FindThemeFont
+  commentId: M:SadConsole.UI.Controls.ControlBase.FindThemeFont
+  parent: SadConsole.UI.Controls.ControlBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeFont
+  name: FindThemeFont()
+  nameWithType: ControlBase.FindThemeFont()
+  fullName: SadConsole.UI.Controls.ControlBase.FindThemeFont()
+  spec.csharp:
+  - uid: SadConsole.UI.Controls.ControlBase.FindThemeFont
+    name: FindThemeFont
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeFont
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.Controls.ControlBase.FindThemeFont
+    name: FindThemeFont
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeFont
+  - name: (
+  - name: )
 - uid: SadConsole.UI.Controls.ControlBase.FindThemeColors
   commentId: M:SadConsole.UI.Controls.ControlBase.FindThemeColors
   parent: SadConsole.UI.Controls.ControlBase
@@ -1300,28 +1701,6 @@ references:
     name: HasThemeColors
     isExternal: true
     href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_HasThemeColors
-  - name: (
-  - name: )
-- uid: SadConsole.UI.Controls.ControlBase.OnResized
-  commentId: M:SadConsole.UI.Controls.ControlBase.OnResized
-  parent: SadConsole.UI.Controls.ControlBase
-  isExternal: true
-  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_OnResized
-  name: OnResized()
-  nameWithType: ControlBase.OnResized()
-  fullName: SadConsole.UI.Controls.ControlBase.OnResized()
-  spec.csharp:
-  - uid: SadConsole.UI.Controls.ControlBase.OnResized
-    name: OnResized
-    isExternal: true
-    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_OnResized
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: SadConsole.UI.Controls.ControlBase.OnResized
-    name: OnResized
-    isExternal: true
-    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_OnResized
   - name: (
   - name: )
 - uid: SadConsole.UI.Controls.ControlBase.CreateControlSurface
@@ -2018,6 +2397,42 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: SadConsole.UI.Controls.NumberBox.IncreaseNumber*
+  commentId: Overload:SadConsole.UI.Controls.NumberBox.IncreaseNumber
+  isExternal: true
+  href: SadConsole.UI.Controls.NumberBox.html#SadConsole_UI_Controls_NumberBox_IncreaseNumber_System_Int64_
+  name: IncreaseNumber
+  nameWithType: NumberBox.IncreaseNumber
+  fullName: SadConsole.UI.Controls.NumberBox.IncreaseNumber
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: SadConsole.UI.Controls.NumberBox.DecreaseNumber*
+  commentId: Overload:SadConsole.UI.Controls.NumberBox.DecreaseNumber
+  isExternal: true
+  href: SadConsole.UI.Controls.NumberBox.html#SadConsole_UI_Controls_NumberBox_DecreaseNumber_System_Int64_
+  name: DecreaseNumber
+  nameWithType: NumberBox.DecreaseNumber
+  fullName: SadConsole.UI.Controls.NumberBox.DecreaseNumber
 - uid: SadConsole.UI.Controls.TextBox.OnFocused
   commentId: M:SadConsole.UI.Controls.TextBox.OnFocused
   parent: SadConsole.UI.Controls.TextBox
@@ -2076,76 +2491,6 @@ references:
   name: OnUnfocused
   nameWithType: NumberBox.OnUnfocused
   fullName: SadConsole.UI.Controls.NumberBox.OnUnfocused
-- uid: System.Int64.TryParse(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Int64@)
-  commentId: M:System.Int64.TryParse(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Int64@)
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int64.tryparse#system-int64-tryparse(system-string-system-globalization-numberstyles-system-iformatprovider-system-int64@)
-  name: TryParse(string, NumberStyles, IFormatProvider, out long)
-  nameWithType: long.TryParse(string, NumberStyles, IFormatProvider, out long)
-  fullName: long.TryParse(string, System.Globalization.NumberStyles, System.IFormatProvider, out long)
-  nameWithType.vb: Long.TryParse(String, NumberStyles, IFormatProvider, Long)
-  fullName.vb: Long.TryParse(String, System.Globalization.NumberStyles, System.IFormatProvider, Long)
-  name.vb: TryParse(String, NumberStyles, IFormatProvider, Long)
-  spec.csharp:
-  - uid: System.Int64.TryParse(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Int64@)
-    name: TryParse
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int64.tryparse#system-int64-tryparse(system-string-system-globalization-numberstyles-system-iformatprovider-system-int64@)
-  - name: (
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - uid: System.Globalization.NumberStyles
-    name: NumberStyles
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.globalization.numberstyles
-  - name: ','
-  - name: " "
-  - uid: System.IFormatProvider
-    name: IFormatProvider
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.iformatprovider
-  - name: ','
-  - name: " "
-  - name: out
-  - name: " "
-  - uid: System.Int64
-    name: long
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int64
-  - name: )
-  spec.vb:
-  - uid: System.Int64.TryParse(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Int64@)
-    name: TryParse
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int64.tryparse#system-int64-tryparse(system-string-system-globalization-numberstyles-system-iformatprovider-system-int64@)
-  - name: (
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - uid: System.Globalization.NumberStyles
-    name: NumberStyles
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.globalization.numberstyles
-  - name: ','
-  - name: " "
-  - uid: System.IFormatProvider
-    name: IFormatProvider
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.iformatprovider
-  - name: ','
-  - name: " "
-  - uid: System.Int64
-    name: Long
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int64
-  - name: )
 - uid: SadConsole.UI.Controls.NumberBox.TextAsLong*
   commentId: Overload:SadConsole.UI.Controls.NumberBox.TextAsLong
   isExternal: true
@@ -2153,87 +2498,6 @@ references:
   name: TextAsLong
   nameWithType: NumberBox.TextAsLong
   fullName: SadConsole.UI.Controls.NumberBox.TextAsLong
-- uid: System.Int64
-  commentId: T:System.Int64
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int64
-  name: long
-  nameWithType: long
-  fullName: long
-  nameWithType.vb: Long
-  fullName.vb: Long
-  name.vb: Long
-- uid: System.Double.TryParse(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Double@)
-  commentId: M:System.Double.TryParse(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Double@)
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.double.tryparse#system-double-tryparse(system-string-system-globalization-numberstyles-system-iformatprovider-system-double@)
-  name: TryParse(string, NumberStyles, IFormatProvider, out double)
-  nameWithType: double.TryParse(string, NumberStyles, IFormatProvider, out double)
-  fullName: double.TryParse(string, System.Globalization.NumberStyles, System.IFormatProvider, out double)
-  nameWithType.vb: Double.TryParse(String, NumberStyles, IFormatProvider, Double)
-  fullName.vb: Double.TryParse(String, System.Globalization.NumberStyles, System.IFormatProvider, Double)
-  name.vb: TryParse(String, NumberStyles, IFormatProvider, Double)
-  spec.csharp:
-  - uid: System.Double.TryParse(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Double@)
-    name: TryParse
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.double.tryparse#system-double-tryparse(system-string-system-globalization-numberstyles-system-iformatprovider-system-double@)
-  - name: (
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - uid: System.Globalization.NumberStyles
-    name: NumberStyles
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.globalization.numberstyles
-  - name: ','
-  - name: " "
-  - uid: System.IFormatProvider
-    name: IFormatProvider
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.iformatprovider
-  - name: ','
-  - name: " "
-  - name: out
-  - name: " "
-  - uid: System.Double
-    name: double
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.double
-  - name: )
-  spec.vb:
-  - uid: System.Double.TryParse(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Double@)
-    name: TryParse
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.double.tryparse#system-double-tryparse(system-string-system-globalization-numberstyles-system-iformatprovider-system-double@)
-  - name: (
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - uid: System.Globalization.NumberStyles
-    name: NumberStyles
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.globalization.numberstyles
-  - name: ','
-  - name: " "
-  - uid: System.IFormatProvider
-    name: IFormatProvider
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.iformatprovider
-  - name: ','
-  - name: " "
-  - uid: System.Double
-    name: Double
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.double
-  - name: )
 - uid: SadConsole.UI.Controls.NumberBox.TextAsDouble*
   commentId: Overload:SadConsole.UI.Controls.NumberBox.TextAsDouble
   isExternal: true
@@ -2241,17 +2505,6 @@ references:
   name: TextAsDouble
   nameWithType: NumberBox.TextAsDouble
   fullName: SadConsole.UI.Controls.NumberBox.TextAsDouble
-- uid: System.Double
-  commentId: T:System.Double
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.double
-  name: double
-  nameWithType: double
-  fullName: double
-  nameWithType.vb: Double
-  fullName.vb: Double
-  name.vb: Double
 - uid: SadConsole.UI.Controls.TextBox.ProcessKeyboard(SadConsole.Input.Keyboard)
   commentId: M:SadConsole.UI.Controls.TextBox.ProcessKeyboard(SadConsole.Input.Keyboard)
   parent: SadConsole.UI.Controls.TextBox
@@ -2324,6 +2577,80 @@ references:
     name: Input
     isExternal: true
     href: SadConsole.Input.html
+- uid: SadConsole.UI.Controls.ControlBase.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
+  commentId: M:SadConsole.UI.Controls.ControlBase.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
+  parent: SadConsole.UI.Controls.ControlBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_ProcessMouse_SadConsole_Input_MouseScreenObjectState_
+  name: ProcessMouse(MouseScreenObjectState)
+  nameWithType: ControlBase.ProcessMouse(MouseScreenObjectState)
+  fullName: SadConsole.UI.Controls.ControlBase.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
+  spec.csharp:
+  - uid: SadConsole.UI.Controls.ControlBase.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
+    name: ProcessMouse
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_ProcessMouse_SadConsole_Input_MouseScreenObjectState_
+  - name: (
+  - uid: SadConsole.Input.MouseScreenObjectState
+    name: MouseScreenObjectState
+    isExternal: true
+    href: SadConsole.Input.MouseScreenObjectState.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.Controls.ControlBase.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
+    name: ProcessMouse
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_ProcessMouse_SadConsole_Input_MouseScreenObjectState_
+  - name: (
+  - uid: SadConsole.Input.MouseScreenObjectState
+    name: MouseScreenObjectState
+    isExternal: true
+    href: SadConsole.Input.MouseScreenObjectState.html
+  - name: )
+- uid: SadConsole.UI.Controls.NumberBox.ProcessMouse*
+  commentId: Overload:SadConsole.UI.Controls.NumberBox.ProcessMouse
+  isExternal: true
+  href: SadConsole.UI.Controls.NumberBox.html#SadConsole_UI_Controls_NumberBox_ProcessMouse_SadConsole_Input_MouseScreenObjectState_
+  name: ProcessMouse
+  nameWithType: NumberBox.ProcessMouse
+  fullName: SadConsole.UI.Controls.NumberBox.ProcessMouse
+- uid: SadConsole.Input.MouseScreenObjectState
+  commentId: T:SadConsole.Input.MouseScreenObjectState
+  parent: SadConsole.Input
+  isExternal: true
+  href: SadConsole.Input.MouseScreenObjectState.html
+  name: MouseScreenObjectState
+  nameWithType: MouseScreenObjectState
+  fullName: SadConsole.Input.MouseScreenObjectState
+- uid: SadConsole.UI.Controls.ControlBase.OnResized
+  commentId: M:SadConsole.UI.Controls.ControlBase.OnResized
+  parent: SadConsole.UI.Controls.ControlBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_OnResized
+  name: OnResized()
+  nameWithType: ControlBase.OnResized()
+  fullName: SadConsole.UI.Controls.ControlBase.OnResized()
+  spec.csharp:
+  - uid: SadConsole.UI.Controls.ControlBase.OnResized
+    name: OnResized
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_OnResized
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.Controls.ControlBase.OnResized
+    name: OnResized
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_OnResized
+  - name: (
+  - name: )
+- uid: SadConsole.UI.Controls.NumberBox.OnResized*
+  commentId: Overload:SadConsole.UI.Controls.NumberBox.OnResized
+  isExternal: true
+  href: SadConsole.UI.Controls.NumberBox.html#SadConsole_UI_Controls_NumberBox_OnResized
+  name: OnResized
+  nameWithType: NumberBox.OnResized
+  fullName: SadConsole.UI.Controls.NumberBox.OnResized
 - uid: SadConsole.UI.Controls.NumberBox.GetCultureDecimalSeperator*
   commentId: Overload:SadConsole.UI.Controls.NumberBox.GetCultureDecimalSeperator
   isExternal: true
@@ -2384,6 +2711,51 @@ references:
     name: Globalization
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.globalization
+- uid: SadConsole.UI.Controls.TextBox.UpdateAndRedraw(System.TimeSpan)
+  commentId: M:SadConsole.UI.Controls.TextBox.UpdateAndRedraw(System.TimeSpan)
+  parent: SadConsole.UI.Controls.TextBox
+  isExternal: true
+  href: SadConsole.UI.Controls.TextBox.html#SadConsole_UI_Controls_TextBox_UpdateAndRedraw_System_TimeSpan_
+  name: UpdateAndRedraw(TimeSpan)
+  nameWithType: TextBox.UpdateAndRedraw(TimeSpan)
+  fullName: SadConsole.UI.Controls.TextBox.UpdateAndRedraw(System.TimeSpan)
+  spec.csharp:
+  - uid: SadConsole.UI.Controls.TextBox.UpdateAndRedraw(System.TimeSpan)
+    name: UpdateAndRedraw
+    isExternal: true
+    href: SadConsole.UI.Controls.TextBox.html#SadConsole_UI_Controls_TextBox_UpdateAndRedraw_System_TimeSpan_
+  - name: (
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.Controls.TextBox.UpdateAndRedraw(System.TimeSpan)
+    name: UpdateAndRedraw
+    isExternal: true
+    href: SadConsole.UI.Controls.TextBox.html#SadConsole_UI_Controls_TextBox_UpdateAndRedraw_System_TimeSpan_
+  - name: (
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+- uid: SadConsole.UI.Controls.NumberBox.UpdateAndRedraw*
+  commentId: Overload:SadConsole.UI.Controls.NumberBox.UpdateAndRedraw
+  isExternal: true
+  href: SadConsole.UI.Controls.NumberBox.html#SadConsole_UI_Controls_NumberBox_UpdateAndRedraw_System_TimeSpan_
+  name: UpdateAndRedraw
+  nameWithType: NumberBox.UpdateAndRedraw
+  fullName: SadConsole.UI.Controls.NumberBox.UpdateAndRedraw
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
 - uid: SadConsole.UI.Controls.NumberBox.AllowDecimal*
   commentId: Overload:SadConsole.UI.Controls.NumberBox.AllowDecimal
   isExternal: true
@@ -2391,20 +2763,6 @@ references:
   name: AllowDecimal
   nameWithType: NumberBox.AllowDecimal
   fullName: SadConsole.UI.Controls.NumberBox.AllowDecimal
-- uid: SadConsole.UI.Controls.NumberBox.NumberMaximum
-  commentId: P:SadConsole.UI.Controls.NumberBox.NumberMaximum
-  isExternal: true
-  href: SadConsole.UI.Controls.NumberBox.html#SadConsole_UI_Controls_NumberBox_NumberMaximum
-  name: NumberMaximum
-  nameWithType: NumberBox.NumberMaximum
-  fullName: SadConsole.UI.Controls.NumberBox.NumberMaximum
-- uid: SadConsole.UI.Controls.NumberBox.NumberMinimum
-  commentId: P:SadConsole.UI.Controls.NumberBox.NumberMinimum
-  isExternal: true
-  href: SadConsole.UI.Controls.NumberBox.html#SadConsole_UI_Controls_NumberBox_NumberMinimum
-  name: NumberMinimum
-  nameWithType: NumberBox.NumberMinimum
-  fullName: SadConsole.UI.Controls.NumberBox.NumberMinimum
 - uid: SadConsole.UI.Controls.NumberBox.NumberMaximum*
   commentId: Overload:SadConsole.UI.Controls.NumberBox.NumberMaximum
   isExternal: true
@@ -2419,13 +2777,6 @@ references:
   name: NumberMinimum
   nameWithType: NumberBox.NumberMinimum
   fullName: SadConsole.UI.Controls.NumberBox.NumberMinimum
-- uid: SadConsole.UI.Controls.NumberBox.AllowDecimal
-  commentId: P:SadConsole.UI.Controls.NumberBox.AllowDecimal
-  isExternal: true
-  href: SadConsole.UI.Controls.NumberBox.html#SadConsole_UI_Controls_NumberBox_AllowDecimal
-  name: AllowDecimal
-  nameWithType: NumberBox.AllowDecimal
-  fullName: SadConsole.UI.Controls.NumberBox.AllowDecimal
 - uid: SadConsole.UI.Controls.NumberBox.DefaultValue*
   commentId: Overload:SadConsole.UI.Controls.NumberBox.DefaultValue
   isExternal: true
@@ -2440,6 +2791,41 @@ references:
   name: DefaultDecimalValue
   nameWithType: NumberBox.DefaultDecimalValue
   fullName: SadConsole.UI.Controls.NumberBox.DefaultDecimalValue
+- uid: SadConsole.UI.Controls.NumberBox.ShowUpDownButtons*
+  commentId: Overload:SadConsole.UI.Controls.NumberBox.ShowUpDownButtons
+  isExternal: true
+  href: SadConsole.UI.Controls.NumberBox.html#SadConsole_UI_Controls_NumberBox_ShowUpDownButtons
+  name: ShowUpDownButtons
+  nameWithType: NumberBox.ShowUpDownButtons
+  fullName: SadConsole.UI.Controls.NumberBox.ShowUpDownButtons
+- uid: SadConsole.UI.Controls.NumberBox.UpButtonStep*
+  commentId: Overload:SadConsole.UI.Controls.NumberBox.UpButtonStep
+  isExternal: true
+  href: SadConsole.UI.Controls.NumberBox.html#SadConsole_UI_Controls_NumberBox_UpButtonStep
+  name: UpButtonStep
+  nameWithType: NumberBox.UpButtonStep
+  fullName: SadConsole.UI.Controls.NumberBox.UpButtonStep
+- uid: SadConsole.UI.Controls.NumberBox.DownButtonStep*
+  commentId: Overload:SadConsole.UI.Controls.NumberBox.DownButtonStep
+  isExternal: true
+  href: SadConsole.UI.Controls.NumberBox.html#SadConsole_UI_Controls_NumberBox_DownButtonStep
+  name: DownButtonStep
+  nameWithType: NumberBox.DownButtonStep
+  fullName: SadConsole.UI.Controls.NumberBox.DownButtonStep
+- uid: SadConsole.UI.Controls.NumberBox.UpButtonStepDecimal*
+  commentId: Overload:SadConsole.UI.Controls.NumberBox.UpButtonStepDecimal
+  isExternal: true
+  href: SadConsole.UI.Controls.NumberBox.html#SadConsole_UI_Controls_NumberBox_UpButtonStepDecimal
+  name: UpButtonStepDecimal
+  nameWithType: NumberBox.UpButtonStepDecimal
+  fullName: SadConsole.UI.Controls.NumberBox.UpButtonStepDecimal
+- uid: SadConsole.UI.Controls.NumberBox.DownButtonStepDecimal*
+  commentId: Overload:SadConsole.UI.Controls.NumberBox.DownButtonStepDecimal
+  isExternal: true
+  href: SadConsole.UI.Controls.NumberBox.html#SadConsole_UI_Controls_NumberBox_DownButtonStepDecimal
+  name: DownButtonStepDecimal
+  nameWithType: NumberBox.DownButtonStepDecimal
+  fullName: SadConsole.UI.Controls.NumberBox.DownButtonStepDecimal
 - uid: SadConsole.UI.Controls.NumberBox.IsEditingNumberInvalid*
   commentId: Overload:SadConsole.UI.Controls.NumberBox.IsEditingNumberInvalid
   isExternal: true
@@ -2447,3 +2833,83 @@ references:
   name: IsEditingNumberInvalid
   nameWithType: NumberBox.IsEditingNumberInvalid
   fullName: SadConsole.UI.Controls.NumberBox.IsEditingNumberInvalid
+- uid: SadConsole.UI.Controls.NumberBox.State_IsMouseOverUpButton*
+  commentId: Overload:SadConsole.UI.Controls.NumberBox.State_IsMouseOverUpButton
+  isExternal: true
+  href: SadConsole.UI.Controls.NumberBox.html#SadConsole_UI_Controls_NumberBox_State_IsMouseOverUpButton
+  name: State_IsMouseOverUpButton
+  nameWithType: NumberBox.State_IsMouseOverUpButton
+  fullName: SadConsole.UI.Controls.NumberBox.State_IsMouseOverUpButton
+- uid: SadConsole.UI.Controls.NumberBox.State_IsMouseOverDownButton*
+  commentId: Overload:SadConsole.UI.Controls.NumberBox.State_IsMouseOverDownButton
+  isExternal: true
+  href: SadConsole.UI.Controls.NumberBox.html#SadConsole_UI_Controls_NumberBox_State_IsMouseOverDownButton
+  name: State_IsMouseOverDownButton
+  nameWithType: NumberBox.State_IsMouseOverDownButton
+  fullName: SadConsole.UI.Controls.NumberBox.State_IsMouseOverDownButton
+- uid: SadConsole.UI.Controls.NumberBox.NumberBoxInvalidNumberForeground*
+  commentId: Overload:SadConsole.UI.Controls.NumberBox.NumberBoxInvalidNumberForeground
+  isExternal: true
+  href: SadConsole.UI.Controls.NumberBox.html#SadConsole_UI_Controls_NumberBox_NumberBoxInvalidNumberForeground
+  name: NumberBoxInvalidNumberForeground
+  nameWithType: NumberBox.NumberBoxInvalidNumberForeground
+  fullName: SadConsole.UI.Controls.NumberBox.NumberBoxInvalidNumberForeground
+- uid: System.Nullable{SadRogue.Primitives.Color}
+  commentId: T:System.Nullable{SadRogue.Primitives.Color}
+  parent: System
+  definition: System.Nullable`1
+  name: Color?
+  nameWithType: Color?
+  fullName: SadRogue.Primitives.Color?
+  spec.csharp:
+  - uid: SadRogue.Primitives.Color
+    name: Color
+    isExternal: true
+  - name: '?'
+  spec.vb:
+  - uid: SadRogue.Primitives.Color
+    name: Color
+    isExternal: true
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: SadConsole.UI.Controls.NumberBox.UpButtonGlyph*
+  commentId: Overload:SadConsole.UI.Controls.NumberBox.UpButtonGlyph
+  isExternal: true
+  href: SadConsole.UI.Controls.NumberBox.html#SadConsole_UI_Controls_NumberBox_UpButtonGlyph
+  name: UpButtonGlyph
+  nameWithType: NumberBox.UpButtonGlyph
+  fullName: SadConsole.UI.Controls.NumberBox.UpButtonGlyph
+- uid: SadConsole.UI.Controls.NumberBox.DownButtonGlyph*
+  commentId: Overload:SadConsole.UI.Controls.NumberBox.DownButtonGlyph
+  isExternal: true
+  href: SadConsole.UI.Controls.NumberBox.html#SadConsole_UI_Controls_NumberBox_DownButtonGlyph
+  name: DownButtonGlyph
+  nameWithType: NumberBox.DownButtonGlyph
+  fullName: SadConsole.UI.Controls.NumberBox.DownButtonGlyph

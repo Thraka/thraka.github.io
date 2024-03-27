@@ -20,8 +20,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: A base class that implements <xref href="SadConsole.Components.IComponent.Update(SadConsole.IScreenObject%2cSystem.TimeSpan)" data-throw-if-not-resolved="false"></xref> of <xref href="SadConsole.Components.IComponent" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: 'public abstract class UpdateComponent : IComponent'
     content.vb: Public MustInherit Class UpdateComponent Implements IComponent
@@ -60,17 +58,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Called by a host on the update frame.
   example: []
   syntax:
     content: public abstract void Update(IScreenObject host, TimeSpan delta)
     parameters:
     - id: host
       type: SadConsole.IScreenObject
-      description: The host calling the component.
     - id: delta
       type: System.TimeSpan
-      description: The time that has elapsed since this method was last called.
     content.vb: Public MustOverride Sub Update(host As IScreenObject, delta As TimeSpan)
   overload: SadConsole.Components.UpdateComponent.Update*
   implements:
@@ -89,14 +84,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Called when the component is added to a host.
   example: []
   syntax:
     content: public virtual void OnAdded(IScreenObject host)
     parameters:
     - id: host
       type: SadConsole.IScreenObject
-      description: The host that added the component.
     content.vb: Public Overridable Sub OnAdded(host As IScreenObject)
   overload: SadConsole.Components.UpdateComponent.OnAdded*
   implements:
@@ -115,14 +108,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Called when the component is removed from the host.
   example: []
   syntax:
     content: public virtual void OnRemoved(IScreenObject host)
     parameters:
     - id: host
       type: SadConsole.IScreenObject
-      description: The host that removed the component.
     content.vb: Public Overridable Sub OnRemoved(host As IScreenObject)
   overload: SadConsole.Components.UpdateComponent.OnRemoved*
   implements:
@@ -162,8 +153,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Indicates priority to other components.
-  example: []
   syntax:
     content: public uint SortOrder { get; set; }
     parameters: []
@@ -172,56 +161,6 @@ items:
     content.vb: Public Property SortOrder As UInteger
   overload: SadConsole.Components.UpdateComponent.SortOrder*
 references:
-- uid: SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
-  commentId: M:SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
-  parent: SadConsole.Components.IComponent
-  isExternal: true
-  href: SadConsole.Components.IComponent.html#SadConsole_Components_IComponent_Update_SadConsole_IScreenObject_System_TimeSpan_
-  name: Update(IScreenObject, TimeSpan)
-  nameWithType: IComponent.Update(IScreenObject, TimeSpan)
-  fullName: SadConsole.Components.IComponent.Update(SadConsole.IScreenObject, System.TimeSpan)
-  spec.csharp:
-  - uid: SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
-    name: Update
-    isExternal: true
-    href: SadConsole.Components.IComponent.html#SadConsole_Components_IComponent_Update_SadConsole_IScreenObject_System_TimeSpan_
-  - name: (
-  - uid: SadConsole.IScreenObject
-    name: IScreenObject
-    isExternal: true
-    href: SadConsole.IScreenObject.html
-  - name: ','
-  - name: " "
-  - uid: System.TimeSpan
-    name: TimeSpan
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.timespan
-  - name: )
-  spec.vb:
-  - uid: SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
-    name: Update
-    isExternal: true
-    href: SadConsole.Components.IComponent.html#SadConsole_Components_IComponent_Update_SadConsole_IScreenObject_System_TimeSpan_
-  - name: (
-  - uid: SadConsole.IScreenObject
-    name: IScreenObject
-    isExternal: true
-    href: SadConsole.IScreenObject.html
-  - name: ','
-  - name: " "
-  - uid: System.TimeSpan
-    name: TimeSpan
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.timespan
-  - name: )
-- uid: SadConsole.Components.IComponent
-  commentId: T:SadConsole.Components.IComponent
-  parent: SadConsole.Components
-  isExternal: true
-  href: SadConsole.Components.IComponent.html
-  name: IComponent
-  nameWithType: IComponent
-  fullName: SadConsole.Components.IComponent
 - uid: SadConsole.Components
   commentId: N:SadConsole.Components
   isExternal: true
@@ -260,6 +199,14 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: SadConsole.Components.IComponent
+  commentId: T:SadConsole.Components.IComponent
+  parent: SadConsole.Components
+  isExternal: true
+  href: SadConsole.Components.IComponent.html
+  name: IComponent
+  nameWithType: IComponent
+  fullName: SadConsole.Components.IComponent
 - uid: System.Object.GetType
   commentId: M:System.Object.GetType
   parent: System.Object
@@ -493,6 +440,48 @@ references:
   name: Update
   nameWithType: UpdateComponent.Update
   fullName: SadConsole.Components.UpdateComponent.Update
+- uid: SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  commentId: M:SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  parent: SadConsole.Components.IComponent
+  isExternal: true
+  href: SadConsole.Components.IComponent.html#SadConsole_Components_IComponent_Update_SadConsole_IScreenObject_System_TimeSpan_
+  name: Update(IScreenObject, TimeSpan)
+  nameWithType: IComponent.Update(IScreenObject, TimeSpan)
+  fullName: SadConsole.Components.IComponent.Update(SadConsole.IScreenObject, System.TimeSpan)
+  spec.csharp:
+  - uid: SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+    name: Update
+    isExternal: true
+    href: SadConsole.Components.IComponent.html#SadConsole_Components_IComponent_Update_SadConsole_IScreenObject_System_TimeSpan_
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+    name: Update
+    isExternal: true
+    href: SadConsole.Components.IComponent.html#SadConsole_Components_IComponent_Update_SadConsole_IScreenObject_System_TimeSpan_
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
 - uid: SadConsole.IScreenObject
   commentId: T:SadConsole.IScreenObject
   parent: SadConsole

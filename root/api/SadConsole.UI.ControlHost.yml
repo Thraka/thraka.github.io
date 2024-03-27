@@ -24,6 +24,7 @@ items:
   - SadConsole.UI.ControlHost.FocusedControlChanging(SadConsole.UI.Controls.ControlBase,SadConsole.UI.Controls.ControlBase)
   - SadConsole.UI.ControlHost.ForceRedrawAllControls
   - SadConsole.UI.ControlHost.GetEnumerator
+  - SadConsole.UI.ControlHost.GetNamedControl(System.String)
   - SadConsole.UI.ControlHost.GetThemeColors
   - SadConsole.UI.ControlHost.HasNamedControl(System.String)
   - SadConsole.UI.ControlHost.HasNamedControl(System.String,SadConsole.UI.Controls.ControlBase@)
@@ -58,8 +59,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Adds the ability for a host to contain and display controls from <xref href="SadConsole.UI.Controls" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: 'public class ControlHost : IComponent, IContainer, IList<ControlBase>, ICollection<ControlBase>, IEnumerable<ControlBase>, IEnumerable'
     content.vb: Public Class ControlHost Implements IComponent, IContainer, IList(Of ControlBase), ICollection(Of ControlBase), IEnumerable(Of ControlBase), IEnumerable
@@ -94,8 +93,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: The collection of controls.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -125,8 +122,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: The controls added which contain a <xref href="SadConsole.UI.Controls.ControlBase.Name" data-throw-if-not-resolved="false"></xref> value.
-  example: []
   syntax:
     content: protected Dictionary<string, ControlBase> NamedControls
     return:
@@ -146,17 +141,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Checks whether or not the container has a control registered with the given name.
   example: []
   syntax:
     content: public bool HasNamedControl(string name)
     parameters:
     - id: name
       type: System.String
-      description: The name to check.
     return:
       type: System.Boolean
-      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the control is found; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Public Function HasNamedControl(name As String) As Boolean
   overload: SadConsole.UI.ControlHost.HasNamedControl*
   implements:
@@ -178,20 +170,16 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Checks whether or not the container has a control registered with the given name. If found, the instance is assigned to the <code class="paramref">control</code> parameter.
   example: []
   syntax:
     content: public bool HasNamedControl(string name, out ControlBase? control)
     parameters:
     - id: name
       type: System.String
-      description: The name to check.
     - id: control
       type: SadConsole.UI.Controls.ControlBase
-      description: The control instance found.
     return:
       type: System.Boolean
-      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the control is found; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Public Function HasNamedControl(name As String, control As ControlBase) As Boolean
   overload: SadConsole.UI.ControlHost.HasNamedControl*
   implements:
@@ -199,6 +187,35 @@ items:
   nameWithType.vb: ControlHost.HasNamedControl(String, ControlBase)
   fullName.vb: SadConsole.UI.ControlHost.HasNamedControl(String, SadConsole.UI.Controls.ControlBase)
   name.vb: HasNamedControl(String, ControlBase)
+- uid: SadConsole.UI.ControlHost.GetNamedControl(System.String)
+  commentId: M:SadConsole.UI.ControlHost.GetNamedControl(System.String)
+  id: GetNamedControl(System.String)
+  parent: SadConsole.UI.ControlHost
+  langs:
+  - csharp
+  - vb
+  name: GetNamedControl(string)
+  nameWithType: ControlHost.GetNamedControl(string)
+  fullName: SadConsole.UI.ControlHost.GetNamedControl(string)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI
+  example: []
+  syntax:
+    content: public ControlBase GetNamedControl(string name)
+    parameters:
+    - id: name
+      type: System.String
+    return:
+      type: SadConsole.UI.Controls.ControlBase
+    content.vb: Public Function GetNamedControl(name As String) As ControlBase
+  overload: SadConsole.UI.ControlHost.GetNamedControl*
+  implements:
+  - SadConsole.UI.Controls.IContainer.GetNamedControl(System.String)
+  nameWithType.vb: ControlHost.GetNamedControl(String)
+  fullName.vb: SadConsole.UI.ControlHost.GetNamedControl(String)
+  name.vb: GetNamedControl(String)
 - uid: SadConsole.UI.ControlHost.TabNextControl
   commentId: M:SadConsole.UI.ControlHost.TabNextControl
   id: TabNextControl
@@ -213,8 +230,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Gives the focus to the next control in the tab order.
-  example: []
   syntax:
     content: public void TabNextControl()
     content.vb: Public Sub TabNextControl()
@@ -233,8 +248,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Gives focus to the previous control in the tab order.
-  example: []
   syntax:
     content: public void TabPreviousControl()
     content.vb: Public Sub TabPreviousControl()
@@ -253,13 +266,10 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Tries to tab to the console that comes before this one in the <xref href="SadConsole.IScreenObject.Parent" data-throw-if-not-resolved="false"></xref> collection of <xref href="SadConsole.IScreenObject.Children" data-throw-if-not-resolved="false"></xref>. Sets focus to the target console if found.
-  example: []
   syntax:
     content: protected bool TryTabPreviousConsole()
     return:
       type: System.Boolean
-      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the tab was successful; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Protected Function TryTabPreviousConsole() As Boolean
   overload: SadConsole.UI.ControlHost.TryTabPreviousConsole*
 - uid: SadConsole.UI.ControlHost.TryTabNextConsole
@@ -276,13 +286,10 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Tries to tab to the console that comes after this one in the <xref href="SadConsole.IScreenObject.Parent" data-throw-if-not-resolved="false"></xref> collection of <xref href="SadConsole.IScreenObject.Children" data-throw-if-not-resolved="false"></xref>. Sets focus to the target console if found.
-  example: []
   syntax:
     content: protected bool TryTabNextConsole()
     return:
       type: System.Boolean
-      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the tab was successful; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Protected Function TryTabNextConsole() As Boolean
   overload: SadConsole.UI.ControlHost.TryTabNextConsole*
 - uid: SadConsole.UI.ControlHost.GetThemeColors
@@ -299,13 +306,10 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Returns the colors assigned to this console or the library default.
-  example: []
   syntax:
     content: public Colors GetThemeColors()
     return:
       type: SadConsole.UI.Colors
-      description: The found colors.
     content.vb: Public Function GetThemeColors() As Colors
   overload: SadConsole.UI.ControlHost.GetThemeColors*
 - uid: SadConsole.UI.ControlHost.ToArray
@@ -322,8 +326,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Gets an array containing all of the controls this host contains.
-  example: []
   syntax:
     content: public ControlBase[] ToArray()
     return:
@@ -344,20 +346,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: When overridden, allows you to prevent a control from taking focus from another control.
-  example: []
   syntax:
     content: protected virtual bool FocusedControlChanging(ControlBase? newControl, ControlBase? oldControl)
     parameters:
     - id: newControl
       type: SadConsole.UI.Controls.ControlBase
-      description: The control requesting focus.
     - id: oldControl
       type: SadConsole.UI.Controls.ControlBase
-      description: The control that has focus.
     return:
       type: System.Boolean
-      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the focus change is allowed; otherwise false.
     content.vb: Protected Overridable Function FocusedControlChanging(newControl As ControlBase, oldControl As ControlBase) As Boolean
   overload: SadConsole.UI.ControlHost.FocusedControlChanging*
   nameWithType.vb: ControlHost.FocusedControlChanging(ControlBase, ControlBase)
@@ -377,20 +374,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: >-
-    This method actually changes the variable that tracks which control is focused. It then sets the <xref href="SadConsole.UI.Controls.ControlBase.IsFocused" data-throw-if-not-resolved="false"></xref> property
-
-    to the appropriate value for both the previously focused control and the newly focused control.
-  example: []
   syntax:
     content: protected virtual void FocusedControlChanged(ControlBase? newControl, ControlBase? oldControl)
     parameters:
     - id: newControl
       type: SadConsole.UI.Controls.ControlBase
-      description: The control that should be focused.
     - id: oldControl
       type: SadConsole.UI.Controls.ControlBase
-      description: The control that currently has focus.
     content.vb: Protected Overridable Sub FocusedControlChanged(newControl As ControlBase, oldControl As ControlBase)
   overload: SadConsole.UI.ControlHost.FocusedControlChanged*
   nameWithType.vb: ControlHost.FocusedControlChanged(ControlBase, ControlBase)
@@ -410,17 +400,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Determins if a control is enabled and <xref href="SadConsole.UI.Controls.ControlBase.CanFocus" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
-  example: []
   syntax:
     content: protected virtual bool CanFocusControl(ControlBase? control)
     parameters:
     - id: control
       type: SadConsole.UI.Controls.ControlBase
-      description: The control to check.
     return:
       type: System.Boolean
-      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the control can be focused; otherwise false.
     content.vb: Protected Overridable Function CanFocusControl(control As ControlBase) As Boolean
   overload: SadConsole.UI.ControlHost.CanFocusControl*
   nameWithType.vb: ControlHost.CanFocusControl(ControlBase)
@@ -440,8 +426,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Reorders the control collection based on the tab index of each control.
-  example: []
   syntax:
     content: public void ReOrderControls()
     content.vb: Public Sub ReOrderControls()
@@ -460,14 +444,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Captures a control for exclusive mouse focus. Sets the ExclusiveMouse property to true.
-  example: []
   syntax:
     content: public void CaptureControl(ControlBase control)
     parameters:
     - id: control
       type: SadConsole.UI.Controls.ControlBase
-      description: The control to capture
     content.vb: Public Sub CaptureControl(control As ControlBase)
   overload: SadConsole.UI.ControlHost.CaptureControl*
 - uid: SadConsole.UI.ControlHost.ReleaseControl
@@ -484,8 +465,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Releases the control from exclusive mouse focus. Sets the ExclusiveMouse property to false and sets the CapturedControl property to null.
-  example: []
   syntax:
     content: public void ReleaseControl()
     content.vb: Public Sub ReleaseControl()
@@ -504,8 +483,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Forces each control to dirty so that the next frame will redraw each control.
-  example: []
   syntax:
     content: public void ForceRedrawAllControls()
     content.vb: Public Sub ForceRedrawAllControls()
@@ -524,13 +501,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Gets an enumerator of the controls collection.
   example: []
   syntax:
     content: public IEnumerator<ControlBase> GetEnumerator()
     return:
       type: System.Collections.Generic.IEnumerator{SadConsole.UI.Controls.ControlBase}
-      description: The enumerator of the controls collection.
     content.vb: Public Function GetEnumerator() As IEnumerator(Of ControlBase)
   overload: SadConsole.UI.ControlHost.GetEnumerator*
   implements:
@@ -549,17 +524,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Gets the index of the specified control.
   example: []
   syntax:
     content: public int IndexOf(ControlBase control)
     parameters:
     - id: control
       type: SadConsole.UI.Controls.ControlBase
-      description: The control.
     return:
       type: System.Int32
-      description: The index of the control in the backing collection.
     content.vb: Public Function IndexOf(control As ControlBase) As Integer
   overload: SadConsole.UI.ControlHost.IndexOf*
   implements:
@@ -578,18 +550,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Inserts an item at the specified index and sets the <xref href="SadConsole.UI.Controls.ControlBase.TabIndex" data-throw-if-not-resolved="false"></xref> to the specified index.
-  remarks: Index within the backing collection is always based on <xref href="SadConsole.UI.Controls.ControlBase.TabIndex" data-throw-if-not-resolved="false"></xref> ranking. There may be conflicts so you're not guaranteed that the control will be available at the specified index.
   example: []
   syntax:
     content: public void Insert(int index, ControlBase control)
     parameters:
     - id: index
       type: System.Int32
-      description: Index to insert at.
     - id: control
       type: SadConsole.UI.Controls.ControlBase
-      description: The control to insert.
     content.vb: Public Sub Insert(index As Integer, control As ControlBase)
   overload: SadConsole.UI.ControlHost.Insert*
   implements:
@@ -611,14 +579,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Removes a control by index.
   example: []
   syntax:
     content: public void RemoveAt(int index)
     parameters:
     - id: index
       type: System.Int32
-      description: ''
     content.vb: Public Sub RemoveAt(index As Integer)
   overload: SadConsole.UI.ControlHost.RemoveAt*
   implements:
@@ -640,14 +606,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Adds an existing control to this console.
   example: []
   syntax:
     content: public void Add(ControlBase control)
     parameters:
     - id: control
       type: SadConsole.UI.Controls.ControlBase
-      description: The control to add.
     content.vb: Public Sub Add(control As ControlBase)
   overload: SadConsole.UI.ControlHost.Add*
   implements:
@@ -666,7 +630,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Removes all controls from this console.
   example: []
   syntax:
     content: public void Clear()
@@ -688,17 +651,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Checks if the specified control exists in this console.
   example: []
   syntax:
     content: public bool Contains(ControlBase control)
     parameters:
     - id: control
       type: SadConsole.UI.Controls.ControlBase
-      description: The control to check.
     return:
       type: System.Boolean
-      description: True when the control exists in this console; otherwise false.
     content.vb: Public Function Contains(control As ControlBase) As Boolean
   overload: SadConsole.UI.ControlHost.Contains*
   implements:
@@ -717,17 +677,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Copies the controls to a new array.
   example: []
   syntax:
     content: public void CopyTo(ControlBase[] array, int arrayIndex)
     parameters:
     - id: array
       type: SadConsole.UI.Controls.ControlBase[]
-      description: The destination array.
     - id: arrayIndex
       type: System.Int32
-      description: The starting index of where to copy the controls in the destination array.
     content.vb: Public Sub CopyTo(array As ControlBase(), arrayIndex As Integer)
   overload: SadConsole.UI.ControlHost.CopyTo*
   implements:
@@ -749,17 +706,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Removes a control from this console.
-  example: []
   syntax:
     content: public bool Remove(ControlBase control)
     parameters:
     - id: control
       type: SadConsole.UI.Controls.ControlBase
-      description: The control to remove.
     return:
       type: System.Boolean
-      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if item was successfully removed; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>. This method also returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> if item is not found.
     content.vb: Public Function Remove(control As ControlBase) As Boolean
   overload: SadConsole.UI.ControlHost.Remove*
 - uid: SadConsole.UI.ControlHost.#ctor
@@ -797,8 +750,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Indicates priority to other components.
-  example: []
   syntax:
     content: public uint SortOrder { get; set; }
     parameters: []
@@ -820,17 +771,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Gets a control by index.
-  example: []
   syntax:
     content: public ControlBase this[int index] { get; }
     parameters:
     - id: index
       type: System.Int32
-      description: The index of the control.
     return:
       type: SadConsole.UI.Controls.ControlBase
-      description: A control.
     content.vb: Public ReadOnly Default Property this[](index As Integer) As ControlBase
   overload: SadConsole.UI.ControlHost.Item*
   nameWithType.vb: ControlHost.this[](Integer)
@@ -850,8 +797,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: The parent object hosting the controls.
-  example: []
   syntax:
     content: public IScreenSurface? ParentConsole { get; }
     parameters: []
@@ -873,8 +818,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Gets or sets the colors to use with drawing the console and controls.
-  example: []
   syntax:
     content: public Colors? ThemeColors { get; set; }
     parameters: []
@@ -896,8 +839,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Indicates that the control host needs to be redrawn.
-  example: []
   syntax:
     content: public bool IsDirty { get; set; }
     parameters: []
@@ -919,8 +860,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Gets the control currently capturing mouse events.
-  example: []
   syntax:
     content: public ControlBase? CapturedControl { get; }
     parameters: []
@@ -942,8 +881,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Gets or sets the control that has keyboard focus.
-  example: []
   syntax:
     content: public ControlBase? FocusedControl { get; set; }
     parameters: []
@@ -965,8 +902,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the component will clear the console it's attached to with the theme color.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -998,8 +933,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the component will disable the cursor of the console it's attached to.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1031,8 +964,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: When true, allows the tab command to move to the next console (when there is a parent) instead of cycling back to the first control on this console.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1064,8 +995,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Sets reference to the console to tab to when the <xref href="SadConsole.UI.ControlHost.CanTabToNextConsole" data-throw-if-not-resolved="false"></xref> property is true. Set this to null to allow the engine to determine the next console.
-  example: []
   syntax:
     content: public IScreenSurface? NextTabConsole { get; set; }
     parameters: []
@@ -1087,8 +1016,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Sets reference to the console to tab to when the <xref href="SadConsole.UI.ControlHost.CanTabToNextConsole" data-throw-if-not-resolved="false"></xref> property is true. Set this to null to allow the engine to determine the next console.
-  example: []
   syntax:
     content: public IScreenSurface? PreviousTabConsole { get; set; }
     parameters: []
@@ -1110,8 +1037,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: When set to true, child controls are not alerted to focused and non-focused states.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1143,7 +1068,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: The total number of controls in this component.
   example: []
   syntax:
     content: public int Count { get; }
@@ -1168,7 +1092,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Always returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
   example: []
   syntax:
     content: public bool IsReadOnly { get; }
@@ -1193,17 +1116,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Gets a control by its <xref href="SadConsole.UI.Controls.ControlBase.Name" data-throw-if-not-resolved="false"></xref> property.
   example: []
   syntax:
     content: public ControlBase this[string name] { get; }
     parameters:
     - id: name
       type: System.String
-      description: The name of the control.
     return:
       type: SadConsole.UI.Controls.ControlBase
-      description: The control.
     content.vb: Public ReadOnly Default Property this[](name As String) As ControlBase
   overload: SadConsole.UI.ControlHost.Item*
   implements:
@@ -1212,43 +1132,6 @@ items:
   fullName.vb: SadConsole.UI.ControlHost.this[](String)
   name.vb: this[](String)
 references:
-- uid: SadConsole.UI.Controls
-  commentId: N:SadConsole.UI.Controls
-  isExternal: true
-  href: SadConsole.html
-  name: SadConsole.UI.Controls
-  nameWithType: SadConsole.UI.Controls
-  fullName: SadConsole.UI.Controls
-  spec.csharp:
-  - uid: SadConsole
-    name: SadConsole
-    isExternal: true
-    href: SadConsole.html
-  - name: .
-  - uid: SadConsole.UI
-    name: UI
-    isExternal: true
-    href: SadConsole.UI.html
-  - name: .
-  - uid: SadConsole.UI.Controls
-    name: Controls
-    isExternal: true
-    href: SadConsole.UI.Controls.html
-  spec.vb:
-  - uid: SadConsole
-    name: SadConsole
-    isExternal: true
-    href: SadConsole.html
-  - name: .
-  - uid: SadConsole.UI
-    name: UI
-    isExternal: true
-    href: SadConsole.UI.html
-  - name: .
-  - uid: SadConsole.UI.Controls
-    name: Controls
-    isExternal: true
-    href: SadConsole.UI.Controls.html
 - uid: SadConsole.UI
   commentId: N:SadConsole.UI
   isExternal: true
@@ -1669,6 +1552,43 @@ references:
     name: Components
     isExternal: true
     href: SadConsole.Components.html
+- uid: SadConsole.UI.Controls
+  commentId: N:SadConsole.UI.Controls
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.UI.Controls
+  nameWithType: SadConsole.UI.Controls
+  fullName: SadConsole.UI.Controls
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.UI
+    name: UI
+    isExternal: true
+    href: SadConsole.UI.html
+  - name: .
+  - uid: SadConsole.UI.Controls
+    name: Controls
+    isExternal: true
+    href: SadConsole.UI.Controls.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.UI
+    name: UI
+    isExternal: true
+    href: SadConsole.UI.html
+  - name: .
+  - uid: SadConsole.UI.Controls
+    name: Controls
+    isExternal: true
+    href: SadConsole.UI.Controls.html
 - uid: System.Collections.Generic.IList`1
   commentId: T:System.Collections.Generic.IList`1
   isExternal: true
@@ -1880,14 +1800,6 @@ references:
   - name: " "
   - name: T
   - name: )
-- uid: SadConsole.UI.Controls.ControlBase.Name
-  commentId: P:SadConsole.UI.Controls.ControlBase.Name
-  parent: SadConsole.UI.Controls.ControlBase
-  isExternal: true
-  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_Name
-  name: Name
-  nameWithType: ControlBase.Name
-  fullName: SadConsole.UI.Controls.ControlBase.Name
 - uid: System.Collections.Generic.Dictionary{System.String,SadConsole.UI.Controls.ControlBase}
   commentId: T:System.Collections.Generic.Dictionary{System.String,SadConsole.UI.Controls.ControlBase}
   parent: System.Collections.Generic
@@ -1935,14 +1847,6 @@ references:
     isExternal: true
     href: SadConsole.UI.Controls.ControlBase.html
   - name: )
-- uid: SadConsole.UI.Controls.ControlBase
-  commentId: T:SadConsole.UI.Controls.ControlBase
-  parent: SadConsole.UI.Controls
-  isExternal: true
-  href: SadConsole.UI.Controls.ControlBase.html
-  name: ControlBase
-  nameWithType: ControlBase
-  fullName: SadConsole.UI.Controls.ControlBase
 - uid: System.Collections.Generic.Dictionary`2
   commentId: T:System.Collections.Generic.Dictionary`2
   isExternal: true
@@ -2086,6 +1990,54 @@ references:
     isExternal: true
     href: SadConsole.UI.Controls.ControlBase.html
   - name: )
+- uid: SadConsole.UI.Controls.ControlBase
+  commentId: T:SadConsole.UI.Controls.ControlBase
+  parent: SadConsole.UI.Controls
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html
+  name: ControlBase
+  nameWithType: ControlBase
+  fullName: SadConsole.UI.Controls.ControlBase
+- uid: SadConsole.UI.ControlHost.GetNamedControl*
+  commentId: Overload:SadConsole.UI.ControlHost.GetNamedControl
+  isExternal: true
+  href: SadConsole.UI.ControlHost.html#SadConsole_UI_ControlHost_GetNamedControl_System_String_
+  name: GetNamedControl
+  nameWithType: ControlHost.GetNamedControl
+  fullName: SadConsole.UI.ControlHost.GetNamedControl
+- uid: SadConsole.UI.Controls.IContainer.GetNamedControl(System.String)
+  commentId: M:SadConsole.UI.Controls.IContainer.GetNamedControl(System.String)
+  parent: SadConsole.UI.Controls.IContainer
+  isExternal: true
+  href: SadConsole.UI.Controls.IContainer.html#SadConsole_UI_Controls_IContainer_GetNamedControl_System_String_
+  name: GetNamedControl(string)
+  nameWithType: IContainer.GetNamedControl(string)
+  fullName: SadConsole.UI.Controls.IContainer.GetNamedControl(string)
+  nameWithType.vb: IContainer.GetNamedControl(String)
+  fullName.vb: SadConsole.UI.Controls.IContainer.GetNamedControl(String)
+  name.vb: GetNamedControl(String)
+  spec.csharp:
+  - uid: SadConsole.UI.Controls.IContainer.GetNamedControl(System.String)
+    name: GetNamedControl
+    isExternal: true
+    href: SadConsole.UI.Controls.IContainer.html#SadConsole_UI_Controls_IContainer_GetNamedControl_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.Controls.IContainer.GetNamedControl(System.String)
+    name: GetNamedControl
+    isExternal: true
+    href: SadConsole.UI.Controls.IContainer.html#SadConsole_UI_Controls_IContainer_GetNamedControl_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
 - uid: SadConsole.UI.ControlHost.TabNextControl*
   commentId: Overload:SadConsole.UI.ControlHost.TabNextControl
   isExternal: true
@@ -2100,22 +2052,6 @@ references:
   name: TabPreviousControl
   nameWithType: ControlHost.TabPreviousControl
   fullName: SadConsole.UI.ControlHost.TabPreviousControl
-- uid: SadConsole.IScreenObject.Parent
-  commentId: P:SadConsole.IScreenObject.Parent
-  parent: SadConsole.IScreenObject
-  isExternal: true
-  href: SadConsole.IScreenObject.html#SadConsole_IScreenObject_Parent
-  name: Parent
-  nameWithType: IScreenObject.Parent
-  fullName: SadConsole.IScreenObject.Parent
-- uid: SadConsole.IScreenObject.Children
-  commentId: P:SadConsole.IScreenObject.Children
-  parent: SadConsole.IScreenObject
-  isExternal: true
-  href: SadConsole.IScreenObject.html#SadConsole_IScreenObject_Children
-  name: Children
-  nameWithType: IScreenObject.Children
-  fullName: SadConsole.IScreenObject.Children
 - uid: SadConsole.UI.ControlHost.TryTabPreviousConsole*
   commentId: Overload:SadConsole.UI.ControlHost.TryTabPreviousConsole
   isExternal: true
@@ -2123,21 +2059,6 @@ references:
   name: TryTabPreviousConsole
   nameWithType: ControlHost.TryTabPreviousConsole
   fullName: SadConsole.UI.ControlHost.TryTabPreviousConsole
-- uid: SadConsole.IScreenObject
-  commentId: T:SadConsole.IScreenObject
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.IScreenObject.html
-  name: IScreenObject
-  nameWithType: IScreenObject
-  fullName: SadConsole.IScreenObject
-- uid: SadConsole
-  commentId: N:SadConsole
-  isExternal: true
-  href: SadConsole.html
-  name: SadConsole
-  nameWithType: SadConsole
-  fullName: SadConsole
 - uid: SadConsole.UI.ControlHost.TryTabNextConsole*
   commentId: Overload:SadConsole.UI.ControlHost.TryTabNextConsole
   isExternal: true
@@ -2197,14 +2118,6 @@ references:
   name: FocusedControlChanging
   nameWithType: ControlHost.FocusedControlChanging
   fullName: SadConsole.UI.ControlHost.FocusedControlChanging
-- uid: SadConsole.UI.Controls.ControlBase.IsFocused
-  commentId: P:SadConsole.UI.Controls.ControlBase.IsFocused
-  parent: SadConsole.UI.Controls.ControlBase
-  isExternal: true
-  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_IsFocused
-  name: IsFocused
-  nameWithType: ControlBase.IsFocused
-  fullName: SadConsole.UI.Controls.ControlBase.IsFocused
 - uid: SadConsole.UI.ControlHost.FocusedControlChanged*
   commentId: Overload:SadConsole.UI.ControlHost.FocusedControlChanged
   isExternal: true
@@ -2212,14 +2125,6 @@ references:
   name: FocusedControlChanged
   nameWithType: ControlHost.FocusedControlChanged
   fullName: SadConsole.UI.ControlHost.FocusedControlChanged
-- uid: SadConsole.UI.Controls.ControlBase.CanFocus
-  commentId: P:SadConsole.UI.Controls.ControlBase.CanFocus
-  parent: SadConsole.UI.Controls.ControlBase
-  isExternal: true
-  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_CanFocus
-  name: CanFocus
-  nameWithType: ControlBase.CanFocus
-  fullName: SadConsole.UI.Controls.ControlBase.CanFocus
 - uid: SadConsole.UI.ControlHost.CanFocusControl*
   commentId: Overload:SadConsole.UI.ControlHost.CanFocusControl
   isExternal: true
@@ -2447,14 +2352,6 @@ references:
   - name: (
   - name: T
   - name: )
-- uid: SadConsole.UI.Controls.ControlBase.TabIndex
-  commentId: P:SadConsole.UI.Controls.ControlBase.TabIndex
-  parent: SadConsole.UI.Controls.ControlBase
-  isExternal: true
-  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_TabIndex
-  name: TabIndex
-  nameWithType: ControlBase.TabIndex
-  fullName: SadConsole.UI.Controls.ControlBase.TabIndex
 - uid: SadConsole.UI.ControlHost.Insert*
   commentId: Overload:SadConsole.UI.ControlHost.Insert
   isExternal: true
@@ -2957,6 +2854,13 @@ references:
   name: IScreenSurface
   nameWithType: IScreenSurface
   fullName: SadConsole.IScreenSurface
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
 - uid: SadConsole.UI.ControlHost.ThemeColors*
   commentId: Overload:SadConsole.UI.ControlHost.ThemeColors
   isExternal: true
@@ -3001,13 +2905,6 @@ references:
   fullName: SadConsole.UI.ControlHost.DisableCursorOnAdded
 - uid: SadConsole.UI.ControlHost.CanTabToNextConsole*
   commentId: Overload:SadConsole.UI.ControlHost.CanTabToNextConsole
-  isExternal: true
-  href: SadConsole.UI.ControlHost.html#SadConsole_UI_ControlHost_CanTabToNextConsole
-  name: CanTabToNextConsole
-  nameWithType: ControlHost.CanTabToNextConsole
-  fullName: SadConsole.UI.ControlHost.CanTabToNextConsole
-- uid: SadConsole.UI.ControlHost.CanTabToNextConsole
-  commentId: P:SadConsole.UI.ControlHost.CanTabToNextConsole
   isExternal: true
   href: SadConsole.UI.ControlHost.html#SadConsole_UI_ControlHost_CanTabToNextConsole
   name: CanTabToNextConsole

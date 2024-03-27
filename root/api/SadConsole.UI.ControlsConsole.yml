@@ -22,8 +22,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: A basic console that can contain controls.
-  example: []
   syntax:
     content: >-
       [DataContract]
@@ -276,17 +274,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Creates a new console.
-  example: []
   syntax:
     content: public ControlsConsole(int width, int height)
     parameters:
     - id: width
       type: System.Int32
-      description: The width in cells of the surface.
     - id: height
       type: System.Int32
-      description: The height in cells of the surface.
     content.vb: Public Sub New(width As Integer, height As Integer)
   overload: SadConsole.UI.ControlsConsole.#ctor*
   nameWithType.vb: ControlsConsole.New(Integer, Integer)
@@ -306,20 +300,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Creates a new screen object that can render a surface. Uses the specified cells to generate the surface.
-  example: []
   syntax:
     content: public ControlsConsole(int width, int height, ColoredGlyphBase[] initialCells)
     parameters:
     - id: width
       type: System.Int32
-      description: The width in cells of the surface.
     - id: height
       type: System.Int32
-      description: The height in cells of the surface.
     - id: initialCells
       type: SadConsole.ColoredGlyphBase[]
-      description: The initial cells to seed the surface.
     content.vb: Public Sub New(width As Integer, height As Integer, initialCells As ColoredGlyphBase())
   overload: SadConsole.UI.ControlsConsole.#ctor*
   nameWithType.vb: ControlsConsole.New(Integer, Integer, ColoredGlyphBase())
@@ -339,23 +328,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Creates a new console with the specified width and height, with <xref href="SadRogue.Primitives.Color.Transparent" data-throw-if-not-resolved="false"></xref> for the background and <xref href="SadRogue.Primitives.Color.White" data-throw-if-not-resolved="false"></xref> for the foreground.
-  example: []
   syntax:
     content: public ControlsConsole(int width, int height, int bufferWidth, int bufferHeight)
     parameters:
     - id: width
       type: System.Int32
-      description: The visible width of the console in cells.
     - id: height
       type: System.Int32
-      description: The visible height of the console in cells.
     - id: bufferWidth
       type: System.Int32
-      description: The total width of the console in cells.
     - id: bufferHeight
       type: System.Int32
-      description: The total height of the console in cells.
     content.vb: Public Sub New(width As Integer, height As Integer, bufferWidth As Integer, bufferHeight As Integer)
   overload: SadConsole.UI.ControlsConsole.#ctor*
   nameWithType.vb: ControlsConsole.New(Integer, Integer, Integer, Integer)
@@ -375,26 +358,19 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Creates a console with the specified width and height, with <xref href="SadRogue.Primitives.Color.Transparent" data-throw-if-not-resolved="false"></xref> for the background and <xref href="SadRogue.Primitives.Color.White" data-throw-if-not-resolved="false"></xref> for the foreground.
-  example: []
   syntax:
     content: public ControlsConsole(int width, int height, int bufferWidth, int bufferHeight, ColoredGlyphBase[]? initialCells)
     parameters:
     - id: width
       type: System.Int32
-      description: The width of the console in cells.
     - id: height
       type: System.Int32
-      description: The height of the console in cells.
     - id: bufferWidth
       type: System.Int32
-      description: The total width of the console in cells.
     - id: bufferHeight
       type: System.Int32
-      description: The total height of the console in cells.
     - id: initialCells
       type: SadConsole.ColoredGlyphBase[]
-      description: The cells to seed the console with. If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, creates the cells for you.
     content.vb: Public Sub New(width As Integer, height As Integer, bufferWidth As Integer, bufferHeight As Integer, initialCells As ColoredGlyphBase())
   overload: SadConsole.UI.ControlsConsole.#ctor*
   nameWithType.vb: ControlsConsole.New(Integer, Integer, Integer, Integer, ColoredGlyphBase())
@@ -414,20 +390,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Creates a new console using the existing surface.
-  example: []
   syntax:
     content: public ControlsConsole(ICellSurface surface, IFont? font = null, Point? fontSize = null)
     parameters:
     - id: surface
       type: SadConsole.ICellSurface
-      description: The surface.
     - id: font
       type: SadConsole.IFont
-      description: The font to use with the surface.
     - id: fontSize
       type: System.Nullable{SadRogue.Primitives.Point}
-      description: The font size.
     content.vb: Public Sub New(surface As ICellSurface, font As IFont = Nothing, fontSize As Point? = Nothing)
   overload: SadConsole.UI.ControlsConsole.#ctor*
   nameWithType.vb: ControlsConsole.New(ICellSurface, IFont, Point?)
@@ -447,13 +418,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: Returns the value "Console (Controls)".
   example: []
   syntax:
     content: public override string ToString()
     return:
       type: System.String
-      description: The string "Console (Controls)".
     content.vb: Public Overrides Function ToString() As String
   overridden: SadConsole.Console.ToString
   overload: SadConsole.UI.ControlsConsole.ToString*
@@ -471,8 +440,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
-  summary: The controls host holding all the controls.
-  example: []
   syntax:
     content: public ControlHost Controls { get; }
     parameters: []
@@ -18016,18 +17983,6 @@ references:
     href: SadConsole.ColoredGlyphBase.html
   - name: (
   - name: )
-- uid: SadRogue.Primitives.Color.Transparent
-  commentId: F:SadRogue.Primitives.Color.Transparent
-  isExternal: true
-  name: Transparent
-  nameWithType: Color.Transparent
-  fullName: SadRogue.Primitives.Color.Transparent
-- uid: SadRogue.Primitives.Color.White
-  commentId: F:SadRogue.Primitives.Color.White
-  isExternal: true
-  name: White
-  nameWithType: Color.White
-  fullName: SadRogue.Primitives.Color.White
 - uid: SadConsole.ICellSurface
   commentId: T:SadConsole.ICellSurface
   parent: SadConsole

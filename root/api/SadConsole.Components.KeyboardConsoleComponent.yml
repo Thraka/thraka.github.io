@@ -20,8 +20,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: A base class that implements <xref href="SadConsole.Components.IComponent.ProcessKeyboard(SadConsole.IScreenObject%2cSadConsole.Input.Keyboard%2cSystem.Boolean%40)" data-throw-if-not-resolved="false"></xref> of <xref href="SadConsole.Components.IComponent" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: 'public abstract class KeyboardConsoleComponent : IComponent'
     content.vb: Public MustInherit Class KeyboardConsoleComponent Implements IComponent
@@ -56,20 +54,16 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Called by a host when the keyboard is being processed.
   example: []
   syntax:
     content: public abstract void ProcessKeyboard(IScreenObject host, Keyboard keyboard, out bool handled)
     parameters:
     - id: host
       type: SadConsole.IScreenObject
-      description: The host calling the component.
     - id: keyboard
       type: SadConsole.Input.Keyboard
-      description: The state of the keyboard.
     - id: handled
       type: System.Boolean
-      description: When set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> informs the host caller that we handled the mouse and to stop others from handling.
     content.vb: Public MustOverride Sub ProcessKeyboard(host As IScreenObject, keyboard As Keyboard, handled As Boolean)
   overload: SadConsole.Components.KeyboardConsoleComponent.ProcessKeyboard*
   implements:
@@ -91,14 +85,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Called when the component is added to a host.
   example: []
   syntax:
     content: public virtual void OnAdded(IScreenObject host)
     parameters:
     - id: host
       type: SadConsole.IScreenObject
-      description: The host that added the component.
     content.vb: Public Overridable Sub OnAdded(host As IScreenObject)
   overload: SadConsole.Components.KeyboardConsoleComponent.OnAdded*
   implements:
@@ -117,14 +109,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Called when the component is removed from the host.
   example: []
   syntax:
     content: public virtual void OnRemoved(IScreenObject host)
     parameters:
     - id: host
       type: SadConsole.IScreenObject
-      description: The host that removed the component.
     content.vb: Public Overridable Sub OnRemoved(host As IScreenObject)
   overload: SadConsole.Components.KeyboardConsoleComponent.OnRemoved*
   implements:
@@ -164,8 +154,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
-  summary: Indicates priority to other components.
-  example: []
   syntax:
     content: public uint SortOrder { get; set; }
     parameters: []
@@ -174,73 +162,6 @@ items:
     content.vb: Public Property SortOrder As UInteger
   overload: SadConsole.Components.KeyboardConsoleComponent.SortOrder*
 references:
-- uid: SadConsole.Components.IComponent.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
-  commentId: M:SadConsole.Components.IComponent.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
-  parent: SadConsole.Components.IComponent
-  isExternal: true
-  href: SadConsole.Components.IComponent.html#SadConsole_Components_IComponent_ProcessKeyboard_SadConsole_IScreenObject_SadConsole_Input_Keyboard_System_Boolean__
-  name: ProcessKeyboard(IScreenObject, Keyboard, out bool)
-  nameWithType: IComponent.ProcessKeyboard(IScreenObject, Keyboard, out bool)
-  fullName: SadConsole.Components.IComponent.ProcessKeyboard(SadConsole.IScreenObject, SadConsole.Input.Keyboard, out bool)
-  nameWithType.vb: IComponent.ProcessKeyboard(IScreenObject, Keyboard, Boolean)
-  fullName.vb: SadConsole.Components.IComponent.ProcessKeyboard(SadConsole.IScreenObject, SadConsole.Input.Keyboard, Boolean)
-  name.vb: ProcessKeyboard(IScreenObject, Keyboard, Boolean)
-  spec.csharp:
-  - uid: SadConsole.Components.IComponent.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
-    name: ProcessKeyboard
-    isExternal: true
-    href: SadConsole.Components.IComponent.html#SadConsole_Components_IComponent_ProcessKeyboard_SadConsole_IScreenObject_SadConsole_Input_Keyboard_System_Boolean__
-  - name: (
-  - uid: SadConsole.IScreenObject
-    name: IScreenObject
-    isExternal: true
-    href: SadConsole.IScreenObject.html
-  - name: ','
-  - name: " "
-  - uid: SadConsole.Input.Keyboard
-    name: Keyboard
-    isExternal: true
-    href: SadConsole.Input.Keyboard.html
-  - name: ','
-  - name: " "
-  - name: out
-  - name: " "
-  - uid: System.Boolean
-    name: bool
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: )
-  spec.vb:
-  - uid: SadConsole.Components.IComponent.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
-    name: ProcessKeyboard
-    isExternal: true
-    href: SadConsole.Components.IComponent.html#SadConsole_Components_IComponent_ProcessKeyboard_SadConsole_IScreenObject_SadConsole_Input_Keyboard_System_Boolean__
-  - name: (
-  - uid: SadConsole.IScreenObject
-    name: IScreenObject
-    isExternal: true
-    href: SadConsole.IScreenObject.html
-  - name: ','
-  - name: " "
-  - uid: SadConsole.Input.Keyboard
-    name: Keyboard
-    isExternal: true
-    href: SadConsole.Input.Keyboard.html
-  - name: ','
-  - name: " "
-  - uid: System.Boolean
-    name: Boolean
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: )
-- uid: SadConsole.Components.IComponent
-  commentId: T:SadConsole.Components.IComponent
-  parent: SadConsole.Components
-  isExternal: true
-  href: SadConsole.Components.IComponent.html
-  name: IComponent
-  nameWithType: IComponent
-  fullName: SadConsole.Components.IComponent
 - uid: SadConsole.Components
   commentId: N:SadConsole.Components
   isExternal: true
@@ -279,6 +200,14 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
+- uid: SadConsole.Components.IComponent
+  commentId: T:SadConsole.Components.IComponent
+  parent: SadConsole.Components
+  isExternal: true
+  href: SadConsole.Components.IComponent.html
+  name: IComponent
+  nameWithType: IComponent
+  fullName: SadConsole.Components.IComponent
 - uid: System.Object.GetType
   commentId: M:System.Object.GetType
   parent: System.Object
@@ -512,6 +441,65 @@ references:
   name: ProcessKeyboard
   nameWithType: KeyboardConsoleComponent.ProcessKeyboard
   fullName: SadConsole.Components.KeyboardConsoleComponent.ProcessKeyboard
+- uid: SadConsole.Components.IComponent.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
+  commentId: M:SadConsole.Components.IComponent.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
+  parent: SadConsole.Components.IComponent
+  isExternal: true
+  href: SadConsole.Components.IComponent.html#SadConsole_Components_IComponent_ProcessKeyboard_SadConsole_IScreenObject_SadConsole_Input_Keyboard_System_Boolean__
+  name: ProcessKeyboard(IScreenObject, Keyboard, out bool)
+  nameWithType: IComponent.ProcessKeyboard(IScreenObject, Keyboard, out bool)
+  fullName: SadConsole.Components.IComponent.ProcessKeyboard(SadConsole.IScreenObject, SadConsole.Input.Keyboard, out bool)
+  nameWithType.vb: IComponent.ProcessKeyboard(IScreenObject, Keyboard, Boolean)
+  fullName.vb: SadConsole.Components.IComponent.ProcessKeyboard(SadConsole.IScreenObject, SadConsole.Input.Keyboard, Boolean)
+  name.vb: ProcessKeyboard(IScreenObject, Keyboard, Boolean)
+  spec.csharp:
+  - uid: SadConsole.Components.IComponent.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
+    name: ProcessKeyboard
+    isExternal: true
+    href: SadConsole.Components.IComponent.html#SadConsole_Components_IComponent_ProcessKeyboard_SadConsole_IScreenObject_SadConsole_Input_Keyboard_System_Boolean__
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Input.Keyboard
+    name: Keyboard
+    isExternal: true
+    href: SadConsole.Input.Keyboard.html
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.IComponent.ProcessKeyboard(SadConsole.IScreenObject,SadConsole.Input.Keyboard,System.Boolean@)
+    name: ProcessKeyboard
+    isExternal: true
+    href: SadConsole.Components.IComponent.html#SadConsole_Components_IComponent_ProcessKeyboard_SadConsole_IScreenObject_SadConsole_Input_Keyboard_System_Boolean__
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Input.Keyboard
+    name: Keyboard
+    isExternal: true
+    href: SadConsole.Input.Keyboard.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
 - uid: SadConsole.IScreenObject
   commentId: T:SadConsole.IScreenObject
   parent: SadConsole

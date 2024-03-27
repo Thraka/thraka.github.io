@@ -7,25 +7,26 @@ items:
   children:
   - SadConsole.UI.Controls.ScrollBar.#ctor(SadConsole.Orientation,System.Int32)
   - SadConsole.UI.Controls.ScrollBar.#ctor(SadConsole.Orientation,System.Int32,System.Int32)
-  - SadConsole.UI.Controls.ScrollBar.BarGlyph
-  - SadConsole.UI.Controls.ScrollBar.CurrentSliderPosition
-  - SadConsole.UI.Controls.ScrollBar.EndButtonHorizontalGlyph
-  - SadConsole.UI.Controls.ScrollBar.EndButtonVerticalGlyph
-  - SadConsole.UI.Controls.ScrollBar.IsSliding
-  - SadConsole.UI.Controls.ScrollBar.Maximum
-  - SadConsole.UI.Controls.ScrollBar.Minimum
+  - SadConsole.UI.Controls.ScrollBar.ArrowStep
+  - SadConsole.UI.Controls.ScrollBar.ArrowsMoveGrip
+  - SadConsole.UI.Controls.ScrollBar.CalculateGripSize
+  - SadConsole.UI.Controls.ScrollBar.DecreaseGripByOne
+  - SadConsole.UI.Controls.ScrollBar.DecreaseValue(System.Int32)
+  - SadConsole.UI.Controls.ScrollBar.IncreaseGripByOne
+  - SadConsole.UI.Controls.ScrollBar.IncreaseValue(System.Int32)
+  - SadConsole.UI.Controls.ScrollBar.IsGripped
+  - SadConsole.UI.Controls.ScrollBar.MaximumValue
+  - SadConsole.UI.Controls.ScrollBar.MouseWheelMovesGrip
+  - SadConsole.UI.Controls.ScrollBar.MouseWheelStep
+  - SadConsole.UI.Controls.ScrollBar.OnResized
+  - SadConsole.UI.Controls.ScrollBar.OnValueChanged
   - SadConsole.UI.Controls.ScrollBar.Orientation
-  - SadConsole.UI.Controls.ScrollBar.ProcessKeyboard(SadConsole.Input.Keyboard)
   - SadConsole.UI.Controls.ScrollBar.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
-  - SadConsole.UI.Controls.ScrollBar.RefreshThemeStateColors(SadConsole.UI.Colors)
-  - SadConsole.UI.Controls.ScrollBar.Resize(System.Int32,System.Int32)
-  - SadConsole.UI.Controls.ScrollBar.SliderBarSize
-  - SadConsole.UI.Controls.ScrollBar.SliderGlyph
-  - SadConsole.UI.Controls.ScrollBar.StartButtonHorizontalGlyph
-  - SadConsole.UI.Controls.ScrollBar.StartButtonVerticalGlyph
-  - SadConsole.UI.Controls.ScrollBar.Step
+  - SadConsole.UI.Controls.ScrollBar.ProcessMouseWheel(SadConsole.Input.MouseScreenObjectState)
+  - SadConsole.UI.Controls.ScrollBar.SetGripToValue
+  - SadConsole.UI.Controls.ScrollBar.SetValue(System.Int32,System.Boolean)
+  - SadConsole.UI.Controls.ScrollBar.Style
   - SadConsole.UI.Controls.ScrollBar.UpdateAndRedraw(System.TimeSpan)
-  - SadConsole.UI.Controls.ScrollBar.UseExtended
   - SadConsole.UI.Controls.ScrollBar.Value
   - SadConsole.UI.Controls.ScrollBar.ValueChanged
   langs:
@@ -38,8 +39,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Represents a scrollbar control.
-  example: []
   syntax:
     content: >-
       [DataContract]
@@ -60,6 +59,7 @@ items:
   - SadConsole.UI.Controls.ControlBase.OnUnfocused
   - SadConsole.UI.Controls.ControlBase.OnFocused
   - SadConsole.UI.Controls.ControlBase.OnIsDirtyChanged
+  - SadConsole.UI.Controls.ControlBase.ProcessKeyboard(SadConsole.Input.Keyboard)
   - SadConsole.UI.Controls.ControlBase.LostMouse(SadConsole.Input.MouseScreenObjectState)
   - SadConsole.UI.Controls.ControlBase.OnParentChanged
   - SadConsole.UI.Controls.ControlBase.OnPositionChanged
@@ -67,11 +67,13 @@ items:
   - SadConsole.UI.Controls.ControlBase.DetermineState
   - SadConsole.UI.Controls.ControlBase.OnStateChanged(SadConsole.UI.Controls.ControlStates,SadConsole.UI.Controls.ControlStates)
   - SadConsole.UI.Controls.ControlBase.OnSurfaceChanged(SadConsole.ICellSurface,SadConsole.ICellSurface)
+  - SadConsole.UI.Controls.ControlBase.FindThemeFont
   - SadConsole.UI.Controls.ControlBase.FindThemeColors
   - SadConsole.UI.Controls.ControlBase.SetThemeColors(SadConsole.UI.Colors)
   - SadConsole.UI.Controls.ControlBase.HasThemeColors
-  - SadConsole.UI.Controls.ControlBase.OnResized
+  - SadConsole.UI.Controls.ControlBase.Resize(System.Int32,System.Int32)
   - SadConsole.UI.Controls.ControlBase.CreateControlSurface
+  - SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
   - SadConsole.UI.Controls.ControlBase.OnMouseEnter(SadConsole.UI.Controls.ControlBase.ControlMouseState)
   - SadConsole.UI.Controls.ControlBase.OnMouseExit(SadConsole.UI.Controls.ControlBase.ControlMouseState)
   - SadConsole.UI.Controls.ControlBase.OnMouseIn(SadConsole.UI.Controls.ControlBase.ControlMouseState)
@@ -121,192 +123,6 @@ items:
   - type: System.Runtime.Serialization.DataContractAttribute
     ctor: System.Runtime.Serialization.DataContractAttribute.#ctor
     arguments: []
-- uid: SadConsole.UI.Controls.ScrollBar.StartButtonVerticalGlyph
-  commentId: F:SadConsole.UI.Controls.ScrollBar.StartButtonVerticalGlyph
-  id: StartButtonVerticalGlyph
-  parent: SadConsole.UI.Controls.ScrollBar
-  langs:
-  - csharp
-  - vb
-  name: StartButtonVerticalGlyph
-  nameWithType: ScrollBar.StartButtonVerticalGlyph
-  fullName: SadConsole.UI.Controls.ScrollBar.StartButtonVerticalGlyph
-  type: Field
-  assemblies:
-  - SadConsole
-  namespace: SadConsole.UI.Controls
-  summary: The theme part fot the start button.
-  example: []
-  syntax:
-    content: >-
-      [DataMember]
-
-      public int StartButtonVerticalGlyph
-    return:
-      type: System.Int32
-    content.vb: >-
-      <DataMember>
-
-      Public StartButtonVerticalGlyph As Integer
-  attributes:
-  - type: System.Runtime.Serialization.DataMemberAttribute
-    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
-    arguments: []
-- uid: SadConsole.UI.Controls.ScrollBar.EndButtonVerticalGlyph
-  commentId: F:SadConsole.UI.Controls.ScrollBar.EndButtonVerticalGlyph
-  id: EndButtonVerticalGlyph
-  parent: SadConsole.UI.Controls.ScrollBar
-  langs:
-  - csharp
-  - vb
-  name: EndButtonVerticalGlyph
-  nameWithType: ScrollBar.EndButtonVerticalGlyph
-  fullName: SadConsole.UI.Controls.ScrollBar.EndButtonVerticalGlyph
-  type: Field
-  assemblies:
-  - SadConsole
-  namespace: SadConsole.UI.Controls
-  summary: The theme part fot the start button.
-  example: []
-  syntax:
-    content: >-
-      [DataMember]
-
-      public int EndButtonVerticalGlyph
-    return:
-      type: System.Int32
-    content.vb: >-
-      <DataMember>
-
-      Public EndButtonVerticalGlyph As Integer
-  attributes:
-  - type: System.Runtime.Serialization.DataMemberAttribute
-    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
-    arguments: []
-- uid: SadConsole.UI.Controls.ScrollBar.StartButtonHorizontalGlyph
-  commentId: F:SadConsole.UI.Controls.ScrollBar.StartButtonHorizontalGlyph
-  id: StartButtonHorizontalGlyph
-  parent: SadConsole.UI.Controls.ScrollBar
-  langs:
-  - csharp
-  - vb
-  name: StartButtonHorizontalGlyph
-  nameWithType: ScrollBar.StartButtonHorizontalGlyph
-  fullName: SadConsole.UI.Controls.ScrollBar.StartButtonHorizontalGlyph
-  type: Field
-  assemblies:
-  - SadConsole
-  namespace: SadConsole.UI.Controls
-  summary: The theme part fot the start button.
-  example: []
-  syntax:
-    content: >-
-      [DataMember]
-
-      public int StartButtonHorizontalGlyph
-    return:
-      type: System.Int32
-    content.vb: >-
-      <DataMember>
-
-      Public StartButtonHorizontalGlyph As Integer
-  attributes:
-  - type: System.Runtime.Serialization.DataMemberAttribute
-    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
-    arguments: []
-- uid: SadConsole.UI.Controls.ScrollBar.EndButtonHorizontalGlyph
-  commentId: F:SadConsole.UI.Controls.ScrollBar.EndButtonHorizontalGlyph
-  id: EndButtonHorizontalGlyph
-  parent: SadConsole.UI.Controls.ScrollBar
-  langs:
-  - csharp
-  - vb
-  name: EndButtonHorizontalGlyph
-  nameWithType: ScrollBar.EndButtonHorizontalGlyph
-  fullName: SadConsole.UI.Controls.ScrollBar.EndButtonHorizontalGlyph
-  type: Field
-  assemblies:
-  - SadConsole
-  namespace: SadConsole.UI.Controls
-  summary: The theme part fot the start button.
-  example: []
-  syntax:
-    content: >-
-      [DataMember]
-
-      public int EndButtonHorizontalGlyph
-    return:
-      type: System.Int32
-    content.vb: >-
-      <DataMember>
-
-      Public EndButtonHorizontalGlyph As Integer
-  attributes:
-  - type: System.Runtime.Serialization.DataMemberAttribute
-    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
-    arguments: []
-- uid: SadConsole.UI.Controls.ScrollBar.BarGlyph
-  commentId: F:SadConsole.UI.Controls.ScrollBar.BarGlyph
-  id: BarGlyph
-  parent: SadConsole.UI.Controls.ScrollBar
-  langs:
-  - csharp
-  - vb
-  name: BarGlyph
-  nameWithType: ScrollBar.BarGlyph
-  fullName: SadConsole.UI.Controls.ScrollBar.BarGlyph
-  type: Field
-  assemblies:
-  - SadConsole
-  namespace: SadConsole.UI.Controls
-  summary: The theme part for the scroll bar bar where the slider is not located.
-  example: []
-  syntax:
-    content: >-
-      [DataMember]
-
-      public int BarGlyph
-    return:
-      type: System.Int32
-    content.vb: >-
-      <DataMember>
-
-      Public BarGlyph As Integer
-  attributes:
-  - type: System.Runtime.Serialization.DataMemberAttribute
-    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
-    arguments: []
-- uid: SadConsole.UI.Controls.ScrollBar.SliderGlyph
-  commentId: F:SadConsole.UI.Controls.ScrollBar.SliderGlyph
-  id: SliderGlyph
-  parent: SadConsole.UI.Controls.ScrollBar
-  langs:
-  - csharp
-  - vb
-  name: SliderGlyph
-  nameWithType: ScrollBar.SliderGlyph
-  fullName: SadConsole.UI.Controls.ScrollBar.SliderGlyph
-  type: Field
-  assemblies:
-  - SadConsole
-  namespace: SadConsole.UI.Controls
-  summary: The theme part for the scroll bar icon.
-  example: []
-  syntax:
-    content: >-
-      [DataMember]
-
-      public int SliderGlyph
-    return:
-      type: System.Int32
-    content.vb: >-
-      <DataMember>
-
-      Public SliderGlyph As Integer
-  attributes:
-  - type: System.Runtime.Serialization.DataMemberAttribute
-    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
-    arguments: []
 - uid: SadConsole.UI.Controls.ScrollBar.#ctor(SadConsole.Orientation,System.Int32)
   commentId: M:SadConsole.UI.Controls.ScrollBar.#ctor(SadConsole.Orientation,System.Int32)
   id: '#ctor(SadConsole.Orientation,System.Int32)'
@@ -321,23 +137,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Creates a new ScrollBar control.
-  example: []
   syntax:
     content: public ScrollBar(Orientation orientation, int size)
     parameters:
     - id: orientation
       type: SadConsole.Orientation
-      description: Sets the control to either horizontal or vertical.
     - id: size
       type: System.Int32
-      description: The height or width of the control, based on the <code class="paramref">orientation</code>, with a thickness of 0.
     content.vb: Public Sub New(orientation As Orientation, size As Integer)
   overload: SadConsole.UI.Controls.ScrollBar.#ctor*
-  exceptions:
-  - type: System.ArgumentOutOfRangeException
-    commentId: T:System.ArgumentOutOfRangeException
-    description: Size of the control must be 2 or more
   nameWithType.vb: ScrollBar.New(Orientation, Integer)
   fullName.vb: SadConsole.UI.Controls.ScrollBar.New(SadConsole.Orientation, Integer)
   name.vb: New(Orientation, Integer)
@@ -355,60 +163,227 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Creates a new ScrollBar control with the specified width and height.
-  example: []
   syntax:
     content: public ScrollBar(Orientation orientation, int width, int height)
     parameters:
     - id: orientation
       type: SadConsole.Orientation
-      description: Sets the control to either horizontal or vertical.
     - id: width
       type: System.Int32
-      description: The width the control.
     - id: height
       type: System.Int32
-      description: The height of the control.
     content.vb: Public Sub New(orientation As Orientation, width As Integer, height As Integer)
   overload: SadConsole.UI.Controls.ScrollBar.#ctor*
-  exceptions:
-  - type: System.ArgumentOutOfRangeException
-    commentId: T:System.ArgumentOutOfRangeException
-    description: With a horizontal scroll bar, width must be 2 or more. With a vertical scroll bar, height must be 2 or more.
   nameWithType.vb: ScrollBar.New(Orientation, Integer, Integer)
   fullName.vb: SadConsole.UI.Controls.ScrollBar.New(SadConsole.Orientation, Integer, Integer)
   name.vb: New(Orientation, Integer, Integer)
-- uid: SadConsole.UI.Controls.ScrollBar.Resize(System.Int32,System.Int32)
-  commentId: M:SadConsole.UI.Controls.ScrollBar.Resize(System.Int32,System.Int32)
-  id: Resize(System.Int32,System.Int32)
+- uid: SadConsole.UI.Controls.ScrollBar.OnValueChanged
+  commentId: M:SadConsole.UI.Controls.ScrollBar.OnValueChanged
+  id: OnValueChanged
   parent: SadConsole.UI.Controls.ScrollBar
   langs:
   - csharp
   - vb
-  name: Resize(int, int)
-  nameWithType: ScrollBar.Resize(int, int)
-  fullName: SadConsole.UI.Controls.ScrollBar.Resize(int, int)
+  name: OnValueChanged()
+  nameWithType: ScrollBar.OnValueChanged()
+  fullName: SadConsole.UI.Controls.ScrollBar.OnValueChanged()
   type: Method
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Resizes the control if the <xref href="SadConsole.UI.Controls.ControlBase.CanResize" data-throw-if-not-resolved="false"></xref> property is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
+  syntax:
+    content: protected void OnValueChanged()
+    content.vb: Protected Sub OnValueChanged()
+  overload: SadConsole.UI.Controls.ScrollBar.OnValueChanged*
+- uid: SadConsole.UI.Controls.ScrollBar.CalculateGripSize
+  commentId: M:SadConsole.UI.Controls.ScrollBar.CalculateGripSize
+  id: CalculateGripSize
+  parent: SadConsole.UI.Controls.ScrollBar
+  langs:
+  - csharp
+  - vb
+  name: CalculateGripSize()
+  nameWithType: ScrollBar.CalculateGripSize()
+  fullName: SadConsole.UI.Controls.ScrollBar.CalculateGripSize()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  syntax:
+    content: protected void CalculateGripSize()
+    content.vb: Protected Sub CalculateGripSize()
+  overload: SadConsole.UI.Controls.ScrollBar.CalculateGripSize*
+- uid: SadConsole.UI.Controls.ScrollBar.SetGripToValue
+  commentId: M:SadConsole.UI.Controls.ScrollBar.SetGripToValue
+  id: SetGripToValue
+  parent: SadConsole.UI.Controls.ScrollBar
+  langs:
+  - csharp
+  - vb
+  name: SetGripToValue()
+  nameWithType: ScrollBar.SetGripToValue()
+  fullName: SadConsole.UI.Controls.ScrollBar.SetGripToValue()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  syntax:
+    content: protected void SetGripToValue()
+    content.vb: Protected Sub SetGripToValue()
+  overload: SadConsole.UI.Controls.ScrollBar.SetGripToValue*
+- uid: SadConsole.UI.Controls.ScrollBar.OnResized
+  commentId: M:SadConsole.UI.Controls.ScrollBar.OnResized
+  id: OnResized
+  parent: SadConsole.UI.Controls.ScrollBar
+  langs:
+  - csharp
+  - vb
+  name: OnResized()
+  nameWithType: ScrollBar.OnResized()
+  fullName: SadConsole.UI.Controls.ScrollBar.OnResized()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
   example: []
   syntax:
-    content: public override void Resize(int width, int height)
+    content: protected override void OnResized()
+    content.vb: Protected Overrides Sub OnResized()
+  overridden: SadConsole.UI.Controls.ControlBase.OnResized
+  overload: SadConsole.UI.Controls.ScrollBar.OnResized*
+- uid: SadConsole.UI.Controls.ScrollBar.SetValue(System.Int32,System.Boolean)
+  commentId: M:SadConsole.UI.Controls.ScrollBar.SetValue(System.Int32,System.Boolean)
+  id: SetValue(System.Int32,System.Boolean)
+  parent: SadConsole.UI.Controls.ScrollBar
+  langs:
+  - csharp
+  - vb
+  name: SetValue(int, bool)
+  nameWithType: ScrollBar.SetValue(int, bool)
+  fullName: SadConsole.UI.Controls.ScrollBar.SetValue(int, bool)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  syntax:
+    content: protected void SetValue(int value, bool setGrip = true)
     parameters:
-    - id: width
+    - id: value
       type: System.Int32
-      description: The desired width of the control.
-    - id: height
+    - id: setGrip
+      type: System.Boolean
+    content.vb: Protected Sub SetValue(value As Integer, setGrip As Boolean = True)
+  overload: SadConsole.UI.Controls.ScrollBar.SetValue*
+  nameWithType.vb: ScrollBar.SetValue(Integer, Boolean)
+  fullName.vb: SadConsole.UI.Controls.ScrollBar.SetValue(Integer, Boolean)
+  name.vb: SetValue(Integer, Boolean)
+- uid: SadConsole.UI.Controls.ScrollBar.IncreaseValue(System.Int32)
+  commentId: M:SadConsole.UI.Controls.ScrollBar.IncreaseValue(System.Int32)
+  id: IncreaseValue(System.Int32)
+  parent: SadConsole.UI.Controls.ScrollBar
+  langs:
+  - csharp
+  - vb
+  name: IncreaseValue(int)
+  nameWithType: ScrollBar.IncreaseValue(int)
+  fullName: SadConsole.UI.Controls.ScrollBar.IncreaseValue(int)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  syntax:
+    content: public void IncreaseValue(int value)
+    parameters:
+    - id: value
       type: System.Int32
-      description: The desired height of the control.
-    content.vb: Public Overrides Sub Resize(width As Integer, height As Integer)
-  overridden: SadConsole.UI.Controls.ControlBase.Resize(System.Int32,System.Int32)
-  overload: SadConsole.UI.Controls.ScrollBar.Resize*
-  nameWithType.vb: ScrollBar.Resize(Integer, Integer)
-  fullName.vb: SadConsole.UI.Controls.ScrollBar.Resize(Integer, Integer)
-  name.vb: Resize(Integer, Integer)
+    content.vb: Public Sub IncreaseValue(value As Integer)
+  overload: SadConsole.UI.Controls.ScrollBar.IncreaseValue*
+  nameWithType.vb: ScrollBar.IncreaseValue(Integer)
+  fullName.vb: SadConsole.UI.Controls.ScrollBar.IncreaseValue(Integer)
+  name.vb: IncreaseValue(Integer)
+- uid: SadConsole.UI.Controls.ScrollBar.DecreaseValue(System.Int32)
+  commentId: M:SadConsole.UI.Controls.ScrollBar.DecreaseValue(System.Int32)
+  id: DecreaseValue(System.Int32)
+  parent: SadConsole.UI.Controls.ScrollBar
+  langs:
+  - csharp
+  - vb
+  name: DecreaseValue(int)
+  nameWithType: ScrollBar.DecreaseValue(int)
+  fullName: SadConsole.UI.Controls.ScrollBar.DecreaseValue(int)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  syntax:
+    content: public void DecreaseValue(int value)
+    parameters:
+    - id: value
+      type: System.Int32
+    content.vb: Public Sub DecreaseValue(value As Integer)
+  overload: SadConsole.UI.Controls.ScrollBar.DecreaseValue*
+  nameWithType.vb: ScrollBar.DecreaseValue(Integer)
+  fullName.vb: SadConsole.UI.Controls.ScrollBar.DecreaseValue(Integer)
+  name.vb: DecreaseValue(Integer)
+- uid: SadConsole.UI.Controls.ScrollBar.IncreaseGripByOne
+  commentId: M:SadConsole.UI.Controls.ScrollBar.IncreaseGripByOne
+  id: IncreaseGripByOne
+  parent: SadConsole.UI.Controls.ScrollBar
+  langs:
+  - csharp
+  - vb
+  name: IncreaseGripByOne()
+  nameWithType: ScrollBar.IncreaseGripByOne()
+  fullName: SadConsole.UI.Controls.ScrollBar.IncreaseGripByOne()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  syntax:
+    content: public void IncreaseGripByOne()
+    content.vb: Public Sub IncreaseGripByOne()
+  overload: SadConsole.UI.Controls.ScrollBar.IncreaseGripByOne*
+- uid: SadConsole.UI.Controls.ScrollBar.DecreaseGripByOne
+  commentId: M:SadConsole.UI.Controls.ScrollBar.DecreaseGripByOne
+  id: DecreaseGripByOne
+  parent: SadConsole.UI.Controls.ScrollBar
+  langs:
+  - csharp
+  - vb
+  name: DecreaseGripByOne()
+  nameWithType: ScrollBar.DecreaseGripByOne()
+  fullName: SadConsole.UI.Controls.ScrollBar.DecreaseGripByOne()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  syntax:
+    content: public void DecreaseGripByOne()
+    content.vb: Public Sub DecreaseGripByOne()
+  overload: SadConsole.UI.Controls.ScrollBar.DecreaseGripByOne*
+- uid: SadConsole.UI.Controls.ScrollBar.ProcessMouseWheel(SadConsole.Input.MouseScreenObjectState)
+  commentId: M:SadConsole.UI.Controls.ScrollBar.ProcessMouseWheel(SadConsole.Input.MouseScreenObjectState)
+  id: ProcessMouseWheel(SadConsole.Input.MouseScreenObjectState)
+  parent: SadConsole.UI.Controls.ScrollBar
+  langs:
+  - csharp
+  - vb
+  name: ProcessMouseWheel(MouseScreenObjectState)
+  nameWithType: ScrollBar.ProcessMouseWheel(MouseScreenObjectState)
+  fullName: SadConsole.UI.Controls.ScrollBar.ProcessMouseWheel(SadConsole.Input.MouseScreenObjectState)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  syntax:
+    content: public bool ProcessMouseWheel(MouseScreenObjectState state)
+    parameters:
+    - id: state
+      type: SadConsole.Input.MouseScreenObjectState
+    return:
+      type: System.Boolean
+    content.vb: Public Function ProcessMouseWheel(state As MouseScreenObjectState) As Boolean
+  overload: SadConsole.UI.Controls.ScrollBar.ProcessMouseWheel*
 - uid: SadConsole.UI.Controls.ScrollBar.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
   commentId: M:SadConsole.UI.Controls.ScrollBar.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
   id: ProcessMouse(SadConsole.Input.MouseScreenObjectState)
@@ -423,73 +398,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Checks if the mouse is the control and calls the appropriate mouse methods.
   example: []
   syntax:
     content: public override bool ProcessMouse(MouseScreenObjectState state)
     parameters:
     - id: state
       type: SadConsole.Input.MouseScreenObjectState
-      description: Mouse information.
     return:
       type: System.Boolean
-      description: True when the control is enabled, set to use the mouse and the mouse is over it, otherwise false.
     content.vb: Public Overrides Function ProcessMouse(state As MouseScreenObjectState) As Boolean
   overridden: SadConsole.UI.Controls.ControlBase.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
   overload: SadConsole.UI.Controls.ScrollBar.ProcessMouse*
-- uid: SadConsole.UI.Controls.ScrollBar.ProcessKeyboard(SadConsole.Input.Keyboard)
-  commentId: M:SadConsole.UI.Controls.ScrollBar.ProcessKeyboard(SadConsole.Input.Keyboard)
-  id: ProcessKeyboard(SadConsole.Input.Keyboard)
-  parent: SadConsole.UI.Controls.ScrollBar
-  langs:
-  - csharp
-  - vb
-  name: ProcessKeyboard(Keyboard)
-  nameWithType: ScrollBar.ProcessKeyboard(Keyboard)
-  fullName: SadConsole.UI.Controls.ScrollBar.ProcessKeyboard(SadConsole.Input.Keyboard)
-  type: Method
-  assemblies:
-  - SadConsole
-  namespace: SadConsole.UI.Controls
-  summary: Uses the arrow keys to move the scroll bar value.
-  example: []
-  syntax:
-    content: public override bool ProcessKeyboard(Keyboard state)
-    parameters:
-    - id: state
-      type: SadConsole.Input.Keyboard
-      description: The state of the keyboard.
-    return:
-      type: System.Boolean
-      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the keyboard was handled; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
-    content.vb: Public Overrides Function ProcessKeyboard(state As Keyboard) As Boolean
-  overridden: SadConsole.UI.Controls.ControlBase.ProcessKeyboard(SadConsole.Input.Keyboard)
-  overload: SadConsole.UI.Controls.ScrollBar.ProcessKeyboard*
-- uid: SadConsole.UI.Controls.ScrollBar.RefreshThemeStateColors(SadConsole.UI.Colors)
-  commentId: M:SadConsole.UI.Controls.ScrollBar.RefreshThemeStateColors(SadConsole.UI.Colors)
-  id: RefreshThemeStateColors(SadConsole.UI.Colors)
-  parent: SadConsole.UI.Controls.ScrollBar
-  langs:
-  - csharp
-  - vb
-  name: RefreshThemeStateColors(Colors)
-  nameWithType: ScrollBar.RefreshThemeStateColors(Colors)
-  fullName: SadConsole.UI.Controls.ScrollBar.RefreshThemeStateColors(SadConsole.UI.Colors)
-  type: Method
-  assemblies:
-  - SadConsole
-  namespace: SadConsole.UI.Controls
-  summary: Updates the <xref href="SadConsole.UI.Controls.ControlBase.ThemeState" data-throw-if-not-resolved="false"></xref> by calling <xref href="SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)" data-throw-if-not-resolved="false"></xref> with the provided colors. Override this method to adjust how colors are used by the <xref href="SadConsole.UI.Controls.ControlBase.ThemeState" data-throw-if-not-resolved="false"></xref>.
-  example: []
-  syntax:
-    content: protected override void RefreshThemeStateColors(Colors colors)
-    parameters:
-    - id: colors
-      type: SadConsole.UI.Colors
-      description: The colors to apply to the theme state.
-    content.vb: Protected Overrides Sub RefreshThemeStateColors(colors As Colors)
-  overridden: SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
-  overload: SadConsole.UI.Controls.ScrollBar.RefreshThemeStateColors*
 - uid: SadConsole.UI.Controls.ScrollBar.UpdateAndRedraw(System.TimeSpan)
   commentId: M:SadConsole.UI.Controls.ScrollBar.UpdateAndRedraw(System.TimeSpan)
   id: UpdateAndRedraw(System.TimeSpan)
@@ -504,14 +423,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Redraws the control if applicable.
   example: []
   syntax:
     content: public override void UpdateAndRedraw(TimeSpan time)
     parameters:
     - id: time
       type: System.TimeSpan
-      description: The duration of thecurrent frame.
     content.vb: Public Overrides Sub UpdateAndRedraw(time As TimeSpan)
   overridden: SadConsole.UI.Controls.ControlBase.UpdateAndRedraw(System.TimeSpan)
   overload: SadConsole.UI.Controls.ScrollBar.UpdateAndRedraw*
@@ -529,84 +446,137 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Indicates if the scroll bar is horizontal or vertical.
-  example: []
   syntax:
-    content: public Orientation Orientation { get; }
+    content: >-
+      [DataMember]
+
+      public Orientation Orientation { get; }
     parameters: []
     return:
       type: SadConsole.Orientation
-    content.vb: Public ReadOnly Property Orientation As Orientation
+    content.vb: >-
+      <DataMember>
+
+      Public ReadOnly Property Orientation As Orientation
   overload: SadConsole.UI.Controls.ScrollBar.Orientation*
-- uid: SadConsole.UI.Controls.ScrollBar.SliderBarSize
-  commentId: P:SadConsole.UI.Controls.ScrollBar.SliderBarSize
-  id: SliderBarSize
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: SadConsole.UI.Controls.ScrollBar.IsGripped
+  commentId: P:SadConsole.UI.Controls.ScrollBar.IsGripped
+  id: IsGripped
   parent: SadConsole.UI.Controls.ScrollBar
   langs:
   - csharp
   - vb
-  name: SliderBarSize
-  nameWithType: ScrollBar.SliderBarSize
-  fullName: SadConsole.UI.Controls.ScrollBar.SliderBarSize
+  name: IsGripped
+  nameWithType: ScrollBar.IsGripped
+  fullName: SadConsole.UI.Controls.ScrollBar.IsGripped
   type: Property
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Used by the theme. The size of the slider bar portion.
-  example: []
   syntax:
-    content: public int SliderBarSize { get; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public ReadOnly Property SliderBarSize As Integer
-  overload: SadConsole.UI.Controls.ScrollBar.SliderBarSize*
-- uid: SadConsole.UI.Controls.ScrollBar.CurrentSliderPosition
-  commentId: P:SadConsole.UI.Controls.ScrollBar.CurrentSliderPosition
-  id: CurrentSliderPosition
-  parent: SadConsole.UI.Controls.ScrollBar
-  langs:
-  - csharp
-  - vb
-  name: CurrentSliderPosition
-  nameWithType: ScrollBar.CurrentSliderPosition
-  fullName: SadConsole.UI.Controls.ScrollBar.CurrentSliderPosition
-  type: Property
-  assemblies:
-  - SadConsole
-  namespace: SadConsole.UI.Controls
-  summary: Used by the theme. The position of the slider glyph in the bar.
-  example: []
-  syntax:
-    content: public int CurrentSliderPosition { get; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public ReadOnly Property CurrentSliderPosition As Integer
-  overload: SadConsole.UI.Controls.ScrollBar.CurrentSliderPosition*
-- uid: SadConsole.UI.Controls.ScrollBar.IsSliding
-  commentId: P:SadConsole.UI.Controls.ScrollBar.IsSliding
-  id: IsSliding
-  parent: SadConsole.UI.Controls.ScrollBar
-  langs:
-  - csharp
-  - vb
-  name: IsSliding
-  nameWithType: ScrollBar.IsSliding
-  fullName: SadConsole.UI.Controls.ScrollBar.IsSliding
-  type: Property
-  assemblies:
-  - SadConsole
-  namespace: SadConsole.UI.Controls
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates this control is captured and the slider button is being used; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
-  example: []
-  syntax:
-    content: public bool IsSliding { get; set; }
+    content: public bool IsGripped { get; }
     parameters: []
     return:
       type: System.Boolean
-    content.vb: Public Property IsSliding As Boolean
-  overload: SadConsole.UI.Controls.ScrollBar.IsSliding*
+    content.vb: Public ReadOnly Property IsGripped As Boolean
+  overload: SadConsole.UI.Controls.ScrollBar.IsGripped*
+- uid: SadConsole.UI.Controls.ScrollBar.MaximumValue
+  commentId: P:SadConsole.UI.Controls.ScrollBar.MaximumValue
+  id: MaximumValue
+  parent: SadConsole.UI.Controls.ScrollBar
+  langs:
+  - csharp
+  - vb
+  name: MaximumValue
+  nameWithType: ScrollBar.MaximumValue
+  fullName: SadConsole.UI.Controls.ScrollBar.MaximumValue
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  syntax:
+    content: >-
+      [DataMember]
+
+      public int MaximumValue { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <DataMember>
+
+      Public Property MaximumValue As Integer
+  overload: SadConsole.UI.Controls.ScrollBar.MaximumValue*
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: SadConsole.UI.Controls.ScrollBar.ArrowStep
+  commentId: P:SadConsole.UI.Controls.ScrollBar.ArrowStep
+  id: ArrowStep
+  parent: SadConsole.UI.Controls.ScrollBar
+  langs:
+  - csharp
+  - vb
+  name: ArrowStep
+  nameWithType: ScrollBar.ArrowStep
+  fullName: SadConsole.UI.Controls.ScrollBar.ArrowStep
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  syntax:
+    content: >-
+      [DataMember]
+
+      public int ArrowStep { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <DataMember>
+
+      Public Property ArrowStep As Integer
+  overload: SadConsole.UI.Controls.ScrollBar.ArrowStep*
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: SadConsole.UI.Controls.ScrollBar.MouseWheelStep
+  commentId: P:SadConsole.UI.Controls.ScrollBar.MouseWheelStep
+  id: MouseWheelStep
+  parent: SadConsole.UI.Controls.ScrollBar
+  langs:
+  - csharp
+  - vb
+  name: MouseWheelStep
+  nameWithType: ScrollBar.MouseWheelStep
+  fullName: SadConsole.UI.Controls.ScrollBar.MouseWheelStep
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  syntax:
+    content: >-
+      [DataMember]
+
+      public int MouseWheelStep { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <DataMember>
+
+      Public Property MouseWheelStep As Integer
+  overload: SadConsole.UI.Controls.ScrollBar.MouseWheelStep*
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
 - uid: SadConsole.UI.Controls.ScrollBar.Value
   commentId: P:SadConsole.UI.Controls.ScrollBar.Value
   id: Value
@@ -621,8 +591,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Gets or sets the value of the scrollbar between the minimum and maximum values.
-  example: []
   syntax:
     content: >-
       [DataMember]
@@ -640,125 +608,95 @@ items:
   - type: System.Runtime.Serialization.DataMemberAttribute
     ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
     arguments: []
-- uid: SadConsole.UI.Controls.ScrollBar.Maximum
-  commentId: P:SadConsole.UI.Controls.ScrollBar.Maximum
-  id: Maximum
+- uid: SadConsole.UI.Controls.ScrollBar.ArrowsMoveGrip
+  commentId: P:SadConsole.UI.Controls.ScrollBar.ArrowsMoveGrip
+  id: ArrowsMoveGrip
   parent: SadConsole.UI.Controls.ScrollBar
   langs:
   - csharp
   - vb
-  name: Maximum
-  nameWithType: ScrollBar.Maximum
-  fullName: SadConsole.UI.Controls.ScrollBar.Maximum
+  name: ArrowsMoveGrip
+  nameWithType: ScrollBar.ArrowsMoveGrip
+  fullName: SadConsole.UI.Controls.ScrollBar.ArrowsMoveGrip
   type: Property
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Gets or sets the maximum value for the scrollbar.
-  example: []
   syntax:
     content: >-
       [DataMember]
 
-      public int Maximum { get; set; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: >-
-      <DataMember>
-
-      Public Property Maximum As Integer
-  overload: SadConsole.UI.Controls.ScrollBar.Maximum*
-  attributes:
-  - type: System.Runtime.Serialization.DataMemberAttribute
-    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
-    arguments: []
-- uid: SadConsole.UI.Controls.ScrollBar.Minimum
-  commentId: P:SadConsole.UI.Controls.ScrollBar.Minimum
-  id: Minimum
-  parent: SadConsole.UI.Controls.ScrollBar
-  langs:
-  - csharp
-  - vb
-  name: Minimum
-  nameWithType: ScrollBar.Minimum
-  fullName: SadConsole.UI.Controls.ScrollBar.Minimum
-  type: Property
-  assemblies:
-  - SadConsole
-  namespace: SadConsole.UI.Controls
-  summary: Reserved for future use. This is always 0.
-  example: []
-  syntax:
-    content: public int Minimum { get; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public ReadOnly Property Minimum As Integer
-  overload: SadConsole.UI.Controls.ScrollBar.Minimum*
-- uid: SadConsole.UI.Controls.ScrollBar.Step
-  commentId: P:SadConsole.UI.Controls.ScrollBar.Step
-  id: Step
-  parent: SadConsole.UI.Controls.ScrollBar
-  langs:
-  - csharp
-  - vb
-  name: Step
-  nameWithType: ScrollBar.Step
-  fullName: SadConsole.UI.Controls.ScrollBar.Step
-  type: Property
-  assemblies:
-  - SadConsole
-  namespace: SadConsole.UI.Controls
-  summary: Gets or sets the amount of values to add or subtract to the <xref href="SadConsole.UI.Controls.ScrollBar.Value" data-throw-if-not-resolved="false"></xref> when the up or down arrows are used.
-  example: []
-  syntax:
-    content: >-
-      [DataMember]
-
-      public int Step { get; set; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: >-
-      <DataMember>
-
-      Public Property [Step] As Integer
-  overload: SadConsole.UI.Controls.ScrollBar.Step*
-  attributes:
-  - type: System.Runtime.Serialization.DataMemberAttribute
-    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
-    arguments: []
-- uid: SadConsole.UI.Controls.ScrollBar.UseExtended
-  commentId: P:SadConsole.UI.Controls.ScrollBar.UseExtended
-  id: UseExtended
-  parent: SadConsole.UI.Controls.ScrollBar
-  langs:
-  - csharp
-  - vb
-  name: UseExtended
-  nameWithType: ScrollBar.UseExtended
-  fullName: SadConsole.UI.Controls.ScrollBar.UseExtended
-  type: Property
-  assemblies:
-  - SadConsole
-  namespace: SadConsole.UI.Controls
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that the start and end glyph buttons sohuld use the extended SadConsole font characters if available.
-  remarks: This only affects scrollbars that have a width of two when vertical, and a height of two when horizontal.
-  example: []
-  syntax:
-    content: >-
-      [DataMember]
-
-      public bool UseExtended { get; set; }
+      public bool ArrowsMoveGrip { get; set; }
     parameters: []
     return:
       type: System.Boolean
     content.vb: >-
       <DataMember>
 
-      Public Property UseExtended As Boolean
-  overload: SadConsole.UI.Controls.ScrollBar.UseExtended*
+      Public Property ArrowsMoveGrip As Boolean
+  overload: SadConsole.UI.Controls.ScrollBar.ArrowsMoveGrip*
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: SadConsole.UI.Controls.ScrollBar.MouseWheelMovesGrip
+  commentId: P:SadConsole.UI.Controls.ScrollBar.MouseWheelMovesGrip
+  id: MouseWheelMovesGrip
+  parent: SadConsole.UI.Controls.ScrollBar
+  langs:
+  - csharp
+  - vb
+  name: MouseWheelMovesGrip
+  nameWithType: ScrollBar.MouseWheelMovesGrip
+  fullName: SadConsole.UI.Controls.ScrollBar.MouseWheelMovesGrip
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  syntax:
+    content: >-
+      [DataMember]
+
+      public bool MouseWheelMovesGrip { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <DataMember>
+
+      Public Property MouseWheelMovesGrip As Boolean
+  overload: SadConsole.UI.Controls.ScrollBar.MouseWheelMovesGrip*
+  attributes:
+  - type: System.Runtime.Serialization.DataMemberAttribute
+    ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
+    arguments: []
+- uid: SadConsole.UI.Controls.ScrollBar.Style
+  commentId: P:SadConsole.UI.Controls.ScrollBar.Style
+  id: Style
+  parent: SadConsole.UI.Controls.ScrollBar
+  langs:
+  - csharp
+  - vb
+  name: Style
+  nameWithType: ScrollBar.Style
+  fullName: SadConsole.UI.Controls.ScrollBar.Style
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  syntax:
+    content: >-
+      [DataMember]
+
+      public ScrollBar.ThemeStyle Style { get; set; }
+    parameters: []
+    return:
+      type: SadConsole.UI.Controls.ScrollBar.ThemeStyle
+    content.vb: >-
+      <DataMember>
+
+      Public Property Style As ScrollBar.ThemeStyle
+  overload: SadConsole.UI.Controls.ScrollBar.Style*
   attributes:
   - type: System.Runtime.Serialization.DataMemberAttribute
     ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
@@ -777,8 +715,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
-  summary: Raised when the <xref href="SadConsole.UI.Controls.ScrollBar.Value" data-throw-if-not-resolved="false"></xref> property changes.
-  example: []
   syntax:
     content: public event EventHandler? ValueChanged
     return:
@@ -938,6 +874,36 @@ references:
     isExternal: true
     href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_OnIsDirtyChanged
   - name: (
+  - name: )
+- uid: SadConsole.UI.Controls.ControlBase.ProcessKeyboard(SadConsole.Input.Keyboard)
+  commentId: M:SadConsole.UI.Controls.ControlBase.ProcessKeyboard(SadConsole.Input.Keyboard)
+  parent: SadConsole.UI.Controls.ControlBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_ProcessKeyboard_SadConsole_Input_Keyboard_
+  name: ProcessKeyboard(Keyboard)
+  nameWithType: ControlBase.ProcessKeyboard(Keyboard)
+  fullName: SadConsole.UI.Controls.ControlBase.ProcessKeyboard(SadConsole.Input.Keyboard)
+  spec.csharp:
+  - uid: SadConsole.UI.Controls.ControlBase.ProcessKeyboard(SadConsole.Input.Keyboard)
+    name: ProcessKeyboard
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_ProcessKeyboard_SadConsole_Input_Keyboard_
+  - name: (
+  - uid: SadConsole.Input.Keyboard
+    name: Keyboard
+    isExternal: true
+    href: SadConsole.Input.Keyboard.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.Controls.ControlBase.ProcessKeyboard(SadConsole.Input.Keyboard)
+    name: ProcessKeyboard
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_ProcessKeyboard_SadConsole_Input_Keyboard_
+  - name: (
+  - uid: SadConsole.Input.Keyboard
+    name: Keyboard
+    isExternal: true
+    href: SadConsole.Input.Keyboard.html
   - name: )
 - uid: SadConsole.UI.Controls.ControlBase.LostMouse(SadConsole.Input.MouseScreenObjectState)
   commentId: M:SadConsole.UI.Controls.ControlBase.LostMouse(SadConsole.Input.MouseScreenObjectState)
@@ -1174,6 +1140,28 @@ references:
     isExternal: true
     href: SadConsole.ICellSurface.html
   - name: )
+- uid: SadConsole.UI.Controls.ControlBase.FindThemeFont
+  commentId: M:SadConsole.UI.Controls.ControlBase.FindThemeFont
+  parent: SadConsole.UI.Controls.ControlBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeFont
+  name: FindThemeFont()
+  nameWithType: ControlBase.FindThemeFont()
+  fullName: SadConsole.UI.Controls.ControlBase.FindThemeFont()
+  spec.csharp:
+  - uid: SadConsole.UI.Controls.ControlBase.FindThemeFont
+    name: FindThemeFont
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeFont
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.Controls.ControlBase.FindThemeFont
+    name: FindThemeFont
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeFont
+  - name: (
+  - name: )
 - uid: SadConsole.UI.Controls.ControlBase.FindThemeColors
   commentId: M:SadConsole.UI.Controls.ControlBase.FindThemeColors
   parent: SadConsole.UI.Controls.ControlBase
@@ -1248,27 +1236,50 @@ references:
     href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_HasThemeColors
   - name: (
   - name: )
-- uid: SadConsole.UI.Controls.ControlBase.OnResized
-  commentId: M:SadConsole.UI.Controls.ControlBase.OnResized
+- uid: SadConsole.UI.Controls.ControlBase.Resize(System.Int32,System.Int32)
+  commentId: M:SadConsole.UI.Controls.ControlBase.Resize(System.Int32,System.Int32)
   parent: SadConsole.UI.Controls.ControlBase
   isExternal: true
-  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_OnResized
-  name: OnResized()
-  nameWithType: ControlBase.OnResized()
-  fullName: SadConsole.UI.Controls.ControlBase.OnResized()
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_Resize_System_Int32_System_Int32_
+  name: Resize(int, int)
+  nameWithType: ControlBase.Resize(int, int)
+  fullName: SadConsole.UI.Controls.ControlBase.Resize(int, int)
+  nameWithType.vb: ControlBase.Resize(Integer, Integer)
+  fullName.vb: SadConsole.UI.Controls.ControlBase.Resize(Integer, Integer)
+  name.vb: Resize(Integer, Integer)
   spec.csharp:
-  - uid: SadConsole.UI.Controls.ControlBase.OnResized
-    name: OnResized
+  - uid: SadConsole.UI.Controls.ControlBase.Resize(System.Int32,System.Int32)
+    name: Resize
     isExternal: true
-    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_OnResized
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_Resize_System_Int32_System_Int32_
   - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: )
   spec.vb:
-  - uid: SadConsole.UI.Controls.ControlBase.OnResized
-    name: OnResized
+  - uid: SadConsole.UI.Controls.ControlBase.Resize(System.Int32,System.Int32)
+    name: Resize
     isExternal: true
-    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_OnResized
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_Resize_System_Int32_System_Int32_
   - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: )
 - uid: SadConsole.UI.Controls.ControlBase.CreateControlSurface
   commentId: M:SadConsole.UI.Controls.ControlBase.CreateControlSurface
@@ -1291,6 +1302,36 @@ references:
     isExternal: true
     href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_CreateControlSurface
   - name: (
+  - name: )
+- uid: SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
+  commentId: M:SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
+  parent: SadConsole.UI.Controls.ControlBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_RefreshThemeStateColors_SadConsole_UI_Colors_
+  name: RefreshThemeStateColors(Colors)
+  nameWithType: ControlBase.RefreshThemeStateColors(Colors)
+  fullName: SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
+  spec.csharp:
+  - uid: SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
+    name: RefreshThemeStateColors
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_RefreshThemeStateColors_SadConsole_UI_Colors_
+  - name: (
+  - uid: SadConsole.UI.Colors
+    name: Colors
+    isExternal: true
+    href: SadConsole.UI.Colors.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
+    name: RefreshThemeStateColors
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_RefreshThemeStateColors_SadConsole_UI_Colors_
+  - name: (
+  - uid: SadConsole.UI.Colors
+    name: Colors
+    isExternal: true
+    href: SadConsole.UI.Colors.html
   - name: )
 - uid: SadConsole.UI.Controls.ControlBase.OnMouseEnter(SadConsole.UI.Controls.ControlBase.ControlMouseState)
   commentId: M:SadConsole.UI.Controls.ControlBase.OnMouseEnter(SadConsole.UI.Controls.ControlBase.ControlMouseState)
@@ -1932,24 +1973,6 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
-- uid: System.ArgumentOutOfRangeException
-  commentId: T:System.ArgumentOutOfRangeException
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception
-  name: ArgumentOutOfRangeException
-  nameWithType: ArgumentOutOfRangeException
-  fullName: System.ArgumentOutOfRangeException
 - uid: SadConsole.UI.Controls.ScrollBar.#ctor*
   commentId: Overload:SadConsole.UI.Controls.ScrollBar.#ctor
   isExternal: true
@@ -1968,6 +1991,17 @@ references:
   name: Orientation
   nameWithType: Orientation
   fullName: SadConsole.Orientation
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: SadConsole
   commentId: N:SadConsole
   isExternal: true
@@ -1975,58 +2009,144 @@ references:
   name: SadConsole
   nameWithType: SadConsole
   fullName: SadConsole
-- uid: SadConsole.UI.Controls.ControlBase.Resize(System.Int32,System.Int32)
-  commentId: M:SadConsole.UI.Controls.ControlBase.Resize(System.Int32,System.Int32)
+- uid: SadConsole.UI.Controls.ScrollBar.OnValueChanged*
+  commentId: Overload:SadConsole.UI.Controls.ScrollBar.OnValueChanged
+  isExternal: true
+  href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_OnValueChanged
+  name: OnValueChanged
+  nameWithType: ScrollBar.OnValueChanged
+  fullName: SadConsole.UI.Controls.ScrollBar.OnValueChanged
+- uid: SadConsole.UI.Controls.ScrollBar.CalculateGripSize*
+  commentId: Overload:SadConsole.UI.Controls.ScrollBar.CalculateGripSize
+  isExternal: true
+  href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_CalculateGripSize
+  name: CalculateGripSize
+  nameWithType: ScrollBar.CalculateGripSize
+  fullName: SadConsole.UI.Controls.ScrollBar.CalculateGripSize
+- uid: SadConsole.UI.Controls.ScrollBar.SetGripToValue*
+  commentId: Overload:SadConsole.UI.Controls.ScrollBar.SetGripToValue
+  isExternal: true
+  href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_SetGripToValue
+  name: SetGripToValue
+  nameWithType: ScrollBar.SetGripToValue
+  fullName: SadConsole.UI.Controls.ScrollBar.SetGripToValue
+- uid: SadConsole.UI.Controls.ControlBase.OnResized
+  commentId: M:SadConsole.UI.Controls.ControlBase.OnResized
   parent: SadConsole.UI.Controls.ControlBase
   isExternal: true
-  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_Resize_System_Int32_System_Int32_
-  name: Resize(int, int)
-  nameWithType: ControlBase.Resize(int, int)
-  fullName: SadConsole.UI.Controls.ControlBase.Resize(int, int)
-  nameWithType.vb: ControlBase.Resize(Integer, Integer)
-  fullName.vb: SadConsole.UI.Controls.ControlBase.Resize(Integer, Integer)
-  name.vb: Resize(Integer, Integer)
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_OnResized
+  name: OnResized()
+  nameWithType: ControlBase.OnResized()
+  fullName: SadConsole.UI.Controls.ControlBase.OnResized()
   spec.csharp:
-  - uid: SadConsole.UI.Controls.ControlBase.Resize(System.Int32,System.Int32)
-    name: Resize
+  - uid: SadConsole.UI.Controls.ControlBase.OnResized
+    name: OnResized
     isExternal: true
-    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_Resize_System_Int32_System_Int32_
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_OnResized
   - name: (
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: ','
-  - name: " "
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: )
   spec.vb:
-  - uid: SadConsole.UI.Controls.ControlBase.Resize(System.Int32,System.Int32)
-    name: Resize
+  - uid: SadConsole.UI.Controls.ControlBase.OnResized
+    name: OnResized
     isExternal: true
-    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_Resize_System_Int32_System_Int32_
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_OnResized
   - name: (
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: ','
-  - name: " "
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: )
-- uid: SadConsole.UI.Controls.ScrollBar.Resize*
-  commentId: Overload:SadConsole.UI.Controls.ScrollBar.Resize
+- uid: SadConsole.UI.Controls.ScrollBar.OnResized*
+  commentId: Overload:SadConsole.UI.Controls.ScrollBar.OnResized
   isExternal: true
-  href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_Resize_System_Int32_System_Int32_
-  name: Resize
-  nameWithType: ScrollBar.Resize
-  fullName: SadConsole.UI.Controls.ScrollBar.Resize
+  href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_OnResized
+  name: OnResized
+  nameWithType: ScrollBar.OnResized
+  fullName: SadConsole.UI.Controls.ScrollBar.OnResized
+- uid: SadConsole.UI.Controls.ScrollBar.SetValue*
+  commentId: Overload:SadConsole.UI.Controls.ScrollBar.SetValue
+  isExternal: true
+  href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_SetValue_System_Int32_System_Boolean_
+  name: SetValue
+  nameWithType: ScrollBar.SetValue
+  fullName: SadConsole.UI.Controls.ScrollBar.SetValue
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: SadConsole.UI.Controls.ScrollBar.IncreaseValue*
+  commentId: Overload:SadConsole.UI.Controls.ScrollBar.IncreaseValue
+  isExternal: true
+  href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_IncreaseValue_System_Int32_
+  name: IncreaseValue
+  nameWithType: ScrollBar.IncreaseValue
+  fullName: SadConsole.UI.Controls.ScrollBar.IncreaseValue
+- uid: SadConsole.UI.Controls.ScrollBar.DecreaseValue*
+  commentId: Overload:SadConsole.UI.Controls.ScrollBar.DecreaseValue
+  isExternal: true
+  href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_DecreaseValue_System_Int32_
+  name: DecreaseValue
+  nameWithType: ScrollBar.DecreaseValue
+  fullName: SadConsole.UI.Controls.ScrollBar.DecreaseValue
+- uid: SadConsole.UI.Controls.ScrollBar.IncreaseGripByOne*
+  commentId: Overload:SadConsole.UI.Controls.ScrollBar.IncreaseGripByOne
+  isExternal: true
+  href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_IncreaseGripByOne
+  name: IncreaseGripByOne
+  nameWithType: ScrollBar.IncreaseGripByOne
+  fullName: SadConsole.UI.Controls.ScrollBar.IncreaseGripByOne
+- uid: SadConsole.UI.Controls.ScrollBar.DecreaseGripByOne*
+  commentId: Overload:SadConsole.UI.Controls.ScrollBar.DecreaseGripByOne
+  isExternal: true
+  href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_DecreaseGripByOne
+  name: DecreaseGripByOne
+  nameWithType: ScrollBar.DecreaseGripByOne
+  fullName: SadConsole.UI.Controls.ScrollBar.DecreaseGripByOne
+- uid: SadConsole.UI.Controls.ScrollBar.ProcessMouseWheel*
+  commentId: Overload:SadConsole.UI.Controls.ScrollBar.ProcessMouseWheel
+  isExternal: true
+  href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_ProcessMouseWheel_SadConsole_Input_MouseScreenObjectState_
+  name: ProcessMouseWheel
+  nameWithType: ScrollBar.ProcessMouseWheel
+  fullName: SadConsole.UI.Controls.ScrollBar.ProcessMouseWheel
+- uid: SadConsole.Input.MouseScreenObjectState
+  commentId: T:SadConsole.Input.MouseScreenObjectState
+  parent: SadConsole.Input
+  isExternal: true
+  href: SadConsole.Input.MouseScreenObjectState.html
+  name: MouseScreenObjectState
+  nameWithType: MouseScreenObjectState
+  fullName: SadConsole.Input.MouseScreenObjectState
+- uid: SadConsole.Input
+  commentId: N:SadConsole.Input
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Input
+  nameWithType: SadConsole.Input
+  fullName: SadConsole.Input
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Input
+    name: Input
+    isExternal: true
+    href: SadConsole.Input.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Input
+    name: Input
+    isExternal: true
+    href: SadConsole.Input.html
 - uid: SadConsole.UI.Controls.ControlBase.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
   commentId: M:SadConsole.UI.Controls.ControlBase.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
   parent: SadConsole.UI.Controls.ControlBase
@@ -2064,207 +2184,6 @@ references:
   name: ProcessMouse
   nameWithType: ScrollBar.ProcessMouse
   fullName: SadConsole.UI.Controls.ScrollBar.ProcessMouse
-- uid: SadConsole.Input.MouseScreenObjectState
-  commentId: T:SadConsole.Input.MouseScreenObjectState
-  parent: SadConsole.Input
-  isExternal: true
-  href: SadConsole.Input.MouseScreenObjectState.html
-  name: MouseScreenObjectState
-  nameWithType: MouseScreenObjectState
-  fullName: SadConsole.Input.MouseScreenObjectState
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
-- uid: SadConsole.Input
-  commentId: N:SadConsole.Input
-  isExternal: true
-  href: SadConsole.html
-  name: SadConsole.Input
-  nameWithType: SadConsole.Input
-  fullName: SadConsole.Input
-  spec.csharp:
-  - uid: SadConsole
-    name: SadConsole
-    isExternal: true
-    href: SadConsole.html
-  - name: .
-  - uid: SadConsole.Input
-    name: Input
-    isExternal: true
-    href: SadConsole.Input.html
-  spec.vb:
-  - uid: SadConsole
-    name: SadConsole
-    isExternal: true
-    href: SadConsole.html
-  - name: .
-  - uid: SadConsole.Input
-    name: Input
-    isExternal: true
-    href: SadConsole.Input.html
-- uid: SadConsole.UI.Controls.ControlBase.ProcessKeyboard(SadConsole.Input.Keyboard)
-  commentId: M:SadConsole.UI.Controls.ControlBase.ProcessKeyboard(SadConsole.Input.Keyboard)
-  parent: SadConsole.UI.Controls.ControlBase
-  isExternal: true
-  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_ProcessKeyboard_SadConsole_Input_Keyboard_
-  name: ProcessKeyboard(Keyboard)
-  nameWithType: ControlBase.ProcessKeyboard(Keyboard)
-  fullName: SadConsole.UI.Controls.ControlBase.ProcessKeyboard(SadConsole.Input.Keyboard)
-  spec.csharp:
-  - uid: SadConsole.UI.Controls.ControlBase.ProcessKeyboard(SadConsole.Input.Keyboard)
-    name: ProcessKeyboard
-    isExternal: true
-    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_ProcessKeyboard_SadConsole_Input_Keyboard_
-  - name: (
-  - uid: SadConsole.Input.Keyboard
-    name: Keyboard
-    isExternal: true
-    href: SadConsole.Input.Keyboard.html
-  - name: )
-  spec.vb:
-  - uid: SadConsole.UI.Controls.ControlBase.ProcessKeyboard(SadConsole.Input.Keyboard)
-    name: ProcessKeyboard
-    isExternal: true
-    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_ProcessKeyboard_SadConsole_Input_Keyboard_
-  - name: (
-  - uid: SadConsole.Input.Keyboard
-    name: Keyboard
-    isExternal: true
-    href: SadConsole.Input.Keyboard.html
-  - name: )
-- uid: SadConsole.UI.Controls.ScrollBar.ProcessKeyboard*
-  commentId: Overload:SadConsole.UI.Controls.ScrollBar.ProcessKeyboard
-  isExternal: true
-  href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_ProcessKeyboard_SadConsole_Input_Keyboard_
-  name: ProcessKeyboard
-  nameWithType: ScrollBar.ProcessKeyboard
-  fullName: SadConsole.UI.Controls.ScrollBar.ProcessKeyboard
-- uid: SadConsole.Input.Keyboard
-  commentId: T:SadConsole.Input.Keyboard
-  parent: SadConsole.Input
-  isExternal: true
-  href: SadConsole.Input.Keyboard.html
-  name: Keyboard
-  nameWithType: Keyboard
-  fullName: SadConsole.Input.Keyboard
-- uid: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
-  commentId: M:SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
-  parent: SadConsole.UI.ThemeStates
-  isExternal: true
-  href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_RefreshTheme_SadConsole_UI_Colors_
-  name: RefreshTheme(Colors)
-  nameWithType: ThemeStates.RefreshTheme(Colors)
-  fullName: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
-  spec.csharp:
-  - uid: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
-    name: RefreshTheme
-    isExternal: true
-    href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_RefreshTheme_SadConsole_UI_Colors_
-  - name: (
-  - uid: SadConsole.UI.Colors
-    name: Colors
-    isExternal: true
-    href: SadConsole.UI.Colors.html
-  - name: )
-  spec.vb:
-  - uid: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
-    name: RefreshTheme
-    isExternal: true
-    href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_RefreshTheme_SadConsole_UI_Colors_
-  - name: (
-  - uid: SadConsole.UI.Colors
-    name: Colors
-    isExternal: true
-    href: SadConsole.UI.Colors.html
-  - name: )
-- uid: SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
-  commentId: M:SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
-  parent: SadConsole.UI.Controls.ControlBase
-  isExternal: true
-  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_RefreshThemeStateColors_SadConsole_UI_Colors_
-  name: RefreshThemeStateColors(Colors)
-  nameWithType: ControlBase.RefreshThemeStateColors(Colors)
-  fullName: SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
-  spec.csharp:
-  - uid: SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
-    name: RefreshThemeStateColors
-    isExternal: true
-    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_RefreshThemeStateColors_SadConsole_UI_Colors_
-  - name: (
-  - uid: SadConsole.UI.Colors
-    name: Colors
-    isExternal: true
-    href: SadConsole.UI.Colors.html
-  - name: )
-  spec.vb:
-  - uid: SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
-    name: RefreshThemeStateColors
-    isExternal: true
-    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_RefreshThemeStateColors_SadConsole_UI_Colors_
-  - name: (
-  - uid: SadConsole.UI.Colors
-    name: Colors
-    isExternal: true
-    href: SadConsole.UI.Colors.html
-  - name: )
-- uid: SadConsole.UI.Controls.ScrollBar.RefreshThemeStateColors*
-  commentId: Overload:SadConsole.UI.Controls.ScrollBar.RefreshThemeStateColors
-  isExternal: true
-  href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_RefreshThemeStateColors_SadConsole_UI_Colors_
-  name: RefreshThemeStateColors
-  nameWithType: ScrollBar.RefreshThemeStateColors
-  fullName: SadConsole.UI.Controls.ScrollBar.RefreshThemeStateColors
-- uid: SadConsole.UI.Colors
-  commentId: T:SadConsole.UI.Colors
-  parent: SadConsole.UI
-  isExternal: true
-  href: SadConsole.UI.Colors.html
-  name: Colors
-  nameWithType: Colors
-  fullName: SadConsole.UI.Colors
-- uid: SadConsole.UI.ThemeStates
-  commentId: T:SadConsole.UI.ThemeStates
-  parent: SadConsole.UI
-  isExternal: true
-  href: SadConsole.UI.ThemeStates.html
-  name: ThemeStates
-  nameWithType: ThemeStates
-  fullName: SadConsole.UI.ThemeStates
-- uid: SadConsole.UI
-  commentId: N:SadConsole.UI
-  isExternal: true
-  href: SadConsole.html
-  name: SadConsole.UI
-  nameWithType: SadConsole.UI
-  fullName: SadConsole.UI
-  spec.csharp:
-  - uid: SadConsole
-    name: SadConsole
-    isExternal: true
-    href: SadConsole.html
-  - name: .
-  - uid: SadConsole.UI
-    name: UI
-    isExternal: true
-    href: SadConsole.UI.html
-  spec.vb:
-  - uid: SadConsole
-    name: SadConsole
-    isExternal: true
-    href: SadConsole.html
-  - name: .
-  - uid: SadConsole.UI
-    name: UI
-    isExternal: true
-    href: SadConsole.UI.html
 - uid: SadConsole.UI.Controls.ControlBase.UpdateAndRedraw(System.TimeSpan)
   commentId: M:SadConsole.UI.Controls.ControlBase.UpdateAndRedraw(System.TimeSpan)
   parent: SadConsole.UI.Controls.ControlBase
@@ -2317,27 +2236,34 @@ references:
   name: Orientation
   nameWithType: ScrollBar.Orientation
   fullName: SadConsole.UI.Controls.ScrollBar.Orientation
-- uid: SadConsole.UI.Controls.ScrollBar.SliderBarSize*
-  commentId: Overload:SadConsole.UI.Controls.ScrollBar.SliderBarSize
+- uid: SadConsole.UI.Controls.ScrollBar.IsGripped*
+  commentId: Overload:SadConsole.UI.Controls.ScrollBar.IsGripped
   isExternal: true
-  href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_SliderBarSize
-  name: SliderBarSize
-  nameWithType: ScrollBar.SliderBarSize
-  fullName: SadConsole.UI.Controls.ScrollBar.SliderBarSize
-- uid: SadConsole.UI.Controls.ScrollBar.CurrentSliderPosition*
-  commentId: Overload:SadConsole.UI.Controls.ScrollBar.CurrentSliderPosition
+  href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_IsGripped
+  name: IsGripped
+  nameWithType: ScrollBar.IsGripped
+  fullName: SadConsole.UI.Controls.ScrollBar.IsGripped
+- uid: SadConsole.UI.Controls.ScrollBar.MaximumValue*
+  commentId: Overload:SadConsole.UI.Controls.ScrollBar.MaximumValue
   isExternal: true
-  href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_CurrentSliderPosition
-  name: CurrentSliderPosition
-  nameWithType: ScrollBar.CurrentSliderPosition
-  fullName: SadConsole.UI.Controls.ScrollBar.CurrentSliderPosition
-- uid: SadConsole.UI.Controls.ScrollBar.IsSliding*
-  commentId: Overload:SadConsole.UI.Controls.ScrollBar.IsSliding
+  href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_MaximumValue
+  name: MaximumValue
+  nameWithType: ScrollBar.MaximumValue
+  fullName: SadConsole.UI.Controls.ScrollBar.MaximumValue
+- uid: SadConsole.UI.Controls.ScrollBar.ArrowStep*
+  commentId: Overload:SadConsole.UI.Controls.ScrollBar.ArrowStep
   isExternal: true
-  href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_IsSliding
-  name: IsSliding
-  nameWithType: ScrollBar.IsSliding
-  fullName: SadConsole.UI.Controls.ScrollBar.IsSliding
+  href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_ArrowStep
+  name: ArrowStep
+  nameWithType: ScrollBar.ArrowStep
+  fullName: SadConsole.UI.Controls.ScrollBar.ArrowStep
+- uid: SadConsole.UI.Controls.ScrollBar.MouseWheelStep*
+  commentId: Overload:SadConsole.UI.Controls.ScrollBar.MouseWheelStep
+  isExternal: true
+  href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_MouseWheelStep
+  name: MouseWheelStep
+  nameWithType: ScrollBar.MouseWheelStep
+  fullName: SadConsole.UI.Controls.ScrollBar.MouseWheelStep
 - uid: SadConsole.UI.Controls.ScrollBar.Value*
   commentId: Overload:SadConsole.UI.Controls.ScrollBar.Value
   isExternal: true
@@ -2345,41 +2271,55 @@ references:
   name: Value
   nameWithType: ScrollBar.Value
   fullName: SadConsole.UI.Controls.ScrollBar.Value
-- uid: SadConsole.UI.Controls.ScrollBar.Maximum*
-  commentId: Overload:SadConsole.UI.Controls.ScrollBar.Maximum
+- uid: SadConsole.UI.Controls.ScrollBar.ArrowsMoveGrip*
+  commentId: Overload:SadConsole.UI.Controls.ScrollBar.ArrowsMoveGrip
   isExternal: true
-  href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_Maximum
-  name: Maximum
-  nameWithType: ScrollBar.Maximum
-  fullName: SadConsole.UI.Controls.ScrollBar.Maximum
-- uid: SadConsole.UI.Controls.ScrollBar.Minimum*
-  commentId: Overload:SadConsole.UI.Controls.ScrollBar.Minimum
+  href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_ArrowsMoveGrip
+  name: ArrowsMoveGrip
+  nameWithType: ScrollBar.ArrowsMoveGrip
+  fullName: SadConsole.UI.Controls.ScrollBar.ArrowsMoveGrip
+- uid: SadConsole.UI.Controls.ScrollBar.MouseWheelMovesGrip*
+  commentId: Overload:SadConsole.UI.Controls.ScrollBar.MouseWheelMovesGrip
   isExternal: true
-  href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_Minimum
-  name: Minimum
-  nameWithType: ScrollBar.Minimum
-  fullName: SadConsole.UI.Controls.ScrollBar.Minimum
-- uid: SadConsole.UI.Controls.ScrollBar.Value
-  commentId: P:SadConsole.UI.Controls.ScrollBar.Value
+  href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_MouseWheelMovesGrip
+  name: MouseWheelMovesGrip
+  nameWithType: ScrollBar.MouseWheelMovesGrip
+  fullName: SadConsole.UI.Controls.ScrollBar.MouseWheelMovesGrip
+- uid: SadConsole.UI.Controls.ScrollBar.Style*
+  commentId: Overload:SadConsole.UI.Controls.ScrollBar.Style
   isExternal: true
-  href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_Value
-  name: Value
-  nameWithType: ScrollBar.Value
-  fullName: SadConsole.UI.Controls.ScrollBar.Value
-- uid: SadConsole.UI.Controls.ScrollBar.Step*
-  commentId: Overload:SadConsole.UI.Controls.ScrollBar.Step
+  href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_Style
+  name: Style
+  nameWithType: ScrollBar.Style
+  fullName: SadConsole.UI.Controls.ScrollBar.Style
+- uid: SadConsole.UI.Controls.ScrollBar.ThemeStyle
+  commentId: T:SadConsole.UI.Controls.ScrollBar.ThemeStyle
+  parent: SadConsole.UI.Controls
   isExternal: true
-  href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_Step
-  name: Step
-  nameWithType: ScrollBar.Step
-  fullName: SadConsole.UI.Controls.ScrollBar.Step
-- uid: SadConsole.UI.Controls.ScrollBar.UseExtended*
-  commentId: Overload:SadConsole.UI.Controls.ScrollBar.UseExtended
-  isExternal: true
-  href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_UseExtended
-  name: UseExtended
-  nameWithType: ScrollBar.UseExtended
-  fullName: SadConsole.UI.Controls.ScrollBar.UseExtended
+  href: SadConsole.UI.Controls.ScrollBar.html
+  name: ScrollBar.ThemeStyle
+  nameWithType: ScrollBar.ThemeStyle
+  fullName: SadConsole.UI.Controls.ScrollBar.ThemeStyle
+  spec.csharp:
+  - uid: SadConsole.UI.Controls.ScrollBar
+    name: ScrollBar
+    isExternal: true
+    href: SadConsole.UI.Controls.ScrollBar.html
+  - name: .
+  - uid: SadConsole.UI.Controls.ScrollBar.ThemeStyle
+    name: ThemeStyle
+    isExternal: true
+    href: SadConsole.UI.Controls.ScrollBar.ThemeStyle.html
+  spec.vb:
+  - uid: SadConsole.UI.Controls.ScrollBar
+    name: ScrollBar
+    isExternal: true
+    href: SadConsole.UI.Controls.ScrollBar.html
+  - name: .
+  - uid: SadConsole.UI.Controls.ScrollBar.ThemeStyle
+    name: ThemeStyle
+    isExternal: true
+    href: SadConsole.UI.Controls.ScrollBar.ThemeStyle.html
 - uid: System.EventHandler
   commentId: T:System.EventHandler
   parent: System

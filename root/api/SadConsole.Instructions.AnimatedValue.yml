@@ -24,8 +24,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: An function that applies an <xref href="SadConsole.EasingFunctions.EasingBase" data-throw-if-not-resolved="false"></xref> function between two values.
-  example: []
   syntax:
     content: 'public class AnimatedValue : Wait, IComponent'
     content.vb: Public Class AnimatedValue Inherits Wait Implements IComponent
@@ -75,8 +73,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: The easing function assigned to animate the value.
-  example: []
   syntax:
     content: protected EasingBase EasingFunction
     return:
@@ -96,23 +92,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: Creates a new value animated over time.
-  example: []
   syntax:
     content: public AnimatedValue(TimeSpan duration, double startingValue, double endingValue, EasingBase? easingFunction = null)
     parameters:
     - id: duration
       type: System.TimeSpan
-      description: The total time this animation should run.
     - id: startingValue
       type: System.Double
-      description: The starting value of the animation.
     - id: endingValue
       type: System.Double
-      description: The ending value of the animation.
     - id: easingFunction
       type: SadConsole.EasingFunctions.EasingBase
-      description: The easing function used during animation. Defaults to <xref href="SadConsole.EasingFunctions.Linear" data-throw-if-not-resolved="false"></xref>.
     content.vb: Public Sub New(duration As TimeSpan, startingValue As Double, endingValue As Double, easingFunction As EasingBase = Nothing)
   overload: SadConsole.Instructions.AnimatedValue.#ctor*
   nameWithType.vb: AnimatedValue.New(TimeSpan, Double, Double, EasingBase)
@@ -132,23 +122,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: Resets this object to new values.
-  example: []
   syntax:
     content: public void Reset(TimeSpan duration, double startingValue, double endingValue, EasingBase? easingFunction = null)
     parameters:
     - id: duration
       type: System.TimeSpan
-      description: The total time this animation should run.
     - id: startingValue
       type: System.Double
-      description: The starting value of the animation.
     - id: endingValue
       type: System.Double
-      description: The ending value of the animation.
     - id: easingFunction
       type: SadConsole.EasingFunctions.EasingBase
-      description: The easing function used during animation. Defaults to <xref href="SadConsole.EasingFunctions.Linear" data-throw-if-not-resolved="false"></xref>.
     content.vb: Public Sub Reset(duration As TimeSpan, startingValue As Double, endingValue As Double, easingFunction As EasingBase = Nothing)
   overload: SadConsole.Instructions.AnimatedValue.Reset*
   nameWithType.vb: AnimatedValue.Reset(TimeSpan, Double, Double, EasingBase)
@@ -168,8 +152,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: Resets the Done flag.
-  remarks: On the base class, resets the <xref href="SadConsole.Instructions.InstructionBase.IsFinished" data-throw-if-not-resolved="false"></xref> to false. Override this method to reset the derived class' counters and status flags for the instruction.
   example: []
   syntax:
     content: public override void Reset()
@@ -190,17 +172,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: Updates the timer with the time since the last call.
   example: []
   syntax:
     content: public override void Update(IScreenObject console, TimeSpan delta)
     parameters:
     - id: console
       type: SadConsole.IScreenObject
-      description: The parent object.
     - id: delta
       type: System.TimeSpan
-      description: The time since the last frame update.
     content.vb: Public Overrides Sub Update(console As IScreenObject, delta As TimeSpan)
   overridden: SadConsole.Instructions.Wait.Update(SadConsole.IScreenObject,System.TimeSpan)
   overload: SadConsole.Instructions.AnimatedValue.Update*
@@ -218,8 +197,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: The current or last value of the animation.
-  example: []
   syntax:
     content: public double Value { get; }
     parameters: []
@@ -241,8 +218,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: The stating value of the animation.
-  example: []
   syntax:
     content: public double StartingValue { get; }
     parameters: []
@@ -264,8 +239,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: The ending value of the animation.
-  example: []
   syntax:
     content: public double EndingValue { get; }
     parameters: []
@@ -287,22 +260,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
-  summary: Raised when the instruction is running and the value changes during <xref href="SadConsole.Instructions.AnimatedValue.Update(SadConsole.IScreenObject%2cSystem.TimeSpan)" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: public event EventHandler<double>? ValueChanged
     return:
       type: System.EventHandler{System.Double}
     content.vb: Public Event ValueChanged As EventHandler(Of Double)
 references:
-- uid: SadConsole.EasingFunctions.EasingBase
-  commentId: T:SadConsole.EasingFunctions.EasingBase
-  parent: SadConsole.EasingFunctions
-  isExternal: true
-  href: SadConsole.EasingFunctions.EasingBase.html
-  name: EasingBase
-  nameWithType: EasingBase
-  fullName: SadConsole.EasingFunctions.EasingBase
 - uid: SadConsole.Instructions
   commentId: N:SadConsole.Instructions
   isExternal: true
@@ -820,33 +783,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
-- uid: SadConsole.EasingFunctions
-  commentId: N:SadConsole.EasingFunctions
-  isExternal: true
-  href: SadConsole.html
-  name: SadConsole.EasingFunctions
-  nameWithType: SadConsole.EasingFunctions
-  fullName: SadConsole.EasingFunctions
-  spec.csharp:
-  - uid: SadConsole
-    name: SadConsole
-    isExternal: true
-    href: SadConsole.html
-  - name: .
-  - uid: SadConsole.EasingFunctions
-    name: EasingFunctions
-    isExternal: true
-    href: SadConsole.EasingFunctions.html
-  spec.vb:
-  - uid: SadConsole
-    name: SadConsole
-    isExternal: true
-    href: SadConsole.html
-  - name: .
-  - uid: SadConsole.EasingFunctions
-    name: EasingFunctions
-    isExternal: true
-    href: SadConsole.EasingFunctions.html
 - uid: System
   commentId: N:System
   isExternal: true
@@ -881,13 +817,41 @@ references:
     name: Components
     isExternal: true
     href: SadConsole.Components.html
-- uid: SadConsole.EasingFunctions.Linear
-  commentId: T:SadConsole.EasingFunctions.Linear
+- uid: SadConsole.EasingFunctions.EasingBase
+  commentId: T:SadConsole.EasingFunctions.EasingBase
+  parent: SadConsole.EasingFunctions
   isExternal: true
-  href: SadConsole.EasingFunctions.Linear.html
-  name: Linear
-  nameWithType: Linear
-  fullName: SadConsole.EasingFunctions.Linear
+  href: SadConsole.EasingFunctions.EasingBase.html
+  name: EasingBase
+  nameWithType: EasingBase
+  fullName: SadConsole.EasingFunctions.EasingBase
+- uid: SadConsole.EasingFunctions
+  commentId: N:SadConsole.EasingFunctions
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.EasingFunctions
+  nameWithType: SadConsole.EasingFunctions
+  fullName: SadConsole.EasingFunctions
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.EasingFunctions
+    name: EasingFunctions
+    isExternal: true
+    href: SadConsole.EasingFunctions.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.EasingFunctions
+    name: EasingFunctions
+    isExternal: true
+    href: SadConsole.EasingFunctions.html
 - uid: SadConsole.Instructions.AnimatedValue.#ctor*
   commentId: Overload:SadConsole.Instructions.AnimatedValue.#ctor
   isExternal: true
@@ -1031,48 +995,6 @@ references:
   name: EndingValue
   nameWithType: AnimatedValue.EndingValue
   fullName: SadConsole.Instructions.AnimatedValue.EndingValue
-- uid: SadConsole.Instructions.AnimatedValue.Update(SadConsole.IScreenObject,System.TimeSpan)
-  commentId: M:SadConsole.Instructions.AnimatedValue.Update(SadConsole.IScreenObject,System.TimeSpan)
-  parent: SadConsole.Instructions.AnimatedValue
-  isExternal: true
-  href: SadConsole.Instructions.AnimatedValue.html#SadConsole_Instructions_AnimatedValue_Update_SadConsole_IScreenObject_System_TimeSpan_
-  name: Update(IScreenObject, TimeSpan)
-  nameWithType: AnimatedValue.Update(IScreenObject, TimeSpan)
-  fullName: SadConsole.Instructions.AnimatedValue.Update(SadConsole.IScreenObject, System.TimeSpan)
-  spec.csharp:
-  - uid: SadConsole.Instructions.AnimatedValue.Update(SadConsole.IScreenObject,System.TimeSpan)
-    name: Update
-    isExternal: true
-    href: SadConsole.Instructions.AnimatedValue.html#SadConsole_Instructions_AnimatedValue_Update_SadConsole_IScreenObject_System_TimeSpan_
-  - name: (
-  - uid: SadConsole.IScreenObject
-    name: IScreenObject
-    isExternal: true
-    href: SadConsole.IScreenObject.html
-  - name: ','
-  - name: " "
-  - uid: System.TimeSpan
-    name: TimeSpan
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.timespan
-  - name: )
-  spec.vb:
-  - uid: SadConsole.Instructions.AnimatedValue.Update(SadConsole.IScreenObject,System.TimeSpan)
-    name: Update
-    isExternal: true
-    href: SadConsole.Instructions.AnimatedValue.html#SadConsole_Instructions_AnimatedValue_Update_SadConsole_IScreenObject_System_TimeSpan_
-  - name: (
-  - uid: SadConsole.IScreenObject
-    name: IScreenObject
-    isExternal: true
-    href: SadConsole.IScreenObject.html
-  - name: ','
-  - name: " "
-  - uid: System.TimeSpan
-    name: TimeSpan
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.timespan
-  - name: )
 - uid: System.EventHandler{System.Double}
   commentId: T:System.EventHandler{System.Double}
   parent: System
@@ -1108,14 +1030,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.double
   - name: )
-- uid: SadConsole.Instructions.AnimatedValue
-  commentId: T:SadConsole.Instructions.AnimatedValue
-  parent: SadConsole.Instructions
-  isExternal: true
-  href: SadConsole.Instructions.AnimatedValue.html
-  name: AnimatedValue
-  nameWithType: AnimatedValue
-  fullName: SadConsole.Instructions.AnimatedValue
 - uid: System.EventHandler`1
   commentId: T:System.EventHandler`1
   isExternal: true

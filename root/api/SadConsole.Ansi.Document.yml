@@ -22,8 +22,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Ansi
-  summary: Represents an ANSI.SYS formatted document.
-  example: []
   syntax:
     content: 'public class Document : IDisposable'
     content.vb: Public Class Document Implements IDisposable
@@ -53,14 +51,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Ansi
-  summary: Creates a new document from the provided file name.
-  example: []
   syntax:
     content: public Document(string file)
     parameters:
     - id: file
       type: System.String
-      description: The file to load.
     content.vb: Public Sub New(file As String)
   overload: SadConsole.Ansi.Document.#ctor*
   nameWithType.vb: Document.New(String)
@@ -80,7 +75,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Ansi
-  example: []
   syntax:
     content: protected ~Document()
     content.vb: 'Protected '
@@ -102,17 +96,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Ansi
-  summary: Creates a new document from an existing string representing ANSI.SYS codes and characters.
-  example: []
   syntax:
     content: public static Document FromAsciiString(string ansiContent)
     parameters:
     - id: ansiContent
       type: System.String
-      description: The ANSI.SYS encoded string.
     return:
       type: SadConsole.Ansi.Document
-      description: A new document.
     content.vb: Public Shared Function FromAsciiString(ansiContent As String) As Document
   overload: SadConsole.Ansi.Document.FromAsciiString*
   nameWithType.vb: Document.FromAsciiString(String)
@@ -132,17 +122,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Ansi
-  summary: Creates a new document from an existing byte array representing ANSI.SYS codes and characters.
-  example: []
   syntax:
     content: public static Document FromBytes(byte[] bytes)
     parameters:
     - id: bytes
       type: System.Byte[]
-      description: The ANSI.SYS encoded byte array.
     return:
       type: SadConsole.Ansi.Document
-      description: A new document.
     content.vb: Public Shared Function FromBytes(bytes As Byte()) As Document
   overload: SadConsole.Ansi.Document.FromBytes*
   nameWithType.vb: Document.FromBytes(Byte())
@@ -162,8 +148,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Ansi
-  summary: Gets or sets the ANSI.SYS bytes that make up the document.
-  example: []
   syntax:
     content: public byte[] AnsiBytes { get; set; }
     parameters: []
@@ -185,8 +169,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Ansi
-  summary: A string representing the <xref href="SadConsole.Ansi.Document.AnsiBytes" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: public string AnsiString { get; }
     parameters: []
@@ -208,8 +190,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Ansi
-  summary: A stream that points to the <xref href="SadConsole.Ansi.Document.AnsiBytes" data-throw-if-not-resolved="false"></xref>.
-  example: []
   syntax:
     content: public MemoryStream? Stream { get; }
     parameters: []
@@ -571,13 +551,6 @@ references:
   - name: )
 - uid: SadConsole.Ansi.Document.AnsiBytes*
   commentId: Overload:SadConsole.Ansi.Document.AnsiBytes
-  isExternal: true
-  href: SadConsole.Ansi.Document.html#SadConsole_Ansi_Document_AnsiBytes
-  name: AnsiBytes
-  nameWithType: Document.AnsiBytes
-  fullName: SadConsole.Ansi.Document.AnsiBytes
-- uid: SadConsole.Ansi.Document.AnsiBytes
-  commentId: P:SadConsole.Ansi.Document.AnsiBytes
   isExternal: true
   href: SadConsole.Ansi.Document.html#SadConsole_Ansi_Document_AnsiBytes
   name: AnsiBytes

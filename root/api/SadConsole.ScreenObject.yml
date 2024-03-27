@@ -66,8 +66,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: A generic object processed by SadConsole. Provides parent/child, components, and position.
-  example: []
   syntax:
     content: >-
       [DataContract]
@@ -124,8 +122,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: A filtered list from <xref href="SadConsole.Components.IComponentHost.SadComponents" data-throw-if-not-resolved="false"></xref> where <xref href="SadConsole.Components.IComponent.IsUpdate" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
-  example: []
   syntax:
     content: protected List<IComponent> ComponentsUpdate
     return:
@@ -145,8 +141,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: A filtered list from <xref href="SadConsole.Components.IComponentHost.SadComponents" data-throw-if-not-resolved="false"></xref> where <xref href="SadConsole.Components.IComponent.IsRender" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
-  example: []
   syntax:
     content: protected List<IComponent> ComponentsRender
     return:
@@ -166,8 +160,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: A filtered list from <xref href="SadConsole.Components.IComponentHost.SadComponents" data-throw-if-not-resolved="false"></xref> where <xref href="SadConsole.Components.IComponent.IsMouse" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
-  example: []
   syntax:
     content: protected List<IComponent> ComponentsMouse
     return:
@@ -187,8 +179,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: A filtered list from <xref href="SadConsole.Components.IComponentHost.SadComponents" data-throw-if-not-resolved="false"></xref> where <xref href="SadConsole.Components.IComponent.IsKeyboard" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
-  example: []
   syntax:
     content: protected List<IComponent> ComponentsKeyboard
     return:
@@ -208,8 +198,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: A filtered list from <xref href="SadConsole.Components.IComponentHost.SadComponents" data-throw-if-not-resolved="false"></xref> that is not set for update, render, mouse, or keyboard.
-  example: []
   syntax:
     content: protected List<IComponent> ComponentsEmpty
     return:
@@ -229,8 +217,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Creates a new instance of this class.
-  example: []
   syntax:
     content: public ScreenObject()
     content.vb: Public Sub New()
@@ -252,15 +238,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Draws all <xref href="SadConsole.Components.IComponentHost.SadComponents" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.IScreenObject.Children" data-throw-if-not-resolved="false"></xref>.
-  remarks: Only processes if <xref href="SadConsole.IScreenObject.IsVisible" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
   example: []
   syntax:
     content: public virtual void Render(TimeSpan delta)
     parameters:
     - id: delta
       type: System.TimeSpan
-      description: The time that has elapsed since the last call.
     content.vb: Public Overridable Sub Render(delta As TimeSpan)
   overload: SadConsole.ScreenObject.Render*
   implements:
@@ -279,15 +262,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Updates all SadComponents and <xref href="SadConsole.IScreenObject.Children" data-throw-if-not-resolved="false"></xref>.
-  remarks: Only processes if <xref href="SadConsole.IScreenObject.IsEnabled" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
   example: []
   syntax:
     content: public virtual void Update(TimeSpan delta)
     parameters:
     - id: delta
       type: System.TimeSpan
-      description: The time that has elapsed since the last call.
     content.vb: Public Overridable Sub Update(delta As TimeSpan)
   overload: SadConsole.ScreenObject.Update*
   implements:
@@ -306,17 +286,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Called by the engine to process the keyboard.
   example: []
   syntax:
     content: public virtual bool ProcessKeyboard(Keyboard keyboard)
     parameters:
     - id: keyboard
       type: SadConsole.Input.Keyboard
-      description: Keyboard information.
     return:
       type: System.Boolean
-      description: True when the keyboard had data and this console did something with it.
     content.vb: Public Overridable Function ProcessKeyboard(keyboard As Keyboard) As Boolean
   overload: SadConsole.ScreenObject.ProcessKeyboard*
   implements:
@@ -335,17 +312,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Processes the mouse.
   example: []
   syntax:
     content: public virtual bool ProcessMouse(MouseScreenObjectState state)
     parameters:
     - id: state
       type: SadConsole.Input.MouseScreenObjectState
-      description: The mouse state related to this object.
     return:
       type: System.Boolean
-      description: True when this object should halt further mouse processing..
     content.vb: Public Overridable Function ProcessMouse(state As MouseScreenObjectState) As Boolean
   overload: SadConsole.ScreenObject.ProcessMouse*
   implements:
@@ -364,14 +338,12 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Called when the mouse is being used by something else.
   example: []
   syntax:
     content: public virtual void LostMouse(MouseScreenObjectState state)
     parameters:
     - id: state
       type: SadConsole.Input.MouseScreenObjectState
-      description: The current state of the mouse based on this object.
     content.vb: Public Overridable Sub LostMouse(state As MouseScreenObjectState)
   overload: SadConsole.ScreenObject.LostMouse*
   implements:
@@ -390,7 +362,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Called when this object's focus has been lost.
   example: []
   syntax:
     content: public virtual void OnFocusLost()
@@ -412,7 +383,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Called when this object is focused.
   example: []
   syntax:
     content: public virtual void OnFocused()
@@ -434,17 +404,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Raises the <xref href="SadConsole.ScreenObject.ParentChanged" data-throw-if-not-resolved="false"></xref> event.
-  example: []
   syntax:
     content: protected virtual void OnParentChanged(IScreenObject? oldParent, IScreenObject? newParent)
     parameters:
     - id: oldParent
       type: SadConsole.IScreenObject
-      description: The previous parent.
     - id: newParent
       type: SadConsole.IScreenObject
-      description: The new parent.
     content.vb: Protected Overridable Sub OnParentChanged(oldParent As IScreenObject, newParent As IScreenObject)
   overload: SadConsole.ScreenObject.OnParentChanged*
   nameWithType.vb: ScreenObject.OnParentChanged(IScreenObject, IScreenObject)
@@ -464,17 +430,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Raises the <xref href="SadConsole.ScreenObject.PositionChanging" data-throw-if-not-resolved="false"></xref> event.
-  example: []
   syntax:
     content: protected virtual void OnPositionChanging(Point oldPosition, Point newPosition)
     parameters:
     - id: oldPosition
       type: SadRogue.Primitives.Point
-      description: The previous position.
     - id: newPosition
       type: SadRogue.Primitives.Point
-      description: The new position.
     content.vb: Protected Overridable Sub OnPositionChanging(oldPosition As Point, newPosition As Point)
   overload: SadConsole.ScreenObject.OnPositionChanging*
 - uid: SadConsole.ScreenObject.OnPositionChanged(SadRogue.Primitives.Point,SadRogue.Primitives.Point)
@@ -491,17 +453,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Raises the <xref href="SadConsole.ScreenObject.PositionChanged" data-throw-if-not-resolved="false"></xref> event.
-  example: []
   syntax:
     content: protected virtual void OnPositionChanged(Point oldPosition, Point newPosition)
     parameters:
     - id: oldPosition
       type: SadRogue.Primitives.Point
-      description: The previous position.
     - id: newPosition
       type: SadRogue.Primitives.Point
-      description: The new position.
     content.vb: Protected Overridable Sub OnPositionChanged(oldPosition As Point, newPosition As Point)
   overload: SadConsole.ScreenObject.OnPositionChanged*
 - uid: SadConsole.ScreenObject.OnVisibleChanged
@@ -518,8 +476,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Called when the visibility of the object changes.
-  example: []
   syntax:
     content: protected virtual void OnVisibleChanged()
     content.vb: Protected Overridable Sub OnVisibleChanged()
@@ -538,8 +494,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Called when the paused status of the object changes.
-  example: []
   syntax:
     content: protected virtual void OnEnabledChanged()
     content.vb: Protected Overridable Sub OnEnabledChanged()
@@ -558,7 +512,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Sets a value for <xref href="SadConsole.IScreenObject.AbsolutePosition" data-throw-if-not-resolved="false"></xref> based on the Position of this instance and the <xref href="SadConsole.IScreenObject.Parent" data-throw-if-not-resolved="false"></xref> instance.
   example: []
   syntax:
     content: public virtual void UpdateAbsolutePosition()
@@ -580,13 +533,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Returns the value "ScreenObject".
   example: []
   syntax:
     content: public override string ToString()
     return:
       type: System.String
-      description: The string "ScreenObject".
     content.vb: Public Overrides Function ToString() As String
   overridden: System.Object.ToString
   overload: SadConsole.ScreenObject.ToString*
@@ -604,16 +555,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Gets components of the specified types.
   example: []
   syntax:
     content: 'public IEnumerable<TComponent> GetSadComponents<TComponent>() where TComponent : class, IComponent'
     typeParameters:
     - id: TComponent
-      description: The component to find
     return:
       type: System.Collections.Generic.IEnumerable{{TComponent}}
-      description: The components found.
     content.vb: Public Function GetSadComponents(Of TComponent As {Class, IComponent})() As IEnumerable(Of TComponent)
   overload: SadConsole.ScreenObject.GetSadComponents*
   implements:
@@ -635,16 +583,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Gets the first component of the specified type.
   example: []
   syntax:
     content: 'public TComponent? GetSadComponent<TComponent>() where TComponent : class, IComponent'
     typeParameters:
     - id: TComponent
-      description: The component to find.
     return:
       type: '{TComponent}'
-      description: The component if found, otherwise null.
     content.vb: Public Function GetSadComponent(Of TComponent As {Class, IComponent})() As TComponent
   overload: SadConsole.ScreenObject.GetSadComponent*
   implements:
@@ -666,7 +611,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Indicates whether or not the component exists in the <xref href="SadConsole.Components.IComponentHost.SadComponents" data-throw-if-not-resolved="false"></xref> collection.
   example: []
   syntax:
     content: 'public bool HasSadComponent<TComponent>(out TComponent? component) where TComponent : class, IComponent'
@@ -675,10 +619,8 @@ items:
       type: '{TComponent}'
     typeParameters:
     - id: TComponent
-      description: The component to find.
     return:
       type: System.Boolean
-      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the component exists; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Public Function HasSadComponent(Of TComponent As {Class, IComponent})(component As TComponent) As Boolean
   overload: SadConsole.ScreenObject.HasSadComponent*
   implements:
@@ -700,14 +642,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Called when a component is added to the <xref href="SadConsole.Components.IComponentHost.SadComponents" data-throw-if-not-resolved="false"></xref> collection.
-  example: []
   syntax:
     content: protected virtual void OnSadComponentAdded(IComponent component)
     parameters:
     - id: component
       type: SadConsole.Components.IComponent
-      description: The component added.
     content.vb: Protected Overridable Sub OnSadComponentAdded(component As IComponent)
   overload: SadConsole.ScreenObject.OnSadComponentAdded*
 - uid: SadConsole.ScreenObject.OnSadComponentRemoved(SadConsole.Components.IComponent)
@@ -724,14 +663,11 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Called when a component is removed from the <xref href="SadConsole.Components.IComponentHost.SadComponents" data-throw-if-not-resolved="false"></xref> collection.
-  example: []
   syntax:
     content: protected virtual void OnSadComponentRemoved(IComponent component)
     parameters:
     - id: component
       type: SadConsole.Components.IComponent
-      description: The component removed.
     content.vb: Protected Overridable Sub OnSadComponentRemoved(component As IComponent)
   overload: SadConsole.ScreenObject.OnSadComponentRemoved*
 - uid: SadConsole.ScreenObject.SortComponents
@@ -748,8 +684,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Sorts the components based on the <xref href="SadConsole.Components.IComponent.SortOrder" data-throw-if-not-resolved="false"></xref> value.
-  example: []
   syntax:
     content: public void SortComponents()
     content.vb: Public Sub SortComponents()
@@ -768,29 +702,21 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Adds a component to the provided collections, based on its configuration.
-  example: []
   syntax:
     content: public static void Components_FilterAddItem(IComponent component, List<IComponent> componentsRender, List<IComponent> componentsUpdate, List<IComponent> componentsKeyboard, List<IComponent> componentsMouse, List<IComponent> componentsEmpty)
     parameters:
     - id: component
       type: SadConsole.Components.IComponent
-      description: The component.
     - id: componentsRender
       type: System.Collections.Generic.List{SadConsole.Components.IComponent}
-      description: The render collection.
     - id: componentsUpdate
       type: System.Collections.Generic.List{SadConsole.Components.IComponent}
-      description: The update collection.
     - id: componentsKeyboard
       type: System.Collections.Generic.List{SadConsole.Components.IComponent}
-      description: The keyboard collection.
     - id: componentsMouse
       type: System.Collections.Generic.List{SadConsole.Components.IComponent}
-      description: The mouse collection.
     - id: componentsEmpty
       type: System.Collections.Generic.List{SadConsole.Components.IComponent}
-      description: The empty collection.
     content.vb: Public Shared Sub Components_FilterAddItem(component As IComponent, componentsRender As List(Of IComponent), componentsUpdate As List(Of IComponent), componentsKeyboard As List(Of IComponent), componentsMouse As List(Of IComponent), componentsEmpty As List(Of IComponent))
   overload: SadConsole.ScreenObject.Components_FilterAddItem*
   nameWithType.vb: ScreenObject.Components_FilterAddItem(IComponent, List(Of IComponent), List(Of IComponent), List(Of IComponent), List(Of IComponent), List(Of IComponent))
@@ -810,29 +736,21 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Removes a component to the provided collections, based on its configuration.
-  example: []
   syntax:
     content: public static void Components_FilterRemoveItem(IComponent component, List<IComponent> componentsRender, List<IComponent> componentsUpdate, List<IComponent> componentsKeyboard, List<IComponent> componentsMouse, List<IComponent> componentsEmpty)
     parameters:
     - id: component
       type: SadConsole.Components.IComponent
-      description: The component.
     - id: componentsRender
       type: System.Collections.Generic.List{SadConsole.Components.IComponent}
-      description: The render collection.
     - id: componentsUpdate
       type: System.Collections.Generic.List{SadConsole.Components.IComponent}
-      description: The update collection.
     - id: componentsKeyboard
       type: System.Collections.Generic.List{SadConsole.Components.IComponent}
-      description: The keyboard collection.
     - id: componentsMouse
       type: System.Collections.Generic.List{SadConsole.Components.IComponent}
-      description: The mouse collection.
     - id: componentsEmpty
       type: System.Collections.Generic.List{SadConsole.Components.IComponent}
-      description: The empty collection.
     content.vb: Public Shared Sub Components_FilterRemoveItem(component As IComponent, componentsRender As List(Of IComponent), componentsUpdate As List(Of IComponent), componentsKeyboard As List(Of IComponent), componentsMouse As List(Of IComponent), componentsEmpty As List(Of IComponent))
   overload: SadConsole.ScreenObject.Components_FilterRemoveItem*
   nameWithType.vb: ScreenObject.Components_FilterRemoveItem(IComponent, List(Of IComponent), List(Of IComponent), List(Of IComponent), List(Of IComponent), List(Of IComponent))
@@ -852,26 +770,19 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Helper to sort the components in the split collections.
-  example: []
   syntax:
     content: public static void Components_Sort(List<IComponent> componentsRender, List<IComponent> componentsUpdate, List<IComponent> componentsKeyboard, List<IComponent> componentsMouse, List<IComponent> componentsEmpty)
     parameters:
     - id: componentsRender
       type: System.Collections.Generic.List{SadConsole.Components.IComponent}
-      description: The render collection.
     - id: componentsUpdate
       type: System.Collections.Generic.List{SadConsole.Components.IComponent}
-      description: The update collection.
     - id: componentsKeyboard
       type: System.Collections.Generic.List{SadConsole.Components.IComponent}
-      description: The keyboard collection.
     - id: componentsMouse
       type: System.Collections.Generic.List{SadConsole.Components.IComponent}
-      description: The mouse collection.
     - id: componentsEmpty
       type: System.Collections.Generic.List{SadConsole.Components.IComponent}
-      description: The empty collection.
     content.vb: Public Shared Sub Components_Sort(componentsRender As List(Of IComponent), componentsUpdate As List(Of IComponent), componentsKeyboard As List(Of IComponent), componentsMouse As List(Of IComponent), componentsEmpty As List(Of IComponent))
   overload: SadConsole.ScreenObject.Components_Sort*
   nameWithType.vb: ScreenObject.Components_Sort(List(Of IComponent), List(Of IComponent), List(Of IComponent), List(Of IComponent), List(Of IComponent))
@@ -891,8 +802,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Nothing.
-  example: []
   syntax:
     content: >-
       [OnSerializing]
@@ -901,7 +810,6 @@ items:
     parameters:
     - id: context
       type: System.Runtime.Serialization.StreamingContext
-      description: Nothing.
     content.vb: >-
       <OnSerializing>
 
@@ -925,7 +833,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Indicates the sorting order this object should use when parented. Sorting is a manual operation on the <xref href="SadConsole.ScreenObject.Children" data-throw-if-not-resolved="false"></xref> collection.
   example: []
   syntax:
     content: >-
@@ -960,7 +867,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The child objects of this instance.
   example: []
   syntax:
     content: public ScreenObjectCollection Children { get; protected set; }
@@ -985,7 +891,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The parent object that this instance is a child of.
   example: []
   syntax:
     content: public IScreenObject? Parent { get; set; }
@@ -1010,7 +915,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: A position that is based on the current <xref href="SadConsole.ScreenObject.Position" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.ScreenObject.Parent" data-throw-if-not-resolved="false"></xref> position, in pixels.
+  summary: The position of the object.
   example: []
   syntax:
     content: public Point Position { get; set; }
@@ -1035,8 +940,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: A position that's based on the current <xref href="SadRogue.Primitives.IPositionable.Position" data-throw-if-not-resolved="false"></xref>, as interpreted by the implementing class, in pixels.
-  remarks: Most objects will implement this property based on <xref href="SadRogue.Primitives.IPositionable.Position" data-throw-if-not-resolved="false"></xref> which usually depends on the <xref href="SadConsole.IScreenObject.Parent" data-throw-if-not-resolved="false"></xref> object's position.
   example: []
   syntax:
     content: public Point AbsolutePosition { get; protected set; }
@@ -1061,7 +964,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, this object should ignore it's parent position when calculating <xref href="SadConsole.IScreenObject.AbsolutePosition" data-throw-if-not-resolved="false"></xref>; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
   example: []
   syntax:
     content: >-
@@ -1096,7 +998,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Gets or sets the visibility of this object.
   example: []
   syntax:
     content: >-
@@ -1131,7 +1032,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Gets or sets the visibility of this object.
   example: []
   syntax:
     content: >-
@@ -1166,7 +1066,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Gets or sets this console as the focused object for input.
   example: []
   syntax:
     content: public bool IsFocused { get; set; }
@@ -1191,7 +1090,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: How the object should handle becoming active.
   example: []
   syntax:
     content: >-
@@ -1226,7 +1124,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Gets or sets whether or not this object has exclusive access to the mouse events.
   example: []
   syntax:
     content: >-
@@ -1261,7 +1158,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, this object will use the keyboard; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
   example: []
   syntax:
     content: >-
@@ -1296,7 +1192,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, this object will use the mouse; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
   example: []
   syntax:
     content: >-
@@ -1331,7 +1226,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: A collection of components processed by this console.
   example: []
   syntax:
     content: public ObservableCollection<IComponent> SadComponents { get; protected set; }
@@ -1356,7 +1250,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Raised when the <xref href="SadConsole.IScreenObject.Parent" data-throw-if-not-resolved="false"></xref> property changes.
   example: []
   syntax:
     content: public event EventHandler<ValueChangedEventArgs<IScreenObject?>>? ParentChanged
@@ -1379,6 +1272,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Event which should be fired when the object's position changes.
   example: []
   syntax:
     content: public event EventHandler<ValueChangedEventArgs<Point>>? PositionChanged
@@ -1401,6 +1295,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Event which should be fired right before the object's position changes.
   example: []
   syntax:
     content: public event EventHandler<ValueChangedEventArgs<Point>>? PositionChanging
@@ -1423,7 +1318,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Raised when the <xref href="SadConsole.IScreenObject.IsVisible" data-throw-if-not-resolved="false"></xref> property changes.
   example: []
   syntax:
     content: public event EventHandler? IsVisibleChanged
@@ -1446,7 +1340,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Raised when the <xref href="SadConsole.IScreenObject.IsEnabled" data-throw-if-not-resolved="false"></xref> property changes.
   example: []
   syntax:
     content: public event EventHandler? IsEnabledChanged
@@ -1469,7 +1362,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Raised when the <xref href="SadConsole.IScreenObject.IsFocused" data-throw-if-not-resolved="false"></xref> property is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
   example: []
   syntax:
     content: public event EventHandler? FocusLost
@@ -1492,7 +1384,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Raised when the <xref href="SadConsole.IScreenObject.IsFocused" data-throw-if-not-resolved="false"></xref> property is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
   example: []
   syntax:
     content: public event EventHandler? Focused
@@ -2969,21 +2860,6 @@ references:
     name: Quick
     isExternal: true
     href: SadConsole.Quick.html
-- uid: SadConsole.Components.IComponentHost.SadComponents
-  commentId: P:SadConsole.Components.IComponentHost.SadComponents
-  parent: SadConsole.Components.IComponentHost
-  isExternal: true
-  href: SadConsole.Components.IComponentHost.html#SadConsole_Components_IComponentHost_SadComponents
-  name: SadComponents
-  nameWithType: IComponentHost.SadComponents
-  fullName: SadConsole.Components.IComponentHost.SadComponents
-- uid: SadConsole.Components.IComponent.IsUpdate
-  commentId: P:SadConsole.Components.IComponent.IsUpdate
-  isExternal: true
-  href: SadConsole.Components.IComponent.html#SadConsole_Components_IComponent_IsUpdate
-  name: IsUpdate
-  nameWithType: IComponent.IsUpdate
-  fullName: SadConsole.Components.IComponent.IsUpdate
 - uid: System.Collections.Generic.List{SadConsole.Components.IComponent}
   commentId: T:System.Collections.Generic.List{SadConsole.Components.IComponent}
   parent: System.Collections.Generic
@@ -3084,27 +2960,6 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: SadConsole.Components.IComponent.IsRender
-  commentId: P:SadConsole.Components.IComponent.IsRender
-  isExternal: true
-  href: SadConsole.Components.IComponent.html#SadConsole_Components_IComponent_IsRender
-  name: IsRender
-  nameWithType: IComponent.IsRender
-  fullName: SadConsole.Components.IComponent.IsRender
-- uid: SadConsole.Components.IComponent.IsMouse
-  commentId: P:SadConsole.Components.IComponent.IsMouse
-  isExternal: true
-  href: SadConsole.Components.IComponent.html#SadConsole_Components_IComponent_IsMouse
-  name: IsMouse
-  nameWithType: IComponent.IsMouse
-  fullName: SadConsole.Components.IComponent.IsMouse
-- uid: SadConsole.Components.IComponent.IsKeyboard
-  commentId: P:SadConsole.Components.IComponent.IsKeyboard
-  isExternal: true
-  href: SadConsole.Components.IComponent.html#SadConsole_Components_IComponent_IsKeyboard
-  name: IsKeyboard
-  nameWithType: IComponent.IsKeyboard
-  fullName: SadConsole.Components.IComponent.IsKeyboard
 - uid: SadConsole.ScreenObject.#ctor*
   commentId: Overload:SadConsole.ScreenObject.#ctor
   isExternal: true
@@ -3115,22 +2970,6 @@ references:
   nameWithType.vb: ScreenObject.New
   fullName.vb: SadConsole.ScreenObject.New
   name.vb: New
-- uid: SadConsole.IScreenObject.Children
-  commentId: P:SadConsole.IScreenObject.Children
-  parent: SadConsole.IScreenObject
-  isExternal: true
-  href: SadConsole.IScreenObject.html#SadConsole_IScreenObject_Children
-  name: Children
-  nameWithType: IScreenObject.Children
-  fullName: SadConsole.IScreenObject.Children
-- uid: SadConsole.IScreenObject.IsVisible
-  commentId: P:SadConsole.IScreenObject.IsVisible
-  parent: SadConsole.IScreenObject
-  isExternal: true
-  href: SadConsole.IScreenObject.html#SadConsole_IScreenObject_IsVisible
-  name: IsVisible
-  nameWithType: IScreenObject.IsVisible
-  fullName: SadConsole.IScreenObject.IsVisible
 - uid: SadConsole.ScreenObject.Render*
   commentId: Overload:SadConsole.ScreenObject.Render
   isExternal: true
@@ -3176,14 +3015,6 @@ references:
   name: TimeSpan
   nameWithType: TimeSpan
   fullName: System.TimeSpan
-- uid: SadConsole.IScreenObject.IsEnabled
-  commentId: P:SadConsole.IScreenObject.IsEnabled
-  parent: SadConsole.IScreenObject
-  isExternal: true
-  href: SadConsole.IScreenObject.html#SadConsole_IScreenObject_IsEnabled
-  name: IsEnabled
-  nameWithType: IScreenObject.IsEnabled
-  fullName: SadConsole.IScreenObject.IsEnabled
 - uid: SadConsole.ScreenObject.Update*
   commentId: Overload:SadConsole.ScreenObject.Update
   isExternal: true
@@ -3444,14 +3275,6 @@ references:
     href: SadConsole.IScreenObject.html#SadConsole_IScreenObject_OnFocused
   - name: (
   - name: )
-- uid: SadConsole.ScreenObject.ParentChanged
-  commentId: E:SadConsole.ScreenObject.ParentChanged
-  parent: SadConsole.ScreenObject
-  isExternal: true
-  href: SadConsole.ScreenObject.html#SadConsole_ScreenObject_ParentChanged
-  name: ParentChanged
-  nameWithType: ScreenObject.ParentChanged
-  fullName: SadConsole.ScreenObject.ParentChanged
 - uid: SadConsole.ScreenObject.OnParentChanged*
   commentId: Overload:SadConsole.ScreenObject.OnParentChanged
   isExternal: true
@@ -3459,22 +3282,6 @@ references:
   name: OnParentChanged
   nameWithType: ScreenObject.OnParentChanged
   fullName: SadConsole.ScreenObject.OnParentChanged
-- uid: SadConsole.ScreenObject
-  commentId: T:SadConsole.ScreenObject
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.ScreenObject.html
-  name: ScreenObject
-  nameWithType: ScreenObject
-  fullName: SadConsole.ScreenObject
-- uid: SadConsole.ScreenObject.PositionChanging
-  commentId: E:SadConsole.ScreenObject.PositionChanging
-  parent: SadConsole.ScreenObject
-  isExternal: true
-  href: SadConsole.ScreenObject.html#SadConsole_ScreenObject_PositionChanging
-  name: PositionChanging
-  nameWithType: ScreenObject.PositionChanging
-  fullName: SadConsole.ScreenObject.PositionChanging
 - uid: SadConsole.ScreenObject.OnPositionChanging*
   commentId: Overload:SadConsole.ScreenObject.OnPositionChanging
   isExternal: true
@@ -3489,14 +3296,6 @@ references:
   name: Point
   nameWithType: Point
   fullName: SadRogue.Primitives.Point
-- uid: SadConsole.ScreenObject.PositionChanged
-  commentId: E:SadConsole.ScreenObject.PositionChanged
-  parent: SadConsole.ScreenObject
-  isExternal: true
-  href: SadConsole.ScreenObject.html#SadConsole_ScreenObject_PositionChanged
-  name: PositionChanged
-  nameWithType: ScreenObject.PositionChanged
-  fullName: SadConsole.ScreenObject.PositionChanged
 - uid: SadConsole.ScreenObject.OnPositionChanged*
   commentId: Overload:SadConsole.ScreenObject.OnPositionChanged
   isExternal: true
@@ -3518,22 +3317,6 @@ references:
   name: OnEnabledChanged
   nameWithType: ScreenObject.OnEnabledChanged
   fullName: SadConsole.ScreenObject.OnEnabledChanged
-- uid: SadConsole.IScreenObject.AbsolutePosition
-  commentId: P:SadConsole.IScreenObject.AbsolutePosition
-  parent: SadConsole.IScreenObject
-  isExternal: true
-  href: SadConsole.IScreenObject.html#SadConsole_IScreenObject_AbsolutePosition
-  name: AbsolutePosition
-  nameWithType: IScreenObject.AbsolutePosition
-  fullName: SadConsole.IScreenObject.AbsolutePosition
-- uid: SadConsole.IScreenObject.Parent
-  commentId: P:SadConsole.IScreenObject.Parent
-  parent: SadConsole.IScreenObject
-  isExternal: true
-  href: SadConsole.IScreenObject.html#SadConsole_IScreenObject_Parent
-  name: Parent
-  nameWithType: IScreenObject.Parent
-  fullName: SadConsole.IScreenObject.Parent
 - uid: SadConsole.ScreenObject.UpdateAbsolutePosition*
   commentId: Overload:SadConsole.ScreenObject.UpdateAbsolutePosition
   isExternal: true
@@ -3854,14 +3637,6 @@ references:
   name: OnSadComponentRemoved
   nameWithType: ScreenObject.OnSadComponentRemoved
   fullName: SadConsole.ScreenObject.OnSadComponentRemoved
-- uid: SadConsole.Components.IComponent.SortOrder
-  commentId: P:SadConsole.Components.IComponent.SortOrder
-  parent: SadConsole.Components.IComponent
-  isExternal: true
-  href: SadConsole.Components.IComponent.html#SadConsole_Components_IComponent_SortOrder
-  name: SortOrder
-  nameWithType: IComponent.SortOrder
-  fullName: SadConsole.Components.IComponent.SortOrder
 - uid: SadConsole.ScreenObject.SortComponents*
   commentId: Overload:SadConsole.ScreenObject.SortComponents
   isExternal: true
@@ -3942,14 +3717,6 @@ references:
     name: Serialization
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization
-- uid: SadConsole.ScreenObject.Children
-  commentId: P:SadConsole.ScreenObject.Children
-  parent: SadConsole.ScreenObject
-  isExternal: true
-  href: SadConsole.ScreenObject.html#SadConsole_ScreenObject_Children
-  name: Children
-  nameWithType: ScreenObject.Children
-  fullName: SadConsole.ScreenObject.Children
 - uid: SadConsole.ScreenObject.SortOrder*
   commentId: Overload:SadConsole.ScreenObject.SortOrder
   isExternal: true
@@ -3983,6 +3750,14 @@ references:
   name: Children
   nameWithType: ScreenObject.Children
   fullName: SadConsole.ScreenObject.Children
+- uid: SadConsole.IScreenObject.Children
+  commentId: P:SadConsole.IScreenObject.Children
+  parent: SadConsole.IScreenObject
+  isExternal: true
+  href: SadConsole.IScreenObject.html#SadConsole_IScreenObject_Children
+  name: Children
+  nameWithType: IScreenObject.Children
+  fullName: SadConsole.IScreenObject.Children
 - uid: SadConsole.ScreenObjectCollection
   commentId: T:SadConsole.ScreenObjectCollection
   parent: SadConsole
@@ -3998,22 +3773,14 @@ references:
   name: Parent
   nameWithType: ScreenObject.Parent
   fullName: SadConsole.ScreenObject.Parent
-- uid: SadConsole.ScreenObject.Position
-  commentId: P:SadConsole.ScreenObject.Position
-  parent: SadConsole.ScreenObject
+- uid: SadConsole.IScreenObject.Parent
+  commentId: P:SadConsole.IScreenObject.Parent
+  parent: SadConsole.IScreenObject
   isExternal: true
-  href: SadConsole.ScreenObject.html#SadConsole_ScreenObject_Position
-  name: Position
-  nameWithType: ScreenObject.Position
-  fullName: SadConsole.ScreenObject.Position
-- uid: SadConsole.ScreenObject.Parent
-  commentId: P:SadConsole.ScreenObject.Parent
-  parent: SadConsole.ScreenObject
-  isExternal: true
-  href: SadConsole.ScreenObject.html#SadConsole_ScreenObject_Parent
+  href: SadConsole.IScreenObject.html#SadConsole_IScreenObject_Parent
   name: Parent
-  nameWithType: ScreenObject.Parent
-  fullName: SadConsole.ScreenObject.Parent
+  nameWithType: IScreenObject.Parent
+  fullName: SadConsole.IScreenObject.Parent
 - uid: SadConsole.ScreenObject.Position*
   commentId: Overload:SadConsole.ScreenObject.Position
   isExternal: true
@@ -4035,6 +3802,14 @@ references:
   name: AbsolutePosition
   nameWithType: ScreenObject.AbsolutePosition
   fullName: SadConsole.ScreenObject.AbsolutePosition
+- uid: SadConsole.IScreenObject.AbsolutePosition
+  commentId: P:SadConsole.IScreenObject.AbsolutePosition
+  parent: SadConsole.IScreenObject
+  isExternal: true
+  href: SadConsole.IScreenObject.html#SadConsole_IScreenObject_AbsolutePosition
+  name: AbsolutePosition
+  nameWithType: IScreenObject.AbsolutePosition
+  fullName: SadConsole.IScreenObject.AbsolutePosition
 - uid: SadConsole.ScreenObject.IgnoreParentPosition*
   commentId: Overload:SadConsole.ScreenObject.IgnoreParentPosition
   isExternal: true
@@ -4057,6 +3832,14 @@ references:
   name: IsVisible
   nameWithType: ScreenObject.IsVisible
   fullName: SadConsole.ScreenObject.IsVisible
+- uid: SadConsole.IScreenObject.IsVisible
+  commentId: P:SadConsole.IScreenObject.IsVisible
+  parent: SadConsole.IScreenObject
+  isExternal: true
+  href: SadConsole.IScreenObject.html#SadConsole_IScreenObject_IsVisible
+  name: IsVisible
+  nameWithType: IScreenObject.IsVisible
+  fullName: SadConsole.IScreenObject.IsVisible
 - uid: SadConsole.ScreenObject.IsEnabled*
   commentId: Overload:SadConsole.ScreenObject.IsEnabled
   isExternal: true
@@ -4064,6 +3847,14 @@ references:
   name: IsEnabled
   nameWithType: ScreenObject.IsEnabled
   fullName: SadConsole.ScreenObject.IsEnabled
+- uid: SadConsole.IScreenObject.IsEnabled
+  commentId: P:SadConsole.IScreenObject.IsEnabled
+  parent: SadConsole.IScreenObject
+  isExternal: true
+  href: SadConsole.IScreenObject.html#SadConsole_IScreenObject_IsEnabled
+  name: IsEnabled
+  nameWithType: IScreenObject.IsEnabled
+  fullName: SadConsole.IScreenObject.IsEnabled
 - uid: SadConsole.ScreenObject.IsFocused*
   commentId: Overload:SadConsole.ScreenObject.IsFocused
   isExternal: true
@@ -4154,6 +3945,14 @@ references:
   name: SadComponents
   nameWithType: ScreenObject.SadComponents
   fullName: SadConsole.ScreenObject.SadComponents
+- uid: SadConsole.Components.IComponentHost.SadComponents
+  commentId: P:SadConsole.Components.IComponentHost.SadComponents
+  parent: SadConsole.Components.IComponentHost
+  isExternal: true
+  href: SadConsole.Components.IComponentHost.html#SadConsole_Components_IComponentHost_SadComponents
+  name: SadComponents
+  nameWithType: IComponentHost.SadComponents
+  fullName: SadConsole.Components.IComponentHost.SadComponents
 - uid: System.Collections.ObjectModel.ObservableCollection{SadConsole.Components.IComponent}
   commentId: T:System.Collections.ObjectModel.ObservableCollection{SadConsole.Components.IComponent}
   parent: System.Collections.ObjectModel

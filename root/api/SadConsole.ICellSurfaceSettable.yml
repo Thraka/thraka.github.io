@@ -17,8 +17,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Adds a method to change the backing cells of a surface.
-  example: []
   syntax:
     content: public interface ICellSurfaceSettable
     content.vb: Public Interface ICellSurfaceSettable
@@ -36,17 +34,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Remaps the cells of this surface to a view of the <code class="paramref">surface</code>.
-  example: []
   syntax:
     content: void SetSurface(ICellSurface surface, Rectangle view = default)
     parameters:
     - id: surface
       type: SadConsole.ICellSurface
-      description: The target surface to map cells from.
     - id: view
       type: SadRogue.Primitives.Rectangle
-      description: A view rectangle of the target surface.
     content.vb: Sub SetSurface(surface As ICellSurface, view As Rectangle = Nothing)
   overload: SadConsole.ICellSurfaceSettable.SetSurface*
 - uid: SadConsole.ICellSurfaceSettable.SetSurface(SadConsole.ColoredGlyphBase[],System.Int32,System.Int32,System.Int32,System.Int32)
@@ -63,26 +57,19 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Changes the cells of the surface to the provided array.
-  example: []
   syntax:
     content: void SetSurface(ColoredGlyphBase[] cells, int width, int height, int bufferWidth, int bufferHeight)
     parameters:
     - id: cells
       type: SadConsole.ColoredGlyphBase[]
-      description: The cells to replace in this surface.
     - id: width
       type: System.Int32
-      description: The viewable width of the surface.
     - id: height
       type: System.Int32
-      description: The viewable height of the surface.
     - id: bufferWidth
       type: System.Int32
-      description: The maximum width of the surface.
     - id: bufferHeight
       type: System.Int32
-      description: The maximum height of the surface.
     content.vb: Sub SetSurface(cells As ColoredGlyphBase(), width As Integer, height As Integer, bufferWidth As Integer, bufferHeight As Integer)
   overload: SadConsole.ICellSurfaceSettable.SetSurface*
   nameWithType.vb: ICellSurfaceSettable.SetSurface(ColoredGlyphBase(), Integer, Integer, Integer, Integer)
