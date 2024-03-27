@@ -5,11 +5,9 @@
   <head>
     <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>Class CharacterPicker
- | SadConsole v10</title>
+      <title>Class CharacterPicker | SadConsole v10</title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="Class CharacterPicker
- | SadConsole v10">
+      <meta name="title" content="Class CharacterPicker | SadConsole v10">
     <meta name="description" content="Displays the glyphs associated with a font and allows the user to select one.">
     
       <link rel="shortcut icon" href="../favicon.ico">
@@ -74,8 +72,7 @@
 
 
 
-  <h1 id="SadConsole_UI_Controls_CharacterPicker" data-uid="SadConsole.UI.Controls.CharacterPicker" class="text-break">Class CharacterPicker
-</h1>
+  <h1 id="SadConsole_UI_Controls_CharacterPicker" data-uid="SadConsole.UI.Controls.CharacterPicker" class="text-break">Class CharacterPicker</h1>
   <div class="markdown level0 summary"><p>Displays the glyphs associated with a font and allows the user to select one.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
@@ -125,19 +122,10 @@
       <a class="xref" href="SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_IsDirtyEventHandler_System_Boolean_">CompositeControl.IsDirtyEventHandler(bool)</a>
     </div>
     <div>
-      <a class="xref" href="SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_ProcessMouse_SadConsole_Input_MouseScreenObjectState_">CompositeControl.ProcessMouse(MouseScreenObjectState)</a>
-    </div>
-    <div>
       <a class="xref" href="SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_AddControl_SadConsole_UI_Controls_ControlBase_">CompositeControl.AddControl(ControlBase)</a>
     </div>
     <div>
       <a class="xref" href="SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_RemoveControl_SadConsole_UI_Controls_ControlBase_">CompositeControl.RemoveControl(ControlBase)</a>
-    </div>
-    <div>
-      <a class="xref" href="SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_HasNamedControl_System_String_">CompositeControl.HasNamedControl(string)</a>
-    </div>
-    <div>
-      <a class="xref" href="SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_HasNamedControl_System_String_SadConsole_UI_Controls_ControlBase__">CompositeControl.HasNamedControl(string, out ControlBase)</a>
     </div>
     <div>
       <a class="xref" href="SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_Count">CompositeControl.Count</a>
@@ -186,6 +174,9 @@
     </div>
     <div>
       <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_OnStateChanged_SadConsole_UI_Controls_ControlStates_SadConsole_UI_Controls_ControlStates_">ControlBase.OnStateChanged(ControlStates, ControlStates)</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeFont">ControlBase.FindThemeFont()</a>
     </div>
     <div>
       <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_FindThemeColors">ControlBase.FindThemeColors()</a>
@@ -346,6 +337,71 @@
 
 
   <a id="SadConsole_UI_Controls_CharacterPicker__ctor_" data-uid="SadConsole.UI.Controls.CharacterPicker.#ctor*"></a>
+  <h4 id="SadConsole_UI_Controls_CharacterPicker__ctor_SadRogue_Primitives_Color_SadRogue_Primitives_Color_SadRogue_Primitives_Color_SadConsole_IFont_System_Int32_System_Int32_System_Int32_" data-uid="SadConsole.UI.Controls.CharacterPicker.#ctor(SadRogue.Primitives.Color,SadRogue.Primitives.Color,SadRogue.Primitives.Color,SadConsole.IFont,System.Int32,System.Int32,System.Int32)">CharacterPicker(Color, Color, Color, IFont, int, int, int)</h4>
+  <div class="markdown level1 summary"><p>Creates a new character picker control.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CharacterPicker(Color foreground, Color fill, Color selectedCharacterColor, IFont characterFont, int visibleColumns, int visibleRows, int fontColumns)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></td>
+        <td><span class="parametername">foreground</span></td>
+        <td><p>Foreground color of all the glyphs.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></td>
+        <td><span class="parametername">fill</span></td>
+        <td><p>Background color of all the glyphs.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></td>
+        <td><span class="parametername">selectedCharacterColor</span></td>
+        <td><p>The foreground color displayed on the selected glyph.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SadConsole.IFont.html">IFont</a></td>
+        <td><span class="parametername">characterFont</span></td>
+        <td><p>The font used to display the glyphs.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">visibleColumns</span></td>
+        <td><p>The number of columns to show. The control will be this wide plus 1.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">visibleRows</span></td>
+        <td><p>The number of rows to show. The control will be this high plus 1.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">fontColumns</span></td>
+        <td><p>How many columns are defined in the font file.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_UI_Controls_CharacterPicker__ctor_" data-uid="SadConsole.UI.Controls.CharacterPicker.#ctor*"></a>
   <h4 id="SadConsole_UI_Controls_CharacterPicker__ctor_SadRogue_Primitives_Color_SadRogue_Primitives_Color_SadRogue_Primitives_Color_SadConsole_SadFont_System_Int32_System_Int32_" data-uid="SadConsole.UI.Controls.CharacterPicker.#ctor(SadRogue.Primitives.Color,SadRogue.Primitives.Color,SadRogue.Primitives.Color,SadConsole.SadFont,System.Int32,System.Int32)">CharacterPicker(Color, Color, Color, SadFont, int, int)</h4>
   <div class="markdown level1 summary"><p>Creates a new picker control with the specified font.</p>
 </div>
@@ -367,25 +423,25 @@
       <tr>
         <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></td>
         <td><span class="parametername">foreground</span></td>
-        <td><p>The default foreground for glyphs.</p>
+        <td><p>Foreground color of all the glyphs.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></td>
         <td><span class="parametername">fill</span></td>
-        <td><p>The default backround for glyphs.</p>
+        <td><p>Background color of all the glyphs.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></td>
         <td><span class="parametername">selectedCharacterColor</span></td>
-        <td><p>The foreground for the selected glyph.</p>
+        <td><p>The foreground color displayed on the selected glyph.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="SadConsole.SadFont.html">SadFont</a></td>
         <td><span class="parametername">characterFont</span></td>
-        <td><p>The font to use with the control.</p>
+        <td><p>The font used to display the glyphs.</p>
 </td>
       </tr>
       <tr>
@@ -426,7 +482,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></td>
-        <td>Displays the glyphs associated with a font and allows the user to select one.</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -452,7 +508,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></td>
-        <td>Displays the glyphs associated with a font and allows the user to select one.</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -478,7 +534,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td>Displays the glyphs associated with a font and allows the user to select one.</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -504,7 +560,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td>Displays the glyphs associated with a font and allows the user to select one.</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -530,7 +586,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="SadConsole.Mirror.html">Mirror</a></td>
-        <td>Displays the glyphs associated with a font and allows the user to select one.</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -556,7 +612,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Point.html">Point</a></td>
-        <td>Displays the glyphs associated with a font and allows the user to select one.</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -582,7 +638,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Point.html">Point</a></td>
-        <td>Displays the glyphs associated with a font and allows the user to select one.</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -608,7 +664,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td>Displays the glyphs associated with a font and allows the user to select one.</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -634,7 +690,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="SadConsole.Effects.ICellEffect.html">ICellEffect</a></td>
-        <td>Displays the glyphs associated with a font and allows the user to select one.</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -660,7 +716,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></td>
-        <td>Displays the glyphs associated with a font and allows the user to select one.</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -686,7 +742,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td>Displays the glyphs associated with a font and allows the user to select one.</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -696,8 +752,7 @@
 
   <a id="SadConsole_UI_Controls_CharacterPicker_CreateControlSurface_" data-uid="SadConsole.UI.Controls.CharacterPicker.CreateControlSurface*"></a>
   <h4 id="SadConsole_UI_Controls_CharacterPicker_CreateControlSurface" data-uid="SadConsole.UI.Controls.CharacterPicker.CreateControlSurface">CreateControlSurface()</h4>
-  <div class="markdown level1 summary"><p>Generates the surface to be used by this control. This method is called internally to assign the <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_Surface">Surface</a> property a value.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -714,8 +769,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a></td>
-        <td><p>A surface that should be assigned to the <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_Surface">Surface</a> property.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -725,8 +779,7 @@
 
   <a id="SadConsole_UI_Controls_CharacterPicker_OnLeftMouseClicked_" data-uid="SadConsole.UI.Controls.CharacterPicker.OnLeftMouseClicked*"></a>
   <h4 id="SadConsole_UI_Controls_CharacterPicker_OnLeftMouseClicked_SadConsole_UI_Controls_ControlBase_ControlMouseState_" data-uid="SadConsole.UI.Controls.CharacterPicker.OnLeftMouseClicked(SadConsole.UI.Controls.ControlBase.ControlMouseState)">OnLeftMouseClicked(ControlMouseState)</h4>
-  <div class="markdown level1 summary"><p>Called when the left mouse button is clicked. Raises the MouseButtonClicked event and calls the <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_DetermineState">DetermineState()</a> method.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -745,7 +798,7 @@
       <tr>
         <td><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a>.<a class="xref" href="SadConsole.UI.Controls.ControlBase.ControlMouseState.html">ControlMouseState</a></td>
         <td><span class="parametername">info</span></td>
-        <td>Displays the glyphs associated with a font and allows the user to select one.</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -755,8 +808,7 @@
 
   <a id="SadConsole_UI_Controls_CharacterPicker_OnMouseIn_" data-uid="SadConsole.UI.Controls.CharacterPicker.OnMouseIn*"></a>
   <h4 id="SadConsole_UI_Controls_CharacterPicker_OnMouseIn_SadConsole_UI_Controls_ControlBase_ControlMouseState_" data-uid="SadConsole.UI.Controls.CharacterPicker.OnMouseIn(SadConsole.UI.Controls.ControlBase.ControlMouseState)">OnMouseIn(ControlMouseState)</h4>
-  <div class="markdown level1 summary"><p>Called as the mouse moves around the control area. Raises the MouseMove event and calls the <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_DetermineState">DetermineState()</a> method.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -775,7 +827,7 @@
       <tr>
         <td><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a>.<a class="xref" href="SadConsole.UI.Controls.ControlBase.ControlMouseState.html">ControlMouseState</a></td>
         <td><span class="parametername">info</span></td>
-        <td>Displays the glyphs associated with a font and allows the user to select one.</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -783,10 +835,53 @@
   <div><a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_OnMouseIn_SadConsole_UI_Controls_ControlBase_ControlMouseState_">ControlBase.OnMouseIn(ControlBase.ControlMouseState)</a></div>
 
 
+  <a id="SadConsole_UI_Controls_CharacterPicker_ProcessMouse_" data-uid="SadConsole.UI.Controls.CharacterPicker.ProcessMouse*"></a>
+  <h4 id="SadConsole_UI_Controls_CharacterPicker_ProcessMouse_SadConsole_Input_MouseScreenObjectState_" data-uid="SadConsole.UI.Controls.CharacterPicker.ProcessMouse(SadConsole.Input.MouseScreenObjectState)">ProcessMouse(MouseScreenObjectState)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool ProcessMouse(MouseScreenObjectState state)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.Input.MouseScreenObjectState.html">MouseScreenObjectState</a></td>
+        <td><span class="parametername">state</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_ProcessMouse_SadConsole_Input_MouseScreenObjectState_">CompositeControl.ProcessMouse(MouseScreenObjectState)</a></div>
+
+
   <a id="SadConsole_UI_Controls_CharacterPicker_UpdateAndRedraw_" data-uid="SadConsole.UI.Controls.CharacterPicker.UpdateAndRedraw*"></a>
   <h4 id="SadConsole_UI_Controls_CharacterPicker_UpdateAndRedraw_System_TimeSpan_" data-uid="SadConsole.UI.Controls.CharacterPicker.UpdateAndRedraw(System.TimeSpan)">UpdateAndRedraw(TimeSpan)</h4>
-  <div class="markdown level1 summary"><p>Updates each control hosted by this control.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -805,8 +900,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
         <td><span class="parametername">time</span></td>
-        <td><p>The game frame time delta.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -822,7 +916,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;ValueChangedEventArgs&lt;int&gt;&gt; SelectedCharacterChanged</code></pre>
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;ValueChangedEventArgs&lt;int&gt;&gt;? SelectedCharacterChanged</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-condensed">
@@ -835,7 +929,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.ValueChangedEventArgs-1.html">ValueChangedEventArgs</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;&gt;</td>
-        <td>Displays the glyphs associated with a font and allows the user to select one.</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
