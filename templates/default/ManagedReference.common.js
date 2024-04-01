@@ -36,6 +36,10 @@ exports.transform = function (model) {
     }
   }
 
+  if (model.summary && !model.description) {
+    model.description = model.summary.replace(/<.*?>/gi, '').replace(/(\r\n|\n|\r)/gm, ' ').trim();
+  }
+
   return model;
 }
 
@@ -194,6 +198,7 @@ function handleItem(vm, gitContribute, gitUrlPattern) {
 
   // set to null incase mustache looks up
   vm.summary = vm.summary || "";
+  vm.description = vm.description || "";
   vm.remarks = vm.remarks || "";
   vm.conceptual = vm.conceptual || "";
   vm.syntax = vm.syntax || "";
