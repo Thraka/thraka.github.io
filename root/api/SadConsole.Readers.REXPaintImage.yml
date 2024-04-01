@@ -28,6 +28,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
+  summary: A RexPaint image.
+  example: []
   syntax:
     content: public class REXPaintImage
     content.vb: Public Class REXPaintImage
@@ -55,13 +57,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
+  summary: Creates a new RexPaint image.
+  example: []
   syntax:
     content: public REXPaintImage(int width, int height)
     parameters:
     - id: width
       type: System.Int32
+      description: The width of the image.
     - id: height
       type: System.Int32
+      description: The height of the image.
     content.vb: Public Sub New(width As Integer, height As Integer)
   overload: SadConsole.Readers.REXPaintImage.#ctor*
   nameWithType.vb: REXPaintImage.New(Integer, Integer)
@@ -81,10 +87,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
+  summary: Creates a new layer for the image adding it to the end of the layer stack.
+  example: []
   syntax:
     content: public REXPaintImage.Layer Create()
     return:
       type: SadConsole.Readers.REXPaintImage.Layer
+      description: A new layer.
     content.vb: Public Function Create() As REXPaintImage.Layer
   overload: SadConsole.Readers.REXPaintImage.Create*
 - uid: SadConsole.Readers.REXPaintImage.Create(System.Int32)
@@ -101,13 +110,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
+  summary: Creates a new layer for the image and inserts it at the specified position (0-based).
+  example: []
   syntax:
     content: public REXPaintImage.Layer Create(int index)
     parameters:
     - id: index
       type: System.Int32
+      description: The position to create the new layer at.
     return:
       type: SadConsole.Readers.REXPaintImage.Layer
+      description: A new layer.
     content.vb: Public Function Create(index As Integer) As REXPaintImage.Layer
   overload: SadConsole.Readers.REXPaintImage.Create*
   nameWithType.vb: REXPaintImage.Create(Integer)
@@ -127,11 +140,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
+  summary: Adds an existing layer (must be the same width/height) to the image.
+  example: []
   syntax:
     content: public void Add(REXPaintImage.Layer layer)
     parameters:
     - id: layer
       type: SadConsole.Readers.REXPaintImage.Layer
+      description: The layer to add.
     content.vb: Public Sub Add(layer As REXPaintImage.Layer)
   overload: SadConsole.Readers.REXPaintImage.Add*
 - uid: SadConsole.Readers.REXPaintImage.Add(SadConsole.Readers.REXPaintImage.Layer,System.Int32)
@@ -148,13 +164,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
+  summary: Adds an existing layer (must be the same width/height) to the image and inserts it at the specified position (0-based).
+  example: []
   syntax:
     content: public void Add(REXPaintImage.Layer layer, int index)
     parameters:
     - id: layer
       type: SadConsole.Readers.REXPaintImage.Layer
+      description: The layer to add.
     - id: index
       type: System.Int32
+      description: The position to add the layer.
     content.vb: Public Sub Add(layer As REXPaintImage.Layer, index As Integer)
   overload: SadConsole.Readers.REXPaintImage.Add*
   nameWithType.vb: REXPaintImage.Add(REXPaintImage.Layer, Integer)
@@ -174,11 +194,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
+  summary: Removes the specified layer.
+  example: []
   syntax:
     content: public void Remove(REXPaintImage.Layer layer)
     parameters:
     - id: layer
       type: SadConsole.Readers.REXPaintImage.Layer
+      description: The layer.
     content.vb: Public Sub Remove(layer As REXPaintImage.Layer)
   overload: SadConsole.Readers.REXPaintImage.Remove*
 - uid: SadConsole.Readers.REXPaintImage.ToCellSurface
@@ -195,10 +218,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
+  summary: Converts each layer in this REXPaint image to <xref href="SadConsole.CellSurface" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public ICellSurface[] ToCellSurface()
     return:
       type: SadConsole.ICellSurface[]
+      description: An array of each converted layer.
     content.vb: Public Function ToCellSurface() As ICellSurface()
   overload: SadConsole.Readers.REXPaintImage.ToCellSurface*
 - uid: SadConsole.Readers.REXPaintImage.Load(System.IO.Stream)
@@ -215,13 +241,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
+  summary: Loads a .xp RexPaint image from a GZip compressed stream.
+  example: []
   syntax:
     content: public static REXPaintImage Load(Stream stream)
     parameters:
     - id: stream
       type: System.IO.Stream
+      description: The GZip stream to load.
     return:
       type: SadConsole.Readers.REXPaintImage
+      description: The RexPaint image.
     content.vb: Public Shared Function Load(stream As Stream) As REXPaintImage
   overload: SadConsole.Readers.REXPaintImage.Load*
 - uid: SadConsole.Readers.REXPaintImage.Version
@@ -238,6 +268,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
+  summary: The version of RexPaint that created this image.
+  example: []
   syntax:
     content: public int Version { get; }
     parameters: []
@@ -259,6 +291,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
+  summary: The width of the image.
+  example: []
   syntax:
     content: public int Width { get; }
     parameters: []
@@ -280,6 +314,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
+  summary: The height of the image.
+  example: []
   syntax:
     content: public int Height { get; }
     parameters: []
@@ -301,6 +337,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
+  summary: The total number of layers for this image.
+  example: []
   syntax:
     content: public int LayerCount { get; }
     parameters: []
@@ -322,6 +360,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
+  summary: A read-only collection of layers.
+  example: []
   syntax:
     content: public ReadOnlyCollection<REXPaintImage.Layer> Layers { get; }
     parameters: []
@@ -664,6 +704,14 @@ references:
   name: Remove
   nameWithType: REXPaintImage.Remove
   fullName: SadConsole.Readers.REXPaintImage.Remove
+- uid: SadConsole.CellSurface
+  commentId: T:SadConsole.CellSurface
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.CellSurface.html
+  name: CellSurface
+  nameWithType: CellSurface
+  fullName: SadConsole.CellSurface
 - uid: SadConsole.Readers.REXPaintImage.ToCellSurface*
   commentId: Overload:SadConsole.Readers.REXPaintImage.ToCellSurface
   isExternal: true
@@ -694,6 +742,13 @@ references:
     href: SadConsole.ICellSurface.html
   - name: (
   - name: )
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
 - uid: SadConsole.Readers.REXPaintImage.Load*
   commentId: Overload:SadConsole.Readers.REXPaintImage.Load
   isExternal: true

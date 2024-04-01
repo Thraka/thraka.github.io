@@ -21,6 +21,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
+  summary: A layer of a RexPaint image.
+  example: []
   syntax:
     content: public class REXPaintImage.Layer
     content.vb: Public Class REXPaintImage.Layer
@@ -48,13 +50,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
+  summary: Creates a new layer with the specified width and height.
+  example: []
   syntax:
     content: public Layer(int width, int height)
     parameters:
     - id: width
       type: System.Int32
+      description: The width of the layer.
     - id: height
       type: System.Int32
+      description: The height of the layer.
     content.vb: Public Sub New(width As Integer, height As Integer)
   overload: SadConsole.Readers.REXPaintImage.Layer.#ctor*
   nameWithType.vb: REXPaintImage.Layer.New(Integer, Integer)
@@ -74,6 +80,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
+  summary: The width of the layer.
+  example: []
   syntax:
     content: public int Width { get; }
     parameters: []
@@ -95,6 +103,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
+  summary: The height of the layer.
+  example: []
   syntax:
     content: public int Height { get; }
     parameters: []
@@ -116,6 +126,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
+  summary: Represents all cells of the layer.
+  example: []
   syntax:
     content: public ReadOnlyCollection<REXPaintImage.Cell> Cells { get; }
     parameters: []
@@ -137,15 +149,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
+  summary: Gets a cell by coordinates.
+  example: []
   syntax:
     content: public REXPaintImage.Cell this[int x, int y] { get; set; }
     parameters:
     - id: x
       type: System.Int32
+      description: The x (0-based) position of the cell.
     - id: y
       type: System.Int32
+      description: The y (0-based) position of the cell.
     return:
       type: SadConsole.Readers.REXPaintImage.Cell
+      description: The cell.
     content.vb: Public Default Property this[](x As Integer, y As Integer) As REXPaintImage.Cell
   overload: SadConsole.Readers.REXPaintImage.Layer.Item*
   nameWithType.vb: REXPaintImage.Layer.this[](Integer, Integer)
@@ -165,13 +182,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
+  summary: Gets a cell by index.
+  example: []
   syntax:
     content: public REXPaintImage.Cell this[int index] { get; set; }
     parameters:
     - id: index
       type: System.Int32
+      description: The index of the cell.
     return:
       type: SadConsole.Readers.REXPaintImage.Cell
+      description: The cell.
     content.vb: Public Default Property this[](index As Integer) As REXPaintImage.Cell
   overload: SadConsole.Readers.REXPaintImage.Layer.Item*
   nameWithType.vb: REXPaintImage.Layer.this[](Integer)

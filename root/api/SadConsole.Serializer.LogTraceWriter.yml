@@ -19,6 +19,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: A simple log writer that helps debug the JSON serialization.
+  example: []
   syntax:
     content: 'public class Serializer.LogTraceWriter : ITraceWriter'
     content.vb: Public Class Serializer.LogTraceWriter Implements ITraceWriter
@@ -48,6 +50,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: THe string containing the log.
+  example: []
   syntax:
     content: public readonly StringBuilder Log
     return:
@@ -67,17 +71,24 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Captures a JSON log event.
+  example: []
   syntax:
     content: public void Trace(TraceLevel level, string message, Exception? ex)
     parameters:
     - id: level
       type: System.Diagnostics.TraceLevel
+      description: The log level.
     - id: message
       type: System.String
+      description: The message.
     - id: ex
       type: System.Exception
+      description: The exception associated with the log event.
     content.vb: Public Sub Trace(level As TraceLevel, message As String, ex As Exception)
   overload: SadConsole.Serializer.LogTraceWriter.Trace*
+  implements:
+  - Newtonsoft.Json.Serialization.ITraceWriter.Trace(System.Diagnostics.TraceLevel,System.String,System.Exception)
   nameWithType.vb: Serializer.LogTraceWriter.Trace(TraceLevel, String, Exception)
   fullName.vb: SadConsole.Serializer.LogTraceWriter.Trace(System.Diagnostics.TraceLevel, String, System.Exception)
   name.vb: Trace(TraceLevel, String, Exception)
@@ -116,6 +127,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: THe level filter for the log.
+  example: []
   syntax:
     content: public TraceLevel LevelFilter { get; }
     parameters: []
@@ -123,6 +136,8 @@ items:
       type: System.Diagnostics.TraceLevel
     content.vb: Public ReadOnly Property LevelFilter As TraceLevel
   overload: SadConsole.Serializer.LogTraceWriter.LevelFilter*
+  implements:
+  - Newtonsoft.Json.Serialization.ITraceWriter.LevelFilter
 references:
 - uid: SadConsole
   commentId: N:SadConsole
@@ -143,7 +158,8 @@ references:
   fullName.vb: Object
   name.vb: Object
 - uid: Newtonsoft.Json.Serialization.ITraceWriter
-  commentId: '!:Newtonsoft.Json.Serialization.ITraceWriter'
+  commentId: T:Newtonsoft.Json.Serialization.ITraceWriter
+  parent: Newtonsoft.Json.Serialization
   isExternal: true
   name: ITraceWriter
   nameWithType: ITraceWriter
@@ -374,6 +390,36 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: Newtonsoft.Json.Serialization
+  commentId: N:Newtonsoft.Json.Serialization
+  isExternal: true
+  name: Newtonsoft.Json.Serialization
+  nameWithType: Newtonsoft.Json.Serialization
+  fullName: Newtonsoft.Json.Serialization
+  spec.csharp:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json.Serialization
+    name: Serialization
+    isExternal: true
+  spec.vb:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json.Serialization
+    name: Serialization
+    isExternal: true
 - uid: System.Text.StringBuilder
   commentId: T:System.Text.StringBuilder
   parent: System.Text
@@ -416,6 +462,61 @@ references:
   name: Trace
   nameWithType: Serializer.LogTraceWriter.Trace
   fullName: SadConsole.Serializer.LogTraceWriter.Trace
+- uid: Newtonsoft.Json.Serialization.ITraceWriter.Trace(System.Diagnostics.TraceLevel,System.String,System.Exception)
+  commentId: M:Newtonsoft.Json.Serialization.ITraceWriter.Trace(System.Diagnostics.TraceLevel,System.String,System.Exception)
+  parent: Newtonsoft.Json.Serialization.ITraceWriter
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.diagnostics.tracelevel
+  name: Trace(TraceLevel, string, Exception)
+  nameWithType: ITraceWriter.Trace(TraceLevel, string, Exception)
+  fullName: Newtonsoft.Json.Serialization.ITraceWriter.Trace(System.Diagnostics.TraceLevel, string, System.Exception)
+  nameWithType.vb: ITraceWriter.Trace(TraceLevel, String, Exception)
+  fullName.vb: Newtonsoft.Json.Serialization.ITraceWriter.Trace(System.Diagnostics.TraceLevel, String, System.Exception)
+  name.vb: Trace(TraceLevel, String, Exception)
+  spec.csharp:
+  - uid: Newtonsoft.Json.Serialization.ITraceWriter.Trace(System.Diagnostics.TraceLevel,System.String,System.Exception)
+    name: Trace
+    isExternal: true
+  - name: (
+  - uid: System.Diagnostics.TraceLevel
+    name: TraceLevel
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.diagnostics.tracelevel
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Exception
+    name: Exception
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception
+  - name: )
+  spec.vb:
+  - uid: Newtonsoft.Json.Serialization.ITraceWriter.Trace(System.Diagnostics.TraceLevel,System.String,System.Exception)
+    name: Trace
+    isExternal: true
+  - name: (
+  - uid: System.Diagnostics.TraceLevel
+    name: TraceLevel
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.diagnostics.tracelevel
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Exception
+    name: Exception
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception
+  - name: )
 - uid: System.Diagnostics.TraceLevel
   commentId: T:System.Diagnostics.TraceLevel
   parent: System.Diagnostics
@@ -487,3 +588,10 @@ references:
   name: LevelFilter
   nameWithType: Serializer.LogTraceWriter.LevelFilter
   fullName: SadConsole.Serializer.LogTraceWriter.LevelFilter
+- uid: Newtonsoft.Json.Serialization.ITraceWriter.LevelFilter
+  commentId: P:Newtonsoft.Json.Serialization.ITraceWriter.LevelFilter
+  parent: Newtonsoft.Json.Serialization.ITraceWriter
+  isExternal: true
+  name: LevelFilter
+  nameWithType: ITraceWriter.LevelFilter
+  fullName: Newtonsoft.Json.Serialization.ITraceWriter.LevelFilter

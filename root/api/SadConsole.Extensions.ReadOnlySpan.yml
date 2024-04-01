@@ -16,6 +16,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Extensions
+  summary: Extensions for the <xref href="System.ReadOnlySpan%601" data-throw-if-not-resolved="false"></xref> type.
+  example: []
   syntax:
     content: public static class ReadOnlySpan
     content.vb: Public Module ReadOnlySpan
@@ -44,23 +46,57 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Extensions
+  summary: Gets the next instnace of the specified character in a <xref href="System.Char" data-throw-if-not-resolved="false"></xref> span.
+  example: []
   syntax:
     content: public static bool Next(this ReadOnlySpan<char> span, char value, out int index)
     parameters:
     - id: span
       type: System.ReadOnlySpan{System.Char}
+      description: The span.
     - id: value
       type: System.Char
+      description: The character to find.
     - id: index
       type: System.Int32
+      description: The index of the character.
     return:
       type: System.Boolean
+      description: True when the character is found.
     content.vb: Public Shared Function [Next](span As ReadOnlySpan(Of Char), value As Char, index As Integer) As Boolean
   overload: SadConsole.Extensions.ReadOnlySpan.Next*
   nameWithType.vb: ReadOnlySpan.Next(ReadOnlySpan(Of Char), Char, Integer)
   fullName.vb: SadConsole.Extensions.ReadOnlySpan.Next(System.ReadOnlySpan(Of Char), Char, Integer)
   name.vb: Next(ReadOnlySpan(Of Char), Char, Integer)
 references:
+- uid: System.ReadOnlySpan`1
+  commentId: T:System.ReadOnlySpan`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  name: ReadOnlySpan<T>
+  nameWithType: ReadOnlySpan<T>
+  fullName: System.ReadOnlySpan<T>
+  nameWithType.vb: ReadOnlySpan(Of T)
+  fullName.vb: System.ReadOnlySpan(Of T)
+  name.vb: ReadOnlySpan(Of T)
+  spec.csharp:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
 - uid: SadConsole.Extensions
   commentId: N:SadConsole.Extensions
   isExternal: true
@@ -325,6 +361,17 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: System.Char
+  commentId: T:System.Char
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.char
+  name: char
+  nameWithType: char
+  fullName: char
+  nameWithType.vb: Char
+  fullName.vb: Char
+  name.vb: Char
 - uid: SadConsole.Extensions.ReadOnlySpan.Next*
   commentId: Overload:SadConsole.Extensions.ReadOnlySpan.Next
   isExternal: true
@@ -367,17 +414,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.char
   - name: )
-- uid: System.Char
-  commentId: T:System.Char
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.char
-  name: char
-  nameWithType: char
-  fullName: char
-  nameWithType.vb: Char
-  fullName.vb: Char
-  name.vb: Char
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System
@@ -400,31 +436,3 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
-- uid: System.ReadOnlySpan`1
-  commentId: T:System.ReadOnlySpan`1
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
-  name: ReadOnlySpan<T>
-  nameWithType: ReadOnlySpan<T>
-  fullName: System.ReadOnlySpan<T>
-  nameWithType.vb: ReadOnlySpan(Of T)
-  fullName.vb: System.ReadOnlySpan(Of T)
-  name.vb: ReadOnlySpan(Of T)
-  spec.csharp:
-  - uid: System.ReadOnlySpan`1
-    name: ReadOnlySpan
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
-  - name: <
-  - name: T
-  - name: '>'
-  spec.vb:
-  - uid: System.ReadOnlySpan`1
-    name: ReadOnlySpan
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )

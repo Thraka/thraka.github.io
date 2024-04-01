@@ -39,6 +39,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: An array of <xref href="SadConsole.ColoredGlyphBase" data-throw-if-not-resolved="false"></xref> objects used to represent a 2D surface.
+  example: []
   syntax:
     content: 'public interface ICellSurface : IGridView<ColoredGlyphBase>, IEnumerable<ColoredGlyphBase>, IEnumerable, ISurface'
     content.vb: Public Interface ICellSurface Inherits IGridView(Of ColoredGlyphBase), IEnumerable(Of ColoredGlyphBase), IEnumerable, ISurface
@@ -172,13 +174,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Creates an array of glyphs that can be used as a connected line.
+  example: []
   syntax:
     content: public static int[] CreateLine(int singleGlyph)
     parameters:
     - id: singleGlyph
       type: System.Int32
+      description: The glyph to use for the connected line array.
     return:
       type: System.Int32[]
+      description: An array of glyphs.
     content.vb: Public Shared Function CreateLine(singleGlyph As Integer) As Integer()
   overload: SadConsole.ICellSurface.CreateLine*
   nameWithType.vb: ICellSurface.CreateLine(Integer)
@@ -198,15 +204,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Returns a value that indicates a line style array is not null and contains the required number of elements.
+  example: []
   syntax:
     content: public static bool ValidateLineStyle<T>(in T[] connectedLineStyle)
     parameters:
     - id: connectedLineStyle
       type: '{T}[]'
+      description: The array to check based on the <xref href="SadConsole.ICellSurface.ConnectedLineIndex" data-throw-if-not-resolved="false"></xref> enum.
     typeParameters:
     - id: T
+      description: Type of the array.
     return:
       type: System.Boolean
+      description: True when the line style is correct.
     content.vb: Public Shared Function ValidateLineStyle(Of T)(connectedLineStyle As T()) As Boolean
   overload: SadConsole.ICellSurface.ValidateLineStyle*
   nameWithType.vb: ICellSurface.ValidateLineStyle(Of T)(T())
@@ -226,6 +237,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: A variable that tracks how many times this editor shifted the surface down.
+  example: []
   syntax:
     content: int TimesShiftedDown { get; set; }
     parameters: []
@@ -247,6 +260,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: A variable that tracks how many times this editor shifted the surface right.
+  example: []
   syntax:
     content: int TimesShiftedRight { get; set; }
     parameters: []
@@ -268,6 +283,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: A variable that tracks how many times this editor shifted the surface left.
+  example: []
   syntax:
     content: int TimesShiftedLeft { get; set; }
     parameters: []
@@ -289,6 +306,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: A variable that tracks how many times this editor shifted the surface up.
+  example: []
   syntax:
     content: int TimesShiftedUp { get; set; }
     parameters: []
@@ -310,6 +329,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: When true, the <xref href="SadConsole.ColoredString.Parser" data-throw-if-not-resolved="false"></xref> is used to generate a <xref href="SadConsole.ColoredString" data-throw-if-not-resolved="false"></xref> before printing.
+  example: []
   syntax:
     content: bool UsePrintProcessor { get; set; }
     parameters: []
@@ -331,6 +352,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Processes the effects added to cells with <xref href="CellSurfaceEditor.SetEffect*" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: EffectsManager Effects { get; }
     parameters: []
@@ -352,6 +375,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Returns a rectangle that represents the entire size of the surface.
+  example: []
   syntax:
     content: Rectangle Area { get; }
     parameters: []
@@ -373,6 +398,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The default background for glyphs on this surface.
+  example: []
   syntax:
     content: Color DefaultBackground { get; set; }
     parameters: []
@@ -394,6 +421,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The default foreground for glyphs on this surface.
+  example: []
   syntax:
     content: Color DefaultForeground { get; set; }
     parameters: []
@@ -415,6 +444,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The default glyph used in clearing and erasing.
+  example: []
   syntax:
     content: int DefaultGlyph { get; set; }
     parameters: []
@@ -436,6 +467,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Indicates the surface has changed and needs to be rendered.
+  example: []
   syntax:
     content: bool IsDirty { get; set; }
     parameters: []
@@ -457,6 +490,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the <xref href="SadConsole.ICellSurface.View" data-throw-if-not-resolved="false"></xref> width or height is different from <xref href="SadConsole.ICellSurface.Area" data-throw-if-not-resolved="false"></xref>; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+  example: []
   syntax:
     content: bool IsScrollable { get; }
     parameters: []
@@ -478,6 +513,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The visible portion of the surface.
+  example: []
   syntax:
     content: Rectangle View { get; set; }
     parameters: []
@@ -499,6 +536,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Gets or sets the visible height of the surface in cells.
+  example: []
   syntax:
     content: int ViewHeight { get; set; }
     parameters: []
@@ -520,6 +559,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The position of the view within the buffer.
+  example: []
   syntax:
     content: Point ViewPosition { get; set; }
     parameters: []
@@ -541,6 +582,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Gets or sets the visible width of the surface in cells.
+  example: []
   syntax:
     content: int ViewWidth { get; set; }
     parameters: []
@@ -562,6 +605,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Glyph indexes for a thin line.
+  example: []
   syntax:
     content: public static int[] ConnectedLineThin { get; }
     parameters: []
@@ -583,6 +628,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Glyph indexes for a thick line.
+  example: []
   syntax:
     content: public static int[] ConnectedLineThick { get; }
     parameters: []
@@ -604,6 +651,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Glyph indexes for a block box that looks 3d.
+  example: []
   syntax:
     content: public static int[] Connected3dBox { get; }
     parameters: []
@@ -625,6 +674,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Glyph indexes for a thin line using a SadConsole extended font.
+  example: []
   syntax:
     content: public static int[] ConnectedLineThinExtended { get; }
     parameters: []
@@ -646,6 +697,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Glyph indexes for an empty line 0.
+  example: []
   syntax:
     content: public static int[] ConnectedLineEmpty { get; }
     parameters: []
@@ -667,12 +720,22 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: An event that is raised when <xref href="SadConsole.ICellSurface.IsDirty" data-throw-if-not-resolved="false"></xref> changes.
+  example: []
   syntax:
     content: event EventHandler IsDirtyChanged
     return:
       type: System.EventHandler
     content.vb: Event IsDirtyChanged As EventHandler
 references:
+- uid: SadConsole.ColoredGlyphBase
+  commentId: T:SadConsole.ColoredGlyphBase
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ColoredGlyphBase.html
+  name: ColoredGlyphBase
+  nameWithType: ColoredGlyphBase
+  fullName: SadConsole.ColoredGlyphBase
 - uid: SadConsole
   commentId: N:SadConsole
   isExternal: true
@@ -15489,6 +15552,34 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: SadConsole.ICellSurface.ConnectedLineIndex
+  commentId: T:SadConsole.ICellSurface.ConnectedLineIndex
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ICellSurface.html
+  name: ICellSurface.ConnectedLineIndex
+  nameWithType: ICellSurface.ConnectedLineIndex
+  fullName: SadConsole.ICellSurface.ConnectedLineIndex
+  spec.csharp:
+  - uid: SadConsole.ICellSurface
+    name: ICellSurface
+    isExternal: true
+    href: SadConsole.ICellSurface.html
+  - name: .
+  - uid: SadConsole.ICellSurface.ConnectedLineIndex
+    name: ConnectedLineIndex
+    isExternal: true
+    href: SadConsole.ICellSurface.ConnectedLineIndex.html
+  spec.vb:
+  - uid: SadConsole.ICellSurface
+    name: ICellSurface
+    isExternal: true
+    href: SadConsole.ICellSurface.html
+  - name: .
+  - uid: SadConsole.ICellSurface.ConnectedLineIndex
+    name: ConnectedLineIndex
+    isExternal: true
+    href: SadConsole.ICellSurface.ConnectedLineIndex.html
 - uid: SadConsole.ICellSurface.ValidateLineStyle*
   commentId: Overload:SadConsole.ICellSurface.ValidateLineStyle
   isExternal: true
@@ -15551,6 +15642,21 @@ references:
   name: TimesShiftedUp
   nameWithType: ICellSurface.TimesShiftedUp
   fullName: SadConsole.ICellSurface.TimesShiftedUp
+- uid: SadConsole.ColoredString.Parser
+  commentId: P:SadConsole.ColoredString.Parser
+  isExternal: true
+  href: SadConsole.ColoredString.html#SadConsole_ColoredString_Parser
+  name: Parser
+  nameWithType: ColoredString.Parser
+  fullName: SadConsole.ColoredString.Parser
+- uid: SadConsole.ColoredString
+  commentId: T:SadConsole.ColoredString
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ColoredString.html
+  name: ColoredString
+  nameWithType: ColoredString
+  fullName: SadConsole.ColoredString
 - uid: SadConsole.ICellSurface.UsePrintProcessor*
   commentId: Overload:SadConsole.ICellSurface.UsePrintProcessor
   isExternal: true
@@ -15558,6 +15664,9 @@ references:
   name: UsePrintProcessor
   nameWithType: ICellSurface.UsePrintProcessor
   fullName: SadConsole.ICellSurface.UsePrintProcessor
+- uid: CellSurfaceEditor.SetEffect*
+  commentId: M:CellSurfaceEditor.SetEffect*
+  isExternal: true
 - uid: SadConsole.ICellSurface.Effects*
   commentId: Overload:SadConsole.ICellSurface.Effects
   isExternal: true
@@ -15676,6 +15785,22 @@ references:
   name: IsDirty
   nameWithType: ICellSurface.IsDirty
   fullName: SadConsole.ICellSurface.IsDirty
+- uid: SadConsole.ICellSurface.View
+  commentId: P:SadConsole.ICellSurface.View
+  parent: SadConsole.ICellSurface
+  isExternal: true
+  href: SadConsole.ICellSurface.html#SadConsole_ICellSurface_View
+  name: View
+  nameWithType: ICellSurface.View
+  fullName: SadConsole.ICellSurface.View
+- uid: SadConsole.ICellSurface.Area
+  commentId: P:SadConsole.ICellSurface.Area
+  parent: SadConsole.ICellSurface
+  isExternal: true
+  href: SadConsole.ICellSurface.html#SadConsole_ICellSurface_Area
+  name: Area
+  nameWithType: ICellSurface.Area
+  fullName: SadConsole.ICellSurface.Area
 - uid: SadConsole.ICellSurface.IsScrollable*
   commentId: Overload:SadConsole.ICellSurface.IsScrollable
   isExternal: true
@@ -15683,6 +15808,14 @@ references:
   name: IsScrollable
   nameWithType: ICellSurface.IsScrollable
   fullName: SadConsole.ICellSurface.IsScrollable
+- uid: SadConsole.ICellSurface
+  commentId: T:SadConsole.ICellSurface
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ICellSurface.html
+  name: ICellSurface
+  nameWithType: ICellSurface
+  fullName: SadConsole.ICellSurface
 - uid: SadConsole.ICellSurface.View*
   commentId: Overload:SadConsole.ICellSurface.View
   isExternal: true
@@ -15753,6 +15886,14 @@ references:
   name: ConnectedLineEmpty
   nameWithType: ICellSurface.ConnectedLineEmpty
   fullName: SadConsole.ICellSurface.ConnectedLineEmpty
+- uid: SadConsole.ICellSurface.IsDirty
+  commentId: P:SadConsole.ICellSurface.IsDirty
+  parent: SadConsole.ICellSurface
+  isExternal: true
+  href: SadConsole.ICellSurface.html#SadConsole_ICellSurface_IsDirty
+  name: IsDirty
+  nameWithType: ICellSurface.IsDirty
+  fullName: SadConsole.ICellSurface.IsDirty
 - uid: System.EventHandler
   commentId: T:System.EventHandler
   parent: System

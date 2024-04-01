@@ -26,6 +26,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Base class for controls that host and render other controls.
+  example: []
   syntax:
     content: 'public abstract class CompositeControl : ControlBase, IContainer, IList<ControlBase>, ICollection<ControlBase>, IEnumerable<ControlBase>, IEnumerable'
     content.vb: Public MustInherit Class CompositeControl Inherits ControlBase Implements IContainer, IList(Of ControlBase), ICollection(Of ControlBase), IEnumerable(Of ControlBase), IEnumerable
@@ -127,6 +129,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The controls this composite control is hosting. Use <xref href="SadConsole.UI.Controls.CompositeControl.AddControl(SadConsole.UI.Controls.ControlBase)" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.UI.Controls.CompositeControl.RemoveControl(SadConsole.UI.Controls.ControlBase)" data-throw-if-not-resolved="false"></xref> to manage the collection.
+  example: []
   syntax:
     content: protected List<ControlBase> Controls
     return:
@@ -146,6 +150,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The controls added which contain a <xref href="SadConsole.UI.Controls.ControlBase.Name" data-throw-if-not-resolved="false"></xref> value.
+  example: []
   syntax:
     content: protected Dictionary<string, ControlBase> NamedControls
     return:
@@ -165,13 +171,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Creates a new control with the specified width and height.
+  example: []
   syntax:
     content: public CompositeControl(int width, int height)
     parameters:
     - id: width
       type: System.Int32
+      description: Width of the control in cells.
     - id: height
       type: System.Int32
+      description: Height of the control in cells.
     content.vb: Public Sub New(width As Integer, height As Integer)
   overload: SadConsole.UI.Controls.CompositeControl.#ctor*
   nameWithType.vb: CompositeControl.New(Integer, Integer)
@@ -191,6 +201,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Create each control and add it to <xref href="SadConsole.UI.Controls.CompositeControl.Controls" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: protected virtual void CreateChildControls()
     content.vb: Protected Overridable Sub CreateChildControls()
@@ -209,11 +221,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: A handler to forward state to <xref href="SadConsole.UI.Controls.ControlBase.IsDirty" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: protected void IsDirtyEventHandler(bool value)
     parameters:
     - id: value
       type: System.Boolean
+      description: ''
     content.vb: Protected Sub IsDirtyEventHandler(value As Boolean)
   overload: SadConsole.UI.Controls.CompositeControl.IsDirtyEventHandler*
   nameWithType.vb: CompositeControl.IsDirtyEventHandler(Boolean)
@@ -233,14 +248,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Processes the mouse on each control hosted by this control.
   example: []
   syntax:
     content: public override bool ProcessMouse(MouseScreenObjectState state)
     parameters:
     - id: state
       type: SadConsole.Input.MouseScreenObjectState
+      description: The mouse state based on the parent screen object.
     return:
       type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when a control processes the mouse; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Public Overrides Function ProcessMouse(state As MouseScreenObjectState) As Boolean
   overridden: SadConsole.UI.Controls.ControlBase.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
   overload: SadConsole.UI.Controls.CompositeControl.ProcessMouse*
@@ -258,11 +276,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Adds a child control to this control.
+  example: []
   syntax:
     content: protected void AddControl(ControlBase control)
     parameters:
     - id: control
       type: SadConsole.UI.Controls.ControlBase
+      description: The control to add.
     content.vb: Protected Sub AddControl(control As ControlBase)
   overload: SadConsole.UI.Controls.CompositeControl.AddControl*
 - uid: SadConsole.UI.Controls.CompositeControl.RemoveControl(SadConsole.UI.Controls.ControlBase)
@@ -279,11 +300,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Removes a child control from this control.
+  example: []
   syntax:
     content: protected void RemoveControl(ControlBase control)
     parameters:
     - id: control
       type: SadConsole.UI.Controls.ControlBase
+      description: The control to remove.
     content.vb: Protected Sub RemoveControl(control As ControlBase)
   overload: SadConsole.UI.Controls.CompositeControl.RemoveControl*
 - uid: SadConsole.UI.Controls.CompositeControl.UpdateAndRedraw(System.TimeSpan)
@@ -300,12 +324,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Updates each control hosted by this control.
   example: []
   syntax:
     content: public override void UpdateAndRedraw(TimeSpan time)
     parameters:
     - id: time
       type: System.TimeSpan
+      description: The game frame time delta.
     content.vb: Public Overrides Sub UpdateAndRedraw(time As TimeSpan)
   overridden: SadConsole.UI.Controls.ControlBase.UpdateAndRedraw(System.TimeSpan)
   overload: SadConsole.UI.Controls.CompositeControl.UpdateAndRedraw*
@@ -347,6 +373,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  example: []
   syntax:
     content: protected ControlBase this[int index] { get; }
     parameters:
@@ -1903,6 +1930,66 @@ references:
     name: Collections
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections
+- uid: SadConsole.UI.Controls.CompositeControl.AddControl(SadConsole.UI.Controls.ControlBase)
+  commentId: M:SadConsole.UI.Controls.CompositeControl.AddControl(SadConsole.UI.Controls.ControlBase)
+  parent: SadConsole.UI.Controls.CompositeControl
+  isExternal: true
+  href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_AddControl_SadConsole_UI_Controls_ControlBase_
+  name: AddControl(ControlBase)
+  nameWithType: CompositeControl.AddControl(ControlBase)
+  fullName: SadConsole.UI.Controls.CompositeControl.AddControl(SadConsole.UI.Controls.ControlBase)
+  spec.csharp:
+  - uid: SadConsole.UI.Controls.CompositeControl.AddControl(SadConsole.UI.Controls.ControlBase)
+    name: AddControl
+    isExternal: true
+    href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_AddControl_SadConsole_UI_Controls_ControlBase_
+  - name: (
+  - uid: SadConsole.UI.Controls.ControlBase
+    name: ControlBase
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.Controls.CompositeControl.AddControl(SadConsole.UI.Controls.ControlBase)
+    name: AddControl
+    isExternal: true
+    href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_AddControl_SadConsole_UI_Controls_ControlBase_
+  - name: (
+  - uid: SadConsole.UI.Controls.ControlBase
+    name: ControlBase
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html
+  - name: )
+- uid: SadConsole.UI.Controls.CompositeControl.RemoveControl(SadConsole.UI.Controls.ControlBase)
+  commentId: M:SadConsole.UI.Controls.CompositeControl.RemoveControl(SadConsole.UI.Controls.ControlBase)
+  parent: SadConsole.UI.Controls.CompositeControl
+  isExternal: true
+  href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_RemoveControl_SadConsole_UI_Controls_ControlBase_
+  name: RemoveControl(ControlBase)
+  nameWithType: CompositeControl.RemoveControl(ControlBase)
+  fullName: SadConsole.UI.Controls.CompositeControl.RemoveControl(SadConsole.UI.Controls.ControlBase)
+  spec.csharp:
+  - uid: SadConsole.UI.Controls.CompositeControl.RemoveControl(SadConsole.UI.Controls.ControlBase)
+    name: RemoveControl
+    isExternal: true
+    href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_RemoveControl_SadConsole_UI_Controls_ControlBase_
+  - name: (
+  - uid: SadConsole.UI.Controls.ControlBase
+    name: ControlBase
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.Controls.CompositeControl.RemoveControl(SadConsole.UI.Controls.ControlBase)
+    name: RemoveControl
+    isExternal: true
+    href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_RemoveControl_SadConsole_UI_Controls_ControlBase_
+  - name: (
+  - uid: SadConsole.UI.Controls.ControlBase
+    name: ControlBase
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html
+  - name: )
 - uid: System.Collections.Generic.List{SadConsole.UI.Controls.ControlBase}
   commentId: T:System.Collections.Generic.List{SadConsole.UI.Controls.ControlBase}
   parent: System.Collections.Generic
@@ -1938,6 +2025,14 @@ references:
     isExternal: true
     href: SadConsole.UI.Controls.ControlBase.html
   - name: )
+- uid: SadConsole.UI.Controls.CompositeControl
+  commentId: T:SadConsole.UI.Controls.CompositeControl
+  parent: SadConsole.UI.Controls
+  isExternal: true
+  href: SadConsole.UI.Controls.CompositeControl.html
+  name: CompositeControl
+  nameWithType: CompositeControl
+  fullName: SadConsole.UI.Controls.CompositeControl
 - uid: System.Collections.Generic.List`1
   commentId: T:System.Collections.Generic.List`1
   isExternal: true
@@ -2068,6 +2163,14 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: SadConsole.UI.Controls.CompositeControl.Controls
+  commentId: F:SadConsole.UI.Controls.CompositeControl.Controls
+  parent: SadConsole.UI.Controls.CompositeControl
+  isExternal: true
+  href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_Controls
+  name: Controls
+  nameWithType: CompositeControl.Controls
+  fullName: SadConsole.UI.Controls.CompositeControl.Controls
 - uid: SadConsole.UI.Controls.CompositeControl.CreateChildControls*
   commentId: Overload:SadConsole.UI.Controls.CompositeControl.CreateChildControls
   isExternal: true

@@ -22,6 +22,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Provides a button-like control that changes focus to a designated previous or next selection button when the arrow keys are pushed.
+  example: []
   syntax:
     content: >-
       [DataContract]
@@ -135,13 +137,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Creates a new Selection Button with a specific width and height.
+  example: []
   syntax:
     content: public SelectionButton(int width, int height)
     parameters:
     - id: width
       type: System.Int32
+      description: The width of the selection button.
     - id: height
       type: System.Int32
+      description: The height of the selection button.
     content.vb: Public Sub New(width As Integer, height As Integer)
   overload: SadConsole.UI.Controls.SelectionButton.#ctor*
   nameWithType.vb: SelectionButton.New(Integer, Integer)
@@ -161,15 +167,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Sets the next selection button and optionally sets the previous of the referenced selection to this button.
+  example: []
   syntax:
     content: public SelectionButton SetNextSelection(ref SelectionButton nextSelection, bool setPreviousOnNext = true)
     parameters:
     - id: nextSelection
       type: SadConsole.UI.Controls.SelectionButton
+      description: The selection button to be used as next.
     - id: setPreviousOnNext
       type: System.Boolean
+      description: Sets the PreviousSelection property on the <code class="paramref">nextSelection</code> instance to current selection button. Defaults to true.
     return:
       type: SadConsole.UI.Controls.SelectionButton
+      description: The button that was passed to the <code class="paramref">nextSelection</code> parameter.
     content.vb: Public Function SetNextSelection(nextSelection As SelectionButton, setPreviousOnNext As Boolean = True) As SelectionButton
   overload: SadConsole.UI.Controls.SelectionButton.SetNextSelection*
   nameWithType.vb: SelectionButton.SetNextSelection(SelectionButton, Boolean)
@@ -189,12 +200,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Focuses the previous or next selection button depending on if the UP or DOWN arrow keys were pressed.
   example: []
   syntax:
     content: public override bool ProcessKeyboard(Keyboard info)
     parameters:
     - id: info
       type: SadConsole.Input.Keyboard
+      description: The keyboard state.
     return:
       type: System.Boolean
     content.vb: Public Overrides Function ProcessKeyboard(info As Keyboard) As Boolean
@@ -214,10 +227,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Selects the previous selection button.
+  example: []
   syntax:
     content: public SelectionButton? SelectPrevious()
     return:
       type: SadConsole.UI.Controls.SelectionButton
+      description: Returns the previous selection button.
     content.vb: Public Function SelectPrevious() As SelectionButton
   overload: SadConsole.UI.Controls.SelectionButton.SelectPrevious*
 - uid: SadConsole.UI.Controls.SelectionButton.SelectNext
@@ -234,10 +250,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Selects the next selection button.
+  example: []
   syntax:
     content: public SelectionButton? SelectNext()
     return:
       type: SadConsole.UI.Controls.SelectionButton
+      description: Returns the next selection button.
     content.vb: Public Function SelectNext() As SelectionButton
   overload: SadConsole.UI.Controls.SelectionButton.SelectNext*
 - uid: SadConsole.UI.Controls.SelectionButton.PreviousSelection
@@ -254,6 +273,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The selection button to focus when the UP key is pressed or the SelectPrevious() method is called.
+  example: []
   syntax:
     content: public SelectionButton? PreviousSelection { get; set; }
     parameters: []
@@ -275,6 +296,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The selection button to focus when the DOWN key is pressed or the SelectNext() method is called.
+  example: []
   syntax:
     content: public SelectionButton? NextSelection { get; set; }
     parameters: []

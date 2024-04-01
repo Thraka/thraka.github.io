@@ -79,6 +79,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Base class for all controls.
+  example: []
   syntax:
     content: >-
       [DataContract]
@@ -127,6 +129,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: A cached value determined by <xref href="SadConsole.UI.Controls.ControlBase.OnMouseEnter(SadConsole.UI.Controls.ControlBase.ControlMouseState)" data-throw-if-not-resolved="false"></xref>. <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the mouse is over the bounds defined by <xref href="SadConsole.UI.Controls.ControlBase.MouseArea" data-throw-if-not-resolved="false"></xref> .
+  example: []
   syntax:
     content: protected bool MouseState_IsMouseOver
     return:
@@ -146,6 +150,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: A cached value determined by <xref href="SadConsole.UI.Controls.ControlBase.OnMouseEnter(SadConsole.UI.Controls.ControlBase.ControlMouseState)" data-throw-if-not-resolved="false"></xref>. <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the mouse entered the control's bounds with the mouse button down.
+  example: []
   syntax:
     content: protected bool MouseState_EnteredWithButtonDown
     return:
@@ -165,6 +171,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: A cached value determined by <xref href="SadConsole.UI.Controls.ControlBase.OnMouseIn(SadConsole.UI.Controls.ControlBase.ControlMouseState)" data-throw-if-not-resolved="false"></xref>. <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the left mouse button is down.
+  example: []
   syntax:
     content: protected bool MouseState_IsMouseLeftDown
     return:
@@ -184,6 +192,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: A cached value determined by <xref href="SadConsole.UI.Controls.ControlBase.OnMouseIn(SadConsole.UI.Controls.ControlBase.ControlMouseState)" data-throw-if-not-resolved="false"></xref>. <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the right mouse button is down.
+  example: []
   syntax:
     content: protected bool MouseState_IsMouseRightDown
     return:
@@ -203,6 +213,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Creates a control.
+  example: []
   syntax:
     content: protected ControlBase(int width, int height)
     parameters:
@@ -229,6 +241,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Called when the control loses focus.
+  example: []
   syntax:
     content: protected virtual void OnUnfocused()
     content.vb: Protected Overridable Sub OnUnfocused()
@@ -247,6 +261,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Called when the control is focused.
+  example: []
   syntax:
     content: protected virtual void OnFocused()
     content.vb: Protected Overridable Sub OnFocused()
@@ -265,6 +281,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Called when the <xref href="SadConsole.UI.Controls.ControlBase.IsDirty" data-throw-if-not-resolved="false"></xref> property changes value.
+  example: []
   syntax:
     content: protected virtual void OnIsDirtyChanged()
     content.vb: Protected Overridable Sub OnIsDirtyChanged()
@@ -283,11 +301,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Called when the keyboard is used on this control.
+  example: []
   syntax:
     content: public virtual bool ProcessKeyboard(Keyboard state)
     parameters:
     - id: state
       type: SadConsole.Input.Keyboard
+      description: The state of the keyboard.
     return:
       type: System.Boolean
     content.vb: Public Overridable Function ProcessKeyboard(state As Keyboard) As Boolean
@@ -306,13 +327,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Checks if the mouse is the control and calls the appropriate mouse methods.
+  example: []
   syntax:
     content: public virtual bool ProcessMouse(MouseScreenObjectState state)
     parameters:
     - id: state
       type: SadConsole.Input.MouseScreenObjectState
+      description: Mouse information.
     return:
       type: System.Boolean
+      description: True when the control is enabled, set to use the mouse and the mouse is over it, otherwise false.
     content.vb: Public Overridable Function ProcessMouse(state As MouseScreenObjectState) As Boolean
   overload: SadConsole.UI.Controls.ControlBase.ProcessMouse*
 - uid: SadConsole.UI.Controls.ControlBase.LostMouse(SadConsole.Input.MouseScreenObjectState)
@@ -329,11 +354,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Called to trigger the state of losing mouse focus.
+  example: []
   syntax:
     content: public void LostMouse(MouseScreenObjectState state)
     parameters:
     - id: state
       type: SadConsole.Input.MouseScreenObjectState
+      description: The mouse state.
     content.vb: Public Sub LostMouse(state As MouseScreenObjectState)
   overload: SadConsole.UI.Controls.ControlBase.LostMouse*
 - uid: SadConsole.UI.Controls.ControlBase.OnParentChanged
@@ -350,6 +378,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Called when the parent property is changed.
+  example: []
   syntax:
     content: protected virtual void OnParentChanged()
     content.vb: Protected Overridable Sub OnParentChanged()
@@ -368,6 +398,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Called when the control changes position.
+  example: []
   syntax:
     content: protected virtual void OnPositionChanged()
     content.vb: Protected Overridable Sub OnPositionChanged()
@@ -386,15 +418,21 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Places this control relative to another, taking into account the bounds of the control.
+  remarks: If this control hasn't been added to the parent of <code class="paramref">control</code>, it will be added.
+  example: []
   syntax:
     content: public void PlaceRelativeTo(ControlBase control, Direction.Types direction, int padding = 1)
     parameters:
     - id: control
       type: SadConsole.UI.Controls.ControlBase
+      description: The other control to place this one relative to.
     - id: direction
       type: SadRogue.Primitives.Direction.Types
+      description: The direction this control should be placed.
     - id: padding
       type: System.Int32
+      description: Additional space between the controls after placement.
     content.vb: Public Sub PlaceRelativeTo(control As ControlBase, direction As Direction.Types, padding As Integer = 1)
   overload: SadConsole.UI.Controls.ControlBase.PlaceRelativeTo*
   nameWithType.vb: ControlBase.PlaceRelativeTo(ControlBase, Direction.Types, Integer)
@@ -414,6 +452,9 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Sets the appropriate theme for the control based on the current state of the control.
+  remarks: Called by the control as the mouse state changes, like when the mouse is clicked on top of the control or leaves the area of the control. This method is implemented by each derived control.
+  example: []
   syntax:
     content: public virtual void DetermineState()
     content.vb: Public Overridable Sub DetermineState()
@@ -432,13 +473,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Called when the <xref href="SadConsole.UI.Controls.ControlBase.State" data-throw-if-not-resolved="false"></xref> changes. Sets the <xref href="SadConsole.UI.Controls.ControlBase.IsDirty" data-throw-if-not-resolved="false"></xref> to true.
+  example: []
   syntax:
     content: protected virtual void OnStateChanged(ControlStates oldState, ControlStates newState)
     parameters:
     - id: oldState
       type: SadConsole.UI.Controls.ControlStates
+      description: The original state.
     - id: newState
       type: SadConsole.UI.Controls.ControlStates
+      description: The new state.
     content.vb: Protected Overridable Sub OnStateChanged(oldState As ControlStates, newState As ControlStates)
   overload: SadConsole.UI.Controls.ControlBase.OnStateChanged*
 - uid: SadConsole.UI.Controls.ControlBase.OnSurfaceChanged(SadConsole.ICellSurface,SadConsole.ICellSurface)
@@ -455,13 +500,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Called when the <xref href="SadConsole.UI.Controls.ControlBase.Surface" data-throw-if-not-resolved="false"></xref> property is set.
+  example: []
   syntax:
     content: protected virtual void OnSurfaceChanged(ICellSurface oldSurface, ICellSurface newSurface)
     parameters:
     - id: oldSurface
       type: SadConsole.ICellSurface
+      description: The previous surface instance.
     - id: newSurface
       type: SadConsole.ICellSurface
+      description: The new surface instance.
     content.vb: Protected Overridable Sub OnSurfaceChanged(oldSurface As ICellSurface, newSurface As ICellSurface)
   overload: SadConsole.UI.Controls.ControlBase.OnSurfaceChanged*
 - uid: SadConsole.UI.Controls.ControlBase.FindThemeFont
@@ -478,10 +527,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Returns the <xref href="SadConsole.UI.Controls.ControlBase.AlternateFont" data-throw-if-not-resolved="false"></xref>. If null, returns the host's console font or the default engine font.
+  example: []
   syntax:
     content: public IFont FindThemeFont()
     return:
       type: SadConsole.IFont
+      description: ''
     content.vb: Public Function FindThemeFont() As IFont
   overload: SadConsole.UI.Controls.ControlBase.FindThemeFont*
 - uid: SadConsole.UI.Controls.ControlBase.FindThemeColors
@@ -498,10 +550,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Returns the colors assigned to this control, the parent, or the library default.
+  example: []
   syntax:
     content: public Colors FindThemeColors()
     return:
       type: SadConsole.UI.Colors
+      description: The found colors.
     content.vb: Public Function FindThemeColors() As Colors
   overload: SadConsole.UI.Controls.ControlBase.FindThemeColors*
 - uid: SadConsole.UI.Controls.ControlBase.SetThemeColors(SadConsole.UI.Colors)
@@ -518,11 +573,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Sets the theme colors used by this control. When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, indicates this control should read the theme colors from the parent.
+  example: []
   syntax:
     content: public void SetThemeColors(Colors? value)
     parameters:
     - id: value
       type: SadConsole.UI.Colors
+      description: The colors to use with this control.
     content.vb: Public Sub SetThemeColors(value As Colors)
   overload: SadConsole.UI.Controls.ControlBase.SetThemeColors*
   nameWithType.vb: ControlBase.SetThemeColors(Colors)
@@ -542,10 +600,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates the control has custom theme colors assigned to it; othwerise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+  example: []
   syntax:
     content: public bool HasThemeColors()
     return:
       type: System.Boolean
+      description: ''
     content.vb: Public Function HasThemeColors() As Boolean
   overload: SadConsole.UI.Controls.ControlBase.HasThemeColors*
 - uid: SadConsole.UI.Controls.ControlBase.Resize(System.Int32,System.Int32)
@@ -562,13 +623,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Resizes the control if the <xref href="SadConsole.UI.Controls.ControlBase.CanResize" data-throw-if-not-resolved="false"></xref> property is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
+  example: []
   syntax:
     content: public virtual void Resize(int width, int height)
     parameters:
     - id: width
       type: System.Int32
+      description: The desired width of the control.
     - id: height
       type: System.Int32
+      description: The desired height of the control.
     content.vb: Public Overridable Sub Resize(width As Integer, height As Integer)
   overload: SadConsole.UI.Controls.ControlBase.Resize*
   nameWithType.vb: ControlBase.Resize(Integer, Integer)
@@ -588,6 +653,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Called when <xref href="SadConsole.UI.Controls.ControlBase.Resize(System.Int32%2cSystem.Int32)" data-throw-if-not-resolved="false"></xref> was called.
+  example: []
   syntax:
     content: protected virtual void OnResized()
     content.vb: Protected Overridable Sub OnResized()
@@ -606,10 +673,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Generates the surface to be used by this control. This method is called internally to assign the <xref href="SadConsole.UI.Controls.ControlBase.Surface" data-throw-if-not-resolved="false"></xref> property a value.
+  example: []
   syntax:
     content: protected virtual ICellSurface CreateControlSurface()
     return:
       type: SadConsole.ICellSurface
+      description: A surface that should be assigned to the <xref href="SadConsole.UI.Controls.ControlBase.Surface" data-throw-if-not-resolved="false"></xref> property.
     content.vb: Protected Overridable Function CreateControlSurface() As ICellSurface
   overload: SadConsole.UI.Controls.ControlBase.CreateControlSurface*
 - uid: SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
@@ -626,11 +696,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Updates the <xref href="SadConsole.UI.Controls.ControlBase.ThemeState" data-throw-if-not-resolved="false"></xref> by calling <xref href="SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)" data-throw-if-not-resolved="false"></xref> with the provided colors. Override this method to adjust how colors are used by the <xref href="SadConsole.UI.Controls.ControlBase.ThemeState" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: protected virtual void RefreshThemeStateColors(Colors colors)
     parameters:
     - id: colors
       type: SadConsole.UI.Colors
+      description: The colors to apply to the theme state.
     content.vb: Protected Overridable Sub RefreshThemeStateColors(colors As Colors)
   overload: SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors*
 - uid: SadConsole.UI.Controls.ControlBase.OnMouseEnter(SadConsole.UI.Controls.ControlBase.ControlMouseState)
@@ -647,11 +720,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Called when the mouse first enters the control. Raises the MouseEnter event and calls the <xref href="SadConsole.UI.Controls.ControlBase.DetermineState" data-throw-if-not-resolved="false"></xref> method.
+  example: []
   syntax:
     content: protected virtual void OnMouseEnter(ControlBase.ControlMouseState state)
     parameters:
     - id: state
       type: SadConsole.UI.Controls.ControlBase.ControlMouseState
+      description: The current mouse data
     content.vb: Protected Overridable Sub OnMouseEnter(state As ControlBase.ControlMouseState)
   overload: SadConsole.UI.Controls.ControlBase.OnMouseEnter*
 - uid: SadConsole.UI.Controls.ControlBase.OnMouseExit(SadConsole.UI.Controls.ControlBase.ControlMouseState)
@@ -668,11 +744,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Called when the mouse exits the area of the control. Raises the MouseExit event and calls the <xref href="SadConsole.UI.Controls.ControlBase.DetermineState" data-throw-if-not-resolved="false"></xref> method.
+  example: []
   syntax:
     content: protected virtual void OnMouseExit(ControlBase.ControlMouseState state)
     parameters:
     - id: state
       type: SadConsole.UI.Controls.ControlBase.ControlMouseState
+      description: The current mouse data
     content.vb: Protected Overridable Sub OnMouseExit(state As ControlBase.ControlMouseState)
   overload: SadConsole.UI.Controls.ControlBase.OnMouseExit*
 - uid: SadConsole.UI.Controls.ControlBase.OnMouseIn(SadConsole.UI.Controls.ControlBase.ControlMouseState)
@@ -689,11 +768,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Called as the mouse moves around the control area. Raises the MouseMove event and calls the <xref href="SadConsole.UI.Controls.ControlBase.DetermineState" data-throw-if-not-resolved="false"></xref> method.
+  example: []
   syntax:
     content: protected virtual void OnMouseIn(ControlBase.ControlMouseState state)
     parameters:
     - id: state
       type: SadConsole.UI.Controls.ControlBase.ControlMouseState
+      description: The current mouse data
     content.vb: Protected Overridable Sub OnMouseIn(state As ControlBase.ControlMouseState)
   overload: SadConsole.UI.Controls.ControlBase.OnMouseIn*
 - uid: SadConsole.UI.Controls.ControlBase.OnLeftMouseClicked(SadConsole.UI.Controls.ControlBase.ControlMouseState)
@@ -710,11 +792,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Called when the left mouse button is clicked. Raises the MouseButtonClicked event and calls the <xref href="SadConsole.UI.Controls.ControlBase.DetermineState" data-throw-if-not-resolved="false"></xref> method.
+  example: []
   syntax:
     content: protected virtual void OnLeftMouseClicked(ControlBase.ControlMouseState state)
     parameters:
     - id: state
       type: SadConsole.UI.Controls.ControlBase.ControlMouseState
+      description: The current mouse data
     content.vb: Protected Overridable Sub OnLeftMouseClicked(state As ControlBase.ControlMouseState)
   overload: SadConsole.UI.Controls.ControlBase.OnLeftMouseClicked*
 - uid: SadConsole.UI.Controls.ControlBase.OnRightMouseClicked(SadConsole.UI.Controls.ControlBase.ControlMouseState)
@@ -731,11 +816,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Called when the right mouse button is clicked. Raises the MouseButtonClicked event and calls the <xref href="SadConsole.UI.Controls.ControlBase.DetermineState" data-throw-if-not-resolved="false"></xref> method.
+  example: []
   syntax:
     content: protected virtual void OnRightMouseClicked(ControlBase.ControlMouseState state)
     parameters:
     - id: state
       type: SadConsole.UI.Controls.ControlBase.ControlMouseState
+      description: The current mouse data.
     content.vb: Protected Overridable Sub OnRightMouseClicked(state As ControlBase.ControlMouseState)
   overload: SadConsole.UI.Controls.ControlBase.OnRightMouseClicked*
 - uid: SadConsole.UI.Controls.ControlBase.UpdateAndRedraw(System.TimeSpan)
@@ -752,11 +840,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Redraws the control if applicable.
+  example: []
   syntax:
     content: public abstract void UpdateAndRedraw(TimeSpan time)
     parameters:
     - id: time
       type: System.TimeSpan
+      description: The duration of thecurrent frame.
     content.vb: Public MustOverride Sub UpdateAndRedraw(time As TimeSpan)
   overload: SadConsole.UI.Controls.ControlBase.UpdateAndRedraw*
 - uid: SadConsole.UI.Controls.ControlBase.ThemeState
@@ -773,6 +864,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The theme of the control based on its state.
+  example: []
   syntax:
     content: public ThemeStates ThemeState { get; set; }
     parameters: []
@@ -794,6 +887,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> to allow this control to respond to keyboard interactions when focused.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -825,6 +920,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> to allow this control to respond to mouse interactions.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -856,6 +953,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> to indicate this control can be focused, generally by clicking on the control or tabbing with the keyboard. Otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -887,6 +986,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that this control can be resized with the <xref href="SadConsole.UI.Controls.ControlBase.Resize(System.Int32%2cSystem.Int32)" data-throw-if-not-resolved="false"></xref> method; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -918,6 +1019,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: An alternate font used to render this control.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -949,6 +1052,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The cell data to render the control. Controlled by a theme.
+  example: []
   syntax:
     content: public ICellSurface Surface { get; set; }
     parameters: []
@@ -970,6 +1075,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The relative region the of the control used for mouse input.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1001,6 +1108,9 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates the mouse button state has only been set with this control and not another; othwerise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+  remarks: This property is only set when the mouse enters the control with the buttons pressed. Once the buttons are let go, the mouse is considered clean for this control.
+  example: []
   syntax:
     content: public bool IsMouseButtonStateClean { get; }
     parameters: []
@@ -1022,6 +1132,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The relative position of this control.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1053,6 +1165,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Gets the position of this control based on the control's <xref href="SadConsole.UI.Controls.ControlBase.Position" data-throw-if-not-resolved="false"></xref> and the position of the <xref href="SadConsole.UI.Controls.ControlBase.Parent" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public Point AbsolutePosition { get; }
     parameters: []
@@ -1074,6 +1188,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Indicates whether or not this control is visible.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1105,6 +1221,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: A user-definable data object.
+  example: []
   syntax:
     content: public object? Tag { get; set; }
     parameters: []
@@ -1126,6 +1244,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Indicates whether or not this control can be tabbed to.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1157,6 +1277,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Sets the tab index of this control.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1188,6 +1310,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Indicates whether or not this control is dirty and should be redrawn.
+  example: []
   syntax:
     content: public bool IsDirty { get; set; }
     parameters: []
@@ -1209,6 +1333,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Represents a name to identify a control by.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1240,6 +1366,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Gets or sets whether or not this control will become focused when the mouse is clicked.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1271,6 +1399,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The width of the control.
+  example: []
   syntax:
     content: public int Width { get; protected set; }
     parameters: []
@@ -1292,6 +1422,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The height of the control.
+  example: []
   syntax:
     content: public int Height { get; protected set; }
     parameters: []
@@ -1313,6 +1445,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Gets or sets whether or not this control is focused.
+  example: []
   syntax:
     content: public bool IsFocused { get; set; }
     parameters: []
@@ -1334,6 +1468,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Gets or sets whether or not this control is enabled.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1365,6 +1501,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The area of the host this control covers.
+  example: []
   syntax:
     content: public Rectangle Bounds { get; }
     parameters: []
@@ -1386,6 +1524,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Gets or sets the parent container of this control.
+  example: []
   syntax:
     content: public IContainer? Parent { get; set; }
     parameters: []
@@ -1407,6 +1547,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The state of the control.
+  example: []
   syntax:
     content: public ControlStates State { get; protected set; }
     parameters: []
@@ -1428,6 +1570,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Raised when the <xref href="SadConsole.UI.Controls.ControlBase.IsDirty" data-throw-if-not-resolved="false"></xref> property changes.
+  example: []
   syntax:
     content: public event EventHandler<EventArgs>? IsDirtyChanged
     return:
@@ -1447,6 +1591,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Raised when the <xref href="SadConsole.UI.Controls.ControlBase.IsFocused" data-throw-if-not-resolved="false"></xref> is set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
+  example: []
   syntax:
     content: public event EventHandler<EventArgs>? Focused
     return:
@@ -1466,6 +1612,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Raised when the <xref href="SadConsole.UI.Controls.ControlBase.IsFocused" data-throw-if-not-resolved="false"></xref> is set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+  example: []
   syntax:
     content: public event EventHandler<EventArgs>? Unfocused
     return:
@@ -1485,6 +1633,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Raised when the <xref href="SadConsole.UI.Controls.ControlBase.Position" data-throw-if-not-resolved="false"></xref> property changes value.
+  example: []
   syntax:
     content: public event EventHandler<EventArgs>? PositionChanged
     return:
@@ -1504,6 +1654,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Raised when the mouse enters this control.
+  example: []
   syntax:
     content: public event EventHandler<ControlBase.ControlMouseState>? MouseEnter
     return:
@@ -1523,6 +1675,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Raised when the mouse exits this control.
+  example: []
   syntax:
     content: public event EventHandler<ControlBase.ControlMouseState>? MouseExit
     return:
@@ -1542,6 +1696,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Raised when the mouse is moved over this control.
+  example: []
   syntax:
     content: public event EventHandler<ControlBase.ControlMouseState>? MouseMove
     return:
@@ -1561,6 +1717,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Raised when a mouse button is clicked while the mouse is over this control.
+  example: []
   syntax:
     content: public event EventHandler<ControlBase.ControlMouseState>? MouseButtonClicked
     return:
@@ -1841,6 +1999,44 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: SadConsole.UI.Controls.ControlBase.OnMouseEnter(SadConsole.UI.Controls.ControlBase.ControlMouseState)
+  commentId: M:SadConsole.UI.Controls.ControlBase.OnMouseEnter(SadConsole.UI.Controls.ControlBase.ControlMouseState)
+  parent: SadConsole.UI.Controls.ControlBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_OnMouseEnter_SadConsole_UI_Controls_ControlBase_ControlMouseState_
+  name: OnMouseEnter(ControlMouseState)
+  nameWithType: ControlBase.OnMouseEnter(ControlBase.ControlMouseState)
+  fullName: SadConsole.UI.Controls.ControlBase.OnMouseEnter(SadConsole.UI.Controls.ControlBase.ControlMouseState)
+  spec.csharp:
+  - uid: SadConsole.UI.Controls.ControlBase.OnMouseEnter(SadConsole.UI.Controls.ControlBase.ControlMouseState)
+    name: OnMouseEnter
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_OnMouseEnter_SadConsole_UI_Controls_ControlBase_ControlMouseState_
+  - name: (
+  - uid: SadConsole.UI.Controls.ControlBase.ControlMouseState
+    name: ControlMouseState
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.ControlMouseState.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.Controls.ControlBase.OnMouseEnter(SadConsole.UI.Controls.ControlBase.ControlMouseState)
+    name: OnMouseEnter
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_OnMouseEnter_SadConsole_UI_Controls_ControlBase_ControlMouseState_
+  - name: (
+  - uid: SadConsole.UI.Controls.ControlBase.ControlMouseState
+    name: ControlMouseState
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.ControlMouseState.html
+  - name: )
+- uid: SadConsole.UI.Controls.ControlBase.MouseArea
+  commentId: P:SadConsole.UI.Controls.ControlBase.MouseArea
+  parent: SadConsole.UI.Controls.ControlBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_MouseArea
+  name: MouseArea
+  nameWithType: ControlBase.MouseArea
+  fullName: SadConsole.UI.Controls.ControlBase.MouseArea
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -1852,6 +2048,44 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: SadConsole.UI.Controls.ControlBase
+  commentId: T:SadConsole.UI.Controls.ControlBase
+  parent: SadConsole.UI.Controls
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html
+  name: ControlBase
+  nameWithType: ControlBase
+  fullName: SadConsole.UI.Controls.ControlBase
+- uid: SadConsole.UI.Controls.ControlBase.OnMouseIn(SadConsole.UI.Controls.ControlBase.ControlMouseState)
+  commentId: M:SadConsole.UI.Controls.ControlBase.OnMouseIn(SadConsole.UI.Controls.ControlBase.ControlMouseState)
+  parent: SadConsole.UI.Controls.ControlBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_OnMouseIn_SadConsole_UI_Controls_ControlBase_ControlMouseState_
+  name: OnMouseIn(ControlMouseState)
+  nameWithType: ControlBase.OnMouseIn(ControlBase.ControlMouseState)
+  fullName: SadConsole.UI.Controls.ControlBase.OnMouseIn(SadConsole.UI.Controls.ControlBase.ControlMouseState)
+  spec.csharp:
+  - uid: SadConsole.UI.Controls.ControlBase.OnMouseIn(SadConsole.UI.Controls.ControlBase.ControlMouseState)
+    name: OnMouseIn
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_OnMouseIn_SadConsole_UI_Controls_ControlBase_ControlMouseState_
+  - name: (
+  - uid: SadConsole.UI.Controls.ControlBase.ControlMouseState
+    name: ControlMouseState
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.ControlMouseState.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.Controls.ControlBase.OnMouseIn(SadConsole.UI.Controls.ControlBase.ControlMouseState)
+    name: OnMouseIn
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_OnMouseIn_SadConsole_UI_Controls_ControlBase_ControlMouseState_
+  - name: (
+  - uid: SadConsole.UI.Controls.ControlBase.ControlMouseState
+    name: ControlMouseState
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.ControlMouseState.html
+  - name: )
 - uid: SadConsole.UI.Controls.ControlBase.#ctor*
   commentId: Overload:SadConsole.UI.Controls.ControlBase.#ctor
   isExternal: true
@@ -1887,6 +2121,14 @@ references:
   name: OnFocused
   nameWithType: ControlBase.OnFocused
   fullName: SadConsole.UI.Controls.ControlBase.OnFocused
+- uid: SadConsole.UI.Controls.ControlBase.IsDirty
+  commentId: P:SadConsole.UI.Controls.ControlBase.IsDirty
+  parent: SadConsole.UI.Controls.ControlBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_IsDirty
+  name: IsDirty
+  nameWithType: ControlBase.IsDirty
+  fullName: SadConsole.UI.Controls.ControlBase.IsDirty
 - uid: SadConsole.UI.Controls.ControlBase.OnIsDirtyChanged*
   commentId: Overload:SadConsole.UI.Controls.ControlBase.OnIsDirtyChanged
   isExternal: true
@@ -1979,14 +2221,6 @@ references:
   name: PlaceRelativeTo
   nameWithType: ControlBase.PlaceRelativeTo
   fullName: SadConsole.UI.Controls.ControlBase.PlaceRelativeTo
-- uid: SadConsole.UI.Controls.ControlBase
-  commentId: T:SadConsole.UI.Controls.ControlBase
-  parent: SadConsole.UI.Controls
-  isExternal: true
-  href: SadConsole.UI.Controls.ControlBase.html
-  name: ControlBase
-  nameWithType: ControlBase
-  fullName: SadConsole.UI.Controls.ControlBase
 - uid: SadRogue.Primitives.Direction.Types
   commentId: T:SadRogue.Primitives.Direction.Types
   parent: SadRogue.Primitives
@@ -2044,6 +2278,14 @@ references:
   name: DetermineState
   nameWithType: ControlBase.DetermineState
   fullName: SadConsole.UI.Controls.ControlBase.DetermineState
+- uid: SadConsole.UI.Controls.ControlBase.State
+  commentId: P:SadConsole.UI.Controls.ControlBase.State
+  parent: SadConsole.UI.Controls.ControlBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_State
+  name: State
+  nameWithType: ControlBase.State
+  fullName: SadConsole.UI.Controls.ControlBase.State
 - uid: SadConsole.UI.Controls.ControlBase.OnStateChanged*
   commentId: Overload:SadConsole.UI.Controls.ControlBase.OnStateChanged
   isExternal: true
@@ -2059,6 +2301,14 @@ references:
   name: ControlStates
   nameWithType: ControlStates
   fullName: SadConsole.UI.Controls.ControlStates
+- uid: SadConsole.UI.Controls.ControlBase.Surface
+  commentId: P:SadConsole.UI.Controls.ControlBase.Surface
+  parent: SadConsole.UI.Controls.ControlBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_Surface
+  name: Surface
+  nameWithType: ControlBase.Surface
+  fullName: SadConsole.UI.Controls.ControlBase.Surface
 - uid: SadConsole.UI.Controls.ControlBase.OnSurfaceChanged*
   commentId: Overload:SadConsole.UI.Controls.ControlBase.OnSurfaceChanged
   isExternal: true
@@ -2081,6 +2331,14 @@ references:
   name: SadConsole
   nameWithType: SadConsole
   fullName: SadConsole
+- uid: SadConsole.UI.Controls.ControlBase.AlternateFont
+  commentId: P:SadConsole.UI.Controls.ControlBase.AlternateFont
+  parent: SadConsole.UI.Controls.ControlBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_AlternateFont
+  name: AlternateFont
+  nameWithType: ControlBase.AlternateFont
+  fullName: SadConsole.UI.Controls.ControlBase.AlternateFont
 - uid: SadConsole.UI.Controls.ControlBase.FindThemeFont*
   commentId: Overload:SadConsole.UI.Controls.ControlBase.FindThemeFont
   isExternal: true
@@ -2152,6 +2410,14 @@ references:
   name: HasThemeColors
   nameWithType: ControlBase.HasThemeColors
   fullName: SadConsole.UI.Controls.ControlBase.HasThemeColors
+- uid: SadConsole.UI.Controls.ControlBase.CanResize
+  commentId: P:SadConsole.UI.Controls.ControlBase.CanResize
+  parent: SadConsole.UI.Controls.ControlBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_CanResize
+  name: CanResize
+  nameWithType: ControlBase.CanResize
+  fullName: SadConsole.UI.Controls.ControlBase.CanResize
 - uid: SadConsole.UI.Controls.ControlBase.Resize*
   commentId: Overload:SadConsole.UI.Controls.ControlBase.Resize
   isExternal: true
@@ -2159,6 +2425,51 @@ references:
   name: Resize
   nameWithType: ControlBase.Resize
   fullName: SadConsole.UI.Controls.ControlBase.Resize
+- uid: SadConsole.UI.Controls.ControlBase.Resize(System.Int32,System.Int32)
+  commentId: M:SadConsole.UI.Controls.ControlBase.Resize(System.Int32,System.Int32)
+  parent: SadConsole.UI.Controls.ControlBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_Resize_System_Int32_System_Int32_
+  name: Resize(int, int)
+  nameWithType: ControlBase.Resize(int, int)
+  fullName: SadConsole.UI.Controls.ControlBase.Resize(int, int)
+  nameWithType.vb: ControlBase.Resize(Integer, Integer)
+  fullName.vb: SadConsole.UI.Controls.ControlBase.Resize(Integer, Integer)
+  name.vb: Resize(Integer, Integer)
+  spec.csharp:
+  - uid: SadConsole.UI.Controls.ControlBase.Resize(System.Int32,System.Int32)
+    name: Resize
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_Resize_System_Int32_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.Controls.ControlBase.Resize(System.Int32,System.Int32)
+    name: Resize
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_Resize_System_Int32_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
 - uid: SadConsole.UI.Controls.ControlBase.OnResized*
   commentId: Overload:SadConsole.UI.Controls.ControlBase.OnResized
   isExternal: true
@@ -2173,6 +2484,44 @@ references:
   name: CreateControlSurface
   nameWithType: ControlBase.CreateControlSurface
   fullName: SadConsole.UI.Controls.ControlBase.CreateControlSurface
+- uid: SadConsole.UI.Controls.ControlBase.ThemeState
+  commentId: P:SadConsole.UI.Controls.ControlBase.ThemeState
+  parent: SadConsole.UI.Controls.ControlBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_ThemeState
+  name: ThemeState
+  nameWithType: ControlBase.ThemeState
+  fullName: SadConsole.UI.Controls.ControlBase.ThemeState
+- uid: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
+  commentId: M:SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
+  parent: SadConsole.UI.ThemeStates
+  isExternal: true
+  href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_RefreshTheme_SadConsole_UI_Colors_
+  name: RefreshTheme(Colors)
+  nameWithType: ThemeStates.RefreshTheme(Colors)
+  fullName: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
+  spec.csharp:
+  - uid: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
+    name: RefreshTheme
+    isExternal: true
+    href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_RefreshTheme_SadConsole_UI_Colors_
+  - name: (
+  - uid: SadConsole.UI.Colors
+    name: Colors
+    isExternal: true
+    href: SadConsole.UI.Colors.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
+    name: RefreshTheme
+    isExternal: true
+    href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_RefreshTheme_SadConsole_UI_Colors_
+  - name: (
+  - uid: SadConsole.UI.Colors
+    name: Colors
+    isExternal: true
+    href: SadConsole.UI.Colors.html
+  - name: )
 - uid: SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors*
   commentId: Overload:SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors
   isExternal: true
@@ -2180,6 +2529,36 @@ references:
   name: RefreshThemeStateColors
   nameWithType: ControlBase.RefreshThemeStateColors
   fullName: SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors
+- uid: SadConsole.UI.ThemeStates
+  commentId: T:SadConsole.UI.ThemeStates
+  parent: SadConsole.UI
+  isExternal: true
+  href: SadConsole.UI.ThemeStates.html
+  name: ThemeStates
+  nameWithType: ThemeStates
+  fullName: SadConsole.UI.ThemeStates
+- uid: SadConsole.UI.Controls.ControlBase.DetermineState
+  commentId: M:SadConsole.UI.Controls.ControlBase.DetermineState
+  parent: SadConsole.UI.Controls.ControlBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_DetermineState
+  name: DetermineState()
+  nameWithType: ControlBase.DetermineState()
+  fullName: SadConsole.UI.Controls.ControlBase.DetermineState()
+  spec.csharp:
+  - uid: SadConsole.UI.Controls.ControlBase.DetermineState
+    name: DetermineState
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_DetermineState
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.Controls.ControlBase.DetermineState
+    name: DetermineState
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_DetermineState
+  - name: (
+  - name: )
 - uid: SadConsole.UI.Controls.ControlBase.OnMouseEnter*
   commentId: Overload:SadConsole.UI.Controls.ControlBase.OnMouseEnter
   isExternal: true
@@ -2265,14 +2644,6 @@ references:
   name: ThemeState
   nameWithType: ControlBase.ThemeState
   fullName: SadConsole.UI.Controls.ControlBase.ThemeState
-- uid: SadConsole.UI.ThemeStates
-  commentId: T:SadConsole.UI.ThemeStates
-  parent: SadConsole.UI
-  isExternal: true
-  href: SadConsole.UI.ThemeStates.html
-  name: ThemeStates
-  nameWithType: ThemeStates
-  fullName: SadConsole.UI.ThemeStates
 - uid: SadConsole.UI.Controls.ControlBase.UseKeyboard*
   commentId: Overload:SadConsole.UI.Controls.ControlBase.UseKeyboard
   isExternal: true
@@ -2350,6 +2721,22 @@ references:
   name: Point
   nameWithType: Point
   fullName: SadRogue.Primitives.Point
+- uid: SadConsole.UI.Controls.ControlBase.Position
+  commentId: P:SadConsole.UI.Controls.ControlBase.Position
+  parent: SadConsole.UI.Controls.ControlBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_Position
+  name: Position
+  nameWithType: ControlBase.Position
+  fullName: SadConsole.UI.Controls.ControlBase.Position
+- uid: SadConsole.UI.Controls.ControlBase.Parent
+  commentId: P:SadConsole.UI.Controls.ControlBase.Parent
+  parent: SadConsole.UI.Controls.ControlBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_Parent
+  name: Parent
+  nameWithType: ControlBase.Parent
+  fullName: SadConsole.UI.Controls.ControlBase.Parent
 - uid: SadConsole.UI.Controls.ControlBase.AbsolutePosition*
   commentId: Overload:SadConsole.UI.Controls.ControlBase.AbsolutePosition
   isExternal: true
@@ -2537,6 +2924,14 @@ references:
   - name: " "
   - name: TEventArgs
   - name: )
+- uid: SadConsole.UI.Controls.ControlBase.IsFocused
+  commentId: P:SadConsole.UI.Controls.ControlBase.IsFocused
+  parent: SadConsole.UI.Controls.ControlBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_IsFocused
+  name: IsFocused
+  nameWithType: ControlBase.IsFocused
+  fullName: SadConsole.UI.Controls.ControlBase.IsFocused
 - uid: System.EventHandler{SadConsole.UI.Controls.ControlBase.ControlMouseState}
   commentId: T:System.EventHandler{SadConsole.UI.Controls.ControlBase.ControlMouseState}
   parent: System

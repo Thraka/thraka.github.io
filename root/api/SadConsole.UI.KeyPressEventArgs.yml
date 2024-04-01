@@ -18,6 +18,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Event arguments to indicate that a key is being pressed on a control that allows keyboard key cancelling.
+  example: []
   syntax:
     content: 'public class KeyPressEventArgs : EventArgs'
     content.vb: Public Class KeyPressEventArgs Inherits EventArgs
@@ -47,6 +49,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The key being pressed by the textbox.
+  example: []
   syntax:
     content: public readonly AsciiKey Key
     return:
@@ -66,11 +70,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Creates a new event args object.
+  example: []
   syntax:
     content: public KeyPressEventArgs(AsciiKey key)
     parameters:
     - id: key
       type: SadConsole.Input.AsciiKey
+      description: The key being pressed.
     content.vb: Public Sub New(key As AsciiKey)
   overload: SadConsole.UI.KeyPressEventArgs.#ctor*
   nameWithType.vb: KeyPressEventArgs.New(AsciiKey)
@@ -90,6 +97,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: When set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, causes the textbox to cancel the key press.
+  example: []
   syntax:
     content: public bool IsCancelled { get; set; }
     parameters: []

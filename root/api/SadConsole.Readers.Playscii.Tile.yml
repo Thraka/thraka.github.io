@@ -20,6 +20,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
+  summary: Json tile in the <xref href="SadConsole.Readers.Playscii" data-throw-if-not-resolved="false"></xref> file.
+  example: []
   syntax:
     content: public struct Playscii.Tile
     content.vb: Public Structure Playscii.Tile
@@ -44,6 +46,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
+  summary: Tile background color.
+  example: []
   syntax:
     content: public int bg
     return:
@@ -63,11 +67,25 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
+  summary: Tile character index.
+  example: []
   syntax:
-    content: public int glyph
+    content: >-
+      [JsonProperty("char")]
+
+      public int glyph
     return:
       type: System.Int32
-    content.vb: Public glyph As Integer
+    content.vb: >-
+      <JsonProperty("char")>
+
+      Public glyph As Integer
+  attributes:
+  - type: Newtonsoft.Json.JsonPropertyAttribute
+    ctor: Newtonsoft.Json.JsonPropertyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: char
 - uid: SadConsole.Readers.Playscii.Tile.fg
   commentId: F:SadConsole.Readers.Playscii.Tile.fg
   id: fg
@@ -82,6 +100,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
+  summary: Tile foreground color.
+  example: []
   syntax:
     content: public int fg
     return:
@@ -101,6 +121,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
+  summary: Tile rotation and mirror.
+  example: []
   syntax:
     content: public byte xform
     return:
@@ -120,18 +142,30 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
+  summary: Converts the <xref href="SadConsole.Readers.Playscii" data-throw-if-not-resolved="false"></xref> tile to a SadConsole <xref href="SadConsole.ColoredGlyphBase" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public ColoredGlyphBase ToColoredGlyph(IFont font, Palette colors)
     parameters:
     - id: font
       type: SadConsole.IFont
+      description: <xref href="SadConsole.IFont" data-throw-if-not-resolved="false"></xref> to be used when creating the <xref href="SadConsole.ScreenSurface" data-throw-if-not-resolved="false"></xref>.
     - id: colors
       type: SadRogue.Primitives.Palette
+      description: <xref href="SadRogue.Primitives.Palette" data-throw-if-not-resolved="false"></xref> of colors converted from the <xref href="SadConsole.Readers.Playscii" data-throw-if-not-resolved="false"></xref> format.
     return:
       type: SadConsole.ColoredGlyphBase
+      description: <xref href="SadConsole.ColoredGlyphBase" data-throw-if-not-resolved="false"></xref> equivalent of the <xref href="SadConsole.Readers.Playscii" data-throw-if-not-resolved="false"></xref> tile.
     content.vb: Public Function ToColoredGlyph(font As IFont, colors As Palette) As ColoredGlyphBase
   overload: SadConsole.Readers.Playscii.Tile.ToColoredGlyph*
 references:
+- uid: SadConsole.Readers.Playscii
+  commentId: T:SadConsole.Readers.Playscii
+  isExternal: true
+  href: SadConsole.Readers.Playscii.html
+  name: Playscii
+  nameWithType: Playscii
+  fullName: SadConsole.Readers.Playscii
 - uid: SadConsole.Readers
   commentId: N:SadConsole.Readers
   isExternal: true
@@ -398,28 +432,6 @@ references:
   nameWithType.vb: Byte
   fullName.vb: Byte
   name.vb: Byte
-- uid: SadConsole.Readers.Playscii.Tile.ToColoredGlyph*
-  commentId: Overload:SadConsole.Readers.Playscii.Tile.ToColoredGlyph
-  isExternal: true
-  href: SadConsole.Readers.Playscii.Tile.html#SadConsole_Readers_Playscii_Tile_ToColoredGlyph_SadConsole_IFont_SadRogue_Primitives_Palette_
-  name: ToColoredGlyph
-  nameWithType: Playscii.Tile.ToColoredGlyph
-  fullName: SadConsole.Readers.Playscii.Tile.ToColoredGlyph
-- uid: SadConsole.IFont
-  commentId: T:SadConsole.IFont
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.IFont.html
-  name: IFont
-  nameWithType: IFont
-  fullName: SadConsole.IFont
-- uid: SadRogue.Primitives.Palette
-  commentId: T:SadRogue.Primitives.Palette
-  parent: SadRogue.Primitives
-  isExternal: true
-  name: Palette
-  nameWithType: Palette
-  fullName: SadRogue.Primitives.Palette
 - uid: SadConsole.ColoredGlyphBase
   commentId: T:SadConsole.ColoredGlyphBase
   parent: SadConsole
@@ -428,6 +440,36 @@ references:
   name: ColoredGlyphBase
   nameWithType: ColoredGlyphBase
   fullName: SadConsole.ColoredGlyphBase
+- uid: SadConsole.IFont
+  commentId: T:SadConsole.IFont
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IFont.html
+  name: IFont
+  nameWithType: IFont
+  fullName: SadConsole.IFont
+- uid: SadConsole.ScreenSurface
+  commentId: T:SadConsole.ScreenSurface
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ScreenSurface.html
+  name: ScreenSurface
+  nameWithType: ScreenSurface
+  fullName: SadConsole.ScreenSurface
+- uid: SadRogue.Primitives.Palette
+  commentId: T:SadRogue.Primitives.Palette
+  parent: SadRogue.Primitives
+  isExternal: true
+  name: Palette
+  nameWithType: Palette
+  fullName: SadRogue.Primitives.Palette
+- uid: SadConsole.Readers.Playscii.Tile.ToColoredGlyph*
+  commentId: Overload:SadConsole.Readers.Playscii.Tile.ToColoredGlyph
+  isExternal: true
+  href: SadConsole.Readers.Playscii.Tile.html#SadConsole_Readers_Playscii_Tile_ToColoredGlyph_SadConsole_IFont_SadRogue_Primitives_Palette_
+  name: ToColoredGlyph
+  nameWithType: Playscii.Tile.ToColoredGlyph
+  fullName: SadConsole.Readers.Playscii.Tile.ToColoredGlyph
 - uid: SadConsole
   commentId: N:SadConsole
   isExternal: true

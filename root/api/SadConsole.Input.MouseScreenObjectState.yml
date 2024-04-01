@@ -24,6 +24,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
+  summary: The state of the mouse.
+  example: []
   syntax:
     content: public struct MouseScreenObjectState
     content.vb: Public Structure MouseScreenObjectState
@@ -48,13 +50,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
+  summary: Calculates a new <xref href="SadConsole.Input.MouseScreenObjectState" data-throw-if-not-resolved="false"></xref> based on an <xref href="SadConsole.IScreenObject" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.Input.Mouse" data-throw-if-not-resolved="false"></xref> state.
+  example: []
   syntax:
     content: public MouseScreenObjectState(IScreenObject? screenObject, Mouse mouseData)
     parameters:
     - id: screenObject
       type: SadConsole.IScreenObject
+      description: The screen object to process with the mouse state.
     - id: mouseData
       type: SadConsole.Input.Mouse
+      description: The current mouse state.
     content.vb: Public Sub New(screenObject As IScreenObject, mouseData As Mouse)
   overload: SadConsole.Input.MouseScreenObjectState.#ctor*
   nameWithType.vb: MouseScreenObjectState.New(IScreenObject, Mouse)
@@ -74,6 +80,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
+  summary: The screen object used to create the mouse state.
+  example: []
   syntax:
     content: public readonly IScreenObject? ScreenObject { get; }
     parameters: []
@@ -95,6 +103,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
+  summary: The mouse data.
+  example: []
   syntax:
     content: public readonly Mouse Mouse { get; }
     parameters: []
@@ -116,6 +126,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
+  summary: The cell the mouse is over, from <xref href="SadConsole.IScreenObject" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public ColoredGlyphBase? Cell { readonly get; init; }
     parameters: []
@@ -137,6 +149,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
+  summary: The position of the <xref href="SadConsole.Input.MouseScreenObjectState.Cell" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public Point CellPosition { readonly get; init; }
     parameters: []
@@ -158,6 +172,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
+  summary: The position of the mouse on the <xref href="SadConsole.IScreenObject" data-throw-if-not-resolved="false"></xref>, based on the <xref href="SadConsole.Input.MouseScreenObjectState.WorldCellPosition" data-throw-if-not-resolved="false"></xref> and the position of the <xref href="SadConsole.Input.MouseScreenObjectState.ScreenObject" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public Point SurfaceCellPosition { readonly get; init; }
     parameters: []
@@ -179,6 +195,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
+  summary: A cell-based location of the mouse based on the screen, not the screen object.
+  example: []
   syntax:
     content: public Point WorldCellPosition { readonly get; init; }
     parameters: []
@@ -200,6 +218,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
+  summary: The mouse position in pixels on the screen object.
+  example: []
   syntax:
     content: public Point SurfacePixelPosition { readonly get; init; }
     parameters: []
@@ -221,6 +241,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
+  summary: Indicates that the mouse is within the bounds of <xref href="SadConsole.Input.MouseScreenObjectState.ScreenObject" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public bool IsOnScreenObject { readonly get; init; }
     parameters: []
@@ -473,16 +495,14 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: SadConsole.Input.MouseScreenObjectState.#ctor*
-  commentId: Overload:SadConsole.Input.MouseScreenObjectState.#ctor
+- uid: SadConsole.Input.MouseScreenObjectState
+  commentId: T:SadConsole.Input.MouseScreenObjectState
+  parent: SadConsole.Input
   isExternal: true
-  href: SadConsole.Input.MouseScreenObjectState.html#SadConsole_Input_MouseScreenObjectState__ctor_SadConsole_IScreenObject_SadConsole_Input_Mouse_
+  href: SadConsole.Input.MouseScreenObjectState.html
   name: MouseScreenObjectState
-  nameWithType: MouseScreenObjectState.MouseScreenObjectState
-  fullName: SadConsole.Input.MouseScreenObjectState.MouseScreenObjectState
-  nameWithType.vb: MouseScreenObjectState.New
-  fullName.vb: SadConsole.Input.MouseScreenObjectState.New
-  name.vb: New
+  nameWithType: MouseScreenObjectState
+  fullName: SadConsole.Input.MouseScreenObjectState
 - uid: SadConsole.IScreenObject
   commentId: T:SadConsole.IScreenObject
   parent: SadConsole
@@ -499,6 +519,16 @@ references:
   name: Mouse
   nameWithType: Mouse
   fullName: SadConsole.Input.Mouse
+- uid: SadConsole.Input.MouseScreenObjectState.#ctor*
+  commentId: Overload:SadConsole.Input.MouseScreenObjectState.#ctor
+  isExternal: true
+  href: SadConsole.Input.MouseScreenObjectState.html#SadConsole_Input_MouseScreenObjectState__ctor_SadConsole_IScreenObject_SadConsole_Input_Mouse_
+  name: MouseScreenObjectState
+  nameWithType: MouseScreenObjectState.MouseScreenObjectState
+  fullName: SadConsole.Input.MouseScreenObjectState.MouseScreenObjectState
+  nameWithType.vb: MouseScreenObjectState.New
+  fullName.vb: SadConsole.Input.MouseScreenObjectState.New
+  name.vb: New
 - uid: SadConsole
   commentId: N:SadConsole
   isExternal: true
@@ -535,6 +565,13 @@ references:
   name: ColoredGlyphBase
   nameWithType: ColoredGlyphBase
   fullName: SadConsole.ColoredGlyphBase
+- uid: SadConsole.Input.MouseScreenObjectState.Cell
+  commentId: P:SadConsole.Input.MouseScreenObjectState.Cell
+  isExternal: true
+  href: SadConsole.Input.MouseScreenObjectState.html#SadConsole_Input_MouseScreenObjectState_Cell
+  name: Cell
+  nameWithType: MouseScreenObjectState.Cell
+  fullName: SadConsole.Input.MouseScreenObjectState.Cell
 - uid: SadConsole.Input.MouseScreenObjectState.CellPosition*
   commentId: Overload:SadConsole.Input.MouseScreenObjectState.CellPosition
   isExternal: true
@@ -576,6 +613,20 @@ references:
     name: Primitives
     isExternal: true
     href: SadRogue.Primitives.html
+- uid: SadConsole.Input.MouseScreenObjectState.WorldCellPosition
+  commentId: P:SadConsole.Input.MouseScreenObjectState.WorldCellPosition
+  isExternal: true
+  href: SadConsole.Input.MouseScreenObjectState.html#SadConsole_Input_MouseScreenObjectState_WorldCellPosition
+  name: WorldCellPosition
+  nameWithType: MouseScreenObjectState.WorldCellPosition
+  fullName: SadConsole.Input.MouseScreenObjectState.WorldCellPosition
+- uid: SadConsole.Input.MouseScreenObjectState.ScreenObject
+  commentId: P:SadConsole.Input.MouseScreenObjectState.ScreenObject
+  isExternal: true
+  href: SadConsole.Input.MouseScreenObjectState.html#SadConsole_Input_MouseScreenObjectState_ScreenObject
+  name: ScreenObject
+  nameWithType: MouseScreenObjectState.ScreenObject
+  fullName: SadConsole.Input.MouseScreenObjectState.ScreenObject
 - uid: SadConsole.Input.MouseScreenObjectState.SurfaceCellPosition*
   commentId: Overload:SadConsole.Input.MouseScreenObjectState.SurfaceCellPosition
   isExternal: true

@@ -23,6 +23,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Helpers for strings.
+  example: []
   syntax:
     content: public static class StringExtensions
     content.vb: Public Module StringExtensions
@@ -51,17 +53,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Aligns a string given a total character width and alignment style. Fills in the extra space with the space character.
+  example: []
   syntax:
     content: public static string Align(this string value, HorizontalAlignment alignment, int totalWidth)
     parameters:
     - id: value
       type: System.String
+      description: The current string.
     - id: alignment
       type: SadConsole.HorizontalAlignment
+      description: The horizontal alignment.
     - id: totalWidth
       type: System.Int32
+      description: The total width of the new string.
     return:
       type: System.String
+      description: A new string instance.
     content.vb: Public Shared Function Align(value As String, alignment As HorizontalAlignment, totalWidth As Integer) As String
   overload: SadConsole.StringExtensions.Align*
   nameWithType.vb: StringExtensions.Align(String, HorizontalAlignment, Integer)
@@ -82,19 +90,26 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Aligns a string given a total character width and alignment style.
+  example: []
   syntax:
     content: public static string Align(this string value, HorizontalAlignment alignment, int totalWidth, char fillCharacter)
     parameters:
     - id: value
       type: System.String
+      description: The current string.
     - id: alignment
       type: SadConsole.HorizontalAlignment
+      description: The horizontal alignment.
     - id: totalWidth
       type: System.Int32
+      description: The total width of the new string.
     - id: fillCharacter
       type: System.Char
+      description: The character to use to fill in the extra spaces after alignment.
     return:
       type: System.String
+      description: A new string instance.
     content.vb: Public Shared Function Align(value As String, alignment As HorizontalAlignment, totalWidth As Integer, fillCharacter As Char) As String
   overload: SadConsole.StringExtensions.Align*
   nameWithType.vb: StringExtensions.Align(String, HorizontalAlignment, Integer, Char)
@@ -115,21 +130,29 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Creates a <xref href="SadConsole.ColoredString" data-throw-if-not-resolved="false"></xref> object from an existing string with the specified foreground and background, setting the ignore properties if needed.
+  example: []
   syntax:
     content: public static ColoredString CreateColored(this string value, Color? foreground = null, Color? background = null, Mirror? mirror = null, CellDecorator[]? decorators = null)
     parameters:
     - id: value
       type: System.String
+      description: The current string.
     - id: foreground
       type: System.Nullable{SadRogue.Primitives.Color}
+      description: The foreground color. If null, <xref href="SadConsole.ColoredString.IgnoreForeground" data-throw-if-not-resolved="false"></xref> will be set.
     - id: background
       type: System.Nullable{SadRogue.Primitives.Color}
+      description: The background color. If null, <xref href="SadConsole.ColoredString.IgnoreBackground" data-throw-if-not-resolved="false"></xref> will be set.
     - id: mirror
       type: System.Nullable{SadConsole.Mirror}
+      description: The mirror setting. If null, <xref href="SadConsole.ColoredString.IgnoreMirror" data-throw-if-not-resolved="false"></xref> will be set.
     - id: decorators
       type: SadConsole.CellDecorator[]
+      description: The decorators setting. If null, <xref href="SadConsole.ColoredString.IgnoreDecorators" data-throw-if-not-resolved="false"></xref> will be set.
     return:
       type: SadConsole.ColoredString
+      description: A <xref href="SadConsole.ColoredString" data-throw-if-not-resolved="false"></xref> object instace.
     content.vb: Public Shared Function CreateColored(value As String, foreground As Color? = Nothing, background As Color? = Nothing, mirror As Mirror? = Nothing, decorators As CellDecorator() = Nothing) As ColoredString
   overload: SadConsole.StringExtensions.CreateColored*
   nameWithType.vb: StringExtensions.CreateColored(String, Color?, Color?, Mirror?, CellDecorator())
@@ -150,17 +173,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Creates a <xref href="SadConsole.ColoredString" data-throw-if-not-resolved="false"></xref> object from an existing string with the specified foreground gradient and cell effect.
+  example: []
   syntax:
     content: public static ColoredString CreateGradient(this string value, Color startingForeground, Color endingForeground)
     parameters:
     - id: value
       type: System.String
+      description: The current string.
     - id: startingForeground
       type: SadRogue.Primitives.Color
+      description: The starting foreground color to blend.
     - id: endingForeground
       type: SadRogue.Primitives.Color
+      description: The ending foreground color to blend.
     return:
       type: SadConsole.ColoredString
+      description: A <xref href="SadConsole.ColoredString" data-throw-if-not-resolved="false"></xref> object instace.
     content.vb: Public Shared Function CreateGradient(value As String, startingForeground As Color, endingForeground As Color) As ColoredString
   overload: SadConsole.StringExtensions.CreateGradient*
   nameWithType.vb: StringExtensions.CreateGradient(String, Color, Color)
@@ -181,21 +210,29 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Creates a <xref href="SadConsole.ColoredString" data-throw-if-not-resolved="false"></xref> object from an existing string with the specified foreground gradient, background gradient, and cell effect.
+  example: []
   syntax:
     content: public static ColoredString CreateGradient(this string value, Color startingForeground, Color endingForeground, Color startingBackground, Color endingBackground)
     parameters:
     - id: value
       type: System.String
+      description: The current string.
     - id: startingForeground
       type: SadRogue.Primitives.Color
+      description: The starting foreground color to blend.
     - id: endingForeground
       type: SadRogue.Primitives.Color
+      description: The ending foreground color to blend.
     - id: startingBackground
       type: SadRogue.Primitives.Color
+      description: The starting background color to blend.
     - id: endingBackground
       type: SadRogue.Primitives.Color
+      description: The ending background color to blend.
     return:
       type: SadConsole.ColoredString
+      description: A <xref href="SadConsole.ColoredString" data-throw-if-not-resolved="false"></xref> object instace.
     content.vb: Public Shared Function CreateGradient(value As String, startingForeground As Color, endingForeground As Color, startingBackground As Color, endingBackground As Color) As ColoredString
   overload: SadConsole.StringExtensions.CreateGradient*
   nameWithType.vb: StringExtensions.CreateGradient(String, Color, Color, Color, Color)
@@ -216,15 +253,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Wraps text into lines by words, long words are also properly wrapped into multiple lines.
+  example: []
   syntax:
     content: public static IEnumerable<string> WordWrap(this string text, int maxCharsPerLine)
     parameters:
     - id: text
       type: System.String
+      description: The text to parse.
     - id: maxCharsPerLine
       type: System.Int32
+      description: The maximum number of characters per line of text returned.
     return:
       type: System.Collections.Generic.IEnumerable{System.String}
+      description: Each line in the string.
     content.vb: Public Shared Function WordWrap(text As String, maxCharsPerLine As Integer) As IEnumerable(Of String)
   overload: SadConsole.StringExtensions.WordWrap*
   nameWithType.vb: StringExtensions.WordWrap(String, Integer)
@@ -245,13 +287,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Converts a string to a boolean when it is "0", "1", "true", or "false".
+  example: []
   syntax:
     content: public static bool ToBool(this string item)
     parameters:
     - id: item
       type: System.String
+      description: The string to convert
     return:
       type: System.Boolean
+      description: The converted boolean value, otherwise false.
     content.vb: Public Shared Function ToBool(item As String) As Boolean
   overload: SadConsole.StringExtensions.ToBool*
   nameWithType.vb: StringExtensions.ToBool(String)
@@ -272,15 +318,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Returns a string of mask characters the same length as the input string.
+  example: []
   syntax:
     content: public static string Masked(this string toMask, char mask)
     parameters:
     - id: toMask
       type: System.String
+      description: The string to mask.
     - id: mask
       type: System.Char
+      description: The mask to use.
     return:
       type: System.String
+      description: A string of masks.
     content.vb: Public Shared Function Masked(toMask As String, mask As Char) As String
   overload: SadConsole.StringExtensions.Masked*
   nameWithType.vb: StringExtensions.Masked(String, Char)
@@ -579,6 +630,42 @@ references:
   nameWithType.vb: Char
   fullName.vb: Char
   name.vb: Char
+- uid: SadConsole.ColoredString
+  commentId: T:SadConsole.ColoredString
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ColoredString.html
+  name: ColoredString
+  nameWithType: ColoredString
+  fullName: SadConsole.ColoredString
+- uid: SadConsole.ColoredString.IgnoreForeground
+  commentId: P:SadConsole.ColoredString.IgnoreForeground
+  isExternal: true
+  href: SadConsole.ColoredString.html#SadConsole_ColoredString_IgnoreForeground
+  name: IgnoreForeground
+  nameWithType: ColoredString.IgnoreForeground
+  fullName: SadConsole.ColoredString.IgnoreForeground
+- uid: SadConsole.ColoredString.IgnoreBackground
+  commentId: P:SadConsole.ColoredString.IgnoreBackground
+  isExternal: true
+  href: SadConsole.ColoredString.html#SadConsole_ColoredString_IgnoreBackground
+  name: IgnoreBackground
+  nameWithType: ColoredString.IgnoreBackground
+  fullName: SadConsole.ColoredString.IgnoreBackground
+- uid: SadConsole.ColoredString.IgnoreMirror
+  commentId: P:SadConsole.ColoredString.IgnoreMirror
+  isExternal: true
+  href: SadConsole.ColoredString.html#SadConsole_ColoredString_IgnoreMirror
+  name: IgnoreMirror
+  nameWithType: ColoredString.IgnoreMirror
+  fullName: SadConsole.ColoredString.IgnoreMirror
+- uid: SadConsole.ColoredString.IgnoreDecorators
+  commentId: P:SadConsole.ColoredString.IgnoreDecorators
+  isExternal: true
+  href: SadConsole.ColoredString.html#SadConsole_ColoredString_IgnoreDecorators
+  name: IgnoreDecorators
+  nameWithType: ColoredString.IgnoreDecorators
+  fullName: SadConsole.ColoredString.IgnoreDecorators
 - uid: SadConsole.StringExtensions.CreateColored*
   commentId: Overload:SadConsole.StringExtensions.CreateColored
   isExternal: true
@@ -646,14 +733,6 @@ references:
     href: SadConsole.CellDecorator.html
   - name: (
   - name: )
-- uid: SadConsole.ColoredString
-  commentId: T:SadConsole.ColoredString
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.ColoredString.html
-  name: ColoredString
-  nameWithType: ColoredString
-  fullName: SadConsole.ColoredString
 - uid: System.Nullable`1
   commentId: T:System.Nullable`1
   isExternal: true

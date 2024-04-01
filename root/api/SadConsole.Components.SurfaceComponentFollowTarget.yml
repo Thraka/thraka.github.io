@@ -19,6 +19,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
+  summary: Add to a <xref href="SadConsole.IScreenSurface" data-throw-if-not-resolved="false"></xref> to have the <xref href="SadConsole.ICellSurface.ViewPosition" data-throw-if-not-resolved="false"></xref> center on a specific object.
+  example: []
   syntax:
     content: 'public class SurfaceComponentFollowTarget : UpdateComponent, IComponent'
     content.vb: Public Class SurfaceComponentFollowTarget Inherits UpdateComponent Implements IComponent
@@ -51,12 +53,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
+  summary: Called when the component is added to a host.
   example: []
   syntax:
     content: public override void OnAdded(IScreenObject host)
     parameters:
     - id: host
       type: SadConsole.IScreenObject
+      description: The host that added the component.
     content.vb: Public Overrides Sub OnAdded(host As IScreenObject)
   overridden: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
   overload: SadConsole.Components.SurfaceComponentFollowTarget.OnAdded*
@@ -74,6 +78,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
+  summary: Called by a host on the update frame.
   example: []
   syntax:
     content: public override void Update(IScreenObject hostObject, TimeSpan delta)
@@ -82,6 +87,7 @@ items:
       type: SadConsole.IScreenObject
     - id: delta
       type: System.TimeSpan
+      description: The time that has elapsed since this method was last called.
     content.vb: Public Overrides Sub Update(hostObject As IScreenObject, delta As TimeSpan)
   overridden: SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
   overload: SadConsole.Components.SurfaceComponentFollowTarget.Update*
@@ -120,6 +126,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
+  summary: Target to have the surface follow.
+  example: []
   syntax:
     content: public IScreenObject? Target { get; set; }
     parameters: []
@@ -128,6 +136,22 @@ items:
     content.vb: Public Property Target As IScreenObject
   overload: SadConsole.Components.SurfaceComponentFollowTarget.Target*
 references:
+- uid: SadConsole.IScreenSurface
+  commentId: T:SadConsole.IScreenSurface
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IScreenSurface.html
+  name: IScreenSurface
+  nameWithType: IScreenSurface
+  fullName: SadConsole.IScreenSurface
+- uid: SadConsole.ICellSurface.ViewPosition
+  commentId: P:SadConsole.ICellSurface.ViewPosition
+  parent: SadConsole.ICellSurface
+  isExternal: true
+  href: SadConsole.ICellSurface.html#SadConsole_ICellSurface_ViewPosition
+  name: ViewPosition
+  nameWithType: ICellSurface.ViewPosition
+  fullName: SadConsole.ICellSurface.ViewPosition
 - uid: SadConsole.Components
   commentId: N:SadConsole.Components
   isExternal: true
@@ -439,6 +463,21 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
+- uid: SadConsole.ICellSurface
+  commentId: T:SadConsole.ICellSurface
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ICellSurface.html
+  name: ICellSurface
+  nameWithType: ICellSurface
+  fullName: SadConsole.ICellSurface
 - uid: System
   commentId: N:System
   isExternal: true
@@ -491,13 +530,6 @@ references:
   name: IScreenObject
   nameWithType: IScreenObject
   fullName: SadConsole.IScreenObject
-- uid: SadConsole
-  commentId: N:SadConsole
-  isExternal: true
-  href: SadConsole.html
-  name: SadConsole
-  nameWithType: SadConsole
-  fullName: SadConsole
 - uid: SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
   commentId: M:SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
   parent: SadConsole.Components.UpdateComponent

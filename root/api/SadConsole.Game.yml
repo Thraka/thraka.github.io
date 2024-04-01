@@ -242,6 +242,7 @@ items:
   assemblies:
   - SadConsole.Host.MonoGame
   namespace: SadConsole
+  summary: Runs the game.
   example: []
   syntax:
     content: public override void Run()
@@ -262,14 +263,17 @@ items:
   assemblies:
   - SadConsole.Host.MonoGame
   namespace: SadConsole
+  summary: Gets a texture from the implemented host.
   example: []
   syntax:
     content: public override ITexture GetTexture(string resourcePath)
     parameters:
     - id: resourcePath
       type: System.String
+      description: The path to the texture to load.
     return:
       type: SadConsole.ITexture
+      description: The texture from the game host.
     content.vb: Public Overrides Function GetTexture(resourcePath As String) As ITexture
   overridden: SadConsole.GameHost.GetTexture(System.String)
   overload: SadConsole.Game.GetTexture*
@@ -290,14 +294,17 @@ items:
   assemblies:
   - SadConsole.Host.MonoGame
   namespace: SadConsole
+  summary: Gets a texture from the implemented host.
   example: []
   syntax:
     content: public override ITexture GetTexture(Stream textureStream)
     parameters:
     - id: textureStream
       type: System.IO.Stream
+      description: A stream containing the texture.
     return:
       type: SadConsole.ITexture
+      description: The texture from the game host.
     content.vb: Public Overrides Function GetTexture(textureStream As Stream) As ITexture
   overridden: SadConsole.GameHost.GetTexture(System.IO.Stream)
   overload: SadConsole.Game.GetTexture*
@@ -315,16 +322,20 @@ items:
   assemblies:
   - SadConsole.Host.MonoGame
   namespace: SadConsole
+  summary: Creates a texture.
   example: []
   syntax:
     content: public override ITexture CreateTexture(int width, int height)
     parameters:
     - id: width
       type: System.Int32
+      description: The width of the texture in pixels.
     - id: height
       type: System.Int32
+      description: The height of the texture in pixels.
     return:
       type: SadConsole.ITexture
+      description: The texture from the game host.
     content.vb: Public Overrides Function CreateTexture(width As Integer, height As Integer) As ITexture
   overridden: SadConsole.GameHost.CreateTexture(System.Int32,System.Int32)
   overload: SadConsole.Game.CreateTexture*
@@ -345,11 +356,13 @@ items:
   assemblies:
   - SadConsole.Host.MonoGame
   namespace: SadConsole
+  summary: Gets the state of the keyboard from the implemented host.
   example: []
   syntax:
     content: public override IKeyboardState GetKeyboardState()
     return:
       type: SadConsole.Input.IKeyboardState
+      description: The state of the keyboard.
     content.vb: Public Overrides Function GetKeyboardState() As IKeyboardState
   overridden: SadConsole.GameHost.GetKeyboardState
   overload: SadConsole.Game.GetKeyboardState*
@@ -367,11 +380,13 @@ items:
   assemblies:
   - SadConsole.Host.MonoGame
   namespace: SadConsole
+  summary: Gets the state of the mouse from the implemented host.
   example: []
   syntax:
     content: public override IMouseState GetMouseState()
     return:
       type: SadConsole.Input.IMouseState
+      description: The state of the mouse.
     content.vb: Public Overrides Function GetMouseState() As IMouseState
   overridden: SadConsole.GameHost.GetMouseState
   overload: SadConsole.Game.GetMouseState*
@@ -446,16 +461,20 @@ items:
   assemblies:
   - SadConsole.Host.MonoGame
   namespace: SadConsole
+  summary: Resizes the window to the specified dimensions.
   example: []
   syntax:
     content: public override void ResizeWindow(int width, int height, bool resizeOutputSurface = false)
     parameters:
     - id: width
       type: System.Int32
+      description: The width of the window in pixels.
     - id: height
       type: System.Int32
+      description: The height of the window in pixels.
     - id: resizeOutputSurface
       type: System.Boolean
+      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> resizes the screen output surface along with the window. Defaults to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>
     content.vb: Public Overrides Sub ResizeWindow(width As Integer, height As Integer, resizeOutputSurface As Boolean = False)
   overridden: SadConsole.GameHost.ResizeWindow(System.Int32,System.Int32,System.Boolean)
   overload: SadConsole.Game.ResizeWindow*
@@ -695,6 +714,7 @@ references:
   commentId: M:SadConsole.GameHost.SetSplashScreens(SadConsole.IScreenSurface[])
   parent: SadConsole.GameHost
   isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_SetSplashScreens_SadConsole_IScreenSurface___
   name: SetSplashScreens(params IScreenSurface[])
   nameWithType: GameHost.SetSplashScreens(params IScreenSurface[])
   fullName: SadConsole.GameHost.SetSplashScreens(params SadConsole.IScreenSurface[])
@@ -705,12 +725,14 @@ references:
   - uid: SadConsole.GameHost.SetSplashScreens(SadConsole.IScreenSurface[])
     name: SetSplashScreens
     isExternal: true
+    href: SadConsole.GameHost.html#SadConsole_GameHost_SetSplashScreens_SadConsole_IScreenSurface___
   - name: (
   - name: params
   - name: " "
   - uid: SadConsole.IScreenSurface
     name: IScreenSurface
     isExternal: true
+    href: SadConsole.IScreenSurface.html
   - name: '['
   - name: ']'
   - name: )
@@ -718,12 +740,14 @@ references:
   - uid: SadConsole.GameHost.SetSplashScreens(SadConsole.IScreenSurface[])
     name: SetSplashScreens
     isExternal: true
+    href: SadConsole.GameHost.html#SadConsole_GameHost_SetSplashScreens_SadConsole_IScreenSurface___
   - name: (
   - name: ParamArray
   - name: " "
   - uid: SadConsole.IScreenSurface
     name: IScreenSurface
     isExternal: true
+    href: SadConsole.IScreenSurface.html
   - name: (
   - name: )
   - name: )
@@ -731,7 +755,7 @@ references:
   commentId: M:SadConsole.GameHost.LoadFont(System.String)
   parent: SadConsole.GameHost
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
+  href: SadConsole.GameHost.html#SadConsole_GameHost_LoadFont_System_String_
   name: LoadFont(string)
   nameWithType: GameHost.LoadFont(string)
   fullName: SadConsole.GameHost.LoadFont(string)
@@ -742,6 +766,7 @@ references:
   - uid: SadConsole.GameHost.LoadFont(System.String)
     name: LoadFont
     isExternal: true
+    href: SadConsole.GameHost.html#SadConsole_GameHost_LoadFont_System_String_
   - name: (
   - uid: System.String
     name: string
@@ -752,6 +777,7 @@ references:
   - uid: SadConsole.GameHost.LoadFont(System.String)
     name: LoadFont
     isExternal: true
+    href: SadConsole.GameHost.html#SadConsole_GameHost_LoadFont_System_String_
   - name: (
   - uid: System.String
     name: String
@@ -908,6 +934,7 @@ references:
   commentId: M:SadConsole.GameHost.SaveGlobalState
   parent: SadConsole.GameHost
   isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_SaveGlobalState
   name: SaveGlobalState()
   nameWithType: GameHost.SaveGlobalState()
   fullName: SadConsole.GameHost.SaveGlobalState()
@@ -915,12 +942,14 @@ references:
   - uid: SadConsole.GameHost.SaveGlobalState
     name: SaveGlobalState
     isExternal: true
+    href: SadConsole.GameHost.html#SadConsole_GameHost_SaveGlobalState
   - name: (
   - name: )
   spec.vb:
   - uid: SadConsole.GameHost.SaveGlobalState
     name: SaveGlobalState
     isExternal: true
+    href: SadConsole.GameHost.html#SadConsole_GameHost_SaveGlobalState
   - name: (
   - name: )
 - uid: SadConsole.GameHost.RestoreGlobalState
@@ -1000,6 +1029,7 @@ references:
   commentId: P:SadConsole.GameHost.Fonts
   parent: SadConsole.GameHost
   isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_Fonts
   name: Fonts
   nameWithType: GameHost.Fonts
   fullName: SadConsole.GameHost.Fonts
@@ -1007,6 +1037,7 @@ references:
   commentId: P:SadConsole.GameHost.EmbeddedFont
   parent: SadConsole.GameHost
   isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_EmbeddedFont
   name: EmbeddedFont
   nameWithType: GameHost.EmbeddedFont
   fullName: SadConsole.GameHost.EmbeddedFont
@@ -1014,6 +1045,7 @@ references:
   commentId: P:SadConsole.GameHost.EmbeddedFontExtended
   parent: SadConsole.GameHost
   isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_EmbeddedFontExtended
   name: EmbeddedFontExtended
   nameWithType: GameHost.EmbeddedFontExtended
   fullName: SadConsole.GameHost.EmbeddedFontExtended
@@ -1021,6 +1053,7 @@ references:
   commentId: P:SadConsole.GameHost.DefaultFont
   parent: SadConsole.GameHost
   isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_DefaultFont
   name: DefaultFont
   nameWithType: GameHost.DefaultFont
   fullName: SadConsole.GameHost.DefaultFont
@@ -1070,6 +1103,7 @@ references:
   commentId: P:SadConsole.GameHost.StartingConsole
   parent: SadConsole.GameHost
   isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_StartingConsole
   name: StartingConsole
   nameWithType: GameHost.StartingConsole
   fullName: SadConsole.GameHost.StartingConsole
@@ -1077,6 +1111,7 @@ references:
   commentId: P:SadConsole.GameHost.Screen
   parent: SadConsole.GameHost
   isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_Screen
   name: Screen
   nameWithType: GameHost.Screen
   fullName: SadConsole.GameHost.Screen
@@ -1084,6 +1119,7 @@ references:
   commentId: P:SadConsole.GameHost.RootComponents
   parent: SadConsole.GameHost
   isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_RootComponents
   name: RootComponents
   nameWithType: GameHost.RootComponents
   fullName: SadConsole.GameHost.RootComponents
@@ -1091,6 +1127,7 @@ references:
   commentId: P:SadConsole.GameHost.FocusedScreenObjects
   parent: SadConsole.GameHost
   isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_FocusedScreenObjects
   name: FocusedScreenObjects
   nameWithType: GameHost.FocusedScreenObjects
   fullName: SadConsole.GameHost.FocusedScreenObjects
@@ -1105,6 +1142,7 @@ references:
   commentId: E:SadConsole.GameHost.FrameRender
   parent: SadConsole.GameHost
   isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_FrameRender
   name: FrameRender
   nameWithType: GameHost.FrameRender
   fullName: SadConsole.GameHost.FrameRender
@@ -1112,6 +1150,7 @@ references:
   commentId: E:SadConsole.GameHost.FrameUpdate
   parent: SadConsole.GameHost
   isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_FrameUpdate
   name: FrameUpdate
   nameWithType: GameHost.FrameUpdate
   fullName: SadConsole.GameHost.FrameUpdate
@@ -1119,6 +1158,7 @@ references:
   commentId: E:SadConsole.GameHost.Started
   parent: SadConsole.GameHost
   isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_Started
   name: Started
   nameWithType: GameHost.Started
   fullName: SadConsole.GameHost.Started
@@ -1126,6 +1166,7 @@ references:
   commentId: E:SadConsole.GameHost.Ending
   parent: SadConsole.GameHost
   isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_Ending
   name: Ending
   nameWithType: GameHost.Ending
   fullName: SadConsole.GameHost.Ending
@@ -1469,6 +1510,7 @@ references:
   commentId: M:SadConsole.GameHost.Run
   parent: SadConsole.GameHost
   isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_Run
   name: Run()
   nameWithType: GameHost.Run()
   fullName: SadConsole.GameHost.Run()
@@ -1476,12 +1518,14 @@ references:
   - uid: SadConsole.GameHost.Run
     name: Run
     isExternal: true
+    href: SadConsole.GameHost.html#SadConsole_GameHost_Run
   - name: (
   - name: )
   spec.vb:
   - uid: SadConsole.GameHost.Run
     name: Run
     isExternal: true
+    href: SadConsole.GameHost.html#SadConsole_GameHost_Run
   - name: (
   - name: )
 - uid: SadConsole.Game.Run*
@@ -1654,6 +1698,7 @@ references:
   commentId: M:SadConsole.GameHost.GetKeyboardState
   parent: SadConsole.GameHost
   isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_GetKeyboardState
   name: GetKeyboardState()
   nameWithType: GameHost.GetKeyboardState()
   fullName: SadConsole.GameHost.GetKeyboardState()
@@ -1661,12 +1706,14 @@ references:
   - uid: SadConsole.GameHost.GetKeyboardState
     name: GetKeyboardState
     isExternal: true
+    href: SadConsole.GameHost.html#SadConsole_GameHost_GetKeyboardState
   - name: (
   - name: )
   spec.vb:
   - uid: SadConsole.GameHost.GetKeyboardState
     name: GetKeyboardState
     isExternal: true
+    href: SadConsole.GameHost.html#SadConsole_GameHost_GetKeyboardState
   - name: (
   - name: )
 - uid: SadConsole.Game.GetKeyboardState*
@@ -1715,6 +1762,7 @@ references:
   commentId: M:SadConsole.GameHost.GetMouseState
   parent: SadConsole.GameHost
   isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_GetMouseState
   name: GetMouseState()
   nameWithType: GameHost.GetMouseState()
   fullName: SadConsole.GameHost.GetMouseState()
@@ -1722,12 +1770,14 @@ references:
   - uid: SadConsole.GameHost.GetMouseState
     name: GetMouseState
     isExternal: true
+    href: SadConsole.GameHost.html#SadConsole_GameHost_GetMouseState
   - name: (
   - name: )
   spec.vb:
   - uid: SadConsole.GameHost.GetMouseState
     name: GetMouseState
     isExternal: true
+    href: SadConsole.GameHost.html#SadConsole_GameHost_GetMouseState
   - name: (
   - name: )
 - uid: SadConsole.Game.GetMouseState*

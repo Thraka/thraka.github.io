@@ -19,6 +19,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: A button control that is drawn with a shadow.
+  example: []
   syntax:
     content: >-
       [DataContract]
@@ -125,13 +127,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Creates an instance of the button control with the specified width and height.
+  example: []
   syntax:
     content: public Button3d(int width, int height)
     parameters:
     - id: width
       type: System.Int32
+      description: Width of the control.
     - id: height
       type: System.Int32
+      description: Height of the control (default is 1).
     content.vb: Public Sub New(width As Integer, height As Integer)
   overload: SadConsole.UI.Controls.Button3d.#ctor*
   nameWithType.vb: Button3d.New(Integer, Integer)
@@ -151,11 +157,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Generates the surface to be used by this control. This method is called internally to assign the <xref href="SadConsole.UI.Controls.ControlBase.Surface" data-throw-if-not-resolved="false"></xref> property a value.
   example: []
   syntax:
     content: protected override ICellSurface CreateControlSurface()
     return:
       type: SadConsole.ICellSurface
+      description: A surface that should be assigned to the <xref href="SadConsole.UI.Controls.ControlBase.Surface" data-throw-if-not-resolved="false"></xref> property.
     content.vb: Protected Overrides Function CreateControlSurface() As ICellSurface
   overridden: SadConsole.UI.Controls.ControlBase.CreateControlSurface
   overload: SadConsole.UI.Controls.Button3d.CreateControlSurface*
@@ -173,12 +181,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Updates the <xref href="SadConsole.UI.Controls.ControlBase.ThemeState" data-throw-if-not-resolved="false"></xref> by calling <xref href="SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)" data-throw-if-not-resolved="false"></xref> with the provided colors. Override this method to adjust how colors are used by the <xref href="SadConsole.UI.Controls.ControlBase.ThemeState" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: protected override void RefreshThemeStateColors(Colors colors)
     parameters:
     - id: colors
       type: SadConsole.UI.Colors
+      description: The colors to apply to the theme state.
     content.vb: Protected Overrides Sub RefreshThemeStateColors(colors As Colors)
   overridden: SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
   overload: SadConsole.UI.Controls.Button3d.RefreshThemeStateColors*
@@ -196,12 +206,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Redraws the control if applicable.
   example: []
   syntax:
     content: public override void UpdateAndRedraw(TimeSpan time)
     parameters:
     - id: time
       type: System.TimeSpan
+      description: The duration of thecurrent frame.
     content.vb: Public Overrides Sub UpdateAndRedraw(time As TimeSpan)
   overridden: SadConsole.UI.Controls.ControlBase.UpdateAndRedraw(System.TimeSpan)
   overload: SadConsole.UI.Controls.Button3d.UpdateAndRedraw*
@@ -1626,6 +1638,36 @@ references:
   name: SadConsole
   nameWithType: SadConsole
   fullName: SadConsole
+- uid: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
+  commentId: M:SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
+  parent: SadConsole.UI.ThemeStates
+  isExternal: true
+  href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_RefreshTheme_SadConsole_UI_Colors_
+  name: RefreshTheme(Colors)
+  nameWithType: ThemeStates.RefreshTheme(Colors)
+  fullName: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
+  spec.csharp:
+  - uid: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
+    name: RefreshTheme
+    isExternal: true
+    href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_RefreshTheme_SadConsole_UI_Colors_
+  - name: (
+  - uid: SadConsole.UI.Colors
+    name: Colors
+    isExternal: true
+    href: SadConsole.UI.Colors.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
+    name: RefreshTheme
+    isExternal: true
+    href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_RefreshTheme_SadConsole_UI_Colors_
+  - name: (
+  - uid: SadConsole.UI.Colors
+    name: Colors
+    isExternal: true
+    href: SadConsole.UI.Colors.html
+  - name: )
 - uid: SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
   commentId: M:SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
   parent: SadConsole.UI.Controls.ControlBase
@@ -1671,6 +1713,14 @@ references:
   name: Colors
   nameWithType: Colors
   fullName: SadConsole.UI.Colors
+- uid: SadConsole.UI.ThemeStates
+  commentId: T:SadConsole.UI.ThemeStates
+  parent: SadConsole.UI
+  isExternal: true
+  href: SadConsole.UI.ThemeStates.html
+  name: ThemeStates
+  nameWithType: ThemeStates
+  fullName: SadConsole.UI.ThemeStates
 - uid: SadConsole.UI
   commentId: N:SadConsole.UI
   isExternal: true

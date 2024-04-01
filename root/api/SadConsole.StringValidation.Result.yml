@@ -19,6 +19,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The object produced when validating a string.
+  example: []
   syntax:
     content: public readonly struct StringValidation.Result
     content.vb: Public Structure StringValidation.Result
@@ -43,6 +45,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Indicates whether or not this result is valid.
+  example: []
   syntax:
     content: public readonly bool IsValid
     return:
@@ -62,6 +66,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The error message when <xref href="SadConsole.StringValidation.Result.IsValid" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>. May be an empty string when there isn't a message.
+  example: []
   syntax:
     content: public readonly string ErrorMessage
     return:
@@ -81,13 +87,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Creates a new string validation result.
+  example: []
   syntax:
     content: public Result(bool isValid, string? errorMsg = null)
     parameters:
     - id: isValid
       type: System.Boolean
+      description: A value to indicate that the result is valid or not.
     - id: errorMsg
       type: System.String
+      description: A message associated with the result when <code class="paramref">isValid</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Public Sub New(isValid As Boolean, errorMsg As String = Nothing)
   overload: SadConsole.StringValidation.Result.#ctor*
   nameWithType.vb: StringValidation.Result.New(Boolean, String)
@@ -107,10 +117,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: A successful result.
+  example: []
   syntax:
     content: public static StringValidation.Result Success()
     return:
       type: SadConsole.StringValidation.Result
+      description: A successful result.
     content.vb: Public Shared Function Success() As StringValidation.Result
   overload: SadConsole.StringValidation.Result.Success*
 references:
@@ -349,6 +362,13 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: SadConsole.StringValidation.Result.IsValid
+  commentId: F:SadConsole.StringValidation.Result.IsValid
+  isExternal: true
+  href: SadConsole.StringValidation.Result.html#SadConsole_StringValidation_Result_IsValid
+  name: IsValid
+  nameWithType: StringValidation.Result.IsValid
+  fullName: SadConsole.StringValidation.Result.IsValid
 - uid: System.String
   commentId: T:System.String
   parent: System

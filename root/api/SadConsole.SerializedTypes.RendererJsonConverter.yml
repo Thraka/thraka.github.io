@@ -18,11 +18,28 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.SerializedTypes
+  summary: Converts a <xref href="SadConsole.Renderers.IRenderer" data-throw-if-not-resolved="false"></xref> to its <xref href="SadConsole.Renderers.IRenderer.Name" data-throw-if-not-resolved="false"></xref> value and back.
+  example: []
   syntax:
     content: 'public class RendererJsonConverter : JsonConverter<IRenderer>'
     content.vb: Public Class RendererJsonConverter Inherits JsonConverter(Of IRenderer)
   inheritance:
   - System.Object
+  - Newtonsoft.Json.JsonConverter
+  - Newtonsoft.Json.JsonConverter{SadConsole.Renderers.IRenderer}
+  inheritedMembers:
+  - Newtonsoft.Json.JsonConverter{SadConsole.Renderers.IRenderer}.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
+  - Newtonsoft.Json.JsonConverter{SadConsole.Renderers.IRenderer}.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
+  - Newtonsoft.Json.JsonConverter{SadConsole.Renderers.IRenderer}.CanConvert(System.Type)
+  - Newtonsoft.Json.JsonConverter.CanRead
+  - Newtonsoft.Json.JsonConverter.CanWrite
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
 - uid: SadConsole.SerializedTypes.RendererJsonConverter.WriteJson(Newtonsoft.Json.JsonWriter,SadConsole.Renderers.IRenderer,Newtonsoft.Json.JsonSerializer)
   commentId: M:SadConsole.SerializedTypes.RendererJsonConverter.WriteJson(Newtonsoft.Json.JsonWriter,SadConsole.Renderers.IRenderer,Newtonsoft.Json.JsonSerializer)
   id: WriteJson(Newtonsoft.Json.JsonWriter,SadConsole.Renderers.IRenderer,Newtonsoft.Json.JsonSerializer)
@@ -48,6 +65,7 @@ items:
     - id: serializer
       type: Newtonsoft.Json.JsonSerializer
     content.vb: Public Overrides Sub WriteJson(writer As JsonWriter, value As IRenderer, serializer As JsonSerializer)
+  overridden: Newtonsoft.Json.JsonConverter{SadConsole.Renderers.IRenderer}.WriteJson(Newtonsoft.Json.JsonWriter,SadConsole.Renderers.IRenderer,Newtonsoft.Json.JsonSerializer)
   overload: SadConsole.SerializedTypes.RendererJsonConverter.WriteJson*
   nameWithType.vb: RendererJsonConverter.WriteJson(JsonWriter, IRenderer, JsonSerializer)
   fullName.vb: SadConsole.SerializedTypes.RendererJsonConverter.WriteJson(Newtonsoft.Json.JsonWriter, SadConsole.Renderers.IRenderer, Newtonsoft.Json.JsonSerializer)
@@ -83,6 +101,7 @@ items:
     return:
       type: SadConsole.Renderers.IRenderer
     content.vb: Public Overrides Function ReadJson(reader As JsonReader, objectType As Type, existingValue As IRenderer, hasExistingValue As Boolean, serializer As JsonSerializer) As IRenderer
+  overridden: Newtonsoft.Json.JsonConverter{SadConsole.Renderers.IRenderer}.ReadJson(Newtonsoft.Json.JsonReader,System.Type,SadConsole.Renderers.IRenderer,System.Boolean,Newtonsoft.Json.JsonSerializer)
   overload: SadConsole.SerializedTypes.RendererJsonConverter.ReadJson*
   nameWithType.vb: RendererJsonConverter.ReadJson(JsonReader, Type, IRenderer, Boolean, JsonSerializer)
   fullName.vb: SadConsole.SerializedTypes.RendererJsonConverter.ReadJson(Newtonsoft.Json.JsonReader, System.Type, SadConsole.Renderers.IRenderer, Boolean, Newtonsoft.Json.JsonSerializer)
@@ -109,6 +128,22 @@ items:
   fullName.vb: SadConsole.SerializedTypes.RendererJsonConverter.New()
   name.vb: New()
 references:
+- uid: SadConsole.Renderers.IRenderer
+  commentId: T:SadConsole.Renderers.IRenderer
+  parent: SadConsole.Renderers
+  isExternal: true
+  href: SadConsole.Renderers.IRenderer.html
+  name: IRenderer
+  nameWithType: IRenderer
+  fullName: SadConsole.Renderers.IRenderer
+- uid: SadConsole.Renderers.IRenderer.Name
+  commentId: P:SadConsole.Renderers.IRenderer.Name
+  parent: SadConsole.Renderers.IRenderer
+  isExternal: true
+  href: SadConsole.Renderers.IRenderer.html#SadConsole_Renderers_IRenderer_Name
+  name: Name
+  nameWithType: IRenderer.Name
+  fullName: SadConsole.Renderers.IRenderer.Name
 - uid: SadConsole.SerializedTypes
   commentId: N:SadConsole.SerializedTypes
   isExternal: true
@@ -147,38 +182,423 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: System
-  commentId: N:System
+- uid: Newtonsoft.Json.JsonConverter
+  commentId: T:Newtonsoft.Json.JsonConverter
+  parent: Newtonsoft.Json
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
-- uid: SadConsole.SerializedTypes.RendererJsonConverter.WriteJson*
-  commentId: Overload:SadConsole.SerializedTypes.RendererJsonConverter.WriteJson
-  isExternal: true
-  href: SadConsole.SerializedTypes.RendererJsonConverter.html#SadConsole_SerializedTypes_RendererJsonConverter_WriteJson_Newtonsoft_Json_JsonWriter_SadConsole_Renderers_IRenderer_Newtonsoft_Json_JsonSerializer_
-  name: WriteJson
-  nameWithType: RendererJsonConverter.WriteJson
-  fullName: SadConsole.SerializedTypes.RendererJsonConverter.WriteJson
-- uid: Newtonsoft.Json.JsonWriter
-  isExternal: true
-  name: JsonWriter
-  nameWithType: JsonWriter
-  fullName: Newtonsoft.Json.JsonWriter
-- uid: SadConsole.Renderers.IRenderer
-  commentId: T:SadConsole.Renderers.IRenderer
-  parent: SadConsole.Renderers
-  isExternal: true
+  name: JsonConverter
+  nameWithType: JsonConverter
+  fullName: Newtonsoft.Json.JsonConverter
+- uid: Newtonsoft.Json.JsonConverter{SadConsole.Renderers.IRenderer}
+  commentId: T:Newtonsoft.Json.JsonConverter{SadConsole.Renderers.IRenderer}
+  parent: Newtonsoft.Json
+  definition: Newtonsoft.Json.JsonConverter`1
   href: SadConsole.Renderers.IRenderer.html
-  name: IRenderer
-  nameWithType: IRenderer
-  fullName: SadConsole.Renderers.IRenderer
-- uid: Newtonsoft.Json.JsonSerializer
+  name: JsonConverter<IRenderer>
+  nameWithType: JsonConverter<IRenderer>
+  fullName: Newtonsoft.Json.JsonConverter<SadConsole.Renderers.IRenderer>
+  nameWithType.vb: JsonConverter(Of IRenderer)
+  fullName.vb: Newtonsoft.Json.JsonConverter(Of SadConsole.Renderers.IRenderer)
+  name.vb: JsonConverter(Of IRenderer)
+  spec.csharp:
+  - uid: Newtonsoft.Json.JsonConverter`1
+    name: JsonConverter
+    isExternal: true
+  - name: <
+  - uid: SadConsole.Renderers.IRenderer
+    name: IRenderer
+    isExternal: true
+    href: SadConsole.Renderers.IRenderer.html
+  - name: '>'
+  spec.vb:
+  - uid: Newtonsoft.Json.JsonConverter`1
+    name: JsonConverter
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Renderers.IRenderer
+    name: IRenderer
+    isExternal: true
+    href: SadConsole.Renderers.IRenderer.html
+  - name: )
+- uid: Newtonsoft.Json.JsonConverter{SadConsole.Renderers.IRenderer}.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
+  commentId: M:Newtonsoft.Json.JsonConverter{SadConsole.Renderers.IRenderer}.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
+  parent: Newtonsoft.Json.JsonConverter{SadConsole.Renderers.IRenderer}
+  definition: Newtonsoft.Json.JsonConverter`1.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: WriteJson(JsonWriter, object, JsonSerializer)
+  nameWithType: JsonConverter<IRenderer>.WriteJson(JsonWriter, object, JsonSerializer)
+  fullName: Newtonsoft.Json.JsonConverter<SadConsole.Renderers.IRenderer>.WriteJson(Newtonsoft.Json.JsonWriter, object, Newtonsoft.Json.JsonSerializer)
+  nameWithType.vb: JsonConverter(Of IRenderer).WriteJson(JsonWriter, Object, JsonSerializer)
+  fullName.vb: Newtonsoft.Json.JsonConverter(Of SadConsole.Renderers.IRenderer).WriteJson(Newtonsoft.Json.JsonWriter, Object, Newtonsoft.Json.JsonSerializer)
+  name.vb: WriteJson(JsonWriter, Object, JsonSerializer)
+  spec.csharp:
+  - uid: Newtonsoft.Json.JsonConverter{SadConsole.Renderers.IRenderer}.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
+    name: WriteJson
+    isExternal: true
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: Newtonsoft.Json.JsonSerializer
+    name: JsonSerializer
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Newtonsoft.Json.JsonConverter{SadConsole.Renderers.IRenderer}.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
+    name: WriteJson
+    isExternal: true
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: Newtonsoft.Json.JsonSerializer
+    name: JsonSerializer
+    isExternal: true
+  - name: )
+- uid: Newtonsoft.Json.JsonConverter{SadConsole.Renderers.IRenderer}.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
+  commentId: M:Newtonsoft.Json.JsonConverter{SadConsole.Renderers.IRenderer}.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
+  parent: Newtonsoft.Json.JsonConverter{SadConsole.Renderers.IRenderer}
+  definition: Newtonsoft.Json.JsonConverter`1.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: ReadJson(JsonReader, Type, object, JsonSerializer)
+  nameWithType: JsonConverter<IRenderer>.ReadJson(JsonReader, Type, object, JsonSerializer)
+  fullName: Newtonsoft.Json.JsonConverter<SadConsole.Renderers.IRenderer>.ReadJson(Newtonsoft.Json.JsonReader, System.Type, object, Newtonsoft.Json.JsonSerializer)
+  nameWithType.vb: JsonConverter(Of IRenderer).ReadJson(JsonReader, Type, Object, JsonSerializer)
+  fullName.vb: Newtonsoft.Json.JsonConverter(Of SadConsole.Renderers.IRenderer).ReadJson(Newtonsoft.Json.JsonReader, System.Type, Object, Newtonsoft.Json.JsonSerializer)
+  name.vb: ReadJson(JsonReader, Type, Object, JsonSerializer)
+  spec.csharp:
+  - uid: Newtonsoft.Json.JsonConverter{SadConsole.Renderers.IRenderer}.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
+    name: ReadJson
+    isExternal: true
+  - name: (
+  - uid: Newtonsoft.Json.JsonReader
+    name: JsonReader
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: Newtonsoft.Json.JsonSerializer
+    name: JsonSerializer
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Newtonsoft.Json.JsonConverter{SadConsole.Renderers.IRenderer}.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
+    name: ReadJson
+    isExternal: true
+  - name: (
+  - uid: Newtonsoft.Json.JsonReader
+    name: JsonReader
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: Newtonsoft.Json.JsonSerializer
+    name: JsonSerializer
+    isExternal: true
+  - name: )
+- uid: Newtonsoft.Json.JsonConverter{SadConsole.Renderers.IRenderer}.CanConvert(System.Type)
+  commentId: M:Newtonsoft.Json.JsonConverter{SadConsole.Renderers.IRenderer}.CanConvert(System.Type)
+  parent: Newtonsoft.Json.JsonConverter{SadConsole.Renderers.IRenderer}
+  definition: Newtonsoft.Json.JsonConverter`1.CanConvert(System.Type)
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: CanConvert(Type)
+  nameWithType: JsonConverter<IRenderer>.CanConvert(Type)
+  fullName: Newtonsoft.Json.JsonConverter<SadConsole.Renderers.IRenderer>.CanConvert(System.Type)
+  nameWithType.vb: JsonConverter(Of IRenderer).CanConvert(Type)
+  fullName.vb: Newtonsoft.Json.JsonConverter(Of SadConsole.Renderers.IRenderer).CanConvert(System.Type)
+  spec.csharp:
+  - uid: Newtonsoft.Json.JsonConverter{SadConsole.Renderers.IRenderer}.CanConvert(System.Type)
+    name: CanConvert
+    isExternal: true
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+  spec.vb:
+  - uid: Newtonsoft.Json.JsonConverter{SadConsole.Renderers.IRenderer}.CanConvert(System.Type)
+    name: CanConvert
+    isExternal: true
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+- uid: Newtonsoft.Json.JsonConverter.CanRead
+  commentId: P:Newtonsoft.Json.JsonConverter.CanRead
+  parent: Newtonsoft.Json.JsonConverter
   isExternal: true
-  name: JsonSerializer
-  nameWithType: JsonSerializer
-  fullName: Newtonsoft.Json.JsonSerializer
+  name: CanRead
+  nameWithType: JsonConverter.CanRead
+  fullName: Newtonsoft.Json.JsonConverter.CanRead
+- uid: Newtonsoft.Json.JsonConverter.CanWrite
+  commentId: P:Newtonsoft.Json.JsonConverter.CanWrite
+  parent: Newtonsoft.Json.JsonConverter
+  isExternal: true
+  name: CanWrite
+  nameWithType: JsonConverter.CanWrite
+  fullName: Newtonsoft.Json.JsonConverter.CanWrite
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
 - uid: SadConsole.Renderers
   commentId: N:SadConsole.Renderers
   isExternal: true
@@ -206,6 +626,389 @@ references:
     name: Renderers
     isExternal: true
     href: SadConsole.Renderers.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Newtonsoft.Json
+  commentId: N:Newtonsoft.Json
+  isExternal: true
+  name: Newtonsoft.Json
+  nameWithType: Newtonsoft.Json
+  fullName: Newtonsoft.Json
+  spec.csharp:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+  spec.vb:
+  - uid: Newtonsoft
+    name: Newtonsoft
+    isExternal: true
+  - name: .
+  - uid: Newtonsoft.Json
+    name: Json
+    isExternal: true
+- uid: Newtonsoft.Json.JsonConverter`1
+  commentId: T:Newtonsoft.Json.JsonConverter`1
+  isExternal: true
+  name: JsonConverter<T>
+  nameWithType: JsonConverter<T>
+  fullName: Newtonsoft.Json.JsonConverter<T>
+  nameWithType.vb: JsonConverter(Of T)
+  fullName.vb: Newtonsoft.Json.JsonConverter(Of T)
+  name.vb: JsonConverter(Of T)
+  spec.csharp:
+  - uid: Newtonsoft.Json.JsonConverter`1
+    name: JsonConverter
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Newtonsoft.Json.JsonConverter`1
+    name: JsonConverter
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Newtonsoft.Json.JsonConverter`1.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
+  commentId: M:Newtonsoft.Json.JsonConverter`1.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: WriteJson(JsonWriter, object, JsonSerializer)
+  nameWithType: JsonConverter<T>.WriteJson(JsonWriter, object, JsonSerializer)
+  fullName: Newtonsoft.Json.JsonConverter<T>.WriteJson(Newtonsoft.Json.JsonWriter, object, Newtonsoft.Json.JsonSerializer)
+  nameWithType.vb: JsonConverter(Of T).WriteJson(JsonWriter, Object, JsonSerializer)
+  fullName.vb: Newtonsoft.Json.JsonConverter(Of T).WriteJson(Newtonsoft.Json.JsonWriter, Object, Newtonsoft.Json.JsonSerializer)
+  name.vb: WriteJson(JsonWriter, Object, JsonSerializer)
+  spec.csharp:
+  - uid: Newtonsoft.Json.JsonConverter`1.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
+    name: WriteJson
+    isExternal: true
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: Newtonsoft.Json.JsonSerializer
+    name: JsonSerializer
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Newtonsoft.Json.JsonConverter`1.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)
+    name: WriteJson
+    isExternal: true
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: Newtonsoft.Json.JsonSerializer
+    name: JsonSerializer
+    isExternal: true
+  - name: )
+- uid: Newtonsoft.Json.JsonConverter`1.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
+  commentId: M:Newtonsoft.Json.JsonConverter`1.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: ReadJson(JsonReader, Type, object, JsonSerializer)
+  nameWithType: JsonConverter<T>.ReadJson(JsonReader, Type, object, JsonSerializer)
+  fullName: Newtonsoft.Json.JsonConverter<T>.ReadJson(Newtonsoft.Json.JsonReader, System.Type, object, Newtonsoft.Json.JsonSerializer)
+  nameWithType.vb: JsonConverter(Of T).ReadJson(JsonReader, Type, Object, JsonSerializer)
+  fullName.vb: Newtonsoft.Json.JsonConverter(Of T).ReadJson(Newtonsoft.Json.JsonReader, System.Type, Object, Newtonsoft.Json.JsonSerializer)
+  name.vb: ReadJson(JsonReader, Type, Object, JsonSerializer)
+  spec.csharp:
+  - uid: Newtonsoft.Json.JsonConverter`1.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
+    name: ReadJson
+    isExternal: true
+  - name: (
+  - uid: Newtonsoft.Json.JsonReader
+    name: JsonReader
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: Newtonsoft.Json.JsonSerializer
+    name: JsonSerializer
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Newtonsoft.Json.JsonConverter`1.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)
+    name: ReadJson
+    isExternal: true
+  - name: (
+  - uid: Newtonsoft.Json.JsonReader
+    name: JsonReader
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: Newtonsoft.Json.JsonSerializer
+    name: JsonSerializer
+    isExternal: true
+  - name: )
+- uid: Newtonsoft.Json.JsonConverter`1.CanConvert(System.Type)
+  commentId: M:Newtonsoft.Json.JsonConverter`1.CanConvert(System.Type)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: CanConvert(Type)
+  nameWithType: JsonConverter<T>.CanConvert(Type)
+  fullName: Newtonsoft.Json.JsonConverter<T>.CanConvert(System.Type)
+  nameWithType.vb: JsonConverter(Of T).CanConvert(Type)
+  fullName.vb: Newtonsoft.Json.JsonConverter(Of T).CanConvert(System.Type)
+  spec.csharp:
+  - uid: Newtonsoft.Json.JsonConverter`1.CanConvert(System.Type)
+    name: CanConvert
+    isExternal: true
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+  spec.vb:
+  - uid: Newtonsoft.Json.JsonConverter`1.CanConvert(System.Type)
+    name: CanConvert
+    isExternal: true
+  - name: (
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: )
+- uid: Newtonsoft.Json.JsonConverter{SadConsole.Renderers.IRenderer}.WriteJson(Newtonsoft.Json.JsonWriter,SadConsole.Renderers.IRenderer,Newtonsoft.Json.JsonSerializer)
+  commentId: M:Newtonsoft.Json.JsonConverter{SadConsole.Renderers.IRenderer}.WriteJson(Newtonsoft.Json.JsonWriter,SadConsole.Renderers.IRenderer,Newtonsoft.Json.JsonSerializer)
+  parent: Newtonsoft.Json.JsonConverter{SadConsole.Renderers.IRenderer}
+  definition: Newtonsoft.Json.JsonConverter`1.WriteJson(Newtonsoft.Json.JsonWriter,`0,Newtonsoft.Json.JsonSerializer)
+  href: SadConsole.Renderers.IRenderer.html
+  name: WriteJson(JsonWriter, IRenderer, JsonSerializer)
+  nameWithType: JsonConverter<IRenderer>.WriteJson(JsonWriter, IRenderer, JsonSerializer)
+  fullName: Newtonsoft.Json.JsonConverter<SadConsole.Renderers.IRenderer>.WriteJson(Newtonsoft.Json.JsonWriter, SadConsole.Renderers.IRenderer, Newtonsoft.Json.JsonSerializer)
+  nameWithType.vb: JsonConverter(Of IRenderer).WriteJson(JsonWriter, IRenderer, JsonSerializer)
+  fullName.vb: Newtonsoft.Json.JsonConverter(Of SadConsole.Renderers.IRenderer).WriteJson(Newtonsoft.Json.JsonWriter, SadConsole.Renderers.IRenderer, Newtonsoft.Json.JsonSerializer)
+  spec.csharp:
+  - uid: Newtonsoft.Json.JsonConverter{SadConsole.Renderers.IRenderer}.WriteJson(Newtonsoft.Json.JsonWriter,SadConsole.Renderers.IRenderer,Newtonsoft.Json.JsonSerializer)
+    name: WriteJson
+    isExternal: true
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Renderers.IRenderer
+    name: IRenderer
+    isExternal: true
+    href: SadConsole.Renderers.IRenderer.html
+  - name: ','
+  - name: " "
+  - uid: Newtonsoft.Json.JsonSerializer
+    name: JsonSerializer
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Newtonsoft.Json.JsonConverter{SadConsole.Renderers.IRenderer}.WriteJson(Newtonsoft.Json.JsonWriter,SadConsole.Renderers.IRenderer,Newtonsoft.Json.JsonSerializer)
+    name: WriteJson
+    isExternal: true
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Renderers.IRenderer
+    name: IRenderer
+    isExternal: true
+    href: SadConsole.Renderers.IRenderer.html
+  - name: ','
+  - name: " "
+  - uid: Newtonsoft.Json.JsonSerializer
+    name: JsonSerializer
+    isExternal: true
+  - name: )
+- uid: SadConsole.SerializedTypes.RendererJsonConverter.WriteJson*
+  commentId: Overload:SadConsole.SerializedTypes.RendererJsonConverter.WriteJson
+  isExternal: true
+  href: SadConsole.SerializedTypes.RendererJsonConverter.html#SadConsole_SerializedTypes_RendererJsonConverter_WriteJson_Newtonsoft_Json_JsonWriter_SadConsole_Renderers_IRenderer_Newtonsoft_Json_JsonSerializer_
+  name: WriteJson
+  nameWithType: RendererJsonConverter.WriteJson
+  fullName: SadConsole.SerializedTypes.RendererJsonConverter.WriteJson
+- uid: Newtonsoft.Json.JsonWriter
+  commentId: T:Newtonsoft.Json.JsonWriter
+  parent: Newtonsoft.Json
+  isExternal: true
+  name: JsonWriter
+  nameWithType: JsonWriter
+  fullName: Newtonsoft.Json.JsonWriter
+- uid: Newtonsoft.Json.JsonSerializer
+  commentId: T:Newtonsoft.Json.JsonSerializer
+  parent: Newtonsoft.Json
+  isExternal: true
+  name: JsonSerializer
+  nameWithType: JsonSerializer
+  fullName: Newtonsoft.Json.JsonSerializer
+- uid: Newtonsoft.Json.JsonConverter`1.WriteJson(Newtonsoft.Json.JsonWriter,`0,Newtonsoft.Json.JsonSerializer)
+  commentId: M:Newtonsoft.Json.JsonConverter`1.WriteJson(Newtonsoft.Json.JsonWriter,`0,Newtonsoft.Json.JsonSerializer)
+  isExternal: true
+  name: WriteJson(JsonWriter, T, JsonSerializer)
+  nameWithType: JsonConverter<T>.WriteJson(JsonWriter, T, JsonSerializer)
+  fullName: Newtonsoft.Json.JsonConverter<T>.WriteJson(Newtonsoft.Json.JsonWriter, T, Newtonsoft.Json.JsonSerializer)
+  nameWithType.vb: JsonConverter(Of T).WriteJson(JsonWriter, T, JsonSerializer)
+  fullName.vb: Newtonsoft.Json.JsonConverter(Of T).WriteJson(Newtonsoft.Json.JsonWriter, T, Newtonsoft.Json.JsonSerializer)
+  spec.csharp:
+  - uid: Newtonsoft.Json.JsonConverter`1.WriteJson(Newtonsoft.Json.JsonWriter,`0,Newtonsoft.Json.JsonSerializer)
+    name: WriteJson
+    isExternal: true
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: Newtonsoft.Json.JsonSerializer
+    name: JsonSerializer
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Newtonsoft.Json.JsonConverter`1.WriteJson(Newtonsoft.Json.JsonWriter,`0,Newtonsoft.Json.JsonSerializer)
+    name: WriteJson
+    isExternal: true
+  - name: (
+  - uid: Newtonsoft.Json.JsonWriter
+    name: JsonWriter
+    isExternal: true
+  - name: ','
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: Newtonsoft.Json.JsonSerializer
+    name: JsonSerializer
+    isExternal: true
+  - name: )
+- uid: Newtonsoft.Json.JsonConverter{SadConsole.Renderers.IRenderer}.ReadJson(Newtonsoft.Json.JsonReader,System.Type,SadConsole.Renderers.IRenderer,System.Boolean,Newtonsoft.Json.JsonSerializer)
+  commentId: M:Newtonsoft.Json.JsonConverter{SadConsole.Renderers.IRenderer}.ReadJson(Newtonsoft.Json.JsonReader,System.Type,SadConsole.Renderers.IRenderer,System.Boolean,Newtonsoft.Json.JsonSerializer)
+  parent: Newtonsoft.Json.JsonConverter{SadConsole.Renderers.IRenderer}
+  definition: Newtonsoft.Json.JsonConverter`1.ReadJson(Newtonsoft.Json.JsonReader,System.Type,`0,System.Boolean,Newtonsoft.Json.JsonSerializer)
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: ReadJson(JsonReader, Type, IRenderer, bool, JsonSerializer)
+  nameWithType: JsonConverter<IRenderer>.ReadJson(JsonReader, Type, IRenderer, bool, JsonSerializer)
+  fullName: Newtonsoft.Json.JsonConverter<SadConsole.Renderers.IRenderer>.ReadJson(Newtonsoft.Json.JsonReader, System.Type, SadConsole.Renderers.IRenderer, bool, Newtonsoft.Json.JsonSerializer)
+  nameWithType.vb: JsonConverter(Of IRenderer).ReadJson(JsonReader, Type, IRenderer, Boolean, JsonSerializer)
+  fullName.vb: Newtonsoft.Json.JsonConverter(Of SadConsole.Renderers.IRenderer).ReadJson(Newtonsoft.Json.JsonReader, System.Type, SadConsole.Renderers.IRenderer, Boolean, Newtonsoft.Json.JsonSerializer)
+  name.vb: ReadJson(JsonReader, Type, IRenderer, Boolean, JsonSerializer)
+  spec.csharp:
+  - uid: Newtonsoft.Json.JsonConverter{SadConsole.Renderers.IRenderer}.ReadJson(Newtonsoft.Json.JsonReader,System.Type,SadConsole.Renderers.IRenderer,System.Boolean,Newtonsoft.Json.JsonSerializer)
+    name: ReadJson
+    isExternal: true
+  - name: (
+  - uid: Newtonsoft.Json.JsonReader
+    name: JsonReader
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Renderers.IRenderer
+    name: IRenderer
+    isExternal: true
+    href: SadConsole.Renderers.IRenderer.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: Newtonsoft.Json.JsonSerializer
+    name: JsonSerializer
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Newtonsoft.Json.JsonConverter{SadConsole.Renderers.IRenderer}.ReadJson(Newtonsoft.Json.JsonReader,System.Type,SadConsole.Renderers.IRenderer,System.Boolean,Newtonsoft.Json.JsonSerializer)
+    name: ReadJson
+    isExternal: true
+  - name: (
+  - uid: Newtonsoft.Json.JsonReader
+    name: JsonReader
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Renderers.IRenderer
+    name: IRenderer
+    isExternal: true
+    href: SadConsole.Renderers.IRenderer.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: Newtonsoft.Json.JsonSerializer
+    name: JsonSerializer
+    isExternal: true
+  - name: )
 - uid: SadConsole.SerializedTypes.RendererJsonConverter.ReadJson*
   commentId: Overload:SadConsole.SerializedTypes.RendererJsonConverter.ReadJson
   isExternal: true
@@ -214,6 +1017,8 @@ references:
   nameWithType: RendererJsonConverter.ReadJson
   fullName: SadConsole.SerializedTypes.RendererJsonConverter.ReadJson
 - uid: Newtonsoft.Json.JsonReader
+  commentId: T:Newtonsoft.Json.JsonReader
+  parent: Newtonsoft.Json
   isExternal: true
   name: JsonReader
   nameWithType: JsonReader
@@ -237,6 +1042,74 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: Newtonsoft.Json.JsonConverter`1.ReadJson(Newtonsoft.Json.JsonReader,System.Type,`0,System.Boolean,Newtonsoft.Json.JsonSerializer)
+  commentId: M:Newtonsoft.Json.JsonConverter`1.ReadJson(Newtonsoft.Json.JsonReader,System.Type,`0,System.Boolean,Newtonsoft.Json.JsonSerializer)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: ReadJson(JsonReader, Type, T, bool, JsonSerializer)
+  nameWithType: JsonConverter<T>.ReadJson(JsonReader, Type, T, bool, JsonSerializer)
+  fullName: Newtonsoft.Json.JsonConverter<T>.ReadJson(Newtonsoft.Json.JsonReader, System.Type, T, bool, Newtonsoft.Json.JsonSerializer)
+  nameWithType.vb: JsonConverter(Of T).ReadJson(JsonReader, Type, T, Boolean, JsonSerializer)
+  fullName.vb: Newtonsoft.Json.JsonConverter(Of T).ReadJson(Newtonsoft.Json.JsonReader, System.Type, T, Boolean, Newtonsoft.Json.JsonSerializer)
+  name.vb: ReadJson(JsonReader, Type, T, Boolean, JsonSerializer)
+  spec.csharp:
+  - uid: Newtonsoft.Json.JsonConverter`1.ReadJson(Newtonsoft.Json.JsonReader,System.Type,`0,System.Boolean,Newtonsoft.Json.JsonSerializer)
+    name: ReadJson
+    isExternal: true
+  - name: (
+  - uid: Newtonsoft.Json.JsonReader
+    name: JsonReader
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: Newtonsoft.Json.JsonSerializer
+    name: JsonSerializer
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: Newtonsoft.Json.JsonConverter`1.ReadJson(Newtonsoft.Json.JsonReader,System.Type,`0,System.Boolean,Newtonsoft.Json.JsonSerializer)
+    name: ReadJson
+    isExternal: true
+  - name: (
+  - uid: Newtonsoft.Json.JsonReader
+    name: JsonReader
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Type
+    name: Type
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.type
+  - name: ','
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: Newtonsoft.Json.JsonSerializer
+    name: JsonSerializer
+    isExternal: true
+  - name: )
 - uid: SadConsole.SerializedTypes.RendererJsonConverter.#ctor*
   commentId: Overload:SadConsole.SerializedTypes.RendererJsonConverter.#ctor
   isExternal: true

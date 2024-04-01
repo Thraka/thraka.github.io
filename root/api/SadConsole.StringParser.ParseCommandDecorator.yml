@@ -22,6 +22,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: Sets the mirror of a glyph.
+  example: []
   syntax:
     content: 'public sealed class ParseCommandDecorator : ParseCommandBase'
     content.vb: Public NotInheritable Class ParseCommandDecorator Inherits ParseCommandBase
@@ -50,13 +52,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: Creates a new instance of this command.
+  example: []
   syntax:
     content: public ParseCommandDecorator(string parameters, bool replace)
     parameters:
     - id: parameters
       type: System.String
+      description: The string to parse for parameters.
     - id: replace
       type: System.Boolean
+      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, replaces the decorators on the glyph, otherwise it adds them.
     content.vb: Public Sub New(parameters As String, replace As Boolean)
   overload: SadConsole.StringParser.ParseCommandDecorator.#ctor*
   nameWithType.vb: ParseCommandDecorator.New(String, Boolean)
@@ -76,24 +82,32 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: Builds a glyph.
   example: []
   syntax:
     content: public override void Build(ref ColoredGlyphAndEffect glyphState, ColoredGlyphAndEffect[] glyphString, int surfaceIndex, ICellSurface? surface, ref int stringIndex, ReadOnlySpan<char> processedString, ParseCommandStacks commandStack)
     parameters:
     - id: glyphState
       type: SadConsole.ColoredGlyphAndEffect
+      description: The current glyph being built.
     - id: glyphString
       type: SadConsole.ColoredGlyphAndEffect[]
+      description: The current string of glyphs that has been processed until now.
     - id: surfaceIndex
       type: System.Int32
+      description: Where on the surface this flyph will appear.
     - id: surface
       type: SadConsole.ICellSurface
+      description: The surface associated with the glyph.
     - id: stringIndex
       type: System.Int32
+      description: Where in the original string this glyph is from.
     - id: processedString
       type: System.ReadOnlySpan{System.Char}
+      description: The entire string being processed.
     - id: commandStack
       type: SadConsole.StringParser.ParseCommandStacks
+      description: The state of commands.
     content.vb: Public Overrides Sub Build(glyphState As ColoredGlyphAndEffect, glyphString As ColoredGlyphAndEffect(), surfaceIndex As Integer, surface As ICellSurface, stringIndex As Integer, processedString As ReadOnlySpan(Of Char), commandStack As ParseCommandStacks)
   overridden: SadConsole.StringParser.ParseCommandBase.Build(SadConsole.ColoredGlyphAndEffect@,SadConsole.ColoredGlyphAndEffect[],System.Int32,SadConsole.ICellSurface,System.Int32@,System.ReadOnlySpan{System.Char},SadConsole.StringParser.ParseCommandStacks)
   overload: SadConsole.StringParser.ParseCommandDecorator.Build*
@@ -114,6 +128,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: The decorator created by the command settings.
+  example: []
   syntax:
     content: public CellDecorator Decorator { get; set; }
     parameters: []
@@ -135,6 +151,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: The glyph of the decorator.
+  example: []
   syntax:
     content: public int Glyph { get; set; }
     parameters: []
@@ -156,6 +174,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: The color of the decorator.
+  example: []
   syntax:
     content: public Color Color { get; set; }
     parameters: []
@@ -177,6 +197,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: The mirror to apply to the decorator.
+  example: []
   syntax:
     content: public Mirror Mirror { get; set; }
     parameters: []
@@ -198,6 +220,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, replaces the decorators on the glyph, otherwise it adds them.
+  example: []
   syntax:
     content: public bool Replace { get; set; }
     parameters: []

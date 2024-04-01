@@ -121,6 +121,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Methods to interact with a <xref href="SadConsole.ICellSurface" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public static class CellSurfaceEditor
     content.vb: Public Module CellSurfaceEditor
@@ -149,13 +151,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Sets each background of a cell to the array of colors. <code class="paramref">pixels</code> must be the same length as the amount of cells in the surface.
+  example: []
   syntax:
     content: public static void SetPixels(this ISurface obj, Color[] pixels)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: pixels
       type: SadRogue.Primitives.Color[]
+      description: The colors to place.
     content.vb: Public Shared Sub SetPixels(obj As ISurface, pixels As Color())
   overload: SadConsole.CellSurfaceEditor.SetPixels*
   nameWithType.vb: CellSurfaceEditor.SetPixels(ISurface, Color())
@@ -176,15 +182,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Sets each background of a cell to the array of colors.
+  example: []
   syntax:
     content: public static void SetPixels(this ISurface obj, Rectangle area, Color[] pixels)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: area
       type: SadRogue.Primitives.Rectangle
+      description: An area to fill with pixels.
     - id: pixels
       type: SadRogue.Primitives.Color[]
+      description: Colors for each cell of the obj.Surface.
     content.vb: Public Shared Sub SetPixels(obj As ISurface, area As Rectangle, pixels As Color())
   overload: SadConsole.CellSurfaceEditor.SetPixels*
   nameWithType.vb: CellSurfaceEditor.SetPixels(ISurface, Rectangle, Color())
@@ -205,17 +216,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Tests if a cell is valid based on its x,y position.
+  example: []
   syntax:
     content: public static bool IsValidCell(this ISurface obj, int x, int y)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: The x coordinate of the cell to test.
     - id: y
       type: System.Int32
+      description: The y coordinate of the cell to test.
     return:
       type: System.Boolean
+      description: A true value indicating the cell by x,y does exist in this cell obj.Surface.
     content.vb: Public Shared Function IsValidCell(obj As ISurface, x As Integer, y As Integer) As Boolean
   overload: SadConsole.CellSurfaceEditor.IsValidCell*
   nameWithType.vb: CellSurfaceEditor.IsValidCell(ISurface, Integer, Integer)
@@ -236,19 +253,26 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Tests if a cell is valid based on its x,y position.
+  example: []
   syntax:
     content: public static bool IsValidCell(this ISurface obj, int x, int y, out int index)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: The x coordinate of the cell to test.
     - id: y
       type: System.Int32
+      description: The y coordinate of the cell to test.
     - id: index
       type: System.Int32
+      description: If the cell is valid, the index of the cell when found.
     return:
       type: System.Boolean
+      description: A true value indicating the cell by x,y does exist in this cell obj.Surface.
     content.vb: Public Shared Function IsValidCell(obj As ISurface, x As Integer, y As Integer, index As Integer) As Boolean
   overload: SadConsole.CellSurfaceEditor.IsValidCell*
   nameWithType.vb: CellSurfaceEditor.IsValidCell(ISurface, Integer, Integer, Integer)
@@ -269,15 +293,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Tests if a cell is valid based on its index.
+  example: []
   syntax:
     content: public static bool IsValidCell(this ISurface obj, int index)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: index
       type: System.Int32
+      description: The index to test.
     return:
       type: System.Boolean
+      description: A true value indicating the cell index is in this cell obj.Surface.
     content.vb: Public Shared Function IsValidCell(obj As ISurface, index As Integer) As Boolean
   overload: SadConsole.CellSurfaceEditor.IsValidCell*
   nameWithType.vb: CellSurfaceEditor.IsValidCell(ISurface, Integer)
@@ -298,17 +327,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Changes the glyph of a specified cell to a new value.
+  example: []
   syntax:
     content: public static void SetGlyph(this ISurface obj, int x, int y, int glyph)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: The x location of the cell.
     - id: y
       type: System.Int32
+      description: The y location of the cell.
     - id: glyph
       type: System.Int32
+      description: The desired glyph of the cell.
     content.vb: Public Shared Sub SetGlyph(obj As ISurface, x As Integer, y As Integer, glyph As Integer)
   overload: SadConsole.CellSurfaceEditor.SetGlyph*
   nameWithType.vb: CellSurfaceEditor.SetGlyph(ISurface, Integer, Integer, Integer)
@@ -329,19 +364,26 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Changes the glyph and foreground of a cell.
+  example: []
   syntax:
     content: public static void SetGlyph(this ISurface obj, int x, int y, int glyph, Color foreground)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: The x location of the cell.
     - id: y
       type: System.Int32
+      description: The y location of the cell.
     - id: glyph
       type: System.Int32
+      description: The desired glyph.
     - id: foreground
       type: SadRogue.Primitives.Color
+      description: The desired foreground.
     content.vb: Public Shared Sub SetGlyph(obj As ISurface, x As Integer, y As Integer, glyph As Integer, foreground As Color)
   overload: SadConsole.CellSurfaceEditor.SetGlyph*
   nameWithType.vb: CellSurfaceEditor.SetGlyph(ISurface, Integer, Integer, Integer, Color)
@@ -362,21 +404,29 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Changes the glyph, foreground, and background of a cell.
+  example: []
   syntax:
     content: public static void SetGlyph(this ISurface obj, int x, int y, int glyph, Color foreground, Color background)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: The x location of the cell.
     - id: y
       type: System.Int32
+      description: The y location of the cell.
     - id: glyph
       type: System.Int32
+      description: The desired glyph.
     - id: foreground
       type: SadRogue.Primitives.Color
+      description: The desired foreground.
     - id: background
       type: SadRogue.Primitives.Color
+      description: The desired background.
     content.vb: Public Shared Sub SetGlyph(obj As ISurface, x As Integer, y As Integer, glyph As Integer, foreground As Color, background As Color)
   overload: SadConsole.CellSurfaceEditor.SetGlyph*
   nameWithType.vb: CellSurfaceEditor.SetGlyph(ISurface, Integer, Integer, Integer, Color, Color)
@@ -397,23 +447,32 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Changes the glyph, foreground, background, and mirror of a cell.
+  example: []
   syntax:
     content: public static void SetGlyph(this ISurface obj, int x, int y, int glyph, Color foreground, Color background, Mirror mirror)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: The x location of the cell.
     - id: y
       type: System.Int32
+      description: The y location of the cell.
     - id: glyph
       type: System.Int32
+      description: The desired glyph.
     - id: foreground
       type: SadRogue.Primitives.Color
+      description: The desired foreground.
     - id: background
       type: SadRogue.Primitives.Color
+      description: The desired background.
     - id: mirror
       type: SadConsole.Mirror
+      description: Sets how the glyph will be mirrored.
     content.vb: Public Shared Sub SetGlyph(obj As ISurface, x As Integer, y As Integer, glyph As Integer, foreground As Color, background As Color, mirror As Mirror)
   overload: SadConsole.CellSurfaceEditor.SetGlyph*
   nameWithType.vb: CellSurfaceEditor.SetGlyph(ISurface, Integer, Integer, Integer, Color, Color, Mirror)
@@ -434,25 +493,35 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Changes the glyph, foreground, background, and mirror of a cell.
+  example: []
   syntax:
     content: public static void SetGlyph(this ISurface obj, int x, int y, int glyph, Color foreground, Color background, Mirror mirror, IEnumerable<CellDecorator> decorators)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: The x location of the cell.
     - id: y
       type: System.Int32
+      description: The y location of the cell.
     - id: glyph
       type: System.Int32
+      description: The desired glyph.
     - id: foreground
       type: SadRogue.Primitives.Color
+      description: The desired foreground.
     - id: background
       type: SadRogue.Primitives.Color
+      description: The desired background.
     - id: mirror
       type: SadConsole.Mirror
+      description: Sets how the glyph will be mirrored.
     - id: decorators
       type: System.Collections.Generic.IEnumerable{SadConsole.CellDecorator}
+      description: Decorators to set on the cell. Will clear existing decorators first.
     content.vb: Public Shared Sub SetGlyph(obj As ISurface, x As Integer, y As Integer, glyph As Integer, foreground As Color, background As Color, mirror As Mirror, decorators As IEnumerable(Of CellDecorator))
   overload: SadConsole.CellSurfaceEditor.SetGlyph*
   nameWithType.vb: CellSurfaceEditor.SetGlyph(ISurface, Integer, Integer, Integer, Color, Color, Mirror, IEnumerable(Of CellDecorator))
@@ -473,17 +542,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Gets the glyph of a specified cell.
+  example: []
   syntax:
     content: public static int GetGlyph(this ISurface obj, int x, int y)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: The x location of the cell.
     - id: y
       type: System.Int32
+      description: The y location of the cell.
     return:
       type: System.Int32
+      description: The glyph index.
     content.vb: Public Shared Function GetGlyph(obj As ISurface, x As Integer, y As Integer) As Integer
   overload: SadConsole.CellSurfaceEditor.GetGlyph*
   nameWithType.vb: CellSurfaceEditor.GetGlyph(ISurface, Integer, Integer)
@@ -504,17 +579,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Changes the foreground of a specified cell to a new color.
+  example: []
   syntax:
     content: public static void SetForeground(this ISurface obj, int x, int y, Color color)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: The x location of the cell.
     - id: y
       type: System.Int32
+      description: The y location of the cell.
     - id: color
       type: SadRogue.Primitives.Color
+      description: The desired color of the cell.
     content.vb: Public Shared Sub SetForeground(obj As ISurface, x As Integer, y As Integer, color As Color)
   overload: SadConsole.CellSurfaceEditor.SetForeground*
   nameWithType.vb: CellSurfaceEditor.SetForeground(ISurface, Integer, Integer, Color)
@@ -535,17 +616,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Gets the foreground of a specified cell.
+  example: []
   syntax:
     content: public static Color GetForeground(this ISurface obj, int x, int y)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: The x location of the cell.
     - id: y
       type: System.Int32
+      description: The y location of the cell.
     return:
       type: SadRogue.Primitives.Color
+      description: The color.
     content.vb: Public Shared Function GetForeground(obj As ISurface, x As Integer, y As Integer) As Color
   overload: SadConsole.CellSurfaceEditor.GetForeground*
   nameWithType.vb: CellSurfaceEditor.GetForeground(ISurface, Integer, Integer)
@@ -566,17 +653,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Changes the background of a cell to the specified color.
+  example: []
   syntax:
     content: public static void SetBackground(this ISurface obj, int x, int y, Color color)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: The x location of the cell.
     - id: y
       type: System.Int32
+      description: The y location of the cell.
     - id: color
       type: SadRogue.Primitives.Color
+      description: The desired color of the cell.
     content.vb: Public Shared Sub SetBackground(obj As ISurface, x As Integer, y As Integer, color As Color)
   overload: SadConsole.CellSurfaceEditor.SetBackground*
   nameWithType.vb: CellSurfaceEditor.SetBackground(ISurface, Integer, Integer, Color)
@@ -597,17 +690,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Gets the background of a specified cell.
+  example: []
   syntax:
     content: public static Color GetBackground(this ISurface obj, int x, int y)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: The x location of the cell.
     - id: y
       type: System.Int32
+      description: The y location of the cell.
     return:
       type: SadRogue.Primitives.Color
+      description: The color.
     content.vb: Public Shared Function GetBackground(obj As ISurface, x As Integer, y As Integer) As Color
   overload: SadConsole.CellSurfaceEditor.GetBackground*
   nameWithType.vb: CellSurfaceEditor.GetBackground(ISurface, Integer, Integer)
@@ -628,17 +727,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Changes the effect of a cell to the specified effect.
+  example: []
   syntax:
     content: public static void SetEffect(this ISurface obj, int x, int y, ICellEffect? effect)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: The x location of the cell.
     - id: y
       type: System.Int32
+      description: The y location of the cell.
     - id: effect
       type: SadConsole.Effects.ICellEffect
+      description: The desired effect.
     content.vb: Public Shared Sub SetEffect(obj As ISurface, x As Integer, y As Integer, effect As ICellEffect)
   overload: SadConsole.CellSurfaceEditor.SetEffect*
   nameWithType.vb: CellSurfaceEditor.SetEffect(ISurface, Integer, Integer, ICellEffect)
@@ -659,15 +764,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Changes the effect of a cell to the specified effect.
+  example: []
   syntax:
     content: public static void SetEffect(this ISurface obj, int index, ICellEffect? effect)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: index
       type: System.Int32
+      description: Index of the cell.
     - id: effect
       type: SadConsole.Effects.ICellEffect
+      description: The desired effect.
     content.vb: Public Shared Sub SetEffect(obj As ISurface, index As Integer, effect As ICellEffect)
   overload: SadConsole.CellSurfaceEditor.SetEffect*
   nameWithType.vb: CellSurfaceEditor.SetEffect(ISurface, Integer, ICellEffect)
@@ -688,15 +798,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Changes the effect of a list of cells to the specified effect.
+  example: []
   syntax:
     content: public static void SetEffect(this ISurface obj, IEnumerable<Point> cells, ICellEffect? effect)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: cells
       type: System.Collections.Generic.IEnumerable{SadRogue.Primitives.Point}
+      description: The cells for the effect.
     - id: effect
       type: SadConsole.Effects.ICellEffect
+      description: The desired effect.
     content.vb: Public Shared Sub SetEffect(obj As ISurface, cells As IEnumerable(Of Point), effect As ICellEffect)
   overload: SadConsole.CellSurfaceEditor.SetEffect*
   nameWithType.vb: CellSurfaceEditor.SetEffect(ISurface, IEnumerable(Of Point), ICellEffect)
@@ -717,15 +832,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Changes the effect of a list of cells to the specified effect.
+  example: []
   syntax:
     content: public static void SetEffect(this ISurface obj, IEnumerable<int> cells, ICellEffect? effect)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: cells
       type: System.Collections.Generic.IEnumerable{System.Int32}
+      description: The cells for the effect.
     - id: effect
       type: SadConsole.Effects.ICellEffect
+      description: The desired effect.
     content.vb: Public Shared Sub SetEffect(obj As ISurface, cells As IEnumerable(Of Integer), effect As ICellEffect)
   overload: SadConsole.CellSurfaceEditor.SetEffect*
   nameWithType.vb: CellSurfaceEditor.SetEffect(ISurface, IEnumerable(Of Integer), ICellEffect)
@@ -746,15 +866,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Changes the effect of a cell to the specified effect.
+  example: []
   syntax:
     content: public static void SetEffect(this ISurface obj, ColoredGlyphBase cell, ICellEffect? effect)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: cell
       type: SadConsole.ColoredGlyphBase
+      description: The cells for the effect.
     - id: effect
       type: SadConsole.Effects.ICellEffect
+      description: The desired effect.
     content.vb: Public Shared Sub SetEffect(obj As ISurface, cell As ColoredGlyphBase, effect As ICellEffect)
   overload: SadConsole.CellSurfaceEditor.SetEffect*
   nameWithType.vb: CellSurfaceEditor.SetEffect(ISurface, ColoredGlyphBase, ICellEffect)
@@ -775,15 +900,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Changes the effect of a cell to the specified effect.
+  example: []
   syntax:
     content: public static void SetEffect(this ISurface obj, IEnumerable<ColoredGlyphBase> cells, ICellEffect? effect)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: cells
       type: System.Collections.Generic.IEnumerable{SadConsole.ColoredGlyphBase}
+      description: The cells for the effect.
     - id: effect
       type: SadConsole.Effects.ICellEffect
+      description: The desired effect.
     content.vb: Public Shared Sub SetEffect(obj As ISurface, cells As IEnumerable(Of ColoredGlyphBase), effect As ICellEffect)
   overload: SadConsole.CellSurfaceEditor.SetEffect*
   nameWithType.vb: CellSurfaceEditor.SetEffect(ISurface, IEnumerable(Of ColoredGlyphBase), ICellEffect)
@@ -804,17 +934,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Gets the effect of the specified cell.
+  example: []
   syntax:
     content: public static ICellEffect? GetEffect(this ISurface obj, int x, int y)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: The x location of the cell.
     - id: y
       type: System.Int32
+      description: The y location of the cell.
     return:
       type: SadConsole.Effects.ICellEffect
+      description: The effect.
     content.vb: Public Shared Function GetEffect(obj As ISurface, x As Integer, y As Integer) As ICellEffect
   overload: SadConsole.CellSurfaceEditor.GetEffect*
   nameWithType.vb: CellSurfaceEditor.GetEffect(ISurface, Integer, Integer)
@@ -835,15 +971,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Gets the effect of the specified cell.
+  example: []
   syntax:
     content: public static ICellEffect? GetEffect(this ISurface obj, int index)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: index
       type: System.Int32
+      description: The index of the cell.
     return:
       type: SadConsole.Effects.ICellEffect
+      description: The effect.
     content.vb: Public Shared Function GetEffect(obj As ISurface, index As Integer) As ICellEffect
   overload: SadConsole.CellSurfaceEditor.GetEffect*
   nameWithType.vb: CellSurfaceEditor.GetEffect(ISurface, Integer)
@@ -864,17 +1005,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Changes the appearance of the cell. The appearance represents the look of a cell and will first be cloned, then applied to the cell.
+  example: []
   syntax:
     content: public static void SetCellAppearance(this ISurface obj, int x, int y, ColoredGlyphBase appearance)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: The x location of the cell.
     - id: y
       type: System.Int32
+      description: The y location of the cell.
     - id: appearance
       type: SadConsole.ColoredGlyphBase
+      description: The desired appearance of the cell. A null value cannot be passed.
     content.vb: Public Shared Sub SetCellAppearance(obj As ISurface, x As Integer, y As Integer, appearance As ColoredGlyphBase)
   overload: SadConsole.CellSurfaceEditor.SetCellAppearance*
   nameWithType.vb: CellSurfaceEditor.SetCellAppearance(ISurface, Integer, Integer, ColoredGlyphBase)
@@ -895,17 +1042,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Gets the appearance of a cell.
+  example: []
   syntax:
     content: public static ColoredGlyphBase GetCellAppearance(this ISurface obj, int x, int y)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: The x location of the cell.
     - id: y
       type: System.Int32
+      description: The y location of the cell.
     return:
       type: SadConsole.ColoredGlyphBase
+      description: The appearance.
     content.vb: Public Shared Function GetCellAppearance(obj As ISurface, x As Integer, y As Integer) As ColoredGlyphBase
   overload: SadConsole.CellSurfaceEditor.GetCellAppearance*
   nameWithType.vb: CellSurfaceEditor.GetCellAppearance(ISurface, Integer, Integer)
@@ -926,15 +1079,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Gets an enumerable of cells over a specific area.
+  example: []
   syntax:
     content: public static IEnumerable<ColoredGlyphBase> GetCells(this ISurface obj, Rectangle area)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: area
       type: SadRogue.Primitives.Rectangle
+      description: The area to get cells from.
     return:
       type: System.Collections.Generic.IEnumerable{SadConsole.ColoredGlyphBase}
+      description: A new array with references to each cell in the area.
     content.vb: Public Shared Function GetCells(obj As ISurface, area As Rectangle) As IEnumerable(Of ColoredGlyphBase)
   overload: SadConsole.CellSurfaceEditor.GetCells*
 - uid: SadConsole.CellSurfaceEditor.GetSubSurface(SadConsole.ISurface,SadRogue.Primitives.Rectangle)
@@ -952,15 +1110,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Returns a new surface with reference to each cell inside of the <code class="paramref">view</code>.
+  example: []
   syntax:
     content: public static ICellSurface GetSubSurface(this ISurface obj, Rectangle view)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: view
       type: SadRogue.Primitives.Rectangle
+      description: An area of the surface to create a view of.
     return:
       type: SadConsole.ICellSurface
+      description: A new surface
     content.vb: Public Shared Function GetSubSurface(obj As ISurface, view As Rectangle) As ICellSurface
   overload: SadConsole.CellSurfaceEditor.GetSubSurface*
 - uid: SadConsole.CellSurfaceEditor.GetSubSurface(SadConsole.ISurface)
@@ -978,13 +1141,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Returns a new surface using the cells from the current surface.
+  example: []
   syntax:
     content: public static ICellSurface GetSubSurface(this ISurface obj)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface.
     return:
       type: SadConsole.ICellSurface
+      description: A new surface instance.
     content.vb: Public Shared Function GetSubSurface(obj As ISurface) As ICellSurface
   overload: SadConsole.CellSurfaceEditor.GetSubSurface*
 - uid: SadConsole.CellSurfaceEditor.GetMirror(SadConsole.ISurface,System.Int32,System.Int32)
@@ -1002,17 +1169,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Gets the mirror of a specified cell.
+  example: []
   syntax:
     content: public static Mirror GetMirror(this ISurface obj, int x, int y)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: The x location of the cell.
     - id: y
       type: System.Int32
+      description: The y location of the cell.
     return:
       type: SadConsole.Mirror
+      description: The <xref href="SadConsole.Mirror" data-throw-if-not-resolved="false"></xref> of the cell.
     content.vb: Public Shared Function GetMirror(obj As ISurface, x As Integer, y As Integer) As Mirror
   overload: SadConsole.CellSurfaceEditor.GetMirror*
   nameWithType.vb: CellSurfaceEditor.GetMirror(ISurface, Integer, Integer)
@@ -1033,17 +1206,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Sets the mirror of a specified cell.
+  example: []
   syntax:
     content: public static void SetMirror(this ISurface obj, int x, int y, Mirror mirror)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: The x location of the cell.
     - id: y
       type: System.Int32
+      description: The y location of the cell.
     - id: mirror
       type: SadConsole.Mirror
+      description: The mirror of the cell.
     content.vb: Public Shared Sub SetMirror(obj As ISurface, x As Integer, y As Integer, mirror As Mirror)
   overload: SadConsole.CellSurfaceEditor.SetMirror*
   nameWithType.vb: CellSurfaceEditor.SetMirror(ISurface, Integer, Integer, Mirror)
@@ -1064,19 +1243,26 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Sets the decorator of one or more cells.
+  example: []
   syntax:
     content: public static void SetDecorator(this ISurface obj, int x, int y, int count, params CellDecorator[]? decorators)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: The x coordinate of the cell.
     - id: y
       type: System.Int32
+      description: The y coordinate of the cell.
     - id: count
       type: System.Int32
+      description: The count of cells to use from the x,y coordinate (inclusive).
     - id: decorators
       type: SadConsole.CellDecorator[]
+      description: The decorators. Use <pre><code class="lang-csharp">null</code></pre> to clear.
     content.vb: Public Shared Sub SetDecorator(obj As ISurface, x As Integer, y As Integer, count As Integer, ParamArray decorators As CellDecorator())
   overload: SadConsole.CellSurfaceEditor.SetDecorator*
   nameWithType.vb: CellSurfaceEditor.SetDecorator(ISurface, Integer, Integer, Integer, ParamArray CellDecorator())
@@ -1097,15 +1283,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Sets the decorators of a cell.
+  example: []
   syntax:
     content: public static void SetDecorator(this ISurface obj, Point position, params CellDecorator[]? decorators)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: position
       type: SadRogue.Primitives.Point
+      description: The coordinate of the cell.
     - id: decorators
       type: SadConsole.CellDecorator[]
+      description: The decorators. Use <pre><code class="lang-csharp">null</code></pre> to clear.
     content.vb: Public Shared Sub SetDecorator(obj As ISurface, position As Point, ParamArray decorators As CellDecorator())
   overload: SadConsole.CellSurfaceEditor.SetDecorator*
   nameWithType.vb: CellSurfaceEditor.SetDecorator(ISurface, Point, ParamArray CellDecorator())
@@ -1126,17 +1317,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Sets the decorator of one or more cells.
+  example: []
   syntax:
     content: public static void SetDecorator(this ISurface obj, int index, int count, params CellDecorator[]? decorators)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: index
       type: System.Int32
+      description: The index of the cell to start applying.
     - id: count
       type: System.Int32
+      description: The count of cells to use from the index (inclusive).
     - id: decorators
       type: SadConsole.CellDecorator[]
+      description: The decorators. Use <pre><code class="lang-csharp">null</code></pre> to clear.
     content.vb: Public Shared Sub SetDecorator(obj As ISurface, index As Integer, count As Integer, ParamArray decorators As CellDecorator())
   overload: SadConsole.CellSurfaceEditor.SetDecorator*
   nameWithType.vb: CellSurfaceEditor.SetDecorator(ISurface, Integer, Integer, ParamArray CellDecorator())
@@ -1157,15 +1354,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Sets the decorators of a single cell.
+  example: []
   syntax:
     content: public static void SetDecorator(this ISurface obj, int index, params CellDecorator[]? decorators)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: index
       type: System.Int32
+      description: The index of the cell to start applying.
     - id: decorators
       type: SadConsole.CellDecorator[]
+      description: The decorators. Use <pre><code class="lang-csharp">null</code></pre> to clear.
     content.vb: Public Shared Sub SetDecorator(obj As ISurface, index As Integer, ParamArray decorators As CellDecorator())
   overload: SadConsole.CellSurfaceEditor.SetDecorator*
   nameWithType.vb: CellSurfaceEditor.SetDecorator(ISurface, Integer, ParamArray CellDecorator())
@@ -1186,19 +1388,26 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Appends the decorators to one or more cells
+  example: []
   syntax:
     content: public static void AddDecorator(this ISurface obj, int x, int y, int count, params CellDecorator[] decorators)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: The x coordinate of the cell.
     - id: y
       type: System.Int32
+      description: The y coordinate of the cell.
     - id: count
       type: System.Int32
+      description: The count of cells to use from the x,y coordinate (inclusive).
     - id: decorators
       type: SadConsole.CellDecorator[]
+      description: The decorators.
     content.vb: Public Shared Sub AddDecorator(obj As ISurface, x As Integer, y As Integer, count As Integer, ParamArray decorators As CellDecorator())
   overload: SadConsole.CellSurfaceEditor.AddDecorator*
   nameWithType.vb: CellSurfaceEditor.AddDecorator(ISurface, Integer, Integer, Integer, ParamArray CellDecorator())
@@ -1219,15 +1428,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Appends the decorators to one or more cells
+  example: []
   syntax:
     content: public static void AddDecorator(this ISurface obj, Point position, params CellDecorator[] decorators)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: position
       type: SadRogue.Primitives.Point
+      description: The x,y coordinate of the cell.
     - id: decorators
       type: SadConsole.CellDecorator[]
+      description: The decorators.
     content.vb: Public Shared Sub AddDecorator(obj As ISurface, position As Point, ParamArray decorators As CellDecorator())
   overload: SadConsole.CellSurfaceEditor.AddDecorator*
   nameWithType.vb: CellSurfaceEditor.AddDecorator(ISurface, Point, ParamArray CellDecorator())
@@ -1248,17 +1462,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Appends the decorators to one or more cells
+  example: []
   syntax:
     content: public static void AddDecorator(this ISurface obj, int index, int count, params CellDecorator[] decorators)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: index
       type: System.Int32
+      description: The index of the cell to start applying.
     - id: count
       type: System.Int32
+      description: The count of cells to use from the index (inclusive).
     - id: decorators
       type: SadConsole.CellDecorator[]
+      description: The decorators.
     content.vb: Public Shared Sub AddDecorator(obj As ISurface, index As Integer, count As Integer, ParamArray decorators As CellDecorator())
   overload: SadConsole.CellSurfaceEditor.AddDecorator*
   nameWithType.vb: CellSurfaceEditor.AddDecorator(ISurface, Integer, Integer, ParamArray CellDecorator())
@@ -1279,15 +1499,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Appends the decorators to one or more cells
+  example: []
   syntax:
     content: public static void AddDecorator(this ISurface obj, int index, params CellDecorator[]? decorators)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: index
       type: System.Int32
+      description: The index of the cell to start applying.
     - id: decorators
       type: SadConsole.CellDecorator[]
+      description: The decorators.
     content.vb: Public Shared Sub AddDecorator(obj As ISurface, index As Integer, ParamArray decorators As CellDecorator())
   overload: SadConsole.CellSurfaceEditor.AddDecorator*
   nameWithType.vb: CellSurfaceEditor.AddDecorator(ISurface, Integer, ParamArray CellDecorator())
@@ -1308,19 +1533,26 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Removes the decorators from one or more cells.
+  example: []
   syntax:
     content: public static void RemoveDecorator(this ISurface obj, int x, int y, int count, params CellDecorator[] decorators)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: The x coordinate of the cell.
     - id: y
       type: System.Int32
+      description: The y coordinate of the cell.
     - id: count
       type: System.Int32
+      description: The count of cells to use from the x,y coordinate (inclusive).
     - id: decorators
       type: SadConsole.CellDecorator[]
+      description: The decorators.
     content.vb: Public Shared Sub RemoveDecorator(obj As ISurface, x As Integer, y As Integer, count As Integer, ParamArray decorators As CellDecorator())
   overload: SadConsole.CellSurfaceEditor.RemoveDecorator*
   nameWithType.vb: CellSurfaceEditor.RemoveDecorator(ISurface, Integer, Integer, Integer, ParamArray CellDecorator())
@@ -1341,15 +1573,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Removes the decorators from a cell.
+  example: []
   syntax:
     content: public static void RemoveDecorator(this ISurface obj, Point position, params CellDecorator[] decorators)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: position
       type: SadRogue.Primitives.Point
+      description: The x,y coordinate of the cell.
     - id: decorators
       type: SadConsole.CellDecorator[]
+      description: The decorators.
     content.vb: Public Shared Sub RemoveDecorator(obj As ISurface, position As Point, ParamArray decorators As CellDecorator())
   overload: SadConsole.CellSurfaceEditor.RemoveDecorator*
   nameWithType.vb: CellSurfaceEditor.RemoveDecorator(ISurface, Point, ParamArray CellDecorator())
@@ -1370,17 +1607,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Removes the decorators from one or more cells.
+  example: []
   syntax:
     content: public static void RemoveDecorator(this ISurface obj, int index, int count, params CellDecorator[] decorators)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: index
       type: System.Int32
+      description: The index of the cell to start applying.
     - id: count
       type: System.Int32
+      description: The count of cells to use from the index (inclusive).
     - id: decorators
       type: SadConsole.CellDecorator[]
+      description: The decorators.
     content.vb: Public Shared Sub RemoveDecorator(obj As ISurface, index As Integer, count As Integer, ParamArray decorators As CellDecorator())
   overload: SadConsole.CellSurfaceEditor.RemoveDecorator*
   nameWithType.vb: CellSurfaceEditor.RemoveDecorator(ISurface, Integer, Integer, ParamArray CellDecorator())
@@ -1401,15 +1644,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Removes the decorators from a cell.
+  example: []
   syntax:
     content: public static void RemoveDecorator(this ISurface obj, int index, params CellDecorator[] decorators)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: index
       type: System.Int32
+      description: The index of the cell to start applying.
     - id: decorators
       type: SadConsole.CellDecorator[]
+      description: The decorators.
     content.vb: Public Shared Sub RemoveDecorator(obj As ISurface, index As Integer, ParamArray decorators As CellDecorator())
   overload: SadConsole.CellSurfaceEditor.RemoveDecorator*
   nameWithType.vb: CellSurfaceEditor.RemoveDecorator(ISurface, Integer, ParamArray CellDecorator())
@@ -1430,17 +1678,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Clears the decorators of the specified cells.
+  example: []
   syntax:
     content: public static void ClearDecorators(this ISurface obj, int x, int y, int count)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: The x coordinate of the cell.
     - id: y
       type: System.Int32
+      description: The y coordinate of the cell.
     - id: count
       type: System.Int32
+      description: The count of cells to use from the x,y coordinate (inclusive).
     content.vb: Public Shared Sub ClearDecorators(obj As ISurface, x As Integer, y As Integer, count As Integer)
   overload: SadConsole.CellSurfaceEditor.ClearDecorators*
   nameWithType.vb: CellSurfaceEditor.ClearDecorators(ISurface, Integer, Integer, Integer)
@@ -1461,15 +1715,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Clears the decorators of the specified cells
+  example: []
   syntax:
     content: public static void ClearDecorators(this ISurface obj, int index, int count)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: index
       type: System.Int32
+      description: The index of the cell to start applying.
     - id: count
       type: System.Int32
+      description: The count of cells to use from the index (inclusive).
     content.vb: Public Shared Sub ClearDecorators(obj As ISurface, index As Integer, count As Integer)
   overload: SadConsole.CellSurfaceEditor.ClearDecorators*
   nameWithType.vb: CellSurfaceEditor.ClearDecorators(ISurface, Integer, Integer)
@@ -1490,17 +1749,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Draws the string on the console at the specified location, wrapping if needed.
+  example: []
   syntax:
     content: public static void Print(this ISurface obj, int x, int y, string text)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: X location of the text.
     - id: y
       type: System.Int32
+      description: Y location of the text.
     - id: text
       type: System.String
+      description: The string to display.
     content.vb: Public Shared Sub Print(obj As ISurface, x As Integer, y As Integer, text As String)
   overload: SadConsole.CellSurfaceEditor.Print*
   nameWithType.vb: CellSurfaceEditor.Print(ISurface, Integer, Integer, String)
@@ -1521,19 +1786,26 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Draws the string on the console at the specified location and color, wrapping if needed.
+  example: []
   syntax:
     content: public static void Print(this ISurface obj, int x, int y, string text, Color foreground)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: X location of the text.
     - id: y
       type: System.Int32
+      description: Y location of the text.
     - id: text
       type: System.String
+      description: The string to display.
     - id: foreground
       type: SadRogue.Primitives.Color
+      description: Sets the foreground of all characters in the text.
     content.vb: Public Shared Sub Print(obj As ISurface, x As Integer, y As Integer, text As String, foreground As Color)
   overload: SadConsole.CellSurfaceEditor.Print*
   nameWithType.vb: CellSurfaceEditor.Print(ISurface, Integer, Integer, String, Color)
@@ -1554,21 +1826,29 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Draws the string on the console at the specified location with the specified foreground and background color, wrapping if needed.
+  example: []
   syntax:
     content: public static void Print(this ISurface obj, int x, int y, string text, Color foreground, Color background)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: X location of the text.
     - id: y
       type: System.Int32
+      description: Y location of the text.
     - id: text
       type: System.String
+      description: The string to display.
     - id: foreground
       type: SadRogue.Primitives.Color
+      description: Sets the foreground of all characters in the text.
     - id: background
       type: SadRogue.Primitives.Color
+      description: Sets the background of all characters in the text.
     content.vb: Public Shared Sub Print(obj As ISurface, x As Integer, y As Integer, text As String, foreground As Color, background As Color)
   overload: SadConsole.CellSurfaceEditor.Print*
   nameWithType.vb: CellSurfaceEditor.Print(ISurface, Integer, Integer, String, Color, Color)
@@ -1589,23 +1869,32 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Draws the string on the console at the specified location with the specified settings.
+  example: []
   syntax:
     content: public static void Print(this ISurface obj, int x, int y, string text, Color foreground, Color background, Mirror mirror)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: X location of the text.
     - id: y
       type: System.Int32
+      description: Y location of the text.
     - id: text
       type: System.String
+      description: The string to display.
     - id: foreground
       type: SadRogue.Primitives.Color
+      description: Sets the foreground of all characters in the text.
     - id: background
       type: SadRogue.Primitives.Color
+      description: Sets the background of all characters in the text.
     - id: mirror
       type: SadConsole.Mirror
+      description: The mirror to set on all characters in the text.
     content.vb: Public Shared Sub Print(obj As ISurface, x As Integer, y As Integer, text As String, foreground As Color, background As Color, mirror As Mirror)
   overload: SadConsole.CellSurfaceEditor.Print*
   nameWithType.vb: CellSurfaceEditor.Print(ISurface, Integer, Integer, String, Color, Color, Mirror)
@@ -1626,25 +1915,35 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Draws the string on the console at the specified location with the specified settings.
+  example: []
   syntax:
     content: public static void Print(this ISurface obj, int x, int y, string text, Color foreground, Color background, Mirror mirror, CellDecorator[] decorators)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: X location of the text.
     - id: y
       type: System.Int32
+      description: Y location of the text.
     - id: text
       type: System.String
+      description: The string to display.
     - id: foreground
       type: SadRogue.Primitives.Color
+      description: Sets the foreground of all characters in the text.
     - id: background
       type: SadRogue.Primitives.Color
+      description: Sets the background of all characters in the text.
     - id: mirror
       type: SadConsole.Mirror
+      description: The mirror to set on all characters in the text.
     - id: decorators
       type: SadConsole.CellDecorator[]
+      description: An array of cell decorators to use on each glyph. A <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> value will clear the decorators.
     content.vb: Public Shared Sub Print(obj As ISurface, x As Integer, y As Integer, text As String, foreground As Color, background As Color, mirror As Mirror, decorators As CellDecorator())
   overload: SadConsole.CellSurfaceEditor.Print*
   nameWithType.vb: CellSurfaceEditor.Print(ISurface, Integer, Integer, String, Color, Color, Mirror, CellDecorator())
@@ -1665,19 +1964,26 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Draws the string on the console at the specified location with the specified settings.
+  example: []
   syntax:
     content: public static void Print(this ISurface obj, int x, int y, string text, Mirror mirror)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: X location of the text.
     - id: y
       type: System.Int32
+      description: Y location of the text.
     - id: text
       type: System.String
+      description: The string to display.
     - id: mirror
       type: SadConsole.Mirror
+      description: The mirror to set on all characters in the text.
     content.vb: Public Shared Sub Print(obj As ISurface, x As Integer, y As Integer, text As String, mirror As Mirror)
   overload: SadConsole.CellSurfaceEditor.Print*
   nameWithType.vb: CellSurfaceEditor.Print(ISurface, Integer, Integer, String, Mirror)
@@ -1698,21 +2004,29 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Draws the string on the console at the specified location, wrapping if needed.
+  example: []
   syntax:
     content: public static void Print(this ISurface obj, int x, int y, string text, ColoredGlyphBase appearance, ICellEffect? effect = null)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: X location of the text.
     - id: y
       type: System.Int32
+      description: Y location of the text.
     - id: text
       type: System.String
+      description: The string to display.
     - id: appearance
       type: SadConsole.ColoredGlyphBase
+      description: The appearance of the cell
     - id: effect
       type: SadConsole.Effects.ICellEffect
+      description: An optional effect to apply to the printed obj.Surface.
     content.vb: Public Shared Sub Print(obj As ISurface, x As Integer, y As Integer, text As String, appearance As ColoredGlyphBase, effect As ICellEffect = Nothing)
   overload: SadConsole.CellSurfaceEditor.Print*
   nameWithType.vb: CellSurfaceEditor.Print(ISurface, Integer, Integer, String, ColoredGlyphBase, ICellEffect)
@@ -1733,17 +2047,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Draws the string on the console at the specified location, wrapping if needed.
+  example: []
   syntax:
     content: public static void Print(this ISurface obj, int x, int y, ColoredString text)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: X location of the text.
     - id: y
       type: System.Int32
+      description: Y location of the text.
     - id: text
       type: SadConsole.ColoredString
+      description: The string to display.
     content.vb: Public Shared Sub Print(obj As ISurface, x As Integer, y As Integer, text As ColoredString)
   overload: SadConsole.CellSurfaceEditor.Print*
   nameWithType.vb: CellSurfaceEditor.Print(ISurface, Integer, Integer, ColoredString)
@@ -1764,17 +2084,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Draws the string on the console at the specified location, wrapping if needed.
+  example: []
   syntax:
     content: public static void Print(this ISurface obj, int x, int y, ColoredGlyphBase[] glyphs)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: X location of the text.
     - id: y
       type: System.Int32
+      description: Y location of the text.
     - id: glyphs
       type: SadConsole.ColoredGlyphBase[]
+      description: An array of glyphs to print at the specified position.
     content.vb: Public Shared Sub Print(obj As ISurface, x As Integer, y As Integer, glyphs As ColoredGlyphBase())
   overload: SadConsole.CellSurfaceEditor.Print*
   nameWithType.vb: CellSurfaceEditor.Print(ISurface, Integer, Integer, ColoredGlyphBase())
@@ -1795,17 +2121,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Draws the string on the console at the specified location, wrapping if needed.
+  example: []
   syntax:
     content: public static void Print(this ISurface obj, int x, int y, IEnumerable<ColoredGlyphBase> glyphs)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: X location of the text.
     - id: y
       type: System.Int32
+      description: Y location of the text.
     - id: glyphs
       type: System.Collections.Generic.IEnumerable{SadConsole.ColoredGlyphBase}
+      description: An enumeration of glyphs to print at the specified position.
     content.vb: Public Shared Sub Print(obj As ISurface, x As Integer, y As Integer, glyphs As IEnumerable(Of ColoredGlyphBase))
   overload: SadConsole.CellSurfaceEditor.Print*
   nameWithType.vb: CellSurfaceEditor.Print(ISurface, Integer, Integer, IEnumerable(Of ColoredGlyphBase))
@@ -1826,19 +2158,26 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Builds a string from the text surface from the specified coordinates.
+  example: []
   syntax:
     content: public static string GetString(this ISurface obj, int x, int y, int length)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: The x position of the surface to start at.
     - id: y
       type: System.Int32
+      description: The y position of the surface to start at.
     - id: length
       type: System.Int32
+      description: How many characters to fill the string with.
     return:
       type: System.String
+      description: A string built from the text surface data.
     content.vb: Public Shared Function GetString(obj As ISurface, x As Integer, y As Integer, length As Integer) As String
   overload: SadConsole.CellSurfaceEditor.GetString*
   nameWithType.vb: CellSurfaceEditor.GetString(ISurface, Integer, Integer, Integer)
@@ -1859,17 +2198,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Builds a string from the cells.
+  example: []
   syntax:
     content: public static string GetString(this ISurface obj, int index, int length)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: index
       type: System.Int32
+      description: Where to start getting characters from.
     - id: length
       type: System.Int32
+      description: How many characters to fill the string with.
     return:
       type: System.String
+      description: A string built from the text surface data.
     content.vb: Public Shared Function GetString(obj As ISurface, index As Integer, length As Integer) As String
   overload: SadConsole.CellSurfaceEditor.GetString*
   nameWithType.vb: CellSurfaceEditor.GetString(ISurface, Integer, Integer)
@@ -1890,19 +2235,26 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Builds a string from the text surface from the specified coordinates.
+  example: []
   syntax:
     content: public static ColoredString GetStringColored(this ISurface obj, int x, int y, int length)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: The x position of the surface to start at.
     - id: y
       type: System.Int32
+      description: The y position of the surface to start at.
     - id: length
       type: System.Int32
+      description: How many characters to fill the string with.
     return:
       type: SadConsole.ColoredString
+      description: A string built from the text surface data.
     content.vb: Public Shared Function GetStringColored(obj As ISurface, x As Integer, y As Integer, length As Integer) As ColoredString
   overload: SadConsole.CellSurfaceEditor.GetStringColored*
   nameWithType.vb: CellSurfaceEditor.GetStringColored(ISurface, Integer, Integer, Integer)
@@ -1923,17 +2275,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Builds a string from the text surface.
+  example: []
   syntax:
     content: public static ColoredString GetStringColored(this ISurface obj, int index, int length)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: index
       type: System.Int32
+      description: Where to start getting characters from.
     - id: length
       type: System.Int32
+      description: How many characters to fill the string with.
     return:
       type: SadConsole.ColoredString
+      description: A string built from the text surface data.
     content.vb: Public Shared Function GetStringColored(obj As ISurface, index As Integer, length As Integer) As ColoredString
   overload: SadConsole.CellSurfaceEditor.GetStringColored*
   nameWithType.vb: CellSurfaceEditor.GetStringColored(ISurface, Integer, Integer)
@@ -1954,11 +2312,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Resets the shifted amounts to 0, as if the surface has never shifted.
+  example: []
   syntax:
     content: public static void ClearShiftValues(this ISurface obj)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     content.vb: Public Shared Sub ClearShiftValues(obj As ISurface)
   overload: SadConsole.CellSurfaceEditor.ClearShiftValues*
 - uid: SadConsole.CellSurfaceEditor.ShiftRow(SadConsole.ISurface,System.Int32,System.Int32,System.Boolean)
@@ -1976,17 +2337,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Shifts the entire row by the specified amount.
+  example: []
   syntax:
     content: public static void ShiftRow(this ISurface obj, int row, int amount, bool wrap)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: row
       type: System.Int32
+      description: The row to shift.
     - id: amount
       type: System.Int32
+      description: The amount to shift by. A negative value shifts left and a positive value shifts right.
     - id: wrap
       type: System.Boolean
+      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, wraps the glyph data from one side to another, otherwise clears the glyphs left behind.
     content.vb: Public Shared Sub ShiftRow(obj As ISurface, row As Integer, amount As Integer, wrap As Boolean)
   overload: SadConsole.CellSurfaceEditor.ShiftRow*
   nameWithType.vb: CellSurfaceEditor.ShiftRow(ISurface, Integer, Integer, Boolean)
@@ -2007,23 +2374,35 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Shifts the specified row from an X position, by the specified amount.
+  example: []
   syntax:
     content: public static void ShiftRow(this ISurface obj, int row, int startingX, int count, int amount, bool wrap)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: row
       type: System.Int32
+      description: The row to shift.
     - id: startingX
       type: System.Int32
+      description: The starting column to shift from.
     - id: count
       type: System.Int32
+      description: The number of cells to shift starting from <code class="paramref">startingX</code>.
     - id: amount
       type: System.Int32
+      description: The amount to shift by. A negative value shifts left and a positive value shifts right.
     - id: wrap
       type: System.Boolean
+      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, wraps the glyph data from one side to another, otherwise clears the glyphs left behind.
     content.vb: Public Shared Sub ShiftRow(obj As ISurface, row As Integer, startingX As Integer, count As Integer, amount As Integer, wrap As Boolean)
   overload: SadConsole.CellSurfaceEditor.ShiftRow*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: One of the parameters is outside of the surface width.
   nameWithType.vb: CellSurfaceEditor.ShiftRow(ISurface, Integer, Integer, Integer, Integer, Boolean)
   fullName.vb: SadConsole.CellSurfaceEditor.ShiftRow(SadConsole.ISurface, Integer, Integer, Integer, Integer, Boolean)
   name.vb: ShiftRow(ISurface, Integer, Integer, Integer, Integer, Boolean)
@@ -2042,23 +2421,35 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Shifts the specified row from an X position, by the specified amount, to the right.
+  example: []
   syntax:
     content: public static void ShiftRowRight(this ISurface obj, int row, int startingX, int count, int amount, bool wrap)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: row
       type: System.Int32
+      description: The row to shift.
     - id: startingX
       type: System.Int32
+      description: The starting column to shift from.
     - id: count
       type: System.Int32
+      description: The number of cells to shift starting from <code class="paramref">startingX</code>.
     - id: amount
       type: System.Int32
+      description: The amount to shift by. A negative value shifts left and a positive value shifts right.
     - id: wrap
       type: System.Boolean
+      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, wraps the glyph data from one side to another, otherwise clears the glyphs left behind.
     content.vb: Public Shared Sub ShiftRowRight(obj As ISurface, row As Integer, startingX As Integer, count As Integer, amount As Integer, wrap As Boolean)
   overload: SadConsole.CellSurfaceEditor.ShiftRowRight*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: One of the parameters is outside of the surface width.
   nameWithType.vb: CellSurfaceEditor.ShiftRowRight(ISurface, Integer, Integer, Integer, Integer, Boolean)
   fullName.vb: SadConsole.CellSurfaceEditor.ShiftRowRight(SadConsole.ISurface, Integer, Integer, Integer, Integer, Boolean)
   name.vb: ShiftRowRight(ISurface, Integer, Integer, Integer, Integer, Boolean)
@@ -2077,23 +2468,35 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Shifts the specified row from an X position, by the specified amount, to the left.
+  example: []
   syntax:
     content: public static void ShiftRowLeft(this ISurface obj, int row, int startingX, int count, int amount, bool wrap)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: row
       type: System.Int32
+      description: The row to shift.
     - id: startingX
       type: System.Int32
+      description: The starting column to shift from.
     - id: count
       type: System.Int32
+      description: The number of cells to shift starting from <code class="paramref">startingX</code>.
     - id: amount
       type: System.Int32
+      description: The amount to shift by. A negative value shifts left and a positive value shifts right.
     - id: wrap
       type: System.Boolean
+      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, wraps the glyph data from one side to another, otherwise clears the glyphs left behind.
     content.vb: Public Shared Sub ShiftRowLeft(obj As ISurface, row As Integer, startingX As Integer, count As Integer, amount As Integer, wrap As Boolean)
   overload: SadConsole.CellSurfaceEditor.ShiftRowLeft*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: One of the parameters is outside of the surface width.
   nameWithType.vb: CellSurfaceEditor.ShiftRowLeft(ISurface, Integer, Integer, Integer, Integer, Boolean)
   fullName.vb: SadConsole.CellSurfaceEditor.ShiftRowLeft(SadConsole.ISurface, Integer, Integer, Integer, Integer, Boolean)
   name.vb: ShiftRowLeft(ISurface, Integer, Integer, Integer, Integer, Boolean)
@@ -2112,21 +2515,29 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Internal use. Doesn't do any checks on valid values. Shifts the specified row from an X position, by the specified amount, to the right.
+  example: []
   syntax:
     content: public static void ShiftRowRightUnchecked(this ISurface obj, int row, int startingX, int count, int amount, bool wrap)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: row
       type: System.Int32
+      description: The row to shift.
     - id: startingX
       type: System.Int32
+      description: The starting column to shift from.
     - id: count
       type: System.Int32
+      description: The number of cells to shift starting from <code class="paramref">startingX</code>.
     - id: amount
       type: System.Int32
+      description: The amount to shift by. A negative value shifts left and a positive value shifts right.
     - id: wrap
       type: System.Boolean
+      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, wraps the glyph data from one side to another, otherwise clears the glyphs left behind.
     content.vb: Public Shared Sub ShiftRowRightUnchecked(obj As ISurface, row As Integer, startingX As Integer, count As Integer, amount As Integer, wrap As Boolean)
   overload: SadConsole.CellSurfaceEditor.ShiftRowRightUnchecked*
   nameWithType.vb: CellSurfaceEditor.ShiftRowRightUnchecked(ISurface, Integer, Integer, Integer, Integer, Boolean)
@@ -2147,21 +2558,29 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Internal use. Doesn't do any checks on valid values. Shifts the specified row from an X position, by the specified amount, to the left.
+  example: []
   syntax:
     content: public static void ShiftRowLeftUnchecked(this ISurface obj, int row, int startingX, int count, int amount, bool wrap)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: row
       type: System.Int32
+      description: The row to shift.
     - id: startingX
       type: System.Int32
+      description: The starting column to shift from.
     - id: count
       type: System.Int32
+      description: The number of cells to shift starting from <code class="paramref">startingX</code>.
     - id: amount
       type: System.Int32
+      description: The amount to shift by. A negative value shifts left and a positive value shifts right.
     - id: wrap
       type: System.Boolean
+      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, wraps the glyph data from one side to another, otherwise clears the glyphs left behind.
     content.vb: Public Shared Sub ShiftRowLeftUnchecked(obj As ISurface, row As Integer, startingX As Integer, count As Integer, amount As Integer, wrap As Boolean)
   overload: SadConsole.CellSurfaceEditor.ShiftRowLeftUnchecked*
   nameWithType.vb: CellSurfaceEditor.ShiftRowLeftUnchecked(ISurface, Integer, Integer, Integer, Integer, Boolean)
@@ -2182,17 +2601,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Shifts the entire column by the specified amount.
+  example: []
   syntax:
     content: public static void ShiftColumn(this ISurface obj, int col, int amount, bool wrap)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: col
       type: System.Int32
+      description: The column to shift.
     - id: amount
       type: System.Int32
+      description: The amount to shift by. A negative value shifts left and a positive value shifts right.
     - id: wrap
       type: System.Boolean
+      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, wraps the glyph data from one side to another, otherwise clears the glyphs left behind.
     content.vb: Public Shared Sub ShiftColumn(obj As ISurface, col As Integer, amount As Integer, wrap As Boolean)
   overload: SadConsole.CellSurfaceEditor.ShiftColumn*
   nameWithType.vb: CellSurfaceEditor.ShiftColumn(ISurface, Integer, Integer, Boolean)
@@ -2213,23 +2638,35 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Shifts the specified row from an X position, by the specified amount.
+  example: []
   syntax:
     content: public static void ShiftColumn(this ISurface obj, int col, int startingY, int count, int amount, bool wrap)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: col
       type: System.Int32
+      description: The column to shift.
     - id: startingY
       type: System.Int32
+      description: The starting row to shift from.
     - id: count
       type: System.Int32
+      description: The number of cells to shift starting from <code class="paramref">startingY</code>.
     - id: amount
       type: System.Int32
+      description: The amount to shift by. A negative value shifts left and a positive value shifts right.
     - id: wrap
       type: System.Boolean
+      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, wraps the glyph data from one side to another, otherwise clears the glyphs left behind.
     content.vb: Public Shared Sub ShiftColumn(obj As ISurface, col As Integer, startingY As Integer, count As Integer, amount As Integer, wrap As Boolean)
   overload: SadConsole.CellSurfaceEditor.ShiftColumn*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: One of the parameters is outside of the surface height.
   nameWithType.vb: CellSurfaceEditor.ShiftColumn(ISurface, Integer, Integer, Integer, Integer, Boolean)
   fullName.vb: SadConsole.CellSurfaceEditor.ShiftColumn(SadConsole.ISurface, Integer, Integer, Integer, Integer, Boolean)
   name.vb: ShiftColumn(ISurface, Integer, Integer, Integer, Integer, Boolean)
@@ -2248,23 +2685,35 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Shifts the specified row from n Y position, by the specified amount, down.
+  example: []
   syntax:
     content: public static void ShiftColumnDown(this ISurface obj, int col, int startingY, int count, int amount, bool wrap)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: col
       type: System.Int32
+      description: The column to shift.
     - id: startingY
       type: System.Int32
+      description: The starting row to shift from.
     - id: count
       type: System.Int32
+      description: The number of cells to shift starting from <code class="paramref">startingY</code>.
     - id: amount
       type: System.Int32
+      description: The amount to shift by. A negative value shifts left and a positive value shifts right.
     - id: wrap
       type: System.Boolean
+      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, wraps the glyph data from one side to another, otherwise clears the glyphs left behind.
     content.vb: Public Shared Sub ShiftColumnDown(obj As ISurface, col As Integer, startingY As Integer, count As Integer, amount As Integer, wrap As Boolean)
   overload: SadConsole.CellSurfaceEditor.ShiftColumnDown*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: One of the parameters is outside of the surface height.
   nameWithType.vb: CellSurfaceEditor.ShiftColumnDown(ISurface, Integer, Integer, Integer, Integer, Boolean)
   fullName.vb: SadConsole.CellSurfaceEditor.ShiftColumnDown(SadConsole.ISurface, Integer, Integer, Integer, Integer, Boolean)
   name.vb: ShiftColumnDown(ISurface, Integer, Integer, Integer, Integer, Boolean)
@@ -2283,23 +2732,35 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Shifts the specified row from n Y position, by the specified amount, up.
+  example: []
   syntax:
     content: public static void ShiftColumnUp(this ISurface obj, int col, int startingY, int count, int amount, bool wrap)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: col
       type: System.Int32
+      description: The column to shift.
     - id: startingY
       type: System.Int32
+      description: The starting row to shift from.
     - id: count
       type: System.Int32
+      description: The number of cells to shift starting from <code class="paramref">startingY</code>.
     - id: amount
       type: System.Int32
+      description: The amount to shift by. A negative value shifts left and a positive value shifts right.
     - id: wrap
       type: System.Boolean
+      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, wraps the glyph data from one side to another, otherwise clears the glyphs left behind.
     content.vb: Public Shared Sub ShiftColumnUp(obj As ISurface, col As Integer, startingY As Integer, count As Integer, amount As Integer, wrap As Boolean)
   overload: SadConsole.CellSurfaceEditor.ShiftColumnUp*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: One of the parameters is outside of the surface height.
   nameWithType.vb: CellSurfaceEditor.ShiftColumnUp(ISurface, Integer, Integer, Integer, Integer, Boolean)
   fullName.vb: SadConsole.CellSurfaceEditor.ShiftColumnUp(SadConsole.ISurface, Integer, Integer, Integer, Integer, Boolean)
   name.vb: ShiftColumnUp(ISurface, Integer, Integer, Integer, Integer, Boolean)
@@ -2318,21 +2779,29 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Internal use. Doesn't do any checks on valid values. Shifts the specified row from a Y position, by the specified amount, down.
+  example: []
   syntax:
     content: public static void ShiftColumnDownUnchecked(this ISurface obj, int col, int startingY, int count, int amount, bool wrap)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: col
       type: System.Int32
+      description: The column to shift.
     - id: startingY
       type: System.Int32
+      description: The starting column to shift from.
     - id: count
       type: System.Int32
+      description: The number of cells to shift starting from <code class="paramref">startingY</code>.
     - id: amount
       type: System.Int32
+      description: The amount to shift by. A negative value shifts left and a positive value shifts right.
     - id: wrap
       type: System.Boolean
+      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, wraps the glyph data from one side to another, otherwise clears the glyphs left behind.
     content.vb: Public Shared Sub ShiftColumnDownUnchecked(obj As ISurface, col As Integer, startingY As Integer, count As Integer, amount As Integer, wrap As Boolean)
   overload: SadConsole.CellSurfaceEditor.ShiftColumnDownUnchecked*
   nameWithType.vb: CellSurfaceEditor.ShiftColumnDownUnchecked(ISurface, Integer, Integer, Integer, Integer, Boolean)
@@ -2353,21 +2822,29 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Internal use. Doesn't do any checks on valid values. Shifts the specified row from a Y position, by the specified amount, up.
+  example: []
   syntax:
     content: public static void ShiftColumnUpUnchecked(this ISurface obj, int col, int startingY, int count, int amount, bool wrap)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: col
       type: System.Int32
+      description: The column to shift.
     - id: startingY
       type: System.Int32
+      description: The starting column to shift from.
     - id: count
       type: System.Int32
+      description: The number of cells to shift starting from <code class="paramref">startingY</code>.
     - id: amount
       type: System.Int32
+      description: The amount to shift by. A negative value shifts left and a positive value shifts right.
     - id: wrap
       type: System.Boolean
+      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, wraps the glyph data from one side to another, otherwise clears the glyphs left behind.
     content.vb: Public Shared Sub ShiftColumnUpUnchecked(obj As ISurface, col As Integer, startingY As Integer, count As Integer, amount As Integer, wrap As Boolean)
   overload: SadConsole.CellSurfaceEditor.ShiftColumnUpUnchecked*
   nameWithType.vb: CellSurfaceEditor.ShiftColumnUpUnchecked(ISurface, Integer, Integer, Integer, Integer, Boolean)
@@ -2388,11 +2865,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Scrolls all the console data up by one.
+  example: []
   syntax:
     content: public static void ShiftUp(this ISurface obj)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     content.vb: Public Shared Sub ShiftUp(obj As ISurface)
   overload: SadConsole.CellSurfaceEditor.ShiftUp*
 - uid: SadConsole.CellSurfaceEditor.ShiftUp(SadConsole.ISurface,System.Int32,System.Boolean)
@@ -2410,15 +2890,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Scrolls all the console data up by the specified amount of rows.
+  example: []
   syntax:
     content: public static void ShiftUp(this ISurface obj, int amount, bool wrap = false)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: amount
       type: System.Int32
+      description: How many rows to shift.
     - id: wrap
       type: System.Boolean
+      description: When false, a blank line appears at the bottom. When true, the top line appears at the bottom.
     content.vb: Public Shared Sub ShiftUp(obj As ISurface, amount As Integer, wrap As Boolean = False)
   overload: SadConsole.CellSurfaceEditor.ShiftUp*
   nameWithType.vb: CellSurfaceEditor.ShiftUp(ISurface, Integer, Boolean)
@@ -2439,11 +2924,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Scrolls all the console data down by one.
+  example: []
   syntax:
     content: public static void ShiftDown(this ISurface obj)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     content.vb: Public Shared Sub ShiftDown(obj As ISurface)
   overload: SadConsole.CellSurfaceEditor.ShiftDown*
 - uid: SadConsole.CellSurfaceEditor.ShiftDown(SadConsole.ISurface,System.Int32,System.Boolean)
@@ -2461,15 +2949,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Scrolls all the console data down by the specified amount of rows.
+  example: []
   syntax:
     content: public static void ShiftDown(this ISurface obj, int amount, bool wrap = false)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: amount
       type: System.Int32
+      description: How many rows to shift.
     - id: wrap
       type: System.Boolean
+      description: When false, a blank line appears at the top. When true, the bottom line appears at the top.
     content.vb: Public Shared Sub ShiftDown(obj As ISurface, amount As Integer, wrap As Boolean = False)
   overload: SadConsole.CellSurfaceEditor.ShiftDown*
   nameWithType.vb: CellSurfaceEditor.ShiftDown(ISurface, Integer, Boolean)
@@ -2490,11 +2983,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Scrolls all the console data right by one.
+  example: []
   syntax:
     content: public static void ShiftRight(this ISurface obj)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     content.vb: Public Shared Sub ShiftRight(obj As ISurface)
   overload: SadConsole.CellSurfaceEditor.ShiftRight*
 - uid: SadConsole.CellSurfaceEditor.ShiftRight(SadConsole.ISurface,System.Int32,System.Boolean)
@@ -2512,15 +3008,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Scrolls all the console data right by the specified amount.
+  example: []
   syntax:
     content: public static void ShiftRight(this ISurface obj, int amount, bool wrap = false)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: amount
       type: System.Int32
+      description: How much to scroll.
     - id: wrap
       type: System.Boolean
+      description: When false, a blank line appears at the left. When true, the right line appears at the left.
     content.vb: Public Shared Sub ShiftRight(obj As ISurface, amount As Integer, wrap As Boolean = False)
   overload: SadConsole.CellSurfaceEditor.ShiftRight*
   nameWithType.vb: CellSurfaceEditor.ShiftRight(ISurface, Integer, Boolean)
@@ -2541,11 +3042,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Scrolls all the console data left by one.
+  example: []
   syntax:
     content: public static void ShiftLeft(this ISurface obj)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     content.vb: Public Shared Sub ShiftLeft(obj As ISurface)
   overload: SadConsole.CellSurfaceEditor.ShiftLeft*
 - uid: SadConsole.CellSurfaceEditor.ShiftLeft(SadConsole.ISurface,System.Int32,System.Boolean)
@@ -2563,15 +3067,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Scrolls all the console data left by the specified amount.
+  example: []
   syntax:
     content: public static void ShiftLeft(this ISurface obj, int amount, bool wrap = false)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: amount
       type: System.Int32
+      description: How much to scroll.
     - id: wrap
       type: System.Boolean
+      description: When false, a blank line appears at the right. When true, the left line appears at the right.
     content.vb: Public Shared Sub ShiftLeft(obj As ISurface, amount As Integer, wrap As Boolean = False)
   overload: SadConsole.CellSurfaceEditor.ShiftLeft*
   nameWithType.vb: CellSurfaceEditor.ShiftLeft(ISurface, Integer, Boolean)
@@ -2592,19 +3101,27 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Starting at the specified coordinate, clears the glyph, mirror, and decorators, for the specified count of obj.Surface. Doesn't clear the effect, foreground, or background.
+  remarks: Cells altered by this method has the <xref href="SadConsole.ColoredGlyphBase.Glyph" data-throw-if-not-resolved="false"></xref> set to <xref href="SadConsole.ICellSurface.DefaultGlyph" data-throw-if-not-resolved="false"></xref>, the <xref href="SadConsole.ColoredGlyphBase.Decorators" data-throw-if-not-resolved="false"></xref> array reset, and the <xref href="SadConsole.ColoredGlyphBase.Mirror" data-throw-if-not-resolved="false"></xref> set to <xref href="SadConsole.Mirror.None" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public static ColoredGlyphBase[] Erase(this ISurface obj, int x, int y, int count)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: The x position.
     - id: y
       type: System.Int32
+      description: The y position.
     - id: count
       type: System.Int32
+      description: The count of glyphs to erase.
     return:
       type: SadConsole.ColoredGlyphBase[]
+      description: The cells processed by this method.
     content.vb: Public Shared Function [Erase](obj As ISurface, x As Integer, y As Integer, count As Integer) As ColoredGlyphBase()
   overload: SadConsole.CellSurfaceEditor.Erase*
   nameWithType.vb: CellSurfaceEditor.Erase(ISurface, Integer, Integer, Integer)
@@ -2625,15 +3142,21 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Clears the glyph, mirror, and decorators, for the specified cell. Doesn't clear the effect.
+  remarks: The cell altered by this method has the <xref href="SadConsole.ColoredGlyphBase.Glyph" data-throw-if-not-resolved="false"></xref> set to <xref href="SadConsole.ICellSurface.DefaultGlyph" data-throw-if-not-resolved="false"></xref>, the <xref href="SadConsole.ColoredGlyphBase.Decorators" data-throw-if-not-resolved="false"></xref> array reset, and the <xref href="SadConsole.ColoredGlyphBase.Mirror" data-throw-if-not-resolved="false"></xref> set to <xref href="SadConsole.Mirror.None" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public static void Erase(this ISurface obj, int x, int y)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: The x position.
     - id: y
       type: System.Int32
+      description: The y position.
     content.vb: Public Shared Sub [Erase](obj As ISurface, x As Integer, y As Integer)
   overload: SadConsole.CellSurfaceEditor.Erase*
   nameWithType.vb: CellSurfaceEditor.Erase(ISurface, Integer, Integer)
@@ -2654,11 +3177,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Erases all cells which clears the glyph, mirror, and decorators. Doesn't clear the effect.
+  remarks: All cells have <xref href="SadConsole.ColoredGlyphBase.Glyph" data-throw-if-not-resolved="false"></xref> set to <xref href="SadConsole.ICellSurface.DefaultGlyph" data-throw-if-not-resolved="false"></xref>, the <xref href="SadConsole.ColoredGlyphBase.Decorators" data-throw-if-not-resolved="false"></xref> array reset, and the <xref href="SadConsole.ColoredGlyphBase.Mirror" data-throw-if-not-resolved="false"></xref> set to <xref href="SadConsole.Mirror.None" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public static void Erase(this ISurface obj)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     content.vb: Public Shared Sub [Erase](obj As ISurface)
   overload: SadConsole.CellSurfaceEditor.Erase*
 - uid: SadConsole.CellSurfaceEditor.Clear(SadConsole.ISurface)
@@ -2676,11 +3203,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Clears the console data. Characters are reset to 0, the foreground and background are set to default, and mirror set to none. Clears cell decorators.
+  example: []
   syntax:
     content: public static void Clear(this ISurface obj)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     content.vb: Public Shared Sub Clear(obj As ISurface)
   overload: SadConsole.CellSurfaceEditor.Clear*
 - uid: SadConsole.CellSurfaceEditor.Clear(SadConsole.ISurface,System.Int32,System.Int32)
@@ -2698,15 +3228,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Clears a cell. Character is reset to 0, the foreground and background is set to default, and mirror is set to none. Clears cell decorators.
+  example: []
   syntax:
     content: public static void Clear(this ISurface obj, int x, int y)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: The x location of the cell.
     - id: y
       type: System.Int32
+      description: The y location of the cell.
     content.vb: Public Shared Sub Clear(obj As ISurface, x As Integer, y As Integer)
   overload: SadConsole.CellSurfaceEditor.Clear*
   nameWithType.vb: CellSurfaceEditor.Clear(ISurface, Integer, Integer)
@@ -2727,17 +3262,24 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Clears a segment of cells, starting from the left, extending to the right, and wrapping if needed. Character is reset to 0, the foreground and background is set to default, and mirror is set to none. Clears cell decorators.
+  remarks: This works similarly to printing a string of whitespace
+  example: []
   syntax:
     content: public static void Clear(this ISurface obj, int x, int y, int length)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: The x position of the left end of the segment.
     - id: y
       type: System.Int32
+      description: The y position of the segment.
     - id: length
       type: System.Int32
+      description: The length of the segment. If it extends beyond the line, it will wrap to the next line. If it extends beyond the console, then it automatically ends at the last valid cell.
     content.vb: Public Shared Sub Clear(obj As ISurface, x As Integer, y As Integer, length As Integer)
   overload: SadConsole.CellSurfaceEditor.Clear*
   nameWithType.vb: CellSurfaceEditor.Clear(ISurface, Integer, Integer, Integer)
@@ -2758,13 +3300,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Clears an area of obj.Surface. Each cell is reset to its default state. Then, Glyph, foreground, and background, are reset to the surface's default values.
+  example: []
   syntax:
     content: public static void Clear(this ISurface obj, Rectangle area)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: area
       type: SadRogue.Primitives.Rectangle
+      description: The area to clear.
     content.vb: Public Shared Sub Clear(obj As ISurface, area As Rectangle)
   overload: SadConsole.CellSurfaceEditor.Clear*
 - uid: SadConsole.CellSurfaceEditor.Clear(SadConsole.ISurface,System.Collections.Generic.IEnumerable{SadRogue.Primitives.Point})
@@ -2782,13 +3328,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Clears an area of obj.Surface. Each cell is reset to its default state. Then, Glyph, foreground, and background, are reset to the surface's default values.
+  example: []
   syntax:
     content: public static void Clear(this ISurface obj, IEnumerable<Point> cellPositions)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: cellPositions
       type: System.Collections.Generic.IEnumerable{SadRogue.Primitives.Point}
+      description: The cells to clear.
     content.vb: Public Shared Sub Clear(obj As ISurface, cellPositions As IEnumerable(Of Point))
   overload: SadConsole.CellSurfaceEditor.Clear*
   nameWithType.vb: CellSurfaceEditor.Clear(ISurface, IEnumerable(Of Point))
@@ -2809,15 +3359,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Fills the console. Clears cell decorators and effects.
+  example: []
   syntax:
     content: public static ColoredGlyphBase[] Fill(this ISurface obj, ColoredGlyphBase iconAppearance)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: iconAppearance
       type: SadConsole.ColoredGlyphBase
+      description: The appearance that is copied to every cell.
     return:
       type: SadConsole.ColoredGlyphBase[]
+      description: The array of all cells in this console, starting from the top left corner.
     content.vb: Public Shared Function Fill(obj As ISurface, iconAppearance As ColoredGlyphBase) As ColoredGlyphBase()
   overload: SadConsole.CellSurfaceEditor.Fill*
 - uid: SadConsole.CellSurfaceEditor.Fill(SadConsole.ISurface,System.Nullable{SadRogue.Primitives.Color},System.Nullable{SadRogue.Primitives.Color},System.Nullable{System.Int32},System.Nullable{SadConsole.Mirror})
@@ -2835,21 +3390,29 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Fills the console. Clears cell decorators and effects.
+  example: []
   syntax:
     content: public static ColoredGlyphBase[] Fill(this ISurface obj, Color? foreground = null, Color? background = null, int? glyph = null, Mirror? mirror = null)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: foreground
       type: System.Nullable{SadRogue.Primitives.Color}
+      description: Foreground to apply. If null, skips.
     - id: background
       type: System.Nullable{SadRogue.Primitives.Color}
+      description: Foreground to apply. If null, skips.
     - id: glyph
       type: System.Nullable{System.Int32}
+      description: Glyph to apply. If null, skips.
     - id: mirror
       type: System.Nullable{SadConsole.Mirror}
+      description: Mirror to apply. If null, skips.
     return:
       type: SadConsole.ColoredGlyphBase[]
+      description: The array of all cells in this console, starting from the top left corner.
     content.vb: Public Shared Function Fill(obj As ISurface, foreground As Color? = Nothing, background As Color? = Nothing, glyph As Integer? = Nothing, mirror As Mirror? = Nothing) As ColoredGlyphBase()
   overload: SadConsole.CellSurfaceEditor.Fill*
   nameWithType.vb: CellSurfaceEditor.Fill(ISurface, Color?, Color?, Integer?, Mirror?)
@@ -2870,27 +3433,38 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Fills a segment of cells, starting from the left, extending to the right, and wrapping if needed. Clears cell decorators.
+  example: []
   syntax:
     content: public static ColoredGlyphBase[] Fill(this ISurface obj, int x, int y, int length, Color? foreground = null, Color? background = null, int? glyph = null, Mirror? mirror = null)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: The x position of the left end of the segment.
     - id: y
       type: System.Int32
+      description: The y position of the segment.
     - id: length
       type: System.Int32
+      description: The length of the segment. If it extends beyond the line, it will wrap to the next line. If it extends beyond the console, then it automatically ends at the last valid cell.
     - id: foreground
       type: System.Nullable{SadRogue.Primitives.Color}
+      description: Foreground to apply. If null, skips.
     - id: background
       type: System.Nullable{SadRogue.Primitives.Color}
+      description: Background to apply. If null, skips.
     - id: glyph
       type: System.Nullable{System.Int32}
+      description: Glyph to apply. If null, skips.
     - id: mirror
       type: System.Nullable{SadConsole.Mirror}
+      description: Mirror to apply. If null, skips.
     return:
       type: SadConsole.ColoredGlyphBase[]
+      description: An array containing the affected cells, starting from the top left corner. If x or y are out of bounds, nothing happens and an empty array is returned
     content.vb: Public Shared Function Fill(obj As ISurface, x As Integer, y As Integer, length As Integer, foreground As Color? = Nothing, background As Color? = Nothing, glyph As Integer? = Nothing, mirror As Mirror? = Nothing) As ColoredGlyphBase()
   overload: SadConsole.CellSurfaceEditor.Fill*
   nameWithType.vb: CellSurfaceEditor.Fill(ISurface, Integer, Integer, Integer, Color?, Color?, Integer?, Mirror?)
@@ -2911,23 +3485,32 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Fills the specified area. Clears cell decorators.
+  example: []
   syntax:
     content: public static ColoredGlyphBase[] Fill(this ISurface obj, Rectangle area, Color? foreground = null, Color? background = null, int? glyph = null, Mirror? mirror = null)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: area
       type: SadRogue.Primitives.Rectangle
+      description: The area to fill.
     - id: foreground
       type: System.Nullable{SadRogue.Primitives.Color}
+      description: Foreground to apply. If null, skips.
     - id: background
       type: System.Nullable{SadRogue.Primitives.Color}
+      description: Background to apply. If null, skips.
     - id: glyph
       type: System.Nullable{System.Int32}
+      description: Glyph to apply. If null, skips.
     - id: mirror
       type: System.Nullable{SadConsole.Mirror}
+      description: Mirror to apply. If null, skips.
     return:
       type: SadConsole.ColoredGlyphBase[]
+      description: An array containing the affected cells, starting from the top left corner. If the area is out of bounds, nothing happens and an empty array is returned.
     content.vb: Public Shared Function Fill(obj As ISurface, area As Rectangle, foreground As Color? = Nothing, background As Color? = Nothing, glyph As Integer? = Nothing, mirror As Mirror? = Nothing) As ColoredGlyphBase()
   overload: SadConsole.CellSurfaceEditor.Fill*
   nameWithType.vb: CellSurfaceEditor.Fill(ISurface, Rectangle, Color?, Color?, Integer?, Mirror?)
@@ -2948,25 +3531,36 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Draws a line from <code class="paramref">start</code> to <code class="paramref">end</code>.
+  remarks: To simply return the list of cells that would be drawn to, use <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> for <code class="paramref">glyph</code>, <code class="paramref">foreground</code>, <code class="paramref">background</code>, and <code class="paramref">mirror</code>.
+  example: []
   syntax:
     content: public static IEnumerable<ColoredGlyphBase> DrawLine(this ISurface obj, Point start, Point end, int? glyph, Color? foreground = null, Color? background = null, Mirror? mirror = null)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: start
       type: SadRogue.Primitives.Point
+      description: Starting point of the line.
     - id: end
       type: SadRogue.Primitives.Point
+      description: Ending point of the line.
     - id: glyph
       type: System.Nullable{System.Int32}
+      description: Glyph to set. If null, skipped.
     - id: foreground
       type: System.Nullable{SadRogue.Primitives.Color}
+      description: Foreground to set. If null, skipped.
     - id: background
       type: System.Nullable{SadRogue.Primitives.Color}
+      description: Background to set. If null, skipped.
     - id: mirror
       type: System.Nullable{SadConsole.Mirror}
+      description: Mirror to set. If null, skipped.
     return:
       type: System.Collections.Generic.IEnumerable{SadConsole.ColoredGlyphBase}
+      description: A list of cells the line touched; ordered from first to last.
     content.vb: Public Shared Function DrawLine(obj As ISurface, start As Point, [end] As Point, glyph As Integer?, foreground As Color? = Nothing, background As Color? = Nothing, mirror As Mirror? = Nothing) As IEnumerable(Of ColoredGlyphBase)
   overload: SadConsole.CellSurfaceEditor.DrawLine*
   nameWithType.vb: CellSurfaceEditor.DrawLine(ISurface, Point, Point, Integer?, Color?, Color?, Mirror?)
@@ -2987,15 +3581,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Draws a box.
+  example: []
   syntax:
     content: public static void DrawBox(this ISurface obj, Rectangle area, ShapeParameters parameters)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: area
       type: SadRogue.Primitives.Rectangle
+      description: The area of the box.
     - id: parameters
       type: SadConsole.ShapeParameters
+      description: Provides the options for drawing a border and filling the box.
     content.vb: Public Shared Sub DrawBox(obj As ISurface, area As Rectangle, parameters As ShapeParameters)
   overload: SadConsole.CellSurfaceEditor.DrawBox*
 - uid: SadConsole.CellSurfaceEditor.DrawCircle(SadConsole.ISurface,SadRogue.Primitives.Rectangle,SadConsole.ShapeParameters)
@@ -3013,15 +3612,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Draws an ellipse.
+  example: []
   syntax:
     content: public static void DrawCircle(this ISurface obj, Rectangle area, ShapeParameters parameters)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: area
       type: SadRogue.Primitives.Rectangle
+      description: The area the ellipse
     - id: parameters
       type: SadConsole.ShapeParameters
+      description: Provides the options for drawing a border and filling the circle.
     content.vb: Public Shared Sub DrawCircle(obj As ISurface, area As Rectangle, parameters As ShapeParameters)
   overload: SadConsole.CellSurfaceEditor.DrawCircle*
 - uid: SadConsole.CellSurfaceEditor.ConnectLines(SadConsole.ISurface)
@@ -3039,11 +3643,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Connects all lines in a surface for both <xref href="SadConsole.ICellSurface.ConnectedLineThin" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.ICellSurface.ConnectedLineThick" data-throw-if-not-resolved="false"></xref> styles.
+  example: []
   syntax:
     content: public static void ConnectLines(this ISurface obj)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     content.vb: Public Shared Sub ConnectLines(obj As ISurface)
   overload: SadConsole.CellSurfaceEditor.ConnectLines*
 - uid: SadConsole.CellSurfaceEditor.ConnectLines(SadConsole.ISurface,System.Int32[])
@@ -3061,13 +3668,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Connects all lines in this based on the <code class="paramref">lineStyle</code> style provided.
+  example: []
   syntax:
     content: public static void ConnectLines(this ISurface obj, int[] lineStyle)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: lineStyle
       type: System.Int32[]
+      description: The array of line styles indexed by <xref href="SadConsole.ICellSurface.ConnectedLineIndex" data-throw-if-not-resolved="false"></xref>.
     content.vb: Public Shared Sub ConnectLines(obj As ISurface, lineStyle As Integer())
   overload: SadConsole.CellSurfaceEditor.ConnectLines*
   nameWithType.vb: CellSurfaceEditor.ConnectLines(ISurface, Integer())
@@ -3088,15 +3699,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Connects all lines in this based on the <code class="paramref">lineStyle</code> style provided.
+  example: []
   syntax:
     content: public static void ConnectLines(this ISurface obj, int[] lineStyle, Rectangle area)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: lineStyle
       type: System.Int32[]
+      description: The array of line styles indexed by <xref href="SadConsole.ICellSurface.ConnectedLineIndex" data-throw-if-not-resolved="false"></xref>.
     - id: area
       type: SadRogue.Primitives.Rectangle
+      description: The area to process.
     content.vb: Public Shared Sub ConnectLines(obj As ISurface, lineStyle As Integer(), area As Rectangle)
   overload: SadConsole.CellSurfaceEditor.ConnectLines*
   nameWithType.vb: CellSurfaceEditor.ConnectLines(ISurface, Integer(), Rectangle)
@@ -3117,13 +3733,18 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Copies the contents of the cell surface to the destination.
+  remarks: If the sizes to not match, it will always start at 0,0 and work with what it can and move on to the next row when either surface runs out of columns being processed
+  example: []
   syntax:
     content: public static void Copy(this ISurface obj, ICellSurface destination)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: destination
       type: SadConsole.ICellSurface
+      description: The destination obj.Surface.
     content.vb: Public Shared Sub Copy(obj As ISurface, destination As ICellSurface)
   overload: SadConsole.CellSurfaceEditor.Copy*
 - uid: SadConsole.CellSurfaceEditor.Copy(SadConsole.ISurface,SadConsole.ICellSurface,System.Int32,System.Int32)
@@ -3141,17 +3762,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Copies the contents of the cell surface to the destination at the specified x,y.
+  example: []
   syntax:
     content: public static void Copy(this ISurface obj, ICellSurface destination, int x, int y)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: destination
       type: SadConsole.ICellSurface
+      description: The destination obj.Surface.
     - id: x
       type: System.Int32
+      description: The x coordinate of the destination.
     - id: y
       type: System.Int32
+      description: The y coordinate of the destination.
     content.vb: Public Shared Sub Copy(obj As ISurface, destination As ICellSurface, x As Integer, y As Integer)
   overload: SadConsole.CellSurfaceEditor.Copy*
   nameWithType.vb: CellSurfaceEditor.Copy(ISurface, ICellSurface, Integer, Integer)
@@ -3172,19 +3799,26 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Copies an area of this cell surface to the destination surface.
+  example: []
   syntax:
     content: public static void Copy(this ISurface obj, Rectangle area, ICellSurface destination, int destinationX, int destinationY)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: area
       type: SadRogue.Primitives.Rectangle
+      description: The area to copy.
     - id: destination
       type: SadConsole.ICellSurface
+      description: The destination obj.Surface.
     - id: destinationX
       type: System.Int32
+      description: The x coordinate to copy to.
     - id: destinationY
       type: System.Int32
+      description: The y coordinate to copy to.
     content.vb: Public Shared Sub Copy(obj As ISurface, area As Rectangle, destination As ICellSurface, destinationX As Integer, destinationY As Integer)
   overload: SadConsole.CellSurfaceEditor.Copy*
   nameWithType.vb: CellSurfaceEditor.Copy(ISurface, Rectangle, ICellSurface, Integer, Integer)
@@ -3205,25 +3839,35 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Copies the contents of this cell surface at the specified x,y coordinates to the destination, only with the specified obj.Surface.BufferWidth and obj.Surface.BufferHeight, and copies it to the specified <code class="paramref">destinationX</code> and <code class="paramref">destinationY</code> position.
+  example: []
   syntax:
     content: public static void Copy(this ISurface obj, int x, int y, int width, int height, ICellSurface destination, int destinationX, int destinationY)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: x
       type: System.Int32
+      description: The x coordinate to start from.
     - id: y
       type: System.Int32
+      description: The y coordinate to start from.
     - id: width
       type: System.Int32
+      description: The BufferWidth to copy from.
     - id: height
       type: System.Int32
+      description: The BufferHeight to copy from.
     - id: destination
       type: SadConsole.ICellSurface
+      description: The destination obj.Surface.
     - id: destinationX
       type: System.Int32
+      description: The x coordinate to copy to.
     - id: destinationY
       type: System.Int32
+      description: The y coordinate to copy to.
     content.vb: Public Shared Sub Copy(obj As ISurface, x As Integer, y As Integer, width As Integer, height As Integer, destination As ICellSurface, destinationX As Integer, destinationY As Integer)
   overload: SadConsole.CellSurfaceEditor.Copy*
   nameWithType.vb: CellSurfaceEditor.Copy(ISurface, Integer, Integer, Integer, Integer, ICellSurface, Integer, Integer)
@@ -3244,13 +3888,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Fills a console with random colors and glyphs.
+  example: []
   syntax:
     content: public static void FillWithRandomGarbage(this ISurface obj, IFont associatedFont)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: associatedFont
       type: SadConsole.IFont
+      description: The font used in assigning glyphs randomly.
     content.vb: Public Shared Sub FillWithRandomGarbage(obj As ISurface, associatedFont As IFont)
   overload: SadConsole.CellSurfaceEditor.FillWithRandomGarbage*
 - uid: SadConsole.CellSurfaceEditor.FillWithRandomGarbage(SadConsole.ISurface,System.Int32)
@@ -3268,13 +3916,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Fills a console with random colors and glyphs.
+  example: []
   syntax:
     content: public static void FillWithRandomGarbage(this ISurface obj, int maxGlyphValue)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: maxGlyphValue
       type: System.Int32
+      description: The maximum glyph value to use on the obj.Surface.
     content.vb: Public Shared Sub FillWithRandomGarbage(obj As ISurface, maxGlyphValue As Integer)
   overload: SadConsole.CellSurfaceEditor.FillWithRandomGarbage*
   nameWithType.vb: CellSurfaceEditor.FillWithRandomGarbage(ISurface, Integer)
@@ -3295,15 +3947,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Fills a console with random colors and glyphs.
+  example: []
   syntax:
     content: public static void FillWithRandomGarbage(this ISurface obj, int maxGlyphValue, Rectangle area)
     parameters:
     - id: obj
       type: SadConsole.ISurface
+      description: The surface being edited.
     - id: maxGlyphValue
       type: System.Int32
+      description: The maximum glyph value to use on the obj.Surface.
     - id: area
       type: SadRogue.Primitives.Rectangle
+      description: The area to fill with random garbage.
     content.vb: Public Shared Sub FillWithRandomGarbage(obj As ISurface, maxGlyphValue As Integer, area As Rectangle)
   overload: SadConsole.CellSurfaceEditor.FillWithRandomGarbage*
   nameWithType.vb: CellSurfaceEditor.FillWithRandomGarbage(ISurface, Integer, Rectangle)
@@ -3324,21 +3981,29 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Prints text using <xref href="SadConsole.Readers.TheDrawFont" data-throw-if-not-resolved="false"></xref> and horizontal alignment specified. Calculates x coordinate. Truncates string to fit it in one line.
+  example: []
   syntax:
     content: public static void PrintTheDraw(this ICellSurface cellSurface, int y, string text, TheDrawFont drawFont, HorizontalAlignment alignment, int padding = 0)
     parameters:
     - id: cellSurface
       type: SadConsole.ICellSurface
+      description: Class implementing <xref href="SadConsole.ICellSurface" data-throw-if-not-resolved="false"></xref>.
     - id: y
       type: System.Int32
+      description: Y coordinate of the obj.Surface.
     - id: text
       type: System.String
+      description: Text to print.
     - id: drawFont
       type: SadConsole.Readers.TheDrawFont
+      description: Instance of the <xref href="SadConsole.Readers.TheDrawFont" data-throw-if-not-resolved="false"></xref> to use.
     - id: alignment
       type: SadConsole.HorizontalAlignment
+      description: <xref href="SadConsole.HorizontalAlignment" data-throw-if-not-resolved="false"></xref> to use.
     - id: padding
       type: System.Int32
+      description: Amount of regular font characters used as horizontal padding on both sides of the output.
     content.vb: Public Shared Sub PrintTheDraw(cellSurface As ICellSurface, y As Integer, text As String, drawFont As TheDrawFont, alignment As HorizontalAlignment, padding As Integer = 0)
   overload: SadConsole.CellSurfaceEditor.PrintTheDraw*
   nameWithType.vb: CellSurfaceEditor.PrintTheDraw(ICellSurface, Integer, String, TheDrawFont, HorizontalAlignment, Integer)
@@ -3359,25 +4024,40 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Prints text using <xref href="SadConsole.Readers.TheDrawFont" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public static void PrintTheDraw(this ICellSurface cellSurface, int x, int y, string text, TheDrawFont drawFont)
     parameters:
     - id: cellSurface
       type: SadConsole.ICellSurface
+      description: Class implementing <xref href="SadConsole.ICellSurface" data-throw-if-not-resolved="false"></xref>.
     - id: x
       type: System.Int32
+      description: X coordinate of the obj.Surface.
     - id: y
       type: System.Int32
+      description: Y coordinate of the obj.Surface.
     - id: text
       type: System.String
+      description: Text to print.
     - id: drawFont
       type: SadConsole.Readers.TheDrawFont
+      description: Instance of the <xref href="SadConsole.Readers.TheDrawFont" data-throw-if-not-resolved="false"></xref> to use.
     content.vb: Public Shared Sub PrintTheDraw(cellSurface As ICellSurface, x As Integer, y As Integer, text As String, drawFont As TheDrawFont)
   overload: SadConsole.CellSurfaceEditor.PrintTheDraw*
   nameWithType.vb: CellSurfaceEditor.PrintTheDraw(ICellSurface, Integer, Integer, String, TheDrawFont)
   fullName.vb: SadConsole.CellSurfaceEditor.PrintTheDraw(SadConsole.ICellSurface, Integer, Integer, String, SadConsole.Readers.TheDrawFont)
   name.vb: PrintTheDraw(ICellSurface, Integer, Integer, String, TheDrawFont)
 references:
+- uid: SadConsole.ICellSurface
+  commentId: T:SadConsole.ICellSurface
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ICellSurface.html
+  name: ICellSurface
+  nameWithType: ICellSurface
+  fullName: SadConsole.ICellSurface
 - uid: SadConsole
   commentId: N:SadConsole
   isExternal: true
@@ -4065,14 +4745,6 @@ references:
   name: GetSubSurface
   nameWithType: CellSurfaceEditor.GetSubSurface
   fullName: SadConsole.CellSurfaceEditor.GetSubSurface
-- uid: SadConsole.ICellSurface
-  commentId: T:SadConsole.ICellSurface
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.ICellSurface.html
-  name: ICellSurface
-  nameWithType: ICellSurface
-  fullName: SadConsole.ICellSurface
 - uid: SadConsole.CellSurfaceEditor.GetMirror*
   commentId: Overload:SadConsole.CellSurfaceEditor.GetMirror
   isExternal: true
@@ -4222,6 +4894,13 @@ references:
   name: ShiftRow
   nameWithType: CellSurfaceEditor.ShiftRow
   fullName: SadConsole.CellSurfaceEditor.ShiftRow
+- uid: System.ArgumentOutOfRangeException
+  commentId: T:System.ArgumentOutOfRangeException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception
+  name: ArgumentOutOfRangeException
+  nameWithType: ArgumentOutOfRangeException
+  fullName: System.ArgumentOutOfRangeException
 - uid: SadConsole.CellSurfaceEditor.ShiftRowRight*
   commentId: Overload:SadConsole.CellSurfaceEditor.ShiftRowRight
   isExternal: true
@@ -4313,6 +4992,45 @@ references:
   name: ShiftLeft
   nameWithType: CellSurfaceEditor.ShiftLeft
   fullName: SadConsole.CellSurfaceEditor.ShiftLeft
+- uid: SadConsole.ColoredGlyphBase.Glyph
+  commentId: P:SadConsole.ColoredGlyphBase.Glyph
+  parent: SadConsole.ColoredGlyphBase
+  isExternal: true
+  href: SadConsole.ColoredGlyphBase.html#SadConsole_ColoredGlyphBase_Glyph
+  name: Glyph
+  nameWithType: ColoredGlyphBase.Glyph
+  fullName: SadConsole.ColoredGlyphBase.Glyph
+- uid: SadConsole.ICellSurface.DefaultGlyph
+  commentId: P:SadConsole.ICellSurface.DefaultGlyph
+  parent: SadConsole.ICellSurface
+  isExternal: true
+  href: SadConsole.ICellSurface.html#SadConsole_ICellSurface_DefaultGlyph
+  name: DefaultGlyph
+  nameWithType: ICellSurface.DefaultGlyph
+  fullName: SadConsole.ICellSurface.DefaultGlyph
+- uid: SadConsole.ColoredGlyphBase.Decorators
+  commentId: P:SadConsole.ColoredGlyphBase.Decorators
+  parent: SadConsole.ColoredGlyphBase
+  isExternal: true
+  href: SadConsole.ColoredGlyphBase.html#SadConsole_ColoredGlyphBase_Decorators
+  name: Decorators
+  nameWithType: ColoredGlyphBase.Decorators
+  fullName: SadConsole.ColoredGlyphBase.Decorators
+- uid: SadConsole.ColoredGlyphBase.Mirror
+  commentId: P:SadConsole.ColoredGlyphBase.Mirror
+  parent: SadConsole.ColoredGlyphBase
+  isExternal: true
+  href: SadConsole.ColoredGlyphBase.html#SadConsole_ColoredGlyphBase_Mirror
+  name: Mirror
+  nameWithType: ColoredGlyphBase.Mirror
+  fullName: SadConsole.ColoredGlyphBase.Mirror
+- uid: SadConsole.Mirror.None
+  commentId: F:SadConsole.Mirror.None
+  isExternal: true
+  href: SadConsole.Mirror.html#SadConsole_Mirror_None
+  name: None
+  nameWithType: Mirror.None
+  fullName: SadConsole.Mirror.None
 - uid: SadConsole.CellSurfaceEditor.Erase*
   commentId: Overload:SadConsole.CellSurfaceEditor.Erase
   isExternal: true
@@ -4451,6 +5169,20 @@ references:
   name: DrawCircle
   nameWithType: CellSurfaceEditor.DrawCircle
   fullName: SadConsole.CellSurfaceEditor.DrawCircle
+- uid: SadConsole.ICellSurface.ConnectedLineThin
+  commentId: P:SadConsole.ICellSurface.ConnectedLineThin
+  isExternal: true
+  href: SadConsole.ICellSurface.html#SadConsole_ICellSurface_ConnectedLineThin
+  name: ConnectedLineThin
+  nameWithType: ICellSurface.ConnectedLineThin
+  fullName: SadConsole.ICellSurface.ConnectedLineThin
+- uid: SadConsole.ICellSurface.ConnectedLineThick
+  commentId: P:SadConsole.ICellSurface.ConnectedLineThick
+  isExternal: true
+  href: SadConsole.ICellSurface.html#SadConsole_ICellSurface_ConnectedLineThick
+  name: ConnectedLineThick
+  nameWithType: ICellSurface.ConnectedLineThick
+  fullName: SadConsole.ICellSurface.ConnectedLineThick
 - uid: SadConsole.CellSurfaceEditor.ConnectLines*
   commentId: Overload:SadConsole.CellSurfaceEditor.ConnectLines
   isExternal: true
@@ -4458,6 +5190,34 @@ references:
   name: ConnectLines
   nameWithType: CellSurfaceEditor.ConnectLines
   fullName: SadConsole.CellSurfaceEditor.ConnectLines
+- uid: SadConsole.ICellSurface.ConnectedLineIndex
+  commentId: T:SadConsole.ICellSurface.ConnectedLineIndex
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ICellSurface.html
+  name: ICellSurface.ConnectedLineIndex
+  nameWithType: ICellSurface.ConnectedLineIndex
+  fullName: SadConsole.ICellSurface.ConnectedLineIndex
+  spec.csharp:
+  - uid: SadConsole.ICellSurface
+    name: ICellSurface
+    isExternal: true
+    href: SadConsole.ICellSurface.html
+  - name: .
+  - uid: SadConsole.ICellSurface.ConnectedLineIndex
+    name: ConnectedLineIndex
+    isExternal: true
+    href: SadConsole.ICellSurface.ConnectedLineIndex.html
+  spec.vb:
+  - uid: SadConsole.ICellSurface
+    name: ICellSurface
+    isExternal: true
+    href: SadConsole.ICellSurface.html
+  - name: .
+  - uid: SadConsole.ICellSurface.ConnectedLineIndex
+    name: ConnectedLineIndex
+    isExternal: true
+    href: SadConsole.ICellSurface.ConnectedLineIndex.html
 - uid: System.Int32[]
   isExternal: true
   href: https://learn.microsoft.com/dotnet/api/system.int32
@@ -4503,13 +5263,6 @@ references:
   name: IFont
   nameWithType: IFont
   fullName: SadConsole.IFont
-- uid: SadConsole.CellSurfaceEditor.PrintTheDraw*
-  commentId: Overload:SadConsole.CellSurfaceEditor.PrintTheDraw
-  isExternal: true
-  href: SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_PrintTheDraw_SadConsole_ICellSurface_System_Int32_System_String_SadConsole_Readers_TheDrawFont_SadConsole_HorizontalAlignment_System_Int32_
-  name: PrintTheDraw
-  nameWithType: CellSurfaceEditor.PrintTheDraw
-  fullName: SadConsole.CellSurfaceEditor.PrintTheDraw
 - uid: SadConsole.Readers.TheDrawFont
   commentId: T:SadConsole.Readers.TheDrawFont
   parent: SadConsole.Readers
@@ -4526,6 +5279,13 @@ references:
   name: HorizontalAlignment
   nameWithType: HorizontalAlignment
   fullName: SadConsole.HorizontalAlignment
+- uid: SadConsole.CellSurfaceEditor.PrintTheDraw*
+  commentId: Overload:SadConsole.CellSurfaceEditor.PrintTheDraw
+  isExternal: true
+  href: SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_PrintTheDraw_SadConsole_ICellSurface_System_Int32_System_String_SadConsole_Readers_TheDrawFont_SadConsole_HorizontalAlignment_System_Int32_
+  name: PrintTheDraw
+  nameWithType: CellSurfaceEditor.PrintTheDraw
+  fullName: SadConsole.CellSurfaceEditor.PrintTheDraw
 - uid: SadConsole.Readers
   commentId: N:SadConsole.Readers
   isExternal: true

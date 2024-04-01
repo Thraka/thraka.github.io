@@ -16,6 +16,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Manages the parent and children relationship for <xref href="SadConsole.IScreenObject" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: 'public class ScreenObjectCollection : ScreenObjectCollection<IScreenObject>, IReadOnlyList<IScreenObject>, IReadOnlyCollection<IScreenObject>, IEnumerable<IScreenObject>, IEnumerable'
     content.vb: Public Class ScreenObjectCollection Inherits ScreenObjectCollection(Of IScreenObject) Implements IReadOnlyList(Of IScreenObject), IReadOnlyCollection(Of IScreenObject), IEnumerable(Of IScreenObject), IEnumerable
@@ -68,17 +70,28 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Creates a new object collection and parents it to the <code class="paramref">owner</code> object.
+  example: []
   syntax:
     content: public ScreenObjectCollection(IScreenObject owner)
     parameters:
     - id: owner
       type: SadConsole.IScreenObject
+      description: The owning object of this collection.
     content.vb: Public Sub New(owner As IScreenObject)
   overload: SadConsole.ScreenObjectCollection.#ctor*
   nameWithType.vb: ScreenObjectCollection.New(IScreenObject)
   fullName.vb: SadConsole.ScreenObjectCollection.New(SadConsole.IScreenObject)
   name.vb: New(IScreenObject)
 references:
+- uid: SadConsole.IScreenObject
+  commentId: T:SadConsole.IScreenObject
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IScreenObject.html
+  name: IScreenObject
+  nameWithType: IScreenObject
+  fullName: SadConsole.IScreenObject
 - uid: SadConsole
   commentId: N:SadConsole
   isExternal: true
@@ -1584,11 +1597,3 @@ references:
   nameWithType.vb: ScreenObjectCollection.New
   fullName.vb: SadConsole.ScreenObjectCollection.New
   name.vb: New
-- uid: SadConsole.IScreenObject
-  commentId: T:SadConsole.IScreenObject
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.IScreenObject.html
-  name: IScreenObject
-  nameWithType: IScreenObject
-  fullName: SadConsole.IScreenObject

@@ -25,6 +25,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Helpers for <xref href="SadConsole.CellDecorator" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.ColoredGlyphBase.Decorators" data-throw-if-not-resolved="false"></xref> which manages null on the property.
+  example: []
   syntax:
     content: public static class CellDecoratorHelpers
     content.vb: Public Module CellDecoratorHelpers
@@ -52,13 +54,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Replaces the decorators of a glyph.
+  example: []
   syntax:
     content: public static void SetDecorators(IEnumerable<CellDecorator>? decorators, ColoredGlyphBase glyph)
     parameters:
     - id: decorators
       type: System.Collections.Generic.IEnumerable{SadConsole.CellDecorator}
+      description: The decorators to set. <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> clears the decorators.
     - id: glyph
       type: SadConsole.ColoredGlyphBase
+      description: The glyph to alter.
     content.vb: Public Shared Sub SetDecorators(decorators As IEnumerable(Of CellDecorator), glyph As ColoredGlyphBase)
   overload: SadConsole.CellDecoratorHelpers.SetDecorators*
   nameWithType.vb: CellDecoratorHelpers.SetDecorators(IEnumerable(Of CellDecorator), ColoredGlyphBase)
@@ -78,13 +84,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Replaces the decorators of a glyph with a single decorator.
+  example: []
   syntax:
     content: public static void SetDecorator(CellDecorator decorator, ColoredGlyphBase glyph)
     parameters:
     - id: decorator
       type: SadConsole.CellDecorator
+      description: The decorator to set.
     - id: glyph
       type: SadConsole.ColoredGlyphBase
+      description: The glyph to alter.
     content.vb: Public Shared Sub SetDecorator(decorator As CellDecorator, glyph As ColoredGlyphBase)
   overload: SadConsole.CellDecoratorHelpers.SetDecorator*
 - uid: SadConsole.CellDecoratorHelpers.AddDecorators(System.Collections.Generic.IEnumerable{SadConsole.CellDecorator},SadConsole.ColoredGlyphBase)
@@ -101,13 +111,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Adds the decorators to a glyph.
+  example: []
   syntax:
     content: public static void AddDecorators(IEnumerable<CellDecorator>? decorators, ColoredGlyphBase glyph)
     parameters:
     - id: decorators
       type: System.Collections.Generic.IEnumerable{SadConsole.CellDecorator}
+      description: The decorators to add. Duplicates are skipped.
     - id: glyph
       type: SadConsole.ColoredGlyphBase
+      description: The glyph to alter.
     content.vb: Public Shared Sub AddDecorators(decorators As IEnumerable(Of CellDecorator), glyph As ColoredGlyphBase)
   overload: SadConsole.CellDecoratorHelpers.AddDecorators*
   nameWithType.vb: CellDecoratorHelpers.AddDecorators(IEnumerable(Of CellDecorator), ColoredGlyphBase)
@@ -127,13 +141,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Adds the specified decorator to a glyph.
+  example: []
   syntax:
     content: public static void AddDecorator(CellDecorator decorator, ColoredGlyphBase glyph)
     parameters:
     - id: decorator
       type: SadConsole.CellDecorator
+      description: The decorator to add.
     - id: glyph
       type: SadConsole.ColoredGlyphBase
+      description: The glyph to alter.
     content.vb: Public Shared Sub AddDecorator(decorator As CellDecorator, glyph As ColoredGlyphBase)
   overload: SadConsole.CellDecoratorHelpers.AddDecorator*
 - uid: SadConsole.CellDecoratorHelpers.RemoveDecorators(System.Collections.Generic.IEnumerable{SadConsole.CellDecorator},SadConsole.ColoredGlyphBase)
@@ -150,13 +168,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Removes the specified decorators from a glyph. If no decorators remain on the glyph, the <xref href="SadConsole.ColoredGlyphBase.Decorators" data-throw-if-not-resolved="false"></xref> collection is set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+  example: []
   syntax:
     content: public static void RemoveDecorators(IEnumerable<CellDecorator> decorators, ColoredGlyphBase glyph)
     parameters:
     - id: decorators
       type: System.Collections.Generic.IEnumerable{SadConsole.CellDecorator}
+      description: The decorators to remove.
     - id: glyph
       type: SadConsole.ColoredGlyphBase
+      description: The glyph to alter.
     content.vb: Public Shared Sub RemoveDecorators(decorators As IEnumerable(Of CellDecorator), glyph As ColoredGlyphBase)
   overload: SadConsole.CellDecoratorHelpers.RemoveDecorators*
   nameWithType.vb: CellDecoratorHelpers.RemoveDecorators(IEnumerable(Of CellDecorator), ColoredGlyphBase)
@@ -176,11 +198,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Removes all decorators from a glyph, returns the list to the pool, and sets the <xref href="SadConsole.ColoredGlyphBase.Decorators" data-throw-if-not-resolved="false"></xref> collection to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+  example: []
   syntax:
     content: public static void RemoveAllDecorators(ColoredGlyphBase glyph)
     parameters:
     - id: glyph
       type: SadConsole.ColoredGlyphBase
+      description: The glyph to alter.
     content.vb: Public Shared Sub RemoveAllDecorators(glyph As ColoredGlyphBase)
   overload: SadConsole.CellDecoratorHelpers.RemoveAllDecorators*
 - uid: SadConsole.CellDecoratorHelpers.RemoveDecorator(SadConsole.CellDecorator,SadConsole.ColoredGlyphBase)
@@ -197,13 +222,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Removes the specified decorator from a glyph. If no decorators remain on the glyph, the <xref href="SadConsole.ColoredGlyphBase.Decorators" data-throw-if-not-resolved="false"></xref> collection is set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+  example: []
   syntax:
     content: public static void RemoveDecorator(CellDecorator decorator, ColoredGlyphBase glyph)
     parameters:
     - id: decorator
       type: SadConsole.CellDecorator
+      description: The decorator to remove.
     - id: glyph
       type: SadConsole.ColoredGlyphBase
+      description: The glyph to alter.
     content.vb: Public Shared Sub RemoveDecorator(decorator As CellDecorator, glyph As ColoredGlyphBase)
   overload: SadConsole.CellDecoratorHelpers.RemoveDecorator*
 - uid: SadConsole.CellDecoratorHelpers.CloneDecorators(SadConsole.ColoredGlyphBase)
@@ -220,13 +249,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Returns a new list of decorators from the <xref href="SadConsole.ColoredGlyphBase.Decorators" data-throw-if-not-resolved="false"></xref> property of <code class="paramref">glyph</code>.
+  example: []
   syntax:
     content: public static List<CellDecorator>? CloneDecorators(ColoredGlyphBase glyph)
     parameters:
     - id: glyph
       type: SadConsole.ColoredGlyphBase
+      description: The glyph to copy the decorators from.
     return:
       type: System.Collections.Generic.List{SadConsole.CellDecorator}
+      description: A list with all of the decorators from <code class="paramref">glyph</code>. If the glyph's decorators are <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> is returned.
     content.vb: Public Shared Function CloneDecorators(glyph As ColoredGlyphBase) As List(Of CellDecorator)
   overload: SadConsole.CellDecoratorHelpers.CloneDecorators*
 - uid: SadConsole.CellDecoratorHelpers.ItemsMatch(System.Collections.Generic.List{SadConsole.CellDecorator},System.Collections.Generic.List{SadConsole.CellDecorator})
@@ -244,15 +277,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Determines whether the contents of two <xref href="SadConsole.CellDecorator" data-throw-if-not-resolved="false"></xref> arrays are equal.
+  example: []
   syntax:
     content: public static bool ItemsMatch(this List<CellDecorator>? self, List<CellDecorator>? other)
     parameters:
     - id: self
       type: System.Collections.Generic.List{SadConsole.CellDecorator}
+      description: The first object to compare.
     - id: other
       type: System.Collections.Generic.List{SadConsole.CellDecorator}
+      description: The second object to compare.
     return:
       type: System.Boolean
+      description: A boolean value to indicate whether or not the two arrays are considered equal.
     content.vb: Public Shared Function ItemsMatch(self As List(Of CellDecorator), other As List(Of CellDecorator)) As Boolean
   overload: SadConsole.CellDecoratorHelpers.ItemsMatch*
   nameWithType.vb: CellDecoratorHelpers.ItemsMatch(List(Of CellDecorator), List(Of CellDecorator))
@@ -272,6 +310,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The list pool used for creating the decorator lists applied to cells.
+  example: []
   syntax:
     content: public static IListPool<CellDecorator> Pool { get; set; }
     parameters: []
@@ -280,6 +320,22 @@ items:
     content.vb: Public Shared Property Pool As IListPool(Of CellDecorator)
   overload: SadConsole.CellDecoratorHelpers.Pool*
 references:
+- uid: SadConsole.CellDecorator
+  commentId: T:SadConsole.CellDecorator
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.CellDecorator.html
+  name: CellDecorator
+  nameWithType: CellDecorator
+  fullName: SadConsole.CellDecorator
+- uid: SadConsole.ColoredGlyphBase.Decorators
+  commentId: P:SadConsole.ColoredGlyphBase.Decorators
+  parent: SadConsole.ColoredGlyphBase
+  isExternal: true
+  href: SadConsole.ColoredGlyphBase.html#SadConsole_ColoredGlyphBase_Decorators
+  name: Decorators
+  nameWithType: ColoredGlyphBase.Decorators
+  fullName: SadConsole.ColoredGlyphBase.Decorators
 - uid: SadConsole
   commentId: N:SadConsole
   isExternal: true
@@ -517,6 +573,14 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
+- uid: SadConsole.ColoredGlyphBase
+  commentId: T:SadConsole.ColoredGlyphBase
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ColoredGlyphBase.html
+  name: ColoredGlyphBase
+  nameWithType: ColoredGlyphBase
+  fullName: SadConsole.ColoredGlyphBase
 - uid: System
   commentId: N:System
   isExternal: true
@@ -566,14 +630,6 @@ references:
     isExternal: true
     href: SadConsole.CellDecorator.html
   - name: )
-- uid: SadConsole.ColoredGlyphBase
-  commentId: T:SadConsole.ColoredGlyphBase
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.ColoredGlyphBase.html
-  name: ColoredGlyphBase
-  nameWithType: ColoredGlyphBase
-  fullName: SadConsole.ColoredGlyphBase
 - uid: System.Collections.Generic.IEnumerable`1
   commentId: T:System.Collections.Generic.IEnumerable`1
   isExternal: true
@@ -646,14 +702,6 @@ references:
   name: SetDecorator
   nameWithType: CellDecoratorHelpers.SetDecorator
   fullName: SadConsole.CellDecoratorHelpers.SetDecorator
-- uid: SadConsole.CellDecorator
-  commentId: T:SadConsole.CellDecorator
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.CellDecorator.html
-  name: CellDecorator
-  nameWithType: CellDecorator
-  fullName: SadConsole.CellDecorator
 - uid: SadConsole.CellDecoratorHelpers.AddDecorators*
   commentId: Overload:SadConsole.CellDecoratorHelpers.AddDecorators
   isExternal: true

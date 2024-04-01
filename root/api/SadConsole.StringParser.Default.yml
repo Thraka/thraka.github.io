@@ -19,6 +19,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: The default string parser.
+  example: []
   syntax:
     content: 'public class Default : IParser'
     content.vb: Public Class [Default] Implements IParser
@@ -48,6 +50,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: Custom processor called if any built in command is not triggerd. Signature is ("command", "parameters", existing glyphs, text surface, associated editor, command stacks).
+  example: []
   syntax:
     content: public Func<string, string, ColoredGlyphAndEffect[], ICellSurface?, ParseCommandStacks?, ParseCommandBase?>? CustomProcessor
     return:
@@ -67,20 +71,26 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: Creates a colored string by parsing commands embedded in the string.
   example: []
   syntax:
     content: public ColoredString Parse(ReadOnlySpan<char> value, int surfaceIndex = -1, ICellSurface? surface = null, ParseCommandStacks? initialBehaviors = null)
     parameters:
     - id: value
       type: System.ReadOnlySpan{System.Char}
+      description: The string to parse.
     - id: surfaceIndex
       type: System.Int32
+      description: Index of where this string will be printed.
     - id: surface
       type: SadConsole.ICellSurface
+      description: The surface the string will be printed to.
     - id: initialBehaviors
       type: SadConsole.StringParser.ParseCommandStacks
+      description: Any initial defaults.
     return:
       type: SadConsole.ColoredString
+      description: The finalized string.
     content.vb: Public Function Parse(value As ReadOnlySpan(Of Char), surfaceIndex As Integer = -1, surface As ICellSurface = Nothing, initialBehaviors As ParseCommandStacks = Nothing) As ColoredString
   overload: SadConsole.StringParser.Default.Parse*
   implements:
@@ -123,6 +133,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: A dictionary of variable resolution methods.
+  example: []
   syntax:
     content: public Dictionary<string, Func<string>> Variables { get; }
     parameters: []

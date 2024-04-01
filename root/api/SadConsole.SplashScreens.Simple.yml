@@ -17,6 +17,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.SplashScreens
+  summary: A simple splashscreen that fades in a screen specifying "Powered by SadConsole".
+  example: []
   syntax:
     content: 'public class Simple : ScreenSurface, IDisposable, IScreenSurfaceEditable, IScreenSurface, IScreenObject, IPositionable, IComponentHost, ISurface, ISurfaceSettable'
     content.vb: Public Class Simple Inherits ScreenSurface Implements IDisposable, IScreenSurfaceEditable, IScreenSurface, IScreenObject, IPositionable, IComponentHost, ISurface, ISurfaceSettable
@@ -256,6 +258,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.SplashScreens
+  summary: A new instance of this class.
+  example: []
   syntax:
     content: public Simple()
     content.vb: Public Sub New()
@@ -277,14 +281,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.SplashScreens
+  summary: Ends the animation when a key is pressed.
   example: []
   syntax:
     content: public override bool ProcessKeyboard(Keyboard keyboard)
     parameters:
     - id: keyboard
       type: SadConsole.Input.Keyboard
+      description: The keyboard state.
     return:
       type: System.Boolean
+      description: The base implementation of the keyboard.
     content.vb: Public Overrides Function ProcessKeyboard(keyboard As Keyboard) As Boolean
   overridden: SadConsole.ScreenObject.ProcessKeyboard(SadConsole.Input.Keyboard)
   overload: SadConsole.SplashScreens.Simple.ProcessKeyboard*

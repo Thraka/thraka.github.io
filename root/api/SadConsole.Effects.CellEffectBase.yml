@@ -28,6 +28,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: A base class for cell effects.
+  example: []
   syntax:
     content: >-
       [DataContract]
@@ -76,6 +78,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: A flag to indidcate that the delay timer has finished.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -105,6 +109,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: The total time elapsed while processing the effect.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -134,6 +140,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: Creates a new instance of the effect.
+  example: []
   syntax:
     content: protected CellEffectBase()
     content.vb: Protected Sub New()
@@ -155,16 +163,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: Applies the state of the effect to a cell.
   example: []
   syntax:
     content: public abstract bool ApplyToCell(ColoredGlyphBase cell, ColoredGlyphBase originalState)
     parameters:
     - id: cell
       type: SadConsole.ColoredGlyphBase
+      description: The surface cell using this effect.
     - id: originalState
       type: SadConsole.ColoredGlyphBase
+      description: The state of the cell prior to the effect being applied.
     return:
       type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when this method modified the <code class="paramref">cell</code>; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Public MustOverride Function ApplyToCell(cell As ColoredGlyphBase, originalState As ColoredGlyphBase) As Boolean
   overload: SadConsole.Effects.CellEffectBase.ApplyToCell*
   implements:
@@ -183,12 +195,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: Updates the state of the effect.
   example: []
   syntax:
     content: public virtual void Update(TimeSpan delta)
     parameters:
     - id: delta
       type: System.TimeSpan
+      description: Time since the last call to this effect.
     content.vb: Public Overridable Sub Update(delta As TimeSpan)
   overload: SadConsole.Effects.CellEffectBase.Update*
   implements:
@@ -207,6 +221,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: Restarts the cell effect.
   example: []
   syntax:
     content: public virtual void Restart()
@@ -228,11 +243,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: Returns a duplicate of this effect.
   example: []
   syntax:
     content: public abstract ICellEffect Clone()
     return:
       type: SadConsole.Effects.ICellEffect
+      description: A new copy of this effect.
     content.vb: Public MustOverride Function Clone() As ICellEffect
   overload: SadConsole.Effects.CellEffectBase.Clone*
   implements:
@@ -251,6 +268,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: True when the effect is finished.
   example: []
   syntax:
     content: >-
@@ -285,6 +303,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: Flags this effect to be cloned when assigned to a cell instead of reused.
   example: []
   syntax:
     content: >-
@@ -319,6 +338,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: A delay applied to the effect only when it first runs or is restarted.
   example: []
   syntax:
     content: >-
@@ -353,6 +373,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: When true, the effect should be disassociated with cells when it has finished processing.
   example: []
   syntax:
     content: >-
@@ -387,6 +408,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates the <xref href="SadConsole.Effects.EffectsManager" data-throw-if-not-resolved="false"></xref> should restore the cell to its original state.
   example: []
   syntax:
     content: >-
@@ -421,6 +443,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that the <xref href="SadConsole.Effects.EffectsManager" data-throw-if-not-resolved="false"></xref> should run one update frame on this effect when it's first added to the manager.
   example: []
   syntax:
     content: >-
@@ -962,6 +985,14 @@ references:
   name: RemoveOnFinished
   nameWithType: ICellEffect.RemoveOnFinished
   fullName: SadConsole.Effects.ICellEffect.RemoveOnFinished
+- uid: SadConsole.Effects.EffectsManager
+  commentId: T:SadConsole.Effects.EffectsManager
+  parent: SadConsole.Effects
+  isExternal: true
+  href: SadConsole.Effects.EffectsManager.html
+  name: EffectsManager
+  nameWithType: EffectsManager
+  fullName: SadConsole.Effects.EffectsManager
 - uid: SadConsole.Effects.CellEffectBase.RestoreCellOnRemoved*
   commentId: Overload:SadConsole.Effects.CellEffectBase.RestoreCellOnRemoved
   isExternal: true

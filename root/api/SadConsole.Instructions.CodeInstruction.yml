@@ -19,6 +19,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
+  summary: An instruction with a code callback.
+  example: []
   syntax:
     content: 'public class CodeInstruction : InstructionBase, IComponent'
     content.vb: Public Class CodeInstruction Inherits InstructionBase Implements IComponent
@@ -64,11 +66,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
+  summary: Creates a new instruction with the specified callback.
+  example: []
   syntax:
     content: public CodeInstruction(Func<IScreenObject, TimeSpan, bool> callback)
     parameters:
     - id: callback
       type: System.Func{SadConsole.IScreenObject,System.TimeSpan,System.Boolean}
+      description: The code invoked by this instruction. Return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> to set <xref href="SadConsole.Instructions.InstructionBase.IsFinished" data-throw-if-not-resolved="false"></xref>.
     content.vb: Public Sub New(callback As Func(Of IScreenObject, TimeSpan, Boolean))
   overload: SadConsole.Instructions.CodeInstruction.#ctor*
   nameWithType.vb: CodeInstruction.New(Func(Of IScreenObject, TimeSpan, Boolean))
@@ -88,14 +93,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
+  summary: Executes the instruction. This base class method should be called from derived classes. If the IsFinished property is set to true, will try to repeat if needed and will raise all appropriate events.
   example: []
   syntax:
     content: public override void Update(IScreenObject componentHost, TimeSpan delta)
     parameters:
     - id: componentHost
       type: SadConsole.IScreenObject
+      description: The object that hosts this instruction.
     - id: delta
       type: System.TimeSpan
+      description: The time that has elapsed since this method was last called.
     content.vb: Public Overrides Sub Update(componentHost As IScreenObject, delta As TimeSpan)
   overridden: SadConsole.Instructions.InstructionBase.Update(SadConsole.IScreenObject,System.TimeSpan)
   overload: SadConsole.Instructions.CodeInstruction.Update*
@@ -113,11 +121,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
+  summary: Sets the callback used by the instruction.
+  example: []
   syntax:
     content: public void SetCallback(Func<IScreenObject, TimeSpan, bool> callback)
     parameters:
     - id: callback
       type: System.Func{SadConsole.IScreenObject,System.TimeSpan,System.Boolean}
+      description: The code invoked by this instruction. Return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> to set <xref href="SadConsole.Instructions.InstructionBase.IsFinished" data-throw-if-not-resolved="false"></xref>.
     content.vb: Public Sub SetCallback(callback As Func(Of IScreenObject, TimeSpan, Boolean))
   overload: SadConsole.Instructions.CodeInstruction.SetCallback*
   nameWithType.vb: CodeInstruction.SetCallback(Func(Of IScreenObject, TimeSpan, Boolean))
@@ -137,6 +148,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
+  summary: Friendly ID to help track what this code instruction was created from since it cannot be fully serialized.
+  example: []
   syntax:
     content: public string ID { get; set; }
     parameters: []

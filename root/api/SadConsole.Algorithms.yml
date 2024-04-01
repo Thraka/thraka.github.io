@@ -17,6 +17,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Provides a few minor helper methods related to filling.
+  example: []
   syntax:
     content: public static class Algorithms
     content.vb: Public Module Algorithms
@@ -44,19 +46,26 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: A very slow 4-way fill algorithm to change items from one type to another.
+  example: []
   syntax:
     content: public static void FloodFill<TNode>(TNode node, Func<TNode, bool> shouldNodeChange, Action<TNode> changeNode, Func<TNode, Algorithms.NodeConnections<TNode>> getNodeConnections)
     parameters:
     - id: node
       type: '{TNode}'
+      description: The item to change.
     - id: shouldNodeChange
       type: System.Func{{TNode},System.Boolean}
+      description: Determines if the node should change.
     - id: changeNode
       type: System.Action{{TNode}}
+      description: After it is determined if the node should change, this changes the node.
     - id: getNodeConnections
       type: System.Func{{TNode},SadConsole.Algorithms.NodeConnections{{TNode}}}
+      description: Gets any other nodes connected to this node.
     typeParameters:
     - id: TNode
+      description: The item type that is changed.
     content.vb: Public Shared Sub FloodFill(Of TNode)(node As TNode, shouldNodeChange As Func(Of TNode, Boolean), changeNode As Action(Of TNode), getNodeConnections As Func(Of TNode, Algorithms.NodeConnections(Of TNode)))
   overload: SadConsole.Algorithms.FloodFill*
   nameWithType.vb: Algorithms.FloodFill(Of TNode)(TNode, Func(Of TNode, Boolean), Action(Of TNode), Func(Of TNode, Algorithms.NodeConnections(Of TNode)))
@@ -76,23 +85,32 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Processes an area and applies a gradient calculation to each part of the area.
+  example: []
   syntax:
     content: public static void GradientFill(Point cellSize, Point position, int strength, int angle, Rectangle area, Gradient gradient, Action<int, int, Color> applyAction)
     parameters:
     - id: cellSize
       type: SadRogue.Primitives.Point
+      description: The size of an individual cell. Makes the angle uniform.
     - id: position
       type: SadRogue.Primitives.Point
+      description: The center of the gradient.
     - id: strength
       type: System.Int32
+      description: The width of the gradient spread.
     - id: angle
       type: System.Int32
+      description: The angle to apply the gradient.
     - id: area
       type: SadRogue.Primitives.Rectangle
+      description: The area to calculate.
     - id: gradient
       type: SadRogue.Primitives.Gradient
+      description: The color gradient to fill with.
     - id: applyAction
       type: System.Action{System.Int32,System.Int32,SadRogue.Primitives.Color}
+      description: The callback called for each part of the area.
     content.vb: Public Shared Sub GradientFill(cellSize As Point, position As Point, strength As Integer, angle As Integer, area As Rectangle, gradient As Gradient, applyAction As Action(Of Integer, Integer, Color))
   overload: SadConsole.Algorithms.GradientFill*
   nameWithType.vb: Algorithms.GradientFill(Point, Point, Integer, Integer, Rectangle, Gradient, Action(Of Integer, Integer, Color))

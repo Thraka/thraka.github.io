@@ -25,6 +25,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Ansi
+  summary: Writes a <xref href="SadConsole.Ansi.Document" data-throw-if-not-resolved="false"></xref> to a <xref href="SadConsole.ICellSurface" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public class AnsiWriter
     content.vb: Public Class AnsiWriter
@@ -52,13 +54,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Ansi
+  summary: Creates a new instance with the source document and target surface.
+  example: []
   syntax:
     content: public AnsiWriter(Document ansiDocument, ICellSurface editor)
     parameters:
     - id: ansiDocument
       type: SadConsole.Ansi.Document
+      description: The source document containing ANSI commands.
     - id: editor
       type: SadConsole.ICellSurface
+      description: The surface to parse the ANSI to.
     content.vb: Public Sub New(ansiDocument As Document, editor As ICellSurface)
   overload: SadConsole.Ansi.AnsiWriter.#ctor*
   nameWithType.vb: AnsiWriter.New(Document, ICellSurface)
@@ -78,11 +84,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Ansi
+  summary: Processes the document by the amount of time that has elapsed. If <xref href="SadConsole.Ansi.AnsiWriter.CharactersPerSecond" data-throw-if-not-resolved="false"></xref> is 0, time elapsed has no affect.
+  example: []
   syntax:
     content: public void Process(double timeElapsed)
     parameters:
     - id: timeElapsed
       type: System.Double
+      description: The time in seconds.
     content.vb: Public Sub Process(timeElapsed As Double)
   overload: SadConsole.Ansi.AnsiWriter.Process*
   nameWithType.vb: AnsiWriter.Process(Double)
@@ -102,11 +111,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Ansi
+  summary: Interprets an individual ansi code.
+  example: []
   syntax:
     content: public void AnsiInterpret(string code)
     parameters:
     - id: code
       type: System.String
+      description: The ANSI.SYS code to read.
     content.vb: Public Sub AnsiInterpret(code As String)
   overload: SadConsole.Ansi.AnsiWriter.AnsiInterpret*
   nameWithType.vb: AnsiWriter.AnsiInterpret(String)
@@ -126,15 +138,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Ansi
+  summary: Reads a line of ANSI.SYS code.
+  example: []
   syntax:
     content: public bool AnsiReadLine(string line, bool moreLines = false)
     parameters:
     - id: line
       type: System.String
+      description: The line to read.
     - id: moreLines
       type: System.Boolean
+      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, calls <xref href="SadConsole.Components.Cursor.LineFeed" data-throw-if-not-resolved="false"></xref>; otherwise does nothing.
     return:
       type: System.Boolean
+      description: Returns false when character 26 is encountered; otherwise true.
     content.vb: Public Function AnsiReadLine(line As String, moreLines As Boolean = False) As Boolean
   overload: SadConsole.Ansi.AnsiWriter.AnsiReadLine*
   nameWithType.vb: AnsiWriter.AnsiReadLine(String, Boolean)
@@ -154,6 +171,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Ansi
+  summary: Loads an ansi file and parses it.
+  example: []
   syntax:
     content: public void ReadEntireDocument()
     content.vb: Public Sub ReadEntireDocument()
@@ -172,6 +191,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Ansi
+  summary: Moves the reader back to the start of the file so that the source can .
+  example: []
   syntax:
     content: public void Restart()
     content.vb: Public Sub Restart()
@@ -190,6 +211,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Ansi
+  summary: The document used to create this writer.
+  example: []
   syntax:
     content: public Document AnsiDocument { get; }
     parameters: []
@@ -211,6 +234,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Ansi
+  summary: The blink effect to apply when the ansi document provides the ANSI blink command.
+  example: []
   syntax:
     content: public ICellEffect BlinkEffect { get; set; }
     parameters: []
@@ -232,6 +257,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Ansi
+  summary: The cursor used to write to the target <xref href="SadConsole.ICellSurface" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public Cursor Cursor { get; }
     parameters: []
@@ -253,6 +280,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Ansi
+  summary: How many characters to process a second. When set to 0 reads the entire document at once.
+  example: []
   syntax:
     content: public int CharactersPerSecond { get; set; }
     parameters: []
@@ -261,6 +290,22 @@ items:
     content.vb: Public Property CharactersPerSecond As Integer
   overload: SadConsole.Ansi.AnsiWriter.CharactersPerSecond*
 references:
+- uid: SadConsole.Ansi.Document
+  commentId: T:SadConsole.Ansi.Document
+  parent: SadConsole.Ansi
+  isExternal: true
+  href: SadConsole.Ansi.Document.html
+  name: Document
+  nameWithType: Document
+  fullName: SadConsole.Ansi.Document
+- uid: SadConsole.ICellSurface
+  commentId: T:SadConsole.ICellSurface
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ICellSurface.html
+  name: ICellSurface
+  nameWithType: ICellSurface
+  fullName: SadConsole.ICellSurface
 - uid: SadConsole.Ansi
   commentId: N:SadConsole.Ansi
   isExternal: true
@@ -518,6 +563,13 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
 - uid: System
   commentId: N:System
   isExternal: true
@@ -535,29 +587,13 @@ references:
   nameWithType.vb: AnsiWriter.New
   fullName.vb: SadConsole.Ansi.AnsiWriter.New
   name.vb: New
-- uid: SadConsole.Ansi.Document
-  commentId: T:SadConsole.Ansi.Document
-  parent: SadConsole.Ansi
+- uid: SadConsole.Ansi.AnsiWriter.CharactersPerSecond
+  commentId: P:SadConsole.Ansi.AnsiWriter.CharactersPerSecond
   isExternal: true
-  href: SadConsole.Ansi.Document.html
-  name: Document
-  nameWithType: Document
-  fullName: SadConsole.Ansi.Document
-- uid: SadConsole.ICellSurface
-  commentId: T:SadConsole.ICellSurface
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.ICellSurface.html
-  name: ICellSurface
-  nameWithType: ICellSurface
-  fullName: SadConsole.ICellSurface
-- uid: SadConsole
-  commentId: N:SadConsole
-  isExternal: true
-  href: SadConsole.html
-  name: SadConsole
-  nameWithType: SadConsole
-  fullName: SadConsole
+  href: SadConsole.Ansi.AnsiWriter.html#SadConsole_Ansi_AnsiWriter_CharactersPerSecond
+  name: CharactersPerSecond
+  nameWithType: AnsiWriter.CharactersPerSecond
+  fullName: SadConsole.Ansi.AnsiWriter.CharactersPerSecond
 - uid: SadConsole.Ansi.AnsiWriter.Process*
   commentId: Overload:SadConsole.Ansi.AnsiWriter.Process
   isExternal: true
@@ -594,6 +630,27 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
+- uid: SadConsole.Components.Cursor.LineFeed
+  commentId: M:SadConsole.Components.Cursor.LineFeed
+  isExternal: true
+  href: SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_LineFeed
+  name: LineFeed()
+  nameWithType: Cursor.LineFeed()
+  fullName: SadConsole.Components.Cursor.LineFeed()
+  spec.csharp:
+  - uid: SadConsole.Components.Cursor.LineFeed
+    name: LineFeed
+    isExternal: true
+    href: SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_LineFeed
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.Cursor.LineFeed
+    name: LineFeed
+    isExternal: true
+    href: SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_LineFeed
+  - name: (
+  - name: )
 - uid: SadConsole.Ansi.AnsiWriter.AnsiReadLine*
   commentId: Overload:SadConsole.Ansi.AnsiWriter.AnsiReadLine
   isExternal: true

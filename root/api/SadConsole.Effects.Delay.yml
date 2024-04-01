@@ -20,6 +20,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: An effect that doesn't do anything except run the <xref href="SadConsole.Effects.CellEffectBase.StartDelay" data-throw-if-not-resolved="false"></xref> timer. Usually used with the <xref href="SadConsole.Effects.EffectSet" data-throw-if-not-resolved="false"></xref> effect.
+  example: []
   syntax:
     content: >-
       [DataContract]
@@ -68,12 +70,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: Updates the state of the effect.
   example: []
   syntax:
     content: public override void Update(TimeSpan delta)
     parameters:
     - id: delta
       type: System.TimeSpan
+      description: Time since the last call to this effect.
     content.vb: Public Overrides Sub Update(delta As TimeSpan)
   overridden: SadConsole.Effects.CellEffectBase.Update(System.TimeSpan)
   overload: SadConsole.Effects.Delay.Update*
@@ -91,16 +95,19 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: Applies the state of the effect to a cell.
   example: []
   syntax:
     content: public override bool ApplyToCell(ColoredGlyphBase cell, ColoredGlyphBase state)
     parameters:
     - id: cell
       type: SadConsole.ColoredGlyphBase
+      description: The surface cell using this effect.
     - id: state
       type: SadConsole.ColoredGlyphBase
     return:
       type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when this method modified the <code class="paramref">cell</code>; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Public Overrides Function ApplyToCell(cell As ColoredGlyphBase, state As ColoredGlyphBase) As Boolean
   overridden: SadConsole.Effects.CellEffectBase.ApplyToCell(SadConsole.ColoredGlyphBase,SadConsole.ColoredGlyphBase)
   overload: SadConsole.Effects.Delay.ApplyToCell*
@@ -118,11 +125,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: Returns a duplicate of this effect.
   example: []
   syntax:
     content: public override ICellEffect Clone()
     return:
       type: SadConsole.Effects.ICellEffect
+      description: A new copy of this effect.
     content.vb: Public Overrides Function Clone() As ICellEffect
   overridden: SadConsole.Effects.CellEffectBase.Clone
   overload: SadConsole.Effects.Delay.Clone*
@@ -170,6 +179,21 @@ items:
   fullName.vb: SadConsole.Effects.Delay.New()
   name.vb: New()
 references:
+- uid: SadConsole.Effects.CellEffectBase.StartDelay
+  commentId: P:SadConsole.Effects.CellEffectBase.StartDelay
+  parent: SadConsole.Effects.CellEffectBase
+  isExternal: true
+  href: SadConsole.Effects.CellEffectBase.html#SadConsole_Effects_CellEffectBase_StartDelay
+  name: StartDelay
+  nameWithType: CellEffectBase.StartDelay
+  fullName: SadConsole.Effects.CellEffectBase.StartDelay
+- uid: SadConsole.Effects.EffectSet
+  commentId: T:SadConsole.Effects.EffectSet
+  isExternal: true
+  href: SadConsole.Effects.EffectSet.html
+  name: EffectSet
+  nameWithType: EffectSet
+  fullName: SadConsole.Effects.EffectSet
 - uid: SadConsole.Effects
   commentId: N:SadConsole.Effects
   isExternal: true
@@ -278,14 +302,6 @@ references:
   name: CloneOnAdd
   nameWithType: CellEffectBase.CloneOnAdd
   fullName: SadConsole.Effects.CellEffectBase.CloneOnAdd
-- uid: SadConsole.Effects.CellEffectBase.StartDelay
-  commentId: P:SadConsole.Effects.CellEffectBase.StartDelay
-  parent: SadConsole.Effects.CellEffectBase
-  isExternal: true
-  href: SadConsole.Effects.CellEffectBase.html#SadConsole_Effects_CellEffectBase_StartDelay
-  name: StartDelay
-  nameWithType: CellEffectBase.StartDelay
-  fullName: SadConsole.Effects.CellEffectBase.StartDelay
 - uid: SadConsole.Effects.CellEffectBase.RemoveOnFinished
   commentId: P:SadConsole.Effects.CellEffectBase.RemoveOnFinished
   parent: SadConsole.Effects.CellEffectBase

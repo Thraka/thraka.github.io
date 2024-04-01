@@ -35,6 +35,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
+  summary: A positioned and animated game object.
+  example: []
   syntax:
     content: >-
       [DataContract]
@@ -133,13 +135,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
+  summary: Creates a new entity as an animated surface.
+  example: []
   syntax:
     content: public Entity(Entity.Animated appearance, int zIndex)
     parameters:
     - id: appearance
       type: SadConsole.Entities.Entity.Animated
+      description: The surface appearance to use for the entity.
     - id: zIndex
       type: System.Int32
+      description: The rendering order. Higher values are drawn on top of lower values.
     content.vb: Public Sub New(appearance As Entity.Animated, zIndex As Integer)
   overload: SadConsole.Entities.Entity.#ctor*
   nameWithType.vb: Entity.New(Entity.Animated, Integer)
@@ -159,13 +165,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
+  summary: Creates a new entity as an animated surface.
+  example: []
   syntax:
     content: public Entity(AnimatedScreenObject appearance, int zIndex)
     parameters:
     - id: appearance
       type: SadConsole.AnimatedScreenObject
+      description: The surface appearance to use for the entity.
     - id: zIndex
       type: System.Int32
+      description: The rendering order. Higher values are drawn on top of lower values.
     content.vb: Public Sub New(appearance As AnimatedScreenObject, zIndex As Integer)
   overload: SadConsole.Entities.Entity.#ctor*
   nameWithType.vb: Entity.New(AnimatedScreenObject, Integer)
@@ -185,13 +195,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
+  summary: Creates a new entity as a single cell.
+  example: []
   syntax:
     content: public Entity(Entity.SingleCell appearance, int zIndex)
     parameters:
     - id: appearance
       type: SadConsole.Entities.Entity.SingleCell
+      description: The single cell appearance to use for the entity.
     - id: zIndex
       type: System.Int32
+      description: The rendering order. Higher values are drawn on top of lower values.
     content.vb: Public Sub New(appearance As Entity.SingleCell, zIndex As Integer)
   overload: SadConsole.Entities.Entity.#ctor*
   nameWithType.vb: Entity.New(Entity.SingleCell, Integer)
@@ -211,13 +225,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
+  summary: Creates a new entity, copying the provided appearance to this entity.
+  example: []
   syntax:
     content: public Entity(ColoredGlyphBase appearance, int zIndex)
     parameters:
     - id: appearance
       type: SadConsole.ColoredGlyphBase
+      description: The appearance of the entity.
     - id: zIndex
       type: System.Int32
+      description: The rendering order. Lower values are under higher values.
     content.vb: Public Sub New(appearance As ColoredGlyphBase, zIndex As Integer)
   overload: SadConsole.Entities.Entity.#ctor*
   nameWithType.vb: Entity.New(ColoredGlyphBase, Integer)
@@ -237,17 +255,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
+  summary: Creates a new entity, copying the provided appearance to this entity.
+  example: []
   syntax:
     content: public Entity(Color foreground, Color background, int glyph, int zIndex)
     parameters:
     - id: foreground
       type: SadRogue.Primitives.Color
+      description: The foreground color of the entity.
     - id: background
       type: SadRogue.Primitives.Color
+      description: The background color of the entity.
     - id: glyph
       type: System.Int32
+      description: The glyph color of the entity.
     - id: zIndex
       type: System.Int32
+      description: The rendering order. Lower values are under higher values.
     content.vb: Public Sub New(foreground As Color, background As Color, glyph As Integer, zIndex As Integer)
   overload: SadConsole.Entities.Entity.#ctor*
   nameWithType.vb: Entity.New(Color, Color, Integer, Integer)
@@ -267,14 +291,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
+  summary: Raises the <xref href="SadConsole.ScreenObject.PositionChanged" data-throw-if-not-resolved="false"></xref> event.
   example: []
   syntax:
     content: protected override void OnPositionChanged(Point oldPosition, Point newPosition)
     parameters:
     - id: oldPosition
       type: SadRogue.Primitives.Point
+      description: The previous position.
     - id: newPosition
       type: SadRogue.Primitives.Point
+      description: The new position.
     content.vb: Protected Overrides Sub OnPositionChanged(oldPosition As Point, newPosition As Point)
   overridden: SadConsole.ScreenObject.OnPositionChanged(SadRogue.Primitives.Point,SadRogue.Primitives.Point)
   overload: SadConsole.Entities.Entity.OnPositionChanged*
@@ -292,6 +319,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
+  summary: Raises the <xref href="SadConsole.Entities.Entity.IsDirtyChanged" data-throw-if-not-resolved="false"></xref> event.
+  example: []
   syntax:
     content: protected virtual void OnIsDirtyChanged()
     content.vb: Protected Overridable Sub OnIsDirtyChanged()
@@ -310,6 +339,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
+  summary: Sets a value for <xref href="SadConsole.IScreenObject.AbsolutePosition" data-throw-if-not-resolved="false"></xref> based on the <xref href="SadRogue.Primitives.IPositionable.Position" data-throw-if-not-resolved="false"></xref> of this instance and the <xref href="SadConsole.IScreenObject.Parent" data-throw-if-not-resolved="false"></xref> instance.
   example: []
   syntax:
     content: public override void UpdateAbsolutePosition()
@@ -330,12 +360,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
+  summary: If an effect is applied to the cell, updates the effect.
   example: []
   syntax:
     content: public override void Update(TimeSpan delta)
     parameters:
     - id: delta
       type: System.TimeSpan
+      description: ''
     content.vb: Public Overrides Sub Update(delta As TimeSpan)
   overridden: SadConsole.ScreenObject.Update(System.TimeSpan)
   overload: SadConsole.Entities.Entity.Update*
@@ -353,11 +385,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
+  summary: Returns the name of the entity prefixed with "Entity - ".
   example: []
   syntax:
     content: public override string ToString()
     return:
       type: System.String
+      description: The name.
     content.vb: Public Overrides Function ToString() As String
   overridden: SadConsole.ScreenObject.ToString
   overload: SadConsole.Entities.Entity.ToString*
@@ -375,11 +409,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
+  summary: Saves the <xref href="SadConsole.Entities.Entity" data-throw-if-not-resolved="false"></xref> to a file.
+  example: []
   syntax:
     content: public void Save(string file)
     parameters:
     - id: file
       type: System.String
+      description: The destination file.
     content.vb: Public Sub Save(file As String)
   overload: SadConsole.Entities.Entity.Save*
   nameWithType.vb: Entity.Save(String)
@@ -399,13 +436,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
+  summary: Loads a <xref href="SadConsole.Entities.Entity" data-throw-if-not-resolved="false"></xref> from a file.
+  example: []
   syntax:
     content: public static Entity Load(string file)
     parameters:
     - id: file
       type: System.String
+      description: The source file.
     return:
       type: SadConsole.Entities.Entity
+      description: The entity.
     content.vb: Public Shared Function Load(file As String) As Entity
   overload: SadConsole.Entities.Entity.Load*
   nameWithType.vb: Entity.Load(String)
@@ -425,6 +466,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
+  summary: A friendly name of the game object.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -456,6 +499,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
+  summary: The drawing layer this entity is drawn at
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -487,6 +532,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
+  summary: Indicates this entity's visual appearance has changed.
+  example: []
   syntax:
     content: public bool IsDirty { get; set; }
     parameters: []
@@ -508,6 +555,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
+  summary: Treats the <xref href="SadRogue.Primitives.IPositionable.Position" data-throw-if-not-resolved="false"></xref> of the entity as if it is pixels and not cells.
+  example: []
   syntax:
     content: public bool UsePixelPositioning { get; set; }
     parameters: []
@@ -529,6 +578,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
+  summary: The appearance of the entity when <xref href="SadConsole.Entities.Entity.IsSingleCell" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
+  example: []
   syntax:
     content: public Entity.SingleCell? AppearanceSingle { get; set; }
     parameters: []
@@ -550,6 +601,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
+  summary: The appearance of the entity when <xref href="SadConsole.Entities.Entity.IsSingleCell" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+  example: []
   syntax:
     content: public Entity.Animated? AppearanceSurface { get; set; }
     parameters: []
@@ -571,6 +624,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
+  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that this entity is a single cell entity; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> and it's an animated surface entity.
+  example: []
   syntax:
     content: public bool IsSingleCell { get; set; }
     parameters: []
@@ -592,6 +647,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
+  summary: Raised when the <xref href="SadConsole.Entities.Entity.IsDirty" data-throw-if-not-resolved="false"></xref> property changes value.
+  example: []
   syntax:
     content: public event EventHandler? IsDirtyChanged
     return:
@@ -3483,6 +3540,13 @@ references:
   name: Point
   nameWithType: Point
   fullName: SadRogue.Primitives.Point
+- uid: SadConsole.Entities.Entity.IsDirtyChanged
+  commentId: E:SadConsole.Entities.Entity.IsDirtyChanged
+  isExternal: true
+  href: SadConsole.Entities.Entity.html#SadConsole_Entities_Entity_IsDirtyChanged
+  name: IsDirtyChanged
+  nameWithType: Entity.IsDirtyChanged
+  fullName: SadConsole.Entities.Entity.IsDirtyChanged
 - uid: SadConsole.Entities.Entity.OnIsDirtyChanged*
   commentId: Overload:SadConsole.Entities.Entity.OnIsDirtyChanged
   isExternal: true
@@ -3490,6 +3554,29 @@ references:
   name: OnIsDirtyChanged
   nameWithType: Entity.OnIsDirtyChanged
   fullName: SadConsole.Entities.Entity.OnIsDirtyChanged
+- uid: SadConsole.IScreenObject.AbsolutePosition
+  commentId: P:SadConsole.IScreenObject.AbsolutePosition
+  parent: SadConsole.IScreenObject
+  isExternal: true
+  href: SadConsole.IScreenObject.html#SadConsole_IScreenObject_AbsolutePosition
+  name: AbsolutePosition
+  nameWithType: IScreenObject.AbsolutePosition
+  fullName: SadConsole.IScreenObject.AbsolutePosition
+- uid: SadRogue.Primitives.IPositionable.Position
+  commentId: P:SadRogue.Primitives.IPositionable.Position
+  parent: SadRogue.Primitives.IPositionable
+  isExternal: true
+  name: Position
+  nameWithType: IPositionable.Position
+  fullName: SadRogue.Primitives.IPositionable.Position
+- uid: SadConsole.IScreenObject.Parent
+  commentId: P:SadConsole.IScreenObject.Parent
+  parent: SadConsole.IScreenObject
+  isExternal: true
+  href: SadConsole.IScreenObject.html#SadConsole_IScreenObject_Parent
+  name: Parent
+  nameWithType: IScreenObject.Parent
+  fullName: SadConsole.IScreenObject.Parent
 - uid: SadConsole.ScreenObject.UpdateAbsolutePosition
   commentId: M:SadConsole.ScreenObject.UpdateAbsolutePosition
   parent: SadConsole.ScreenObject
@@ -3604,6 +3691,14 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
+- uid: SadConsole.Entities.Entity
+  commentId: T:SadConsole.Entities.Entity
+  parent: SadConsole.Entities
+  isExternal: true
+  href: SadConsole.Entities.Entity.html
+  name: Entity
+  nameWithType: Entity
+  fullName: SadConsole.Entities.Entity
 - uid: SadConsole.Entities.Entity.Save*
   commentId: Overload:SadConsole.Entities.Entity.Save
   isExternal: true
@@ -3618,14 +3713,6 @@ references:
   name: Load
   nameWithType: Entity.Load
   fullName: SadConsole.Entities.Entity.Load
-- uid: SadConsole.Entities.Entity
-  commentId: T:SadConsole.Entities.Entity
-  parent: SadConsole.Entities
-  isExternal: true
-  href: SadConsole.Entities.Entity.html
-  name: Entity
-  nameWithType: Entity
-  fullName: SadConsole.Entities.Entity
 - uid: SadConsole.Entities.Entity.Name*
   commentId: Overload:SadConsole.Entities.Entity.Name
   isExternal: true
@@ -3665,6 +3752,13 @@ references:
   name: UsePixelPositioning
   nameWithType: Entity.UsePixelPositioning
   fullName: SadConsole.Entities.Entity.UsePixelPositioning
+- uid: SadConsole.Entities.Entity.IsSingleCell
+  commentId: P:SadConsole.Entities.Entity.IsSingleCell
+  isExternal: true
+  href: SadConsole.Entities.Entity.html#SadConsole_Entities_Entity_IsSingleCell
+  name: IsSingleCell
+  nameWithType: Entity.IsSingleCell
+  fullName: SadConsole.Entities.Entity.IsSingleCell
 - uid: SadConsole.Entities.Entity.AppearanceSingle*
   commentId: Overload:SadConsole.Entities.Entity.AppearanceSingle
   isExternal: true
@@ -3686,6 +3780,13 @@ references:
   name: IsSingleCell
   nameWithType: Entity.IsSingleCell
   fullName: SadConsole.Entities.Entity.IsSingleCell
+- uid: SadConsole.Entities.Entity.IsDirty
+  commentId: P:SadConsole.Entities.Entity.IsDirty
+  isExternal: true
+  href: SadConsole.Entities.Entity.html#SadConsole_Entities_Entity_IsDirty
+  name: IsDirty
+  nameWithType: Entity.IsDirty
+  fullName: SadConsole.Entities.Entity.IsDirty
 - uid: System.EventHandler
   commentId: T:System.EventHandler
   parent: System

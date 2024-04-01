@@ -145,6 +145,7 @@ items:
   assemblies:
   - SadConsole.Extended
   namespace: SadConsole.UI.Controls
+  summary: Called as the mouse moves around the control area. Raises the MouseMove event and calls the <xref href="SadConsole.UI.Controls.ControlBase.DetermineState" data-throw-if-not-resolved="false"></xref> method.
   example: []
   syntax:
     content: protected override void OnMouseIn(ControlBase.ControlMouseState info)
@@ -168,6 +169,7 @@ items:
   assemblies:
   - SadConsole.Extended
   namespace: SadConsole.UI.Controls
+  summary: Checks if the mouse is the control and calls the appropriate mouse methods.
   example: []
   syntax:
     content: public override bool ProcessMouse(MouseScreenObjectState info)
@@ -176,6 +178,7 @@ items:
       type: SadConsole.Input.MouseScreenObjectState
     return:
       type: System.Boolean
+      description: True when the control is enabled, set to use the mouse and the mouse is over it, otherwise false.
     content.vb: Public Overrides Function ProcessMouse(info As MouseScreenObjectState) As Boolean
   overridden: SadConsole.UI.Controls.ControlBase.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
   overload: SadConsole.UI.Controls.ColorPicker.ProcessMouse*
@@ -193,12 +196,14 @@ items:
   assemblies:
   - SadConsole.Extended
   namespace: SadConsole.UI.Controls
+  summary: Redraws the control if applicable.
   example: []
   syntax:
     content: public override void UpdateAndRedraw(TimeSpan time)
     parameters:
     - id: time
       type: System.TimeSpan
+      description: The duration of thecurrent frame.
     content.vb: Public Overrides Sub UpdateAndRedraw(time As TimeSpan)
   overridden: SadConsole.UI.Controls.ControlBase.UpdateAndRedraw(System.TimeSpan)
   overload: SadConsole.UI.Controls.ColorPicker.UpdateAndRedraw*

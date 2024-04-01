@@ -20,6 +20,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: Represents a mapping of a single effect and associated cells.
+  example: []
   syntax:
     content: protected class EffectsManager.ColoredGlyphEffectData
     content.vb: Protected Class EffectsManager.ColoredGlyphEffectData
@@ -47,6 +49,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: The effect.
+  example: []
   syntax:
     content: public ICellEffect Effect
     return:
@@ -66,6 +70,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: The cells affected by the effect.
+  example: []
   syntax:
     content: public List<EffectsManager.ColoredGlyphWithState> CellsStates
     return:
@@ -85,11 +91,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: Creates a new instance of the cell-effect mapping.
+  example: []
   syntax:
     content: public ColoredGlyphEffectData(ICellEffect effect)
     parameters:
     - id: effect
       type: SadConsole.Effects.ICellEffect
+      description: The effect.
     content.vb: Public Sub New(effect As ICellEffect)
   overload: SadConsole.Effects.EffectsManager.ColoredGlyphEffectData.#ctor*
   nameWithType.vb: EffectsManager.ColoredGlyphEffectData.New(ICellEffect)
@@ -109,13 +118,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: Removes a cell by index from the effect data.
+  example: []
   syntax:
     content: public void RemoveCell(ColoredGlyphBase cell, bool restoreState)
     parameters:
     - id: cell
       type: SadConsole.ColoredGlyphBase
+      description: The cell.
     - id: restoreState
       type: System.Boolean
+      description: If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> the cell will have its original state restored; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Public Sub RemoveCell(cell As ColoredGlyphBase, restoreState As Boolean)
   overload: SadConsole.Effects.EffectsManager.ColoredGlyphEffectData.RemoveCell*
   nameWithType.vb: EffectsManager.ColoredGlyphEffectData.RemoveCell(ColoredGlyphBase, Boolean)
@@ -135,13 +148,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the cell index is already associated with the effect; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+  example: []
   syntax:
     content: public bool ContainsCell(ColoredGlyphBase cell)
     parameters:
     - id: cell
       type: SadConsole.ColoredGlyphBase
+      description: The cell to check.
     return:
       type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> to indicate the cell is associated with the effect; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Public Function ContainsCell(cell As ColoredGlyphBase) As Boolean
   overload: SadConsole.Effects.EffectsManager.ColoredGlyphEffectData.ContainsCell*
 references:

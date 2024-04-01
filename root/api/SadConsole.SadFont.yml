@@ -42,6 +42,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Represents a graphical font used by SadConsole.
+  example: []
   syntax:
     content: >-
       [DataContract]
@@ -85,27 +87,38 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Creates a new font with the specified settings.
+  example: []
   syntax:
     content: public SadFont(int glyphWidth, int glyphHeight, int glyphPadding, int rows, int columns, int solidGlyphIndex, ITexture image, string name, Dictionary<int, Rectangle>? glyphRectangles = null)
     parameters:
     - id: glyphWidth
       type: System.Int32
+      description: The pixel width of each glyph.
     - id: glyphHeight
       type: System.Int32
+      description: The pixel height of each glyph.
     - id: glyphPadding
       type: System.Int32
+      description: The pixel padding between each glyph.
     - id: rows
       type: System.Int32
+      description: Number of glyph rows in the <code class="paramref">image</code>.
     - id: columns
       type: System.Int32
+      description: Number of glyph columns in the <code class="paramref">image</code>.
     - id: solidGlyphIndex
       type: System.Int32
+      description: The index of the glyph that is a solid white box.
     - id: image
       type: SadConsole.ITexture
+      description: The <xref href="SadConsole.ITexture" data-throw-if-not-resolved="false"></xref> of the font.
     - id: name
       type: System.String
+      description: A font identifier used for serialization of resources using this font.
     - id: glyphRectangles
       type: System.Collections.Generic.Dictionary{System.Int32,SadRogue.Primitives.Rectangle}
+      description: Glyph mapping dictionary.
     content.vb: Public Sub New(glyphWidth As Integer, glyphHeight As Integer, glyphPadding As Integer, rows As Integer, columns As Integer, solidGlyphIndex As Integer, image As ITexture, name As String, glyphRectangles As Dictionary(Of Integer, Rectangle) = Nothing)
   overload: SadConsole.SadFont.#ctor*
   nameWithType.vb: SadFont.New(Integer, Integer, Integer, Integer, Integer, Integer, ITexture, String, Dictionary(Of Integer, Rectangle))
@@ -125,14 +138,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Gets the rendering rectangle for a glyph.
   example: []
   syntax:
     content: public Rectangle GetGlyphSourceRectangle(int glyph)
     parameters:
     - id: glyph
       type: System.Int32
+      description: The index of the glyph to get.
     return:
       type: SadRogue.Primitives.Rectangle
+      description: The rectangle for the glyph if it exists, otherwise returns <xref href="SadConsole.SadFont.UnsupportedGlyphRectangle" data-throw-if-not-resolved="false"></xref>.
     content.vb: Public Function GetGlyphSourceRectangle(glyph As Integer) As Rectangle
   overload: SadConsole.SadFont.GetGlyphSourceRectangle*
   implements:
@@ -154,14 +170,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Generates a rectangle for the specified glyph based on the glyph index, <xref href="SadConsole.SadFont.Rows" data-throw-if-not-resolved="false"></xref>, <xref href="SadConsole.SadFont.Columns" data-throw-if-not-resolved="false"></xref>, and <xref href="SadConsole.SadFont.GlyphPadding" data-throw-if-not-resolved="false"></xref> values. For the actual font rectangle, use <xref href="SadConsole.SadFont.GetGlyphSourceRectangle(System.Int32)" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: public Rectangle GenerateGlyphSourceRectangle(int glyph)
     parameters:
     - id: glyph
       type: System.Int32
+      description: The glyph.
     return:
       type: SadRogue.Primitives.Rectangle
+      description: A rectangle based on where the font thinks the rectangle should be.
     content.vb: Public Function GenerateGlyphSourceRectangle(glyph As Integer) As Rectangle
   overload: SadConsole.SadFont.GenerateGlyphSourceRectangle*
   implements:
@@ -183,16 +202,21 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Gets a <xref href="SadConsole.CellDecorator" data-throw-if-not-resolved="false"></xref> by the <xref href="SadConsole.GlyphDefinition" data-throw-if-not-resolved="false"></xref> defined by the font file.
+  remarks: If the decorator does not exist, <xref href="SadConsole.CellDecorator.Empty" data-throw-if-not-resolved="false"></xref> is returned.
   example: []
   syntax:
     content: public CellDecorator GetDecorator(string name, Color color)
     parameters:
     - id: name
       type: System.String
+      description: The name of the decorator to get.
     - id: color
       type: SadRogue.Primitives.Color
+      description: The color to apply to the decorator.
     return:
       type: SadConsole.CellDecorator
+      description: The decorator instance.
     content.vb: Public Function GetDecorator(name As String, color As Color) As CellDecorator
   overload: SadConsole.SadFont.GetDecorator*
   implements:
@@ -214,14 +238,18 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: A safe way to get a <xref href="SadConsole.GlyphDefinition" data-throw-if-not-resolved="false"></xref> by name that is defined by the font file.
+  remarks: If the glyph definition doesn't exist, return s<xref href="SadConsole.GlyphDefinition.Empty" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: public GlyphDefinition GetGlyphDefinition(string name)
     parameters:
     - id: name
       type: System.String
+      description: The name of the glyph definition.
     return:
       type: SadConsole.GlyphDefinition
+      description: The glyph definition.
     content.vb: Public Function GetGlyphDefinition(name As String) As GlyphDefinition
   overload: SadConsole.SadFont.GetGlyphDefinition*
   implements:
@@ -243,14 +271,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the glyph has been defined by name.
   example: []
   syntax:
     content: public bool HasGlyphDefinition(string name)
     parameters:
     - id: name
       type: System.String
+      description: The name of the glyph
     return:
       type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the glyph name exists, otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Public Function HasGlyphDefinition(name As String) As Boolean
   overload: SadConsole.SadFont.HasGlyphDefinition*
   implements:
@@ -272,14 +303,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Gets the pixel size of a font based on a <xref href="SadConsole.IFont.Sizes" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: public Point GetFontSize(IFont.Sizes size)
     parameters:
     - id: size
       type: SadConsole.IFont.Sizes
+      description: The desired size.
     return:
       type: SadRogue.Primitives.Point
+      description: The width and height of a font cell.
     content.vb: Public Function GetFontSize(size As IFont.Sizes) As Point
   overload: SadConsole.SadFont.GetFontSize*
   implements:
@@ -298,6 +332,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Builds the <xref href="SadConsole.SadFont.GlyphRectangles" data-throw-if-not-resolved="false"></xref> array based on the current font settings, if the <xref href="SadConsole.SadFont.GlyphRectangles" data-throw-if-not-resolved="false"></xref> dictionary is empty.
+  example: []
   syntax:
     content: public void ConfigureRects()
     content.vb: Public Sub ConfigureRects()
@@ -316,6 +352,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Builds the <xref href="SadConsole.SadFont.GlyphRectangles" data-throw-if-not-resolved="false"></xref> array based on the current font settings.
+  example: []
   syntax:
     content: public void ForceConfigureRects()
     content.vb: Public Sub ForceConfigureRects()
@@ -334,13 +372,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Clones this font.
+  example: []
   syntax:
     content: public SadFont Clone(string newName)
     parameters:
     - id: newName
       type: System.String
+      description: The name to apply when creating the cloned font.
     return:
       type: SadConsole.SadFont
+      description: Returns the cloned font.
     content.vb: Public Function Clone(newName As String) As SadFont
   overload: SadConsole.SadFont.Clone*
   nameWithType.vb: SadFont.Clone(String)
@@ -360,6 +402,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Disposes the <xref href="SadConsole.SadFont.Image" data-throw-if-not-resolved="false"></xref> property.
   example: []
   syntax:
     content: public void Dispose()
@@ -381,6 +424,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Which glyph index is considered completely solid. Used for shading.
   example: []
   syntax:
     content: >-
@@ -415,6 +459,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The rectangle associated with the <xref href="SadConsole.SadFont.SolidGlyphIndex" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: public Rectangle SolidGlyphRectangle { get; }
@@ -439,6 +484,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -470,6 +516,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -501,6 +548,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Gets the total glyphs in this font, which represents the last index. Calculated from <xref href="SadConsole.SadFont.Columns" data-throw-if-not-resolved="false"></xref> times <xref href="SadConsole.SadFont.Rows" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: public int TotalGlyphs { get; }
@@ -525,6 +573,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The name of the font used when it is registered with the <xref href="SadConsole.GameHost.Fonts" data-throw-if-not-resolved="false"></xref> collection.
   example: []
   syntax:
     content: >-
@@ -559,6 +608,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The name of the image file as defined in the .font file.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -590,6 +641,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The height of each glyph in pixels.
   example: []
   syntax:
     content: >-
@@ -624,6 +676,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The width of each glyph in pixels.
   example: []
   syntax:
     content: >-
@@ -658,6 +711,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The amount of pixels between glyphs.
   example: []
   syntax:
     content: >-
@@ -692,6 +746,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The glyph index to use when an unsupported glyph is used during rendering.
   example: []
   syntax:
     content: >-
@@ -726,6 +781,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The rectangle associated with the <xref href="SadConsole.SadFont.UnsupportedGlyphIndex" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: public Rectangle UnsupportedGlyphRectangle { get; }
@@ -750,6 +806,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: A dictionary that stores the source rectangles of the font by glyph id.
+  example: []
   syntax:
     content: public Dictionary<int, Rectangle> GlyphRectangles { get; set; }
     parameters: []
@@ -771,6 +829,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: True when the font supports SadConsole extended decorators; otherwise false.
   example: []
   syntax:
     content: >-
@@ -805,6 +864,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The texture used by the font.
   example: []
   syntax:
     content: public ITexture Image { get; set; }
@@ -829,6 +889,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: A collection of named glyph definitions.
   example: []
   syntax:
     content: >-
@@ -1405,6 +1466,14 @@ references:
     name: Point
     isExternal: true
   - name: )
+- uid: SadConsole.ITexture
+  commentId: T:SadConsole.ITexture
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ITexture.html
+  name: ITexture
+  nameWithType: ITexture
+  fullName: SadConsole.ITexture
 - uid: SadConsole.SadFont.#ctor*
   commentId: Overload:SadConsole.SadFont.#ctor
   isExternal: true
@@ -1426,14 +1495,6 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
-- uid: SadConsole.ITexture
-  commentId: T:SadConsole.ITexture
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.ITexture.html
-  name: ITexture
-  nameWithType: ITexture
-  fullName: SadConsole.ITexture
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -1561,6 +1622,13 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: SadConsole.SadFont.UnsupportedGlyphRectangle
+  commentId: P:SadConsole.SadFont.UnsupportedGlyphRectangle
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole_SadFont_UnsupportedGlyphRectangle
+  name: UnsupportedGlyphRectangle
+  nameWithType: SadFont.UnsupportedGlyphRectangle
+  fullName: SadConsole.SadFont.UnsupportedGlyphRectangle
 - uid: SadConsole.SadFont.GetGlyphSourceRectangle*
   commentId: Overload:SadConsole.SadFont.GetGlyphSourceRectangle
   isExternal: true
@@ -1635,6 +1703,59 @@ references:
     name: Primitives
     isExternal: true
     href: SadRogue.Primitives.html
+- uid: SadConsole.SadFont.Rows
+  commentId: P:SadConsole.SadFont.Rows
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole_SadFont_Rows
+  name: Rows
+  nameWithType: SadFont.Rows
+  fullName: SadConsole.SadFont.Rows
+- uid: SadConsole.SadFont.Columns
+  commentId: P:SadConsole.SadFont.Columns
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole_SadFont_Columns
+  name: Columns
+  nameWithType: SadFont.Columns
+  fullName: SadConsole.SadFont.Columns
+- uid: SadConsole.SadFont.GlyphPadding
+  commentId: P:SadConsole.SadFont.GlyphPadding
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole_SadFont_GlyphPadding
+  name: GlyphPadding
+  nameWithType: SadFont.GlyphPadding
+  fullName: SadConsole.SadFont.GlyphPadding
+- uid: SadConsole.SadFont.GetGlyphSourceRectangle(System.Int32)
+  commentId: M:SadConsole.SadFont.GetGlyphSourceRectangle(System.Int32)
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole_SadFont_GetGlyphSourceRectangle_System_Int32_
+  name: GetGlyphSourceRectangle(int)
+  nameWithType: SadFont.GetGlyphSourceRectangle(int)
+  fullName: SadConsole.SadFont.GetGlyphSourceRectangle(int)
+  nameWithType.vb: SadFont.GetGlyphSourceRectangle(Integer)
+  fullName.vb: SadConsole.SadFont.GetGlyphSourceRectangle(Integer)
+  name.vb: GetGlyphSourceRectangle(Integer)
+  spec.csharp:
+  - uid: SadConsole.SadFont.GetGlyphSourceRectangle(System.Int32)
+    name: GetGlyphSourceRectangle
+    isExternal: true
+    href: SadConsole.SadFont.html#SadConsole_SadFont_GetGlyphSourceRectangle_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: SadConsole.SadFont.GetGlyphSourceRectangle(System.Int32)
+    name: GetGlyphSourceRectangle
+    isExternal: true
+    href: SadConsole.SadFont.html#SadConsole_SadFont_GetGlyphSourceRectangle_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
 - uid: SadConsole.SadFont.GenerateGlyphSourceRectangle*
   commentId: Overload:SadConsole.SadFont.GenerateGlyphSourceRectangle
   isExternal: true
@@ -1675,6 +1796,29 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: )
+- uid: SadConsole.CellDecorator
+  commentId: T:SadConsole.CellDecorator
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.CellDecorator.html
+  name: CellDecorator
+  nameWithType: CellDecorator
+  fullName: SadConsole.CellDecorator
+- uid: SadConsole.GlyphDefinition
+  commentId: T:SadConsole.GlyphDefinition
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.GlyphDefinition.html
+  name: GlyphDefinition
+  nameWithType: GlyphDefinition
+  fullName: SadConsole.GlyphDefinition
+- uid: SadConsole.CellDecorator.Empty
+  commentId: P:SadConsole.CellDecorator.Empty
+  isExternal: true
+  href: SadConsole.CellDecorator.html#SadConsole_CellDecorator_Empty
+  name: Empty
+  nameWithType: CellDecorator.Empty
+  fullName: SadConsole.CellDecorator.Empty
 - uid: SadConsole.SadFont.GetDecorator*
   commentId: Overload:SadConsole.SadFont.GetDecorator
   isExternal: true
@@ -1732,14 +1876,13 @@ references:
   name: Color
   nameWithType: Color
   fullName: SadRogue.Primitives.Color
-- uid: SadConsole.CellDecorator
-  commentId: T:SadConsole.CellDecorator
-  parent: SadConsole
+- uid: SadConsole.GlyphDefinition.Empty
+  commentId: P:SadConsole.GlyphDefinition.Empty
   isExternal: true
-  href: SadConsole.CellDecorator.html
-  name: CellDecorator
-  nameWithType: CellDecorator
-  fullName: SadConsole.CellDecorator
+  href: SadConsole.GlyphDefinition.html#SadConsole_GlyphDefinition_Empty
+  name: Empty
+  nameWithType: GlyphDefinition.Empty
+  fullName: SadConsole.GlyphDefinition.Empty
 - uid: SadConsole.SadFont.GetGlyphDefinition*
   commentId: Overload:SadConsole.SadFont.GetGlyphDefinition
   isExternal: true
@@ -1780,14 +1923,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )
-- uid: SadConsole.GlyphDefinition
-  commentId: T:SadConsole.GlyphDefinition
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.GlyphDefinition.html
-  name: GlyphDefinition
-  nameWithType: GlyphDefinition
-  fullName: SadConsole.GlyphDefinition
 - uid: SadConsole.SadFont.HasGlyphDefinition*
   commentId: Overload:SadConsole.SadFont.HasGlyphDefinition
   isExternal: true
@@ -1839,6 +1974,34 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: SadConsole.IFont.Sizes
+  commentId: T:SadConsole.IFont.Sizes
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IFont.html
+  name: IFont.Sizes
+  nameWithType: IFont.Sizes
+  fullName: SadConsole.IFont.Sizes
+  spec.csharp:
+  - uid: SadConsole.IFont
+    name: IFont
+    isExternal: true
+    href: SadConsole.IFont.html
+  - name: .
+  - uid: SadConsole.IFont.Sizes
+    name: Sizes
+    isExternal: true
+    href: SadConsole.IFont.Sizes.html
+  spec.vb:
+  - uid: SadConsole.IFont
+    name: IFont
+    isExternal: true
+    href: SadConsole.IFont.html
+  - name: .
+  - uid: SadConsole.IFont.Sizes
+    name: Sizes
+    isExternal: true
+    href: SadConsole.IFont.Sizes.html
 - uid: SadConsole.SadFont.GetFontSize*
   commentId: Overload:SadConsole.SadFont.GetFontSize
   isExternal: true
@@ -1876,34 +2039,6 @@ references:
     isExternal: true
     href: SadConsole.IFont.Sizes.html
   - name: )
-- uid: SadConsole.IFont.Sizes
-  commentId: T:SadConsole.IFont.Sizes
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.IFont.html
-  name: IFont.Sizes
-  nameWithType: IFont.Sizes
-  fullName: SadConsole.IFont.Sizes
-  spec.csharp:
-  - uid: SadConsole.IFont
-    name: IFont
-    isExternal: true
-    href: SadConsole.IFont.html
-  - name: .
-  - uid: SadConsole.IFont.Sizes
-    name: Sizes
-    isExternal: true
-    href: SadConsole.IFont.Sizes.html
-  spec.vb:
-  - uid: SadConsole.IFont
-    name: IFont
-    isExternal: true
-    href: SadConsole.IFont.html
-  - name: .
-  - uid: SadConsole.IFont.Sizes
-    name: Sizes
-    isExternal: true
-    href: SadConsole.IFont.Sizes.html
 - uid: SadRogue.Primitives.Point
   commentId: T:SadRogue.Primitives.Point
   parent: SadRogue.Primitives
@@ -1911,6 +2046,13 @@ references:
   name: Point
   nameWithType: Point
   fullName: SadRogue.Primitives.Point
+- uid: SadConsole.SadFont.GlyphRectangles
+  commentId: P:SadConsole.SadFont.GlyphRectangles
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole_SadFont_GlyphRectangles
+  name: GlyphRectangles
+  nameWithType: SadFont.GlyphRectangles
+  fullName: SadConsole.SadFont.GlyphRectangles
 - uid: SadConsole.SadFont.ConfigureRects*
   commentId: Overload:SadConsole.SadFont.ConfigureRects
   isExternal: true
@@ -1940,6 +2082,13 @@ references:
   name: SadFont
   nameWithType: SadFont
   fullName: SadConsole.SadFont
+- uid: SadConsole.SadFont.Image
+  commentId: P:SadConsole.SadFont.Image
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole_SadFont_Image
+  name: Image
+  nameWithType: SadFont.Image
+  fullName: SadConsole.SadFont.Image
 - uid: SadConsole.SadFont.Dispose*
   commentId: Overload:SadConsole.SadFont.Dispose
   isExternal: true
@@ -1984,6 +2133,13 @@ references:
   name: SolidGlyphIndex
   nameWithType: IFont.SolidGlyphIndex
   fullName: SadConsole.IFont.SolidGlyphIndex
+- uid: SadConsole.SadFont.SolidGlyphIndex
+  commentId: P:SadConsole.SadFont.SolidGlyphIndex
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole_SadFont_SolidGlyphIndex
+  name: SolidGlyphIndex
+  nameWithType: SadFont.SolidGlyphIndex
+  fullName: SadConsole.SadFont.SolidGlyphIndex
 - uid: SadConsole.SadFont.SolidGlyphRectangle*
   commentId: Overload:SadConsole.SadFont.SolidGlyphRectangle
   isExternal: true
@@ -2028,6 +2184,14 @@ references:
   name: TotalGlyphs
   nameWithType: IFont.TotalGlyphs
   fullName: SadConsole.IFont.TotalGlyphs
+- uid: SadConsole.GameHost.Fonts
+  commentId: P:SadConsole.GameHost.Fonts
+  parent: SadConsole.GameHost
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_Fonts
+  name: Fonts
+  nameWithType: GameHost.Fonts
+  fullName: SadConsole.GameHost.Fonts
 - uid: SadConsole.SadFont.Name*
   commentId: Overload:SadConsole.SadFont.Name
   isExternal: true
@@ -2043,6 +2207,14 @@ references:
   name: Name
   nameWithType: IFont.Name
   fullName: SadConsole.IFont.Name
+- uid: SadConsole.GameHost
+  commentId: T:SadConsole.GameHost
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.GameHost.html
+  name: GameHost
+  nameWithType: GameHost
+  fullName: SadConsole.GameHost
 - uid: SadConsole.SadFont.FilePath*
   commentId: Overload:SadConsole.SadFont.FilePath
   isExternal: true
@@ -2110,6 +2282,13 @@ references:
   name: UnsupportedGlyphIndex
   nameWithType: IFont.UnsupportedGlyphIndex
   fullName: SadConsole.IFont.UnsupportedGlyphIndex
+- uid: SadConsole.SadFont.UnsupportedGlyphIndex
+  commentId: P:SadConsole.SadFont.UnsupportedGlyphIndex
+  isExternal: true
+  href: SadConsole.SadFont.html#SadConsole_SadFont_UnsupportedGlyphIndex
+  name: UnsupportedGlyphIndex
+  nameWithType: SadFont.UnsupportedGlyphIndex
+  fullName: SadConsole.SadFont.UnsupportedGlyphIndex
 - uid: SadConsole.SadFont.UnsupportedGlyphRectangle*
   commentId: Overload:SadConsole.SadFont.UnsupportedGlyphRectangle
   isExternal: true

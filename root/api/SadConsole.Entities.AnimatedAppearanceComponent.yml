@@ -25,13 +25,19 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
+  summary: A component for <xref href="SadConsole.Entities.Entity" data-throw-if-not-resolved="false"></xref> that animates the <xref href="SadConsole.Entities.Entity.AppearanceSingle" data-throw-if-not-resolved="false"></xref> property.
+  example: []
   syntax:
     content: >-
       [DataContract]
 
+      [JsonObject(MemberSerialization = MemberSerialization.OptIn)]
+
       public class AnimatedAppearanceComponent : UpdateComponent, IComponent
     content.vb: >-
       <DataContract>
+
+      <JsonObject(MemberSerialization:=MemberSerialization.OptIn)>
 
       Public Class AnimatedAppearanceComponent Inherits UpdateComponent Implements IComponent
   inheritance:
@@ -52,6 +58,13 @@ items:
   - type: System.Runtime.Serialization.DataContractAttribute
     ctor: System.Runtime.Serialization.DataContractAttribute.#ctor
     arguments: []
+  - type: Newtonsoft.Json.JsonObjectAttribute
+    ctor: Newtonsoft.Json.JsonObjectAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: MemberSerialization
+      type: Newtonsoft.Json.MemberSerialization
+      value: 1
 - uid: SadConsole.Entities.AnimatedAppearanceComponent.OnAdded(SadConsole.IScreenObject)
   commentId: M:SadConsole.Entities.AnimatedAppearanceComponent.OnAdded(SadConsole.IScreenObject)
   id: OnAdded(SadConsole.IScreenObject)
@@ -66,15 +79,21 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
+  summary: Called by the component system when this component is added to an object. Must be of type <xref href="SadConsole.Entities.Entity" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: public override void OnAdded(IScreenObject host)
     parameters:
     - id: host
       type: SadConsole.IScreenObject
+      description: The component host.
     content.vb: Public Overrides Sub OnAdded(host As IScreenObject)
   overridden: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
   overload: SadConsole.Entities.AnimatedAppearanceComponent.OnAdded*
+  exceptions:
+  - type: System.InvalidCastException
+    commentId: T:System.InvalidCastException
+    description: This component was added to a type other than <xref href="SadConsole.Entities.Entity" data-throw-if-not-resolved="false"></xref>.
 - uid: SadConsole.Entities.AnimatedAppearanceComponent.OnRemoved(SadConsole.IScreenObject)
   commentId: M:SadConsole.Entities.AnimatedAppearanceComponent.OnRemoved(SadConsole.IScreenObject)
   id: OnRemoved(SadConsole.IScreenObject)
@@ -89,12 +108,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
+  summary: Called by the component system when this component is removed from an object.
   example: []
   syntax:
     content: public override void OnRemoved(IScreenObject host)
     parameters:
     - id: host
       type: SadConsole.IScreenObject
+      description: The component host.
     content.vb: Public Overrides Sub OnRemoved(host As IScreenObject)
   overridden: SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
   overload: SadConsole.Entities.AnimatedAppearanceComponent.OnRemoved*
@@ -112,14 +133,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
+  summary: Updates the animation frame index and applies the animation to the entity.
   example: []
   syntax:
     content: public override void Update(IScreenObject host, TimeSpan delta)
     parameters:
     - id: host
       type: SadConsole.IScreenObject
+      description: The component host.
     - id: delta
       type: System.TimeSpan
+      description: The time between calls to this method.
     content.vb: Public Overrides Sub Update(host As IScreenObject, delta As TimeSpan)
   overridden: SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
   overload: SadConsole.Entities.AnimatedAppearanceComponent.Update*
@@ -137,10 +161,16 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
+  summary: Starts the animation and immediately applies the current frame to the entity.
+  example: []
   syntax:
     content: public void Start()
     content.vb: Public Sub Start()
   overload: SadConsole.Entities.AnimatedAppearanceComponent.Start*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: The animation was started but there aren't any frames to animate.
 - uid: SadConsole.Entities.AnimatedAppearanceComponent.Stop
   commentId: M:SadConsole.Entities.AnimatedAppearanceComponent.Stop
   id: Stop
@@ -155,6 +185,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
+  summary: Stops the animation.
+  example: []
   syntax:
     content: public void Stop()
     content.vb: Public Sub [Stop]()
@@ -173,6 +205,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
+  summary: Restarts the animation at the first frame.
+  example: []
   syntax:
     content: public void Restart()
     content.vb: Public Sub Restart()
@@ -212,6 +246,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
+  summary: The frames of animation.
+  example: []
   syntax:
     content: public ColoredGlyphAndEffect[] Frames { get; set; }
     parameters: []
@@ -233,6 +269,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
+  summary: The total time it takes to play all <xref href="SadConsole.Entities.AnimatedAppearanceComponent.Frames" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public TimeSpan AnimationTime { get; set; }
     parameters: []
@@ -254,6 +292,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Entities
+  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the animation will automatically restart after the last frame is applied. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> and the animation stops when completed.
+  example: []
   syntax:
     content: public bool IsRepeatable { get; set; }
     parameters: []
@@ -262,6 +302,21 @@ items:
     content.vb: Public Property IsRepeatable As Boolean
   overload: SadConsole.Entities.AnimatedAppearanceComponent.IsRepeatable*
 references:
+- uid: SadConsole.Entities.Entity
+  commentId: T:SadConsole.Entities.Entity
+  parent: SadConsole.Entities
+  isExternal: true
+  href: SadConsole.Entities.Entity.html
+  name: Entity
+  nameWithType: Entity
+  fullName: SadConsole.Entities.Entity
+- uid: SadConsole.Entities.Entity.AppearanceSingle
+  commentId: P:SadConsole.Entities.Entity.AppearanceSingle
+  isExternal: true
+  href: SadConsole.Entities.Entity.html#SadConsole_Entities_Entity_AppearanceSingle
+  name: AppearanceSingle
+  nameWithType: Entity.AppearanceSingle
+  fullName: SadConsole.Entities.Entity.AppearanceSingle
 - uid: SadConsole.Entities
   commentId: N:SadConsole.Entities
   isExternal: true
@@ -577,6 +632,13 @@ references:
     name: Components
     isExternal: true
     href: SadConsole.Components.html
+- uid: System.InvalidCastException
+  commentId: T:System.InvalidCastException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidcastexception
+  name: InvalidCastException
+  nameWithType: InvalidCastException
+  fullName: System.InvalidCastException
 - uid: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
   commentId: M:SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
   parent: SadConsole.Components.UpdateComponent
@@ -723,6 +785,13 @@ references:
   name: TimeSpan
   nameWithType: TimeSpan
   fullName: System.TimeSpan
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
 - uid: SadConsole.Entities.AnimatedAppearanceComponent.Start*
   commentId: Overload:SadConsole.Entities.AnimatedAppearanceComponent.Start
   isExternal: true
@@ -784,6 +853,13 @@ references:
     href: SadConsole.ColoredGlyphAndEffect.html
   - name: (
   - name: )
+- uid: SadConsole.Entities.AnimatedAppearanceComponent.Frames
+  commentId: P:SadConsole.Entities.AnimatedAppearanceComponent.Frames
+  isExternal: true
+  href: SadConsole.Entities.AnimatedAppearanceComponent.html#SadConsole_Entities_AnimatedAppearanceComponent_Frames
+  name: Frames
+  nameWithType: AnimatedAppearanceComponent.Frames
+  fullName: SadConsole.Entities.AnimatedAppearanceComponent.Frames
 - uid: SadConsole.Entities.AnimatedAppearanceComponent.AnimationTime*
   commentId: Overload:SadConsole.Entities.AnimatedAppearanceComponent.AnimationTime
   isExternal: true

@@ -20,6 +20,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
+  summary: Animates a color change to <xref href="SadConsole.ScreenSurface.Tint" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: 'public class FadeTextSurfaceTint : AnimatedValue, IComponent'
     content.vb: Public Class FadeTextSurfaceTint Inherits AnimatedValue Implements IComponent
@@ -75,15 +77,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
+  summary: Creates a new tint fade instruction that targets the specified console.
+  example: []
   syntax:
     content: public FadeTextSurfaceTint(IScreenSurface objectSurface, Gradient colors, TimeSpan duration)
     parameters:
     - id: objectSurface
       type: SadConsole.IScreenSurface
+      description: The <xref href="SadConsole.IScreenSurface.Tint" data-throw-if-not-resolved="false"></xref> to fade.
     - id: colors
       type: SadRogue.Primitives.Gradient
+      description: The gradient pattern to fade through.
     - id: duration
       type: System.TimeSpan
+      description: How long the fade takes.
     content.vb: Public Sub New(objectSurface As IScreenSurface, colors As Gradient, duration As TimeSpan)
   overload: SadConsole.Instructions.FadeTextSurfaceTint.#ctor*
   nameWithType.vb: FadeTextSurfaceTint.New(IScreenSurface, Gradient, TimeSpan)
@@ -103,13 +110,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
+  summary: Creates a new tint fade instruction that uses the console passed to <xref href="SadConsole.Components.IComponent.Update(SadConsole.IScreenObject%2cSystem.TimeSpan)" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public FadeTextSurfaceTint(Gradient colors, TimeSpan duration)
     parameters:
     - id: colors
       type: SadRogue.Primitives.Gradient
+      description: The gradient pattern to fade through.
     - id: duration
       type: System.TimeSpan
+      description: How long the fade takes.
     content.vb: Public Sub New(colors As Gradient, duration As TimeSpan)
   overload: SadConsole.Instructions.FadeTextSurfaceTint.#ctor*
   nameWithType.vb: FadeTextSurfaceTint.New(Gradient, TimeSpan)
@@ -129,6 +140,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
+  summary: Creates a new tint fade instruction with default settings that uses the console passed to <xref href="SadConsole.Components.IComponent.Update(SadConsole.IScreenObject%2cSystem.TimeSpan)" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    The default settings are:
+
+      - <xref href="SadConsole.Instructions.FadeTextSurfaceTint.Colors" data-throw-if-not-resolved="false"></xref>: <xref href="SadRogue.Primitives.Color.White" data-throw-if-not-resolved="false"></xref> to <xref href="SadRogue.Primitives.Color.Black" data-throw-if-not-resolved="false"></xref>
+      - Duration: 1 second
+  example: []
   syntax:
     content: public FadeTextSurfaceTint()
     content.vb: Public Sub New()
@@ -150,6 +168,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
+  summary: Updates the timer with the time since the last call.
   example: []
   syntax:
     content: public override void Update(IScreenObject componentHost, TimeSpan delta)
@@ -158,6 +177,7 @@ items:
       type: SadConsole.IScreenObject
     - id: delta
       type: System.TimeSpan
+      description: The time since the last frame update.
     content.vb: Public Overrides Sub Update(componentHost As IScreenObject, delta As TimeSpan)
   overridden: SadConsole.Instructions.AnimatedValue.Update(SadConsole.IScreenObject,System.TimeSpan)
   overload: SadConsole.Instructions.FadeTextSurfaceTint.Update*
@@ -175,6 +195,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
+  summary: The color to fade the tint to.
+  example: []
   syntax:
     content: public Gradient Colors { get; set; }
     parameters: []
@@ -183,6 +205,14 @@ items:
     content.vb: Public Property Colors As Gradient
   overload: SadConsole.Instructions.FadeTextSurfaceTint.Colors*
 references:
+- uid: SadConsole.ScreenSurface.Tint
+  commentId: P:SadConsole.ScreenSurface.Tint
+  parent: SadConsole.ScreenSurface
+  isExternal: true
+  href: SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_Tint
+  name: Tint
+  nameWithType: ScreenSurface.Tint
+  fullName: SadConsole.ScreenSurface.Tint
 - uid: SadConsole.Instructions
   commentId: N:SadConsole.Instructions
   isExternal: true
@@ -839,6 +869,14 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
+- uid: SadConsole.ScreenSurface
+  commentId: T:SadConsole.ScreenSurface
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ScreenSurface.html
+  name: ScreenSurface
+  nameWithType: ScreenSurface
+  fullName: SadConsole.ScreenSurface
 - uid: System
   commentId: N:System
   isExternal: true
@@ -873,6 +911,21 @@ references:
     name: Components
     isExternal: true
     href: SadConsole.Components.html
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
+- uid: SadConsole.IScreenSurface.Tint
+  commentId: P:SadConsole.IScreenSurface.Tint
+  parent: SadConsole.IScreenSurface
+  isExternal: true
+  href: SadConsole.IScreenSurface.html#SadConsole_IScreenSurface_Tint
+  name: Tint
+  nameWithType: IScreenSurface.Tint
+  fullName: SadConsole.IScreenSurface.Tint
 - uid: SadConsole.Instructions.FadeTextSurfaceTint.#ctor*
   commentId: Overload:SadConsole.Instructions.FadeTextSurfaceTint.#ctor
   isExternal: true
@@ -906,13 +959,6 @@ references:
   name: TimeSpan
   nameWithType: TimeSpan
   fullName: System.TimeSpan
-- uid: SadConsole
-  commentId: N:SadConsole
-  isExternal: true
-  href: SadConsole.html
-  name: SadConsole
-  nameWithType: SadConsole
-  fullName: SadConsole
 - uid: SadRogue.Primitives
   commentId: N:SadRogue.Primitives
   isExternal: true
@@ -940,6 +986,67 @@ references:
     name: Primitives
     isExternal: true
     href: SadRogue.Primitives.html
+- uid: SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  commentId: M:SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+  parent: SadConsole.Components.IComponent
+  isExternal: true
+  href: SadConsole.Components.IComponent.html#SadConsole_Components_IComponent_Update_SadConsole_IScreenObject_System_TimeSpan_
+  name: Update(IScreenObject, TimeSpan)
+  nameWithType: IComponent.Update(IScreenObject, TimeSpan)
+  fullName: SadConsole.Components.IComponent.Update(SadConsole.IScreenObject, System.TimeSpan)
+  spec.csharp:
+  - uid: SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+    name: Update
+    isExternal: true
+    href: SadConsole.Components.IComponent.html#SadConsole_Components_IComponent_Update_SadConsole_IScreenObject_System_TimeSpan_
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Components.IComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
+    name: Update
+    isExternal: true
+    href: SadConsole.Components.IComponent.html#SadConsole_Components_IComponent_Update_SadConsole_IScreenObject_System_TimeSpan_
+  - name: (
+  - uid: SadConsole.IScreenObject
+    name: IScreenObject
+    isExternal: true
+    href: SadConsole.IScreenObject.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+- uid: SadConsole.Instructions.FadeTextSurfaceTint.Colors
+  commentId: P:SadConsole.Instructions.FadeTextSurfaceTint.Colors
+  isExternal: true
+  href: SadConsole.Instructions.FadeTextSurfaceTint.html#SadConsole_Instructions_FadeTextSurfaceTint_Colors
+  name: Colors
+  nameWithType: FadeTextSurfaceTint.Colors
+  fullName: SadConsole.Instructions.FadeTextSurfaceTint.Colors
+- uid: SadRogue.Primitives.Color.White
+  commentId: F:SadRogue.Primitives.Color.White
+  isExternal: true
+  name: White
+  nameWithType: Color.White
+  fullName: SadRogue.Primitives.Color.White
+- uid: SadRogue.Primitives.Color.Black
+  commentId: F:SadRogue.Primitives.Color.Black
+  isExternal: true
+  name: Black
+  nameWithType: Color.Black
+  fullName: SadRogue.Primitives.Color.Black
 - uid: SadConsole.Instructions.AnimatedValue.Update(SadConsole.IScreenObject,System.TimeSpan)
   commentId: M:SadConsole.Instructions.AnimatedValue.Update(SadConsole.IScreenObject,System.TimeSpan)
   parent: SadConsole.Instructions.AnimatedValue

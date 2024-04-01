@@ -17,6 +17,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: Clears the cell effect for the glyph.
+  example: []
   syntax:
     content: 'public sealed class ParseCommandClearEffect : ParseCommandBase'
     content.vb: Public NotInheritable Class ParseCommandClearEffect Inherits ParseCommandBase
@@ -45,13 +47,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: Creates a new instance of this command.
+  example: []
   syntax:
     content: public ParseCommandClearEffect(string parameters, ParseCommandStacks commandStack)
     parameters:
     - id: parameters
       type: System.String
+      description: The string to parse for parameters.
     - id: commandStack
       type: SadConsole.StringParser.ParseCommandStacks
+      description: The current commands for the string.
     content.vb: Public Sub New(parameters As String, commandStack As ParseCommandStacks)
   overload: SadConsole.StringParser.ParseCommandClearEffect.#ctor*
   nameWithType.vb: ParseCommandClearEffect.New(String, ParseCommandStacks)
@@ -71,24 +77,32 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: Builds a glyph.
   example: []
   syntax:
     content: public override void Build(ref ColoredGlyphAndEffect glyphState, ColoredGlyphAndEffect[] glyphString, int surfaceIndex, ICellSurface? surface, ref int stringIndex, ReadOnlySpan<char> processedString, ParseCommandStacks commandStack)
     parameters:
     - id: glyphState
       type: SadConsole.ColoredGlyphAndEffect
+      description: The current glyph being built.
     - id: glyphString
       type: SadConsole.ColoredGlyphAndEffect[]
+      description: The current string of glyphs that has been processed until now.
     - id: surfaceIndex
       type: System.Int32
+      description: Where on the surface this flyph will appear.
     - id: surface
       type: SadConsole.ICellSurface
+      description: The surface associated with the glyph.
     - id: stringIndex
       type: System.Int32
+      description: Where in the original string this glyph is from.
     - id: processedString
       type: System.ReadOnlySpan{System.Char}
+      description: The entire string being processed.
     - id: commandStack
       type: SadConsole.StringParser.ParseCommandStacks
+      description: The state of commands.
     content.vb: Public Overrides Sub Build(glyphState As ColoredGlyphAndEffect, glyphString As ColoredGlyphAndEffect(), surfaceIndex As Integer, surface As ICellSurface, stringIndex As Integer, processedString As ReadOnlySpan(Of Char), commandStack As ParseCommandStacks)
   overridden: SadConsole.StringParser.ParseCommandBase.Build(SadConsole.ColoredGlyphAndEffect@,SadConsole.ColoredGlyphAndEffect[],System.Int32,SadConsole.ICellSurface,System.Int32@,System.ReadOnlySpan{System.Char},SadConsole.StringParser.ParseCommandStacks)
   overload: SadConsole.StringParser.ParseCommandClearEffect.Build*

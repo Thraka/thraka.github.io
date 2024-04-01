@@ -25,6 +25,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
+  summary: Draws a string to a console as if someone was typing.
+  example: []
   syntax:
     content: 'public class DrawString : InstructionBase, IComponent'
     content.vb: Public Class DrawString Inherits InstructionBase Implements IComponent
@@ -68,13 +70,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
+  summary: Creates a new instance of the object with the specified text.
+  example: []
   syntax:
     content: public DrawString(ColoredString text, TimeSpan duration)
     parameters:
     - id: text
       type: SadConsole.ColoredString
+      description: The text to print.
     - id: duration
       type: System.TimeSpan
+      description: The time to print the entire text.
     content.vb: Public Sub New(text As ColoredString, duration As TimeSpan)
   overload: SadConsole.Instructions.DrawString.#ctor*
   nameWithType.vb: DrawString.New(ColoredString, TimeSpan)
@@ -94,11 +100,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
+  summary: Creates a new instance of the object with the specified text. Prints the text in one second.
+  example: []
   syntax:
     content: public DrawString(ColoredString text)
     parameters:
     - id: text
       type: SadConsole.ColoredString
+      description: ''
     content.vb: Public Sub New(text As ColoredString)
   overload: SadConsole.Instructions.DrawString.#ctor*
   nameWithType.vb: DrawString.New(ColoredString)
@@ -118,6 +127,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
+  summary: Creates a new instance of the object. <xref href="SadConsole.Instructions.DrawString.Text" data-throw-if-not-resolved="false"></xref> must be set manually.
+  example: []
   syntax:
     content: public DrawString()
     content.vb: Public Sub New()
@@ -139,14 +150,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
+  summary: Executes the instruction. This base class method should be called from derived classes. If the IsFinished property is set to true, will try to repeat if needed and will raise all appropriate events.
   example: []
   syntax:
     content: public override void Update(IScreenObject componentHost, TimeSpan delta)
     parameters:
     - id: componentHost
       type: SadConsole.IScreenObject
+      description: The object that hosts this instruction.
     - id: delta
       type: System.TimeSpan
+      description: The time that has elapsed since this method was last called.
     content.vb: Public Overrides Sub Update(componentHost As IScreenObject, delta As TimeSpan)
   overridden: SadConsole.Instructions.InstructionBase.Update(SadConsole.IScreenObject,System.TimeSpan)
   overload: SadConsole.Instructions.DrawString.Update*
@@ -164,6 +178,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
+  summary: Resets the Done flag.
+  remarks: On the base class, resets the <xref href="SadConsole.Instructions.InstructionBase.IsFinished" data-throw-if-not-resolved="false"></xref> to false. Override this method to reset the derived class' counters and status flags for the instruction.
   example: []
   syntax:
     content: public override void Reset()
@@ -184,12 +200,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
+  summary: Creates an invisible cursor that prints on the target surface.
   example: []
   syntax:
     content: public override void OnAdded(IScreenObject host)
     parameters:
     - id: host
       type: SadConsole.IScreenObject
+      description: The host this instruction is added to.
     content.vb: Public Overrides Sub OnAdded(host As IScreenObject)
   overridden: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
   overload: SadConsole.Instructions.DrawString.OnAdded*
@@ -207,6 +225,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
+  summary: Gets or sets the text to print.
+  example: []
   syntax:
     content: public ColoredString Text { get; set; }
     parameters: []
@@ -228,6 +248,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
+  summary: Gets or sets the total time to take to write the string. Use <xref href="System.TimeSpan.Zero" data-throw-if-not-resolved="false"></xref> for no duration.
+  example: []
   syntax:
     content: public TimeSpan TotalTimeToPrint { get; set; }
     parameters: []
@@ -249,6 +271,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
+  summary: Gets or sets the position on the console to write the text.
+  example: []
   syntax:
     content: public Point Position { get; set; }
     parameters: []
@@ -270,6 +294,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Instructions
+  summary: Represents the cursor used in printing. Use this for styling and printing behavior.
+  example: []
   syntax:
     content: public Cursor? Cursor { get; set; }
     parameters: []
@@ -808,6 +834,13 @@ references:
   name: SadConsole
   nameWithType: SadConsole
   fullName: SadConsole
+- uid: SadConsole.Instructions.DrawString.Text
+  commentId: P:SadConsole.Instructions.DrawString.Text
+  isExternal: true
+  href: SadConsole.Instructions.DrawString.html#SadConsole_Instructions_DrawString_Text
+  name: Text
+  nameWithType: DrawString.Text
+  fullName: SadConsole.Instructions.DrawString.Text
 - uid: SadConsole.Instructions.InstructionBase.Update(SadConsole.IScreenObject,System.TimeSpan)
   commentId: M:SadConsole.Instructions.InstructionBase.Update(SadConsole.IScreenObject,System.TimeSpan)
   parent: SadConsole.Instructions.InstructionBase
@@ -938,6 +971,13 @@ references:
   name: Text
   nameWithType: DrawString.Text
   fullName: SadConsole.Instructions.DrawString.Text
+- uid: System.TimeSpan.Zero
+  commentId: F:System.TimeSpan.Zero
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan.zero
+  name: Zero
+  nameWithType: TimeSpan.Zero
+  fullName: System.TimeSpan.Zero
 - uid: SadConsole.Instructions.DrawString.TotalTimeToPrint*
   commentId: Overload:SadConsole.Instructions.DrawString.TotalTimeToPrint
   isExternal: true

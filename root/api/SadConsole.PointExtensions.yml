@@ -23,6 +23,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Extensions for the <xref href="SadRogue.Primitives.Point" data-throw-if-not-resolved="false"></xref> type.
+  example: []
   syntax:
     content: public static class PointExtensions
     content.vb: Public Module PointExtensions
@@ -51,17 +53,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Translates a surface cell position to where it appears on the screen in pixels.
+  example: []
   syntax:
     content: public static Point SurfaceLocationToPixel(this Point point, int cellWidth, int cellHeight)
     parameters:
     - id: point
       type: SadRogue.Primitives.Point
+      description: The current cell position.
     - id: cellWidth
       type: System.Int32
+      description: The width of a cell in pixels.
     - id: cellHeight
       type: System.Int32
+      description: The height of a cell in pixels.
     return:
       type: SadRogue.Primitives.Point
+      description: The pixel position of the top-left of the cell.
     content.vb: Public Shared Function SurfaceLocationToPixel(point As Point, cellWidth As Integer, cellHeight As Integer) As Point
   overload: SadConsole.PointExtensions.SurfaceLocationToPixel*
   nameWithType.vb: PointExtensions.SurfaceLocationToPixel(Point, Integer, Integer)
@@ -82,15 +90,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Translates a surface cell position to where it appears on the screen in pixels.
+  example: []
   syntax:
     content: public static Point SurfaceLocationToPixel(this Point point, Point fontSize)
     parameters:
     - id: point
       type: SadRogue.Primitives.Point
+      description: The current cell position.
     - id: fontSize
       type: SadRogue.Primitives.Point
+      description: The font to use in calculating the position.
     return:
       type: SadRogue.Primitives.Point
+      description: The pixel position of the top-left of the cell.
     content.vb: Public Shared Function SurfaceLocationToPixel(point As Point, fontSize As Point) As Point
   overload: SadConsole.PointExtensions.SurfaceLocationToPixel*
 - uid: SadConsole.PointExtensions.PixelLocationToSurface(SadRogue.Primitives.Point,System.Int32,System.Int32)
@@ -108,17 +121,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Translates a pixel to where it appears on a surface cell.
+  example: []
   syntax:
     content: public static Point PixelLocationToSurface(this Point point, int cellWidth, int cellHeight)
     parameters:
     - id: point
       type: SadRogue.Primitives.Point
+      description: The current world position.
     - id: cellWidth
       type: System.Int32
+      description: The width of a cell in pixels.
     - id: cellHeight
       type: System.Int32
+      description: The height of a cell in pixels.
     return:
       type: SadRogue.Primitives.Point
+      description: The cell position on the screen.
     content.vb: Public Shared Function PixelLocationToSurface(point As Point, cellWidth As Integer, cellHeight As Integer) As Point
   overload: SadConsole.PointExtensions.PixelLocationToSurface*
   nameWithType.vb: PointExtensions.PixelLocationToSurface(Point, Integer, Integer)
@@ -139,15 +158,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Translates a pixel to where it appears on a surface cell.
+  example: []
   syntax:
     content: public static Point PixelLocationToSurface(this Point point, Point fontSize)
     parameters:
     - id: point
       type: SadRogue.Primitives.Point
+      description: The current world position.
     - id: fontSize
       type: SadRogue.Primitives.Point
+      description: The font to use in calculating the position.
     return:
       type: SadRogue.Primitives.Point
+      description: The cell position on the screen.
     content.vb: Public Shared Function PixelLocationToSurface(point As Point, fontSize As Point) As Point
   overload: SadConsole.PointExtensions.PixelLocationToSurface*
 - uid: SadConsole.PointExtensions.TranslateFont(SadRogue.Primitives.Point,SadRogue.Primitives.Point,SadRogue.Primitives.Point)
@@ -165,17 +189,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Translates the coordinates of a cell from the source font size to a target font size.
+  example: []
   syntax:
     content: public static Point TranslateFont(this Point point, Point sourceFontSize, Point targetFontSize)
     parameters:
     - id: point
       type: SadRogue.Primitives.Point
+      description: The position of the cell in the <code class="paramref">sourceFontSize</code>.
     - id: sourceFontSize
       type: SadRogue.Primitives.Point
+      description: The source font translating from.
     - id: targetFontSize
       type: SadRogue.Primitives.Point
+      description: The target font translating to.
     return:
       type: SadRogue.Primitives.Point
+      description: The position of the cell in the <code class="paramref">targetFontSize</code>.
     content.vb: Public Shared Function TranslateFont(point As Point, sourceFontSize As Point, targetFontSize As Point) As Point
   overload: SadConsole.PointExtensions.TranslateFont*
 - uid: SadConsole.PointExtensions.GetValidDirections(SadRogue.Primitives.Point,SadRogue.Primitives.Rectangle)
@@ -193,15 +223,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Gets a list of indexed boolean values to indicate if the direction from the <code class="paramref">position</code> falls in the <code class="paramref">area</code>.
+  example: []
   syntax:
     content: public static bool[] GetValidDirections(this Point position, Rectangle area)
     parameters:
     - id: position
       type: SadRogue.Primitives.Point
+      description: The position to test from.
     - id: area
       type: SadRogue.Primitives.Rectangle
+      description: The area to test.
     return:
       type: System.Boolean[]
+      description: An array of bool values indicating if the direction is valid or not; indexed by a <xref href="SadRogue.Primitives.Direction.Types" data-throw-if-not-resolved="false"></xref> enumeration. Index 0 in the array represents the <code class="paramref">position</code>.
     content.vb: Public Shared Function GetValidDirections(position As Point, area As Rectangle) As Boolean()
   overload: SadConsole.PointExtensions.GetValidDirections*
 - uid: SadConsole.PointExtensions.GetDirectionPoints(SadRogue.Primitives.Point)
@@ -219,13 +254,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Gets an indexed array of direction positions based on the <code class="paramref">position</code>.
+  example: []
   syntax:
     content: public static Point[] GetDirectionPoints(this Point position)
     parameters:
     - id: position
       type: SadRogue.Primitives.Point
+      description: The source position.
     return:
       type: SadRogue.Primitives.Point[]
+      description: An array of positions indexed by a <xref href="SadRogue.Primitives.Direction.Types" data-throw-if-not-resolved="false"></xref> enumeration. Index 0 in the array represents the <code class="paramref">position</code>.
     content.vb: Public Shared Function GetDirectionPoints(position As Point) As Point()
   overload: SadConsole.PointExtensions.GetDirectionPoints*
 - uid: SadConsole.PointExtensions.GetDirectionIndexes(SadRogue.Primitives.Point,SadRogue.Primitives.Rectangle,System.Int32)
@@ -243,23 +282,36 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Gets an array of indexes of a surface based on a position and then a relative <xref href="SadRogue.Primitives.Direction.Type" data-throw-if-not-resolved="false"></xref> direction enumeration..
+  example: []
   syntax:
     content: public static int[] GetDirectionIndexes(this Point position, Rectangle area, int width)
     parameters:
     - id: position
       type: SadRogue.Primitives.Point
+      description: The position center.
     - id: area
       type: SadRogue.Primitives.Rectangle
+      description: The area containing the position.
     - id: width
       type: System.Int32
+      description: The width to use in converting each index to a point.
     return:
       type: System.Int32[]
+      description: Returns the an array of values indidcating the index in the area surface of each direction where -1 represents a position outside the bounds of the area. Indexed by a <xref href="SadRogue.Primitives.Direction.Types" data-throw-if-not-resolved="false"></xref> enumeration.
     content.vb: Public Shared Function GetDirectionIndexes(position As Point, area As Rectangle, width As Integer) As Integer()
   overload: SadConsole.PointExtensions.GetDirectionIndexes*
   nameWithType.vb: PointExtensions.GetDirectionIndexes(Point, Rectangle, Integer)
   fullName.vb: SadConsole.PointExtensions.GetDirectionIndexes(SadRogue.Primitives.Point, SadRogue.Primitives.Rectangle, Integer)
   name.vb: GetDirectionIndexes(Point, Rectangle, Integer)
 references:
+- uid: SadRogue.Primitives.Point
+  commentId: T:SadRogue.Primitives.Point
+  parent: SadRogue.Primitives
+  isExternal: true
+  name: Point
+  nameWithType: Point
+  fullName: SadRogue.Primitives.Point
 - uid: SadConsole
   commentId: N:SadConsole
   isExternal: true
@@ -497,38 +549,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
-- uid: SadConsole.PointExtensions.SurfaceLocationToPixel*
-  commentId: Overload:SadConsole.PointExtensions.SurfaceLocationToPixel
-  isExternal: true
-  href: SadConsole.PointExtensions.html#SadConsole_PointExtensions_SurfaceLocationToPixel_SadRogue_Primitives_Point_System_Int32_System_Int32_
-  name: SurfaceLocationToPixel
-  nameWithType: PointExtensions.SurfaceLocationToPixel
-  fullName: SadConsole.PointExtensions.SurfaceLocationToPixel
-- uid: SadRogue.Primitives.Point
-  commentId: T:SadRogue.Primitives.Point
-  parent: SadRogue.Primitives
-  isExternal: true
-  name: Point
-  nameWithType: Point
-  fullName: SadRogue.Primitives.Point
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
 - uid: SadRogue.Primitives
   commentId: N:SadRogue.Primitives
   isExternal: true
@@ -556,6 +576,31 @@ references:
     name: Primitives
     isExternal: true
     href: SadRogue.Primitives.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SadConsole.PointExtensions.SurfaceLocationToPixel*
+  commentId: Overload:SadConsole.PointExtensions.SurfaceLocationToPixel
+  isExternal: true
+  href: SadConsole.PointExtensions.html#SadConsole_PointExtensions_SurfaceLocationToPixel_SadRogue_Primitives_Point_System_Int32_System_Int32_
+  name: SurfaceLocationToPixel
+  nameWithType: PointExtensions.SurfaceLocationToPixel
+  fullName: SadConsole.PointExtensions.SurfaceLocationToPixel
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
 - uid: SadConsole.PointExtensions.PixelLocationToSurface*
   commentId: Overload:SadConsole.PointExtensions.PixelLocationToSurface
   isExternal: true
@@ -570,6 +615,29 @@ references:
   name: TranslateFont
   nameWithType: PointExtensions.TranslateFont
   fullName: SadConsole.PointExtensions.TranslateFont
+- uid: SadRogue.Primitives.Direction.Types
+  commentId: T:SadRogue.Primitives.Direction.Types
+  parent: SadRogue.Primitives
+  isExternal: true
+  name: Direction.Types
+  nameWithType: Direction.Types
+  fullName: SadRogue.Primitives.Direction.Types
+  spec.csharp:
+  - uid: SadRogue.Primitives.Direction
+    name: Direction
+    isExternal: true
+  - name: .
+  - uid: SadRogue.Primitives.Direction.Types
+    name: Types
+    isExternal: true
+  spec.vb:
+  - uid: SadRogue.Primitives.Direction
+    name: Direction
+    isExternal: true
+  - name: .
+  - uid: SadRogue.Primitives.Direction.Types
+    name: Types
+    isExternal: true
 - uid: SadConsole.PointExtensions.GetValidDirections*
   commentId: Overload:SadConsole.PointExtensions.GetValidDirections
   isExternal: true
@@ -634,6 +702,12 @@ references:
     isExternal: true
   - name: (
   - name: )
+- uid: SadRogue.Primitives.Direction.Type
+  commentId: F:SadRogue.Primitives.Direction.Type
+  isExternal: true
+  name: Type
+  nameWithType: Direction.Type
+  fullName: SadRogue.Primitives.Direction.Type
 - uid: SadConsole.PointExtensions.GetDirectionIndexes*
   commentId: Overload:SadConsole.PointExtensions.GetDirectionIndexes
   isExternal: true

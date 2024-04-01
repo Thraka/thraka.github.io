@@ -47,6 +47,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: InputBox control that allows text input.
+  example: []
   syntax:
     content: >-
       [DataContract]
@@ -163,6 +165,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Indicates that the input box (when numeric) will accept decimal points.
+  example: []
   syntax:
     content: >-
       [DataMember(Name = "AllowDecimalPoint")]
@@ -196,11 +200,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Creates a new instance of the input box.
+  example: []
   syntax:
     content: public NumberBox(int width)
     parameters:
     - id: width
       type: System.Int32
+      description: The width of the input box.
     content.vb: Public Sub New(width As Integer)
   overload: SadConsole.UI.Controls.NumberBox.#ctor*
   nameWithType.vb: NumberBox.New(Integer)
@@ -220,11 +227,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Increases the number stored in the <xref href="SadConsole.UI.Controls.TextBox.Text" data-throw-if-not-resolved="false"></xref> property by the specified amount.
+  example: []
   syntax:
     content: public void IncreaseNumber(long amount)
     parameters:
     - id: amount
       type: System.Int64
+      description: The amount.
     content.vb: Public Sub IncreaseNumber(amount As Long)
   overload: SadConsole.UI.Controls.NumberBox.IncreaseNumber*
   nameWithType.vb: NumberBox.IncreaseNumber(Long)
@@ -244,13 +254,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Increases the number stored in the <xref href="SadConsole.UI.Controls.TextBox.Text" data-throw-if-not-resolved="false"></xref> property by the specified amount.
+  example: []
   syntax:
     content: public void IncreaseNumber(double amount)
     parameters:
     - id: amount
       type: System.Double
+      description: The amount.
     content.vb: Public Sub IncreaseNumber(amount As Double)
   overload: SadConsole.UI.Controls.NumberBox.IncreaseNumber*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: Thrown when this method is used and the <xref href="SadConsole.UI.Controls.NumberBox.AllowDecimal" data-throw-if-not-resolved="false"></xref> property is set to false.
   nameWithType.vb: NumberBox.IncreaseNumber(Double)
   fullName.vb: SadConsole.UI.Controls.NumberBox.IncreaseNumber(Double)
   name.vb: IncreaseNumber(Double)
@@ -268,11 +285,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Decreases the number stored in the <xref href="SadConsole.UI.Controls.TextBox.Text" data-throw-if-not-resolved="false"></xref> property by the specified amount.
+  example: []
   syntax:
     content: public void DecreaseNumber(long amount)
     parameters:
     - id: amount
       type: System.Int64
+      description: The amount.
     content.vb: Public Sub DecreaseNumber(amount As Long)
   overload: SadConsole.UI.Controls.NumberBox.DecreaseNumber*
   nameWithType.vb: NumberBox.DecreaseNumber(Long)
@@ -292,13 +312,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Decreases the number stored in the <xref href="SadConsole.UI.Controls.TextBox.Text" data-throw-if-not-resolved="false"></xref> property by the specified amount.
+  example: []
   syntax:
     content: public void DecreaseNumber(double amount)
     parameters:
     - id: amount
       type: System.Double
+      description: The amount.
     content.vb: Public Sub DecreaseNumber(amount As Double)
   overload: SadConsole.UI.Controls.NumberBox.DecreaseNumber*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: Thrown when this method is used and the <xref href="SadConsole.UI.Controls.NumberBox.AllowDecimal" data-throw-if-not-resolved="false"></xref> property is set to false.
   nameWithType.vb: NumberBox.DecreaseNumber(Double)
   fullName.vb: SadConsole.UI.Controls.NumberBox.DecreaseNumber(Double)
   name.vb: DecreaseNumber(Double)
@@ -316,6 +343,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Called when the control is focused.
   example: []
   syntax:
     content: protected override void OnFocused()
@@ -336,6 +364,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Called when the control loses focus.
   example: []
   syntax:
     content: protected override void OnUnfocused()
@@ -356,10 +385,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Returns the <xref href="SadConsole.UI.Controls.TextBox.Text" data-throw-if-not-resolved="false"></xref> property as parsed by <xref href="System.Int64.TryParse(System.String%2cSystem.Globalization.NumberStyles%2cSystem.IFormatProvider%2cSystem.Int64%40)" data-throw-if-not-resolved="false"></xref> with the current culture.
+  example: []
   syntax:
     content: public long TextAsLong()
     return:
       type: System.Int64
+      description: The parsed text value.
     content.vb: Public Function TextAsLong() As Long
   overload: SadConsole.UI.Controls.NumberBox.TextAsLong*
 - uid: SadConsole.UI.Controls.NumberBox.TextAsDouble
@@ -376,10 +408,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Returns the <xref href="SadConsole.UI.Controls.TextBox.Text" data-throw-if-not-resolved="false"></xref> property as parsed by <xref href="System.Double.TryParse(System.String%2cSystem.Globalization.NumberStyles%2cSystem.IFormatProvider%2cSystem.Double%40)" data-throw-if-not-resolved="false"></xref> with the current culture.
+  example: []
   syntax:
     content: public double TextAsDouble()
     return:
       type: System.Double
+      description: The parsed text value.
     content.vb: Public Function TextAsDouble() As Double
   overload: SadConsole.UI.Controls.NumberBox.TextAsDouble*
 - uid: SadConsole.UI.Controls.NumberBox.ProcessKeyboard(SadConsole.Input.Keyboard)
@@ -396,14 +431,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Called when the control should process keyboard information.
   example: []
   syntax:
     content: public override bool ProcessKeyboard(Keyboard info)
     parameters:
     - id: info
       type: SadConsole.Input.Keyboard
+      description: The keyboard information.
     return:
       type: System.Boolean
+      description: True if the keyboard was handled by this control.
     content.vb: Public Overrides Function ProcessKeyboard(info As Keyboard) As Boolean
   overridden: SadConsole.UI.Controls.TextBox.ProcessKeyboard(SadConsole.Input.Keyboard)
   overload: SadConsole.UI.Controls.NumberBox.ProcessKeyboard*
@@ -421,14 +459,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Checks if the mouse is the control and calls the appropriate mouse methods.
   example: []
   syntax:
     content: public override bool ProcessMouse(MouseScreenObjectState state)
     parameters:
     - id: state
       type: SadConsole.Input.MouseScreenObjectState
+      description: Mouse information.
     return:
       type: System.Boolean
+      description: True when the control is enabled, set to use the mouse and the mouse is over it, otherwise false.
     content.vb: Public Overrides Function ProcessMouse(state As MouseScreenObjectState) As Boolean
   overridden: SadConsole.UI.Controls.ControlBase.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
   overload: SadConsole.UI.Controls.NumberBox.ProcessMouse*
@@ -446,6 +487,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Called when <xref href="SadConsole.UI.Controls.ControlBase.Resize(System.Int32%2cSystem.Int32)" data-throw-if-not-resolved="false"></xref> was called.
   example: []
   syntax:
     content: protected override void OnResized()
@@ -466,10 +508,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Gets the current culture's decimal separator.
+  example: []
   syntax:
     content: protected char GetCultureDecimalSeperator()
     return:
       type: System.Char
+      description: The current culture.
     content.vb: Protected Function GetCultureDecimalSeperator() As Char
   overload: SadConsole.UI.Controls.NumberBox.GetCultureDecimalSeperator*
 - uid: SadConsole.UI.Controls.NumberBox.GetCulture
@@ -486,10 +531,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Returns the current culture.
+  example: []
   syntax:
     content: protected CultureInfo GetCulture()
     return:
       type: System.Globalization.CultureInfo
+      description: The current culture.
     content.vb: Protected Function GetCulture() As CultureInfo
   overload: SadConsole.UI.Controls.NumberBox.GetCulture*
 - uid: SadConsole.UI.Controls.NumberBox.UpdateAndRedraw(System.TimeSpan)
@@ -506,12 +554,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Redraws the control if applicable.
   example: []
   syntax:
     content: public override void UpdateAndRedraw(TimeSpan time)
     parameters:
     - id: time
       type: System.TimeSpan
+      description: The duration of thecurrent frame.
     content.vb: Public Overrides Sub UpdateAndRedraw(time As TimeSpan)
   overridden: SadConsole.UI.Controls.TextBox.UpdateAndRedraw(System.TimeSpan)
   overload: SadConsole.UI.Controls.NumberBox.UpdateAndRedraw*
@@ -529,6 +579,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Gets or sets whether or not this input box should restrict numeric input should allow a decimal point.
+  example: []
   syntax:
     content: public bool AllowDecimal { get; set; }
     parameters: []
@@ -550,6 +602,9 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The maximum number that can be set for this text box.
+  remarks: Set both <xref href="SadConsole.UI.Controls.NumberBox.NumberMaximum" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.UI.Controls.NumberBox.NumberMinimum" data-throw-if-not-resolved="false"></xref> to 0 to disable number bounds checking.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -581,6 +636,9 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The minimum number that can be set for this text box.
+  remarks: Set both <xref href="SadConsole.UI.Controls.NumberBox.NumberMaximum" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.UI.Controls.NumberBox.NumberMinimum" data-throw-if-not-resolved="false"></xref> to 0 to disable number bounds checking.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -612,6 +670,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The default value to use when the current value is invalid and <xref href="SadConsole.UI.Controls.NumberBox.AllowDecimal" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -643,6 +703,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The default value to use when the current value is invalid and <xref href="SadConsole.UI.Controls.NumberBox.AllowDecimal" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -674,6 +736,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: When true, displays up and down buttons at the end of the box.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -705,6 +769,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Sets the up button's value step.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -736,6 +802,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Sets the down button's value step.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -767,6 +835,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Sets the up button's value step when <xref href="SadConsole.UI.Controls.NumberBox.AllowDecimal" data-throw-if-not-resolved="false"></xref> is on.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -798,6 +868,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Sets the down button's value step when <xref href="SadConsole.UI.Controls.NumberBox.AllowDecimal" data-throw-if-not-resolved="false"></xref> is on.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -829,6 +901,9 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that the number is either out of bounds of the <xref href="SadConsole.UI.Controls.NumberBox.NumberMinimum" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.UI.Controls.NumberBox.NumberMaximum" data-throw-if-not-resolved="false"></xref> range, or it can't be property parsed. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>
+  remarks: Used by the theme system.
+  example: []
   syntax:
     content: public bool IsEditingNumberInvalid { get; }
     parameters: []
@@ -850,6 +925,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Used by the mouse logic.
+  example: []
   syntax:
     content: public bool State_IsMouseOverUpButton { get; set; }
     parameters: []
@@ -871,6 +948,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Used by the mouse logic.
+  example: []
   syntax:
     content: public bool State_IsMouseOverDownButton { get; set; }
     parameters: []
@@ -892,6 +971,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The color to use with a <xref href="SadConsole.UI.Controls.NumberBox" data-throw-if-not-resolved="false"></xref> control when <xref href="SadConsole.UI.Controls.NumberBox.IsEditingNumberInvalid" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -923,6 +1004,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The glyph for the up button.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -954,6 +1037,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The glyph for the down button.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -2415,6 +2500,21 @@ references:
   nameWithType.vb: Long
   fullName.vb: Long
   name.vb: Long
+- uid: SadConsole.UI.Controls.NumberBox.AllowDecimal
+  commentId: P:SadConsole.UI.Controls.NumberBox.AllowDecimal
+  isExternal: true
+  href: SadConsole.UI.Controls.NumberBox.html#SadConsole_UI_Controls_NumberBox_AllowDecimal
+  name: AllowDecimal
+  nameWithType: NumberBox.AllowDecimal
+  fullName: SadConsole.UI.Controls.NumberBox.AllowDecimal
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
 - uid: System.Double
   commentId: T:System.Double
   parent: System
@@ -2491,6 +2591,76 @@ references:
   name: OnUnfocused
   nameWithType: NumberBox.OnUnfocused
   fullName: SadConsole.UI.Controls.NumberBox.OnUnfocused
+- uid: System.Int64.TryParse(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Int64@)
+  commentId: M:System.Int64.TryParse(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Int64@)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64.tryparse#system-int64-tryparse(system-string-system-globalization-numberstyles-system-iformatprovider-system-int64@)
+  name: TryParse(string, NumberStyles, IFormatProvider, out long)
+  nameWithType: long.TryParse(string, NumberStyles, IFormatProvider, out long)
+  fullName: long.TryParse(string, System.Globalization.NumberStyles, System.IFormatProvider, out long)
+  nameWithType.vb: Long.TryParse(String, NumberStyles, IFormatProvider, Long)
+  fullName.vb: Long.TryParse(String, System.Globalization.NumberStyles, System.IFormatProvider, Long)
+  name.vb: TryParse(String, NumberStyles, IFormatProvider, Long)
+  spec.csharp:
+  - uid: System.Int64.TryParse(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Int64@)
+    name: TryParse
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64.tryparse#system-int64-tryparse(system-string-system-globalization-numberstyles-system-iformatprovider-system-int64@)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Globalization.NumberStyles
+    name: NumberStyles
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.globalization.numberstyles
+  - name: ','
+  - name: " "
+  - uid: System.IFormatProvider
+    name: IFormatProvider
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iformatprovider
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: System.Int64
+    name: long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: )
+  spec.vb:
+  - uid: System.Int64.TryParse(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Int64@)
+    name: TryParse
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64.tryparse#system-int64-tryparse(system-string-system-globalization-numberstyles-system-iformatprovider-system-int64@)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Globalization.NumberStyles
+    name: NumberStyles
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.globalization.numberstyles
+  - name: ','
+  - name: " "
+  - uid: System.IFormatProvider
+    name: IFormatProvider
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iformatprovider
+  - name: ','
+  - name: " "
+  - uid: System.Int64
+    name: Long
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int64
+  - name: )
 - uid: SadConsole.UI.Controls.NumberBox.TextAsLong*
   commentId: Overload:SadConsole.UI.Controls.NumberBox.TextAsLong
   isExternal: true
@@ -2498,6 +2668,76 @@ references:
   name: TextAsLong
   nameWithType: NumberBox.TextAsLong
   fullName: SadConsole.UI.Controls.NumberBox.TextAsLong
+- uid: System.Double.TryParse(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Double@)
+  commentId: M:System.Double.TryParse(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Double@)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double.tryparse#system-double-tryparse(system-string-system-globalization-numberstyles-system-iformatprovider-system-double@)
+  name: TryParse(string, NumberStyles, IFormatProvider, out double)
+  nameWithType: double.TryParse(string, NumberStyles, IFormatProvider, out double)
+  fullName: double.TryParse(string, System.Globalization.NumberStyles, System.IFormatProvider, out double)
+  nameWithType.vb: Double.TryParse(String, NumberStyles, IFormatProvider, Double)
+  fullName.vb: Double.TryParse(String, System.Globalization.NumberStyles, System.IFormatProvider, Double)
+  name.vb: TryParse(String, NumberStyles, IFormatProvider, Double)
+  spec.csharp:
+  - uid: System.Double.TryParse(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Double@)
+    name: TryParse
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double.tryparse#system-double-tryparse(system-string-system-globalization-numberstyles-system-iformatprovider-system-double@)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Globalization.NumberStyles
+    name: NumberStyles
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.globalization.numberstyles
+  - name: ','
+  - name: " "
+  - uid: System.IFormatProvider
+    name: IFormatProvider
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iformatprovider
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: )
+  spec.vb:
+  - uid: System.Double.TryParse(System.String,System.Globalization.NumberStyles,System.IFormatProvider,System.Double@)
+    name: TryParse
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double.tryparse#system-double-tryparse(system-string-system-globalization-numberstyles-system-iformatprovider-system-double@)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Globalization.NumberStyles
+    name: NumberStyles
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.globalization.numberstyles
+  - name: ','
+  - name: " "
+  - uid: System.IFormatProvider
+    name: IFormatProvider
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iformatprovider
+  - name: ','
+  - name: " "
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: )
 - uid: SadConsole.UI.Controls.NumberBox.TextAsDouble*
   commentId: Overload:SadConsole.UI.Controls.NumberBox.TextAsDouble
   isExternal: true
@@ -2622,6 +2862,51 @@ references:
   name: MouseScreenObjectState
   nameWithType: MouseScreenObjectState
   fullName: SadConsole.Input.MouseScreenObjectState
+- uid: SadConsole.UI.Controls.ControlBase.Resize(System.Int32,System.Int32)
+  commentId: M:SadConsole.UI.Controls.ControlBase.Resize(System.Int32,System.Int32)
+  parent: SadConsole.UI.Controls.ControlBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_Resize_System_Int32_System_Int32_
+  name: Resize(int, int)
+  nameWithType: ControlBase.Resize(int, int)
+  fullName: SadConsole.UI.Controls.ControlBase.Resize(int, int)
+  nameWithType.vb: ControlBase.Resize(Integer, Integer)
+  fullName.vb: SadConsole.UI.Controls.ControlBase.Resize(Integer, Integer)
+  name.vb: Resize(Integer, Integer)
+  spec.csharp:
+  - uid: SadConsole.UI.Controls.ControlBase.Resize(System.Int32,System.Int32)
+    name: Resize
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_Resize_System_Int32_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.Controls.ControlBase.Resize(System.Int32,System.Int32)
+    name: Resize
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_Resize_System_Int32_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
 - uid: SadConsole.UI.Controls.ControlBase.OnResized
   commentId: M:SadConsole.UI.Controls.ControlBase.OnResized
   parent: SadConsole.UI.Controls.ControlBase
@@ -2763,6 +3048,20 @@ references:
   name: AllowDecimal
   nameWithType: NumberBox.AllowDecimal
   fullName: SadConsole.UI.Controls.NumberBox.AllowDecimal
+- uid: SadConsole.UI.Controls.NumberBox.NumberMaximum
+  commentId: P:SadConsole.UI.Controls.NumberBox.NumberMaximum
+  isExternal: true
+  href: SadConsole.UI.Controls.NumberBox.html#SadConsole_UI_Controls_NumberBox_NumberMaximum
+  name: NumberMaximum
+  nameWithType: NumberBox.NumberMaximum
+  fullName: SadConsole.UI.Controls.NumberBox.NumberMaximum
+- uid: SadConsole.UI.Controls.NumberBox.NumberMinimum
+  commentId: P:SadConsole.UI.Controls.NumberBox.NumberMinimum
+  isExternal: true
+  href: SadConsole.UI.Controls.NumberBox.html#SadConsole_UI_Controls_NumberBox_NumberMinimum
+  name: NumberMinimum
+  nameWithType: NumberBox.NumberMinimum
+  fullName: SadConsole.UI.Controls.NumberBox.NumberMinimum
 - uid: SadConsole.UI.Controls.NumberBox.NumberMaximum*
   commentId: Overload:SadConsole.UI.Controls.NumberBox.NumberMaximum
   isExternal: true
@@ -2847,6 +3146,20 @@ references:
   name: State_IsMouseOverDownButton
   nameWithType: NumberBox.State_IsMouseOverDownButton
   fullName: SadConsole.UI.Controls.NumberBox.State_IsMouseOverDownButton
+- uid: SadConsole.UI.Controls.NumberBox
+  commentId: T:SadConsole.UI.Controls.NumberBox
+  isExternal: true
+  href: SadConsole.UI.Controls.NumberBox.html
+  name: NumberBox
+  nameWithType: NumberBox
+  fullName: SadConsole.UI.Controls.NumberBox
+- uid: SadConsole.UI.Controls.NumberBox.IsEditingNumberInvalid
+  commentId: P:SadConsole.UI.Controls.NumberBox.IsEditingNumberInvalid
+  isExternal: true
+  href: SadConsole.UI.Controls.NumberBox.html#SadConsole_UI_Controls_NumberBox_IsEditingNumberInvalid
+  name: IsEditingNumberInvalid
+  nameWithType: NumberBox.IsEditingNumberInvalid
+  fullName: SadConsole.UI.Controls.NumberBox.IsEditingNumberInvalid
 - uid: SadConsole.UI.Controls.NumberBox.NumberBoxInvalidNumberForeground*
   commentId: Overload:SadConsole.UI.Controls.NumberBox.NumberBoxInvalidNumberForeground
   isExternal: true

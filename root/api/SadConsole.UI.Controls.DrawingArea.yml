@@ -20,6 +20,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: A simple surface for drawing text that can be moved and sized like a control.
+  example: []
   syntax:
     content: >-
       [DataContract]
@@ -120,13 +122,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Creates a new drawing surface control with the specified width and height.
+  example: []
   syntax:
     content: public DrawingArea(int width, int height)
     parameters:
     - id: width
       type: System.Int32
+      description: Width of the control.
     - id: height
       type: System.Int32
+      description: Height of the control.
     content.vb: Public Sub New(width As Integer, height As Integer)
   overload: SadConsole.UI.Controls.DrawingArea.#ctor*
   nameWithType.vb: DrawingArea.New(Integer, Integer)
@@ -146,12 +152,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Redraws the control if applicable.
   example: []
   syntax:
     content: public override void UpdateAndRedraw(TimeSpan time)
     parameters:
     - id: time
       type: System.TimeSpan
+      description: The duration of thecurrent frame.
     content.vb: Public Overrides Sub UpdateAndRedraw(time As TimeSpan)
   overridden: SadConsole.UI.Controls.ControlBase.UpdateAndRedraw(System.TimeSpan)
   overload: SadConsole.UI.Controls.DrawingArea.UpdateAndRedraw*
@@ -169,6 +177,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: When true, only uses <xref href="SadConsole.UI.ThemeStates.Normal" data-throw-if-not-resolved="false"></xref> for drawing.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -200,6 +210,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The current appearance based on the control state.
+  example: []
   syntax:
     content: public ColoredGlyphBase? Appearance { get; protected set; }
     parameters: []
@@ -221,6 +233,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Called when the surface is redrawn.
+  example: []
   syntax:
     content: public Action<DrawingArea, TimeSpan>? OnDraw { get; set; }
     parameters: []
@@ -1599,6 +1613,14 @@ references:
   name: TimeSpan
   nameWithType: TimeSpan
   fullName: System.TimeSpan
+- uid: SadConsole.UI.ThemeStates.Normal
+  commentId: P:SadConsole.UI.ThemeStates.Normal
+  parent: SadConsole.UI.ThemeStates
+  isExternal: true
+  href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_Normal
+  name: Normal
+  nameWithType: ThemeStates.Normal
+  fullName: SadConsole.UI.ThemeStates.Normal
 - uid: SadConsole.UI.Controls.DrawingArea.UseNormalStateOnly*
   commentId: Overload:SadConsole.UI.Controls.DrawingArea.UseNormalStateOnly
   isExternal: true
@@ -1617,6 +1639,41 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: SadConsole.UI.ThemeStates
+  commentId: T:SadConsole.UI.ThemeStates
+  parent: SadConsole.UI
+  isExternal: true
+  href: SadConsole.UI.ThemeStates.html
+  name: ThemeStates
+  nameWithType: ThemeStates
+  fullName: SadConsole.UI.ThemeStates
+- uid: SadConsole.UI
+  commentId: N:SadConsole.UI
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.UI
+  nameWithType: SadConsole.UI
+  fullName: SadConsole.UI
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.UI
+    name: UI
+    isExternal: true
+    href: SadConsole.UI.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.UI
+    name: UI
+    isExternal: true
+    href: SadConsole.UI.html
 - uid: SadConsole.UI.Controls.DrawingArea.Appearance*
   commentId: Overload:SadConsole.UI.Controls.DrawingArea.Appearance
   isExternal: true

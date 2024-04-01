@@ -42,6 +42,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: InputBox control that allows text input.
+  example: []
   syntax:
     content: >-
       [DataContract]
@@ -139,6 +141,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: String builder used while processing text in the <xref href="SadConsole.UI.Controls.TextBox.ProcessKeyboard(SadConsole.Input.Keyboard)" data-throw-if-not-resolved="false"></xref> method.
+  example: []
   syntax:
     content: protected StringBuilder? _cachedBuilder
     return:
@@ -158,6 +162,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The location of the caret.
+  example: []
   syntax:
     content: protected int _caretPos
     return:
@@ -177,6 +183,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The text value of the input box.
+  example: []
   syntax:
     content: >-
       [DataMember(Name = "Text")]
@@ -210,11 +218,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Creates a new instance of the input box.
+  example: []
   syntax:
     content: public TextBox(int width)
     parameters:
     - id: width
       type: System.Int32
+      description: The width of the input box.
     content.vb: Public Sub New(width As Integer)
   overload: SadConsole.UI.Controls.TextBox.#ctor*
   nameWithType.vb: TextBox.New(Integer)
@@ -234,14 +245,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Resizes the control if the <xref href="SadConsole.UI.Controls.ControlBase.CanResize" data-throw-if-not-resolved="false"></xref> property is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
   example: []
   syntax:
     content: public override void Resize(int width, int height)
     parameters:
     - id: width
       type: System.Int32
+      description: The desired width of the control.
     - id: height
       type: System.Int32
+      description: The desired height of the control.
     content.vb: Public Overrides Sub Resize(width As Integer, height As Integer)
   overridden: SadConsole.UI.Controls.ControlBase.Resize(System.Int32,System.Int32)
   overload: SadConsole.UI.Controls.TextBox.Resize*
@@ -262,6 +276,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Correctly positions the cursor within the text.
+  example: []
   syntax:
     content: protected void ValidateCursorPosition(string text)
     parameters:
@@ -286,13 +302,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Raises the <xref href="SadConsole.UI.Controls.TextBox.KeyPressed" data-throw-if-not-resolved="false"></xref> event and returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the keypress was cancelled.
+  example: []
   syntax:
     content: protected bool CheckKeyPressCancel(AsciiKey key)
     parameters:
     - id: key
       type: SadConsole.Input.AsciiKey
+      description: The key to use with the event.
     return:
       type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> to indicate that the keypress should be considered cancelled.
     content.vb: Protected Function CheckKeyPressCancel(key As AsciiKey) As Boolean
   overload: SadConsole.UI.Controls.TextBox.CheckKeyPressCancel*
 - uid: SadConsole.UI.Controls.TextBox.ProcessKeyboard(SadConsole.Input.Keyboard)
@@ -309,14 +329,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Called when the control should process keyboard information.
   example: []
   syntax:
     content: public override bool ProcessKeyboard(Keyboard info)
     parameters:
     - id: info
       type: SadConsole.Input.Keyboard
+      description: The keyboard information.
     return:
       type: System.Boolean
+      description: True if the keyboard was handled by this control.
     content.vb: Public Overrides Function ProcessKeyboard(info As Keyboard) As Boolean
   overridden: SadConsole.UI.Controls.ControlBase.ProcessKeyboard(SadConsole.Input.Keyboard)
   overload: SadConsole.UI.Controls.TextBox.ProcessKeyboard*
@@ -334,6 +357,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Called when the control loses focus.
   example: []
   syntax:
     content: protected override void OnUnfocused()
@@ -354,6 +378,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Called when the control is focused.
   example: []
   syntax:
     content: protected override void OnFocused()
@@ -374,12 +399,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Focuses the control and enters typing mode.
   example: []
   syntax:
     content: protected override void OnLeftMouseClicked(ControlBase.ControlMouseState state)
     parameters:
     - id: state
       type: SadConsole.UI.Controls.ControlBase.ControlMouseState
+      description: The mouse state.
     content.vb: Protected Overrides Sub OnLeftMouseClicked(state As ControlBase.ControlMouseState)
   overridden: SadConsole.UI.Controls.ControlBase.OnLeftMouseClicked(SadConsole.UI.Controls.ControlBase.ControlMouseState)
   overload: SadConsole.UI.Controls.TextBox.OnLeftMouseClicked*
@@ -397,12 +424,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Redraws the control if applicable.
   example: []
   syntax:
     content: public override void UpdateAndRedraw(TimeSpan time)
     parameters:
     - id: time
       type: System.TimeSpan
+      description: The duration of thecurrent frame.
     content.vb: Public Overrides Sub UpdateAndRedraw(time As TimeSpan)
   overridden: SadConsole.UI.Controls.ControlBase.UpdateAndRedraw(System.TimeSpan)
   overload: SadConsole.UI.Controls.TextBox.UpdateAndRedraw*
@@ -420,6 +449,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Mask input with a certain character.
+  example: []
   syntax:
     content: public char? Mask { get; set; }
     parameters: []
@@ -441,6 +472,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: When editing the text box, this allows the text to scroll to the right so you can see what you are typing.
+  example: []
   syntax:
     content: public int LeftDrawOffset { get; protected set; }
     parameters: []
@@ -462,6 +495,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Disables mouse input.
+  example: []
   syntax:
     content: >-
       [DataMember(Name = "DisableMouseInput")]
@@ -497,6 +532,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Disables the keyboard which turns off keyboard input and hides the cursor.
+  example: []
   syntax:
     content: >-
       [DataMember(Name = "DisableKeyboardInput")]
@@ -532,6 +569,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: How big the text can be. Setting this to 0 will make it unlimited.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -563,6 +602,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: When set, validates the <xref href="SadConsole.UI.Controls.TextBox.Text" data-throw-if-not-resolved="false"></xref> property after <xref href="SadConsole.UI.Controls.TextBox.TextChangedPreview" data-throw-if-not-resolved="false"></xref> has allowed the result.
+  example: []
   syntax:
     content: public StringValidation.Validator? Validator { get; set; }
     parameters: []
@@ -584,6 +625,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Gets or sets the position of the caret in the current text.
+  example: []
   syntax:
     content: public int CaretPosition { get; set; }
     parameters: []
@@ -605,6 +648,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Gets or sets the text of the input box.
+  example: []
   syntax:
     content: public string Text { get; set; }
     parameters: []
@@ -626,6 +671,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The style to use for the carrot.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -657,6 +704,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Enables displaying the text area at a different width than the width of the control.
+  example: []
   syntax:
     content: public bool UseDifferentTextAreaWidth { get; set; }
     parameters: []
@@ -678,6 +727,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The width to display the text area at when <xref href="SadConsole.UI.Controls.TextBox.UseDifferentTextAreaWidth" data-throw-if-not-resolved="false"></xref> is true.
+  example: []
   syntax:
     content: public int TextAreaWidth { get; set; }
     parameters: []
@@ -699,6 +750,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Raised when the text has changed and the preview has accepted it.
+  example: []
   syntax:
     content: public event EventHandler? TextChanged
     return:
@@ -718,6 +771,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Raised before the text has changed and allows the change to be cancelled.
+  example: []
   syntax:
     content: public event EventHandler<ValueChangedCancelableEventArgs<string>>? TextChangedPreview
     return:
@@ -737,6 +792,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Raised when a key is pressed on the textbox.
+  example: []
   syntax:
     content: public event EventHandler<KeyPressEventArgs>? KeyPressed
     return:
@@ -756,6 +813,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Raised when the <xref href="SadConsole.UI.Controls.TextBox.Validator" data-throw-if-not-resolved="false"></xref> validates the <xref href="SadConsole.UI.Controls.TextBox.Text" data-throw-if-not-resolved="false"></xref> property.
+  example: []
   syntax:
     content: public event EventHandler<StringValidation.Result>? TextValidated
     return:
@@ -1917,6 +1976,36 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: SadConsole.UI.Controls.TextBox.ProcessKeyboard(SadConsole.Input.Keyboard)
+  commentId: M:SadConsole.UI.Controls.TextBox.ProcessKeyboard(SadConsole.Input.Keyboard)
+  parent: SadConsole.UI.Controls.TextBox
+  isExternal: true
+  href: SadConsole.UI.Controls.TextBox.html#SadConsole_UI_Controls_TextBox_ProcessKeyboard_SadConsole_Input_Keyboard_
+  name: ProcessKeyboard(Keyboard)
+  nameWithType: TextBox.ProcessKeyboard(Keyboard)
+  fullName: SadConsole.UI.Controls.TextBox.ProcessKeyboard(SadConsole.Input.Keyboard)
+  spec.csharp:
+  - uid: SadConsole.UI.Controls.TextBox.ProcessKeyboard(SadConsole.Input.Keyboard)
+    name: ProcessKeyboard
+    isExternal: true
+    href: SadConsole.UI.Controls.TextBox.html#SadConsole_UI_Controls_TextBox_ProcessKeyboard_SadConsole_Input_Keyboard_
+  - name: (
+  - uid: SadConsole.Input.Keyboard
+    name: Keyboard
+    isExternal: true
+    href: SadConsole.Input.Keyboard.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.Controls.TextBox.ProcessKeyboard(SadConsole.Input.Keyboard)
+    name: ProcessKeyboard
+    isExternal: true
+    href: SadConsole.UI.Controls.TextBox.html#SadConsole_UI_Controls_TextBox_ProcessKeyboard_SadConsole_Input_Keyboard_
+  - name: (
+  - uid: SadConsole.Input.Keyboard
+    name: Keyboard
+    isExternal: true
+    href: SadConsole.Input.Keyboard.html
+  - name: )
 - uid: System.Text.StringBuilder
   commentId: T:System.Text.StringBuilder
   parent: System.Text
@@ -1925,6 +2014,14 @@ references:
   name: StringBuilder
   nameWithType: StringBuilder
   fullName: System.Text.StringBuilder
+- uid: SadConsole.UI.Controls.TextBox
+  commentId: T:SadConsole.UI.Controls.TextBox
+  parent: SadConsole.UI.Controls
+  isExternal: true
+  href: SadConsole.UI.Controls.TextBox.html
+  name: TextBox
+  nameWithType: TextBox
+  fullName: SadConsole.UI.Controls.TextBox
 - uid: System.Text
   commentId: N:System.Text
   isExternal: true
@@ -2043,6 +2140,14 @@ references:
   name: ValidateCursorPosition
   nameWithType: TextBox.ValidateCursorPosition
   fullName: SadConsole.UI.Controls.TextBox.ValidateCursorPosition
+- uid: SadConsole.UI.Controls.TextBox.KeyPressed
+  commentId: E:SadConsole.UI.Controls.TextBox.KeyPressed
+  parent: SadConsole.UI.Controls.TextBox
+  isExternal: true
+  href: SadConsole.UI.Controls.TextBox.html#SadConsole_UI_Controls_TextBox_KeyPressed
+  name: KeyPressed
+  nameWithType: TextBox.KeyPressed
+  fullName: SadConsole.UI.Controls.TextBox.KeyPressed
 - uid: SadConsole.UI.Controls.TextBox.CheckKeyPressCancel*
   commentId: Overload:SadConsole.UI.Controls.TextBox.CheckKeyPressCancel
   isExternal: true
@@ -2395,6 +2500,22 @@ references:
   name: MaxLength
   nameWithType: TextBox.MaxLength
   fullName: SadConsole.UI.Controls.TextBox.MaxLength
+- uid: SadConsole.UI.Controls.TextBox.Text
+  commentId: P:SadConsole.UI.Controls.TextBox.Text
+  parent: SadConsole.UI.Controls.TextBox
+  isExternal: true
+  href: SadConsole.UI.Controls.TextBox.html#SadConsole_UI_Controls_TextBox_Text
+  name: Text
+  nameWithType: TextBox.Text
+  fullName: SadConsole.UI.Controls.TextBox.Text
+- uid: SadConsole.UI.Controls.TextBox.TextChangedPreview
+  commentId: E:SadConsole.UI.Controls.TextBox.TextChangedPreview
+  parent: SadConsole.UI.Controls.TextBox
+  isExternal: true
+  href: SadConsole.UI.Controls.TextBox.html#SadConsole_UI_Controls_TextBox_TextChangedPreview
+  name: TextChangedPreview
+  nameWithType: TextBox.TextChangedPreview
+  fullName: SadConsole.UI.Controls.TextBox.TextChangedPreview
 - uid: SadConsole.UI.Controls.TextBox.Validator*
   commentId: Overload:SadConsole.UI.Controls.TextBox.Validator
   isExternal: true
@@ -2495,6 +2616,14 @@ references:
     href: SadConsole.Effects.html
 - uid: SadConsole.UI.Controls.TextBox.UseDifferentTextAreaWidth*
   commentId: Overload:SadConsole.UI.Controls.TextBox.UseDifferentTextAreaWidth
+  isExternal: true
+  href: SadConsole.UI.Controls.TextBox.html#SadConsole_UI_Controls_TextBox_UseDifferentTextAreaWidth
+  name: UseDifferentTextAreaWidth
+  nameWithType: TextBox.UseDifferentTextAreaWidth
+  fullName: SadConsole.UI.Controls.TextBox.UseDifferentTextAreaWidth
+- uid: SadConsole.UI.Controls.TextBox.UseDifferentTextAreaWidth
+  commentId: P:SadConsole.UI.Controls.TextBox.UseDifferentTextAreaWidth
+  parent: SadConsole.UI.Controls.TextBox
   isExternal: true
   href: SadConsole.UI.Controls.TextBox.html#SadConsole_UI_Controls_TextBox_UseDifferentTextAreaWidth
   name: UseDifferentTextAreaWidth
@@ -2627,6 +2756,14 @@ references:
     isExternal: true
     href: SadConsole.UI.KeyPressEventArgs.html
   - name: )
+- uid: SadConsole.UI.Controls.TextBox.Validator
+  commentId: P:SadConsole.UI.Controls.TextBox.Validator
+  parent: SadConsole.UI.Controls.TextBox
+  isExternal: true
+  href: SadConsole.UI.Controls.TextBox.html#SadConsole_UI_Controls_TextBox_Validator
+  name: Validator
+  nameWithType: TextBox.Validator
+  fullName: SadConsole.UI.Controls.TextBox.Validator
 - uid: System.EventHandler{SadConsole.StringValidation.Result}
   commentId: T:System.EventHandler{SadConsole.StringValidation.Result}
   parent: System

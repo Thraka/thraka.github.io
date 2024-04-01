@@ -30,6 +30,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Represents a button that can be toggled on/off within a group of other buttons.
+  example: []
   syntax:
     content: >-
       [DataContract]
@@ -141,13 +143,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Creates a new checkbox control with the specified width and height.
+  example: []
   syntax:
     content: public CheckBox(int width, int height)
     parameters:
     - id: width
       type: System.Int32
+      description: The width of the control.
     - id: height
       type: System.Int32
+      description: The height of the control.
     content.vb: Public Sub New(width As Integer, height As Integer)
   overload: SadConsole.UI.Controls.CheckBox.#ctor*
   nameWithType.vb: CheckBox.New(Integer, Integer)
@@ -167,6 +173,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Creates an auto sizing checkbox control with the specified text.
+  example: []
   syntax:
     content: public CheckBox(string text)
     parameters:
@@ -191,6 +199,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Perfroms a click on the base button and also toggles the <xref href="SadConsole.UI.Controls.ToggleButtonBase.IsSelected" data-throw-if-not-resolved="false"></xref> property.
   example: []
   syntax:
     content: protected override void OnClick()
@@ -211,12 +220,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Updates the <xref href="SadConsole.UI.Controls.ControlBase.ThemeState" data-throw-if-not-resolved="false"></xref> by calling <xref href="SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)" data-throw-if-not-resolved="false"></xref> with the provided colors. Override this method to adjust how colors are used by the <xref href="SadConsole.UI.Controls.ControlBase.ThemeState" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: protected override void RefreshThemeStateColors(Colors colors)
     parameters:
     - id: colors
       type: SadConsole.UI.Colors
+      description: The colors to apply to the theme state.
     content.vb: Protected Overrides Sub RefreshThemeStateColors(colors As Colors)
   overridden: SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
   overload: SadConsole.UI.Controls.CheckBox.RefreshThemeStateColors*
@@ -234,12 +245,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Redraws the control if applicable.
   example: []
   syntax:
     content: public override void UpdateAndRedraw(TimeSpan time)
     parameters:
     - id: time
       type: System.TimeSpan
+      description: The duration of thecurrent frame.
     content.vb: Public Overrides Sub UpdateAndRedraw(time As TimeSpan)
   overridden: SadConsole.UI.Controls.ControlBase.UpdateAndRedraw(System.TimeSpan)
   overload: SadConsole.UI.Controls.CheckBox.UpdateAndRedraw*
@@ -257,11 +270,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Resizes the control surface based on <xref href="SadConsole.UI.Controls.ButtonBase.AutoSize" data-throw-if-not-resolved="false"></xref> or the <xref href="SadConsole.UI.Controls.ControlBase.Width" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.UI.Controls.ControlBase.Height" data-throw-if-not-resolved="false"></xref> properties.
   example: []
   syntax:
     content: protected override ICellSurface CreateControlSurface()
     return:
       type: SadConsole.ICellSurface
+      description: The control's surface.
     content.vb: Protected Overrides Function CreateControlSurface() As ICellSurface
   overridden: SadConsole.UI.Controls.ControlBase.CreateControlSurface
   overload: SadConsole.UI.Controls.CheckBox.CreateControlSurface*
@@ -299,6 +314,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The glyph for the left-side bracket of the icon.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -330,6 +347,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The glyph for the right-side bracket of the icon.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -361,6 +380,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The glyph of the icon when checked.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -392,6 +413,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The glyph of the icon when unchecked.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -423,6 +446,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: An optional color of the <xref href="SadConsole.UI.Controls.CheckBox.CheckedIconGlyph" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -454,6 +479,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: An optional color of the <xref href="SadConsole.UI.Controls.CheckBox.UncheckedIconGlyph" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -485,6 +512,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The theme state used with the brackets.
+  example: []
   syntax:
     content: public ThemeStates BracketsThemeState { get; protected set; }
     parameters: []
@@ -506,6 +535,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The theme state used with the icon of the
+  example: []
   syntax:
     content: public ThemeStates IconThemeState { get; protected set; }
     parameters: []
@@ -1954,6 +1985,36 @@ references:
   name: OnClick
   nameWithType: CheckBox.OnClick
   fullName: SadConsole.UI.Controls.CheckBox.OnClick
+- uid: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
+  commentId: M:SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
+  parent: SadConsole.UI.ThemeStates
+  isExternal: true
+  href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_RefreshTheme_SadConsole_UI_Colors_
+  name: RefreshTheme(Colors)
+  nameWithType: ThemeStates.RefreshTheme(Colors)
+  fullName: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
+  spec.csharp:
+  - uid: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
+    name: RefreshTheme
+    isExternal: true
+    href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_RefreshTheme_SadConsole_UI_Colors_
+  - name: (
+  - uid: SadConsole.UI.Colors
+    name: Colors
+    isExternal: true
+    href: SadConsole.UI.Colors.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
+    name: RefreshTheme
+    isExternal: true
+    href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_RefreshTheme_SadConsole_UI_Colors_
+  - name: (
+  - uid: SadConsole.UI.Colors
+    name: Colors
+    isExternal: true
+    href: SadConsole.UI.Colors.html
+  - name: )
 - uid: SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
   commentId: M:SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
   parent: SadConsole.UI.Controls.ControlBase
@@ -1999,6 +2060,14 @@ references:
   name: Colors
   nameWithType: Colors
   fullName: SadConsole.UI.Colors
+- uid: SadConsole.UI.ThemeStates
+  commentId: T:SadConsole.UI.ThemeStates
+  parent: SadConsole.UI
+  isExternal: true
+  href: SadConsole.UI.ThemeStates.html
+  name: ThemeStates
+  nameWithType: ThemeStates
+  fullName: SadConsole.UI.ThemeStates
 - uid: SadConsole.UI
   commentId: N:SadConsole.UI
   isExternal: true
@@ -2184,6 +2253,14 @@ references:
   name: UncheckedIconGlyph
   nameWithType: CheckBox.UncheckedIconGlyph
   fullName: SadConsole.UI.Controls.CheckBox.UncheckedIconGlyph
+- uid: SadConsole.UI.Controls.CheckBox.CheckedIconGlyph
+  commentId: P:SadConsole.UI.Controls.CheckBox.CheckedIconGlyph
+  parent: SadConsole.UI.Controls.CheckBox
+  isExternal: true
+  href: SadConsole.UI.Controls.CheckBox.html#SadConsole_UI_Controls_CheckBox_CheckedIconGlyph
+  name: CheckedIconGlyph
+  nameWithType: CheckBox.CheckedIconGlyph
+  fullName: SadConsole.UI.Controls.CheckBox.CheckedIconGlyph
 - uid: SadConsole.UI.Controls.CheckBox.CheckedIconColor*
   commentId: Overload:SadConsole.UI.Controls.CheckBox.CheckedIconColor
   isExternal: true
@@ -2208,6 +2285,14 @@ references:
     name: Color
     isExternal: true
   - name: '?'
+- uid: SadConsole.UI.Controls.CheckBox
+  commentId: T:SadConsole.UI.Controls.CheckBox
+  parent: SadConsole.UI.Controls
+  isExternal: true
+  href: SadConsole.UI.Controls.CheckBox.html
+  name: CheckBox
+  nameWithType: CheckBox
+  fullName: SadConsole.UI.Controls.CheckBox
 - uid: System.Nullable`1
   commentId: T:System.Nullable`1
   isExternal: true
@@ -2236,6 +2321,14 @@ references:
   - name: " "
   - name: T
   - name: )
+- uid: SadConsole.UI.Controls.CheckBox.UncheckedIconGlyph
+  commentId: P:SadConsole.UI.Controls.CheckBox.UncheckedIconGlyph
+  parent: SadConsole.UI.Controls.CheckBox
+  isExternal: true
+  href: SadConsole.UI.Controls.CheckBox.html#SadConsole_UI_Controls_CheckBox_UncheckedIconGlyph
+  name: UncheckedIconGlyph
+  nameWithType: CheckBox.UncheckedIconGlyph
+  fullName: SadConsole.UI.Controls.CheckBox.UncheckedIconGlyph
 - uid: SadConsole.UI.Controls.CheckBox.UncheckedIconColor*
   commentId: Overload:SadConsole.UI.Controls.CheckBox.UncheckedIconColor
   isExternal: true
@@ -2250,14 +2343,6 @@ references:
   name: BracketsThemeState
   nameWithType: CheckBox.BracketsThemeState
   fullName: SadConsole.UI.Controls.CheckBox.BracketsThemeState
-- uid: SadConsole.UI.ThemeStates
-  commentId: T:SadConsole.UI.ThemeStates
-  parent: SadConsole.UI
-  isExternal: true
-  href: SadConsole.UI.ThemeStates.html
-  name: ThemeStates
-  nameWithType: ThemeStates
-  fullName: SadConsole.UI.ThemeStates
 - uid: SadConsole.UI.Controls.CheckBox.IconThemeState*
   commentId: Overload:SadConsole.UI.Controls.CheckBox.IconThemeState
   isExternal: true

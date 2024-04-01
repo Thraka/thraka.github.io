@@ -6,9 +6,7 @@ items:
   parent: SadConsole.Configuration
   children:
   - SadConsole.Configuration.CallbackConfig.#ctor
-  - SadConsole.Configuration.CallbackConfig.MonoGameCtorCallback
-  - SadConsole.Configuration.CallbackConfig.MonoGameInitCallback
-  - SadConsole.Configuration.CallbackConfig.Run(SadConsole.Configuration.Builder,SadConsole.Game)
+  - SadConsole.Configuration.CallbackConfig.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
   - SadConsole.Configuration.CallbackConfig.event_Ending
   - SadConsole.Configuration.CallbackConfig.event_FrameRender
   - SadConsole.Configuration.CallbackConfig.event_FrameUpdate
@@ -21,7 +19,7 @@ items:
   fullName: SadConsole.Configuration.CallbackConfig
   type: Class
   assemblies:
-  - SadConsole.Host.MonoGame
+  - SadConsole
   namespace: SadConsole.Configuration
   syntax:
     content: 'public class CallbackConfig : IConfigurator'
@@ -38,35 +36,35 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
-- uid: SadConsole.Configuration.CallbackConfig.Run(SadConsole.Configuration.Builder,SadConsole.Game)
-  commentId: M:SadConsole.Configuration.CallbackConfig.Run(SadConsole.Configuration.Builder,SadConsole.Game)
-  id: Run(SadConsole.Configuration.Builder,SadConsole.Game)
+- uid: SadConsole.Configuration.CallbackConfig.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
+  commentId: M:SadConsole.Configuration.CallbackConfig.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
+  id: Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
   parent: SadConsole.Configuration.CallbackConfig
   langs:
   - csharp
   - vb
-  name: Run(Builder, Game)
-  nameWithType: CallbackConfig.Run(Builder, Game)
-  fullName: SadConsole.Configuration.CallbackConfig.Run(SadConsole.Configuration.Builder, SadConsole.Game)
+  name: Run(Builder, GameHost)
+  nameWithType: CallbackConfig.Run(Builder, GameHost)
+  fullName: SadConsole.Configuration.CallbackConfig.Run(SadConsole.Configuration.Builder, SadConsole.GameHost)
   type: Method
   assemblies:
-  - SadConsole.Host.MonoGame
+  - SadConsole
   namespace: SadConsole.Configuration
   summary: Called by the <xref href="SadConsole.Configuration.Builder" data-throw-if-not-resolved="false"></xref>; Runs the specific config for this object.
   example: []
   syntax:
-    content: public void Run(Builder config, Game game)
+    content: public void Run(Builder config, GameHost game)
     parameters:
     - id: config
       type: SadConsole.Configuration.Builder
       description: The builder configuration object.
     - id: game
-      type: SadConsole.Game
+      type: SadConsole.GameHost
       description: The game object being created.
-    content.vb: Public Sub Run(config As Builder, game As Game)
+    content.vb: Public Sub Run(config As Builder, game As GameHost)
   overload: SadConsole.Configuration.CallbackConfig.Run*
   implements:
-  - SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.Game)
+  - SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
 - uid: SadConsole.Configuration.CallbackConfig.#ctor
   commentId: M:SadConsole.Configuration.CallbackConfig.#ctor
   id: '#ctor'
@@ -79,7 +77,7 @@ items:
   fullName: SadConsole.Configuration.CallbackConfig.CallbackConfig()
   type: Constructor
   assemblies:
-  - SadConsole.Host.MonoGame
+  - SadConsole
   namespace: SadConsole.Configuration
   syntax:
     content: public CallbackConfig()
@@ -100,7 +98,7 @@ items:
   fullName: SadConsole.Configuration.CallbackConfig.event_Started
   type: Property
   assemblies:
-  - SadConsole.Host.MonoGame
+  - SadConsole
   namespace: SadConsole.Configuration
   syntax:
     content: public EventHandler<GameHost>? event_Started { get; set; }
@@ -121,7 +119,7 @@ items:
   fullName: SadConsole.Configuration.CallbackConfig.event_Ending
   type: Property
   assemblies:
-  - SadConsole.Host.MonoGame
+  - SadConsole
   namespace: SadConsole.Configuration
   syntax:
     content: public EventHandler<GameHost>? event_Ending { get; set; }
@@ -142,7 +140,7 @@ items:
   fullName: SadConsole.Configuration.CallbackConfig.event_FrameUpdate
   type: Property
   assemblies:
-  - SadConsole.Host.MonoGame
+  - SadConsole
   namespace: SadConsole.Configuration
   syntax:
     content: public EventHandler<GameHost>? event_FrameUpdate { get; set; }
@@ -163,7 +161,7 @@ items:
   fullName: SadConsole.Configuration.CallbackConfig.event_FrameRender
   type: Property
   assemblies:
-  - SadConsole.Host.MonoGame
+  - SadConsole
   namespace: SadConsole.Configuration
   syntax:
     content: public EventHandler<GameHost>? event_FrameRender { get; set; }
@@ -172,48 +170,6 @@ items:
       type: System.EventHandler{SadConsole.GameHost}
     content.vb: Public Property event_FrameRender As EventHandler(Of GameHost)
   overload: SadConsole.Configuration.CallbackConfig.event_FrameRender*
-- uid: SadConsole.Configuration.CallbackConfig.MonoGameCtorCallback
-  commentId: P:SadConsole.Configuration.CallbackConfig.MonoGameCtorCallback
-  id: MonoGameCtorCallback
-  parent: SadConsole.Configuration.CallbackConfig
-  langs:
-  - csharp
-  - vb
-  name: MonoGameCtorCallback
-  nameWithType: CallbackConfig.MonoGameCtorCallback
-  fullName: SadConsole.Configuration.CallbackConfig.MonoGameCtorCallback
-  type: Property
-  assemblies:
-  - SadConsole.Host.MonoGame
-  namespace: SadConsole.Configuration
-  syntax:
-    content: public Action<Game>? MonoGameCtorCallback { get; set; }
-    parameters: []
-    return:
-      type: System.Action{SadConsole.Host.Game}
-    content.vb: Public Property MonoGameCtorCallback As Action(Of Game)
-  overload: SadConsole.Configuration.CallbackConfig.MonoGameCtorCallback*
-- uid: SadConsole.Configuration.CallbackConfig.MonoGameInitCallback
-  commentId: P:SadConsole.Configuration.CallbackConfig.MonoGameInitCallback
-  id: MonoGameInitCallback
-  parent: SadConsole.Configuration.CallbackConfig
-  langs:
-  - csharp
-  - vb
-  name: MonoGameInitCallback
-  nameWithType: CallbackConfig.MonoGameInitCallback
-  fullName: SadConsole.Configuration.CallbackConfig.MonoGameInitCallback
-  type: Property
-  assemblies:
-  - SadConsole.Host.MonoGame
-  namespace: SadConsole.Configuration
-  syntax:
-    content: public Action<Game>? MonoGameInitCallback { get; set; }
-    parameters: []
-    return:
-      type: System.Action{SadConsole.Host.Game}
-    content.vb: Public Property MonoGameInitCallback As Action(Of Game)
-  overload: SadConsole.Configuration.CallbackConfig.MonoGameInitCallback*
 references:
 - uid: SadConsole.Configuration
   commentId: N:SadConsole.Configuration
@@ -498,23 +454,23 @@ references:
 - uid: SadConsole.Configuration.CallbackConfig.Run*
   commentId: Overload:SadConsole.Configuration.CallbackConfig.Run
   isExternal: true
-  href: SadConsole.Configuration.CallbackConfig.html#SadConsole_Configuration_CallbackConfig_Run_SadConsole_Configuration_Builder_SadConsole_Game_
+  href: SadConsole.Configuration.CallbackConfig.html#SadConsole_Configuration_CallbackConfig_Run_SadConsole_Configuration_Builder_SadConsole_GameHost_
   name: Run
   nameWithType: CallbackConfig.Run
   fullName: SadConsole.Configuration.CallbackConfig.Run
-- uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.Game)
-  commentId: M:SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.Game)
+- uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
+  commentId: M:SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
   parent: SadConsole.Configuration.IConfigurator
   isExternal: true
-  href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_Builder_SadConsole_Game_
-  name: Run(Builder, Game)
-  nameWithType: IConfigurator.Run(Builder, Game)
-  fullName: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder, SadConsole.Game)
+  href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_Builder_SadConsole_GameHost_
+  name: Run(Builder, GameHost)
+  nameWithType: IConfigurator.Run(Builder, GameHost)
+  fullName: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder, SadConsole.GameHost)
   spec.csharp:
-  - uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.Game)
+  - uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
     name: Run
     isExternal: true
-    href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_Builder_SadConsole_Game_
+    href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_Builder_SadConsole_GameHost_
   - name: (
   - uid: SadConsole.Configuration.Builder
     name: Builder
@@ -522,16 +478,16 @@ references:
     href: SadConsole.Configuration.Builder.html
   - name: ','
   - name: " "
-  - uid: SadConsole.Game
-    name: Game
+  - uid: SadConsole.GameHost
+    name: GameHost
     isExternal: true
-    href: SadConsole.Game.html
+    href: SadConsole.GameHost.html
   - name: )
   spec.vb:
-  - uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.Game)
+  - uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
     name: Run
     isExternal: true
-    href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_Builder_SadConsole_Game_
+    href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_Builder_SadConsole_GameHost_
   - name: (
   - uid: SadConsole.Configuration.Builder
     name: Builder
@@ -539,19 +495,19 @@ references:
     href: SadConsole.Configuration.Builder.html
   - name: ','
   - name: " "
-  - uid: SadConsole.Game
-    name: Game
+  - uid: SadConsole.GameHost
+    name: GameHost
     isExternal: true
-    href: SadConsole.Game.html
+    href: SadConsole.GameHost.html
   - name: )
-- uid: SadConsole.Game
-  commentId: T:SadConsole.Game
+- uid: SadConsole.GameHost
+  commentId: T:SadConsole.GameHost
   parent: SadConsole
   isExternal: true
-  href: SadConsole.Game.html
-  name: Game
-  nameWithType: Game
-  fullName: SadConsole.Game
+  href: SadConsole.GameHost.html
+  name: GameHost
+  nameWithType: GameHost
+  fullName: SadConsole.GameHost
 - uid: SadConsole
   commentId: N:SadConsole
   isExternal: true
@@ -660,80 +616,3 @@ references:
   name: event_FrameRender
   nameWithType: CallbackConfig.event_FrameRender
   fullName: SadConsole.Configuration.CallbackConfig.event_FrameRender
-- uid: SadConsole.Configuration.CallbackConfig.MonoGameCtorCallback*
-  commentId: Overload:SadConsole.Configuration.CallbackConfig.MonoGameCtorCallback
-  isExternal: true
-  href: SadConsole.Configuration.CallbackConfig.html#SadConsole_Configuration_CallbackConfig_MonoGameCtorCallback
-  name: MonoGameCtorCallback
-  nameWithType: CallbackConfig.MonoGameCtorCallback
-  fullName: SadConsole.Configuration.CallbackConfig.MonoGameCtorCallback
-- uid: System.Action{SadConsole.Host.Game}
-  commentId: T:System.Action{SadConsole.Host.Game}
-  parent: System
-  definition: System.Action`1
-  href: https://learn.microsoft.com/dotnet/api/system.action-1
-  name: Action<Game>
-  nameWithType: Action<Game>
-  fullName: System.Action<SadConsole.Host.Game>
-  nameWithType.vb: Action(Of Game)
-  fullName.vb: System.Action(Of SadConsole.Host.Game)
-  name.vb: Action(Of Game)
-  spec.csharp:
-  - uid: System.Action`1
-    name: Action
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.action-1
-  - name: <
-  - uid: SadConsole.Host.Game
-    name: Game
-    isExternal: true
-    href: SadConsole.Host.Game.html
-  - name: '>'
-  spec.vb:
-  - uid: System.Action`1
-    name: Action
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.action-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: SadConsole.Host.Game
-    name: Game
-    isExternal: true
-    href: SadConsole.Host.Game.html
-  - name: )
-- uid: System.Action`1
-  commentId: T:System.Action`1
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.action-1
-  name: Action<T>
-  nameWithType: Action<T>
-  fullName: System.Action<T>
-  nameWithType.vb: Action(Of T)
-  fullName.vb: System.Action(Of T)
-  name.vb: Action(Of T)
-  spec.csharp:
-  - uid: System.Action`1
-    name: Action
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.action-1
-  - name: <
-  - name: T
-  - name: '>'
-  spec.vb:
-  - uid: System.Action`1
-    name: Action
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.action-1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-- uid: SadConsole.Configuration.CallbackConfig.MonoGameInitCallback*
-  commentId: Overload:SadConsole.Configuration.CallbackConfig.MonoGameInitCallback
-  isExternal: true
-  href: SadConsole.Configuration.CallbackConfig.html#SadConsole_Configuration_CallbackConfig_MonoGameInitCallback
-  name: MonoGameInitCallback
-  nameWithType: CallbackConfig.MonoGameInitCallback
-  fullName: SadConsole.Configuration.CallbackConfig.MonoGameInitCallback

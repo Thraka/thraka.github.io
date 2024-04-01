@@ -26,6 +26,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: A list of behaviors applied as a string is processed.
+  example: []
   syntax:
     content: public class ParseCommandStacks
     content.vb: Public Class ParseCommandStacks
@@ -53,6 +55,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: Creates new stacks of commands.
+  example: []
   syntax:
     content: public ParseCommandStacks()
     content.vb: Public Sub New()
@@ -74,11 +78,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: >-
+    Adds a behavior to the <xref href="SadConsole.StringParser.ParseCommandStacks.All" data-throw-if-not-resolved="false"></xref> collection and the collection 
+
+    based on the <xref href="SadConsole.StringParser.ParseCommandBase.CommandType" data-throw-if-not-resolved="false"></xref> type.
+  example: []
   syntax:
     content: public void AddSafe(ParseCommandBase command)
     parameters:
     - id: command
       type: SadConsole.StringParser.ParseCommandBase
+      description: ''
     content.vb: Public Sub AddSafe(command As ParseCommandBase)
   overload: SadConsole.StringParser.ParseCommandStacks.AddSafe*
 - uid: SadConsole.StringParser.ParseCommandStacks.RemoveSafe(SadConsole.StringParser.ParseCommandBase)
@@ -95,11 +105,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: Removes a command from the appropriate command stack and from the <xref href="SadConsole.StringParser.ParseCommandStacks.All" data-throw-if-not-resolved="false"></xref> stack.
+  example: []
   syntax:
     content: public void RemoveSafe(ParseCommandBase command)
     parameters:
     - id: command
       type: SadConsole.StringParser.ParseCommandBase
+      description: The command to remove
     content.vb: Public Sub RemoveSafe(command As ParseCommandBase)
   overload: SadConsole.StringParser.ParseCommandStacks.RemoveSafe*
 - uid: SadConsole.StringParser.ParseCommandStacks.Foreground
@@ -116,6 +129,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: The commands that affect the foreground.
+  example: []
   syntax:
     content: public Stack<ParseCommandBase> Foreground { get; set; }
     parameters: []
@@ -137,6 +152,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: The commands that affect the background.
+  example: []
   syntax:
     content: public Stack<ParseCommandBase> Background { get; set; }
     parameters: []
@@ -158,6 +175,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: The commands that affect the glyph.
+  example: []
   syntax:
     content: public Stack<ParseCommandBase> Glyph { get; set; }
     parameters: []
@@ -179,6 +198,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: The commands that affect the mirror setting.
+  example: []
   syntax:
     content: public Stack<ParseCommandBase> Mirror { get; set; }
     parameters: []
@@ -200,6 +221,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: The commands that affect the glyph effect.
+  example: []
   syntax:
     content: public Stack<ParseCommandBase> Effect { get; set; }
     parameters: []
@@ -221,6 +244,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: The commands that affect the glyph decorators.
+  example: []
   syntax:
     content: public Stack<ParseCommandBase> Decorator { get; set; }
     parameters: []
@@ -242,6 +267,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: All commands.
+  example: []
   syntax:
     content: public Stack<ParseCommandBase> All { get; set; }
     parameters: []
@@ -263,6 +290,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: Returns the active array that is calculated from the <xref href="SadConsole.StringParser.ParseCommandStacks.Decorator" data-throw-if-not-resolved="false"></xref> stack.
+  example: []
   syntax:
     content: public CellDecorator[] CalculatedDecorators { get; set; }
     parameters: []
@@ -545,6 +574,21 @@ references:
   nameWithType.vb: ParseCommandStacks.New
   fullName.vb: SadConsole.StringParser.ParseCommandStacks.New
   name.vb: New
+- uid: SadConsole.StringParser.ParseCommandStacks.All
+  commentId: P:SadConsole.StringParser.ParseCommandStacks.All
+  isExternal: true
+  href: SadConsole.StringParser.ParseCommandStacks.html#SadConsole_StringParser_ParseCommandStacks_All
+  name: All
+  nameWithType: ParseCommandStacks.All
+  fullName: SadConsole.StringParser.ParseCommandStacks.All
+- uid: SadConsole.StringParser.ParseCommandBase.CommandType
+  commentId: F:SadConsole.StringParser.ParseCommandBase.CommandType
+  parent: SadConsole.StringParser.ParseCommandBase
+  isExternal: true
+  href: SadConsole.StringParser.ParseCommandBase.html#SadConsole_StringParser_ParseCommandBase_CommandType
+  name: CommandType
+  nameWithType: ParseCommandBase.CommandType
+  fullName: SadConsole.StringParser.ParseCommandBase.CommandType
 - uid: SadConsole.StringParser.ParseCommandStacks.AddSafe*
   commentId: Overload:SadConsole.StringParser.ParseCommandStacks.AddSafe
   isExternal: true
@@ -716,6 +760,13 @@ references:
   name: All
   nameWithType: ParseCommandStacks.All
   fullName: SadConsole.StringParser.ParseCommandStacks.All
+- uid: SadConsole.StringParser.ParseCommandStacks.Decorator
+  commentId: P:SadConsole.StringParser.ParseCommandStacks.Decorator
+  isExternal: true
+  href: SadConsole.StringParser.ParseCommandStacks.html#SadConsole_StringParser_ParseCommandStacks_Decorator
+  name: Decorator
+  nameWithType: ParseCommandStacks.Decorator
+  fullName: SadConsole.StringParser.ParseCommandStacks.Decorator
 - uid: SadConsole.StringParser.ParseCommandStacks.CalculatedDecorators*
   commentId: Overload:SadConsole.StringParser.ParseCommandStacks.CalculatedDecorators
   isExternal: true

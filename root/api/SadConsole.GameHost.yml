@@ -74,6 +74,21 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Represents the SadConsole game engine.
+  remarks: >-
+    When a new host is created, the host should do the following:
+
+
+    - Run `LoadDefaultFonts`.
+
+    - Run `SetRenderer` for `window`, `controls`, `layered`, and `default` renderers.
+
+    - Run `LoadMappedColors`.
+
+    - Configure the `Screen` to a new console with `ScreenCellsX` and `ScreenCellsY`.
+
+    - Prior to running the game, run `SplashScreens.SplashScreenManager.CheckRun()`.
+  example: []
   syntax:
     content: 'public abstract class GameHost : IDisposable'
     content.vb: Public MustInherit Class GameHost Implements IDisposable
@@ -105,6 +120,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Holds all of the <xref href="SadConsole.Renderers.IRenderer" data-throw-if-not-resolved="false"></xref> types.
+  example: []
   syntax:
     content: protected Dictionary<string, Type> _renderers
     return:
@@ -124,6 +141,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Holds all of the <xref href="SadConsole.Renderers.IRenderStep" data-throw-if-not-resolved="false"></xref> types.
+  example: []
   syntax:
     content: protected Dictionary<string, Type> _rendererSteps
     return:
@@ -143,6 +162,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The date and time the game was started.
+  example: []
   syntax:
     content: protected DateTime _gameStartedAt
     return:
@@ -162,6 +183,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Raises the <xref href="SadConsole.GameHost.Started" data-throw-if-not-resolved="false"></xref> event.
+  example: []
   syntax:
     content: protected virtual void OnGameStarted()
     content.vb: Protected Overridable Sub OnGameStarted()
@@ -180,6 +203,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Raises the <xref href="SadConsole.GameHost.Ending" data-throw-if-not-resolved="false"></xref> event.
+  example: []
   syntax:
     content: protected virtual void OnGameEnding()
     content.vb: Protected Overridable Sub OnGameEnding()
@@ -198,6 +223,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Raises the <xref href="SadConsole.GameHost.FrameRender" data-throw-if-not-resolved="false"></xref> event.
+  example: []
   syntax:
     content: protected virtual void OnFrameRender()
     content.vb: Protected Overridable Sub OnFrameRender()
@@ -216,6 +243,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Raises the <xref href="SadConsole.GameHost.FrameUpdate" data-throw-if-not-resolved="false"></xref> event.
+  example: []
   syntax:
     content: protected virtual void OnFrameUpdate()
     content.vb: Protected Overridable Sub OnFrameUpdate()
@@ -234,6 +263,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Runs the game.
+  example: []
   syntax:
     content: public abstract void Run()
     content.vb: Public MustOverride Sub Run()
@@ -252,13 +283,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Gets a texture from the implemented host.
+  example: []
   syntax:
     content: public abstract ITexture GetTexture(string resourcePath)
     parameters:
     - id: resourcePath
       type: System.String
+      description: The path to the texture to load.
     return:
       type: SadConsole.ITexture
+      description: The texture from the game host.
     content.vb: Public MustOverride Function GetTexture(resourcePath As String) As ITexture
   overload: SadConsole.GameHost.GetTexture*
   nameWithType.vb: GameHost.GetTexture(String)
@@ -278,13 +313,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Gets a texture from the implemented host.
+  example: []
   syntax:
     content: public abstract ITexture GetTexture(Stream textureStream)
     parameters:
     - id: textureStream
       type: System.IO.Stream
+      description: A stream containing the texture.
     return:
       type: SadConsole.ITexture
+      description: The texture from the game host.
     content.vb: Public MustOverride Function GetTexture(textureStream As Stream) As ITexture
   overload: SadConsole.GameHost.GetTexture*
 - uid: SadConsole.GameHost.CreateTexture(System.Int32,System.Int32)
@@ -301,15 +340,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Creates a texture.
+  example: []
   syntax:
     content: public abstract ITexture CreateTexture(int width, int height)
     parameters:
     - id: width
       type: System.Int32
+      description: The width of the texture in pixels.
     - id: height
       type: System.Int32
+      description: The height of the texture in pixels.
     return:
       type: SadConsole.ITexture
+      description: The texture from the game host.
     content.vb: Public MustOverride Function CreateTexture(width As Integer, height As Integer) As ITexture
   overload: SadConsole.GameHost.CreateTexture*
   nameWithType.vb: GameHost.CreateTexture(Integer, Integer)
@@ -329,13 +373,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Creates and returns an <xref href="SadConsole.Renderers.IRenderer" data-throw-if-not-resolved="false"></xref> by name.
+  example: []
   syntax:
     content: public virtual IRenderer? GetRenderer(string name)
     parameters:
     - id: name
       type: System.String
+      description: The name of the renderer.
     return:
       type: SadConsole.Renderers.IRenderer
+      description: A new renderer.
     content.vb: Public Overridable Function GetRenderer(name As String) As IRenderer
   overload: SadConsole.GameHost.GetRenderer*
   nameWithType.vb: GameHost.GetRenderer(String)
@@ -355,13 +403,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Sets the default <xref href="SadConsole.Renderers.IRenderer" data-throw-if-not-resolved="false"></xref> for a type.
+  example: []
   syntax:
     content: public void SetRenderer(string name, Type rendererType)
     parameters:
     - id: name
       type: System.String
+      description: The name to register the renderer as.
     - id: rendererType
       type: System.Type
+      description: The renderer type.
     content.vb: Public Sub SetRenderer(name As String, rendererType As Type)
   overload: SadConsole.GameHost.SetRenderer*
   nameWithType.vb: GameHost.SetRenderer(String, Type)
@@ -381,13 +433,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Sets the default <xref href="SadConsole.Renderers.IRenderStep" data-throw-if-not-resolved="false"></xref> for a type.
+  example: []
   syntax:
     content: public void SetRendererStep(string name, Type rendererStepType)
     parameters:
     - id: name
       type: System.String
+      description: The name to register the render step as.
     - id: rendererStepType
       type: System.Type
+      description: The render step type.
     content.vb: Public Sub SetRendererStep(name As String, rendererStepType As Type)
   overload: SadConsole.GameHost.SetRendererStep*
   nameWithType.vb: GameHost.SetRendererStep(String, Type)
@@ -407,13 +463,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Creates and returns a <xref href="SadConsole.Renderers.IRenderStep" data-throw-if-not-resolved="false"></xref> by name.
+  example: []
   syntax:
     content: public virtual IRenderStep GetRendererStep(string name)
     parameters:
     - id: name
       type: System.String
+      description: The name of the renderer.
     return:
       type: SadConsole.Renderers.IRenderStep
+      description: A new renderer.
     content.vb: Public Overridable Function GetRendererStep(name As String) As IRenderStep
   overload: SadConsole.GameHost.GetRendererStep*
   nameWithType.vb: GameHost.GetRendererStep(String)
@@ -433,10 +493,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Gets the state of the keyboard from the implemented host.
+  example: []
   syntax:
     content: public abstract IKeyboardState GetKeyboardState()
     return:
       type: SadConsole.Input.IKeyboardState
+      description: The state of the keyboard.
     content.vb: Public MustOverride Function GetKeyboardState() As IKeyboardState
   overload: SadConsole.GameHost.GetKeyboardState*
 - uid: SadConsole.GameHost.GetMouseState
@@ -453,10 +516,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Gets the state of the mouse from the implemented host.
+  example: []
   syntax:
     content: public abstract IMouseState GetMouseState()
     return:
       type: SadConsole.Input.IMouseState
+      description: The state of the mouse.
     content.vb: Public MustOverride Function GetMouseState() As IMouseState
   overload: SadConsole.GameHost.GetMouseState*
 - uid: SadConsole.GameHost.SetSplashScreens(SadConsole.IScreenSurface[])
@@ -473,11 +539,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The splash screens the game should sequentially show on startup.
+  example: []
   syntax:
     content: public void SetSplashScreens(params IScreenSurface[] surfaces)
     parameters:
     - id: surfaces
       type: SadConsole.IScreenSurface[]
+      description: The splash screens to show.
     content.vb: Public Sub SetSplashScreens(ParamArray surfaces As IScreenSurface())
   overload: SadConsole.GameHost.SetSplashScreens*
   nameWithType.vb: GameHost.SetSplashScreens(ParamArray IScreenSurface())
@@ -497,13 +566,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Loads a font from a file and adds it to the <xref href="SadConsole.GameHost.Fonts" data-throw-if-not-resolved="false"></xref> collection.
+  example: []
   syntax:
     content: public IFont LoadFont(string font)
     parameters:
     - id: font
       type: System.String
+      description: The font file to load.
     return:
       type: SadConsole.IFont
+      description: A master font that you can generate a usable font from.
     content.vb: Public Function LoadFont(font As String) As IFont
   overload: SadConsole.GameHost.LoadFont*
   nameWithType.vb: GameHost.LoadFont(String)
@@ -523,6 +596,9 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Destroys the <xref href="SadConsole.GameHost.StartingConsole" data-throw-if-not-resolved="false"></xref> instance.
+  remarks: Prior to calling this method, you must set <xref href="SadConsole.GameHost.Screen" data-throw-if-not-resolved="false"></xref> to an object other than <xref href="SadConsole.GameHost.StartingConsole" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public void DestroyDefaultStartingConsole()
     content.vb: Public Sub DestroyDefaultStartingConsole()
@@ -541,17 +617,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Opens a file stream with the specified mode and access.
+  example: []
   syntax:
     content: public virtual Stream OpenStream(string file, FileMode mode = FileMode.Open, FileAccess access = FileAccess.Read)
     parameters:
     - id: file
       type: System.String
+      description: The file to open.
     - id: mode
       type: System.IO.FileMode
+      description: The mode for opening. Defaults to <xref href="System.IO.FileMode.Open" data-throw-if-not-resolved="false"></xref>.
     - id: access
       type: System.IO.FileAccess
+      description: The type of access for the stream. Defaults to <xref href="System.IO.FileAccess.Read" data-throw-if-not-resolved="false"></xref>.
     return:
       type: System.IO.Stream
+      description: The stream object.
     content.vb: Public Overridable Function OpenStream(file As String, mode As FileMode = FileMode.Open, access As FileAccess = FileAccess.Read) As Stream
   overload: SadConsole.GameHost.OpenStream*
   nameWithType.vb: GameHost.OpenStream(String, FileMode, FileAccess)
@@ -571,13 +653,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Checks if a file exists.
+  example: []
   syntax:
     content: public virtual bool FileExists(string file)
     parameters:
     - id: file
       type: System.String
+      description: The file to check.
     return:
       type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the file exists; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Public Overridable Function FileExists(file As String) As Boolean
   overload: SadConsole.GameHost.FileExists*
   nameWithType.vb: GameHost.FileExists(String)
@@ -597,13 +683,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Deletes a file.
+  example: []
   syntax:
     content: public virtual bool FileDelete(string file)
     parameters:
     - id: file
       type: System.String
+      description: The file to delete.
     return:
       type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the file was deleted; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Public Overridable Function FileDelete(file As String) As Boolean
   overload: SadConsole.GameHost.FileDelete*
   nameWithType.vb: GameHost.FileDelete(String)
@@ -623,11 +713,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Loads the embedded <code>IBM.font</code> files. Sets the <xref href="SadConsole.GameHost.DefaultFont" data-throw-if-not-resolved="false"></xref> property.
+  remarks: If <code class="paramref">defaultFont</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, the <xref href="SadConsole.GameHost.EmbeddedFont" data-throw-if-not-resolved="false"></xref> or <xref href="SadConsole.GameHost.EmbeddedFontExtended" data-throw-if-not-resolved="false"></xref> font is set based on the value of <xref href="SadConsole.Settings.UseDefaultExtendedFont" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: protected void LoadDefaultFonts(string? defaultFont)
     parameters:
     - id: defaultFont
       type: System.String
+      description: An optional font to load and set as the default.
     content.vb: Protected Sub LoadDefaultFonts(defaultFont As String)
   overload: SadConsole.GameHost.LoadDefaultFonts*
   nameWithType.vb: GameHost.LoadDefaultFonts(String)
@@ -647,6 +741,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Uses reflection to examine the <xref href="SadRogue.Primitives.Color" data-throw-if-not-resolved="false"></xref> type and add any predefined colors into <xref href="SadRogue.Primitives.ColorExtensions2.ColorMappings" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: protected static void LoadMappedColors()
     content.vb: Protected Shared Sub LoadMappedColors()
@@ -665,15 +761,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Resizes the window to the specified dimensions.
+  example: []
   syntax:
     content: public abstract void ResizeWindow(int width, int height, bool resizeOutputSurface = false)
     parameters:
     - id: width
       type: System.Int32
+      description: The width of the window in pixels.
     - id: height
       type: System.Int32
+      description: The height of the window in pixels.
     - id: resizeOutputSurface
       type: System.Boolean
+      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> resizes the screen output surface along with the window. Defaults to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>
     content.vb: Public MustOverride Sub ResizeWindow(width As Integer, height As Integer, resizeOutputSurface As Boolean = False)
   overload: SadConsole.GameHost.ResizeWindow*
   nameWithType.vb: GameHost.ResizeWindow(Integer, Integer, Boolean)
@@ -693,17 +794,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Resizes the window to the specified cell count along the X-axis and Y-axis.
+  example: []
   syntax:
     content: public void ResizeWindow(int cellsX, int cellsY, Point cellSize, bool resizeOutputSurface = false)
     parameters:
     - id: cellsX
       type: System.Int32
+      description: The number of cells to fit horizontally.
     - id: cellsY
       type: System.Int32
+      description: The number of cells to fit vertically.
     - id: cellSize
       type: SadRogue.Primitives.Point
+      description: The size of the cells in pixels.
     - id: resizeOutputSurface
       type: System.Boolean
+      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> resizes the screen output surface along with the window. Defaults to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>
     content.vb: Public Sub ResizeWindow(cellsX As Integer, cellsY As Integer, cellSize As Point, resizeOutputSurface As Boolean = False)
   overload: SadConsole.GameHost.ResizeWindow*
   nameWithType.vb: GameHost.ResizeWindow(Integer, Integer, Point, Boolean)
@@ -723,6 +830,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Saves the global state, mainly the <xref href="SadConsole.GameHost.FocusedScreenObjects" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.GameHost.Screen" data-throw-if-not-resolved="false"></xref> objects.
+  example: []
   syntax:
     content: public void SaveGlobalState()
     content.vb: Public Sub SaveGlobalState()
@@ -741,6 +850,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Restores the global state that was saved with <xref href="SadConsole.GameHost.SaveGlobalState" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public void RestoreGlobalState()
     content.vb: Public Sub RestoreGlobalState()
@@ -759,6 +870,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  example: []
   syntax:
     content: protected virtual void Dispose(bool disposing)
     parameters:
@@ -783,6 +895,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Disposes this object.
+  example: []
   syntax:
     content: protected ~GameHost()
     content.vb: 'Protected '
@@ -804,6 +918,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Disposes this object.
   example: []
   syntax:
     content: public void Dispose()
@@ -846,6 +961,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The splash screens to show on game startup.
+  example: []
   syntax:
     content: protected Queue<IScreenSurface>? _splashScreens { get; set; }
     parameters: []
@@ -867,6 +984,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Instance of the game host.
+  example: []
   syntax:
     content: public static GameHost Instance { get; protected set; }
     parameters: []
@@ -888,6 +1007,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Contains the path to a file being serialized or deserialized.
+  example: []
   syntax:
     content: public static string SerializerPathHint { get; }
     parameters: []
@@ -909,6 +1030,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Draw calls registered for the next drawing frame.
+  example: []
   syntax:
     content: public Queue<IDrawCall> DrawCalls { get; }
     parameters: []
@@ -930,6 +1053,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: How many cells fit in the render area width used by SadConsole.
+  example: []
   syntax:
     content: public int ScreenCellsX { get; protected set; }
     parameters: []
@@ -951,6 +1076,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: How many cells fit in the render area width used by SadConsole.
+  example: []
   syntax:
     content: public int ScreenCellsY { get; protected set; }
     parameters: []
@@ -972,6 +1099,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: A frame number counter, incremented every game frame.
+  example: []
   syntax:
     content: public int FrameNumber { get; set; }
     parameters: []
@@ -993,6 +1122,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Collection of fonts. Used mainly by the deserialization system.
+  example: []
   syntax:
     content: public Dictionary<string, IFont> Fonts { get; }
     parameters: []
@@ -1014,6 +1145,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The font automatically loaded by SadConsole. Standard IBM style font.
+  example: []
   syntax:
     content: public SadFont EmbeddedFont { get; }
     parameters: []
@@ -1035,6 +1168,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The font automatically loaded by SadConsole. Standard IBM style font. Extended with extra SadConsole characters.
+  example: []
   syntax:
     content: public SadFont EmbeddedFontExtended { get; }
     parameters: []
@@ -1056,6 +1191,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The default font for any type that does not provide a font.
+  example: []
   syntax:
     content: public IFont DefaultFont { get; set; }
     parameters: []
@@ -1077,6 +1214,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The default font size to use with the <xref href="SadConsole.GameHost.DefaultFont" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public IFont.Sizes DefaultFontSize { get; set; }
     parameters: []
@@ -1098,6 +1237,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Global keyboard object used by SadConsole during the update frame.
+  example: []
   syntax:
     content: public Keyboard Keyboard { get; }
     parameters: []
@@ -1119,6 +1260,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Global mouse object used by SadConsole during the update frame.
+  example: []
   syntax:
     content: public Mouse Mouse { get; }
     parameters: []
@@ -1140,6 +1283,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The elapsed time between now and the last update call.
+  example: []
   syntax:
     content: public TimeSpan UpdateFrameDelta { get; set; }
     parameters: []
@@ -1161,6 +1306,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The elapsed time between now and the last draw call.
+  example: []
   syntax:
     content: public TimeSpan DrawFrameDelta { get; set; }
     parameters: []
@@ -1182,6 +1329,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The total time the game has been running.
+  example: []
   syntax:
     content: public TimeSpan GameRunningTotalTime { get; }
     parameters: []
@@ -1203,6 +1352,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The console created by the game and automatically assigned to <xref href="SadConsole.GameHost.Screen" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public Console? StartingConsole { get; protected set; }
     parameters: []
@@ -1224,6 +1375,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The active screen processed by the game.
+  example: []
   syntax:
     content: public IScreenObject? Screen { get; set; }
     parameters: []
@@ -1245,6 +1398,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Update components that run before the <xref href="SadConsole.GameHost.Screen" data-throw-if-not-resolved="false"></xref> is processed.
+  example: []
   syntax:
     content: public List<RootComponent> RootComponents { get; set; }
     parameters: []
@@ -1266,6 +1421,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The stack of focused consoles used by the mouse and keyboard.
+  example: []
   syntax:
     content: public FocusedScreenObjectStack FocusedScreenObjects { get; set; }
     parameters: []
@@ -1287,6 +1444,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: A global random number generator.
+  example: []
   syntax:
     content: public Random Random { get; set; }
     parameters: []
@@ -1308,6 +1467,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Raised when the game draws a frame to the screen.
+  example: []
   syntax:
     content: public event EventHandler<GameHost>? FrameRender
     return:
@@ -1327,6 +1488,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Raised when the game updates prior to drawing a frame.
+  example: []
   syntax:
     content: public event EventHandler<GameHost>? FrameUpdate
     return:
@@ -1346,6 +1509,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: A callback to run before the <xref href="SadConsole.GameHost.Run" data-throw-if-not-resolved="false"></xref> method is called;
+  example: []
   syntax:
     content: public event EventHandler<GameHost>? Started
     return:
@@ -1365,6 +1530,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: A callback to run after the <xref href="SadConsole.GameHost.Run" data-throw-if-not-resolved="false"></xref> method is called;
+  example: []
   syntax:
     content: public event EventHandler<GameHost>? Ending
     return:
@@ -1623,6 +1790,14 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: SadConsole.Renderers.IRenderer
+  commentId: T:SadConsole.Renderers.IRenderer
+  parent: SadConsole.Renderers
+  isExternal: true
+  href: SadConsole.Renderers.IRenderer.html
+  name: IRenderer
+  nameWithType: IRenderer
+  fullName: SadConsole.Renderers.IRenderer
 - uid: System.Collections.Generic.Dictionary{System.String,System.Type}
   commentId: T:System.Collections.Generic.Dictionary{System.String,System.Type}
   parent: System.Collections.Generic
@@ -1670,6 +1845,33 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.type
   - name: )
+- uid: SadConsole.Renderers
+  commentId: N:SadConsole.Renderers
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Renderers
+  nameWithType: SadConsole.Renderers
+  fullName: SadConsole.Renderers
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Renderers
+    name: Renderers
+    isExternal: true
+    href: SadConsole.Renderers.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Renderers
+    name: Renderers
+    isExternal: true
+    href: SadConsole.Renderers.html
 - uid: System.Collections.Generic.Dictionary`2
   commentId: T:System.Collections.Generic.Dictionary`2
   isExternal: true
@@ -1741,6 +1943,14 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: SadConsole.Renderers.IRenderStep
+  commentId: T:SadConsole.Renderers.IRenderStep
+  parent: SadConsole.Renderers
+  isExternal: true
+  href: SadConsole.Renderers.IRenderStep.html
+  name: IRenderStep
+  nameWithType: IRenderStep
+  fullName: SadConsole.Renderers.IRenderStep
 - uid: System.DateTime
   commentId: T:System.DateTime
   parent: System
@@ -1752,6 +1962,14 @@ references:
   nameWithType.vb: Date
   fullName.vb: Date
   name.vb: Date
+- uid: SadConsole.GameHost.Started
+  commentId: E:SadConsole.GameHost.Started
+  parent: SadConsole.GameHost
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_Started
+  name: Started
+  nameWithType: GameHost.Started
+  fullName: SadConsole.GameHost.Started
 - uid: SadConsole.GameHost.OnGameStarted*
   commentId: Overload:SadConsole.GameHost.OnGameStarted
   isExternal: true
@@ -1759,6 +1977,22 @@ references:
   name: OnGameStarted
   nameWithType: GameHost.OnGameStarted
   fullName: SadConsole.GameHost.OnGameStarted
+- uid: SadConsole.GameHost
+  commentId: T:SadConsole.GameHost
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.GameHost.html
+  name: GameHost
+  nameWithType: GameHost
+  fullName: SadConsole.GameHost
+- uid: SadConsole.GameHost.Ending
+  commentId: E:SadConsole.GameHost.Ending
+  parent: SadConsole.GameHost
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_Ending
+  name: Ending
+  nameWithType: GameHost.Ending
+  fullName: SadConsole.GameHost.Ending
 - uid: SadConsole.GameHost.OnGameEnding*
   commentId: Overload:SadConsole.GameHost.OnGameEnding
   isExternal: true
@@ -1766,6 +2000,14 @@ references:
   name: OnGameEnding
   nameWithType: GameHost.OnGameEnding
   fullName: SadConsole.GameHost.OnGameEnding
+- uid: SadConsole.GameHost.FrameRender
+  commentId: E:SadConsole.GameHost.FrameRender
+  parent: SadConsole.GameHost
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_FrameRender
+  name: FrameRender
+  nameWithType: GameHost.FrameRender
+  fullName: SadConsole.GameHost.FrameRender
 - uid: SadConsole.GameHost.OnFrameRender*
   commentId: Overload:SadConsole.GameHost.OnFrameRender
   isExternal: true
@@ -1773,6 +2015,14 @@ references:
   name: OnFrameRender
   nameWithType: GameHost.OnFrameRender
   fullName: SadConsole.GameHost.OnFrameRender
+- uid: SadConsole.GameHost.FrameUpdate
+  commentId: E:SadConsole.GameHost.FrameUpdate
+  parent: SadConsole.GameHost
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_FrameUpdate
+  name: FrameUpdate
+  nameWithType: GameHost.FrameUpdate
+  fullName: SadConsole.GameHost.FrameUpdate
 - uid: SadConsole.GameHost.OnFrameUpdate*
   commentId: Overload:SadConsole.GameHost.OnFrameUpdate
   isExternal: true
@@ -1873,41 +2123,6 @@ references:
   name: GetRenderer
   nameWithType: GameHost.GetRenderer
   fullName: SadConsole.GameHost.GetRenderer
-- uid: SadConsole.Renderers.IRenderer
-  commentId: T:SadConsole.Renderers.IRenderer
-  parent: SadConsole.Renderers
-  isExternal: true
-  href: SadConsole.Renderers.IRenderer.html
-  name: IRenderer
-  nameWithType: IRenderer
-  fullName: SadConsole.Renderers.IRenderer
-- uid: SadConsole.Renderers
-  commentId: N:SadConsole.Renderers
-  isExternal: true
-  href: SadConsole.html
-  name: SadConsole.Renderers
-  nameWithType: SadConsole.Renderers
-  fullName: SadConsole.Renderers
-  spec.csharp:
-  - uid: SadConsole
-    name: SadConsole
-    isExternal: true
-    href: SadConsole.html
-  - name: .
-  - uid: SadConsole.Renderers
-    name: Renderers
-    isExternal: true
-    href: SadConsole.Renderers.html
-  spec.vb:
-  - uid: SadConsole
-    name: SadConsole
-    isExternal: true
-    href: SadConsole.html
-  - name: .
-  - uid: SadConsole.Renderers
-    name: Renderers
-    isExternal: true
-    href: SadConsole.Renderers.html
 - uid: SadConsole.GameHost.SetRenderer*
   commentId: Overload:SadConsole.GameHost.SetRenderer
   isExternal: true
@@ -1937,14 +2152,6 @@ references:
   name: GetRendererStep
   nameWithType: GameHost.GetRendererStep
   fullName: SadConsole.GameHost.GetRendererStep
-- uid: SadConsole.Renderers.IRenderStep
-  commentId: T:SadConsole.Renderers.IRenderStep
-  parent: SadConsole.Renderers
-  isExternal: true
-  href: SadConsole.Renderers.IRenderStep.html
-  name: IRenderStep
-  nameWithType: IRenderStep
-  fullName: SadConsole.Renderers.IRenderStep
 - uid: SadConsole.GameHost.GetKeyboardState*
   commentId: Overload:SadConsole.GameHost.GetKeyboardState
   isExternal: true
@@ -2032,6 +2239,14 @@ references:
     href: SadConsole.IScreenSurface.html
   - name: (
   - name: )
+- uid: SadConsole.GameHost.Fonts
+  commentId: P:SadConsole.GameHost.Fonts
+  parent: SadConsole.GameHost
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_Fonts
+  name: Fonts
+  nameWithType: GameHost.Fonts
+  fullName: SadConsole.GameHost.Fonts
 - uid: SadConsole.GameHost.LoadFont*
   commentId: Overload:SadConsole.GameHost.LoadFont
   isExternal: true
@@ -2047,6 +2262,22 @@ references:
   name: IFont
   nameWithType: IFont
   fullName: SadConsole.IFont
+- uid: SadConsole.GameHost.StartingConsole
+  commentId: P:SadConsole.GameHost.StartingConsole
+  parent: SadConsole.GameHost
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_StartingConsole
+  name: StartingConsole
+  nameWithType: GameHost.StartingConsole
+  fullName: SadConsole.GameHost.StartingConsole
+- uid: SadConsole.GameHost.Screen
+  commentId: P:SadConsole.GameHost.Screen
+  parent: SadConsole.GameHost
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_Screen
+  name: Screen
+  nameWithType: GameHost.Screen
+  fullName: SadConsole.GameHost.Screen
 - uid: SadConsole.GameHost.DestroyDefaultStartingConsole*
   commentId: Overload:SadConsole.GameHost.DestroyDefaultStartingConsole
   isExternal: true
@@ -2054,6 +2285,20 @@ references:
   name: DestroyDefaultStartingConsole
   nameWithType: GameHost.DestroyDefaultStartingConsole
   fullName: SadConsole.GameHost.DestroyDefaultStartingConsole
+- uid: System.IO.FileMode.Open
+  commentId: F:System.IO.FileMode.Open
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.filemode#system-io-filemode-open
+  name: Open
+  nameWithType: FileMode.Open
+  fullName: System.IO.FileMode.Open
+- uid: System.IO.FileAccess.Read
+  commentId: F:System.IO.FileAccess.Read
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.fileaccess#system-io-fileaccess-read
+  name: Read
+  nameWithType: FileAccess.Read
+  fullName: System.IO.FileAccess.Read
 - uid: SadConsole.GameHost.OpenStream*
   commentId: Overload:SadConsole.GameHost.OpenStream
   isExternal: true
@@ -2102,6 +2347,37 @@ references:
   name: FileDelete
   nameWithType: GameHost.FileDelete
   fullName: SadConsole.GameHost.FileDelete
+- uid: SadConsole.GameHost.DefaultFont
+  commentId: P:SadConsole.GameHost.DefaultFont
+  parent: SadConsole.GameHost
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_DefaultFont
+  name: DefaultFont
+  nameWithType: GameHost.DefaultFont
+  fullName: SadConsole.GameHost.DefaultFont
+- uid: SadConsole.GameHost.EmbeddedFont
+  commentId: P:SadConsole.GameHost.EmbeddedFont
+  parent: SadConsole.GameHost
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_EmbeddedFont
+  name: EmbeddedFont
+  nameWithType: GameHost.EmbeddedFont
+  fullName: SadConsole.GameHost.EmbeddedFont
+- uid: SadConsole.GameHost.EmbeddedFontExtended
+  commentId: P:SadConsole.GameHost.EmbeddedFontExtended
+  parent: SadConsole.GameHost
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_EmbeddedFontExtended
+  name: EmbeddedFontExtended
+  nameWithType: GameHost.EmbeddedFontExtended
+  fullName: SadConsole.GameHost.EmbeddedFontExtended
+- uid: SadConsole.Settings.UseDefaultExtendedFont
+  commentId: P:SadConsole.Settings.UseDefaultExtendedFont
+  isExternal: true
+  href: SadConsole.Settings.html#SadConsole_Settings_UseDefaultExtendedFont
+  name: UseDefaultExtendedFont
+  nameWithType: Settings.UseDefaultExtendedFont
+  fullName: SadConsole.Settings.UseDefaultExtendedFont
 - uid: SadConsole.GameHost.LoadDefaultFonts*
   commentId: Overload:SadConsole.GameHost.LoadDefaultFonts
   isExternal: true
@@ -2109,6 +2385,20 @@ references:
   name: LoadDefaultFonts
   nameWithType: GameHost.LoadDefaultFonts
   fullName: SadConsole.GameHost.LoadDefaultFonts
+- uid: SadRogue.Primitives.Color
+  commentId: T:SadRogue.Primitives.Color
+  parent: SadRogue.Primitives
+  isExternal: true
+  name: Color
+  nameWithType: Color
+  fullName: SadRogue.Primitives.Color
+- uid: SadRogue.Primitives.ColorExtensions2.ColorMappings
+  commentId: F:SadRogue.Primitives.ColorExtensions2.ColorMappings
+  isExternal: true
+  href: SadRogue.Primitives.ColorExtensions2.html#SadRogue_Primitives_ColorExtensions2_ColorMappings
+  name: ColorMappings
+  nameWithType: ColorExtensions2.ColorMappings
+  fullName: SadRogue.Primitives.ColorExtensions2.ColorMappings
 - uid: SadConsole.GameHost.LoadMappedColors*
   commentId: Overload:SadConsole.GameHost.LoadMappedColors
   isExternal: true
@@ -2116,20 +2406,6 @@ references:
   name: LoadMappedColors
   nameWithType: GameHost.LoadMappedColors
   fullName: SadConsole.GameHost.LoadMappedColors
-- uid: SadConsole.GameHost.ResizeWindow*
-  commentId: Overload:SadConsole.GameHost.ResizeWindow
-  isExternal: true
-  href: SadConsole.GameHost.html#SadConsole_GameHost_ResizeWindow_System_Int32_System_Int32_System_Boolean_
-  name: ResizeWindow
-  nameWithType: GameHost.ResizeWindow
-  fullName: SadConsole.GameHost.ResizeWindow
-- uid: SadRogue.Primitives.Point
-  commentId: T:SadRogue.Primitives.Point
-  parent: SadRogue.Primitives
-  isExternal: true
-  name: Point
-  nameWithType: Point
-  fullName: SadRogue.Primitives.Point
 - uid: SadRogue.Primitives
   commentId: N:SadRogue.Primitives
   isExternal: true
@@ -2157,6 +2433,28 @@ references:
     name: Primitives
     isExternal: true
     href: SadRogue.Primitives.html
+- uid: SadConsole.GameHost.ResizeWindow*
+  commentId: Overload:SadConsole.GameHost.ResizeWindow
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_ResizeWindow_System_Int32_System_Int32_System_Boolean_
+  name: ResizeWindow
+  nameWithType: GameHost.ResizeWindow
+  fullName: SadConsole.GameHost.ResizeWindow
+- uid: SadRogue.Primitives.Point
+  commentId: T:SadRogue.Primitives.Point
+  parent: SadRogue.Primitives
+  isExternal: true
+  name: Point
+  nameWithType: Point
+  fullName: SadRogue.Primitives.Point
+- uid: SadConsole.GameHost.FocusedScreenObjects
+  commentId: P:SadConsole.GameHost.FocusedScreenObjects
+  parent: SadConsole.GameHost
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_FocusedScreenObjects
+  name: FocusedScreenObjects
+  nameWithType: GameHost.FocusedScreenObjects
+  fullName: SadConsole.GameHost.FocusedScreenObjects
 - uid: SadConsole.GameHost.SaveGlobalState*
   commentId: Overload:SadConsole.GameHost.SaveGlobalState
   isExternal: true
@@ -2164,6 +2462,28 @@ references:
   name: SaveGlobalState
   nameWithType: GameHost.SaveGlobalState
   fullName: SadConsole.GameHost.SaveGlobalState
+- uid: SadConsole.GameHost.SaveGlobalState
+  commentId: M:SadConsole.GameHost.SaveGlobalState
+  parent: SadConsole.GameHost
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_SaveGlobalState
+  name: SaveGlobalState()
+  nameWithType: GameHost.SaveGlobalState()
+  fullName: SadConsole.GameHost.SaveGlobalState()
+  spec.csharp:
+  - uid: SadConsole.GameHost.SaveGlobalState
+    name: SaveGlobalState
+    isExternal: true
+    href: SadConsole.GameHost.html#SadConsole_GameHost_SaveGlobalState
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.GameHost.SaveGlobalState
+    name: SaveGlobalState
+    isExternal: true
+    href: SadConsole.GameHost.html#SadConsole_GameHost_SaveGlobalState
+  - name: (
+  - name: )
 - uid: SadConsole.GameHost.RestoreGlobalState*
   commentId: Overload:SadConsole.GameHost.RestoreGlobalState
   isExternal: true
@@ -2300,14 +2620,6 @@ references:
   name: Instance
   nameWithType: GameHost.Instance
   fullName: SadConsole.GameHost.Instance
-- uid: SadConsole.GameHost
-  commentId: T:SadConsole.GameHost
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.GameHost.html
-  name: GameHost
-  nameWithType: GameHost
-  fullName: SadConsole.GameHost
 - uid: SadConsole.GameHost.SerializerPathHint*
   commentId: Overload:SadConsole.GameHost.SerializerPathHint
   isExternal: true
@@ -2747,4 +3059,26 @@ references:
   - name: Of
   - name: " "
   - name: TEventArgs
+  - name: )
+- uid: SadConsole.GameHost.Run
+  commentId: M:SadConsole.GameHost.Run
+  parent: SadConsole.GameHost
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_Run
+  name: Run()
+  nameWithType: GameHost.Run()
+  fullName: SadConsole.GameHost.Run()
+  spec.csharp:
+  - uid: SadConsole.GameHost.Run
+    name: Run
+    isExternal: true
+    href: SadConsole.GameHost.html#SadConsole_GameHost_Run
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.GameHost.Run
+    name: Run
+    isExternal: true
+    href: SadConsole.GameHost.html#SadConsole_GameHost_Run
+  - name: (
   - name: )

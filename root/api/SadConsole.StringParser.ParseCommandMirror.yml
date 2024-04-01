@@ -19,6 +19,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: Sets the mirror of a glyph.
+  example: []
   syntax:
     content: 'public sealed class ParseCommandMirror : ParseCommandBase'
     content.vb: Public NotInheritable Class ParseCommandMirror Inherits ParseCommandBase
@@ -47,6 +49,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: The mirror mode.
+  example: []
   syntax:
     content: public Mirror Mirror
     return:
@@ -66,11 +70,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: Creates a new instance of this command.
+  example: []
   syntax:
     content: public ParseCommandMirror(string parameters)
     parameters:
     - id: parameters
       type: System.String
+      description: The string to parse for parameters.
     content.vb: Public Sub New(parameters As String)
   overload: SadConsole.StringParser.ParseCommandMirror.#ctor*
   nameWithType.vb: ParseCommandMirror.New(String)
@@ -90,6 +97,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: Creates a new instance of this command.
+  example: []
   syntax:
     content: public ParseCommandMirror()
     content.vb: Public Sub New()
@@ -111,24 +120,32 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: Builds a glyph.
   example: []
   syntax:
     content: public override void Build(ref ColoredGlyphAndEffect glyphState, ColoredGlyphAndEffect[] glyphString, int surfaceIndex, ICellSurface? surface, ref int stringIndex, ReadOnlySpan<char> processedString, ParseCommandStacks commandStack)
     parameters:
     - id: glyphState
       type: SadConsole.ColoredGlyphAndEffect
+      description: The current glyph being built.
     - id: glyphString
       type: SadConsole.ColoredGlyphAndEffect[]
+      description: The current string of glyphs that has been processed until now.
     - id: surfaceIndex
       type: System.Int32
+      description: Where on the surface this flyph will appear.
     - id: surface
       type: SadConsole.ICellSurface
+      description: The surface associated with the glyph.
     - id: stringIndex
       type: System.Int32
+      description: Where in the original string this glyph is from.
     - id: processedString
       type: System.ReadOnlySpan{System.Char}
+      description: The entire string being processed.
     - id: commandStack
       type: SadConsole.StringParser.ParseCommandStacks
+      description: The state of commands.
     content.vb: Public Overrides Sub Build(glyphState As ColoredGlyphAndEffect, glyphString As ColoredGlyphAndEffect(), surfaceIndex As Integer, surface As ICellSurface, stringIndex As Integer, processedString As ReadOnlySpan(Of Char), commandStack As ParseCommandStacks)
   overridden: SadConsole.StringParser.ParseCommandBase.Build(SadConsole.ColoredGlyphAndEffect@,SadConsole.ColoredGlyphAndEffect[],System.Int32,SadConsole.ICellSurface,System.Int32@,System.ReadOnlySpan{System.Char},SadConsole.StringParser.ParseCommandStacks)
   overload: SadConsole.StringParser.ParseCommandMirror.Build*

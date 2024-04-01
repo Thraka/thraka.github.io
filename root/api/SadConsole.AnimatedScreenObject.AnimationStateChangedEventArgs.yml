@@ -18,6 +18,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Event args for when the animation state changes
+  example: []
   syntax:
     content: 'public class AnimatedScreenObject.AnimationStateChangedEventArgs : EventArgs'
     content.vb: Public Class AnimatedScreenObject.AnimationStateChangedEventArgs Inherits EventArgs
@@ -47,6 +49,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The previous state.
+  example: []
   syntax:
     content: public readonly AnimatedScreenObject.AnimationState PreviousState
     return:
@@ -66,6 +70,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The new state.
+  example: []
   syntax:
     content: public readonly AnimatedScreenObject.AnimationState NewState
     return:
@@ -85,13 +91,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Creates a new instance of the event args.
+  example: []
   syntax:
     content: public AnimationStateChangedEventArgs(AnimatedScreenObject.AnimationState previousState, AnimatedScreenObject.AnimationState newState)
     parameters:
     - id: previousState
       type: SadConsole.AnimatedScreenObject.AnimationState
+      description: The previous state.
     - id: newState
       type: SadConsole.AnimatedScreenObject.AnimationState
+      description: The new state.
     content.vb: Public Sub New(previousState As AnimatedScreenObject.AnimationState, newState As AnimatedScreenObject.AnimationState)
   overload: SadConsole.AnimatedScreenObject.AnimationStateChangedEventArgs.#ctor*
   nameWithType.vb: AnimatedScreenObject.AnimationStateChangedEventArgs.New(AnimatedScreenObject.AnimationState, AnimatedScreenObject.AnimationState)

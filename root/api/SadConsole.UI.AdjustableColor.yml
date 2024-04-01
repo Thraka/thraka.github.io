@@ -30,6 +30,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: A color that can be adjusted by brightness and mapped to a <xref href="SadConsole.UI.Colors" data-throw-if-not-resolved="false"></xref> color.
+  example: []
   syntax:
     content: >-
       [DataContract]
@@ -67,13 +69,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Creates a color that isn't mapped to a <xref href="SadConsole.UI.Colors" data-throw-if-not-resolved="false"></xref> color.
+  example: []
   syntax:
     content: public AdjustableColor(Color color, string name)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
+      description: The color.
     - id: name
       type: System.String
+      description: A friendly name of the color.
     content.vb: Public Sub New(color As Color, name As String)
   overload: SadConsole.UI.AdjustableColor.#ctor*
   nameWithType.vb: AdjustableColor.New(Color, String)
@@ -93,15 +99,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Creates a color and tries to map it to a <xref href="SadConsole.UI.Colors" data-throw-if-not-resolved="false"></xref> color.
+  example: []
   syntax:
     content: public AdjustableColor(Color color, string name, Colors colors)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
+      description: The color.
     - id: name
       type: System.String
+      description: A friendly name of the color.
     - id: colors
       type: SadConsole.UI.Colors
+      description: The colors to try and map to.
     content.vb: Public Sub New(color As Color, name As String, colors As Colors)
   overload: SadConsole.UI.AdjustableColor.#ctor*
   nameWithType.vb: AdjustableColor.New(Color, String, Colors)
@@ -121,15 +132,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Creates a color that maps to a <xref href="SadConsole.UI.Colors" data-throw-if-not-resolved="false"></xref> color.
+  example: []
   syntax:
     content: public AdjustableColor(Colors.ColorNames color, string name, Colors colors)
     parameters:
     - id: color
       type: SadConsole.UI.Colors.ColorNames
+      description: The predefined color.
     - id: name
       type: System.String
+      description: A friendly name of the color.
     - id: colors
       type: SadConsole.UI.Colors
+      description: The colors used setting the <xref href="SadConsole.UI.AdjustableColor.BaseColor" data-throw-if-not-resolved="false"></xref> value.
     content.vb: Public Sub New(color As Colors.ColorNames, name As String, colors As Colors)
   overload: SadConsole.UI.AdjustableColor.#ctor*
   nameWithType.vb: AdjustableColor.New(Colors.ColorNames, String, Colors)
@@ -149,15 +165,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Maps this adjustable color to a <xref href="SadConsole.UI.Colors" data-throw-if-not-resolved="false"></xref> color.
+  example: []
   syntax:
     content: public void SetUIColor(Colors.ColorNames color, Colors colors, Colors.Brightness brightness)
     parameters:
     - id: color
       type: SadConsole.UI.Colors.ColorNames
+      description: The predefined color.
     - id: colors
       type: SadConsole.UI.Colors
+      description: The colors used setting the <xref href="SadConsole.UI.AdjustableColor.BaseColor" data-throw-if-not-resolved="false"></xref> value.
     - id: brightness
       type: SadConsole.UI.Colors.Brightness
+      description: The brightness to apply to the color.
     content.vb: Public Sub SetUIColor(color As Colors.ColorNames, colors As Colors, brightness As Colors.Brightness)
   overload: SadConsole.UI.AdjustableColor.SetUIColor*
 - uid: SadConsole.UI.AdjustableColor.SetColor(SadRogue.Primitives.Color,SadConsole.UI.Colors,SadConsole.UI.Colors.Brightness)
@@ -174,15 +195,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Tries to map this adjustable color to a <xref href="SadConsole.UI.Colors" data-throw-if-not-resolved="false"></xref> color.
+  example: []
   syntax:
     content: public void SetColor(Color color, Colors colors, Colors.Brightness brightness)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
+      description: The color.
     - id: colors
       type: SadConsole.UI.Colors
+      description: The colors to try and map to.
     - id: brightness
       type: SadConsole.UI.Colors.Brightness
+      description: The brightness to apply to the color.
     content.vb: Public Sub SetColor(color As Color, colors As Colors, brightness As Colors.Brightness)
   overload: SadConsole.UI.AdjustableColor.SetColor*
 - uid: SadConsole.UI.AdjustableColor.SetColor(SadRogue.Primitives.Color)
@@ -199,11 +225,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Configures this adjustable color to the specified color.
+  example: []
   syntax:
     content: public void SetColor(Color color)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
+      description: The color.
     content.vb: Public Sub SetColor(color As Color)
   overload: SadConsole.UI.AdjustableColor.SetColor*
 - uid: SadConsole.UI.AdjustableColor.RefreshUIColor(SadConsole.UI.Colors)
@@ -220,11 +249,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Refreshes <xref href="SadConsole.UI.AdjustableColor.BaseColor" data-throw-if-not-resolved="false"></xref> using <xref href="SadConsole.UI.AdjustableColor.UIColor" data-throw-if-not-resolved="false"></xref> and the provided <xref href="SadConsole.UI.Colors" data-throw-if-not-resolved="false"></xref> object.
+  example: []
   syntax:
     content: public void RefreshUIColor(Colors colors)
     parameters:
     - id: colors
       type: SadConsole.UI.Colors
+      description: The colors to pull a color value from.
     content.vb: Public Sub RefreshUIColor(colors As Colors)
   overload: SadConsole.UI.AdjustableColor.RefreshUIColor*
 - uid: SadConsole.UI.AdjustableColor.Clone
@@ -241,10 +273,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Creates a copy of this object.
+  example: []
   syntax:
     content: public AdjustableColor Clone()
     return:
       type: SadConsole.UI.AdjustableColor
+      description: A new adjustable color object.
     content.vb: Public Function Clone() As AdjustableColor
   overload: SadConsole.UI.AdjustableColor.Clone*
 - uid: SadConsole.UI.AdjustableColor.op_Implicit(SadConsole.UI.AdjustableColor)~SadRogue.Primitives.Color
@@ -261,11 +296,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Casts this object to a <xref href="SadRogue.Primitives.Color" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public static implicit operator Color(AdjustableColor color)
     parameters:
     - id: color
       type: SadConsole.UI.AdjustableColor
+      description: The adjustable color.
     return:
       type: SadRogue.Primitives.Color
     content.vb: Public Shared Widening Operator CType(color As AdjustableColor) As Color
@@ -287,6 +325,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The name of the color.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -318,6 +358,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The color without brightness.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -349,6 +391,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The color with brightness applied.
+  example: []
   syntax:
     content: public Color ComputedColor { get; }
     parameters: []
@@ -370,6 +414,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when this color is not defined by a <xref href="SadConsole.UI.Colors" data-throw-if-not-resolved="false"></xref> object; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -401,6 +447,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The <xref href="SadConsole.UI.Colors" data-throw-if-not-resolved="false"></xref> mapped color when <xref href="SadConsole.UI.AdjustableColor.IsCustomColor" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -432,6 +480,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: A brightness to apply to the color.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -450,6 +500,14 @@ items:
     ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
     arguments: []
 references:
+- uid: SadConsole.UI.Colors
+  commentId: T:SadConsole.UI.Colors
+  parent: SadConsole.UI
+  isExternal: true
+  href: SadConsole.UI.Colors.html
+  name: Colors
+  nameWithType: Colors
+  fullName: SadConsole.UI.Colors
 - uid: SadConsole.UI
   commentId: N:SadConsole.UI
   isExternal: true
@@ -769,14 +827,13 @@ references:
     name: Primitives
     isExternal: true
     href: SadRogue.Primitives.html
-- uid: SadConsole.UI.Colors
-  commentId: T:SadConsole.UI.Colors
-  parent: SadConsole.UI
+- uid: SadConsole.UI.AdjustableColor.BaseColor
+  commentId: P:SadConsole.UI.AdjustableColor.BaseColor
   isExternal: true
-  href: SadConsole.UI.Colors.html
-  name: Colors
-  nameWithType: Colors
-  fullName: SadConsole.UI.Colors
+  href: SadConsole.UI.AdjustableColor.html#SadConsole_UI_AdjustableColor_BaseColor
+  name: BaseColor
+  nameWithType: AdjustableColor.BaseColor
+  fullName: SadConsole.UI.AdjustableColor.BaseColor
 - uid: SadConsole.UI.Colors.ColorNames
   commentId: T:SadConsole.UI.Colors.ColorNames
   parent: SadConsole.UI
@@ -847,6 +904,13 @@ references:
   name: SetColor
   nameWithType: AdjustableColor.SetColor
   fullName: SadConsole.UI.AdjustableColor.SetColor
+- uid: SadConsole.UI.AdjustableColor.UIColor
+  commentId: P:SadConsole.UI.AdjustableColor.UIColor
+  isExternal: true
+  href: SadConsole.UI.AdjustableColor.html#SadConsole_UI_AdjustableColor_UIColor
+  name: UIColor
+  nameWithType: AdjustableColor.UIColor
+  fullName: SadConsole.UI.AdjustableColor.UIColor
 - uid: SadConsole.UI.AdjustableColor.RefreshUIColor*
   commentId: Overload:SadConsole.UI.AdjustableColor.RefreshUIColor
   isExternal: true
@@ -920,6 +984,13 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: SadConsole.UI.AdjustableColor.IsCustomColor
+  commentId: P:SadConsole.UI.AdjustableColor.IsCustomColor
+  isExternal: true
+  href: SadConsole.UI.AdjustableColor.html#SadConsole_UI_AdjustableColor_IsCustomColor
+  name: IsCustomColor
+  nameWithType: AdjustableColor.IsCustomColor
+  fullName: SadConsole.UI.AdjustableColor.IsCustomColor
 - uid: SadConsole.UI.AdjustableColor.UIColor*
   commentId: Overload:SadConsole.UI.AdjustableColor.UIColor
   isExternal: true

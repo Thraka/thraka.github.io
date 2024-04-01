@@ -33,6 +33,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: A screen object that has mouse input, surface, and render information.
+  example: []
   syntax:
     content: 'public interface IScreenSurface : IScreenObject, IPositionable, IComponentHost'
     content.vb: Public Interface IScreenSurface Inherits IScreenObject, IPositionable, IComponentHost
@@ -94,6 +96,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The name of the default renderer for this object.
+  example: []
   syntax:
     content: string DefaultRendererName { get; }
     parameters: []
@@ -115,6 +119,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: When true, this object will set <xref href="SadConsole.IScreenObject.IsFocused" data-throw-if-not-resolved="false"></xref> to true when the mouse is clicked.
+  example: []
   syntax:
     content: bool FocusOnMouseClick { get; set; }
     parameters: []
@@ -136,6 +142,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The height of the surface in pixels.
+  example: []
   syntax:
     content: int HeightPixels { get; }
     parameters: []
@@ -157,6 +165,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: When true, this object will move to the front of its parent object when the mouse is clicked.
+  example: []
   syntax:
     content: bool MoveToFrontOnMouseClick { get; set; }
     parameters: []
@@ -178,6 +188,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The renderer used to draw this surface.
+  example: []
   syntax:
     content: IRenderer? Renderer { get; }
     parameters: []
@@ -199,6 +211,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The surface.
+  example: []
   syntax:
     content: ICellSurface Surface { get; }
     parameters: []
@@ -220,6 +234,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Treats the <xref href="SadRogue.Primitives.IPositionable.Position" data-throw-if-not-resolved="false"></xref> of the object as if it is pixels and not cells.
+  example: []
   syntax:
     content: bool UsePixelPositioning { get; set; }
     parameters: []
@@ -241,6 +257,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The width of the surface in pixels.
+  example: []
   syntax:
     content: int WidthPixels { get; }
     parameters: []
@@ -262,6 +280,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The pixel area on the screen this surface occupies.
+  example: []
   syntax:
     content: Rectangle AbsoluteArea { get; }
     parameters: []
@@ -283,6 +303,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Font used with rendering.
+  example: []
   syntax:
     content: IFont Font { get; set; }
     parameters: []
@@ -304,6 +326,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The size of the <xref href="SadConsole.IScreenSurface.Font" data-throw-if-not-resolved="false"></xref> cells applied to the object when rendering.
+  example: []
   syntax:
     content: Point FontSize { get; set; }
     parameters: []
@@ -325,6 +349,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, forces the <xref href="SadConsole.IScreenSurface.Renderer" data-throw-if-not-resolved="false"></xref> to refresh the backing texture with the latest state of the object.
+  example: []
   syntax:
     content: bool ForceRendererRefresh { get; set; }
     parameters: []
@@ -346,6 +372,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Indicates the surface has changed and needs to be rendered.
+  example: []
   syntax:
     content: bool IsDirty { get; set; }
     parameters: []
@@ -367,6 +395,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: A tint used in rendering.
+  example: []
   syntax:
     content: Color Tint { get; set; }
     parameters: []
@@ -388,6 +418,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Raised when the a mouse button is clicked on this object.
+  example: []
   syntax:
     content: event EventHandler<MouseScreenObjectState> MouseButtonClicked
     return:
@@ -407,6 +439,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Raised when the mouse enters this object.
+  example: []
   syntax:
     content: event EventHandler<MouseScreenObjectState> MouseEnter
     return:
@@ -426,6 +460,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Raised when the mouse exits this object.
+  example: []
   syntax:
     content: event EventHandler<MouseScreenObjectState> MouseExit
     return:
@@ -445,6 +481,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Raised when the mouse moves around the this object.
+  example: []
   syntax:
     content: event EventHandler<MouseScreenObjectState> MouseMove
     return:
@@ -2435,6 +2473,14 @@ references:
   name: IFont
   nameWithType: IFont
   fullName: SadConsole.IFont
+- uid: SadConsole.IScreenSurface.Font
+  commentId: P:SadConsole.IScreenSurface.Font
+  parent: SadConsole.IScreenSurface
+  isExternal: true
+  href: SadConsole.IScreenSurface.html#SadConsole_IScreenSurface_Font
+  name: Font
+  nameWithType: IScreenSurface.Font
+  fullName: SadConsole.IScreenSurface.Font
 - uid: SadConsole.IScreenSurface.FontSize*
   commentId: Overload:SadConsole.IScreenSurface.FontSize
   isExternal: true
@@ -2449,6 +2495,22 @@ references:
   name: Point
   nameWithType: Point
   fullName: SadRogue.Primitives.Point
+- uid: SadConsole.IScreenSurface
+  commentId: T:SadConsole.IScreenSurface
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IScreenSurface.html
+  name: IScreenSurface
+  nameWithType: IScreenSurface
+  fullName: SadConsole.IScreenSurface
+- uid: SadConsole.IScreenSurface.Renderer
+  commentId: P:SadConsole.IScreenSurface.Renderer
+  parent: SadConsole.IScreenSurface
+  isExternal: true
+  href: SadConsole.IScreenSurface.html#SadConsole_IScreenSurface_Renderer
+  name: Renderer
+  nameWithType: IScreenSurface.Renderer
+  fullName: SadConsole.IScreenSurface.Renderer
 - uid: SadConsole.IScreenSurface.ForceRendererRefresh*
   commentId: Overload:SadConsole.IScreenSurface.ForceRendererRefresh
   isExternal: true

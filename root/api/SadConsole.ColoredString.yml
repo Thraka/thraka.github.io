@@ -48,13 +48,19 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Represents a string that has foreground and background colors for each character in the string.
+  example: []
   syntax:
     content: >-
       [DataContract]
 
+      [JsonObject(MemberSerialization = MemberSerialization.OptIn)]
+
       public class ColoredString : IEnumerable<ColoredGlyphAndEffect>, IEnumerable
     content.vb: >-
       <DataContract>
+
+      <JsonObject(MemberSerialization:=MemberSerialization.OptIn)>
 
       Public Class ColoredString Implements IEnumerable(Of ColoredGlyphAndEffect), IEnumerable
   inheritance:
@@ -73,6 +79,13 @@ items:
   - type: System.Runtime.Serialization.DataContractAttribute
     ctor: System.Runtime.Serialization.DataContractAttribute.#ctor
     arguments: []
+  - type: Newtonsoft.Json.JsonObjectAttribute
+    ctor: Newtonsoft.Json.JsonObjectAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: MemberSerialization
+      type: Newtonsoft.Json.MemberSerialization
+      value: 1
 - uid: SadConsole.ColoredString.#ctor
   commentId: M:SadConsole.ColoredString.#ctor
   id: '#ctor'
@@ -87,6 +100,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Default constructor.
+  example: []
   syntax:
     content: public ColoredString()
     content.vb: Public Sub New()
@@ -108,11 +123,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Creates a new instance of the ColoredString class with the specified blank characters.
+  example: []
   syntax:
     content: public ColoredString(int capacity)
     parameters:
     - id: capacity
       type: System.Int32
+      description: The number of blank characters.
     content.vb: Public Sub New(capacity As Integer)
   overload: SadConsole.ColoredString.#ctor*
   nameWithType.vb: ColoredString.New(Integer)
@@ -132,13 +150,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Creates a new instance of this class with the specified string value.
+  example: []
   syntax:
     content: public ColoredString(string value, bool treatAsString = false)
     parameters:
     - id: value
       type: System.String
+      description: The backing string.
     - id: treatAsString
       type: System.Boolean
+      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, sets all of the Ignore properties to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, treating this instance as a normal string.
     content.vb: Public Sub New(value As String, treatAsString As Boolean = False)
   overload: SadConsole.ColoredString.#ctor*
   nameWithType.vb: ColoredString.New(String, Boolean)
@@ -158,19 +180,26 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Creates a new instance of the ColoredString class with the specified string value, foreground and background colors, and a cell effect.
+  example: []
   syntax:
     content: public ColoredString(string value, Color foreground, Color background, Mirror mirror = Mirror.None, CellDecorator[]? decorators = null)
     parameters:
     - id: value
       type: System.String
+      description: The backing string.
     - id: foreground
       type: SadRogue.Primitives.Color
+      description: The foreground color for each character.
     - id: background
       type: SadRogue.Primitives.Color
+      description: The background color for each character.
     - id: mirror
       type: SadConsole.Mirror
+      description: The mirror for each character.
     - id: decorators
       type: SadConsole.CellDecorator[]
+      description: The decorators to apply to each character.
     content.vb: Public Sub New(value As String, foreground As Color, background As Color, mirror As Mirror = Mirror.None, decorators As CellDecorator() = Nothing)
   overload: SadConsole.ColoredString.#ctor*
   nameWithType.vb: ColoredString.New(String, Color, Color, Mirror, CellDecorator())
@@ -190,13 +219,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Creates a new instance of the ColoredString class with the specified string value, foreground and background colors, and a cell effect.
+  example: []
   syntax:
     content: public ColoredString(string value, ColoredGlyphAndEffect appearance)
     parameters:
     - id: value
       type: System.String
+      description: The backing string.
     - id: appearance
       type: SadConsole.ColoredGlyphAndEffect
+      description: The appearance to use for each character.
     content.vb: Public Sub New(value As String, appearance As ColoredGlyphAndEffect)
   overload: SadConsole.ColoredString.#ctor*
   nameWithType.vb: ColoredString.New(String, ColoredGlyphAndEffect)
@@ -216,11 +249,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Combines a <xref href="SadConsole.ColoredGlyphAndEffect" data-throw-if-not-resolved="false"></xref> array into a <xref href="SadConsole.ColoredString" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public ColoredString(params ColoredGlyphAndEffect[] glyphs)
     parameters:
     - id: glyphs
       type: SadConsole.ColoredGlyphAndEffect[]
+      description: The glyphs to combine.
     content.vb: Public Sub New(ParamArray glyphs As ColoredGlyphAndEffect())
   overload: SadConsole.ColoredString.#ctor*
   nameWithType.vb: ColoredString.New(ParamArray ColoredGlyphAndEffect())
@@ -240,11 +276,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Combines a <xref href="SadConsole.ColoredGlyphBase" data-throw-if-not-resolved="false"></xref> array into a <xref href="SadConsole.ColoredString" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public ColoredString(params ColoredGlyphBase[] glyphs)
     parameters:
     - id: glyphs
       type: SadConsole.ColoredGlyphBase[]
+      description: The glyphs to combine.
     content.vb: Public Sub New(ParamArray glyphs As ColoredGlyphBase())
   overload: SadConsole.ColoredString.#ctor*
   nameWithType.vb: ColoredString.New(ParamArray ColoredGlyphBase())
@@ -264,10 +303,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Returns a new <xref href="SadConsole.ColoredString" data-throw-if-not-resolved="false"></xref> object by cloning this instance.
+  example: []
   syntax:
     content: public ColoredString Clone()
     return:
       type: SadConsole.ColoredString
+      description: A new <xref href="SadConsole.ColoredString" data-throw-if-not-resolved="false"></xref> object.
     content.vb: Public Function Clone() As ColoredString
   overload: SadConsole.ColoredString.Clone*
 - uid: SadConsole.ColoredString.SubString(System.Int32)
@@ -284,13 +326,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Returns a new <xref href="SadConsole.ColoredString" data-throw-if-not-resolved="false"></xref> object using a substring of this instance from the index to the end.
+  example: []
   syntax:
     content: public ColoredString SubString(int index)
     parameters:
     - id: index
       type: System.Int32
+      description: The index to copy the contents from.
     return:
       type: SadConsole.ColoredString
+      description: A new <xref href="SadConsole.ColoredString" data-throw-if-not-resolved="false"></xref> object.
     content.vb: Public Function SubString(index As Integer) As ColoredString
   overload: SadConsole.ColoredString.SubString*
   nameWithType.vb: ColoredString.SubString(Integer)
@@ -310,15 +356,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Returns a new <xref href="SadConsole.ColoredString" data-throw-if-not-resolved="false"></xref> object using a substring of this instance.
+  example: []
   syntax:
     content: public ColoredString SubString(int index, int count)
     parameters:
     - id: index
       type: System.Int32
+      description: The index to copy the contents from.
     - id: count
       type: System.Int32
+      description: The count of <xref href="SadConsole.ColoredGlyphAndEffect" data-throw-if-not-resolved="false"></xref> objects to copy.
     return:
       type: SadConsole.ColoredString
+      description: A new <xref href="SadConsole.ColoredString" data-throw-if-not-resolved="false"></xref> object.
     content.vb: Public Function SubString(index As Integer, count As Integer) As ColoredString
   overload: SadConsole.ColoredString.SubString*
   nameWithType.vb: ColoredString.SubString(Integer, Integer)
@@ -338,11 +389,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Applies the referenced cell effect to every character in the colored string.
+  example: []
   syntax:
     content: public void SetEffect(ICellEffect? effect)
     parameters:
     - id: effect
       type: SadConsole.Effects.ICellEffect
+      description: The effect to apply.
     content.vb: Public Sub SetEffect(effect As ICellEffect)
   overload: SadConsole.ColoredString.SetEffect*
   nameWithType.vb: ColoredString.SetEffect(ICellEffect)
@@ -362,11 +416,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Applies the referenced color to every character foreground in the colored string.
+  example: []
   syntax:
     content: public void SetForeground(Color color)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
+      description: The color to apply.
     content.vb: Public Sub SetForeground(color As Color)
   overload: SadConsole.ColoredString.SetForeground*
 - uid: SadConsole.ColoredString.SetBackground(SadRogue.Primitives.Color)
@@ -383,11 +440,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Applies the referenced color to every character background in the colored string.
+  example: []
   syntax:
     content: public void SetBackground(Color color)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
+      description: The color to apply.
     content.vb: Public Sub SetBackground(color As Color)
   overload: SadConsole.ColoredString.SetBackground*
 - uid: SadConsole.ColoredString.SetGlyph(System.Int32)
@@ -404,11 +464,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Applies the referenced glyph to every character in the colored string.
+  example: []
   syntax:
     content: public void SetGlyph(int glyph)
     parameters:
     - id: glyph
       type: System.Int32
+      description: The glyph to apply.
     content.vb: Public Sub SetGlyph(glyph As Integer)
   overload: SadConsole.ColoredString.SetGlyph*
   nameWithType.vb: ColoredString.SetGlyph(Integer)
@@ -428,11 +491,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Applies the mirror value to each character in the colored string.
+  example: []
   syntax:
     content: public void SetMirror(Mirror mirror)
     parameters:
     - id: mirror
       type: SadConsole.Mirror
+      description: The mirror mode.
     content.vb: Public Sub SetMirror(mirror As Mirror)
   overload: SadConsole.ColoredString.SetMirror*
 - uid: SadConsole.ColoredString.SetDecorators(System.Collections.Generic.IEnumerable{SadConsole.CellDecorator})
@@ -449,11 +515,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Applies the decorators to each character in the colored string.
+  example: []
   syntax:
     content: public void SetDecorators(IEnumerable<CellDecorator> decorators)
     parameters:
     - id: decorators
       type: System.Collections.Generic.IEnumerable{SadConsole.CellDecorator}
+      description: The decorators.
     content.vb: Public Sub SetDecorators(decorators As IEnumerable(Of CellDecorator))
   overload: SadConsole.ColoredString.SetDecorators*
   nameWithType.vb: ColoredString.SetDecorators(IEnumerable(Of CellDecorator))
@@ -473,11 +542,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Applies the decorators to each character in the colored string.
+  example: []
   syntax:
     content: public void SetDecorators(params CellDecorator[] decorators)
     parameters:
     - id: decorators
       type: SadConsole.CellDecorator[]
+      description: The decorators.
     content.vb: Public Sub SetDecorators(ParamArray decorators As CellDecorator())
   overload: SadConsole.ColoredString.SetDecorators*
   nameWithType.vb: ColoredString.SetDecorators(ParamArray CellDecorator())
@@ -497,11 +569,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Returns a string representing the glyphs in this object.
   example: []
   syntax:
     content: public override string ToString()
     return:
       type: System.String
+      description: A string composed of each glyph in this object.
     content.vb: Public Overrides Function ToString() As String
   overridden: System.Object.ToString
   overload: SadConsole.ColoredString.ToString*
@@ -519,11 +593,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Gets an enumerator for the <xref href="SadConsole.ColoredGlyphAndEffect" data-throw-if-not-resolved="false"></xref> objects in this string.
   example: []
   syntax:
     content: public IEnumerator<ColoredGlyphAndEffect> GetEnumerator()
     return:
       type: System.Collections.Generic.IEnumerator{SadConsole.ColoredGlyphAndEffect}
+      description: The enumerator in the string.
     content.vb: Public Function GetEnumerator() As IEnumerator(Of ColoredGlyphAndEffect)
   overload: SadConsole.ColoredString.GetEnumerator*
   implements:
@@ -542,15 +618,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Creates a new colored string from the specified gradient and text.
+  example: []
   syntax:
     content: public static ColoredString FromGradient(Gradient colors, string text)
     parameters:
     - id: colors
       type: SadRogue.Primitives.Gradient
+      description: The gradient of colors to apply to the text.
     - id: text
       type: System.String
+      description: The text the colored string contains.
     return:
       type: SadConsole.ColoredString
+      description: A colored string.
     content.vb: Public Shared Function FromGradient(colors As Gradient, text As String) As ColoredString
   overload: SadConsole.ColoredString.FromGradient*
   nameWithType.vb: ColoredString.FromGradient(Gradient, String)
@@ -570,15 +651,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Combines two ColoredString objects into a single ColoredString object. Ignore* values are only copied when both strings Ignore* values match.
+  example: []
   syntax:
     content: public static ColoredString operator +(ColoredString string1, ColoredString string2)
     parameters:
     - id: string1
       type: SadConsole.ColoredString
+      description: The left-side of the string.
     - id: string2
       type: SadConsole.ColoredString
+      description: The right-side of the string.
     return:
       type: SadConsole.ColoredString
+      description: ''
     content.vb: Public Shared Operator +(string1 As ColoredString, string2 As ColoredString) As ColoredString
   overload: SadConsole.ColoredString.op_Addition*
   nameWithType.vb: ColoredString.+(ColoredString, ColoredString)
@@ -598,15 +684,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Combines a colored string and string. The last colored glyph in the colored string is used for all of the characters in the added string.
+  example: []
   syntax:
     content: public static ColoredString operator +(ColoredString string1, string string2)
     parameters:
     - id: string1
       type: SadConsole.ColoredString
+      description: The colored string.
     - id: string2
       type: System.String
+      description: The string.
     return:
       type: SadConsole.ColoredString
+      description: A new colored string instance.
     content.vb: Public Shared Operator +(string1 As ColoredString, string2 As String) As ColoredString
   overload: SadConsole.ColoredString.op_Addition*
   nameWithType.vb: ColoredString.+(ColoredString, String)
@@ -626,15 +717,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Combines a string and a colored string. The first colored glyph in the colored string is used for all of the characters in the added string.
+  example: []
   syntax:
     content: public static ColoredString operator +(string string1, ColoredString string2)
     parameters:
     - id: string1
       type: System.String
+      description: The string.
     - id: string2
       type: SadConsole.ColoredString
+      description: The colored string.
     return:
       type: SadConsole.ColoredString
+      description: A new colored string instance.
     content.vb: Public Shared Operator +(string1 As String, string2 As ColoredString) As ColoredString
   overload: SadConsole.ColoredString.op_Addition*
   nameWithType.vb: ColoredString.+(String, ColoredString)
@@ -654,13 +750,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Gets a <xref href="SadConsole.ColoredGlyphAndEffect" data-throw-if-not-resolved="false"></xref> from the string.
+  example: []
   syntax:
     content: public ColoredGlyphAndEffect this[int index] { get; set; }
     parameters:
     - id: index
       type: System.Int32
+      description: The index in the string of the <xref href="SadConsole.ColoredGlyphAndEffect" data-throw-if-not-resolved="false"></xref>.
     return:
       type: SadConsole.ColoredGlyphAndEffect
+      description: The colored glyph representing the character in the string.
     content.vb: Public Default Property this[](index As Integer) As ColoredGlyphAndEffect
   overload: SadConsole.ColoredString.Item*
   nameWithType.vb: ColoredString.this[](Integer)
@@ -680,6 +780,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Gets or sets the characters representing this string. When set, first processes the string through <xref href="SadConsole.StringParser.IParser.Parse(System.ReadOnlySpan%7bSystem.Char%7d%2cSystem.Int32%2cSadConsole.ICellSurface%2cSadConsole.StringParser.ParseCommandStacks)" data-throw-if-not-resolved="false"></xref> method from <xref href="SadConsole.ColoredString.Parser" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public string String { get; set; }
     parameters: []
@@ -701,6 +803,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The total number of <xref href="SadConsole.ColoredGlyphAndEffect" data-throw-if-not-resolved="false"></xref> characters in the string.
+  example: []
   syntax:
     content: public int Length { get; }
     parameters: []
@@ -722,6 +826,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: When true, instructs a caller to not render the glyphs of the string.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -753,6 +859,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: When true, instructs a caller to not render the foreground color.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -784,6 +892,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: When true, instructs a caller to not render the background color.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -815,6 +925,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: When true, instructs a caller to not render the effect.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -846,6 +958,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: When true, instructs a caller to not render the mirror state.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -877,6 +991,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: When true, instructs a caller to not render the mirror state.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -908,6 +1024,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The string parser to use for transforming strings into <xref href="SadConsole.ColoredString" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public static IParser Parser { get; set; }
     parameters: []
@@ -1387,6 +1505,14 @@ references:
   name: ColoredGlyphAndEffect
   nameWithType: ColoredGlyphAndEffect
   fullName: SadConsole.ColoredGlyphAndEffect
+- uid: SadConsole.ColoredString
+  commentId: T:SadConsole.ColoredString
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ColoredString.html
+  name: ColoredString
+  nameWithType: ColoredString
+  fullName: SadConsole.ColoredString
 - uid: SadConsole.ColoredGlyphAndEffect[]
   isExternal: true
   href: SadConsole.ColoredGlyphAndEffect.html
@@ -1410,6 +1536,14 @@ references:
     href: SadConsole.ColoredGlyphAndEffect.html
   - name: (
   - name: )
+- uid: SadConsole.ColoredGlyphBase
+  commentId: T:SadConsole.ColoredGlyphBase
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ColoredGlyphBase.html
+  name: ColoredGlyphBase
+  nameWithType: ColoredGlyphBase
+  fullName: SadConsole.ColoredGlyphBase
 - uid: SadConsole.ColoredGlyphBase[]
   isExternal: true
   href: SadConsole.ColoredGlyphBase.html
@@ -1440,14 +1574,6 @@ references:
   name: Clone
   nameWithType: ColoredString.Clone
   fullName: SadConsole.ColoredString.Clone
-- uid: SadConsole.ColoredString
-  commentId: T:SadConsole.ColoredString
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.ColoredString.html
-  name: ColoredString
-  nameWithType: ColoredString
-  fullName: SadConsole.ColoredString
 - uid: SadConsole.ColoredString.SubString*
   commentId: Overload:SadConsole.ColoredString.SubString
   isExternal: true
@@ -1756,6 +1882,96 @@ references:
   nameWithType.vb: ColoredString.this[]
   fullName.vb: SadConsole.ColoredString.this[]
   name.vb: this[]
+- uid: SadConsole.StringParser.IParser.Parse(System.ReadOnlySpan{System.Char},System.Int32,SadConsole.ICellSurface,SadConsole.StringParser.ParseCommandStacks)
+  commentId: M:SadConsole.StringParser.IParser.Parse(System.ReadOnlySpan{System.Char},System.Int32,SadConsole.ICellSurface,SadConsole.StringParser.ParseCommandStacks)
+  parent: SadConsole.StringParser.IParser
+  isExternal: true
+  href: SadConsole.StringParser.IParser.html#SadConsole_StringParser_IParser_Parse_System_ReadOnlySpan_System_Char__System_Int32_SadConsole_ICellSurface_SadConsole_StringParser_ParseCommandStacks_
+  name: Parse(ReadOnlySpan<char>, int, ICellSurface, ParseCommandStacks)
+  nameWithType: IParser.Parse(ReadOnlySpan<char>, int, ICellSurface, ParseCommandStacks)
+  fullName: SadConsole.StringParser.IParser.Parse(System.ReadOnlySpan<char>, int, SadConsole.ICellSurface, SadConsole.StringParser.ParseCommandStacks)
+  nameWithType.vb: IParser.Parse(ReadOnlySpan(Of Char), Integer, ICellSurface, ParseCommandStacks)
+  fullName.vb: SadConsole.StringParser.IParser.Parse(System.ReadOnlySpan(Of Char), Integer, SadConsole.ICellSurface, SadConsole.StringParser.ParseCommandStacks)
+  name.vb: Parse(ReadOnlySpan(Of Char), Integer, ICellSurface, ParseCommandStacks)
+  spec.csharp:
+  - uid: SadConsole.StringParser.IParser.Parse(System.ReadOnlySpan{System.Char},System.Int32,SadConsole.ICellSurface,SadConsole.StringParser.ParseCommandStacks)
+    name: Parse
+    isExternal: true
+    href: SadConsole.StringParser.IParser.html#SadConsole_StringParser_IParser_Parse_System_ReadOnlySpan_System_Char__System_Int32_SadConsole_ICellSurface_SadConsole_StringParser_ParseCommandStacks_
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: <
+  - uid: System.Char
+    name: char
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.char
+  - name: '>'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: SadConsole.ICellSurface
+    name: ICellSurface
+    isExternal: true
+    href: SadConsole.ICellSurface.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.StringParser.ParseCommandStacks
+    name: ParseCommandStacks
+    isExternal: true
+    href: SadConsole.StringParser.ParseCommandStacks.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.StringParser.IParser.Parse(System.ReadOnlySpan{System.Char},System.Int32,SadConsole.ICellSurface,SadConsole.StringParser.ParseCommandStacks)
+    name: Parse
+    isExternal: true
+    href: SadConsole.StringParser.IParser.html#SadConsole_StringParser_IParser_Parse_System_ReadOnlySpan_System_Char__System_Int32_SadConsole_ICellSurface_SadConsole_StringParser_ParseCommandStacks_
+  - name: (
+  - uid: System.ReadOnlySpan`1
+    name: ReadOnlySpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Char
+    name: Char
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.char
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: SadConsole.ICellSurface
+    name: ICellSurface
+    isExternal: true
+    href: SadConsole.ICellSurface.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.StringParser.ParseCommandStacks
+    name: ParseCommandStacks
+    isExternal: true
+    href: SadConsole.StringParser.ParseCommandStacks.html
+  - name: )
+- uid: SadConsole.ColoredString.Parser
+  commentId: P:SadConsole.ColoredString.Parser
+  isExternal: true
+  href: SadConsole.ColoredString.html#SadConsole_ColoredString_Parser
+  name: Parser
+  nameWithType: ColoredString.Parser
+  fullName: SadConsole.ColoredString.Parser
 - uid: SadConsole.ColoredString.String*
   commentId: Overload:SadConsole.ColoredString.String
   isExternal: true
@@ -1763,6 +1979,41 @@ references:
   name: String
   nameWithType: ColoredString.String
   fullName: SadConsole.ColoredString.String
+- uid: SadConsole.StringParser.IParser
+  commentId: T:SadConsole.StringParser.IParser
+  parent: SadConsole.StringParser
+  isExternal: true
+  href: SadConsole.StringParser.IParser.html
+  name: IParser
+  nameWithType: IParser
+  fullName: SadConsole.StringParser.IParser
+- uid: SadConsole.StringParser
+  commentId: N:SadConsole.StringParser
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.StringParser
+  nameWithType: SadConsole.StringParser
+  fullName: SadConsole.StringParser
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.StringParser
+    name: StringParser
+    isExternal: true
+    href: SadConsole.StringParser.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.StringParser
+    name: StringParser
+    isExternal: true
+    href: SadConsole.StringParser.html
 - uid: SadConsole.ColoredString.Length*
   commentId: Overload:SadConsole.ColoredString.Length
   isExternal: true
@@ -1819,38 +2070,3 @@ references:
   name: Parser
   nameWithType: ColoredString.Parser
   fullName: SadConsole.ColoredString.Parser
-- uid: SadConsole.StringParser.IParser
-  commentId: T:SadConsole.StringParser.IParser
-  parent: SadConsole.StringParser
-  isExternal: true
-  href: SadConsole.StringParser.IParser.html
-  name: IParser
-  nameWithType: IParser
-  fullName: SadConsole.StringParser.IParser
-- uid: SadConsole.StringParser
-  commentId: N:SadConsole.StringParser
-  isExternal: true
-  href: SadConsole.html
-  name: SadConsole.StringParser
-  nameWithType: SadConsole.StringParser
-  fullName: SadConsole.StringParser
-  spec.csharp:
-  - uid: SadConsole
-    name: SadConsole
-    isExternal: true
-    href: SadConsole.html
-  - name: .
-  - uid: SadConsole.StringParser
-    name: StringParser
-    isExternal: true
-    href: SadConsole.StringParser.html
-  spec.vb:
-  - uid: SadConsole
-    name: SadConsole
-    isExternal: true
-    href: SadConsole.html
-  - name: .
-  - uid: SadConsole.StringParser
-    name: StringParser
-    isExternal: true
-    href: SadConsole.StringParser.html

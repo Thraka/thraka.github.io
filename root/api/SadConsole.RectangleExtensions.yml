@@ -19,6 +19,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Extensions for the <xref href="SadRogue.Primitives.Rectangle" data-throw-if-not-resolved="false"></xref> type.
+  example: []
   syntax:
     content: public static class RectangleExtensions
     content.vb: Public Module RectangleExtensions
@@ -47,15 +49,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Converts a rectangle from cells to pixels.
+  example: []
   syntax:
     content: public static Rectangle ToPixels(this Rectangle rect, Point fontSize)
     parameters:
     - id: rect
       type: SadRogue.Primitives.Rectangle
+      description: The rectangle to work with.
     - id: fontSize
       type: SadRogue.Primitives.Point
+      description: The font size used for translation.
     return:
       type: SadRogue.Primitives.Rectangle
+      description: A new rectangle in pixels.
     content.vb: Public Shared Function ToPixels(rect As Rectangle, fontSize As Point) As Rectangle
   overload: SadConsole.RectangleExtensions.ToPixels*
 - uid: SadConsole.RectangleExtensions.ToPixels(SadRogue.Primitives.Rectangle,System.Int32,System.Int32)
@@ -73,17 +80,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Converts a rectangle from cells to pixels.
+  example: []
   syntax:
     content: public static Rectangle ToPixels(this Rectangle rect, int cellWidth, int cellHeight)
     parameters:
     - id: rect
       type: SadRogue.Primitives.Rectangle
+      description: The rectangle to work with.
     - id: cellWidth
       type: System.Int32
+      description: The width of a cell used in converting.
     - id: cellHeight
       type: System.Int32
+      description: The height of a cell used in converting.
     return:
       type: SadRogue.Primitives.Rectangle
+      description: A new rectangle in pixels.
     content.vb: Public Shared Function ToPixels(rect As Rectangle, cellWidth As Integer, cellHeight As Integer) As Rectangle
   overload: SadConsole.RectangleExtensions.ToPixels*
   nameWithType.vb: RectangleExtensions.ToPixels(Rectangle, Integer, Integer)
@@ -104,15 +117,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Converts a rectangle from pixels to cells.
+  example: []
   syntax:
     content: public static Rectangle ToConsole(this Rectangle rect, Point fontSize)
     parameters:
     - id: rect
       type: SadRogue.Primitives.Rectangle
+      description: The rectangle to work with.
     - id: fontSize
       type: SadRogue.Primitives.Point
+      description: The font size used for translation.
     return:
       type: SadRogue.Primitives.Rectangle
+      description: A new rectangle in cell coordinates.
     content.vb: Public Shared Function ToConsole(rect As Rectangle, fontSize As Point) As Rectangle
   overload: SadConsole.RectangleExtensions.ToConsole*
 - uid: SadConsole.RectangleExtensions.ToConsole(SadRogue.Primitives.Rectangle,System.Int32,System.Int32)
@@ -130,23 +148,36 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Converts a rectangle from pixels to cells.
+  example: []
   syntax:
     content: public static Rectangle ToConsole(this Rectangle rect, int cellWidth, int cellHeight)
     parameters:
     - id: rect
       type: SadRogue.Primitives.Rectangle
+      description: The rectangle to work with.
     - id: cellWidth
       type: System.Int32
+      description: The width of a cell used in converting.
     - id: cellHeight
       type: System.Int32
+      description: The height of a cell used in converting.
     return:
       type: SadRogue.Primitives.Rectangle
+      description: A new rectangle in cell coordinates.
     content.vb: Public Shared Function ToConsole(rect As Rectangle, cellWidth As Integer, cellHeight As Integer) As Rectangle
   overload: SadConsole.RectangleExtensions.ToConsole*
   nameWithType.vb: RectangleExtensions.ToConsole(Rectangle, Integer, Integer)
   fullName.vb: SadConsole.RectangleExtensions.ToConsole(SadRogue.Primitives.Rectangle, Integer, Integer)
   name.vb: ToConsole(Rectangle, Integer, Integer)
 references:
+- uid: SadRogue.Primitives.Rectangle
+  commentId: T:SadRogue.Primitives.Rectangle
+  parent: SadRogue.Primitives
+  isExternal: true
+  name: Rectangle
+  nameWithType: Rectangle
+  fullName: SadRogue.Primitives.Rectangle
 - uid: SadConsole
   commentId: N:SadConsole
   isExternal: true
@@ -384,34 +415,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
-- uid: SadConsole.RectangleExtensions.ToPixels*
-  commentId: Overload:SadConsole.RectangleExtensions.ToPixels
-  isExternal: true
-  href: SadConsole.RectangleExtensions.html#SadConsole_RectangleExtensions_ToPixels_SadRogue_Primitives_Rectangle_SadRogue_Primitives_Point_
-  name: ToPixels
-  nameWithType: RectangleExtensions.ToPixels
-  fullName: SadConsole.RectangleExtensions.ToPixels
-- uid: SadRogue.Primitives.Rectangle
-  commentId: T:SadRogue.Primitives.Rectangle
-  parent: SadRogue.Primitives
-  isExternal: true
-  name: Rectangle
-  nameWithType: Rectangle
-  fullName: SadRogue.Primitives.Rectangle
-- uid: SadRogue.Primitives.Point
-  commentId: T:SadRogue.Primitives.Point
-  parent: SadRogue.Primitives
-  isExternal: true
-  name: Point
-  nameWithType: Point
-  fullName: SadRogue.Primitives.Point
 - uid: SadRogue.Primitives
   commentId: N:SadRogue.Primitives
   isExternal: true
@@ -439,6 +442,27 @@ references:
     name: Primitives
     isExternal: true
     href: SadRogue.Primitives.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SadConsole.RectangleExtensions.ToPixels*
+  commentId: Overload:SadConsole.RectangleExtensions.ToPixels
+  isExternal: true
+  href: SadConsole.RectangleExtensions.html#SadConsole_RectangleExtensions_ToPixels_SadRogue_Primitives_Rectangle_SadRogue_Primitives_Point_
+  name: ToPixels
+  nameWithType: RectangleExtensions.ToPixels
+  fullName: SadConsole.RectangleExtensions.ToPixels
+- uid: SadRogue.Primitives.Point
+  commentId: T:SadRogue.Primitives.Point
+  parent: SadRogue.Primitives
+  isExternal: true
+  name: Point
+  nameWithType: Point
+  fullName: SadRogue.Primitives.Point
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System

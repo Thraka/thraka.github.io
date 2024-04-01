@@ -80,6 +80,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Default colors used by control themes.
+  example: []
   syntax:
     content: public class Colors
     content.vb: Public Class Colors
@@ -107,6 +109,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Creates a color object based on the <xref href="SadConsole.UI.Colors.CreateAnsi" data-throw-if-not-resolved="false"></xref> scheme.
+  example: []
   syntax:
     content: public Colors()
     content.vb: Public Sub New()
@@ -128,11 +132,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Internal constructor to avoid creating any predefined colors.
+  example: []
   syntax:
     content: protected Colors(int _)
     parameters:
     - id: _
       type: System.Int32
+      description: Discarded parameter
     content.vb: Protected Sub New(_ As Integer)
   overload: SadConsole.UI.Colors.#ctor*
   nameWithType.vb: Colors.New(Integer)
@@ -152,6 +159,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Sets all Appearance* properties based on the existing colors and settings.
+  example: []
   syntax:
     content: public virtual void RebuildAppearances()
     content.vb: Public Overridable Sub RebuildAppearances()
@@ -170,15 +179,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Compares two colors and if they match, returns a color that is lighter or darker based on if <xref href="SadConsole.UI.Colors.IsLightTheme" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public Color GetOffColor(Color inColor, Color compareColor)
     parameters:
     - id: inColor
       type: SadRogue.Primitives.Color
+      description: The base color.
     - id: compareColor
       type: SadRogue.Primitives.Color
+      description: The color to compare with.
     return:
       type: SadRogue.Primitives.Color
+      description: A new color.
     content.vb: Public Function GetOffColor(inColor As Color, compareColor As Color) As Color
   overload: SadConsole.UI.Colors.GetOffColor*
 - uid: SadConsole.UI.Colors.NormalizeBlack(SadRogue.Primitives.Color)
@@ -195,13 +209,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Normalizes a dark color to at least R:25 G:25 B:25 A:255.
+  example: []
   syntax:
     content: public static Color NormalizeBlack(Color inColor)
     parameters:
     - id: inColor
       type: SadRogue.Primitives.Color
+      description: The color to check.
     return:
       type: SadRogue.Primitives.Color
+      description: A new color.
     content.vb: Public Shared Function NormalizeBlack(inColor As Color) As Color
   overload: SadConsole.UI.Colors.NormalizeBlack*
 - uid: SadConsole.UI.Colors.CopyTo(SadConsole.UI.Colors)
@@ -218,11 +236,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Copies the colors to another color object.
+  example: []
   syntax:
     content: public void CopyTo(Colors colors)
     parameters:
     - id: colors
       type: SadConsole.UI.Colors
+      description: The color object to copy to.
     content.vb: Public Sub CopyTo(colors As Colors)
   overload: SadConsole.UI.Colors.CopyTo*
 - uid: SadConsole.UI.Colors.FromColorName(SadConsole.UI.Colors.ColorNames)
@@ -239,13 +260,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Gets a color by enumeration.
+  example: []
   syntax:
     content: public Color FromColorName(Colors.ColorNames color)
     parameters:
     - id: color
       type: SadConsole.UI.Colors.ColorNames
+      description: The color to get.
     return:
       type: SadRogue.Primitives.Color
+      description: A color.
     content.vb: Public Function FromColorName(color As Colors.ColorNames) As Color
   overload: SadConsole.UI.Colors.FromColorName*
 - uid: SadConsole.UI.Colors.SetColorByName(SadConsole.UI.Colors.ColorNames,SadRogue.Primitives.Color)
@@ -262,13 +287,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Sets a named color to a specified value.
+  example: []
   syntax:
     content: public void SetColorByName(Colors.ColorNames name, Color color)
     parameters:
     - id: name
       type: SadConsole.UI.Colors.ColorNames
+      description: The name of the color.
     - id: color
       type: SadRogue.Primitives.Color
+      description: The color value.
     content.vb: Public Sub SetColorByName(name As Colors.ColorNames, color As Color)
   overload: SadConsole.UI.Colors.SetColorByName*
 - uid: SadConsole.UI.Colors.TryToColorName(SadRogue.Primitives.Color,SadConsole.UI.Colors.ColorNames@)
@@ -285,15 +314,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Tries to get the color name of the specified color.
+  example: []
   syntax:
     content: public bool TryToColorName(Color color, out Colors.ColorNames colorName)
     parameters:
     - id: color
       type: SadRogue.Primitives.Color
+      description: The color to match.
     - id: colorName
       type: SadConsole.UI.Colors.ColorNames
+      description: Set to the color enumeration value when the <code class="paramref">color</code> parameter matches a defined color.
     return:
       type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified color matched a defined color name; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Public Function TryToColorName(color As Color, colorName As Colors.ColorNames) As Boolean
   overload: SadConsole.UI.Colors.TryToColorName*
   nameWithType.vb: Colors.TryToColorName(Color, Colors.ColorNames)
@@ -313,6 +347,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Adds each color here to the <xref href="SadRogue.Primitives.ColorExtensions2.ColorMappings" data-throw-if-not-resolved="false"></xref> dictionary. Uses the format of "theme.property-name".
+  example: []
   syntax:
     content: public void AddToColorMappings()
     content.vb: Public Sub AddToColorMappings()
@@ -331,10 +367,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Returns a clone of this object.
+  example: []
   syntax:
     content: public Colors Clone()
     return:
       type: SadConsole.UI.Colors
+      description: A new Colors object.
     content.vb: Public Function Clone() As Colors
   overload: SadConsole.UI.Colors.Clone*
 - uid: SadConsole.UI.Colors.CreateSadConsoleBlue
@@ -351,10 +390,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Creates a new colors object with the default blue colors theme of SadConsole.
+  example: []
   syntax:
     content: public static Colors CreateSadConsoleBlue()
     return:
       type: SadConsole.UI.Colors
+      description: ''
     content.vb: Public Shared Function CreateSadConsoleBlue() As Colors
   overload: SadConsole.UI.Colors.CreateSadConsoleBlue*
 - uid: SadConsole.UI.Colors.CreateAnsi
@@ -371,10 +413,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Creates a new colors object with a standard black-based theme.
+  example: []
   syntax:
     content: public static Colors CreateAnsi()
     return:
       type: SadConsole.UI.Colors
+      description: ''
     content.vb: Public Shared Function CreateAnsi() As Colors
   overload: SadConsole.UI.Colors.CreateAnsi*
 - uid: SadConsole.UI.Colors.Default
@@ -391,6 +436,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The default colors used by controls and your code.
+  example: []
   syntax:
     content: public static Colors Default { get; set; }
     parameters: []
@@ -412,6 +459,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Status flag to indicate that the primary backgrounds of the controls are considered light rather than dark.
+  example: []
   syntax:
     content: public bool IsLightTheme { get; set; }
     parameters: []
@@ -433,6 +482,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The name of this color scheme.
+  example: []
   syntax:
     content: public string Name { get; set; }
     parameters: []
@@ -454,6 +505,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The white color.
+  example: []
   syntax:
     content: public Color White { get; set; }
     parameters: []
@@ -475,6 +528,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The black color.
+  example: []
   syntax:
     content: public Color Black { get; set; }
     parameters: []
@@ -496,6 +551,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The gray color.
+  example: []
   syntax:
     content: public Color Gray { get; set; }
     parameters: []
@@ -517,6 +574,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The dark gray color.
+  example: []
   syntax:
     content: public Color GrayDark { get; set; }
     parameters: []
@@ -538,6 +597,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The red color.
+  example: []
   syntax:
     content: public Color Red { get; set; }
     parameters: []
@@ -559,6 +620,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The green color.
+  example: []
   syntax:
     content: public Color Green { get; set; }
     parameters: []
@@ -580,6 +643,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The blue color.
+  example: []
   syntax:
     content: public Color Blue { get; set; }
     parameters: []
@@ -601,6 +666,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The purple color.
+  example: []
   syntax:
     content: public Color Purple { get; set; }
     parameters: []
@@ -622,6 +689,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The yellow color.
+  example: []
   syntax:
     content: public Color Yellow { get; set; }
     parameters: []
@@ -643,6 +712,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The orange color.
+  example: []
   syntax:
     content: public Color Orange { get; set; }
     parameters: []
@@ -664,6 +735,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The cyan color.
+  example: []
   syntax:
     content: public Color Cyan { get; set; }
     parameters: []
@@ -685,6 +758,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The brown color.
+  example: []
   syntax:
     content: public Color Brown { get; set; }
     parameters: []
@@ -706,6 +781,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The dark red color.
+  example: []
   syntax:
     content: public Color RedDark { get; set; }
     parameters: []
@@ -727,6 +804,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The dark green color.
+  example: []
   syntax:
     content: public Color GreenDark { get; set; }
     parameters: []
@@ -748,6 +827,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The dark blue color.
+  example: []
   syntax:
     content: public Color BlueDark { get; set; }
     parameters: []
@@ -769,6 +850,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The dark purple color.
+  example: []
   syntax:
     content: public Color PurpleDark { get; set; }
     parameters: []
@@ -790,6 +873,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The dark yellow color.
+  example: []
   syntax:
     content: public Color YellowDark { get; set; }
     parameters: []
@@ -811,6 +896,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The dark orange color.
+  example: []
   syntax:
     content: public Color OrangeDark { get; set; }
     parameters: []
@@ -832,6 +919,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The dark cyan color.
+  example: []
   syntax:
     content: public Color CyanDark { get; set; }
     parameters: []
@@ -853,6 +942,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The dark brown color.
+  example: []
   syntax:
     content: public Color BrownDark { get; set; }
     parameters: []
@@ -874,6 +965,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The gold color.
+  example: []
   syntax:
     content: public Color Gold { get; set; }
     parameters: []
@@ -895,6 +988,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The dark gold color.
+  example: []
   syntax:
     content: public Color GoldDark { get; set; }
     parameters: []
@@ -916,6 +1011,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The silver color.
+  example: []
   syntax:
     content: public Color Silver { get; set; }
     parameters: []
@@ -937,6 +1034,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The dark silver color.
+  example: []
   syntax:
     content: public Color SilverDark { get; set; }
     parameters: []
@@ -958,6 +1057,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The bronze color.
+  example: []
   syntax:
     content: public Color Bronze { get; set; }
     parameters: []
@@ -979,6 +1080,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The dark bronze color.
+  example: []
   syntax:
     content: public Color BronzeDark { get; set; }
     parameters: []
@@ -1000,6 +1103,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The color used to darken the background when <see cref="o:UI.Window.Show"></see> is called and <xref href="SadConsole.UI.Window.IsModal" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>. Defaults to (20, 20, 20, 200).
+  example: []
   syntax:
     content: public Color ModalBackground { get; set; }
     parameters: []
@@ -1021,6 +1126,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Color used for titles.
+  example: []
   syntax:
     content: public AdjustableColor Title { get; set; }
     parameters: []
@@ -1042,6 +1149,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Color used in drawing lines.
+  example: []
   syntax:
     content: public AdjustableColor Lines { get; set; }
     parameters: []
@@ -1063,6 +1172,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Color of a control's foreground in normal state.
+  example: []
   syntax:
     content: public AdjustableColor ControlForegroundNormal { get; set; }
     parameters: []
@@ -1084,6 +1195,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Color of a control's foreground in disabled state.
+  example: []
   syntax:
     content: public AdjustableColor ControlForegroundDisabled { get; set; }
     parameters: []
@@ -1105,6 +1218,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Color of a control's foreground in mouse-over state.
+  example: []
   syntax:
     content: public AdjustableColor ControlForegroundMouseOver { get; set; }
     parameters: []
@@ -1126,6 +1241,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Color of a control's foreground in mouse-button-down state.
+  example: []
   syntax:
     content: public AdjustableColor ControlForegroundMouseDown { get; set; }
     parameters: []
@@ -1147,6 +1264,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Color of a control's foreground in selected state.
+  example: []
   syntax:
     content: public AdjustableColor ControlForegroundSelected { get; set; }
     parameters: []
@@ -1168,6 +1287,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Color of a control's foreground in focused state.
+  example: []
   syntax:
     content: public AdjustableColor ControlForegroundFocused { get; set; }
     parameters: []
@@ -1189,6 +1310,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Color of a control's background in normal state.
+  example: []
   syntax:
     content: public AdjustableColor ControlBackgroundNormal { get; set; }
     parameters: []
@@ -1210,6 +1333,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Color of a control's background in disabled state.
+  example: []
   syntax:
     content: public AdjustableColor ControlBackgroundDisabled { get; set; }
     parameters: []
@@ -1231,6 +1356,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Color of a control's background in normal state.
+  example: []
   syntax:
     content: public AdjustableColor ControlBackgroundMouseOver { get; set; }
     parameters: []
@@ -1252,6 +1379,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Color of a control's background in mouse-button-down state.
+  example: []
   syntax:
     content: public AdjustableColor ControlBackgroundMouseDown { get; set; }
     parameters: []
@@ -1273,6 +1402,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Color of a control's background in selected state.
+  example: []
   syntax:
     content: public AdjustableColor ControlBackgroundSelected { get; set; }
     parameters: []
@@ -1294,6 +1425,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Color of a control's background in focused state.
+  example: []
   syntax:
     content: public AdjustableColor ControlBackgroundFocused { get; set; }
     parameters: []
@@ -1315,6 +1448,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Color of the control host's foreground.
+  example: []
   syntax:
     content: public AdjustableColor ControlHostForeground { get; set; }
     parameters: []
@@ -1336,6 +1471,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: Color of the control host's background.
+  example: []
   syntax:
     content: public AdjustableColor ControlHostBackground { get; set; }
     parameters: []
@@ -1357,6 +1494,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The appearance of a control when in the normal state.
+  example: []
   syntax:
     content: public ColoredGlyphBase Appearance_ControlNormal { get; set; }
     parameters: []
@@ -1378,6 +1517,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The appearance of a control when in the disabled state.
+  example: []
   syntax:
     content: public ColoredGlyphBase Appearance_ControlDisabled { get; set; }
     parameters: []
@@ -1399,6 +1540,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The appearance of a control when in the mouse-over state.
+  example: []
   syntax:
     content: public ColoredGlyphBase Appearance_ControlOver { get; set; }
     parameters: []
@@ -1420,6 +1563,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The appearance of a control when in the selected state.
+  example: []
   syntax:
     content: public ColoredGlyphBase Appearance_ControlSelected { get; set; }
     parameters: []
@@ -1441,6 +1586,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The appearance of a control when in the mouse-down state.
+  example: []
   syntax:
     content: public ColoredGlyphBase Appearance_ControlMouseDown { get; set; }
     parameters: []
@@ -1462,6 +1609,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI
+  summary: The appearance of a control when in the focused state.
+  example: []
   syntax:
     content: public ColoredGlyphBase Appearance_ControlFocused { get; set; }
     parameters: []
@@ -1734,6 +1883,27 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: SadConsole.UI.Colors.CreateAnsi
+  commentId: M:SadConsole.UI.Colors.CreateAnsi
+  isExternal: true
+  href: SadConsole.UI.Colors.html#SadConsole_UI_Colors_CreateAnsi
+  name: CreateAnsi()
+  nameWithType: Colors.CreateAnsi()
+  fullName: SadConsole.UI.Colors.CreateAnsi()
+  spec.csharp:
+  - uid: SadConsole.UI.Colors.CreateAnsi
+    name: CreateAnsi
+    isExternal: true
+    href: SadConsole.UI.Colors.html#SadConsole_UI_Colors_CreateAnsi
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.Colors.CreateAnsi
+    name: CreateAnsi
+    isExternal: true
+    href: SadConsole.UI.Colors.html#SadConsole_UI_Colors_CreateAnsi
+  - name: (
+  - name: )
 - uid: SadConsole.UI.Colors.#ctor*
   commentId: Overload:SadConsole.UI.Colors.#ctor
   isExternal: true
@@ -1762,6 +1932,13 @@ references:
   name: RebuildAppearances
   nameWithType: Colors.RebuildAppearances
   fullName: SadConsole.UI.Colors.RebuildAppearances
+- uid: SadConsole.UI.Colors.IsLightTheme
+  commentId: P:SadConsole.UI.Colors.IsLightTheme
+  isExternal: true
+  href: SadConsole.UI.Colors.html#SadConsole_UI_Colors_IsLightTheme
+  name: IsLightTheme
+  nameWithType: Colors.IsLightTheme
+  fullName: SadConsole.UI.Colors.IsLightTheme
 - uid: SadConsole.UI.Colors.GetOffColor*
   commentId: Overload:SadConsole.UI.Colors.GetOffColor
   isExternal: true
@@ -1885,6 +2062,13 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: SadRogue.Primitives.ColorExtensions2.ColorMappings
+  commentId: F:SadRogue.Primitives.ColorExtensions2.ColorMappings
+  isExternal: true
+  href: SadRogue.Primitives.ColorExtensions2.html#SadRogue_Primitives_ColorExtensions2_ColorMappings
+  name: ColorMappings
+  nameWithType: ColorExtensions2.ColorMappings
+  fullName: SadRogue.Primitives.ColorExtensions2.ColorMappings
 - uid: SadConsole.UI.Colors.AddToColorMappings*
   commentId: Overload:SadConsole.UI.Colors.AddToColorMappings
   isExternal: true
@@ -2127,6 +2311,14 @@ references:
   name: BronzeDark
   nameWithType: Colors.BronzeDark
   fullName: SadConsole.UI.Colors.BronzeDark
+- uid: SadConsole.UI.Window.IsModal
+  commentId: P:SadConsole.UI.Window.IsModal
+  parent: SadConsole.UI.Window
+  isExternal: true
+  href: SadConsole.UI.Window.html#SadConsole_UI_Window_IsModal
+  name: IsModal
+  nameWithType: Window.IsModal
+  fullName: SadConsole.UI.Window.IsModal
 - uid: SadConsole.UI.Colors.ModalBackground*
   commentId: Overload:SadConsole.UI.Colors.ModalBackground
   isExternal: true
@@ -2134,6 +2326,14 @@ references:
   name: ModalBackground
   nameWithType: Colors.ModalBackground
   fullName: SadConsole.UI.Colors.ModalBackground
+- uid: SadConsole.UI.Window
+  commentId: T:SadConsole.UI.Window
+  parent: SadConsole.UI
+  isExternal: true
+  href: SadConsole.UI.Window.html
+  name: Window
+  nameWithType: Window
+  fullName: SadConsole.UI.Window
 - uid: SadConsole.UI.Colors.Title*
   commentId: Overload:SadConsole.UI.Colors.Title
   isExternal: true

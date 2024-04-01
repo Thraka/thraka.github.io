@@ -21,6 +21,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Represents a decorator (glyph and mirror) defined by a font.
+  example: []
   syntax:
     content: public readonly struct GlyphDefinition
     content.vb: Public Structure GlyphDefinition
@@ -45,13 +47,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Creates a new cell decorator instance.
+  example: []
   syntax:
     content: public GlyphDefinition(int glyph, Mirror mirror)
     parameters:
     - id: glyph
       type: System.Int32
+      description: ''
     - id: mirror
       type: SadConsole.Mirror
+      description: ''
     content.vb: Public Sub New(glyph As Integer, mirror As Mirror)
   overload: SadConsole.GlyphDefinition.#ctor*
   nameWithType.vb: GlyphDefinition.New(Integer, Mirror)
@@ -71,13 +77,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Creates a <xref href="SadConsole.CellDecorator" data-throw-if-not-resolved="false"></xref> from this definition.
+  example: []
   syntax:
     content: public CellDecorator CreateCellDecorator(Color foreground)
     parameters:
     - id: foreground
       type: SadRogue.Primitives.Color
+      description: The color of the decorator.
     return:
       type: SadConsole.CellDecorator
+      description: A new decorator instance.
     content.vb: Public Function CreateCellDecorator(foreground As Color) As CellDecorator
   overload: SadConsole.GlyphDefinition.CreateCellDecorator*
 - uid: SadConsole.GlyphDefinition.CreateCell(SadRogue.Primitives.Color,SadRogue.Primitives.Color)
@@ -94,15 +104,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Creates a <xref href="SadConsole.ColoredGlyphBase" data-throw-if-not-resolved="false"></xref> from this definition.
+  example: []
   syntax:
     content: public ColoredGlyphBase CreateCell(Color foreground, Color background)
     parameters:
     - id: foreground
       type: SadRogue.Primitives.Color
+      description: The foreground color of the cell.
     - id: background
       type: SadRogue.Primitives.Color
+      description: The background color of the cell.
     return:
       type: SadConsole.ColoredGlyphBase
+      description: A new cell instance.
     content.vb: Public Function CreateCell(foreground As Color, background As Color) As ColoredGlyphBase
   overload: SadConsole.GlyphDefinition.CreateCell*
 - uid: SadConsole.GlyphDefinition.Empty
@@ -119,6 +134,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Gets a glyph definition that has -1 for the glyph.
+  example: []
   syntax:
     content: public static GlyphDefinition Empty { get; }
     parameters: []
@@ -140,6 +157,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The glyph of the decorator.
+  example: []
   syntax:
     content: public int Glyph { get; init; }
     parameters: []
@@ -161,6 +180,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The mirror effect of the decorator.
+  example: []
   syntax:
     content: public Mirror Mirror { get; init; }
     parameters: []
@@ -422,6 +443,14 @@ references:
   name: Mirror
   nameWithType: Mirror
   fullName: SadConsole.Mirror
+- uid: SadConsole.CellDecorator
+  commentId: T:SadConsole.CellDecorator
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.CellDecorator.html
+  name: CellDecorator
+  nameWithType: CellDecorator
+  fullName: SadConsole.CellDecorator
 - uid: SadConsole.GlyphDefinition.CreateCellDecorator*
   commentId: Overload:SadConsole.GlyphDefinition.CreateCellDecorator
   isExternal: true
@@ -436,14 +465,6 @@ references:
   name: Color
   nameWithType: Color
   fullName: SadRogue.Primitives.Color
-- uid: SadConsole.CellDecorator
-  commentId: T:SadConsole.CellDecorator
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.CellDecorator.html
-  name: CellDecorator
-  nameWithType: CellDecorator
-  fullName: SadConsole.CellDecorator
 - uid: SadRogue.Primitives
   commentId: N:SadRogue.Primitives
   isExternal: true
@@ -471,13 +492,6 @@ references:
     name: Primitives
     isExternal: true
     href: SadRogue.Primitives.html
-- uid: SadConsole.GlyphDefinition.CreateCell*
-  commentId: Overload:SadConsole.GlyphDefinition.CreateCell
-  isExternal: true
-  href: SadConsole.GlyphDefinition.html#SadConsole_GlyphDefinition_CreateCell_SadRogue_Primitives_Color_SadRogue_Primitives_Color_
-  name: CreateCell
-  nameWithType: GlyphDefinition.CreateCell
-  fullName: SadConsole.GlyphDefinition.CreateCell
 - uid: SadConsole.ColoredGlyphBase
   commentId: T:SadConsole.ColoredGlyphBase
   parent: SadConsole
@@ -486,6 +500,13 @@ references:
   name: ColoredGlyphBase
   nameWithType: ColoredGlyphBase
   fullName: SadConsole.ColoredGlyphBase
+- uid: SadConsole.GlyphDefinition.CreateCell*
+  commentId: Overload:SadConsole.GlyphDefinition.CreateCell
+  isExternal: true
+  href: SadConsole.GlyphDefinition.html#SadConsole_GlyphDefinition_CreateCell_SadRogue_Primitives_Color_SadRogue_Primitives_Color_
+  name: CreateCell
+  nameWithType: GlyphDefinition.CreateCell
+  fullName: SadConsole.GlyphDefinition.CreateCell
 - uid: SadConsole.GlyphDefinition.Empty*
   commentId: Overload:SadConsole.GlyphDefinition.Empty
   isExternal: true

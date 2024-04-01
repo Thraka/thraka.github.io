@@ -6,7 +6,7 @@ items:
   parent: SadConsole.Configuration
   children:
   - SadConsole.Configuration.StartingConsoleConfig.#ctor
-  - SadConsole.Configuration.StartingConsoleConfig.Run(SadConsole.Configuration.Builder,SadConsole.Game)
+  - SadConsole.Configuration.StartingConsoleConfig.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
   langs:
   - csharp
   - vb
@@ -15,7 +15,7 @@ items:
   fullName: SadConsole.Configuration.StartingConsoleConfig
   type: Class
   assemblies:
-  - SadConsole.Host.MonoGame
+  - SadConsole
   namespace: SadConsole.Configuration
   syntax:
     content: 'public class StartingConsoleConfig : IConfigurator'
@@ -32,34 +32,34 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
-- uid: SadConsole.Configuration.StartingConsoleConfig.Run(SadConsole.Configuration.Builder,SadConsole.Game)
-  commentId: M:SadConsole.Configuration.StartingConsoleConfig.Run(SadConsole.Configuration.Builder,SadConsole.Game)
-  id: Run(SadConsole.Configuration.Builder,SadConsole.Game)
+- uid: SadConsole.Configuration.StartingConsoleConfig.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
+  commentId: M:SadConsole.Configuration.StartingConsoleConfig.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
+  id: Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
   parent: SadConsole.Configuration.StartingConsoleConfig
   langs:
   - csharp
   - vb
-  name: Run(Builder, Game)
-  nameWithType: StartingConsoleConfig.Run(Builder, Game)
-  fullName: SadConsole.Configuration.StartingConsoleConfig.Run(SadConsole.Configuration.Builder, SadConsole.Game)
+  name: Run(Builder, GameHost)
+  nameWithType: StartingConsoleConfig.Run(Builder, GameHost)
+  fullName: SadConsole.Configuration.StartingConsoleConfig.Run(SadConsole.Configuration.Builder, SadConsole.GameHost)
   type: Method
   assemblies:
-  - SadConsole.Host.MonoGame
+  - SadConsole
   namespace: SadConsole.Configuration
   summary: Called by the <xref href="SadConsole.Configuration.Builder" data-throw-if-not-resolved="false"></xref>; Runs the specific config for this object.
   example: []
   syntax:
-    content: public void Run(Builder configBuilder, Game game)
+    content: public void Run(Builder configBuilder, GameHost game)
     parameters:
     - id: configBuilder
       type: SadConsole.Configuration.Builder
     - id: game
-      type: SadConsole.Game
+      type: SadConsole.GameHost
       description: The game object being created.
-    content.vb: Public Sub Run(configBuilder As Builder, game As Game)
+    content.vb: Public Sub Run(configBuilder As Builder, game As GameHost)
   overload: SadConsole.Configuration.StartingConsoleConfig.Run*
   implements:
-  - SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.Game)
+  - SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
 - uid: SadConsole.Configuration.StartingConsoleConfig.#ctor
   commentId: M:SadConsole.Configuration.StartingConsoleConfig.#ctor
   id: '#ctor'
@@ -72,7 +72,7 @@ items:
   fullName: SadConsole.Configuration.StartingConsoleConfig.StartingConsoleConfig()
   type: Constructor
   assemblies:
-  - SadConsole.Host.MonoGame
+  - SadConsole
   namespace: SadConsole.Configuration
   syntax:
     content: public StartingConsoleConfig()
@@ -365,23 +365,23 @@ references:
 - uid: SadConsole.Configuration.StartingConsoleConfig.Run*
   commentId: Overload:SadConsole.Configuration.StartingConsoleConfig.Run
   isExternal: true
-  href: SadConsole.Configuration.StartingConsoleConfig.html#SadConsole_Configuration_StartingConsoleConfig_Run_SadConsole_Configuration_Builder_SadConsole_Game_
+  href: SadConsole.Configuration.StartingConsoleConfig.html#SadConsole_Configuration_StartingConsoleConfig_Run_SadConsole_Configuration_Builder_SadConsole_GameHost_
   name: Run
   nameWithType: StartingConsoleConfig.Run
   fullName: SadConsole.Configuration.StartingConsoleConfig.Run
-- uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.Game)
-  commentId: M:SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.Game)
+- uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
+  commentId: M:SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
   parent: SadConsole.Configuration.IConfigurator
   isExternal: true
-  href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_Builder_SadConsole_Game_
-  name: Run(Builder, Game)
-  nameWithType: IConfigurator.Run(Builder, Game)
-  fullName: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder, SadConsole.Game)
+  href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_Builder_SadConsole_GameHost_
+  name: Run(Builder, GameHost)
+  nameWithType: IConfigurator.Run(Builder, GameHost)
+  fullName: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder, SadConsole.GameHost)
   spec.csharp:
-  - uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.Game)
+  - uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
     name: Run
     isExternal: true
-    href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_Builder_SadConsole_Game_
+    href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_Builder_SadConsole_GameHost_
   - name: (
   - uid: SadConsole.Configuration.Builder
     name: Builder
@@ -389,16 +389,16 @@ references:
     href: SadConsole.Configuration.Builder.html
   - name: ','
   - name: " "
-  - uid: SadConsole.Game
-    name: Game
+  - uid: SadConsole.GameHost
+    name: GameHost
     isExternal: true
-    href: SadConsole.Game.html
+    href: SadConsole.GameHost.html
   - name: )
   spec.vb:
-  - uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.Game)
+  - uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
     name: Run
     isExternal: true
-    href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_Builder_SadConsole_Game_
+    href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_Builder_SadConsole_GameHost_
   - name: (
   - uid: SadConsole.Configuration.Builder
     name: Builder
@@ -406,19 +406,19 @@ references:
     href: SadConsole.Configuration.Builder.html
   - name: ','
   - name: " "
-  - uid: SadConsole.Game
-    name: Game
+  - uid: SadConsole.GameHost
+    name: GameHost
     isExternal: true
-    href: SadConsole.Game.html
+    href: SadConsole.GameHost.html
   - name: )
-- uid: SadConsole.Game
-  commentId: T:SadConsole.Game
+- uid: SadConsole.GameHost
+  commentId: T:SadConsole.GameHost
   parent: SadConsole
   isExternal: true
-  href: SadConsole.Game.html
-  name: Game
-  nameWithType: Game
-  fullName: SadConsole.Game
+  href: SadConsole.GameHost.html
+  name: GameHost
+  nameWithType: GameHost
+  fullName: SadConsole.GameHost
 - uid: SadConsole
   commentId: N:SadConsole
   isExternal: true

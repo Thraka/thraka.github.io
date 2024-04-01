@@ -28,6 +28,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Base class for creating a button type control.
+  example: []
   syntax:
     content: >-
       [DataContract]
@@ -130,6 +132,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The alignment of the <xref href="SadConsole.UI.Controls.ButtonBase._text" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: protected HorizontalAlignment _textAlignment
     return:
@@ -149,13 +153,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Creates a new button control.
+  example: []
   syntax:
     content: protected ButtonBase(int width, int height)
     parameters:
     - id: width
       type: System.Int32
+      description: Width of the button.
     - id: height
       type: System.Int32
+      description: Height of the button.
     content.vb: Protected Sub New(width As Integer, height As Integer)
   overload: SadConsole.UI.Controls.ButtonBase.#ctor*
   nameWithType.vb: ButtonBase.New(Integer, Integer)
@@ -175,6 +183,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Creates a new button control with <xref href="SadConsole.UI.Controls.ButtonBase.AutoSize" data-throw-if-not-resolved="false"></xref> set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
+  example: []
   syntax:
     content: protected ButtonBase()
     content.vb: Protected Sub New()
@@ -196,6 +206,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Raises the <xref href="SadConsole.UI.Controls.ButtonBase.Click" data-throw-if-not-resolved="false"></xref> event.
+  example: []
   syntax:
     content: protected virtual void OnClick()
     content.vb: Protected Overridable Sub OnClick()
@@ -214,11 +226,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Simulates a mouse click on the button. Optionally, focuses the button prior to simulating the click.
+  example: []
   syntax:
     content: public void InvokeClick(bool focus = false)
     parameters:
     - id: focus
       type: System.Boolean
+      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, focuses the button before clicking.
     content.vb: Public Sub InvokeClick(focus As Boolean = False)
   overload: SadConsole.UI.Controls.ButtonBase.InvokeClick*
   nameWithType.vb: ButtonBase.InvokeClick(Boolean)
@@ -238,12 +253,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Detects if the SPACE or ENTER keys are pressed and calls the <xref href="SadConsole.UI.Controls.ButtonBase.Click" data-throw-if-not-resolved="false"></xref> method.
   example: []
   syntax:
     content: public override bool ProcessKeyboard(Keyboard info)
     parameters:
     - id: info
       type: SadConsole.Input.Keyboard
+      description: ''
     return:
       type: System.Boolean
     content.vb: Public Overrides Function ProcessKeyboard(info As Keyboard) As Boolean
@@ -263,12 +280,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Called as the mouse moves around the control area. Raises the MouseMove event and calls the <xref href="SadConsole.UI.Controls.ControlBase.DetermineState" data-throw-if-not-resolved="false"></xref> method.
   example: []
   syntax:
     content: protected override void OnMouseIn(ControlBase.ControlMouseState state)
     parameters:
     - id: state
       type: SadConsole.UI.Controls.ControlBase.ControlMouseState
+      description: The current mouse data
     content.vb: Protected Overrides Sub OnMouseIn(state As ControlBase.ControlMouseState)
   overridden: SadConsole.UI.Controls.ControlBase.OnMouseIn(SadConsole.UI.Controls.ControlBase.ControlMouseState)
   overload: SadConsole.UI.Controls.ButtonBase.OnMouseIn*
@@ -286,12 +305,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Called when the left mouse button is clicked. Raises the MouseButtonClicked event and calls the <xref href="SadConsole.UI.Controls.ControlBase.DetermineState" data-throw-if-not-resolved="false"></xref> method.
   example: []
   syntax:
     content: protected override void OnLeftMouseClicked(ControlBase.ControlMouseState state)
     parameters:
     - id: state
       type: SadConsole.UI.Controls.ControlBase.ControlMouseState
+      description: The current mouse data
     content.vb: Protected Overrides Sub OnLeftMouseClicked(state As ControlBase.ControlMouseState)
   overridden: SadConsole.UI.Controls.ControlBase.OnLeftMouseClicked(SadConsole.UI.Controls.ControlBase.ControlMouseState)
   overload: SadConsole.UI.Controls.ButtonBase.OnLeftMouseClicked*
@@ -309,12 +330,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Called when the mouse exits the area of the control. Raises the MouseExit event and calls the <xref href="SadConsole.UI.Controls.ControlBase.DetermineState" data-throw-if-not-resolved="false"></xref> method.
   example: []
   syntax:
     content: protected override void OnMouseExit(ControlBase.ControlMouseState state)
     parameters:
     - id: state
       type: SadConsole.UI.Controls.ControlBase.ControlMouseState
+      description: The current mouse data
     content.vb: Protected Overrides Sub OnMouseExit(state As ControlBase.ControlMouseState)
   overridden: SadConsole.UI.Controls.ControlBase.OnMouseExit(SadConsole.UI.Controls.ControlBase.ControlMouseState)
   overload: SadConsole.UI.Controls.ButtonBase.OnMouseExit*
@@ -332,6 +355,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The text displayed on the control.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -363,6 +388,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, automatically resizes the surface to fit the <xref href="SadConsole.UI.Controls.ButtonBase.Text" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -394,6 +421,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The alignment of the text, left, center, or right.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -425,6 +454,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Raised when the button is clicked.
+  example: []
   syntax:
     content: public event EventHandler? Click
     return:
@@ -1645,6 +1676,9 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: SadConsole.UI.Controls.ButtonBase._text
+  commentId: F:SadConsole.UI.Controls.ButtonBase._text
+  isExternal: true
 - uid: SadConsole.HorizontalAlignment
   commentId: T:SadConsole.HorizontalAlignment
   parent: SadConsole
@@ -1681,6 +1715,30 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: SadConsole.UI.Controls.ButtonBase.AutoSize
+  commentId: P:SadConsole.UI.Controls.ButtonBase.AutoSize
+  parent: SadConsole.UI.Controls.ButtonBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ButtonBase.html#SadConsole_UI_Controls_ButtonBase_AutoSize
+  name: AutoSize
+  nameWithType: ButtonBase.AutoSize
+  fullName: SadConsole.UI.Controls.ButtonBase.AutoSize
+- uid: SadConsole.UI.Controls.ButtonBase
+  commentId: T:SadConsole.UI.Controls.ButtonBase
+  parent: SadConsole.UI.Controls
+  isExternal: true
+  href: SadConsole.UI.Controls.ButtonBase.html
+  name: ButtonBase
+  nameWithType: ButtonBase
+  fullName: SadConsole.UI.Controls.ButtonBase
+- uid: SadConsole.UI.Controls.ButtonBase.Click
+  commentId: E:SadConsole.UI.Controls.ButtonBase.Click
+  parent: SadConsole.UI.Controls.ButtonBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ButtonBase.html#SadConsole_UI_Controls_ButtonBase_Click
+  name: Click
+  nameWithType: ButtonBase.Click
+  fullName: SadConsole.UI.Controls.ButtonBase.Click
 - uid: SadConsole.UI.Controls.ButtonBase.OnClick*
   commentId: Overload:SadConsole.UI.Controls.ButtonBase.OnClick
   isExternal: true
@@ -1935,6 +1993,14 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
+- uid: SadConsole.UI.Controls.ButtonBase.Text
+  commentId: P:SadConsole.UI.Controls.ButtonBase.Text
+  parent: SadConsole.UI.Controls.ButtonBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ButtonBase.html#SadConsole_UI_Controls_ButtonBase_Text
+  name: Text
+  nameWithType: ButtonBase.Text
+  fullName: SadConsole.UI.Controls.ButtonBase.Text
 - uid: SadConsole.UI.Controls.ButtonBase.AutoSize*
   commentId: Overload:SadConsole.UI.Controls.ButtonBase.AutoSize
   isExternal: true

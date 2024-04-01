@@ -38,6 +38,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Defines the parameters for generating a shape with a border and fill glyphs.
+  example: []
   syntax:
     content: public class ShapeParameters
     content.vb: Public Class ShapeParameters
@@ -65,37 +67,53 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: A set of parameters that defines how a shape should be drawn.
+  example: []
   syntax:
     content: public ShapeParameters(bool hasBorder, ColoredGlyphBase? borderGlyph, bool ignoreBorderForeground, bool ignoreBorderBackground, bool ignoreBorderGlyph, bool ignoreBorderMirror, bool hasFill, ColoredGlyphBase? fillGlyph, bool ignoreFillForeground, bool ignoreFillBackground, bool ignoreFillGlyph, bool ignoreFillMirror, int[]? boxBorderStyle, ColoredGlyphBase[]? boxBorderStyleGlyphs)
     parameters:
     - id: hasBorder
       type: System.Boolean
+      description: When true, indicates the shape has a border.
     - id: borderGlyph
       type: SadConsole.ColoredGlyphBase
+      description: When not null, uses a single glyph to draw the border.
     - id: ignoreBorderForeground
       type: System.Boolean
+      description: When true, ignores the border foreground color.
     - id: ignoreBorderBackground
       type: System.Boolean
+      description: When true, ignores the border background color.
     - id: ignoreBorderGlyph
       type: System.Boolean
+      description: When true, ignores the border glyph.
     - id: ignoreBorderMirror
       type: System.Boolean
+      description: When true, ignores the border mirror.
     - id: hasFill
       type: System.Boolean
+      description: When true, indicates this shape is filled.
     - id: fillGlyph
       type: SadConsole.ColoredGlyphBase
+      description: When not null, this is the appearance of the fill.
     - id: ignoreFillForeground
       type: System.Boolean
+      description: When true, ignores the fill foreground color.
     - id: ignoreFillBackground
       type: System.Boolean
+      description: When true, ignores the fill background color.
     - id: ignoreFillGlyph
       type: System.Boolean
+      description: When true, ignores the fill glyph.
     - id: ignoreFillMirror
       type: System.Boolean
+      description: When true, ignores the fill mirror.
     - id: boxBorderStyle
       type: System.Int32[]
+      description: When not null, the connected lines used for the border.
     - id: boxBorderStyleGlyphs
       type: SadConsole.ColoredGlyphBase[]
+      description: When not null, the appearances used for each part of the connected line.
     content.vb: Public Sub New(hasBorder As Boolean, borderGlyph As ColoredGlyphBase, ignoreBorderForeground As Boolean, ignoreBorderBackground As Boolean, ignoreBorderGlyph As Boolean, ignoreBorderMirror As Boolean, hasFill As Boolean, fillGlyph As ColoredGlyphBase, ignoreFillForeground As Boolean, ignoreFillBackground As Boolean, ignoreFillGlyph As Boolean, ignoreFillMirror As Boolean, boxBorderStyle As Integer(), boxBorderStyleGlyphs As ColoredGlyphBase())
   overload: SadConsole.ShapeParameters.#ctor*
   nameWithType.vb: ShapeParameters.New(Boolean, ColoredGlyphBase, Boolean, Boolean, Boolean, Boolean, Boolean, ColoredGlyphBase, Boolean, Boolean, Boolean, Boolean, Integer(), ColoredGlyphBase())
@@ -115,21 +133,29 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Creates a shape parameters object that describes a border.
+  example: []
   syntax:
     content: public static ShapeParameters CreateBorder(ColoredGlyphBase borderStyle, bool ignoreForeground = false, bool ignoreBackground = false, bool ignoreGlyph = false, bool ignoreMirror = false)
     parameters:
     - id: borderStyle
       type: SadConsole.ColoredGlyphBase
+      description: The appearance of the border.
     - id: ignoreForeground
       type: System.Boolean
+      description: When true, ignores the foreground of the <code class="paramref">borderStyle</code> value.
     - id: ignoreBackground
       type: System.Boolean
+      description: When true, ignores the background of the <code class="paramref">borderStyle</code> value.
     - id: ignoreGlyph
       type: System.Boolean
+      description: When true, ignores the glyph of the <code class="paramref">borderStyle</code> value.
     - id: ignoreMirror
       type: System.Boolean
+      description: When true, ignores the mirror of the <code class="paramref">borderStyle</code> value.
     return:
       type: SadConsole.ShapeParameters
+      description: The shape parameters.
     content.vb: Public Shared Function CreateBorder(borderStyle As ColoredGlyphBase, ignoreForeground As Boolean = False, ignoreBackground As Boolean = False, ignoreGlyph As Boolean = False, ignoreMirror As Boolean = False) As ShapeParameters
   overload: SadConsole.ShapeParameters.CreateBorder*
   nameWithType.vb: ShapeParameters.CreateBorder(ColoredGlyphBase, Boolean, Boolean, Boolean, Boolean)
@@ -149,31 +175,44 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Creates a shape parameters object that describes a filled object with an optional border.
+  example: []
   syntax:
     content: public static ShapeParameters CreateFilled(ColoredGlyphBase? borderStyle, ColoredGlyphBase fillStyle, bool ignoreBorderForeground = false, bool ignoreBorderBackground = false, bool ignoreBorderGlyph = false, bool ignoreBorderMirror = false, bool ignoreFillForeground = false, bool ignoreFillBackground = false, bool ignoreFillGlyph = false, bool ignoreFillMirror = false)
     parameters:
     - id: borderStyle
       type: SadConsole.ColoredGlyphBase
+      description: When not null, creates a border with this appearance.
     - id: fillStyle
       type: SadConsole.ColoredGlyphBase
+      description: The fill appearance.
     - id: ignoreBorderForeground
       type: System.Boolean
+      description: When true, ignores the foreground of the <code class="paramref">borderStyle</code> value.
     - id: ignoreBorderBackground
       type: System.Boolean
+      description: When true, ignores the background of the <code class="paramref">borderStyle</code> value.
     - id: ignoreBorderGlyph
       type: System.Boolean
+      description: When true, ignores the glyph of the <code class="paramref">borderStyle</code> value.
     - id: ignoreBorderMirror
       type: System.Boolean
+      description: When true, ignores the mirror of the <code class="paramref">borderStyle</code> value.
     - id: ignoreFillForeground
       type: System.Boolean
+      description: When true, ignores the foreground of the <code class="paramref">fillStyle</code> value.
     - id: ignoreFillBackground
       type: System.Boolean
+      description: When true, ignores the background of the <code class="paramref">fillStyle</code> value.
     - id: ignoreFillGlyph
       type: System.Boolean
+      description: When true, ignores the glyph of the <code class="paramref">fillStyle</code> value.
     - id: ignoreFillMirror
       type: System.Boolean
+      description: When true, ignores the mirror of the <code class="paramref">fillStyle</code> value.
     return:
       type: SadConsole.ShapeParameters
+      description: The shape parameters.
     content.vb: Public Shared Function CreateFilled(borderStyle As ColoredGlyphBase, fillStyle As ColoredGlyphBase, ignoreBorderForeground As Boolean = False, ignoreBorderBackground As Boolean = False, ignoreBorderGlyph As Boolean = False, ignoreBorderMirror As Boolean = False, ignoreFillForeground As Boolean = False, ignoreFillBackground As Boolean = False, ignoreFillGlyph As Boolean = False, ignoreFillMirror As Boolean = False) As ShapeParameters
   overload: SadConsole.ShapeParameters.CreateFilled*
   nameWithType.vb: ShapeParameters.CreateFilled(ColoredGlyphBase, ColoredGlyphBase, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean)
@@ -193,21 +232,29 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Creates a shape parameters object that describes a border using a connected line glyph set.
+  example: []
   syntax:
     content: public static ShapeParameters CreateStyledBox(int[] borderStyle, ColoredGlyphBase borderColors, bool ignoreBorderForeground = false, bool ignoreBorderBackground = false, bool ignoreBorderMirror = false)
     parameters:
     - id: borderStyle
       type: System.Int32[]
+      description: The connected line glyphs that make up the border.
     - id: borderColors
       type: SadConsole.ColoredGlyphBase
+      description: The appearance colors of the border.
     - id: ignoreBorderForeground
       type: System.Boolean
+      description: When true, ignores the foreground of the <code class="paramref">borderColors</code> value.
     - id: ignoreBorderBackground
       type: System.Boolean
+      description: When true, ignores the background of the <code class="paramref">borderColors</code> value.
     - id: ignoreBorderMirror
       type: System.Boolean
+      description: When true, ignores the mirror of the <code class="paramref">borderColors</code> value.
     return:
       type: SadConsole.ShapeParameters
+      description: The shape parameters.
     content.vb: Public Shared Function CreateStyledBox(borderStyle As Integer(), borderColors As ColoredGlyphBase, ignoreBorderForeground As Boolean = False, ignoreBorderBackground As Boolean = False, ignoreBorderMirror As Boolean = False) As ShapeParameters
   overload: SadConsole.ShapeParameters.CreateStyledBox*
   nameWithType.vb: ShapeParameters.CreateStyledBox(Integer(), ColoredGlyphBase, Boolean, Boolean, Boolean)
@@ -227,31 +274,44 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Creates a shape parameters object that describes a filled box using a connected line line glyph set for the border.
+  example: []
   syntax:
     content: public static ShapeParameters CreateStyledBoxFilled(int[] borderStyle, ColoredGlyphBase borderColors, ColoredGlyphBase fillStyle, bool ignoreBorderForeground = false, bool ignoreBorderBackground = false, bool ignoreBorderMirror = false, bool ignoreFillForeground = false, bool ignoreFillBackground = false, bool ignoreFillGlyph = false, bool ignoreFillMirror = false)
     parameters:
     - id: borderStyle
       type: System.Int32[]
+      description: The connected line glyphs that make up the border.
     - id: borderColors
       type: SadConsole.ColoredGlyphBase
+      description: The appearance colors of the border.
     - id: fillStyle
       type: SadConsole.ColoredGlyphBase
+      description: The appearance colors of the fill.
     - id: ignoreBorderForeground
       type: System.Boolean
+      description: When true, ignores the foreground of the <code class="paramref">borderColors</code> value.
     - id: ignoreBorderBackground
       type: System.Boolean
+      description: When true, ignores the background of the <code class="paramref">borderColors</code> value.
     - id: ignoreBorderMirror
       type: System.Boolean
+      description: When true, ignores the mirror of the <code class="paramref">borderColors</code> value.
     - id: ignoreFillForeground
       type: System.Boolean
+      description: When true, ignores the foreground of the <code class="paramref">fillStyle</code> value.
     - id: ignoreFillBackground
       type: System.Boolean
+      description: When true, ignores the background of the <code class="paramref">fillStyle</code> value.
     - id: ignoreFillGlyph
       type: System.Boolean
+      description: When true, ignores the glyph of the <code class="paramref">fillStyle</code> value.
     - id: ignoreFillMirror
       type: System.Boolean
+      description: When true, ignores the mirror of the <code class="paramref">fillStyle</code> value.
     return:
       type: SadConsole.ShapeParameters
+      description: The shape parameters.
     content.vb: Public Shared Function CreateStyledBoxFilled(borderStyle As Integer(), borderColors As ColoredGlyphBase, fillStyle As ColoredGlyphBase, ignoreBorderForeground As Boolean = False, ignoreBorderBackground As Boolean = False, ignoreBorderMirror As Boolean = False, ignoreFillForeground As Boolean = False, ignoreFillBackground As Boolean = False, ignoreFillGlyph As Boolean = False, ignoreFillMirror As Boolean = False) As ShapeParameters
   overload: SadConsole.ShapeParameters.CreateStyledBoxFilled*
   nameWithType.vb: ShapeParameters.CreateStyledBoxFilled(Integer(), ColoredGlyphBase, ColoredGlyphBase, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean)
@@ -271,19 +331,26 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Creates a shape parameters object that describes an unfilled box using a connected line line glyph set for the border.
+  example: []
   syntax:
     content: public static ShapeParameters CreateStyledBoxExplicit(ColoredGlyphBase[] borderGlyphs, bool ignoreBorderForeground = false, bool ignoreBorderBackground = false, bool ignoreBorderMirror = true)
     parameters:
     - id: borderGlyphs
       type: SadConsole.ColoredGlyphBase[]
+      description: The appearances used for each part of a connected line, specifically the glyph.
     - id: ignoreBorderForeground
       type: System.Boolean
+      description: When true, ignores the foreground of the <code class="paramref">borderGlyphs</code> value.
     - id: ignoreBorderBackground
       type: System.Boolean
+      description: When true, ignores the background of the <code class="paramref">borderGlyphs</code> value.
     - id: ignoreBorderMirror
       type: System.Boolean
+      description: When true, ignores the mirror of the <code class="paramref">borderGlyphs</code> value.
     return:
       type: SadConsole.ShapeParameters
+      description: The shape parameters.
     content.vb: Public Shared Function CreateStyledBoxExplicit(borderGlyphs As ColoredGlyphBase(), ignoreBorderForeground As Boolean = False, ignoreBorderBackground As Boolean = False, ignoreBorderMirror As Boolean = True) As ShapeParameters
   overload: SadConsole.ShapeParameters.CreateStyledBoxExplicit*
   nameWithType.vb: ShapeParameters.CreateStyledBoxExplicit(ColoredGlyphBase(), Boolean, Boolean, Boolean)
@@ -303,31 +370,44 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Creates a shape parameters object that describes a filled box using a connected line line glyph set for the border.
+  example: []
   syntax:
     content: public static ShapeParameters CreateStyledBoxExplicitFilled(ColoredGlyphBase[] borderGlyphs, ColoredGlyphBase fillStyle, bool ignoreBorderForeground = false, bool ignoreBorderBackground = false, bool ignoreBorderGlyph = false, bool ignoreBorderMirror = true, bool ignoreFillForeground = false, bool ignoreFillBackground = false, bool ignoreFillGlyph = false, bool ignoreFillMirror = false)
     parameters:
     - id: borderGlyphs
       type: SadConsole.ColoredGlyphBase[]
+      description: The appearances used for each part of a connected line, specifically the glyph.
     - id: fillStyle
       type: SadConsole.ColoredGlyphBase
+      description: The appearance colors of the fill.
     - id: ignoreBorderForeground
       type: System.Boolean
+      description: When true, ignores the foreground of the <code class="paramref">borderGlyphs</code> value.
     - id: ignoreBorderBackground
       type: System.Boolean
+      description: When true, ignores the background of the <code class="paramref">borderGlyphs</code> value.
     - id: ignoreBorderGlyph
       type: System.Boolean
+      description: When true, ignores the glyph of the <code class="paramref">borderGlyphs</code> value.
     - id: ignoreBorderMirror
       type: System.Boolean
+      description: When true, ignores the mirror of the <code class="paramref">borderGlyphs</code> value.
     - id: ignoreFillForeground
       type: System.Boolean
+      description: When true, ignores the foreground of the <code class="paramref">fillStyle</code> value.
     - id: ignoreFillBackground
       type: System.Boolean
+      description: When true, ignores the background of the <code class="paramref">fillStyle</code> value.
     - id: ignoreFillGlyph
       type: System.Boolean
+      description: When true, ignores the glyph of the <code class="paramref">fillStyle</code> value.
     - id: ignoreFillMirror
       type: System.Boolean
+      description: When true, ignores the mirror of the <code class="paramref">fillStyle</code> value.
     return:
       type: SadConsole.ShapeParameters
+      description: The shape parameters.
     content.vb: Public Shared Function CreateStyledBoxExplicitFilled(borderGlyphs As ColoredGlyphBase(), fillStyle As ColoredGlyphBase, ignoreBorderForeground As Boolean = False, ignoreBorderBackground As Boolean = False, ignoreBorderGlyph As Boolean = False, ignoreBorderMirror As Boolean = True, ignoreFillForeground As Boolean = False, ignoreFillBackground As Boolean = False, ignoreFillGlyph As Boolean = False, ignoreFillMirror As Boolean = False) As ShapeParameters
   overload: SadConsole.ShapeParameters.CreateStyledBoxExplicitFilled*
   nameWithType.vb: ShapeParameters.CreateStyledBoxExplicitFilled(ColoredGlyphBase(), ColoredGlyphBase, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean)
@@ -347,13 +427,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Creates a box using the <xref href="SadConsole.ICellSurface.ConnectedLineThin" data-throw-if-not-resolved="false"></xref> connected line style.
+  example: []
   syntax:
     content: public static ShapeParameters CreateStyledBoxThin(Color foreground)
     parameters:
     - id: foreground
       type: SadRogue.Primitives.Color
+      description: The foreground color of the box.
     return:
       type: SadConsole.ShapeParameters
+      description: The shape parameters.
     content.vb: Public Shared Function CreateStyledBoxThin(foreground As Color) As ShapeParameters
   overload: SadConsole.ShapeParameters.CreateStyledBoxThin*
 - uid: SadConsole.ShapeParameters.CreateStyledBoxThick(SadRogue.Primitives.Color)
@@ -370,13 +454,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Creates a box using the <xref href="SadConsole.ICellSurface.ConnectedLineThick" data-throw-if-not-resolved="false"></xref> connected line style.
+  example: []
   syntax:
     content: public static ShapeParameters CreateStyledBoxThick(Color foreground)
     parameters:
     - id: foreground
       type: SadRogue.Primitives.Color
+      description: The foreground color of the box.
     return:
       type: SadConsole.ShapeParameters
+      description: The shape parameters.
     content.vb: Public Shared Function CreateStyledBoxThick(foreground As Color) As ShapeParameters
   overload: SadConsole.ShapeParameters.CreateStyledBoxThick*
 - uid: SadConsole.ShapeParameters.HasBorder
@@ -393,6 +481,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: When true, to indicate the shape contains a border.
+  example: []
   syntax:
     content: public bool HasBorder { get; set; }
     parameters: []
@@ -414,6 +504,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: When true, indicates this shape is filled.
+  example: []
   syntax:
     content: public bool HasFill { get; set; }
     parameters: []
@@ -435,6 +527,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: When true, ignores the fill foreground color.
+  example: []
   syntax:
     content: public bool IgnoreFillForeground { get; set; }
     parameters: []
@@ -456,6 +550,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: When true, ignores the fill background color.
+  example: []
   syntax:
     content: public bool IgnoreFillBackground { get; set; }
     parameters: []
@@ -477,6 +573,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: When true, ignores the fill glyph.
+  example: []
   syntax:
     content: public bool IgnoreFillGlyph { get; set; }
     parameters: []
@@ -498,6 +596,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: When true, ignores the fill mirror.
+  example: []
   syntax:
     content: public bool IgnoreFillMirror { get; set; }
     parameters: []
@@ -519,6 +619,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: When true, ignores the border foreground color.
+  example: []
   syntax:
     content: public bool IgnoreBorderForeground { get; set; }
     parameters: []
@@ -540,6 +642,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: When true, ignores the border background color.
+  example: []
   syntax:
     content: public bool IgnoreBorderBackground { get; set; }
     parameters: []
@@ -561,6 +665,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: When true, ignores the border glyph.
+  example: []
   syntax:
     content: public bool IgnoreBorderGlyph { get; set; }
     parameters: []
@@ -582,6 +688,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: When true, ignores the border mirror.
+  example: []
   syntax:
     content: public bool IgnoreBorderMirror { get; set; }
     parameters: []
@@ -603,6 +711,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The fill appearance.
+  example: []
   syntax:
     content: public ColoredGlyphBase? FillGlyph { get; set; }
     parameters: []
@@ -624,6 +734,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The connected lines used for the border.
+  example: []
   syntax:
     content: public int[]? BoxBorderStyle { get; set; }
     parameters: []
@@ -645,6 +757,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The appearances used for each part of the connected line.
+  example: []
   syntax:
     content: public ColoredGlyphBase[]? BoxBorderStyleGlyphs { get; set; }
     parameters: []
@@ -666,6 +780,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: A single glyph used for drawing the border.
+  example: []
   syntax:
     content: public ColoredGlyphBase? BorderGlyph { get; set; }
     parameters: []
@@ -1043,6 +1159,13 @@ references:
   name: CreateStyledBoxExplicitFilled
   nameWithType: ShapeParameters.CreateStyledBoxExplicitFilled
   fullName: SadConsole.ShapeParameters.CreateStyledBoxExplicitFilled
+- uid: SadConsole.ICellSurface.ConnectedLineThin
+  commentId: P:SadConsole.ICellSurface.ConnectedLineThin
+  isExternal: true
+  href: SadConsole.ICellSurface.html#SadConsole_ICellSurface_ConnectedLineThin
+  name: ConnectedLineThin
+  nameWithType: ICellSurface.ConnectedLineThin
+  fullName: SadConsole.ICellSurface.ConnectedLineThin
 - uid: SadConsole.ShapeParameters.CreateStyledBoxThin*
   commentId: Overload:SadConsole.ShapeParameters.CreateStyledBoxThin
   isExternal: true
@@ -1084,6 +1207,13 @@ references:
     name: Primitives
     isExternal: true
     href: SadRogue.Primitives.html
+- uid: SadConsole.ICellSurface.ConnectedLineThick
+  commentId: P:SadConsole.ICellSurface.ConnectedLineThick
+  isExternal: true
+  href: SadConsole.ICellSurface.html#SadConsole_ICellSurface_ConnectedLineThick
+  name: ConnectedLineThick
+  nameWithType: ICellSurface.ConnectedLineThick
+  fullName: SadConsole.ICellSurface.ConnectedLineThick
 - uid: SadConsole.ShapeParameters.CreateStyledBoxThick*
   commentId: Overload:SadConsole.ShapeParameters.CreateStyledBoxThick
   isExternal: true

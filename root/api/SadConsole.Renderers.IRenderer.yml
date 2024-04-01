@@ -23,6 +23,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Renderers
+  summary: Draws a surface.
+  example: []
   syntax:
     content: 'public interface IRenderer : IDisposable'
     content.vb: Public Interface IRenderer Inherits IDisposable
@@ -42,13 +44,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Renderers
+  summary: Refreshes a cached drawing state.
+  example: []
   syntax:
     content: void Refresh(IScreenSurface surface, bool force = false)
     parameters:
     - id: surface
       type: SadConsole.IScreenSurface
+      description: Target surface.
     - id: force
       type: System.Boolean
+      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates the refresh should happen even if a surface isn't dirty.
     content.vb: Sub Refresh(surface As IScreenSurface, force As Boolean = False)
   overload: SadConsole.Renderers.IRenderer.Refresh*
   nameWithType.vb: IRenderer.Refresh(IScreenSurface, Boolean)
@@ -68,11 +74,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Renderers
+  summary: Creates a drawcall in the drawing pipeline.
+  example: []
   syntax:
     content: void Render(IScreenSurface surface)
     parameters:
     - id: surface
       type: SadConsole.IScreenSurface
+      description: Target surface.
     content.vb: Sub Render(surface As IScreenSurface)
   overload: SadConsole.Renderers.IRenderer.Render*
 - uid: SadConsole.Renderers.IRenderer.OnHostUpdated(SadConsole.IScreenObject)
@@ -89,11 +98,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Renderers
+  summary: Called when various states in the host change.
+  example: []
   syntax:
     content: void OnHostUpdated(IScreenObject host)
     parameters:
     - id: host
       type: SadConsole.IScreenObject
+      description: The host that uses this component.
     content.vb: Sub OnHostUpdated(host As IScreenObject)
   overload: SadConsole.Renderers.IRenderer.OnHostUpdated*
 - uid: SadConsole.Renderers.IRenderer.Name
@@ -110,6 +122,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Renderers
+  summary: The name used to create the renderer from the host.
+  example: []
   syntax:
     content: string Name { get; set; }
     parameters: []
@@ -131,6 +145,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Renderers
+  summary: The output texture created by the renderer.
+  example: []
   syntax:
     content: ITexture Output { get; }
     parameters: []
@@ -152,6 +168,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Renderers
+  summary: A 0 to 255 value represening how transparent the surface is when drawn to the screen. 255 represents full visibility.
+  example: []
   syntax:
     content: byte Opacity { get; set; }
     parameters: []
@@ -173,6 +191,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Renderers
+  summary: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the renderer is being forced to be redrawn this frame; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+  example: []
   syntax:
     content: bool IsForced { get; set; }
     parameters: []
@@ -194,6 +214,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Renderers
+  summary: The render steps for the renderer.
+  example: []
   syntax:
     content: List<IRenderStep> Steps { get; set; }
     parameters: []

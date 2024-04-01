@@ -25,6 +25,9 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
+  summary: Associates a character glyph and a <xref href="SadConsole.Input.Keys" data-throw-if-not-resolved="false"></xref> value.
+  remarks: Used when the <xref href="SadConsole.Input.Keys.NumLock" data-throw-if-not-resolved="false"></xref> is active.
+  example: []
   syntax:
     content: 'public readonly struct AsciiKey.CharacterKeyMapping : IEquatable<AsciiKey.CharacterKeyMapping>'
     content.vb: Public Structure AsciiKey.CharacterKeyMapping Implements IEquatable(Of AsciiKey.CharacterKeyMapping)
@@ -48,13 +51,18 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
+  summary: Associates a character glyph and a <xref href="SadConsole.Input.Keys" data-throw-if-not-resolved="false"></xref> value.
+  remarks: Used when the <xref href="SadConsole.Input.Keys.NumLock" data-throw-if-not-resolved="false"></xref> is active.
+  example: []
   syntax:
     content: public CharacterKeyMapping(char CharacterGlyph, Keys Key)
     parameters:
     - id: CharacterGlyph
       type: System.Char
+      description: The number pad character.
     - id: Key
       type: SadConsole.Input.Keys
+      description: The key the character maps to.
     content.vb: Public Sub New(CharacterGlyph As Char, Key As Keys)
   overload: SadConsole.Input.AsciiKey.CharacterKeyMapping.#ctor*
   nameWithType.vb: AsciiKey.CharacterKeyMapping.New(Char, Keys)
@@ -254,6 +262,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
+  summary: The number pad character.
+  example: []
   syntax:
     content: public char CharacterGlyph { get; init; }
     parameters: []
@@ -275,6 +285,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Input
+  summary: The key the character maps to.
+  example: []
   syntax:
     content: public Keys Key { get; init; }
     parameters: []
@@ -283,6 +295,21 @@ items:
     content.vb: Public Property Key As Keys
   overload: SadConsole.Input.AsciiKey.CharacterKeyMapping.Key*
 references:
+- uid: SadConsole.Input.Keys
+  commentId: T:SadConsole.Input.Keys
+  parent: SadConsole.Input
+  isExternal: true
+  href: SadConsole.Input.Keys.html
+  name: Keys
+  nameWithType: Keys
+  fullName: SadConsole.Input.Keys
+- uid: SadConsole.Input.Keys.NumLock
+  commentId: F:SadConsole.Input.Keys.NumLock
+  isExternal: true
+  href: SadConsole.Input.Keys.html#SadConsole_Input_Keys_NumLock
+  name: NumLock
+  nameWithType: Keys.NumLock
+  fullName: SadConsole.Input.Keys.NumLock
 - uid: SadConsole.Input
   commentId: N:SadConsole.Input
   isExternal: true
@@ -536,14 +563,6 @@ references:
   nameWithType.vb: Char
   fullName.vb: Char
   name.vb: Char
-- uid: SadConsole.Input.Keys
-  commentId: T:SadConsole.Input.Keys
-  parent: SadConsole.Input
-  isExternal: true
-  href: SadConsole.Input.Keys.html
-  name: Keys
-  nameWithType: Keys
-  fullName: SadConsole.Input.Keys
 - uid: System.ValueType.ToString
   commentId: M:System.ValueType.ToString
   parent: System.ValueType

@@ -30,6 +30,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: Effects manager for a text surface.
+  example: []
   syntax:
     content: public class EffectsManager
     content.vb: Public Class EffectsManager
@@ -57,6 +59,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: A dictionary of effect data keyed by the effect.
+  example: []
   syntax:
     content: protected Dictionary<ICellEffect, EffectsManager.ColoredGlyphEffectData> _effects
     return:
@@ -76,6 +80,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: A dictionary of effect data keyed by the cell index.
+  example: []
   syntax:
     content: protected Dictionary<ColoredGlyphBase, EffectsManager.ColoredGlyphEffectData> _effectCells
     return:
@@ -95,6 +101,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: The surface hosting this effects manager.
+  example: []
   syntax:
     content: protected ICellSurface _backingSurface
     return:
@@ -114,11 +122,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: Creates a new effects manager associated with a text surface.
+  example: []
   syntax:
     content: public EffectsManager(ICellSurface surface)
     parameters:
     - id: surface
       type: SadConsole.ICellSurface
+      description: Text surface to manage.
     content.vb: Public Sub New(surface As ICellSurface)
   overload: SadConsole.Effects.EffectsManager.#ctor*
   nameWithType.vb: EffectsManager.New(ICellSurface)
@@ -138,13 +149,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: Associates a cell effect with a cell.
+  example: []
   syntax:
     content: public void SetEffect(ColoredGlyphBase cell, ICellEffect? effect)
     parameters:
     - id: cell
       type: SadConsole.ColoredGlyphBase
+      description: Cell to set the effect for.
     - id: effect
       type: SadConsole.Effects.ICellEffect
+      description: The effect to associate with the cell.
     content.vb: Public Sub SetEffect(cell As ColoredGlyphBase, effect As ICellEffect)
   overload: SadConsole.Effects.EffectsManager.SetEffect*
   nameWithType.vb: EffectsManager.SetEffect(ColoredGlyphBase, ICellEffect)
@@ -164,13 +179,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: Changes the effect of the <code class="paramref">cells</code> provided.
+  example: []
   syntax:
     content: public void SetEffect(IEnumerable<ColoredGlyphBase> cells, ICellEffect? effect)
     parameters:
     - id: cells
       type: System.Collections.Generic.IEnumerable{SadConsole.ColoredGlyphBase}
+      description: A list of cell indicies to change the effect on.
     - id: effect
       type: SadConsole.Effects.ICellEffect
+      description: The effect to associate with the cell.
     content.vb: Public Sub SetEffect(cells As IEnumerable(Of ColoredGlyphBase), effect As ICellEffect)
   overload: SadConsole.Effects.EffectsManager.SetEffect*
   nameWithType.vb: EffectsManager.SetEffect(IEnumerable(Of ColoredGlyphBase), ICellEffect)
@@ -190,6 +209,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: Gets the effect of the specified cell.
+  example: []
   syntax:
     content: public ICellEffect? GetEffect(ColoredGlyphBase cell)
     parameters:
@@ -197,6 +218,7 @@ items:
       type: SadConsole.ColoredGlyphBase
     return:
       type: SadConsole.Effects.ICellEffect
+      description: The effect.
     content.vb: Public Function GetEffect(cell As ColoredGlyphBase) As ICellEffect
   overload: SadConsole.Effects.EffectsManager.GetEffect*
 - uid: SadConsole.Effects.EffectsManager.GetEffects
@@ -213,10 +235,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: Gets a collection of effects associated with the manager.
+  example: []
   syntax:
     content: public IEnumerable<ICellEffect>? GetEffects()
     return:
       type: System.Collections.Generic.IEnumerable{SadConsole.Effects.ICellEffect}
+      description: Null if there aren't any effects.
     content.vb: Public Function GetEffects() As IEnumerable(Of ICellEffect)
   overload: SadConsole.Effects.EffectsManager.GetEffects*
 - uid: SadConsole.Effects.EffectsManager.DropInvalidCells
@@ -233,6 +258,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: Checks all the cells in this manager and removes any that are no longer in the parent surface.
+  example: []
   syntax:
     content: public void DropInvalidCells()
     content.vb: Public Sub DropInvalidCells()
@@ -251,11 +278,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: Removes an effect and associated cells from the manager.
+  example: []
   syntax:
     content: public void Remove(ICellEffect effect)
     parameters:
     - id: effect
       type: SadConsole.Effects.ICellEffect
+      description: Effect to remove.
     content.vb: Public Sub Remove(effect As ICellEffect)
   overload: SadConsole.Effects.EffectsManager.Remove*
 - uid: SadConsole.Effects.EffectsManager.RemoveAll
@@ -272,6 +302,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: Removes all effects and associated cells.
+  example: []
   syntax:
     content: public void RemoveAll()
     content.vb: Public Sub RemoveAll()
@@ -290,15 +322,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: Gets effect data from the dictionary if it exists.
+  example: []
   syntax:
     content: protected bool GetKnownEffect(ICellEffect effect, out EffectsManager.ColoredGlyphEffectData effectData)
     parameters:
     - id: effect
       type: SadConsole.Effects.ICellEffect
+      description: The effect to get.
     - id: effectData
       type: SadConsole.Effects.EffectsManager.ColoredGlyphEffectData
+      description: The effect data ssociated with the effect.
     return:
       type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the effect exists; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Protected Function GetKnownEffect(effect As ICellEffect, effectData As EffectsManager.ColoredGlyphEffectData) As Boolean
   overload: SadConsole.Effects.EffectsManager.GetKnownEffect*
   nameWithType.vb: EffectsManager.GetKnownEffect(ICellEffect, EffectsManager.ColoredGlyphEffectData)
@@ -318,11 +355,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: Clears the effect for the cell specified by index.
+  example: []
   syntax:
     content: protected void ClearCellEffect(ColoredGlyphBase cell)
     parameters:
     - id: cell
       type: SadConsole.ColoredGlyphBase
+      description: The cell index.
     content.vb: Protected Sub ClearCellEffect(cell As ColoredGlyphBase)
   overload: SadConsole.Effects.EffectsManager.ClearCellEffect*
 - uid: SadConsole.Effects.EffectsManager.UpdateEffects(System.TimeSpan)
@@ -339,11 +379,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: Updates all known effects and applies them to their associated cells.
+  example: []
   syntax:
     content: public void UpdateEffects(TimeSpan delta)
     parameters:
     - id: delta
       type: System.TimeSpan
+      description: The time elapased since the last update.
     content.vb: Public Sub UpdateEffects(delta As TimeSpan)
   overload: SadConsole.Effects.EffectsManager.UpdateEffects*
 - uid: SadConsole.Effects.EffectsManager.Count
@@ -360,6 +403,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: Gets the number of effects.
+  example: []
   syntax:
     content: public int Count { get; }
     parameters: []

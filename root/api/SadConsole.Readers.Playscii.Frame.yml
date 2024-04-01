@@ -18,6 +18,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
+  summary: Json frame object in the <xref href="SadConsole.Readers.Playscii" data-throw-if-not-resolved="false"></xref> file.
+  example: []
   syntax:
     content: public struct Playscii.Frame
     content.vb: Public Structure Playscii.Frame
@@ -42,6 +44,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
+  summary: Duration for this frame.
+  example: []
   syntax:
     content: public float delay
     return:
@@ -61,6 +65,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
+  summary: <xref href="SadConsole.Readers.Playscii" data-throw-if-not-resolved="false"></xref> frame layers that will be converted to <xref href="SadConsole.ScreenSurface" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public Playscii.Layer[] layers
     return:
@@ -80,25 +86,39 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Readers
+  summary: Converts the <xref href="SadConsole.Readers.Playscii" data-throw-if-not-resolved="false"></xref> frame to SadConsole <xref href="SadConsole.ScreenSurface" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public ScreenSurface ToScreenSurface(int width, int height, IFont font, Palette colors)
     parameters:
     - id: width
       type: System.Int32
+      description: Width of the <xref href="SadConsole.ScreenSurface" data-throw-if-not-resolved="false"></xref>.
     - id: height
       type: System.Int32
+      description: Height of the <xref href="SadConsole.ScreenSurface" data-throw-if-not-resolved="false"></xref>.
     - id: font
       type: SadConsole.IFont
+      description: <xref href="SadConsole.IFont" data-throw-if-not-resolved="false"></xref> to be used when creating the <xref href="SadConsole.ScreenSurface" data-throw-if-not-resolved="false"></xref>.
     - id: colors
       type: SadRogue.Primitives.Palette
+      description: <xref href="SadRogue.Primitives.Palette" data-throw-if-not-resolved="false"></xref> of colors converted from the <xref href="SadConsole.Readers.Playscii" data-throw-if-not-resolved="false"></xref> format.
     return:
       type: SadConsole.ScreenSurface
+      description: <xref href="SadConsole.ScreenSurface" data-throw-if-not-resolved="false"></xref> containing the image from the first animation frame.
     content.vb: Public Function ToScreenSurface(width As Integer, height As Integer, font As IFont, colors As Palette) As ScreenSurface
   overload: SadConsole.Readers.Playscii.Frame.ToScreenSurface*
   nameWithType.vb: Playscii.Frame.ToScreenSurface(Integer, Integer, IFont, Palette)
   fullName.vb: SadConsole.Readers.Playscii.Frame.ToScreenSurface(Integer, Integer, SadConsole.IFont, SadRogue.Primitives.Palette)
   name.vb: ToScreenSurface(Integer, Integer, IFont, Palette)
 references:
+- uid: SadConsole.Readers.Playscii
+  commentId: T:SadConsole.Readers.Playscii
+  isExternal: true
+  href: SadConsole.Readers.Playscii.html
+  name: Playscii
+  nameWithType: Playscii
+  fullName: SadConsole.Readers.Playscii
 - uid: SadConsole.Readers
   commentId: N:SadConsole.Readers
   isExternal: true
@@ -354,6 +374,14 @@ references:
   nameWithType.vb: Single
   fullName.vb: Single
   name.vb: Single
+- uid: SadConsole.ScreenSurface
+  commentId: T:SadConsole.ScreenSurface
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ScreenSurface.html
+  name: ScreenSurface
+  nameWithType: ScreenSurface
+  fullName: SadConsole.ScreenSurface
 - uid: SadConsole.Readers.Playscii.Layer[]
   isExternal: true
   href: SadConsole.Readers.Playscii.Layer.html
@@ -377,6 +405,28 @@ references:
     href: SadConsole.Readers.Playscii.Layer.html
   - name: (
   - name: )
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
+- uid: SadConsole.IFont
+  commentId: T:SadConsole.IFont
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IFont.html
+  name: IFont
+  nameWithType: IFont
+  fullName: SadConsole.IFont
+- uid: SadRogue.Primitives.Palette
+  commentId: T:SadRogue.Primitives.Palette
+  parent: SadRogue.Primitives
+  isExternal: true
+  name: Palette
+  nameWithType: Palette
+  fullName: SadRogue.Primitives.Palette
 - uid: SadConsole.Readers.Playscii.Frame.ToScreenSurface*
   commentId: Overload:SadConsole.Readers.Playscii.Frame.ToScreenSurface
   isExternal: true
@@ -395,36 +445,6 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
-- uid: SadConsole.IFont
-  commentId: T:SadConsole.IFont
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.IFont.html
-  name: IFont
-  nameWithType: IFont
-  fullName: SadConsole.IFont
-- uid: SadRogue.Primitives.Palette
-  commentId: T:SadRogue.Primitives.Palette
-  parent: SadRogue.Primitives
-  isExternal: true
-  name: Palette
-  nameWithType: Palette
-  fullName: SadRogue.Primitives.Palette
-- uid: SadConsole.ScreenSurface
-  commentId: T:SadConsole.ScreenSurface
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.ScreenSurface.html
-  name: ScreenSurface
-  nameWithType: ScreenSurface
-  fullName: SadConsole.ScreenSurface
-- uid: SadConsole
-  commentId: N:SadConsole
-  isExternal: true
-  href: SadConsole.html
-  name: SadConsole
-  nameWithType: SadConsole
-  fullName: SadConsole
 - uid: SadRogue.Primitives
   commentId: N:SadRogue.Primitives
   isExternal: true

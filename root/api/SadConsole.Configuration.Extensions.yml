@@ -7,7 +7,7 @@ items:
   children:
   - SadConsole.Configuration.Extensions.AddFrameRenderEvent(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
   - SadConsole.Configuration.Extensions.AddFrameUpdateEvent(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
-  - SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.Game})
+  - SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.GameHost})
   - SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Boolean)
   - SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.String,System.String[])
   - SadConsole.Configuration.Extensions.FixOldFontName(SadConsole.Configuration.Builder)
@@ -15,14 +15,11 @@ items:
   - SadConsole.Configuration.Extensions.OnEnd(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
   - SadConsole.Configuration.Extensions.OnStart(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
   - SadConsole.Configuration.Extensions.SetScreenSize(SadConsole.Configuration.Builder,System.Int32,System.Int32)
-  - SadConsole.Configuration.Extensions.SetSplashScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.ScreenSurface[]})
+  - SadConsole.Configuration.Extensions.SetSplashScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.GameHost,SadConsole.ScreenSurface[]})
   - SadConsole.Configuration.Extensions.SetSplashScreen``1(SadConsole.Configuration.Builder)
-  - SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.IScreenObject})
+  - SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.GameHost,SadConsole.IScreenObject})
   - SadConsole.Configuration.Extensions.SetStartingScreen``1(SadConsole.Configuration.Builder)
-  - SadConsole.Configuration.Extensions.ShowMonoGameFPS(SadConsole.Configuration.Builder)
   - SadConsole.Configuration.Extensions.UseDefaultConsole(SadConsole.Configuration.Builder)
-  - SadConsole.Configuration.Extensions.UseUnlimitedFPS(SadConsole.Configuration.Builder)
-  - SadConsole.Configuration.Extensions.WithMonoGameCtor(SadConsole.Configuration.Builder,System.Action{SadConsole.Host.Game})
   langs:
   - csharp
   - vb
@@ -31,7 +28,7 @@ items:
   fullName: SadConsole.Configuration.Extensions
   type: Class
   assemblies:
-  - SadConsole.Host.MonoGame
+  - SadConsole
   namespace: SadConsole.Configuration
   summary: Extensions to the <xref href="SadConsole.Configuration.Builder" data-throw-if-not-resolved="false"></xref> type.
   example: []
@@ -61,7 +58,7 @@ items:
   fullName: SadConsole.Configuration.Extensions.OnStart(SadConsole.Configuration.Builder, System.EventHandler<SadConsole.GameHost>)
   type: Method
   assemblies:
-  - SadConsole.Host.MonoGame
+  - SadConsole
   namespace: SadConsole.Configuration
   summary: Sets an event handler for the <xref href="SadConsole.GameHost.Started" data-throw-if-not-resolved="false"></xref> event.
   example: []
@@ -95,7 +92,7 @@ items:
   fullName: SadConsole.Configuration.Extensions.OnEnd(SadConsole.Configuration.Builder, System.EventHandler<SadConsole.GameHost>)
   type: Method
   assemblies:
-  - SadConsole.Host.MonoGame
+  - SadConsole
   namespace: SadConsole.Configuration
   summary: Sets an event handler for the <xref href="SadConsole.GameHost.Ending" data-throw-if-not-resolved="false"></xref> event.
   example: []
@@ -129,7 +126,7 @@ items:
   fullName: SadConsole.Configuration.Extensions.AddFrameUpdateEvent(SadConsole.Configuration.Builder, System.EventHandler<SadConsole.GameHost>)
   type: Method
   assemblies:
-  - SadConsole.Host.MonoGame
+  - SadConsole
   namespace: SadConsole.Configuration
   summary: Sets an event handler for the <xref href="SadConsole.GameHost.FrameUpdate" data-throw-if-not-resolved="false"></xref> event.
   example: []
@@ -163,7 +160,7 @@ items:
   fullName: SadConsole.Configuration.Extensions.AddFrameRenderEvent(SadConsole.Configuration.Builder, System.EventHandler<SadConsole.GameHost>)
   type: Method
   assemblies:
-  - SadConsole.Host.MonoGame
+  - SadConsole
   namespace: SadConsole.Configuration
   summary: Sets an event handler for the <xref href="SadConsole.GameHost.FrameRender" data-throw-if-not-resolved="false"></xref> event.
   example: []
@@ -184,40 +181,6 @@ items:
   nameWithType.vb: Extensions.AddFrameRenderEvent(Builder, EventHandler(Of GameHost))
   fullName.vb: SadConsole.Configuration.Extensions.AddFrameRenderEvent(SadConsole.Configuration.Builder, System.EventHandler(Of SadConsole.GameHost))
   name.vb: AddFrameRenderEvent(Builder, EventHandler(Of GameHost))
-- uid: SadConsole.Configuration.Extensions.WithMonoGameCtor(SadConsole.Configuration.Builder,System.Action{SadConsole.Host.Game})
-  commentId: M:SadConsole.Configuration.Extensions.WithMonoGameCtor(SadConsole.Configuration.Builder,System.Action{SadConsole.Host.Game})
-  id: WithMonoGameCtor(SadConsole.Configuration.Builder,System.Action{SadConsole.Host.Game})
-  isExtensionMethod: true
-  parent: SadConsole.Configuration.Extensions
-  langs:
-  - csharp
-  - vb
-  name: WithMonoGameCtor(Builder, Action<Game>)
-  nameWithType: Extensions.WithMonoGameCtor(Builder, Action<Game>)
-  fullName: SadConsole.Configuration.Extensions.WithMonoGameCtor(SadConsole.Configuration.Builder, System.Action<SadConsole.Host.Game>)
-  type: Method
-  assemblies:
-  - SadConsole.Host.MonoGame
-  namespace: SadConsole.Configuration
-  summary: The <code class="paramref">monogameCtorCallback</code> method is called by the MonoGame constructor. Some MonoGame specific settings may only be settable via the constructor.
-  example: []
-  syntax:
-    content: public static Builder WithMonoGameCtor(this Builder configBuilder, Action<Game> monogameCtorCallback)
-    parameters:
-    - id: configBuilder
-      type: SadConsole.Configuration.Builder
-      description: The builder object that composes the game startup.
-    - id: monogameCtorCallback
-      type: System.Action{SadConsole.Host.Game}
-      description: A method.
-    return:
-      type: SadConsole.Configuration.Builder
-      description: The configuration object.
-    content.vb: Public Shared Function WithMonoGameCtor(configBuilder As Builder, monogameCtorCallback As Action(Of Game)) As Builder
-  overload: SadConsole.Configuration.Extensions.WithMonoGameCtor*
-  nameWithType.vb: Extensions.WithMonoGameCtor(Builder, Action(Of Game))
-  fullName.vb: SadConsole.Configuration.Extensions.WithMonoGameCtor(SadConsole.Configuration.Builder, System.Action(Of SadConsole.Host.Game))
-  name.vb: WithMonoGameCtor(Builder, Action(Of Game))
 - uid: SadConsole.Configuration.Extensions.UseDefaultConsole(SadConsole.Configuration.Builder)
   commentId: M:SadConsole.Configuration.Extensions.UseDefaultConsole(SadConsole.Configuration.Builder)
   id: UseDefaultConsole(SadConsole.Configuration.Builder)
@@ -231,7 +194,7 @@ items:
   fullName: SadConsole.Configuration.Extensions.UseDefaultConsole(SadConsole.Configuration.Builder)
   type: Method
   assemblies:
-  - SadConsole.Host.MonoGame
+  - SadConsole
   namespace: SadConsole.Configuration
   summary: Sets the <xref href="SadConsole.GameHost.StartingConsole" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.GameHost.Screen" data-throw-if-not-resolved="false"></xref> properties to new console when the game starts.
   example: []
@@ -259,7 +222,7 @@ items:
   fullName: SadConsole.Configuration.Extensions.IsStartingScreenFocused(SadConsole.Configuration.Builder, bool)
   type: Method
   assemblies:
-  - SadConsole.Host.MonoGame
+  - SadConsole
   namespace: SadConsole.Configuration
   summary: Either focuses or unfocuses the starting screen.
   example: []
@@ -280,40 +243,40 @@ items:
   nameWithType.vb: Extensions.IsStartingScreenFocused(Builder, Boolean)
   fullName.vb: SadConsole.Configuration.Extensions.IsStartingScreenFocused(SadConsole.Configuration.Builder, Boolean)
   name.vb: IsStartingScreenFocused(Builder, Boolean)
-- uid: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.Game})
-  commentId: M:SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.Game})
-  id: ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.Game})
+- uid: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.GameHost})
+  commentId: M:SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.GameHost})
+  id: ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.GameHost})
   isExtensionMethod: true
   parent: SadConsole.Configuration.Extensions
   langs:
   - csharp
   - vb
-  name: ConfigureFonts(Builder, Action<FontConfig, Game>)
-  nameWithType: Extensions.ConfigureFonts(Builder, Action<FontConfig, Game>)
-  fullName: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder, System.Action<SadConsole.Configuration.FontConfig, SadConsole.Game>)
+  name: ConfigureFonts(Builder, Action<FontConfig, GameHost>)
+  nameWithType: Extensions.ConfigureFonts(Builder, Action<FontConfig, GameHost>)
+  fullName: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder, System.Action<SadConsole.Configuration.FontConfig, SadConsole.GameHost>)
   type: Method
   assemblies:
-  - SadConsole.Host.MonoGame
+  - SadConsole
   namespace: SadConsole.Configuration
   summary: Configures which default font to use during game startup, as well as which other fonts to load for the game.
   example: []
   syntax:
-    content: public static Builder ConfigureFonts(this Builder configBuilder, Action<FontConfig, Game> fontLoader)
+    content: public static Builder ConfigureFonts(this Builder configBuilder, Action<FontConfig, GameHost> fontLoader)
     parameters:
     - id: configBuilder
       type: SadConsole.Configuration.Builder
       description: The builder object that composes the game startup.
     - id: fontLoader
-      type: System.Action{SadConsole.Configuration.FontConfig,SadConsole.Game}
+      type: System.Action{SadConsole.Configuration.FontConfig,SadConsole.GameHost}
       description: A method that provides access to the <xref href="SadConsole.Configuration.FontConfig" data-throw-if-not-resolved="false"></xref> object that loads fonts.
     return:
       type: SadConsole.Configuration.Builder
       description: The configuration builder.
-    content.vb: Public Shared Function ConfigureFonts(configBuilder As Builder, fontLoader As Action(Of FontConfig, Game)) As Builder
+    content.vb: Public Shared Function ConfigureFonts(configBuilder As Builder, fontLoader As Action(Of FontConfig, GameHost)) As Builder
   overload: SadConsole.Configuration.Extensions.ConfigureFonts*
-  nameWithType.vb: Extensions.ConfigureFonts(Builder, Action(Of FontConfig, Game))
-  fullName.vb: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder, System.Action(Of SadConsole.Configuration.FontConfig, SadConsole.Game))
-  name.vb: ConfigureFonts(Builder, Action(Of FontConfig, Game))
+  nameWithType.vb: Extensions.ConfigureFonts(Builder, Action(Of FontConfig, GameHost))
+  fullName.vb: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder, System.Action(Of SadConsole.Configuration.FontConfig, SadConsole.GameHost))
+  name.vb: ConfigureFonts(Builder, Action(Of FontConfig, GameHost))
 - uid: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.String,System.String[])
   commentId: M:SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.String,System.String[])
   id: ConfigureFonts(SadConsole.Configuration.Builder,System.String,System.String[])
@@ -327,7 +290,7 @@ items:
   fullName: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder, string, string[]?)
   type: Method
   assemblies:
-  - SadConsole.Host.MonoGame
+  - SadConsole
   namespace: SadConsole.Configuration
   summary: Configures SadConsole to use the specified font file as the default font.
   example: []
@@ -364,7 +327,7 @@ items:
   fullName: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder, bool)
   type: Method
   assemblies:
-  - SadConsole.Host.MonoGame
+  - SadConsole
   namespace: SadConsole.Configuration
   summary: Configures SadConsole to use the built in default fonts.
   example: []
@@ -398,7 +361,7 @@ items:
   fullName: SadConsole.Configuration.Extensions.FixOldFontName(SadConsole.Configuration.Builder)
   type: Method
   assemblies:
-  - SadConsole.Host.MonoGame
+  - SadConsole
   namespace: SadConsole.Configuration
   summary: Adds the embedded fonts to the font dictionary with the old incorrect name.
   example: []
@@ -413,62 +376,6 @@ items:
       description: The configuration builder.
     content.vb: Public Shared Function FixOldFontName(configBuilder As Builder) As Builder
   overload: SadConsole.Configuration.Extensions.FixOldFontName*
-- uid: SadConsole.Configuration.Extensions.UseUnlimitedFPS(SadConsole.Configuration.Builder)
-  commentId: M:SadConsole.Configuration.Extensions.UseUnlimitedFPS(SadConsole.Configuration.Builder)
-  id: UseUnlimitedFPS(SadConsole.Configuration.Builder)
-  isExtensionMethod: true
-  parent: SadConsole.Configuration.Extensions
-  langs:
-  - csharp
-  - vb
-  name: UseUnlimitedFPS(Builder)
-  nameWithType: Extensions.UseUnlimitedFPS(Builder)
-  fullName: SadConsole.Configuration.Extensions.UseUnlimitedFPS(SadConsole.Configuration.Builder)
-  type: Method
-  assemblies:
-  - SadConsole.Host.MonoGame
-  namespace: SadConsole.Configuration
-  summary: Unlimited FPS when rendering (normally limited to 60fps). Must be set before the game is created.
-  example: []
-  syntax:
-    content: public static Builder UseUnlimitedFPS(this Builder configBuilder)
-    parameters:
-    - id: configBuilder
-      type: SadConsole.Configuration.Builder
-      description: The builder object that composes the game startup.
-    return:
-      type: SadConsole.Configuration.Builder
-      description: The configuration builder.
-    content.vb: Public Shared Function UseUnlimitedFPS(configBuilder As Builder) As Builder
-  overload: SadConsole.Configuration.Extensions.UseUnlimitedFPS*
-- uid: SadConsole.Configuration.Extensions.ShowMonoGameFPS(SadConsole.Configuration.Builder)
-  commentId: M:SadConsole.Configuration.Extensions.ShowMonoGameFPS(SadConsole.Configuration.Builder)
-  id: ShowMonoGameFPS(SadConsole.Configuration.Builder)
-  isExtensionMethod: true
-  parent: SadConsole.Configuration.Extensions
-  langs:
-  - csharp
-  - vb
-  name: ShowMonoGameFPS(Builder)
-  nameWithType: Extensions.ShowMonoGameFPS(Builder)
-  fullName: SadConsole.Configuration.Extensions.ShowMonoGameFPS(SadConsole.Configuration.Builder)
-  type: Method
-  assemblies:
-  - SadConsole.Host.MonoGame
-  namespace: SadConsole.Configuration
-  summary: Adds a MonoGame game component that renders the frames per-second of the game.
-  example: []
-  syntax:
-    content: public static Builder ShowMonoGameFPS(this Builder configBuilder)
-    parameters:
-    - id: configBuilder
-      type: SadConsole.Configuration.Builder
-      description: The builder object that composes the game startup.
-    return:
-      type: SadConsole.Configuration.Builder
-      description: The configuration builder.
-    content.vb: Public Shared Function ShowMonoGameFPS(configBuilder As Builder) As Builder
-  overload: SadConsole.Configuration.Extensions.ShowMonoGameFPS*
 - uid: SadConsole.Configuration.Extensions.SetSplashScreen``1(SadConsole.Configuration.Builder)
   commentId: M:SadConsole.Configuration.Extensions.SetSplashScreen``1(SadConsole.Configuration.Builder)
   id: SetSplashScreen``1(SadConsole.Configuration.Builder)
@@ -482,7 +389,7 @@ items:
   fullName: SadConsole.Configuration.Extensions.SetSplashScreen<TSplashScreen>(SadConsole.Configuration.Builder)
   type: Method
   assemblies:
-  - SadConsole.Host.MonoGame
+  - SadConsole
   namespace: SadConsole.Configuration
   summary: Sets the startup splash screen to the specified object.
   example: []
@@ -503,40 +410,40 @@ items:
   nameWithType.vb: Extensions.SetSplashScreen(Of TSplashScreen)(Builder)
   fullName.vb: SadConsole.Configuration.Extensions.SetSplashScreen(Of TSplashScreen)(SadConsole.Configuration.Builder)
   name.vb: SetSplashScreen(Of TSplashScreen)(Builder)
-- uid: SadConsole.Configuration.Extensions.SetSplashScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.ScreenSurface[]})
-  commentId: M:SadConsole.Configuration.Extensions.SetSplashScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.ScreenSurface[]})
-  id: SetSplashScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.ScreenSurface[]})
+- uid: SadConsole.Configuration.Extensions.SetSplashScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.GameHost,SadConsole.ScreenSurface[]})
+  commentId: M:SadConsole.Configuration.Extensions.SetSplashScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.GameHost,SadConsole.ScreenSurface[]})
+  id: SetSplashScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.GameHost,SadConsole.ScreenSurface[]})
   isExtensionMethod: true
   parent: SadConsole.Configuration.Extensions
   langs:
   - csharp
   - vb
-  name: SetSplashScreen(Builder, Func<Game, ScreenSurface[]>)
-  nameWithType: Extensions.SetSplashScreen(Builder, Func<Game, ScreenSurface[]>)
-  fullName: SadConsole.Configuration.Extensions.SetSplashScreen(SadConsole.Configuration.Builder, System.Func<SadConsole.Game, SadConsole.ScreenSurface[]>)
+  name: SetSplashScreen(Builder, Func<GameHost, ScreenSurface[]>)
+  nameWithType: Extensions.SetSplashScreen(Builder, Func<GameHost, ScreenSurface[]>)
+  fullName: SadConsole.Configuration.Extensions.SetSplashScreen(SadConsole.Configuration.Builder, System.Func<SadConsole.GameHost, SadConsole.ScreenSurface[]>)
   type: Method
   assemblies:
-  - SadConsole.Host.MonoGame
+  - SadConsole
   namespace: SadConsole.Configuration
   summary: Sets the startup splash screens to the array returned by the <code class="paramref">creator</code> delegate.
   example: []
   syntax:
-    content: public static Builder SetSplashScreen(this Builder configBuilder, Func<Game, ScreenSurface[]> creator)
+    content: public static Builder SetSplashScreen(this Builder configBuilder, Func<GameHost, ScreenSurface[]> creator)
     parameters:
     - id: configBuilder
       type: SadConsole.Configuration.Builder
       description: The builder object that composes the game startup.
     - id: creator
-      type: System.Func{SadConsole.Game,SadConsole.ScreenSurface[]}
+      type: System.Func{SadConsole.GameHost,SadConsole.ScreenSurface[]}
       description: A delegate that returns an array of surface objects.
     return:
       type: SadConsole.Configuration.Builder
       description: The configuration builder.
-    content.vb: Public Shared Function SetSplashScreen(configBuilder As Builder, creator As Func(Of Game, ScreenSurface())) As Builder
+    content.vb: Public Shared Function SetSplashScreen(configBuilder As Builder, creator As Func(Of GameHost, ScreenSurface())) As Builder
   overload: SadConsole.Configuration.Extensions.SetSplashScreen*
-  nameWithType.vb: Extensions.SetSplashScreen(Builder, Func(Of Game, ScreenSurface()))
-  fullName.vb: SadConsole.Configuration.Extensions.SetSplashScreen(SadConsole.Configuration.Builder, System.Func(Of SadConsole.Game, SadConsole.ScreenSurface()))
-  name.vb: SetSplashScreen(Builder, Func(Of Game, ScreenSurface()))
+  nameWithType.vb: Extensions.SetSplashScreen(Builder, Func(Of GameHost, ScreenSurface()))
+  fullName.vb: SadConsole.Configuration.Extensions.SetSplashScreen(SadConsole.Configuration.Builder, System.Func(Of SadConsole.GameHost, SadConsole.ScreenSurface()))
+  name.vb: SetSplashScreen(Builder, Func(Of GameHost, ScreenSurface()))
 - uid: SadConsole.Configuration.Extensions.SetStartingScreen``1(SadConsole.Configuration.Builder)
   commentId: M:SadConsole.Configuration.Extensions.SetStartingScreen``1(SadConsole.Configuration.Builder)
   id: SetStartingScreen``1(SadConsole.Configuration.Builder)
@@ -550,7 +457,7 @@ items:
   fullName: SadConsole.Configuration.Extensions.SetStartingScreen<TRootObject>(SadConsole.Configuration.Builder)
   type: Method
   assemblies:
-  - SadConsole.Host.MonoGame
+  - SadConsole
   namespace: SadConsole.Configuration
   summary: Sets the <xref href="SadConsole.GameHost.Screen" data-throw-if-not-resolved="false"></xref> property to the specified type.
   example: []
@@ -571,40 +478,40 @@ items:
   nameWithType.vb: Extensions.SetStartingScreen(Of TRootObject)(Builder)
   fullName.vb: SadConsole.Configuration.Extensions.SetStartingScreen(Of TRootObject)(SadConsole.Configuration.Builder)
   name.vb: SetStartingScreen(Of TRootObject)(Builder)
-- uid: SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.IScreenObject})
-  commentId: M:SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.IScreenObject})
-  id: SetStartingScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.IScreenObject})
+- uid: SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.GameHost,SadConsole.IScreenObject})
+  commentId: M:SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.GameHost,SadConsole.IScreenObject})
+  id: SetStartingScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.GameHost,SadConsole.IScreenObject})
   isExtensionMethod: true
   parent: SadConsole.Configuration.Extensions
   langs:
   - csharp
   - vb
-  name: SetStartingScreen(Builder, Func<Game, IScreenObject>)
-  nameWithType: Extensions.SetStartingScreen(Builder, Func<Game, IScreenObject>)
-  fullName: SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder, System.Func<SadConsole.Game, SadConsole.IScreenObject>)
+  name: SetStartingScreen(Builder, Func<GameHost, IScreenObject>)
+  nameWithType: Extensions.SetStartingScreen(Builder, Func<GameHost, IScreenObject>)
+  fullName: SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder, System.Func<SadConsole.GameHost, SadConsole.IScreenObject>)
   type: Method
   assemblies:
-  - SadConsole.Host.MonoGame
+  - SadConsole
   namespace: SadConsole.Configuration
   summary: Sets the <xref href="SadConsole.GameHost.Screen" data-throw-if-not-resolved="false"></xref> property to the return value of the <code class="paramref">creator</code> parameter.
   example: []
   syntax:
-    content: public static Builder SetStartingScreen(this Builder configBuilder, Func<Game, IScreenObject> creator)
+    content: public static Builder SetStartingScreen(this Builder configBuilder, Func<GameHost, IScreenObject> creator)
     parameters:
     - id: configBuilder
       type: SadConsole.Configuration.Builder
       description: The builder object that composes the game startup.
     - id: creator
-      type: System.Func{SadConsole.Game,SadConsole.IScreenObject}
+      type: System.Func{SadConsole.GameHost,SadConsole.IScreenObject}
       description: A method that returns an object as the starting screen.
     return:
       type: SadConsole.Configuration.Builder
       description: The configuration builder.
-    content.vb: Public Shared Function SetStartingScreen(configBuilder As Builder, creator As Func(Of Game, IScreenObject)) As Builder
+    content.vb: Public Shared Function SetStartingScreen(configBuilder As Builder, creator As Func(Of GameHost, IScreenObject)) As Builder
   overload: SadConsole.Configuration.Extensions.SetStartingScreen*
-  nameWithType.vb: Extensions.SetStartingScreen(Builder, Func(Of Game, IScreenObject))
-  fullName.vb: SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder, System.Func(Of SadConsole.Game, SadConsole.IScreenObject))
-  name.vb: SetStartingScreen(Builder, Func(Of Game, IScreenObject))
+  nameWithType.vb: Extensions.SetStartingScreen(Builder, Func(Of GameHost, IScreenObject))
+  fullName.vb: SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder, System.Func(Of SadConsole.GameHost, SadConsole.IScreenObject))
+  name.vb: SetStartingScreen(Builder, Func(Of GameHost, IScreenObject))
 - uid: SadConsole.Configuration.Extensions.SetScreenSize(SadConsole.Configuration.Builder,System.Int32,System.Int32)
   commentId: M:SadConsole.Configuration.Extensions.SetScreenSize(SadConsole.Configuration.Builder,System.Int32,System.Int32)
   id: SetScreenSize(SadConsole.Configuration.Builder,System.Int32,System.Int32)
@@ -618,7 +525,7 @@ items:
   fullName: SadConsole.Configuration.Extensions.SetScreenSize(SadConsole.Configuration.Builder, int, int)
   type: Method
   assemblies:
-  - SadConsole.Host.MonoGame
+  - SadConsole
   namespace: SadConsole.Configuration
   summary: Sets the initial screen size of the window, in cells.
   example: []
@@ -919,6 +826,7 @@ references:
   commentId: E:SadConsole.GameHost.Started
   parent: SadConsole.GameHost
   isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_Started
   name: Started
   nameWithType: GameHost.Started
   fullName: SadConsole.GameHost.Started
@@ -1011,6 +919,7 @@ references:
   commentId: E:SadConsole.GameHost.Ending
   parent: SadConsole.GameHost
   isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_Ending
   name: Ending
   nameWithType: GameHost.Ending
   fullName: SadConsole.GameHost.Ending
@@ -1025,6 +934,7 @@ references:
   commentId: E:SadConsole.GameHost.FrameUpdate
   parent: SadConsole.GameHost
   isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_FrameUpdate
   name: FrameUpdate
   nameWithType: GameHost.FrameUpdate
   fullName: SadConsole.GameHost.FrameUpdate
@@ -1039,6 +949,7 @@ references:
   commentId: E:SadConsole.GameHost.FrameRender
   parent: SadConsole.GameHost
   isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_FrameRender
   name: FrameRender
   nameWithType: GameHost.FrameRender
   fullName: SadConsole.GameHost.FrameRender
@@ -1049,80 +960,11 @@ references:
   name: AddFrameRenderEvent
   nameWithType: Extensions.AddFrameRenderEvent
   fullName: SadConsole.Configuration.Extensions.AddFrameRenderEvent
-- uid: SadConsole.Configuration.Extensions.WithMonoGameCtor*
-  commentId: Overload:SadConsole.Configuration.Extensions.WithMonoGameCtor
-  isExternal: true
-  href: SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_WithMonoGameCtor_SadConsole_Configuration_Builder_System_Action_SadConsole_Host_Game__
-  name: WithMonoGameCtor
-  nameWithType: Extensions.WithMonoGameCtor
-  fullName: SadConsole.Configuration.Extensions.WithMonoGameCtor
-- uid: System.Action{SadConsole.Host.Game}
-  commentId: T:System.Action{SadConsole.Host.Game}
-  parent: System
-  definition: System.Action`1
-  href: https://learn.microsoft.com/dotnet/api/system.action-1
-  name: Action<Game>
-  nameWithType: Action<Game>
-  fullName: System.Action<SadConsole.Host.Game>
-  nameWithType.vb: Action(Of Game)
-  fullName.vb: System.Action(Of SadConsole.Host.Game)
-  name.vb: Action(Of Game)
-  spec.csharp:
-  - uid: System.Action`1
-    name: Action
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.action-1
-  - name: <
-  - uid: SadConsole.Host.Game
-    name: Game
-    isExternal: true
-    href: SadConsole.Host.Game.html
-  - name: '>'
-  spec.vb:
-  - uid: System.Action`1
-    name: Action
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.action-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: SadConsole.Host.Game
-    name: Game
-    isExternal: true
-    href: SadConsole.Host.Game.html
-  - name: )
-- uid: System.Action`1
-  commentId: T:System.Action`1
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.action-1
-  name: Action<T>
-  nameWithType: Action<T>
-  fullName: System.Action<T>
-  nameWithType.vb: Action(Of T)
-  fullName.vb: System.Action(Of T)
-  name.vb: Action(Of T)
-  spec.csharp:
-  - uid: System.Action`1
-    name: Action
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.action-1
-  - name: <
-  - name: T
-  - name: '>'
-  spec.vb:
-  - uid: System.Action`1
-    name: Action
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.action-1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
 - uid: SadConsole.GameHost.StartingConsole
   commentId: P:SadConsole.GameHost.StartingConsole
   parent: SadConsole.GameHost
   isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_StartingConsole
   name: StartingConsole
   nameWithType: GameHost.StartingConsole
   fullName: SadConsole.GameHost.StartingConsole
@@ -1130,6 +972,7 @@ references:
   commentId: P:SadConsole.GameHost.Screen
   parent: SadConsole.GameHost
   isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_Screen
   name: Screen
   nameWithType: GameHost.Screen
   fullName: SadConsole.GameHost.Screen
@@ -1168,21 +1011,21 @@ references:
 - uid: SadConsole.Configuration.Extensions.ConfigureFonts*
   commentId: Overload:SadConsole.Configuration.Extensions.ConfigureFonts
   isExternal: true
-  href: SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_ConfigureFonts_SadConsole_Configuration_Builder_System_Action_SadConsole_Configuration_FontConfig_SadConsole_Game__
+  href: SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_ConfigureFonts_SadConsole_Configuration_Builder_System_Action_SadConsole_Configuration_FontConfig_SadConsole_GameHost__
   name: ConfigureFonts
   nameWithType: Extensions.ConfigureFonts
   fullName: SadConsole.Configuration.Extensions.ConfigureFonts
-- uid: System.Action{SadConsole.Configuration.FontConfig,SadConsole.Game}
-  commentId: T:System.Action{SadConsole.Configuration.FontConfig,SadConsole.Game}
+- uid: System.Action{SadConsole.Configuration.FontConfig,SadConsole.GameHost}
+  commentId: T:System.Action{SadConsole.Configuration.FontConfig,SadConsole.GameHost}
   parent: System
   definition: System.Action`2
   href: https://learn.microsoft.com/dotnet/api/system.action-2
-  name: Action<FontConfig, Game>
-  nameWithType: Action<FontConfig, Game>
-  fullName: System.Action<SadConsole.Configuration.FontConfig, SadConsole.Game>
-  nameWithType.vb: Action(Of FontConfig, Game)
-  fullName.vb: System.Action(Of SadConsole.Configuration.FontConfig, SadConsole.Game)
-  name.vb: Action(Of FontConfig, Game)
+  name: Action<FontConfig, GameHost>
+  nameWithType: Action<FontConfig, GameHost>
+  fullName: System.Action<SadConsole.Configuration.FontConfig, SadConsole.GameHost>
+  nameWithType.vb: Action(Of FontConfig, GameHost)
+  fullName.vb: System.Action(Of SadConsole.Configuration.FontConfig, SadConsole.GameHost)
+  name.vb: Action(Of FontConfig, GameHost)
   spec.csharp:
   - uid: System.Action`2
     name: Action
@@ -1195,10 +1038,10 @@ references:
     href: SadConsole.Configuration.FontConfig.html
   - name: ','
   - name: " "
-  - uid: SadConsole.Game
-    name: Game
+  - uid: SadConsole.GameHost
+    name: GameHost
     isExternal: true
-    href: SadConsole.Game.html
+    href: SadConsole.GameHost.html
   - name: '>'
   spec.vb:
   - uid: System.Action`2
@@ -1214,10 +1057,10 @@ references:
     href: SadConsole.Configuration.FontConfig.html
   - name: ','
   - name: " "
-  - uid: SadConsole.Game
-    name: Game
+  - uid: SadConsole.GameHost
+    name: GameHost
     isExternal: true
-    href: SadConsole.Game.html
+    href: SadConsole.GameHost.html
   - name: )
 - uid: System.Action`2
   commentId: T:System.Action`2
@@ -1291,6 +1134,7 @@ references:
   commentId: P:SadConsole.GameHost.EmbeddedFontExtended
   parent: SadConsole.GameHost
   isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_EmbeddedFontExtended
   name: EmbeddedFontExtended
   nameWithType: GameHost.EmbeddedFontExtended
   fullName: SadConsole.GameHost.EmbeddedFontExtended
@@ -1298,6 +1142,7 @@ references:
   commentId: P:SadConsole.GameHost.EmbeddedFont
   parent: SadConsole.GameHost
   isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_EmbeddedFont
   name: EmbeddedFont
   nameWithType: GameHost.EmbeddedFont
   fullName: SadConsole.GameHost.EmbeddedFont
@@ -1308,20 +1153,6 @@ references:
   name: FixOldFontName
   nameWithType: Extensions.FixOldFontName
   fullName: SadConsole.Configuration.Extensions.FixOldFontName
-- uid: SadConsole.Configuration.Extensions.UseUnlimitedFPS*
-  commentId: Overload:SadConsole.Configuration.Extensions.UseUnlimitedFPS
-  isExternal: true
-  href: SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_UseUnlimitedFPS_SadConsole_Configuration_Builder_
-  name: UseUnlimitedFPS
-  nameWithType: Extensions.UseUnlimitedFPS
-  fullName: SadConsole.Configuration.Extensions.UseUnlimitedFPS
-- uid: SadConsole.Configuration.Extensions.ShowMonoGameFPS*
-  commentId: Overload:SadConsole.Configuration.Extensions.ShowMonoGameFPS
-  isExternal: true
-  href: SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_ShowMonoGameFPS_SadConsole_Configuration_Builder_
-  name: ShowMonoGameFPS
-  nameWithType: Extensions.ShowMonoGameFPS
-  fullName: SadConsole.Configuration.Extensions.ShowMonoGameFPS
 - uid: SadConsole.IScreenSurface
   commentId: T:SadConsole.IScreenSurface
   parent: SadConsole
@@ -1337,32 +1168,33 @@ references:
   name: SetSplashScreen
   nameWithType: Extensions.SetSplashScreen
   fullName: SadConsole.Configuration.Extensions.SetSplashScreen
-- uid: System.Func{SadConsole.Game,SadConsole.ScreenSurface[]}
-  commentId: T:System.Func{SadConsole.Game,SadConsole.ScreenSurface[]}
+- uid: System.Func{SadConsole.GameHost,SadConsole.ScreenSurface[]}
+  commentId: T:System.Func{SadConsole.GameHost,SadConsole.ScreenSurface[]}
   parent: System
   definition: System.Func`2
   href: https://learn.microsoft.com/dotnet/api/system.func-2
-  name: Func<Game, ScreenSurface[]>
-  nameWithType: Func<Game, ScreenSurface[]>
-  fullName: System.Func<SadConsole.Game, SadConsole.ScreenSurface[]>
-  nameWithType.vb: Func(Of Game, ScreenSurface())
-  fullName.vb: System.Func(Of SadConsole.Game, SadConsole.ScreenSurface())
-  name.vb: Func(Of Game, ScreenSurface())
+  name: Func<GameHost, ScreenSurface[]>
+  nameWithType: Func<GameHost, ScreenSurface[]>
+  fullName: System.Func<SadConsole.GameHost, SadConsole.ScreenSurface[]>
+  nameWithType.vb: Func(Of GameHost, ScreenSurface())
+  fullName.vb: System.Func(Of SadConsole.GameHost, SadConsole.ScreenSurface())
+  name.vb: Func(Of GameHost, ScreenSurface())
   spec.csharp:
   - uid: System.Func`2
     name: Func
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.func-2
   - name: <
-  - uid: SadConsole.Game
-    name: Game
+  - uid: SadConsole.GameHost
+    name: GameHost
     isExternal: true
-    href: SadConsole.Game.html
+    href: SadConsole.GameHost.html
   - name: ','
   - name: " "
   - uid: SadConsole.ScreenSurface
     name: ScreenSurface
     isExternal: true
+    href: SadConsole.ScreenSurface.html
   - name: '['
   - name: ']'
   - name: '>'
@@ -1374,15 +1206,16 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: SadConsole.Game
-    name: Game
+  - uid: SadConsole.GameHost
+    name: GameHost
     isExternal: true
-    href: SadConsole.Game.html
+    href: SadConsole.GameHost.html
   - name: ','
   - name: " "
   - uid: SadConsole.ScreenSurface
     name: ScreenSurface
     isExternal: true
+    href: SadConsole.ScreenSurface.html
   - name: (
   - name: )
   - name: )
@@ -1435,32 +1268,33 @@ references:
   name: SetStartingScreen
   nameWithType: Extensions.SetStartingScreen
   fullName: SadConsole.Configuration.Extensions.SetStartingScreen
-- uid: System.Func{SadConsole.Game,SadConsole.IScreenObject}
-  commentId: T:System.Func{SadConsole.Game,SadConsole.IScreenObject}
+- uid: System.Func{SadConsole.GameHost,SadConsole.IScreenObject}
+  commentId: T:System.Func{SadConsole.GameHost,SadConsole.IScreenObject}
   parent: System
   definition: System.Func`2
   href: https://learn.microsoft.com/dotnet/api/system.func-2
-  name: Func<Game, IScreenObject>
-  nameWithType: Func<Game, IScreenObject>
-  fullName: System.Func<SadConsole.Game, SadConsole.IScreenObject>
-  nameWithType.vb: Func(Of Game, IScreenObject)
-  fullName.vb: System.Func(Of SadConsole.Game, SadConsole.IScreenObject)
-  name.vb: Func(Of Game, IScreenObject)
+  name: Func<GameHost, IScreenObject>
+  nameWithType: Func<GameHost, IScreenObject>
+  fullName: System.Func<SadConsole.GameHost, SadConsole.IScreenObject>
+  nameWithType.vb: Func(Of GameHost, IScreenObject)
+  fullName.vb: System.Func(Of SadConsole.GameHost, SadConsole.IScreenObject)
+  name.vb: Func(Of GameHost, IScreenObject)
   spec.csharp:
   - uid: System.Func`2
     name: Func
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.func-2
   - name: <
-  - uid: SadConsole.Game
-    name: Game
+  - uid: SadConsole.GameHost
+    name: GameHost
     isExternal: true
-    href: SadConsole.Game.html
+    href: SadConsole.GameHost.html
   - name: ','
   - name: " "
   - uid: SadConsole.IScreenObject
     name: IScreenObject
     isExternal: true
+    href: SadConsole.IScreenObject.html
   - name: '>'
   spec.vb:
   - uid: System.Func`2
@@ -1470,15 +1304,16 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: SadConsole.Game
-    name: Game
+  - uid: SadConsole.GameHost
+    name: GameHost
     isExternal: true
-    href: SadConsole.Game.html
+    href: SadConsole.GameHost.html
   - name: ','
   - name: " "
   - uid: SadConsole.IScreenObject
     name: IScreenObject
     isExternal: true
+    href: SadConsole.IScreenObject.html
   - name: )
 - uid: SadConsole.Configuration.Extensions.SetScreenSize*
   commentId: Overload:SadConsole.Configuration.Extensions.SetScreenSize

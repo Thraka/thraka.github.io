@@ -49,6 +49,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: A scrollable list control.
+  example: []
   syntax:
     content: >-
       [DataContract]
@@ -161,6 +163,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Internal flag to indicate the scroll bar needs to be reconfigured.
+  example: []
   syntax:
     content: protected bool _reconfigureSrollBar
     return:
@@ -180,13 +184,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Creates a new instance of the listbox control with the default theme for the items.
+  example: []
   syntax:
     content: public ListBox(int width, int height)
     parameters:
     - id: width
       type: System.Int32
+      description: The width of the listbox.
     - id: height
       type: System.Int32
+      description: The height of the listbox.
     content.vb: Public Sub New(width As Integer, height As Integer)
   overload: SadConsole.UI.Controls.ListBox.#ctor*
   nameWithType.vb: ListBox.New(Integer, Integer)
@@ -206,15 +214,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Creates a new instance of the listbox control with the specified item theme.
+  example: []
   syntax:
     content: public ListBox(int width, int height, ListBoxItemTheme itemTheme)
     parameters:
     - id: width
       type: System.Int32
+      description: The width of the listbox.
     - id: height
       type: System.Int32
+      description: The height of the listbox.
     - id: itemTheme
       type: SadConsole.UI.Controls.ListBoxItemTheme
+      description: The theme to use with rendering the listbox items.
     content.vb: Public Sub New(width As Integer, height As Integer, itemTheme As ListBoxItemTheme)
   overload: SadConsole.UI.Controls.ListBox.#ctor*
   nameWithType.vb: ListBox.New(Integer, Integer, ListBoxItemTheme)
@@ -234,6 +247,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Invokes the <xref href="SadConsole.UI.Controls.ListBox.SelectedItemChanged" data-throw-if-not-resolved="false"></xref> event.
+  example: []
   syntax:
     content: protected virtual void OnSelectedItemChanged()
     content.vb: Protected Overridable Sub OnSelectedItemChanged()
@@ -252,6 +267,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Invokes the <xref href="SadConsole.UI.Controls.ListBox.SelectedItemExecuted" data-throw-if-not-resolved="false"></xref> event.
+  example: []
   syntax:
     content: protected virtual void OnItemAction()
     content.vb: Protected Overridable Sub OnItemAction()
@@ -270,6 +287,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Called when <xref href="SadConsole.UI.Controls.ControlBase.Resize(System.Int32%2cSystem.Int32)" data-throw-if-not-resolved="false"></xref> was called.
   example: []
   syntax:
     content: protected override void OnResized()
@@ -290,15 +308,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Configures the associated <xref href="SadConsole.UI.Controls.ListBox.ScrollBar" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public void SetupScrollBar(Orientation orientation, int sizeValue, Point position)
     parameters:
     - id: orientation
       type: SadConsole.Orientation
+      description: The orientation of the scrollbar.
     - id: sizeValue
       type: System.Int32
+      description: The size of the scrollbar.
     - id: position
       type: SadRogue.Primitives.Point
+      description: The position of the scrollbar.
     content.vb: Public Sub SetupScrollBar(orientation As Orientation, sizeValue As Integer, position As Point)
   overload: SadConsole.UI.Controls.ListBox.SetupScrollBar*
   nameWithType.vb: ListBox.SetupScrollBar(Orientation, Integer, Point)
@@ -318,6 +341,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Scrolls the list to the item currently selected.
+  example: []
   syntax:
     content: public void ScrollToSelectedItem()
     content.vb: Public Sub ScrollToSelectedItem()
@@ -336,6 +361,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Called when the keyboard is used on this control.
   example: []
   syntax:
     content: public override bool ProcessKeyboard(Keyboard info)
@@ -361,12 +387,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Called as the mouse moves around the control area. Raises the MouseMove event and calls the <xref href="SadConsole.UI.Controls.ControlBase.DetermineState" data-throw-if-not-resolved="false"></xref> method.
   example: []
   syntax:
     content: protected override void OnMouseIn(ControlBase.ControlMouseState state)
     parameters:
     - id: state
       type: SadConsole.UI.Controls.ControlBase.ControlMouseState
+      description: The current mouse data
     content.vb: Protected Overrides Sub OnMouseIn(state As ControlBase.ControlMouseState)
   overridden: SadConsole.UI.Controls.ControlBase.OnMouseIn(SadConsole.UI.Controls.ControlBase.ControlMouseState)
   overload: SadConsole.UI.Controls.ListBox.OnMouseIn*
@@ -384,12 +412,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Called when the left mouse button is clicked. Raises the MouseButtonClicked event and calls the <xref href="SadConsole.UI.Controls.ControlBase.DetermineState" data-throw-if-not-resolved="false"></xref> method.
   example: []
   syntax:
     content: protected override void OnLeftMouseClicked(ControlBase.ControlMouseState state)
     parameters:
     - id: state
       type: SadConsole.UI.Controls.ControlBase.ControlMouseState
+      description: The current mouse data
     content.vb: Protected Overrides Sub OnLeftMouseClicked(state As ControlBase.ControlMouseState)
   overridden: SadConsole.UI.Controls.ControlBase.OnLeftMouseClicked(SadConsole.UI.Controls.ControlBase.ControlMouseState)
   overload: SadConsole.UI.Controls.ListBox.OnLeftMouseClicked*
@@ -407,15 +437,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Returns the item under the mouse, and its array position.
+  example: []
   syntax:
     content: public (object? item, int itemIndex) GetItemAndIndexUnderMouse(ControlBase.ControlMouseState state)
     parameters:
     - id: state
       type: SadConsole.UI.Controls.ControlBase.ControlMouseState
+      description: The mouse state.
     return:
       type: System.ValueTuple{System.Object,System.Int32}
+      description: A tuple containing the item and the item's array position.
     content.vb: Public Function GetItemAndIndexUnderMouse(state As ControlBase.ControlMouseState) As (item As Object, itemIndex As Integer)
   overload: SadConsole.UI.Controls.ListBox.GetItemAndIndexUnderMouse*
+  exceptions:
+  - type: System.Exception
+    commentId: T:System.Exception
+    description: Thrown when the theme for the listbox isn't based on ListBoxTheme.
 - uid: SadConsole.UI.Controls.ListBox.SetupScrollBar
   commentId: M:SadConsole.UI.Controls.ListBox.SetupScrollBar
   id: SetupScrollBar
@@ -430,6 +468,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Sets up the scroll bar for the listbox.
+  example: []
   syntax:
     content: protected void SetupScrollBar()
     content.vb: Protected Sub SetupScrollBar()
@@ -448,6 +488,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Shows the scroll bar when there are too many items to display; otherwise, hides it.
+  example: []
   syntax:
     content: protected void ShowHideScrollBar()
     content.vb: Protected Sub ShowHideScrollBar()
@@ -466,12 +508,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Updates the <xref href="SadConsole.UI.Controls.ControlBase.ThemeState" data-throw-if-not-resolved="false"></xref> by calling <xref href="SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)" data-throw-if-not-resolved="false"></xref> with the provided colors. Override this method to adjust how colors are used by the <xref href="SadConsole.UI.Controls.ControlBase.ThemeState" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: protected override void RefreshThemeStateColors(Colors colors)
     parameters:
     - id: colors
       type: SadConsole.UI.Colors
+      description: The colors to apply to the theme state.
     content.vb: Protected Overrides Sub RefreshThemeStateColors(colors As Colors)
   overridden: SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
   overload: SadConsole.UI.Controls.ListBox.RefreshThemeStateColors*
@@ -489,12 +533,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Updates each control hosted by this control.
   example: []
   syntax:
     content: public override void UpdateAndRedraw(TimeSpan time)
     parameters:
     - id: time
       type: System.TimeSpan
+      description: The game frame time delta.
     content.vb: Public Overrides Sub UpdateAndRedraw(time As TimeSpan)
   overridden: SadConsole.UI.Controls.CompositeControl.UpdateAndRedraw(System.TimeSpan)
   overload: SadConsole.UI.Controls.ListBox.UpdateAndRedraw*
@@ -512,6 +558,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Internal use only; used in rendering.
+  example: []
   syntax:
     content: public bool IsScrollBarVisible { get; set; }
     parameters: []
@@ -533,6 +581,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The scroll bar control used with this list box.
+  example: []
   syntax:
     content: >-
       [DataMember(Name = "ScrollBar")]
@@ -568,6 +618,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Used in rendering.
+  example: []
   syntax:
     content: public int ItemIndexMouseOver { get; }
     parameters: []
@@ -589,6 +641,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The total items visible in the listbox.
+  example: []
   syntax:
     content: public int VisibleItemsTotal { get; set; }
     parameters: []
@@ -610,6 +664,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The maximum amount of items that can be shown in the listbox.
+  example: []
   syntax:
     content: public int VisibleItemsMax { get; set; }
     parameters: []
@@ -631,6 +687,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: When the <xref href="SadConsole.UI.Controls.ListBox.SelectedItem" data-throw-if-not-resolved="false"></xref> changes, and this property is true, objects will be compared by reference. If false, they will be compared by value.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -662,6 +720,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: When set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the <xref href="SadConsole.UI.Controls.ListBox.SelectedItemExecuted" data-throw-if-not-resolved="false"></xref> event will fire when an item is single-clicked instead of double-clicked.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -693,6 +753,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The items in the listbox.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -724,6 +786,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Gets or sets the index of the selected item.
+  example: []
   syntax:
     content: public int SelectedIndex { get; set; }
     parameters: []
@@ -745,6 +809,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Gets or sets the selected item.
+  example: []
   syntax:
     content: public object? SelectedItem { get; set; }
     parameters: []
@@ -766,6 +832,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The drawing theme for the border when <xref href="SadConsole.UI.Controls.ListBox.DrawBorder" data-throw-if-not-resolved="false"></xref> is true.
+  example: []
   syntax:
     content: public ThemeStates BorderTheme { get; protected set; }
     parameters: []
@@ -787,6 +855,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The line style for the border when <xref href="SadConsole.UI.Controls.ListBox.DrawBorder" data-throw-if-not-resolved="false"></xref> is true.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -818,6 +888,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: If false the border will not be drawn.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -849,6 +921,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The appearance of the items displayed by the listbox control.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -880,6 +954,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The area on the control where items are drawn.
+  example: []
   syntax:
     content: public Rectangle ItemsArea { get; set; }
     parameters: []
@@ -901,6 +977,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: An event that triggers when the <xref href="SadConsole.UI.Controls.ListBox.SelectedItem" data-throw-if-not-resolved="false"></xref> property changes.
+  example: []
   syntax:
     content: public event EventHandler<ListBox.SelectedItemEventArgs>? SelectedItemChanged
     return:
@@ -920,6 +998,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: An event that triggers when the <xref href="SadConsole.UI.Controls.ListBox.SelectedItem" data-throw-if-not-resolved="false"></xref> property is reselected by the mouse.
+  example: []
   syntax:
     content: public event EventHandler<ListBox.SelectedItemEventArgs>? SelectedItemReselected
     return:
@@ -939,6 +1019,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: An event that triggers when an item is double clicked or the Enter key is pressed while the listbox has focus.
+  example: []
   syntax:
     content: public event EventHandler<ListBox.SelectedItemEventArgs>? SelectedItemExecuted
     return:
@@ -2593,6 +2675,14 @@ references:
   name: ListBoxItemTheme
   nameWithType: ListBoxItemTheme
   fullName: SadConsole.UI.Controls.ListBoxItemTheme
+- uid: SadConsole.UI.Controls.ListBox.SelectedItemChanged
+  commentId: E:SadConsole.UI.Controls.ListBox.SelectedItemChanged
+  parent: SadConsole.UI.Controls.ListBox
+  isExternal: true
+  href: SadConsole.UI.Controls.ListBox.html#SadConsole_UI_Controls_ListBox_SelectedItemChanged
+  name: SelectedItemChanged
+  nameWithType: ListBox.SelectedItemChanged
+  fullName: SadConsole.UI.Controls.ListBox.SelectedItemChanged
 - uid: SadConsole.UI.Controls.ListBox.OnSelectedItemChanged*
   commentId: Overload:SadConsole.UI.Controls.ListBox.OnSelectedItemChanged
   isExternal: true
@@ -2600,6 +2690,22 @@ references:
   name: OnSelectedItemChanged
   nameWithType: ListBox.OnSelectedItemChanged
   fullName: SadConsole.UI.Controls.ListBox.OnSelectedItemChanged
+- uid: SadConsole.UI.Controls.ListBox
+  commentId: T:SadConsole.UI.Controls.ListBox
+  parent: SadConsole.UI.Controls
+  isExternal: true
+  href: SadConsole.UI.Controls.ListBox.html
+  name: ListBox
+  nameWithType: ListBox
+  fullName: SadConsole.UI.Controls.ListBox
+- uid: SadConsole.UI.Controls.ListBox.SelectedItemExecuted
+  commentId: E:SadConsole.UI.Controls.ListBox.SelectedItemExecuted
+  parent: SadConsole.UI.Controls.ListBox
+  isExternal: true
+  href: SadConsole.UI.Controls.ListBox.html#SadConsole_UI_Controls_ListBox_SelectedItemExecuted
+  name: SelectedItemExecuted
+  nameWithType: ListBox.SelectedItemExecuted
+  fullName: SadConsole.UI.Controls.ListBox.SelectedItemExecuted
 - uid: SadConsole.UI.Controls.ListBox.OnItemAction*
   commentId: Overload:SadConsole.UI.Controls.ListBox.OnItemAction
   isExternal: true
@@ -2636,6 +2742,14 @@ references:
   name: OnResized
   nameWithType: ListBox.OnResized
   fullName: SadConsole.UI.Controls.ListBox.OnResized
+- uid: SadConsole.UI.Controls.ListBox.ScrollBar
+  commentId: P:SadConsole.UI.Controls.ListBox.ScrollBar
+  parent: SadConsole.UI.Controls.ListBox
+  isExternal: true
+  href: SadConsole.UI.Controls.ListBox.html#SadConsole_UI_Controls_ListBox_ScrollBar
+  name: ScrollBar
+  nameWithType: ListBox.ScrollBar
+  fullName: SadConsole.UI.Controls.ListBox.ScrollBar
 - uid: SadConsole.UI.Controls.ListBox.SetupScrollBar*
   commentId: Overload:SadConsole.UI.Controls.ListBox.SetupScrollBar
   isExternal: true
@@ -2873,6 +2987,14 @@ references:
   name: OnLeftMouseClicked
   nameWithType: ListBox.OnLeftMouseClicked
   fullName: SadConsole.UI.Controls.ListBox.OnLeftMouseClicked
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
 - uid: SadConsole.UI.Controls.ListBox.GetItemAndIndexUnderMouse*
   commentId: Overload:SadConsole.UI.Controls.ListBox.GetItemAndIndexUnderMouse
   isExternal: true
@@ -2967,6 +3089,36 @@ references:
   name: ShowHideScrollBar
   nameWithType: ListBox.ShowHideScrollBar
   fullName: SadConsole.UI.Controls.ListBox.ShowHideScrollBar
+- uid: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
+  commentId: M:SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
+  parent: SadConsole.UI.ThemeStates
+  isExternal: true
+  href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_RefreshTheme_SadConsole_UI_Colors_
+  name: RefreshTheme(Colors)
+  nameWithType: ThemeStates.RefreshTheme(Colors)
+  fullName: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
+  spec.csharp:
+  - uid: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
+    name: RefreshTheme
+    isExternal: true
+    href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_RefreshTheme_SadConsole_UI_Colors_
+  - name: (
+  - uid: SadConsole.UI.Colors
+    name: Colors
+    isExternal: true
+    href: SadConsole.UI.Colors.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
+    name: RefreshTheme
+    isExternal: true
+    href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_RefreshTheme_SadConsole_UI_Colors_
+  - name: (
+  - uid: SadConsole.UI.Colors
+    name: Colors
+    isExternal: true
+    href: SadConsole.UI.Colors.html
+  - name: )
 - uid: SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
   commentId: M:SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
   parent: SadConsole.UI.Controls.ControlBase
@@ -3012,6 +3164,14 @@ references:
   name: Colors
   nameWithType: Colors
   fullName: SadConsole.UI.Colors
+- uid: SadConsole.UI.ThemeStates
+  commentId: T:SadConsole.UI.ThemeStates
+  parent: SadConsole.UI
+  isExternal: true
+  href: SadConsole.UI.ThemeStates.html
+  name: ThemeStates
+  nameWithType: ThemeStates
+  fullName: SadConsole.UI.ThemeStates
 - uid: SadConsole.UI
   commentId: N:SadConsole.UI
   isExternal: true
@@ -3127,6 +3287,14 @@ references:
   name: VisibleItemsMax
   nameWithType: ListBox.VisibleItemsMax
   fullName: SadConsole.UI.Controls.ListBox.VisibleItemsMax
+- uid: SadConsole.UI.Controls.ListBox.SelectedItem
+  commentId: P:SadConsole.UI.Controls.ListBox.SelectedItem
+  parent: SadConsole.UI.Controls.ListBox
+  isExternal: true
+  href: SadConsole.UI.Controls.ListBox.html#SadConsole_UI_Controls_ListBox_SelectedItem
+  name: SelectedItem
+  nameWithType: ListBox.SelectedItem
+  fullName: SadConsole.UI.Controls.ListBox.SelectedItem
 - uid: SadConsole.UI.Controls.ListBox.CompareByReference*
   commentId: Overload:SadConsole.UI.Controls.ListBox.CompareByReference
   isExternal: true
@@ -3262,6 +3430,14 @@ references:
   name: SelectedItem
   nameWithType: ListBox.SelectedItem
   fullName: SadConsole.UI.Controls.ListBox.SelectedItem
+- uid: SadConsole.UI.Controls.ListBox.DrawBorder
+  commentId: P:SadConsole.UI.Controls.ListBox.DrawBorder
+  parent: SadConsole.UI.Controls.ListBox
+  isExternal: true
+  href: SadConsole.UI.Controls.ListBox.html#SadConsole_UI_Controls_ListBox_DrawBorder
+  name: DrawBorder
+  nameWithType: ListBox.DrawBorder
+  fullName: SadConsole.UI.Controls.ListBox.DrawBorder
 - uid: SadConsole.UI.Controls.ListBox.BorderTheme*
   commentId: Overload:SadConsole.UI.Controls.ListBox.BorderTheme
   isExternal: true
@@ -3269,14 +3445,6 @@ references:
   name: BorderTheme
   nameWithType: ListBox.BorderTheme
   fullName: SadConsole.UI.Controls.ListBox.BorderTheme
-- uid: SadConsole.UI.ThemeStates
-  commentId: T:SadConsole.UI.ThemeStates
-  parent: SadConsole.UI
-  isExternal: true
-  href: SadConsole.UI.ThemeStates.html
-  name: ThemeStates
-  nameWithType: ThemeStates
-  fullName: SadConsole.UI.ThemeStates
 - uid: SadConsole.UI.Controls.ListBox.BorderLineStyle*
   commentId: Overload:SadConsole.UI.Controls.ListBox.BorderLineStyle
   isExternal: true

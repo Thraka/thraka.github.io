@@ -33,6 +33,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Represents a button that can be toggled on/off within a group of other buttons.
+  example: []
   syntax:
     content: >-
       [DataContract]
@@ -153,6 +155,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Surface that contains the listbox
+  example: []
   syntax:
     content: protected readonly ScreenSurface DropdownContainer
     return:
@@ -172,6 +176,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Listbox used to control the items
+  example: []
   syntax:
     content: protected readonly ListBox ListBox
     return:
@@ -191,17 +197,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Creates a new instance of the combobox control.
+  example: []
   syntax:
     content: public ComboBox(int width, int dropdownWidth, int dropdownHeight, object[] items)
     parameters:
     - id: width
       type: System.Int32
+      description: The width of the control.
     - id: dropdownWidth
       type: System.Int32
+      description: The width of the dropdown container.
     - id: dropdownHeight
       type: System.Int32
+      description: The height of the dropdown container.
     - id: items
       type: System.Object[]
+      description: The items to seed the dropdown with.
     content.vb: Public Sub New(width As Integer, dropdownWidth As Integer, dropdownHeight As Integer, items As Object())
   overload: SadConsole.UI.Controls.ComboBox.#ctor*
   nameWithType.vb: ComboBox.New(Integer, Integer, Integer, Object())
@@ -221,13 +233,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Resizes the dropdown container to the given width/height
+  example: []
   syntax:
     content: public void ResizeDropDown(int? width = null, int? height = null)
     parameters:
     - id: width
       type: System.Nullable{System.Int32}
+      description: Width of the dropdown
     - id: height
       type: System.Nullable{System.Int32}
+      description: Height of the dropdown
     content.vb: Public Sub ResizeDropDown(width As Integer? = Nothing, height As Integer? = Nothing)
   overload: SadConsole.UI.Controls.ComboBox.ResizeDropDown*
   nameWithType.vb: ComboBox.ResizeDropDown(Integer?, Integer?)
@@ -247,11 +263,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Sets the items in the dropdown listbox.
+  example: []
   syntax:
     content: public void SetItems(params object[] items)
     parameters:
     - id: items
       type: System.Object[]
+      description: The items to set.
     content.vb: Public Sub SetItems(ParamArray items As Object())
   overload: SadConsole.UI.Controls.ComboBox.SetItems*
   nameWithType.vb: ComboBox.SetItems(ParamArray Object())
@@ -271,10 +290,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Gets an array of items from the dropdown listbox.
+  example: []
   syntax:
     content: public object[] GetItems()
     return:
       type: System.Object[]
+      description: ''
     content.vb: Public Function GetItems() As Object()
   overload: SadConsole.UI.Controls.ComboBox.GetItems*
 - uid: SadConsole.UI.Controls.ComboBox.RepositionOffScreenContainer
@@ -291,6 +313,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Checks if the dropdown container is off-screen, and pushes it back in.
+  example: []
   syntax:
     content: protected void RepositionOffScreenContainer()
     content.vb: Protected Sub RepositionOffScreenContainer()
@@ -309,6 +333,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: When <xref href="SadConsole.UI.Controls.ToggleButtonBase.IsSelected" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, displays the popup container. When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, hides the popup container.
   example: []
   syntax:
     content: protected override void OnIsSelected()
@@ -329,12 +354,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Updates the <xref href="SadConsole.UI.Controls.ControlBase.ThemeState" data-throw-if-not-resolved="false"></xref> by calling <xref href="SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)" data-throw-if-not-resolved="false"></xref> with the provided colors. Override this method to adjust how colors are used by the <xref href="SadConsole.UI.Controls.ControlBase.ThemeState" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: protected override void RefreshThemeStateColors(Colors colors)
     parameters:
     - id: colors
       type: SadConsole.UI.Colors
+      description: The colors to apply to the theme state.
     content.vb: Protected Overrides Sub RefreshThemeStateColors(colors As Colors)
   overridden: SadConsole.UI.Controls.CheckBox.RefreshThemeStateColors(SadConsole.UI.Colors)
   overload: SadConsole.UI.Controls.ComboBox.RefreshThemeStateColors*
@@ -352,12 +379,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Redraws the control if applicable.
   example: []
   syntax:
     content: public override void UpdateAndRedraw(TimeSpan time)
     parameters:
     - id: time
       type: System.TimeSpan
+      description: The duration of thecurrent frame.
     content.vb: Public Overrides Sub UpdateAndRedraw(time As TimeSpan)
   overridden: SadConsole.UI.Controls.CheckBox.UpdateAndRedraw(System.TimeSpan)
   overload: SadConsole.UI.Controls.ComboBox.UpdateAndRedraw*
@@ -375,6 +404,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Gets or sets the index of the selected item.
+  example: []
   syntax:
     content: public int SelectedIndex { get; set; }
     parameters: []
@@ -396,6 +427,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Gets or sets the selected item.
+  example: []
   syntax:
     content: public object? SelectedItem { get; set; }
     parameters: []
@@ -417,6 +450,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, uses the <xref href="SadConsole.UI.Controls.ComboBox.PopupHorizontal" data-throw-if-not-resolved="false"></xref> value from the interior of the control. When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, it's used from the outside of the control.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -448,6 +483,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Sets the horizontal orientation of the of the dropdown popup.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -479,6 +516,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Sets the vertical orientation of the of the dropdown popup.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -510,6 +549,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The glyph to use on the control when it's collapsed.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -541,6 +582,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The glyph to use on the control when it's expanded.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -572,6 +615,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: An event that triggers when the <xref href="SadConsole.UI.Controls.ComboBox.SelectedItem" data-throw-if-not-resolved="false"></xref> property changes.
+  example: []
   syntax:
     content: public event EventHandler<ListBox.SelectedItemEventArgs>? SelectedItemChanged
     return:
@@ -2248,6 +2293,36 @@ references:
   name: OnIsSelected
   nameWithType: ComboBox.OnIsSelected
   fullName: SadConsole.UI.Controls.ComboBox.OnIsSelected
+- uid: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
+  commentId: M:SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
+  parent: SadConsole.UI.ThemeStates
+  isExternal: true
+  href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_RefreshTheme_SadConsole_UI_Colors_
+  name: RefreshTheme(Colors)
+  nameWithType: ThemeStates.RefreshTheme(Colors)
+  fullName: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
+  spec.csharp:
+  - uid: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
+    name: RefreshTheme
+    isExternal: true
+    href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_RefreshTheme_SadConsole_UI_Colors_
+  - name: (
+  - uid: SadConsole.UI.Colors
+    name: Colors
+    isExternal: true
+    href: SadConsole.UI.Colors.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
+    name: RefreshTheme
+    isExternal: true
+    href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_RefreshTheme_SadConsole_UI_Colors_
+  - name: (
+  - uid: SadConsole.UI.Colors
+    name: Colors
+    isExternal: true
+    href: SadConsole.UI.Colors.html
+  - name: )
 - uid: SadConsole.UI.Controls.CheckBox.RefreshThemeStateColors(SadConsole.UI.Colors)
   commentId: M:SadConsole.UI.Controls.CheckBox.RefreshThemeStateColors(SadConsole.UI.Colors)
   parent: SadConsole.UI.Controls.CheckBox
@@ -2293,6 +2368,14 @@ references:
   name: Colors
   nameWithType: Colors
   fullName: SadConsole.UI.Colors
+- uid: SadConsole.UI.ThemeStates
+  commentId: T:SadConsole.UI.ThemeStates
+  parent: SadConsole.UI
+  isExternal: true
+  href: SadConsole.UI.ThemeStates.html
+  name: ThemeStates
+  nameWithType: ThemeStates
+  fullName: SadConsole.UI.ThemeStates
 - uid: SadConsole.UI
   commentId: N:SadConsole.UI
   isExternal: true
@@ -2379,6 +2462,13 @@ references:
   name: SelectedItem
   nameWithType: ComboBox.SelectedItem
   fullName: SadConsole.UI.Controls.ComboBox.SelectedItem
+- uid: SadConsole.UI.Controls.ComboBox.PopupHorizontal
+  commentId: P:SadConsole.UI.Controls.ComboBox.PopupHorizontal
+  isExternal: true
+  href: SadConsole.UI.Controls.ComboBox.html#SadConsole_UI_Controls_ComboBox_PopupHorizontal
+  name: PopupHorizontal
+  nameWithType: ComboBox.PopupHorizontal
+  fullName: SadConsole.UI.Controls.ComboBox.PopupHorizontal
 - uid: SadConsole.UI.Controls.ComboBox.PopupInnerAligned*
   commentId: Overload:SadConsole.UI.Controls.ComboBox.PopupInnerAligned
   isExternal: true
@@ -2441,6 +2531,13 @@ references:
   name: ExpandedButtonGlyph
   nameWithType: ComboBox.ExpandedButtonGlyph
   fullName: SadConsole.UI.Controls.ComboBox.ExpandedButtonGlyph
+- uid: SadConsole.UI.Controls.ComboBox.SelectedItem
+  commentId: P:SadConsole.UI.Controls.ComboBox.SelectedItem
+  isExternal: true
+  href: SadConsole.UI.Controls.ComboBox.html#SadConsole_UI_Controls_ComboBox_SelectedItem
+  name: SelectedItem
+  nameWithType: ComboBox.SelectedItem
+  fullName: SadConsole.UI.Controls.ComboBox.SelectedItem
 - uid: System.EventHandler{SadConsole.UI.Controls.ListBox.SelectedItemEventArgs}
   commentId: T:System.EventHandler{SadConsole.UI.Controls.ListBox.SelectedItemEventArgs}
   parent: System

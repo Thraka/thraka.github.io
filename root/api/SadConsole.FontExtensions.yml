@@ -18,6 +18,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Extensions for <xref href="SadConsole.IFont" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public static class FontExtensions
     content.vb: Public Module FontExtensions
@@ -46,19 +48,26 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Returns a rectangle that is positioned and sized based on the font and the cell position specified.
+  example: []
   syntax:
     content: public static Rectangle GetRenderRect(this IFont font, int x, int y, Point fontSize)
     parameters:
     - id: font
       type: SadConsole.IFont
+      description: Unused.
     - id: x
       type: System.Int32
+      description: The x-axis of the cell position.
     - id: y
       type: System.Int32
+      description: The y-axis of the cell position.
     - id: fontSize
       type: SadRogue.Primitives.Point
+      description: The size of the output cell.
     return:
       type: SadRogue.Primitives.Rectangle
+      description: A rectangle to representing a specific cell.
     content.vb: Public Shared Function GetRenderRect(font As IFont, x As Integer, y As Integer, fontSize As Point) As Rectangle
   overload: SadConsole.FontExtensions.GetRenderRect*
   nameWithType.vb: FontExtensions.GetRenderRect(IFont, Integer, Integer, Point)
@@ -79,17 +88,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Gets the pixel position of a cell position based on the font size.
+  example: []
   syntax:
     content: public static Point GetWorldPosition(this IFont font, Point position, Point fontSize)
     parameters:
     - id: font
       type: SadConsole.IFont
+      description: Unused.
     - id: position
       type: SadRogue.Primitives.Point
+      description: The cell position to convert.
     - id: fontSize
       type: SadRogue.Primitives.Point
+      description: The size of the font used to calculate the pixel position.
     return:
       type: SadRogue.Primitives.Point
+      description: A new pixel-positioned point.
     content.vb: Public Shared Function GetWorldPosition(font As IFont, position As Point, fontSize As Point) As Point
   overload: SadConsole.FontExtensions.GetWorldPosition*
 - uid: SadConsole.FontExtensions.GetGlyphRatio(SadConsole.IFont,SadRogue.Primitives.Point)
@@ -107,18 +122,31 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Returns the ratio in size difference between the font's glyph width and height.
+  example: []
   syntax:
     content: public static (float X, float Y) GetGlyphRatio(this IFont font, Point fontSize)
     parameters:
     - id: font
       type: SadConsole.IFont
+      description: Unused.
     - id: fontSize
       type: SadRogue.Primitives.Point
+      description: The glyph size of the font used.
     return:
       type: System.ValueTuple{System.Single,System.Single}
+      description: A tuple with the names (X, Y) where X is the difference of width to height and Y is the difference of height to width.
     content.vb: Public Shared Function GetGlyphRatio(font As IFont, fontSize As Point) As (X As Single, Y As Single)
   overload: SadConsole.FontExtensions.GetGlyphRatio*
 references:
+- uid: SadConsole.IFont
+  commentId: T:SadConsole.IFont
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IFont.html
+  name: IFont
+  nameWithType: IFont
+  fullName: SadConsole.IFont
 - uid: SadConsole
   commentId: N:SadConsole
   isExternal: true
@@ -370,14 +398,6 @@ references:
   name: GetRenderRect
   nameWithType: FontExtensions.GetRenderRect
   fullName: SadConsole.FontExtensions.GetRenderRect
-- uid: SadConsole.IFont
-  commentId: T:SadConsole.IFont
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.IFont.html
-  name: IFont
-  nameWithType: IFont
-  fullName: SadConsole.IFont
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System

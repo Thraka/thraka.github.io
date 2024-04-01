@@ -27,6 +27,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: Blinks the foreground and background colors of a cell with the specified colors.
+  example: []
   syntax:
     content: >-
       [DataContract]
@@ -74,6 +76,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: Creates a new instance of the blink effect.
+  example: []
   syntax:
     content: public Blinker()
     content.vb: Public Sub New()
@@ -95,16 +99,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: Applies the state of the effect to a cell.
   example: []
   syntax:
     content: public override bool ApplyToCell(ColoredGlyphBase cell, ColoredGlyphBase originalState)
     parameters:
     - id: cell
       type: SadConsole.ColoredGlyphBase
+      description: The surface cell using this effect.
     - id: originalState
       type: SadConsole.ColoredGlyphBase
+      description: The state of the cell prior to the effect being applied.
     return:
       type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when this method modified the <code class="paramref">cell</code>; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Public Overrides Function ApplyToCell(cell As ColoredGlyphBase, originalState As ColoredGlyphBase) As Boolean
   overridden: SadConsole.Effects.CellEffectBase.ApplyToCell(SadConsole.ColoredGlyphBase,SadConsole.ColoredGlyphBase)
   overload: SadConsole.Effects.Blinker.ApplyToCell*
@@ -122,12 +130,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: Updates the state of the effect.
   example: []
   syntax:
     content: public override void Update(TimeSpan delta)
     parameters:
     - id: delta
       type: System.TimeSpan
+      description: Time since the last call to this effect.
     content.vb: Public Overrides Sub Update(delta As TimeSpan)
   overridden: SadConsole.Effects.CellEffectBase.Update(System.TimeSpan)
   overload: SadConsole.Effects.Blinker.Update*
@@ -145,6 +155,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: Restarts the cell effect but does not reset it.
   example: []
   syntax:
     content: public override void Restart()
@@ -165,11 +176,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: Returns a duplicate of this effect.
   example: []
   syntax:
     content: public override ICellEffect Clone()
     return:
       type: SadConsole.Effects.ICellEffect
+      description: A new copy of this effect.
     content.vb: Public Overrides Function Clone() As ICellEffect
   overridden: SadConsole.Effects.CellEffectBase.Clone
   overload: SadConsole.Effects.Blinker.Clone*
@@ -209,6 +222,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: How long it takes to transition from blinking in and out.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -240,6 +255,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: The color the foreground blinks to.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -271,6 +288,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: The color the background blinks to.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -302,6 +321,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, ignores the <xref href="SadConsole.Effects.Blinker.BlinkOutBackgroundColor" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.Effects.Blinker.BlinkOutForegroundColor" data-throw-if-not-resolved="false"></xref> colors and instead swaps the glyph's foreground and background colors.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -333,6 +354,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: How many times to blink. The value of -1 represents forever.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -364,6 +387,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Effects
+  summary: The total duraction this effect will run for, before being flagged as finished. <xref href="System.TimeSpan.MaxValue" data-throw-if-not-resolved="false"></xref> represents forever.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -987,6 +1012,20 @@ references:
   name: BlinkOutBackgroundColor
   nameWithType: Blinker.BlinkOutBackgroundColor
   fullName: SadConsole.Effects.Blinker.BlinkOutBackgroundColor
+- uid: SadConsole.Effects.Blinker.BlinkOutBackgroundColor
+  commentId: P:SadConsole.Effects.Blinker.BlinkOutBackgroundColor
+  isExternal: true
+  href: SadConsole.Effects.Blinker.html#SadConsole_Effects_Blinker_BlinkOutBackgroundColor
+  name: BlinkOutBackgroundColor
+  nameWithType: Blinker.BlinkOutBackgroundColor
+  fullName: SadConsole.Effects.Blinker.BlinkOutBackgroundColor
+- uid: SadConsole.Effects.Blinker.BlinkOutForegroundColor
+  commentId: P:SadConsole.Effects.Blinker.BlinkOutForegroundColor
+  isExternal: true
+  href: SadConsole.Effects.Blinker.html#SadConsole_Effects_Blinker_BlinkOutForegroundColor
+  name: BlinkOutForegroundColor
+  nameWithType: Blinker.BlinkOutForegroundColor
+  fullName: SadConsole.Effects.Blinker.BlinkOutForegroundColor
 - uid: SadConsole.Effects.Blinker.SwapColorsFromCell*
   commentId: Overload:SadConsole.Effects.Blinker.SwapColorsFromCell
   isExternal: true
@@ -1012,6 +1051,13 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: System.TimeSpan.MaxValue
+  commentId: F:System.TimeSpan.MaxValue
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan.maxvalue
+  name: MaxValue
+  nameWithType: TimeSpan.MaxValue
+  fullName: System.TimeSpan.MaxValue
 - uid: SadConsole.Effects.Blinker.Duration*
   commentId: Overload:SadConsole.Effects.Blinker.Duration
   isExternal: true

@@ -54,13 +54,19 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: An array of <xref href="SadConsole.ColoredGlyphBase" data-throw-if-not-resolved="false"></xref> objects used to represent a 2D surface.
+  example: []
   syntax:
     content: >-
       [DataContract]
 
+      [JsonObject(MemberSerialization = MemberSerialization.OptIn)]
+
       public class CellSurface : ICellSurface, IGridView<ColoredGlyphBase>, IEnumerable<ColoredGlyphBase>, IEnumerable, ISurface, ICellSurfaceResize, ICellSurfaceSettable
     content.vb: >-
       <DataContract>
+
+      <JsonObject(MemberSerialization:=MemberSerialization.OptIn)>
 
       Public Class CellSurface Implements ICellSurface, IGridView(Of ColoredGlyphBase), IEnumerable(Of ColoredGlyphBase), IEnumerable, ISurface, ICellSurfaceResize, ICellSurfaceSettable
   inheritance:
@@ -192,6 +198,13 @@ items:
   - type: System.Runtime.Serialization.DataContractAttribute
     ctor: System.Runtime.Serialization.DataContractAttribute.#ctor
     arguments: []
+  - type: Newtonsoft.Json.JsonObjectAttribute
+    ctor: Newtonsoft.Json.JsonObjectAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: MemberSerialization
+      type: Newtonsoft.Json.MemberSerialization
+      value: 1
 - uid: SadConsole.CellSurface.#ctor(System.Int32,System.Int32)
   commentId: M:SadConsole.CellSurface.#ctor(System.Int32,System.Int32)
   id: '#ctor(System.Int32,System.Int32)'
@@ -206,13 +219,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Creates a new surface with the specified width and height, with <xref href="SadRogue.Primitives.Color.Transparent" data-throw-if-not-resolved="false"></xref> for the background and <xref href="SadRogue.Primitives.Color.White" data-throw-if-not-resolved="false"></xref> for the foreground.
+  example: []
   syntax:
     content: public CellSurface(int width, int height)
     parameters:
     - id: width
       type: System.Int32
+      description: The width of the surface in cells.
     - id: height
       type: System.Int32
+      description: The height of the surface in cells.
     content.vb: Public Sub New(width As Integer, height As Integer)
   overload: SadConsole.CellSurface.#ctor*
   nameWithType.vb: CellSurface.New(Integer, Integer)
@@ -232,15 +249,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Creates a new surface with the specified width and height, with <xref href="SadRogue.Primitives.Color.Transparent" data-throw-if-not-resolved="false"></xref> for the background and <xref href="SadRogue.Primitives.Color.White" data-throw-if-not-resolved="false"></xref> for the foreground.
+  example: []
   syntax:
     content: public CellSurface(int width, int height, ColoredGlyphBase[] initialCells)
     parameters:
     - id: width
       type: System.Int32
+      description: The width of the surface in cells.
     - id: height
       type: System.Int32
+      description: The height of the surface in cells.
     - id: initialCells
       type: SadConsole.ColoredGlyphBase[]
+      description: The cells to seed the surface with. If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, creates the cell array for you.
     content.vb: Public Sub New(width As Integer, height As Integer, initialCells As ColoredGlyphBase())
   overload: SadConsole.CellSurface.#ctor*
   nameWithType.vb: CellSurface.New(Integer, Integer, ColoredGlyphBase())
@@ -260,17 +282,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Creates a new surface with the specified width and height, with <xref href="SadRogue.Primitives.Color.Transparent" data-throw-if-not-resolved="false"></xref> for the background and <xref href="SadRogue.Primitives.Color.White" data-throw-if-not-resolved="false"></xref> for the foreground.
+  example: []
   syntax:
     content: public CellSurface(int viewWidth, int viewHeight, int totalWidth, int totalHeight)
     parameters:
     - id: viewWidth
       type: System.Int32
+      description: The visible width of the surface in cells.
     - id: viewHeight
       type: System.Int32
+      description: The visible height of the surface in cells.
     - id: totalWidth
       type: System.Int32
+      description: The total width of the surface in cells.
     - id: totalHeight
       type: System.Int32
+      description: The total height of the surface in cells.
     content.vb: Public Sub New(viewWidth As Integer, viewHeight As Integer, totalWidth As Integer, totalHeight As Integer)
   overload: SadConsole.CellSurface.#ctor*
   nameWithType.vb: CellSurface.New(Integer, Integer, Integer, Integer)
@@ -290,19 +318,26 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Creates a new surface with the specified width and height, with <xref href="SadRogue.Primitives.Color.Transparent" data-throw-if-not-resolved="false"></xref> for the background and <xref href="SadRogue.Primitives.Color.White" data-throw-if-not-resolved="false"></xref> for the foreground.
+  example: []
   syntax:
     content: public CellSurface(int viewWidth, int viewHeight, int totalWidth, int totalHeight, ColoredGlyphBase[]? initialCells)
     parameters:
     - id: viewWidth
       type: System.Int32
+      description: The width of the surface in cells.
     - id: viewHeight
       type: System.Int32
+      description: The height of the surface in cells.
     - id: totalWidth
       type: System.Int32
+      description: The total width of the surface in cells.
     - id: totalHeight
       type: System.Int32
+      description: The total height of the surface in cells.
     - id: initialCells
       type: SadConsole.ColoredGlyphBase[]
+      description: The cells to seed the surface with. If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, creates the cell array for you.
     content.vb: Public Sub New(viewWidth As Integer, viewHeight As Integer, totalWidth As Integer, totalHeight As Integer, initialCells As ColoredGlyphBase())
   overload: SadConsole.CellSurface.#ctor*
   nameWithType.vb: CellSurface.New(Integer, Integer, Integer, Integer, ColoredGlyphBase())
@@ -322,15 +357,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Creates a new surface from a grid view with <xref href="SadRogue.Primitives.Color.Transparent" data-throw-if-not-resolved="false"></xref> for the background and <xref href="SadRogue.Primitives.Color.White" data-throw-if-not-resolved="false"></xref> for the foreground.
+  example: []
   syntax:
     content: public CellSurface(IGridView<ColoredGlyphBase> surface, int visibleWidth = 0, int visibleHeight = 0)
     parameters:
     - id: surface
       type: SadRogue.Primitives.GridViews.IGridView{SadConsole.ColoredGlyphBase}
+      description: The surface to use as the source of cells.
     - id: visibleWidth
       type: System.Int32
+      description: Optional view width. If <code>0</code>, the view width matches the width of the surface.
     - id: visibleHeight
       type: System.Int32
+      description: Optional view height. If <code>0</code>, the view width matches the height of the surface.
     content.vb: Public Sub New(surface As IGridView(Of ColoredGlyphBase), visibleWidth As Integer = 0, visibleHeight As Integer = 0)
   overload: SadConsole.CellSurface.#ctor*
   nameWithType.vb: CellSurface.New(IGridView(Of ColoredGlyphBase), Integer, Integer)
@@ -350,6 +390,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Resizes the surface and view to the specified width and height.
   example: []
   syntax:
     content: public void Resize(int viewWidth, int viewHeight, bool clear)
@@ -360,6 +401,7 @@ items:
       type: System.Int32
     - id: clear
       type: System.Boolean
+      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates each cell should be reset to the default values.
     content.vb: Public Sub Resize(viewWidth As Integer, viewHeight As Integer, clear As Boolean)
   overload: SadConsole.CellSurface.Resize*
   implements:
@@ -381,20 +423,26 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Resizes the surface to the specified width and height.
   example: []
   syntax:
     content: public void Resize(int viewWidth, int viewHeight, int bufferWidth, int bufferHeight, bool clear)
     parameters:
     - id: viewWidth
       type: System.Int32
+      description: The viewable width of the surface.
     - id: viewHeight
       type: System.Int32
+      description: The viewable height of the surface.
     - id: bufferWidth
       type: System.Int32
+      description: The maximum width of the surface.
     - id: bufferHeight
       type: System.Int32
+      description: The maximum height of the surface.
     - id: clear
       type: System.Boolean
+      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates each cell should be reset to the default values.
     content.vb: Public Sub Resize(viewWidth As Integer, viewHeight As Integer, bufferWidth As Integer, bufferHeight As Integer, clear As Boolean)
   overload: SadConsole.CellSurface.Resize*
   implements:
@@ -416,14 +464,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Remaps the cells of this surface to a view of the <code class="paramref">surface</code>.
   example: []
   syntax:
     content: public void SetSurface(ICellSurface surface, Rectangle view = default)
     parameters:
     - id: surface
       type: SadConsole.ICellSurface
+      description: The target surface to map cells from.
     - id: view
       type: SadRogue.Primitives.Rectangle
+      description: A view rectangle of the target surface.
     content.vb: Public Sub SetSurface(surface As ICellSurface, view As Rectangle = Nothing)
   overload: SadConsole.CellSurface.SetSurface*
   implements:
@@ -442,20 +493,26 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Changes the cells of the surface to the provided array.
   example: []
   syntax:
     content: public void SetSurface(ColoredGlyphBase[] cells, int width, int height, int bufferWidth, int bufferHeight)
     parameters:
     - id: cells
       type: SadConsole.ColoredGlyphBase[]
+      description: The cells to replace in this surface.
     - id: width
       type: System.Int32
+      description: The viewable width of the surface.
     - id: height
       type: System.Int32
+      description: The viewable height of the surface.
     - id: bufferWidth
       type: System.Int32
+      description: The maximum width of the surface.
     - id: bufferHeight
       type: System.Int32
+      description: The maximum height of the surface.
     content.vb: Public Sub SetSurface(cells As ColoredGlyphBase(), width As Integer, height As Integer, bufferWidth As Integer, bufferHeight As Integer)
   overload: SadConsole.CellSurface.SetSurface*
   implements:
@@ -477,6 +534,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Sets <xref href="SadConsole.CellSurface.IsDirty" data-throw-if-not-resolved="false"></xref> to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> without triggering <xref href="SadConsole.CellSurface.OnIsDirtyChanged" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: protected void SetIsDirtySafe()
     content.vb: Protected Sub SetIsDirtySafe()
@@ -495,6 +554,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Called when the <xref href="SadConsole.CellSurface.IsDirty" data-throw-if-not-resolved="false"></xref> property changes.
+  example: []
   syntax:
     content: protected virtual void OnIsDirtyChanged()
     content.vb: Protected Overridable Sub OnIsDirtyChanged()
@@ -513,6 +574,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Called when the <xref href="SadConsole.CellSurface.Cells" data-throw-if-not-resolved="false"></xref> property is reset.
+  example: []
   syntax:
     content: protected virtual void OnCellsReset()
     content.vb: Protected Overridable Sub OnCellsReset()
@@ -531,11 +594,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Gets an enumerator for <xref href="SadConsole.CellSurface.Cells" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: public IEnumerator<ColoredGlyphBase> GetEnumerator()
     return:
       type: System.Collections.Generic.IEnumerator{SadConsole.ColoredGlyphBase}
+      description: An enumerator for <xref href="SadConsole.CellSurface.Cells" data-throw-if-not-resolved="false"></xref>.
     content.vb: Public Function GetEnumerator() As IEnumerator(Of ColoredGlyphBase)
   overload: SadConsole.CellSurface.GetEnumerator*
   implements:
@@ -554,6 +619,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: A variable that tracks how many times this editor shifted the surface down.
   example: []
   syntax:
     content: >-
@@ -588,6 +654,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: A variable that tracks how many times this editor shifted the surface right.
   example: []
   syntax:
     content: >-
@@ -622,6 +689,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: A variable that tracks how many times this editor shifted the surface left.
   example: []
   syntax:
     content: >-
@@ -656,6 +724,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: A variable that tracks how many times this editor shifted the surface up.
   example: []
   syntax:
     content: >-
@@ -690,6 +759,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: When true, the <xref href="SadConsole.ColoredString.Parser" data-throw-if-not-resolved="false"></xref> is used to generate a <xref href="SadConsole.ColoredString" data-throw-if-not-resolved="false"></xref> before printing.
   example: []
   syntax:
     content: >-
@@ -724,6 +794,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Returns this object.
   example: []
   syntax:
     content: >-
@@ -758,6 +829,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Processes the effects added to cells with <xref href="CellSurfaceEditor.SetEffect*" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: >-
@@ -792,6 +864,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Indicates the surface has changed and needs to be rendered.
   example: []
   syntax:
     content: public bool IsDirty { get; set; }
@@ -816,6 +889,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The default foreground for glyphs on this surface.
   example: []
   syntax:
     content: >-
@@ -850,6 +924,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The default background for glyphs on this surface.
   example: []
   syntax:
     content: >-
@@ -884,6 +959,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The default glyph used in clearing and erasing.
   example: []
   syntax:
     content: >-
@@ -918,6 +994,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The visible portion of the surface.
   example: []
   syntax:
     content: public Rectangle View { get; set; }
@@ -942,6 +1019,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Gets or sets the visible width of the surface in cells.
   example: []
   syntax:
     content: public int ViewWidth { get; set; }
@@ -966,6 +1044,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Gets or sets the visible height of the surface in cells.
   example: []
   syntax:
     content: public int ViewHeight { get; set; }
@@ -990,6 +1069,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Returns a rectangle that represents the entire size of the surface.
   example: []
   syntax:
     content: public Rectangle Area { get; }
@@ -1014,7 +1094,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The width of the grid being represented.
+  summary: The total width of the surface.
   example: []
   syntax:
     content: public int Width { get; }
@@ -1039,7 +1119,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: The height of the grid being represented.
+  summary: The total height of the surface.
   example: []
   syntax:
     content: public int Height { get; }
@@ -1064,6 +1144,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the <xref href="SadConsole.ICellSurface.View" data-throw-if-not-resolved="false"></xref> width or height is different from <xref href="SadConsole.ICellSurface.Area" data-throw-if-not-resolved="false"></xref>; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
   example: []
   syntax:
     content: public bool IsScrollable { get; }
@@ -1088,6 +1169,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The position of the view within the buffer.
   example: []
   syntax:
     content: public Point ViewPosition { get; set; }
@@ -1112,6 +1194,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1143,7 +1226,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Number of tiles in the grid; equal to <xref href="SadRogue.Primitives.GridViews.IGridView%601.Width" data-throw-if-not-resolved="false"></xref> * <xref href="SadRogue.Primitives.GridViews.IGridView%601.Height" data-throw-if-not-resolved="false"></xref>.
+  summary: The count of glyphs this surface contains.
   example: []
   syntax:
     content: public int Count { get; }
@@ -1168,21 +1251,16 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Given an X and Y value, returns the "value" associated with that location.
-  remarks: Typically, this can be implemented via <xref href="SadRogue.Primitives.GridViews.IGridView%601.Item(SadRogue.Primitives.Point)" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: public ColoredGlyphBase this[int x, int y] { get; protected set; }
     parameters:
     - id: x
       type: System.Int32
-      description: X-value of location.
     - id: y
       type: System.Int32
-      description: Y-value of location.
     return:
       type: SadConsole.ColoredGlyphBase
-      description: The "value" associated with that location.
     content.vb: Public Default Property this[](x As Integer, y As Integer) As ColoredGlyphBase
   overload: SadConsole.CellSurface.Item*
   implements:
@@ -1204,18 +1282,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: >-
-    Given an 1-dimensional index, returns the value associated with the corresponding position
-
-    in the map view.
-  remarks: >-
-    Typically, this may be implemented in terms of <xref href="SadRogue.Primitives.GridViews.IGridView%601.Item(SadRogue.Primitives.Point)" data-throw-if-not-resolved="false"></xref> by using
-
-    <xref href="SadRogue.Primitives.Point.FromIndex(System.Int32%2cSystem.Int32)" data-throw-if-not-resolved="false"></xref> to calculate the 2D position represented by that
-
-    1D index, and passing that position to the <xref href="SadRogue.Primitives.GridViews.IGridView%601.Item(SadRogue.Primitives.Point)" data-throw-if-not-resolved="false"></xref> indexer to determine
-
-    the value associated with the position.
   example: []
   syntax:
     content: public ColoredGlyphBase this[int index] { get; protected set; }
@@ -1224,7 +1290,6 @@ items:
       type: System.Int32
     return:
       type: SadConsole.ColoredGlyphBase
-      description: The "value" associated with the given location.
     content.vb: Public Default Property this[](index As Integer) As ColoredGlyphBase
   overload: SadConsole.CellSurface.Item*
   implements:
@@ -1246,7 +1311,6 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Given a position, returns the "value" associated with that location.
   example: []
   syntax:
     content: public ColoredGlyphBase this[Point position] { get; protected set; }
@@ -1255,7 +1319,6 @@ items:
       type: SadRogue.Primitives.Point
     return:
       type: SadConsole.ColoredGlyphBase
-      description: The "value" associated with the provided location.
     content.vb: Public Default Property this[](position As Point) As ColoredGlyphBase
   overload: SadConsole.CellSurface.Item*
   implements:
@@ -1277,13 +1340,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Given a position, returns the "value" associated with that location.
+  example: []
   syntax:
     content: public Span<ColoredGlyphBase> this[Range range] { get; }
     parameters:
     - id: range
       type: System.Range
+      description: The cells to return from the array.
     return:
       type: System.Span{SadConsole.ColoredGlyphBase}
+      description: The cells associated with the specified range.
     content.vb: Public ReadOnly Default Property this[](range As Range) As Span(Of ColoredGlyphBase)
   overload: SadConsole.CellSurface.Item*
   nameWithType.vb: CellSurface.this[](Range)
@@ -1303,6 +1370,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: An event that is raised when <xref href="SadConsole.ICellSurface.IsDirty" data-throw-if-not-resolved="false"></xref> changes.
   example: []
   syntax:
     content: public event EventHandler? IsDirtyChanged
@@ -1312,6 +1380,14 @@ items:
   implements:
   - SadConsole.ICellSurface.IsDirtyChanged
 references:
+- uid: SadConsole.ColoredGlyphBase
+  commentId: T:SadConsole.ColoredGlyphBase
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ColoredGlyphBase.html
+  name: ColoredGlyphBase
+  nameWithType: ColoredGlyphBase
+  fullName: SadConsole.ColoredGlyphBase
 - uid: SadConsole
   commentId: N:SadConsole
   isExternal: true
@@ -16081,6 +16157,18 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.boolean
   - name: )
+- uid: SadRogue.Primitives.Color.Transparent
+  commentId: F:SadRogue.Primitives.Color.Transparent
+  isExternal: true
+  name: Transparent
+  nameWithType: Color.Transparent
+  fullName: SadRogue.Primitives.Color.Transparent
+- uid: SadRogue.Primitives.Color.White
+  commentId: F:SadRogue.Primitives.Color.White
+  isExternal: true
+  name: White
+  nameWithType: Color.White
+  fullName: SadRogue.Primitives.Color.White
 - uid: SadConsole.CellSurface.#ctor*
   commentId: Overload:SadConsole.CellSurface.#ctor
   isExternal: true
@@ -16447,6 +16535,34 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: )
+- uid: SadConsole.CellSurface.IsDirty
+  commentId: P:SadConsole.CellSurface.IsDirty
+  isExternal: true
+  href: SadConsole.CellSurface.html#SadConsole_CellSurface_IsDirty
+  name: IsDirty
+  nameWithType: CellSurface.IsDirty
+  fullName: SadConsole.CellSurface.IsDirty
+- uid: SadConsole.CellSurface.OnIsDirtyChanged
+  commentId: M:SadConsole.CellSurface.OnIsDirtyChanged
+  isExternal: true
+  href: SadConsole.CellSurface.html#SadConsole_CellSurface_OnIsDirtyChanged
+  name: OnIsDirtyChanged()
+  nameWithType: CellSurface.OnIsDirtyChanged()
+  fullName: SadConsole.CellSurface.OnIsDirtyChanged()
+  spec.csharp:
+  - uid: SadConsole.CellSurface.OnIsDirtyChanged
+    name: OnIsDirtyChanged
+    isExternal: true
+    href: SadConsole.CellSurface.html#SadConsole_CellSurface_OnIsDirtyChanged
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.CellSurface.OnIsDirtyChanged
+    name: OnIsDirtyChanged
+    isExternal: true
+    href: SadConsole.CellSurface.html#SadConsole_CellSurface_OnIsDirtyChanged
+  - name: (
+  - name: )
 - uid: SadConsole.CellSurface.SetIsDirtySafe*
   commentId: Overload:SadConsole.CellSurface.SetIsDirtySafe
   isExternal: true
@@ -16461,6 +16577,13 @@ references:
   name: OnIsDirtyChanged
   nameWithType: CellSurface.OnIsDirtyChanged
   fullName: SadConsole.CellSurface.OnIsDirtyChanged
+- uid: SadConsole.CellSurface.Cells
+  commentId: P:SadConsole.CellSurface.Cells
+  isExternal: true
+  href: SadConsole.CellSurface.html#SadConsole_CellSurface_Cells
+  name: Cells
+  nameWithType: CellSurface.Cells
+  fullName: SadConsole.CellSurface.Cells
 - uid: SadConsole.CellSurface.OnCellsReset*
   commentId: Overload:SadConsole.CellSurface.OnCellsReset
   isExternal: true
@@ -16645,6 +16768,21 @@ references:
   name: TimesShiftedUp
   nameWithType: ICellSurface.TimesShiftedUp
   fullName: SadConsole.ICellSurface.TimesShiftedUp
+- uid: SadConsole.ColoredString.Parser
+  commentId: P:SadConsole.ColoredString.Parser
+  isExternal: true
+  href: SadConsole.ColoredString.html#SadConsole_ColoredString_Parser
+  name: Parser
+  nameWithType: ColoredString.Parser
+  fullName: SadConsole.ColoredString.Parser
+- uid: SadConsole.ColoredString
+  commentId: T:SadConsole.ColoredString
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ColoredString.html
+  name: ColoredString
+  nameWithType: ColoredString
+  fullName: SadConsole.ColoredString
 - uid: SadConsole.CellSurface.UsePrintProcessor*
   commentId: Overload:SadConsole.CellSurface.UsePrintProcessor
   isExternal: true
@@ -16675,6 +16813,9 @@ references:
   name: Surface
   nameWithType: ISurface.Surface
   fullName: SadConsole.ISurface.Surface
+- uid: CellSurfaceEditor.SetEffect*
+  commentId: M:CellSurfaceEditor.SetEffect*
+  isExternal: true
 - uid: SadConsole.CellSurface.Effects*
   commentId: Overload:SadConsole.CellSurface.Effects
   isExternal: true
@@ -16968,31 +17109,6 @@ references:
   fullName: SadRogue.Primitives.GridViews.IGridView<T>.Count
   nameWithType.vb: IGridView(Of T).Count
   fullName.vb: SadRogue.Primitives.GridViews.IGridView(Of T).Count
-- uid: SadRogue.Primitives.GridViews.IGridView`1.Item(SadRogue.Primitives.Point)
-  commentId: P:SadRogue.Primitives.GridViews.IGridView`1.Item(SadRogue.Primitives.Point)
-  isExternal: true
-  name: this[Point]
-  nameWithType: IGridView<T>.this[Point]
-  fullName: SadRogue.Primitives.GridViews.IGridView<T>.this[SadRogue.Primitives.Point]
-  nameWithType.vb: IGridView(Of T).this[](Point)
-  fullName.vb: SadRogue.Primitives.GridViews.IGridView(Of T).this[](SadRogue.Primitives.Point)
-  name.vb: this[](Point)
-  spec.csharp:
-  - name: this
-  - name: '['
-  - uid: SadRogue.Primitives.Point
-    name: Point
-    isExternal: true
-  - name: ']'
-  spec.vb:
-  - uid: SadRogue.Primitives.GridViews.IGridView`1.Item(SadRogue.Primitives.Point)
-    name: this[]
-    isExternal: true
-  - name: (
-  - uid: SadRogue.Primitives.Point
-    name: Point
-    isExternal: true
-  - name: )
 - uid: SadConsole.CellSurface.Item*
   commentId: Overload:SadConsole.CellSurface.Item
   isExternal: true
@@ -17044,14 +17160,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: )
-- uid: SadConsole.ColoredGlyphBase
-  commentId: T:SadConsole.ColoredGlyphBase
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.ColoredGlyphBase.html
-  name: ColoredGlyphBase
-  nameWithType: ColoredGlyphBase
-  fullName: SadConsole.ColoredGlyphBase
 - uid: SadRogue.Primitives.GridViews.IGridView`1.Item(System.Int32,System.Int32)
   commentId: P:SadRogue.Primitives.GridViews.IGridView`1.Item(System.Int32,System.Int32)
   isExternal: true
@@ -17079,48 +17187,6 @@ references:
   spec.vb:
   - uid: SadRogue.Primitives.GridViews.IGridView`1.Item(System.Int32,System.Int32)
     name: this[]
-    isExternal: true
-  - name: (
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: ','
-  - name: " "
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: )
-- uid: SadRogue.Primitives.Point.FromIndex(System.Int32,System.Int32)
-  commentId: M:SadRogue.Primitives.Point.FromIndex(System.Int32,System.Int32)
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: FromIndex(int, int)
-  nameWithType: Point.FromIndex(int, int)
-  fullName: SadRogue.Primitives.Point.FromIndex(int, int)
-  nameWithType.vb: Point.FromIndex(Integer, Integer)
-  fullName.vb: SadRogue.Primitives.Point.FromIndex(Integer, Integer)
-  name.vb: FromIndex(Integer, Integer)
-  spec.csharp:
-  - uid: SadRogue.Primitives.Point.FromIndex(System.Int32,System.Int32)
-    name: FromIndex
-    isExternal: true
-  - name: (
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: ','
-  - name: " "
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: )
-  spec.vb:
-  - uid: SadRogue.Primitives.Point.FromIndex(System.Int32,System.Int32)
-    name: FromIndex
     isExternal: true
   - name: (
   - uid: System.Int32
@@ -17210,6 +17276,31 @@ references:
   - name: ']'
   spec.vb:
   - uid: SadRogue.Primitives.GridViews.IGridView{SadConsole.ColoredGlyphBase}.Item(SadRogue.Primitives.Point)
+    name: this[]
+    isExternal: true
+  - name: (
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: )
+- uid: SadRogue.Primitives.GridViews.IGridView`1.Item(SadRogue.Primitives.Point)
+  commentId: P:SadRogue.Primitives.GridViews.IGridView`1.Item(SadRogue.Primitives.Point)
+  isExternal: true
+  name: this[Point]
+  nameWithType: IGridView<T>.this[Point]
+  fullName: SadRogue.Primitives.GridViews.IGridView<T>.this[SadRogue.Primitives.Point]
+  nameWithType.vb: IGridView(Of T).this[](Point)
+  fullName.vb: SadRogue.Primitives.GridViews.IGridView(Of T).this[](SadRogue.Primitives.Point)
+  name.vb: this[](Point)
+  spec.csharp:
+  - name: this
+  - name: '['
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: ']'
+  spec.vb:
+  - uid: SadRogue.Primitives.GridViews.IGridView`1.Item(SadRogue.Primitives.Point)
     name: this[]
     isExternal: true
   - name: (

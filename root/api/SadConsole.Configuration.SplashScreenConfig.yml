@@ -7,7 +7,7 @@ items:
   children:
   - SadConsole.Configuration.SplashScreenConfig.#ctor
   - SadConsole.Configuration.SplashScreenConfig.GenerateSplashScreen
-  - SadConsole.Configuration.SplashScreenConfig.Run(SadConsole.Configuration.Builder,SadConsole.Game)
+  - SadConsole.Configuration.SplashScreenConfig.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
   langs:
   - csharp
   - vb
@@ -16,7 +16,7 @@ items:
   fullName: SadConsole.Configuration.SplashScreenConfig
   type: Class
   assemblies:
-  - SadConsole.Host.MonoGame
+  - SadConsole
   namespace: SadConsole.Configuration
   summary: A config object that adds splash screen objects with the <xref href="SadConsole.GameHost.SetSplashScreens(SadConsole.IScreenSurface%5b%5d)" data-throw-if-not-resolved="false"></xref> method.
   example: []
@@ -35,35 +35,35 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
-- uid: SadConsole.Configuration.SplashScreenConfig.Run(SadConsole.Configuration.Builder,SadConsole.Game)
-  commentId: M:SadConsole.Configuration.SplashScreenConfig.Run(SadConsole.Configuration.Builder,SadConsole.Game)
-  id: Run(SadConsole.Configuration.Builder,SadConsole.Game)
+- uid: SadConsole.Configuration.SplashScreenConfig.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
+  commentId: M:SadConsole.Configuration.SplashScreenConfig.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
+  id: Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
   parent: SadConsole.Configuration.SplashScreenConfig
   langs:
   - csharp
   - vb
-  name: Run(Builder, Game)
-  nameWithType: SplashScreenConfig.Run(Builder, Game)
-  fullName: SadConsole.Configuration.SplashScreenConfig.Run(SadConsole.Configuration.Builder, SadConsole.Game)
+  name: Run(Builder, GameHost)
+  nameWithType: SplashScreenConfig.Run(Builder, GameHost)
+  fullName: SadConsole.Configuration.SplashScreenConfig.Run(SadConsole.Configuration.Builder, SadConsole.GameHost)
   type: Method
   assemblies:
-  - SadConsole.Host.MonoGame
+  - SadConsole
   namespace: SadConsole.Configuration
   summary: Called by the <xref href="SadConsole.Configuration.Builder" data-throw-if-not-resolved="false"></xref>; Runs the specific config for this object.
   example: []
   syntax:
-    content: public void Run(Builder config, Game game)
+    content: public void Run(Builder config, GameHost game)
     parameters:
     - id: config
       type: SadConsole.Configuration.Builder
       description: The builder configuration object.
     - id: game
-      type: SadConsole.Game
+      type: SadConsole.GameHost
       description: The game object being created.
-    content.vb: Public Sub Run(config As Builder, game As Game)
+    content.vb: Public Sub Run(config As Builder, game As GameHost)
   overload: SadConsole.Configuration.SplashScreenConfig.Run*
   implements:
-  - SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.Game)
+  - SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
 - uid: SadConsole.Configuration.SplashScreenConfig.#ctor
   commentId: M:SadConsole.Configuration.SplashScreenConfig.#ctor
   id: '#ctor'
@@ -76,7 +76,7 @@ items:
   fullName: SadConsole.Configuration.SplashScreenConfig.SplashScreenConfig()
   type: Constructor
   assemblies:
-  - SadConsole.Host.MonoGame
+  - SadConsole
   namespace: SadConsole.Configuration
   syntax:
     content: public SplashScreenConfig()
@@ -97,22 +97,23 @@ items:
   fullName: SadConsole.Configuration.SplashScreenConfig.GenerateSplashScreen
   type: Property
   assemblies:
-  - SadConsole.Host.MonoGame
+  - SadConsole
   namespace: SadConsole.Configuration
   summary: A delegate that returns a set of splash screens to use.
   example: []
   syntax:
-    content: public Func<Game, IScreenSurface[]> GenerateSplashScreen { get; set; }
+    content: public Func<GameHost, IScreenSurface[]> GenerateSplashScreen { get; set; }
     parameters: []
     return:
-      type: System.Func{SadConsole.Game,SadConsole.IScreenSurface[]}
-    content.vb: Public Property GenerateSplashScreen As Func(Of Game, IScreenSurface())
+      type: System.Func{SadConsole.GameHost,SadConsole.IScreenSurface[]}
+    content.vb: Public Property GenerateSplashScreen As Func(Of GameHost, IScreenSurface())
   overload: SadConsole.Configuration.SplashScreenConfig.GenerateSplashScreen*
 references:
 - uid: SadConsole.GameHost.SetSplashScreens(SadConsole.IScreenSurface[])
   commentId: M:SadConsole.GameHost.SetSplashScreens(SadConsole.IScreenSurface[])
   parent: SadConsole.GameHost
   isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_SetSplashScreens_SadConsole_IScreenSurface___
   name: SetSplashScreens(params IScreenSurface[])
   nameWithType: GameHost.SetSplashScreens(params IScreenSurface[])
   fullName: SadConsole.GameHost.SetSplashScreens(params SadConsole.IScreenSurface[])
@@ -123,12 +124,14 @@ references:
   - uid: SadConsole.GameHost.SetSplashScreens(SadConsole.IScreenSurface[])
     name: SetSplashScreens
     isExternal: true
+    href: SadConsole.GameHost.html#SadConsole_GameHost_SetSplashScreens_SadConsole_IScreenSurface___
   - name: (
   - name: params
   - name: " "
   - uid: SadConsole.IScreenSurface
     name: IScreenSurface
     isExternal: true
+    href: SadConsole.IScreenSurface.html
   - name: '['
   - name: ']'
   - name: )
@@ -136,12 +139,14 @@ references:
   - uid: SadConsole.GameHost.SetSplashScreens(SadConsole.IScreenSurface[])
     name: SetSplashScreens
     isExternal: true
+    href: SadConsole.GameHost.html#SadConsole_GameHost_SetSplashScreens_SadConsole_IScreenSurface___
   - name: (
   - name: ParamArray
   - name: " "
   - uid: SadConsole.IScreenSurface
     name: IScreenSurface
     isExternal: true
+    href: SadConsole.IScreenSurface.html
   - name: (
   - name: )
   - name: )
@@ -443,23 +448,23 @@ references:
 - uid: SadConsole.Configuration.SplashScreenConfig.Run*
   commentId: Overload:SadConsole.Configuration.SplashScreenConfig.Run
   isExternal: true
-  href: SadConsole.Configuration.SplashScreenConfig.html#SadConsole_Configuration_SplashScreenConfig_Run_SadConsole_Configuration_Builder_SadConsole_Game_
+  href: SadConsole.Configuration.SplashScreenConfig.html#SadConsole_Configuration_SplashScreenConfig_Run_SadConsole_Configuration_Builder_SadConsole_GameHost_
   name: Run
   nameWithType: SplashScreenConfig.Run
   fullName: SadConsole.Configuration.SplashScreenConfig.Run
-- uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.Game)
-  commentId: M:SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.Game)
+- uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
+  commentId: M:SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
   parent: SadConsole.Configuration.IConfigurator
   isExternal: true
-  href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_Builder_SadConsole_Game_
-  name: Run(Builder, Game)
-  nameWithType: IConfigurator.Run(Builder, Game)
-  fullName: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder, SadConsole.Game)
+  href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_Builder_SadConsole_GameHost_
+  name: Run(Builder, GameHost)
+  nameWithType: IConfigurator.Run(Builder, GameHost)
+  fullName: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder, SadConsole.GameHost)
   spec.csharp:
-  - uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.Game)
+  - uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
     name: Run
     isExternal: true
-    href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_Builder_SadConsole_Game_
+    href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_Builder_SadConsole_GameHost_
   - name: (
   - uid: SadConsole.Configuration.Builder
     name: Builder
@@ -467,16 +472,16 @@ references:
     href: SadConsole.Configuration.Builder.html
   - name: ','
   - name: " "
-  - uid: SadConsole.Game
-    name: Game
+  - uid: SadConsole.GameHost
+    name: GameHost
     isExternal: true
-    href: SadConsole.Game.html
+    href: SadConsole.GameHost.html
   - name: )
   spec.vb:
-  - uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.Game)
+  - uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
     name: Run
     isExternal: true
-    href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_Builder_SadConsole_Game_
+    href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_Builder_SadConsole_GameHost_
   - name: (
   - uid: SadConsole.Configuration.Builder
     name: Builder
@@ -484,19 +489,11 @@ references:
     href: SadConsole.Configuration.Builder.html
   - name: ','
   - name: " "
-  - uid: SadConsole.Game
-    name: Game
+  - uid: SadConsole.GameHost
+    name: GameHost
     isExternal: true
-    href: SadConsole.Game.html
+    href: SadConsole.GameHost.html
   - name: )
-- uid: SadConsole.Game
-  commentId: T:SadConsole.Game
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.Game.html
-  name: Game
-  nameWithType: Game
-  fullName: SadConsole.Game
 - uid: SadConsole.Configuration.SplashScreenConfig.#ctor*
   commentId: Overload:SadConsole.Configuration.SplashScreenConfig.#ctor
   isExternal: true
@@ -514,32 +511,33 @@ references:
   name: GenerateSplashScreen
   nameWithType: SplashScreenConfig.GenerateSplashScreen
   fullName: SadConsole.Configuration.SplashScreenConfig.GenerateSplashScreen
-- uid: System.Func{SadConsole.Game,SadConsole.IScreenSurface[]}
-  commentId: T:System.Func{SadConsole.Game,SadConsole.IScreenSurface[]}
+- uid: System.Func{SadConsole.GameHost,SadConsole.IScreenSurface[]}
+  commentId: T:System.Func{SadConsole.GameHost,SadConsole.IScreenSurface[]}
   parent: System
   definition: System.Func`2
   href: https://learn.microsoft.com/dotnet/api/system.func-2
-  name: Func<Game, IScreenSurface[]>
-  nameWithType: Func<Game, IScreenSurface[]>
-  fullName: System.Func<SadConsole.Game, SadConsole.IScreenSurface[]>
-  nameWithType.vb: Func(Of Game, IScreenSurface())
-  fullName.vb: System.Func(Of SadConsole.Game, SadConsole.IScreenSurface())
-  name.vb: Func(Of Game, IScreenSurface())
+  name: Func<GameHost, IScreenSurface[]>
+  nameWithType: Func<GameHost, IScreenSurface[]>
+  fullName: System.Func<SadConsole.GameHost, SadConsole.IScreenSurface[]>
+  nameWithType.vb: Func(Of GameHost, IScreenSurface())
+  fullName.vb: System.Func(Of SadConsole.GameHost, SadConsole.IScreenSurface())
+  name.vb: Func(Of GameHost, IScreenSurface())
   spec.csharp:
   - uid: System.Func`2
     name: Func
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.func-2
   - name: <
-  - uid: SadConsole.Game
-    name: Game
+  - uid: SadConsole.GameHost
+    name: GameHost
     isExternal: true
-    href: SadConsole.Game.html
+    href: SadConsole.GameHost.html
   - name: ','
   - name: " "
   - uid: SadConsole.IScreenSurface
     name: IScreenSurface
     isExternal: true
+    href: SadConsole.IScreenSurface.html
   - name: '['
   - name: ']'
   - name: '>'
@@ -551,15 +549,16 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: SadConsole.Game
-    name: Game
+  - uid: SadConsole.GameHost
+    name: GameHost
     isExternal: true
-    href: SadConsole.Game.html
+    href: SadConsole.GameHost.html
   - name: ','
   - name: " "
   - uid: SadConsole.IScreenSurface
     name: IScreenSurface
     isExternal: true
+    href: SadConsole.IScreenSurface.html
   - name: (
   - name: )
   - name: )

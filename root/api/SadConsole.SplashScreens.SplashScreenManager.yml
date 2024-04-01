@@ -18,6 +18,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.SplashScreens
+  summary: GameHost use only. Use the <xref href="SadConsole.SplashScreens.SplashScreenManager.CheckRun" data-throw-if-not-resolved="false"></xref> method to show any splash screens after <xref href="SadConsole.GameHost.OnGameStarted" data-throw-if-not-resolved="false"></xref> was called.
+  example: []
   syntax:
     content: 'public class SplashScreenManager : ScreenObject, IScreenObject, IPositionable, IComponentHost'
     content.vb: Public Class SplashScreenManager Inherits ScreenObject Implements IScreenObject, IPositionable, IComponentHost
@@ -108,6 +110,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.SplashScreens
+  summary: Checks if any splash screens have been added with <xref href="SadConsole.GameHost.SetSplashScreens(SadConsole.IScreenSurface%5b%5d)" data-throw-if-not-resolved="false"></xref>, if so, starts them.
+  example: []
   syntax:
     content: public static void CheckRun()
     content.vb: Public Shared Sub CheckRun()
@@ -126,12 +130,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.SplashScreens
+  summary: Updates all <xref href="SadConsole.Components.IComponentHost.SadComponents" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.IScreenObject.Children" data-throw-if-not-resolved="false"></xref>.
+  remarks: Only processes if <xref href="SadConsole.IScreenObject.IsEnabled" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
   example: []
   syntax:
     content: public override void Update(TimeSpan delta)
     parameters:
     - id: delta
       type: System.TimeSpan
+      description: The time that has elapsed since the last call.
     content.vb: Public Overrides Sub Update(delta As TimeSpan)
   overridden: SadConsole.ScreenObject.Update(System.TimeSpan)
   overload: SadConsole.SplashScreens.SplashScreenManager.Update*
@@ -149,12 +156,56 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.SplashScreens
+  summary: Raised when all splash screens have finished.
+  example: []
   syntax:
     content: public static event EventHandler? SplashScreenFinished
     return:
       type: System.EventHandler
     content.vb: Public Shared Event SplashScreenFinished As EventHandler
 references:
+- uid: SadConsole.SplashScreens.SplashScreenManager.CheckRun
+  commentId: M:SadConsole.SplashScreens.SplashScreenManager.CheckRun
+  isExternal: true
+  href: SadConsole.SplashScreens.SplashScreenManager.html#SadConsole_SplashScreens_SplashScreenManager_CheckRun
+  name: CheckRun()
+  nameWithType: SplashScreenManager.CheckRun()
+  fullName: SadConsole.SplashScreens.SplashScreenManager.CheckRun()
+  spec.csharp:
+  - uid: SadConsole.SplashScreens.SplashScreenManager.CheckRun
+    name: CheckRun
+    isExternal: true
+    href: SadConsole.SplashScreens.SplashScreenManager.html#SadConsole_SplashScreens_SplashScreenManager_CheckRun
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.SplashScreens.SplashScreenManager.CheckRun
+    name: CheckRun
+    isExternal: true
+    href: SadConsole.SplashScreens.SplashScreenManager.html#SadConsole_SplashScreens_SplashScreenManager_CheckRun
+  - name: (
+  - name: )
+- uid: SadConsole.GameHost.OnGameStarted
+  commentId: M:SadConsole.GameHost.OnGameStarted
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_OnGameStarted
+  name: OnGameStarted()
+  nameWithType: GameHost.OnGameStarted()
+  fullName: SadConsole.GameHost.OnGameStarted()
+  spec.csharp:
+  - uid: SadConsole.GameHost.OnGameStarted
+    name: OnGameStarted
+    isExternal: true
+    href: SadConsole.GameHost.html#SadConsole_GameHost_OnGameStarted
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.GameHost.OnGameStarted
+    name: OnGameStarted
+    isExternal: true
+    href: SadConsole.GameHost.html#SadConsole_GameHost_OnGameStarted
+  - name: (
+  - name: )
 - uid: SadConsole.SplashScreens
   commentId: N:SadConsole.SplashScreens
   isExternal: true
@@ -2963,6 +3014,47 @@ references:
     name: Quick
     isExternal: true
     href: SadConsole.Quick.html
+- uid: SadConsole.GameHost.SetSplashScreens(SadConsole.IScreenSurface[])
+  commentId: M:SadConsole.GameHost.SetSplashScreens(SadConsole.IScreenSurface[])
+  parent: SadConsole.GameHost
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_SetSplashScreens_SadConsole_IScreenSurface___
+  name: SetSplashScreens(params IScreenSurface[])
+  nameWithType: GameHost.SetSplashScreens(params IScreenSurface[])
+  fullName: SadConsole.GameHost.SetSplashScreens(params SadConsole.IScreenSurface[])
+  nameWithType.vb: GameHost.SetSplashScreens(ParamArray IScreenSurface())
+  fullName.vb: SadConsole.GameHost.SetSplashScreens(ParamArray SadConsole.IScreenSurface())
+  name.vb: SetSplashScreens(ParamArray IScreenSurface())
+  spec.csharp:
+  - uid: SadConsole.GameHost.SetSplashScreens(SadConsole.IScreenSurface[])
+    name: SetSplashScreens
+    isExternal: true
+    href: SadConsole.GameHost.html#SadConsole_GameHost_SetSplashScreens_SadConsole_IScreenSurface___
+  - name: (
+  - name: params
+  - name: " "
+  - uid: SadConsole.IScreenSurface
+    name: IScreenSurface
+    isExternal: true
+    href: SadConsole.IScreenSurface.html
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: SadConsole.GameHost.SetSplashScreens(SadConsole.IScreenSurface[])
+    name: SetSplashScreens
+    isExternal: true
+    href: SadConsole.GameHost.html#SadConsole_GameHost_SetSplashScreens_SadConsole_IScreenSurface___
+  - name: (
+  - name: ParamArray
+  - name: " "
+  - uid: SadConsole.IScreenSurface
+    name: IScreenSurface
+    isExternal: true
+    href: SadConsole.IScreenSurface.html
+  - name: (
+  - name: )
+  - name: )
 - uid: SadConsole.SplashScreens.SplashScreenManager.CheckRun*
   commentId: Overload:SadConsole.SplashScreens.SplashScreenManager.CheckRun
   isExternal: true
@@ -2970,6 +3062,38 @@ references:
   name: CheckRun
   nameWithType: SplashScreenManager.CheckRun
   fullName: SadConsole.SplashScreens.SplashScreenManager.CheckRun
+- uid: SadConsole.GameHost
+  commentId: T:SadConsole.GameHost
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.GameHost.html
+  name: GameHost
+  nameWithType: GameHost
+  fullName: SadConsole.GameHost
+- uid: SadConsole.Components.IComponentHost.SadComponents
+  commentId: P:SadConsole.Components.IComponentHost.SadComponents
+  parent: SadConsole.Components.IComponentHost
+  isExternal: true
+  href: SadConsole.Components.IComponentHost.html#SadConsole_Components_IComponentHost_SadComponents
+  name: SadComponents
+  nameWithType: IComponentHost.SadComponents
+  fullName: SadConsole.Components.IComponentHost.SadComponents
+- uid: SadConsole.IScreenObject.Children
+  commentId: P:SadConsole.IScreenObject.Children
+  parent: SadConsole.IScreenObject
+  isExternal: true
+  href: SadConsole.IScreenObject.html#SadConsole_IScreenObject_Children
+  name: Children
+  nameWithType: IScreenObject.Children
+  fullName: SadConsole.IScreenObject.Children
+- uid: SadConsole.IScreenObject.IsEnabled
+  commentId: P:SadConsole.IScreenObject.IsEnabled
+  parent: SadConsole.IScreenObject
+  isExternal: true
+  href: SadConsole.IScreenObject.html#SadConsole_IScreenObject_IsEnabled
+  name: IsEnabled
+  nameWithType: IScreenObject.IsEnabled
+  fullName: SadConsole.IScreenObject.IsEnabled
 - uid: SadConsole.ScreenObject.Update(System.TimeSpan)
   commentId: M:SadConsole.ScreenObject.Update(System.TimeSpan)
   parent: SadConsole.ScreenObject

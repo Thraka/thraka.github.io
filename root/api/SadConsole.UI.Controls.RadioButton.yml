@@ -31,6 +31,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Represents a button that can be toggled on/off within a group of other buttons.
+  example: []
   syntax:
     content: >-
       [DataContract]
@@ -139,13 +141,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Creates a new radio button control with the specified width and height.
+  example: []
   syntax:
     content: public RadioButton(int width, int height)
     parameters:
     - id: width
       type: System.Int32
+      description: Width of the control.
     - id: height
       type: System.Int32
+      description: Height of the control.
     content.vb: Public Sub New(width As Integer, height As Integer)
   overload: SadConsole.UI.Controls.RadioButton.#ctor*
   nameWithType.vb: RadioButton.New(Integer, Integer)
@@ -165,6 +171,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Creates an auto sizing radio button control with the specified text.
+  example: []
   syntax:
     content: public RadioButton(string text)
     parameters:
@@ -189,6 +197,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Perfroms a click on the base button and also toggles the <xref href="SadConsole.UI.Controls.ToggleButtonBase.IsSelected" data-throw-if-not-resolved="false"></xref> property.
   example: []
   syntax:
     content: protected override void OnClick()
@@ -209,6 +218,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Raises the <xref href="SadConsole.UI.Controls.ToggleButtonBase.IsSelectedChanged" data-throw-if-not-resolved="false"></xref> event and when <xref href="SadConsole.UI.Controls.ToggleButtonBase.IsSelected" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, deselects any other <xref href="SadConsole.UI.Controls.RadioButton" data-throw-if-not-resolved="false"></xref> with the same <xref href="SadConsole.UI.Controls.RadioButton.GroupName" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: protected override void OnIsSelected()
@@ -229,12 +239,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Updates the <xref href="SadConsole.UI.Controls.ControlBase.ThemeState" data-throw-if-not-resolved="false"></xref> by calling <xref href="SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)" data-throw-if-not-resolved="false"></xref> with the provided colors. Override this method to adjust how colors are used by the <xref href="SadConsole.UI.Controls.ControlBase.ThemeState" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: protected override void RefreshThemeStateColors(Colors colors)
     parameters:
     - id: colors
       type: SadConsole.UI.Colors
+      description: The colors to apply to the theme state.
     content.vb: Protected Overrides Sub RefreshThemeStateColors(colors As Colors)
   overridden: SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
   overload: SadConsole.UI.Controls.RadioButton.RefreshThemeStateColors*
@@ -252,12 +264,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Redraws the control if applicable.
   example: []
   syntax:
     content: public override void UpdateAndRedraw(TimeSpan time)
     parameters:
     - id: time
       type: System.TimeSpan
+      description: The duration of thecurrent frame.
     content.vb: Public Overrides Sub UpdateAndRedraw(time As TimeSpan)
   overridden: SadConsole.UI.Controls.ControlBase.UpdateAndRedraw(System.TimeSpan)
   overload: SadConsole.UI.Controls.RadioButton.UpdateAndRedraw*
@@ -275,11 +289,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Resizes the control surface based on <xref href="SadConsole.UI.Controls.ButtonBase.AutoSize" data-throw-if-not-resolved="false"></xref> or the <xref href="SadConsole.UI.Controls.ControlBase.Width" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.UI.Controls.ControlBase.Height" data-throw-if-not-resolved="false"></xref> properties.
   example: []
   syntax:
     content: protected override ICellSurface CreateControlSurface()
     return:
       type: SadConsole.ICellSurface
+      description: The control's surface.
     content.vb: Protected Overrides Function CreateControlSurface() As ICellSurface
   overridden: SadConsole.UI.Controls.ControlBase.CreateControlSurface
   overload: SadConsole.UI.Controls.RadioButton.CreateControlSurface*
@@ -297,6 +313,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The group of the radio button. All radio buttons with the same group name will work together to keep one radio button selected at a time.
+  example: []
   syntax:
     content: public string GroupName { get; set; }
     parameters: []
@@ -318,6 +336,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The glyph for the left-side bracket of the icon.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -349,6 +369,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The glyph for the right-side bracket of the icon.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -380,6 +402,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The glyph of the icon when checked.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -411,6 +435,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The glyph of the icon when unchecked.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -442,6 +468,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: An optional color of the <xref href="SadConsole.UI.Controls.RadioButton.CheckedIconGlyph" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -473,6 +501,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: An optional color of the <xref href="SadConsole.UI.Controls.RadioButton.UncheckedIconGlyph" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -504,6 +534,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The theme state used with the brackets.
+  example: []
   syntax:
     content: public ThemeStates BracketsThemeState { get; protected set; }
     parameters: []
@@ -525,6 +557,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The theme state used with the icon of the
+  example: []
   syntax:
     content: public ThemeStates IconThemeState { get; protected set; }
     parameters: []
@@ -1951,6 +1985,20 @@ references:
   name: OnClick
   nameWithType: RadioButton.OnClick
   fullName: SadConsole.UI.Controls.RadioButton.OnClick
+- uid: SadConsole.UI.Controls.RadioButton
+  commentId: T:SadConsole.UI.Controls.RadioButton
+  isExternal: true
+  href: SadConsole.UI.Controls.RadioButton.html
+  name: RadioButton
+  nameWithType: RadioButton
+  fullName: SadConsole.UI.Controls.RadioButton
+- uid: SadConsole.UI.Controls.RadioButton.GroupName
+  commentId: P:SadConsole.UI.Controls.RadioButton.GroupName
+  isExternal: true
+  href: SadConsole.UI.Controls.RadioButton.html#SadConsole_UI_Controls_RadioButton_GroupName
+  name: GroupName
+  nameWithType: RadioButton.GroupName
+  fullName: SadConsole.UI.Controls.RadioButton.GroupName
 - uid: SadConsole.UI.Controls.ToggleButtonBase.OnIsSelected
   commentId: M:SadConsole.UI.Controls.ToggleButtonBase.OnIsSelected
   parent: SadConsole.UI.Controls.ToggleButtonBase
@@ -1980,6 +2028,36 @@ references:
   name: OnIsSelected
   nameWithType: RadioButton.OnIsSelected
   fullName: SadConsole.UI.Controls.RadioButton.OnIsSelected
+- uid: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
+  commentId: M:SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
+  parent: SadConsole.UI.ThemeStates
+  isExternal: true
+  href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_RefreshTheme_SadConsole_UI_Colors_
+  name: RefreshTheme(Colors)
+  nameWithType: ThemeStates.RefreshTheme(Colors)
+  fullName: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
+  spec.csharp:
+  - uid: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
+    name: RefreshTheme
+    isExternal: true
+    href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_RefreshTheme_SadConsole_UI_Colors_
+  - name: (
+  - uid: SadConsole.UI.Colors
+    name: Colors
+    isExternal: true
+    href: SadConsole.UI.Colors.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.ThemeStates.RefreshTheme(SadConsole.UI.Colors)
+    name: RefreshTheme
+    isExternal: true
+    href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_RefreshTheme_SadConsole_UI_Colors_
+  - name: (
+  - uid: SadConsole.UI.Colors
+    name: Colors
+    isExternal: true
+    href: SadConsole.UI.Colors.html
+  - name: )
 - uid: SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
   commentId: M:SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
   parent: SadConsole.UI.Controls.ControlBase
@@ -2025,6 +2103,14 @@ references:
   name: Colors
   nameWithType: Colors
   fullName: SadConsole.UI.Colors
+- uid: SadConsole.UI.ThemeStates
+  commentId: T:SadConsole.UI.ThemeStates
+  parent: SadConsole.UI
+  isExternal: true
+  href: SadConsole.UI.ThemeStates.html
+  name: ThemeStates
+  nameWithType: ThemeStates
+  fullName: SadConsole.UI.ThemeStates
 - uid: SadConsole.UI
   commentId: N:SadConsole.UI
   isExternal: true
@@ -2176,6 +2262,13 @@ references:
   name: UncheckedIconGlyph
   nameWithType: RadioButton.UncheckedIconGlyph
   fullName: SadConsole.UI.Controls.RadioButton.UncheckedIconGlyph
+- uid: SadConsole.UI.Controls.RadioButton.CheckedIconGlyph
+  commentId: P:SadConsole.UI.Controls.RadioButton.CheckedIconGlyph
+  isExternal: true
+  href: SadConsole.UI.Controls.RadioButton.html#SadConsole_UI_Controls_RadioButton_CheckedIconGlyph
+  name: CheckedIconGlyph
+  nameWithType: RadioButton.CheckedIconGlyph
+  fullName: SadConsole.UI.Controls.RadioButton.CheckedIconGlyph
 - uid: SadConsole.UI.Controls.RadioButton.CheckedIconColor*
   commentId: Overload:SadConsole.UI.Controls.RadioButton.CheckedIconColor
   isExternal: true
@@ -2228,6 +2321,13 @@ references:
   - name: " "
   - name: T
   - name: )
+- uid: SadConsole.UI.Controls.RadioButton.UncheckedIconGlyph
+  commentId: P:SadConsole.UI.Controls.RadioButton.UncheckedIconGlyph
+  isExternal: true
+  href: SadConsole.UI.Controls.RadioButton.html#SadConsole_UI_Controls_RadioButton_UncheckedIconGlyph
+  name: UncheckedIconGlyph
+  nameWithType: RadioButton.UncheckedIconGlyph
+  fullName: SadConsole.UI.Controls.RadioButton.UncheckedIconGlyph
 - uid: SadConsole.UI.Controls.RadioButton.UncheckedIconColor*
   commentId: Overload:SadConsole.UI.Controls.RadioButton.UncheckedIconColor
   isExternal: true
@@ -2242,14 +2342,6 @@ references:
   name: BracketsThemeState
   nameWithType: RadioButton.BracketsThemeState
   fullName: SadConsole.UI.Controls.RadioButton.BracketsThemeState
-- uid: SadConsole.UI.ThemeStates
-  commentId: T:SadConsole.UI.ThemeStates
-  parent: SadConsole.UI
-  isExternal: true
-  href: SadConsole.UI.ThemeStates.html
-  name: ThemeStates
-  nameWithType: ThemeStates
-  fullName: SadConsole.UI.ThemeStates
 - uid: SadConsole.UI.Controls.RadioButton.IconThemeState*
   commentId: Overload:SadConsole.UI.Controls.RadioButton.IconThemeState
   isExternal: true

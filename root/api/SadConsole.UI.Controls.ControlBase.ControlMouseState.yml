@@ -21,6 +21,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Mouse state based on a specific control.
+  example: []
   syntax:
     content: public class ControlBase.ControlMouseState
     content.vb: Public Class ControlBase.ControlMouseState
@@ -48,15 +50,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Creates an instance of the mouse control state class.
+  example: []
   syntax:
     content: public ControlMouseState(ControlBase control, Point mousePosition, MouseScreenObjectState originalMouseState)
     parameters:
     - id: control
       type: SadConsole.UI.Controls.ControlBase
+      description: The control.
     - id: mousePosition
       type: SadRogue.Primitives.Point
+      description: The position of the mouse relative to the control.
     - id: originalMouseState
       type: SadConsole.Input.MouseScreenObjectState
+      description: The original mouse state sent to the control.
     content.vb: Public Sub New(control As ControlBase, mousePosition As Point, originalMouseState As MouseScreenObjectState)
   overload: SadConsole.UI.Controls.ControlBase.ControlMouseState.#ctor*
   nameWithType.vb: ControlBase.ControlMouseState.New(ControlBase, Point, MouseScreenObjectState)
@@ -76,13 +83,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Creates an instance of the mouse control state class and infers the <xref href="SadConsole.UI.Controls.ControlBase.ControlMouseState.MousePosition" data-throw-if-not-resolved="false"></xref> from the control and state.
+  example: []
   syntax:
     content: public ControlMouseState(ControlBase control, MouseScreenObjectState originalMouseState)
     parameters:
     - id: control
       type: SadConsole.UI.Controls.ControlBase
+      description: The control.
     - id: originalMouseState
       type: SadConsole.Input.MouseScreenObjectState
+      description: The original mouse state sent to the control.
     content.vb: Public Sub New(control As ControlBase, originalMouseState As MouseScreenObjectState)
   overload: SadConsole.UI.Controls.ControlBase.ControlMouseState.#ctor*
   nameWithType.vb: ControlBase.ControlMouseState.New(ControlBase, MouseScreenObjectState)
@@ -102,6 +113,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The control this mouse state is associated with.
+  example: []
   syntax:
     content: public ControlBase Control { get; set; }
     parameters: []
@@ -123,6 +136,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The relative position of the mouse to the control.
+  example: []
   syntax:
     content: public Point MousePosition { get; set; }
     parameters: []
@@ -144,6 +159,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The original mouse state used to generate the event.
+  example: []
   syntax:
     content: public MouseScreenObjectState OriginalMouseState { get; set; }
     parameters: []
@@ -165,6 +182,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates the mouse is over the <xref href="SadConsole.UI.Controls.ControlBase.ControlMouseState.Control" data-throw-if-not-resolved="false"></xref>; othwerise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+  example: []
   syntax:
     content: public bool IsMouseOver { get; set; }
     parameters: []
@@ -534,6 +553,13 @@ references:
     name: Input
     isExternal: true
     href: SadConsole.Input.html
+- uid: SadConsole.UI.Controls.ControlBase.ControlMouseState.MousePosition
+  commentId: P:SadConsole.UI.Controls.ControlBase.ControlMouseState.MousePosition
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.ControlMouseState.html#SadConsole_UI_Controls_ControlBase_ControlMouseState_MousePosition
+  name: MousePosition
+  nameWithType: ControlBase.ControlMouseState.MousePosition
+  fullName: SadConsole.UI.Controls.ControlBase.ControlMouseState.MousePosition
 - uid: SadConsole.UI.Controls.ControlBase.ControlMouseState.Control*
   commentId: Overload:SadConsole.UI.Controls.ControlBase.ControlMouseState.Control
   isExternal: true
@@ -555,6 +581,13 @@ references:
   name: OriginalMouseState
   nameWithType: ControlBase.ControlMouseState.OriginalMouseState
   fullName: SadConsole.UI.Controls.ControlBase.ControlMouseState.OriginalMouseState
+- uid: SadConsole.UI.Controls.ControlBase.ControlMouseState.Control
+  commentId: P:SadConsole.UI.Controls.ControlBase.ControlMouseState.Control
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.ControlMouseState.html#SadConsole_UI_Controls_ControlBase_ControlMouseState_Control
+  name: Control
+  nameWithType: ControlBase.ControlMouseState.Control
+  fullName: SadConsole.UI.Controls.ControlBase.ControlMouseState.Control
 - uid: SadConsole.UI.Controls.ControlBase.ControlMouseState.IsMouseOver*
   commentId: Overload:SadConsole.UI.Controls.ControlBase.ControlMouseState.IsMouseOver
   isExternal: true

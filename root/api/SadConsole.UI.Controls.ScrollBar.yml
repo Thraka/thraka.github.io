@@ -39,6 +39,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Represents a scrollbar control.
+  example: []
   syntax:
     content: >-
       [DataContract]
@@ -137,15 +139,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Creates a new Slider control
+  example: []
   syntax:
     content: public ScrollBar(Orientation orientation, int size)
     parameters:
     - id: orientation
       type: SadConsole.Orientation
+      description: Sets the control to either horizontal or vertical.
     - id: size
       type: System.Int32
+      description: The height or width of the control, based on the <code class="paramref">orientation</code>, with a thickness of 1.
     content.vb: Public Sub New(orientation As Orientation, size As Integer)
   overload: SadConsole.UI.Controls.ScrollBar.#ctor*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Size of the control must be 2 or more
   nameWithType.vb: ScrollBar.New(Orientation, Integer)
   fullName.vb: SadConsole.UI.Controls.ScrollBar.New(SadConsole.Orientation, Integer)
   name.vb: New(Orientation, Integer)
@@ -163,17 +173,26 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Creates a new Slider control with the specified width and height.
+  example: []
   syntax:
     content: public ScrollBar(Orientation orientation, int width, int height)
     parameters:
     - id: orientation
       type: SadConsole.Orientation
+      description: Sets the control to either horizontal or vertical.
     - id: width
       type: System.Int32
+      description: The width the control.
     - id: height
       type: System.Int32
+      description: The height of the control.
     content.vb: Public Sub New(orientation As Orientation, width As Integer, height As Integer)
   overload: SadConsole.UI.Controls.ScrollBar.#ctor*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: With a horizontal Slider, width must be 2 or more. With a vertical Slider, height must be 2 or more.
   nameWithType.vb: ScrollBar.New(Orientation, Integer, Integer)
   fullName.vb: SadConsole.UI.Controls.ScrollBar.New(SadConsole.Orientation, Integer, Integer)
   name.vb: New(Orientation, Integer, Integer)
@@ -191,6 +210,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Invokes the <xref href="SadConsole.UI.Controls.ScrollBar.ValueChanged" data-throw-if-not-resolved="false"></xref> event.
+  example: []
   syntax:
     content: protected void OnValueChanged()
     content.vb: Protected Sub OnValueChanged()
@@ -209,6 +230,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Sets the bar and grip sizes of the control.
+  example: []
   syntax:
     content: protected void CalculateGripSize()
     content.vb: Protected Sub CalculateGripSize()
@@ -227,6 +250,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Moves the grip position based on the <xref href="SadConsole.UI.Controls.ScrollBar.Value" data-throw-if-not-resolved="false"></xref> property.
+  example: []
   syntax:
     content: protected void SetGripToValue()
     content.vb: Protected Sub SetGripToValue()
@@ -245,6 +270,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Resizes the control and recalculates the grip size.
   example: []
   syntax:
     content: protected override void OnResized()
@@ -265,13 +291,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Sets the value of the control without using the <xref href="SadConsole.UI.Controls.ScrollBar.Value" data-throw-if-not-resolved="false"></xref> property. Optionally calls <xref href="SadConsole.UI.Controls.ScrollBar.SetGripToValue" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: protected void SetValue(int value, bool setGrip = true)
     parameters:
     - id: value
       type: System.Int32
+      description: The value to set.
     - id: setGrip
       type: System.Boolean
+      description: Moves the grip when true.
     content.vb: Protected Sub SetValue(value As Integer, setGrip As Boolean = True)
   overload: SadConsole.UI.Controls.ScrollBar.SetValue*
   nameWithType.vb: ScrollBar.SetValue(Integer, Boolean)
@@ -291,11 +321,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Increases the value by the specified amount.
+  example: []
   syntax:
     content: public void IncreaseValue(int value)
     parameters:
     - id: value
       type: System.Int32
+      description: The value to add to <xref href="SadConsole.UI.Controls.ScrollBar.Value" data-throw-if-not-resolved="false"></xref>.
     content.vb: Public Sub IncreaseValue(value As Integer)
   overload: SadConsole.UI.Controls.ScrollBar.IncreaseValue*
   nameWithType.vb: ScrollBar.IncreaseValue(Integer)
@@ -315,11 +348,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Decreases the value by the specified amount.
+  example: []
   syntax:
     content: public void DecreaseValue(int value)
     parameters:
     - id: value
       type: System.Int32
+      description: The value to subract from <xref href="SadConsole.UI.Controls.ScrollBar.Value" data-throw-if-not-resolved="false"></xref>.
     content.vb: Public Sub DecreaseValue(value As Integer)
   overload: SadConsole.UI.Controls.ScrollBar.DecreaseValue*
   nameWithType.vb: ScrollBar.DecreaseValue(Integer)
@@ -339,6 +375,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Increases the grip position by one and sets the value.
+  example: []
   syntax:
     content: public void IncreaseGripByOne()
     content.vb: Public Sub IncreaseGripByOne()
@@ -357,6 +395,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Decreases the grip position by one and sets the value.
+  example: []
   syntax:
     content: public void DecreaseGripByOne()
     content.vb: Public Sub DecreaseGripByOne()
@@ -375,13 +415,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Processes the mouse wheel values regardless of if the mouse is over the scrollbar or not.
+  example: []
   syntax:
     content: public bool ProcessMouseWheel(MouseScreenObjectState state)
     parameters:
     - id: state
       type: SadConsole.Input.MouseScreenObjectState
+      description: The mouse state.
     return:
       type: System.Boolean
+      description: True if the mouse wheel was processed.
     content.vb: Public Function ProcessMouseWheel(state As MouseScreenObjectState) As Boolean
   overload: SadConsole.UI.Controls.ScrollBar.ProcessMouseWheel*
 - uid: SadConsole.UI.Controls.ScrollBar.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
@@ -398,14 +442,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Checks if the mouse is the control and calls the appropriate mouse methods.
   example: []
   syntax:
     content: public override bool ProcessMouse(MouseScreenObjectState state)
     parameters:
     - id: state
       type: SadConsole.Input.MouseScreenObjectState
+      description: Mouse information.
     return:
       type: System.Boolean
+      description: True when the control is enabled, set to use the mouse and the mouse is over it, otherwise false.
     content.vb: Public Overrides Function ProcessMouse(state As MouseScreenObjectState) As Boolean
   overridden: SadConsole.UI.Controls.ControlBase.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
   overload: SadConsole.UI.Controls.ScrollBar.ProcessMouse*
@@ -423,12 +470,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Redraws the control if applicable.
   example: []
   syntax:
     content: public override void UpdateAndRedraw(TimeSpan time)
     parameters:
     - id: time
       type: System.TimeSpan
+      description: The duration of thecurrent frame.
     content.vb: Public Overrides Sub UpdateAndRedraw(time As TimeSpan)
   overridden: SadConsole.UI.Controls.ControlBase.UpdateAndRedraw(System.TimeSpan)
   overload: SadConsole.UI.Controls.ScrollBar.UpdateAndRedraw*
@@ -446,6 +495,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Indicates if the slider is horizontal or vertical.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -477,6 +528,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: When true, indicates that the mouse is gripping the slider to scroll.
+  example: []
   syntax:
     content: public bool IsGripped { get; }
     parameters: []
@@ -498,6 +551,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Gets or sets the maximum value for the scrollbar.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -529,6 +584,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Gets or sets the amount of values to add or subtract to the <xref href="SadConsole.UI.Controls.ScrollBar.Value" data-throw-if-not-resolved="false"></xref> when the up or down arrows are used.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -560,6 +617,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Gets or sets the amount of values to add or subtract to the <xref href="SadConsole.UI.Controls.ScrollBar.Value" data-throw-if-not-resolved="false"></xref> when the up or down arrows are used.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -591,6 +650,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Gets or sets the value of the slider between the minimum and maximum values.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -622,6 +683,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: When true, the arrow buttons simply move the grip instead of using the <xref href="SadConsole.UI.Controls.ScrollBar.ArrowStep" data-throw-if-not-resolved="false"></xref> value to adjust the value.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -653,6 +716,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: When true, the mouse wheelsimply moves the grip instead of using the <xref href="SadConsole.UI.Controls.ScrollBar.MouseWheelStep" data-throw-if-not-resolved="false"></xref> value to adjust the value.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -684,6 +749,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The style applied to drawing the control.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -715,6 +782,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Raised when the <xref href="SadConsole.UI.Controls.ScrollBar.Value" data-throw-if-not-resolved="false"></xref> property changes.
+  example: []
   syntax:
     content: public event EventHandler? ValueChanged
     return:
@@ -1973,6 +2042,13 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: System.ArgumentOutOfRangeException
+  commentId: T:System.ArgumentOutOfRangeException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception
+  name: ArgumentOutOfRangeException
+  nameWithType: ArgumentOutOfRangeException
+  fullName: System.ArgumentOutOfRangeException
 - uid: SadConsole.UI.Controls.ScrollBar.#ctor*
   commentId: Overload:SadConsole.UI.Controls.ScrollBar.#ctor
   isExternal: true
@@ -2009,6 +2085,13 @@ references:
   name: SadConsole
   nameWithType: SadConsole
   fullName: SadConsole
+- uid: SadConsole.UI.Controls.ScrollBar.ValueChanged
+  commentId: E:SadConsole.UI.Controls.ScrollBar.ValueChanged
+  isExternal: true
+  href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_ValueChanged
+  name: ValueChanged
+  nameWithType: ScrollBar.ValueChanged
+  fullName: SadConsole.UI.Controls.ScrollBar.ValueChanged
 - uid: SadConsole.UI.Controls.ScrollBar.OnValueChanged*
   commentId: Overload:SadConsole.UI.Controls.ScrollBar.OnValueChanged
   isExternal: true
@@ -2023,6 +2106,13 @@ references:
   name: CalculateGripSize
   nameWithType: ScrollBar.CalculateGripSize
   fullName: SadConsole.UI.Controls.ScrollBar.CalculateGripSize
+- uid: SadConsole.UI.Controls.ScrollBar.Value
+  commentId: P:SadConsole.UI.Controls.ScrollBar.Value
+  isExternal: true
+  href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_Value
+  name: Value
+  nameWithType: ScrollBar.Value
+  fullName: SadConsole.UI.Controls.ScrollBar.Value
 - uid: SadConsole.UI.Controls.ScrollBar.SetGripToValue*
   commentId: Overload:SadConsole.UI.Controls.ScrollBar.SetGripToValue
   isExternal: true
@@ -2059,6 +2149,27 @@ references:
   name: OnResized
   nameWithType: ScrollBar.OnResized
   fullName: SadConsole.UI.Controls.ScrollBar.OnResized
+- uid: SadConsole.UI.Controls.ScrollBar.SetGripToValue
+  commentId: M:SadConsole.UI.Controls.ScrollBar.SetGripToValue
+  isExternal: true
+  href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_SetGripToValue
+  name: SetGripToValue()
+  nameWithType: ScrollBar.SetGripToValue()
+  fullName: SadConsole.UI.Controls.ScrollBar.SetGripToValue()
+  spec.csharp:
+  - uid: SadConsole.UI.Controls.ScrollBar.SetGripToValue
+    name: SetGripToValue
+    isExternal: true
+    href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_SetGripToValue
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.Controls.ScrollBar.SetGripToValue
+    name: SetGripToValue
+    isExternal: true
+    href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_SetGripToValue
+  - name: (
+  - name: )
 - uid: SadConsole.UI.Controls.ScrollBar.SetValue*
   commentId: Overload:SadConsole.UI.Controls.ScrollBar.SetValue
   isExternal: true
@@ -2271,6 +2382,13 @@ references:
   name: Value
   nameWithType: ScrollBar.Value
   fullName: SadConsole.UI.Controls.ScrollBar.Value
+- uid: SadConsole.UI.Controls.ScrollBar.ArrowStep
+  commentId: P:SadConsole.UI.Controls.ScrollBar.ArrowStep
+  isExternal: true
+  href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_ArrowStep
+  name: ArrowStep
+  nameWithType: ScrollBar.ArrowStep
+  fullName: SadConsole.UI.Controls.ScrollBar.ArrowStep
 - uid: SadConsole.UI.Controls.ScrollBar.ArrowsMoveGrip*
   commentId: Overload:SadConsole.UI.Controls.ScrollBar.ArrowsMoveGrip
   isExternal: true
@@ -2278,6 +2396,13 @@ references:
   name: ArrowsMoveGrip
   nameWithType: ScrollBar.ArrowsMoveGrip
   fullName: SadConsole.UI.Controls.ScrollBar.ArrowsMoveGrip
+- uid: SadConsole.UI.Controls.ScrollBar.MouseWheelStep
+  commentId: P:SadConsole.UI.Controls.ScrollBar.MouseWheelStep
+  isExternal: true
+  href: SadConsole.UI.Controls.ScrollBar.html#SadConsole_UI_Controls_ScrollBar_MouseWheelStep
+  name: MouseWheelStep
+  nameWithType: ScrollBar.MouseWheelStep
+  fullName: SadConsole.UI.Controls.ScrollBar.MouseWheelStep
 - uid: SadConsole.UI.Controls.ScrollBar.MouseWheelMovesGrip*
   commentId: Overload:SadConsole.UI.Controls.ScrollBar.MouseWheelMovesGrip
   isExternal: true

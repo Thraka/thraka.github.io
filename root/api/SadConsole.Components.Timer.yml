@@ -27,6 +27,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
+  summary: A simple timer with callback.
+  example: []
   syntax:
     content: 'public class Timer : UpdateComponent, IComponent'
     content.vb: Public Class Timer Inherits UpdateComponent Implements IComponent
@@ -60,11 +62,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
+  summary: Creates a new timer.
+  example: []
   syntax:
     content: public Timer(TimeSpan triggerTime)
     parameters:
     - id: triggerTime
       type: System.TimeSpan
+      description: Duration of the timer.
     content.vb: Public Sub New(triggerTime As TimeSpan)
   overload: SadConsole.Components.Timer.#ctor*
   nameWithType.vb: Timer.New(TimeSpan)
@@ -84,14 +89,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
+  summary: Updates the timer with the time since the last call.
   example: []
   syntax:
     content: public override void Update(IScreenObject console, TimeSpan delta)
     parameters:
     - id: console
       type: SadConsole.IScreenObject
+      description: The parent object.
     - id: delta
       type: System.TimeSpan
+      description: The time since the last frame update.
     content.vb: Public Overrides Sub Update(console As IScreenObject, delta As TimeSpan)
   overridden: SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
   overload: SadConsole.Components.Timer.Update*
@@ -109,6 +117,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
+  summary: Restarts the timer; raises the <xref href="SadConsole.Components.Timer.TimerRestart" data-throw-if-not-resolved="false"></xref> event.
+  example: []
   syntax:
     content: public void Restart()
     content.vb: Public Sub Restart()
@@ -127,6 +137,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
+  summary: Starts the timer; raises the <xref href="SadConsole.Components.Timer.TimerStart" data-throw-if-not-resolved="false"></xref> event.
+  example: []
   syntax:
     content: public void Start()
     content.vb: Public Sub Start()
@@ -145,6 +157,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
+  summary: Starts the timer; raises the <xref href="SadConsole.Components.Timer.TimerStop" data-throw-if-not-resolved="false"></xref> event.
+  example: []
   syntax:
     content: public void Stop()
     content.vb: Public Sub [Stop]()
@@ -163,6 +177,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
+  summary: If true, the timer will restart when the time has elapsed.
+  example: []
   syntax:
     content: public bool Repeat { get; set; }
     parameters: []
@@ -184,6 +200,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
+  summary: How many milliseconds to cause the timer to trigger.
+  example: []
   syntax:
     content: public TimeSpan TimerAmount { get; set; }
     parameters: []
@@ -205,6 +223,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
+  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that the timer is running; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+  example: []
   syntax:
     content: public bool IsRunning { get; protected set; }
     parameters: []
@@ -226,6 +246,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
+  summary: Called when the timer elapses.
+  example: []
   syntax:
     content: public event EventHandler? TimerElapsed
     return:
@@ -245,6 +267,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
+  summary: Called when the timer restarts.
+  example: []
   syntax:
     content: public event EventHandler? TimerRestart
     return:
@@ -264,6 +288,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
+  summary: Called when the timer starts.
+  example: []
   syntax:
     content: public event EventHandler? TimerStart
     return:
@@ -283,6 +309,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
+  summary: Called when the timer stops.
+  example: []
   syntax:
     content: public event EventHandler? TimerStop
     return:
@@ -719,6 +747,13 @@ references:
   name: SadConsole
   nameWithType: SadConsole
   fullName: SadConsole
+- uid: SadConsole.Components.Timer.TimerRestart
+  commentId: E:SadConsole.Components.Timer.TimerRestart
+  isExternal: true
+  href: SadConsole.Components.Timer.html#SadConsole_Components_Timer_TimerRestart
+  name: TimerRestart
+  nameWithType: Timer.TimerRestart
+  fullName: SadConsole.Components.Timer.TimerRestart
 - uid: SadConsole.Components.Timer.Restart*
   commentId: Overload:SadConsole.Components.Timer.Restart
   isExternal: true
@@ -726,6 +761,13 @@ references:
   name: Restart
   nameWithType: Timer.Restart
   fullName: SadConsole.Components.Timer.Restart
+- uid: SadConsole.Components.Timer.TimerStart
+  commentId: E:SadConsole.Components.Timer.TimerStart
+  isExternal: true
+  href: SadConsole.Components.Timer.html#SadConsole_Components_Timer_TimerStart
+  name: TimerStart
+  nameWithType: Timer.TimerStart
+  fullName: SadConsole.Components.Timer.TimerStart
 - uid: SadConsole.Components.Timer.Start*
   commentId: Overload:SadConsole.Components.Timer.Start
   isExternal: true
@@ -733,6 +775,13 @@ references:
   name: Start
   nameWithType: Timer.Start
   fullName: SadConsole.Components.Timer.Start
+- uid: SadConsole.Components.Timer.TimerStop
+  commentId: E:SadConsole.Components.Timer.TimerStop
+  isExternal: true
+  href: SadConsole.Components.Timer.html#SadConsole_Components_Timer_TimerStop
+  name: TimerStop
+  nameWithType: Timer.TimerStop
+  fullName: SadConsole.Components.Timer.TimerStop
 - uid: SadConsole.Components.Timer.Stop*
   commentId: Overload:SadConsole.Components.Timer.Stop
   isExternal: true

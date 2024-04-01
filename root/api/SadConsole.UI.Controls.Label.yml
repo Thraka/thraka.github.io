@@ -29,6 +29,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: A simple surface for drawing text that can be moved and sized like a control.
+  example: []
   syntax:
     content: >-
       [DataContract]
@@ -128,11 +130,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: A control to display simple one-line text.
+  example: []
   syntax:
     content: public Label(string displayText)
     parameters:
     - id: displayText
       type: System.String
+      description: The text to display. Sets the width based on the length.
     content.vb: Public Sub New(displayText As String)
   overload: SadConsole.UI.Controls.Label.#ctor*
   nameWithType.vb: Label.New(String)
@@ -152,11 +157,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: A control to display simple one-line text.
+  example: []
   syntax:
     content: public Label(int length)
     parameters:
     - id: length
       type: System.Int32
+      description: The initial length of the label without any text.
     content.vb: Public Sub New(length As Integer)
   overload: SadConsole.UI.Controls.Label.#ctor*
   nameWithType.vb: Label.New(Integer)
@@ -176,14 +184,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Resizes the label but forces a height of 1.
   example: []
   syntax:
     content: public override void Resize(int width, int height)
     parameters:
     - id: width
       type: System.Int32
+      description: The width of the label.
     - id: height
       type: System.Int32
+      description: Not used.
     content.vb: Public Overrides Sub Resize(width As Integer, height As Integer)
   overridden: SadConsole.UI.Controls.ControlBase.Resize(System.Int32,System.Int32)
   overload: SadConsole.UI.Controls.Label.Resize*
@@ -204,12 +215,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Redraws the control if applicable.
   example: []
   syntax:
     content: public override void UpdateAndRedraw(TimeSpan time)
     parameters:
     - id: time
       type: System.TimeSpan
+      description: The duration of thecurrent frame.
     content.vb: Public Overrides Sub UpdateAndRedraw(time As TimeSpan)
   overridden: SadConsole.UI.Controls.ControlBase.UpdateAndRedraw(System.TimeSpan)
   overload: SadConsole.UI.Controls.Label.UpdateAndRedraw*
@@ -227,15 +240,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Gets the strikethrough glyph defined by a font. If not found, returns glyph 196.
+  example: []
   syntax:
     content: protected CellDecorator GetStrikethrough(IFont font, Color color)
     parameters:
     - id: font
       type: SadConsole.IFont
+      description: The font.
     - id: color
       type: SadRogue.Primitives.Color
+      description: The color to shade the decorator.
     return:
       type: SadConsole.CellDecorator
+      description: The cell decorator.
     content.vb: Protected Function GetStrikethrough(font As IFont, color As Color) As CellDecorator
   overload: SadConsole.UI.Controls.Label.GetStrikethrough*
 - uid: SadConsole.UI.Controls.Label.GetUnderline(SadConsole.IFont,SadRogue.Primitives.Color)
@@ -252,15 +270,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Gets the underline glyph defined by a font. If not found, returns glyph 95.
+  example: []
   syntax:
     content: protected CellDecorator GetUnderline(IFont font, Color color)
     parameters:
     - id: font
       type: SadConsole.IFont
+      description: The font.
     - id: color
       type: SadRogue.Primitives.Color
+      description: The color to shade the decorator.
     return:
       type: SadConsole.CellDecorator
+      description: The cell decorator.
     content.vb: Protected Function GetUnderline(font As IFont, color As Color) As CellDecorator
   overload: SadConsole.UI.Controls.Label.GetUnderline*
 - uid: SadConsole.UI.Controls.Label.ShowUnderline
@@ -277,6 +300,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, shows an underline on the text.
+  example: []
   syntax:
     content: public bool ShowUnderline { get; set; }
     parameters: []
@@ -298,6 +323,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, shows a strikethrough on the text.
+  example: []
   syntax:
     content: public bool ShowStrikethrough { get; set; }
     parameters: []
@@ -319,6 +346,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Optional text color for the label. Otherwise the theme controls the color.
+  example: []
   syntax:
     content: public Color? TextColor { get; set; }
     parameters: []
@@ -340,6 +369,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Sets the horizontal alignment of the label. Defaults to <xref href="SadConsole.HorizontalAlignment.Left" data-throw-if-not-resolved="false"></xref>.
+  example: []
   syntax:
     content: public HorizontalAlignment Alignment { get; set; }
     parameters: []
@@ -361,6 +392,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The text to display on the label. The label size is set in the constructor and cannot be changed.
+  example: []
   syntax:
     content: public string DisplayText { get; set; }
     parameters: []
@@ -382,6 +415,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: When true, only uses <xref href="SadConsole.UI.ThemeStates.Normal" data-throw-if-not-resolved="false"></xref> for drawing.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -413,6 +448,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The decorator to use when the <xref href="SadConsole.UI.Controls.Label.ShowUnderline" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -444,6 +481,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The decorator to use when the <xref href="SadConsole.UI.Controls.Label.ShowStrikethrough" data-throw-if-not-resolved="false"></xref> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -1998,6 +2037,13 @@ references:
   - name: " "
   - name: T
   - name: )
+- uid: SadConsole.HorizontalAlignment.Left
+  commentId: F:SadConsole.HorizontalAlignment.Left
+  isExternal: true
+  href: SadConsole.HorizontalAlignment.html#SadConsole_HorizontalAlignment_Left
+  name: Left
+  nameWithType: HorizontalAlignment.Left
+  fullName: SadConsole.HorizontalAlignment.Left
 - uid: SadConsole.UI.Controls.Label.Alignment*
   commentId: Overload:SadConsole.UI.Controls.Label.Alignment
   isExternal: true
@@ -2020,6 +2066,14 @@ references:
   name: DisplayText
   nameWithType: Label.DisplayText
   fullName: SadConsole.UI.Controls.Label.DisplayText
+- uid: SadConsole.UI.ThemeStates.Normal
+  commentId: P:SadConsole.UI.ThemeStates.Normal
+  parent: SadConsole.UI.ThemeStates
+  isExternal: true
+  href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_Normal
+  name: Normal
+  nameWithType: ThemeStates.Normal
+  fullName: SadConsole.UI.ThemeStates.Normal
 - uid: SadConsole.UI.Controls.Label.UseNormalStateOnly*
   commentId: Overload:SadConsole.UI.Controls.Label.UseNormalStateOnly
   isExternal: true
@@ -2027,6 +2081,48 @@ references:
   name: UseNormalStateOnly
   nameWithType: Label.UseNormalStateOnly
   fullName: SadConsole.UI.Controls.Label.UseNormalStateOnly
+- uid: SadConsole.UI.ThemeStates
+  commentId: T:SadConsole.UI.ThemeStates
+  parent: SadConsole.UI
+  isExternal: true
+  href: SadConsole.UI.ThemeStates.html
+  name: ThemeStates
+  nameWithType: ThemeStates
+  fullName: SadConsole.UI.ThemeStates
+- uid: SadConsole.UI
+  commentId: N:SadConsole.UI
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.UI
+  nameWithType: SadConsole.UI
+  fullName: SadConsole.UI
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.UI
+    name: UI
+    isExternal: true
+    href: SadConsole.UI.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.UI
+    name: UI
+    isExternal: true
+    href: SadConsole.UI.html
+- uid: SadConsole.UI.Controls.Label.ShowUnderline
+  commentId: P:SadConsole.UI.Controls.Label.ShowUnderline
+  isExternal: true
+  href: SadConsole.UI.Controls.Label.html#SadConsole_UI_Controls_Label_ShowUnderline
+  name: ShowUnderline
+  nameWithType: Label.ShowUnderline
+  fullName: SadConsole.UI.Controls.Label.ShowUnderline
 - uid: SadConsole.UI.Controls.Label.DecoratorUnderline*
   commentId: Overload:SadConsole.UI.Controls.Label.DecoratorUnderline
   isExternal: true
@@ -2034,6 +2130,13 @@ references:
   name: DecoratorUnderline
   nameWithType: Label.DecoratorUnderline
   fullName: SadConsole.UI.Controls.Label.DecoratorUnderline
+- uid: SadConsole.UI.Controls.Label.ShowStrikethrough
+  commentId: P:SadConsole.UI.Controls.Label.ShowStrikethrough
+  isExternal: true
+  href: SadConsole.UI.Controls.Label.html#SadConsole_UI_Controls_Label_ShowStrikethrough
+  name: ShowStrikethrough
+  nameWithType: Label.ShowStrikethrough
+  fullName: SadConsole.UI.Controls.Label.ShowStrikethrough
 - uid: SadConsole.UI.Controls.Label.DecoratorStrikethrough*
   commentId: Overload:SadConsole.UI.Controls.Label.DecoratorStrikethrough
   isExternal: true

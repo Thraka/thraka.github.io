@@ -40,6 +40,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: A control container that processes the mouse on each child. <xref href="SadConsole.UI.Controls.ControlBase.TabStop" data-throw-if-not-resolved="false"></xref> defaults to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+  example: []
   syntax:
     content: >-
       [DataContract]
@@ -151,13 +153,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Creates a new drawing surface control with the specified width and height.
+  example: []
   syntax:
     content: public Panel(int width, int height)
     parameters:
     - id: width
       type: System.Int32
+      description: Width of the control.
     - id: height
       type: System.Int32
+      description: Height of the control.
     content.vb: Public Sub New(width As Integer, height As Integer)
   overload: SadConsole.UI.Controls.Panel.#ctor*
   nameWithType.vb: Panel.New(Integer, Integer)
@@ -177,6 +183,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Removes all controls.
   example: []
   syntax:
     content: public void Clear()
@@ -248,12 +255,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Removes a control at the specified index.
   example: []
   syntax:
     content: public void RemoveAt(int index)
     parameters:
     - id: index
       type: System.Int32
+      description: The index of the control to remove.
     content.vb: Public Sub RemoveAt(index As Integer)
   overload: SadConsole.UI.Controls.Panel.RemoveAt*
   implements:
@@ -275,14 +284,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Returns the index of the specified control.
   example: []
   syntax:
     content: public int IndexOf(ControlBase control)
     parameters:
     - id: control
       type: SadConsole.UI.Controls.ControlBase
+      description: The control to search for.
     return:
       type: System.Int32
+      description: The index of the control.
     content.vb: Public Function IndexOf(control As ControlBase) As Integer
   overload: SadConsole.UI.Controls.Panel.IndexOf*
   implements:
@@ -301,14 +313,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Inserts the control at the specified index.
   example: []
   syntax:
     content: public void Insert(int index, ControlBase control)
     parameters:
     - id: index
       type: System.Int32
+      description: The index to insert at.
     - id: control
       type: SadConsole.UI.Controls.ControlBase
+      description: The control to insert.
     content.vb: Public Sub Insert(index As Integer, control As ControlBase)
   overload: SadConsole.UI.Controls.Panel.Insert*
   implements:
@@ -385,12 +400,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Called when the mouse exits the area of the control. Raises the MouseExit event and calls the <xref href="SadConsole.UI.Controls.ControlBase.DetermineState" data-throw-if-not-resolved="false"></xref> method.
   example: []
   syntax:
     content: protected override void OnMouseExit(ControlBase.ControlMouseState state)
     parameters:
     - id: state
       type: SadConsole.UI.Controls.ControlBase.ControlMouseState
+      description: The current mouse data
     content.vb: Protected Overrides Sub OnMouseExit(state As ControlBase.ControlMouseState)
   overridden: SadConsole.UI.Controls.ControlBase.OnMouseExit(SadConsole.UI.Controls.ControlBase.ControlMouseState)
   overload: SadConsole.UI.Controls.Panel.OnMouseExit*
@@ -408,12 +425,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Called when the keyboard is used on this control.
   example: []
   syntax:
     content: public override bool ProcessKeyboard(Keyboard state)
     parameters:
     - id: state
       type: SadConsole.Input.Keyboard
+      description: The state of the keyboard.
     return:
       type: System.Boolean
     content.vb: Public Overrides Function ProcessKeyboard(state As Keyboard) As Boolean
@@ -433,6 +452,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: When <xref href="SadConsole.UI.Controls.ControlBase.IsDirty" data-throw-if-not-resolved="false"></xref> is set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, changes the child controls to also be dirty.
   example: []
   syntax:
     content: protected override void OnIsDirtyChanged()
@@ -453,6 +473,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  example: []
   syntax:
     content: public bool HasNamedControl(string name)
     parameters:
@@ -479,6 +500,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  example: []
   syntax:
     content: public bool HasNamedControl(string name, out ControlBase? control)
     parameters:
@@ -507,6 +529,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  example: []
   syntax:
     content: public ControlBase GetNamedControl(string name)
     parameters:
@@ -533,11 +556,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Gets an enumerator that iterates over the controls in this panel.
   example: []
   syntax:
     content: public IEnumerator<ControlBase> GetEnumerator()
     return:
       type: System.Collections.Generic.IEnumerator{SadConsole.UI.Controls.ControlBase}
+      description: The enumerator.
     content.vb: Public Function GetEnumerator() As IEnumerator(Of ControlBase)
   overload: SadConsole.UI.Controls.Panel.GetEnumerator*
   implements:
@@ -556,12 +581,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Updates each control hosted by this control.
   example: []
   syntax:
     content: public override void UpdateAndRedraw(TimeSpan time)
     parameters:
     - id: time
       type: System.TimeSpan
+      description: The game frame time delta.
     content.vb: Public Overrides Sub UpdateAndRedraw(time As TimeSpan)
   overridden: SadConsole.UI.Controls.CompositeControl.UpdateAndRedraw(System.TimeSpan)
   overload: SadConsole.UI.Controls.Panel.UpdateAndRedraw*
@@ -579,16 +606,23 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Gets or sets a control in the collection of controls.
   example: []
   syntax:
     content: public ControlBase this[int index] { get; set; }
     parameters:
     - id: index
       type: System.Int32
+      description: The index of the control.
     return:
       type: SadConsole.UI.Controls.ControlBase
+      description: The control at the specified index.
     content.vb: Public Default Property this[](index As Integer) As ControlBase
   overload: SadConsole.UI.Controls.Panel.Item*
+  exceptions:
+  - type: System.IndexOutOfRangeException
+    commentId: T:System.IndexOutOfRangeException
+    description: Thrown when the index doesn't exist in the collection.
   implements:
   - System.Collections.Generic.IList{SadConsole.UI.Controls.ControlBase}.Item(System.Int32)
   nameWithType.vb: Panel.this[](Integer)
@@ -608,6 +642,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  example: []
   syntax:
     content: public ControlBase this[string name] { get; }
     parameters:
@@ -634,6 +669,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: When true, only uses <xref href="SadConsole.UI.ThemeStates.Normal" data-throw-if-not-resolved="false"></xref> for drawing.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -665,6 +702,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: When true, ignores all states and doesn't draw anything.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -696,6 +735,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that the theme should draw along the inner bounds of the panel.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -727,6 +768,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that the lines of the theme should use the extended SadConsole font characters if available.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -758,6 +801,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that the border colors should make it appear like the border is inset.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -789,6 +834,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The current Appearance based on the control state.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -807,6 +854,14 @@ items:
     ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
     arguments: []
 references:
+- uid: SadConsole.UI.Controls.ControlBase.TabStop
+  commentId: P:SadConsole.UI.Controls.ControlBase.TabStop
+  parent: SadConsole.UI.Controls.ControlBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_TabStop
+  name: TabStop
+  nameWithType: ControlBase.TabStop
+  fullName: SadConsole.UI.Controls.ControlBase.TabStop
 - uid: SadConsole.UI.Controls
   commentId: N:SadConsole.UI.Controls
   isExternal: true
@@ -1911,14 +1966,6 @@ references:
   name: Tag
   nameWithType: ControlBase.Tag
   fullName: SadConsole.UI.Controls.ControlBase.Tag
-- uid: SadConsole.UI.Controls.ControlBase.TabStop
-  commentId: P:SadConsole.UI.Controls.ControlBase.TabStop
-  parent: SadConsole.UI.Controls.ControlBase
-  isExternal: true
-  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_TabStop
-  name: TabStop
-  nameWithType: ControlBase.TabStop
-  fullName: SadConsole.UI.Controls.ControlBase.TabStop
 - uid: SadConsole.UI.Controls.ControlBase.TabIndex
   commentId: P:SadConsole.UI.Controls.ControlBase.TabIndex
   parent: SadConsole.UI.Controls.ControlBase
@@ -3423,6 +3470,13 @@ references:
   name: TimeSpan
   nameWithType: TimeSpan
   fullName: System.TimeSpan
+- uid: System.IndexOutOfRangeException
+  commentId: T:System.IndexOutOfRangeException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.indexoutofrangeexception
+  name: IndexOutOfRangeException
+  nameWithType: IndexOutOfRangeException
+  fullName: System.IndexOutOfRangeException
 - uid: SadConsole.UI.Controls.Panel.Item*
   commentId: Overload:SadConsole.UI.Controls.Panel.Item
   isExternal: true
@@ -3492,6 +3546,14 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: )
+- uid: SadConsole.UI.ThemeStates.Normal
+  commentId: P:SadConsole.UI.ThemeStates.Normal
+  parent: SadConsole.UI.ThemeStates
+  isExternal: true
+  href: SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_Normal
+  name: Normal
+  nameWithType: ThemeStates.Normal
+  fullName: SadConsole.UI.ThemeStates.Normal
 - uid: SadConsole.UI.Controls.Panel.UseNormalStateOnly*
   commentId: Overload:SadConsole.UI.Controls.Panel.UseNormalStateOnly
   isExternal: true
@@ -3499,6 +3561,41 @@ references:
   name: UseNormalStateOnly
   nameWithType: Panel.UseNormalStateOnly
   fullName: SadConsole.UI.Controls.Panel.UseNormalStateOnly
+- uid: SadConsole.UI.ThemeStates
+  commentId: T:SadConsole.UI.ThemeStates
+  parent: SadConsole.UI
+  isExternal: true
+  href: SadConsole.UI.ThemeStates.html
+  name: ThemeStates
+  nameWithType: ThemeStates
+  fullName: SadConsole.UI.ThemeStates
+- uid: SadConsole.UI
+  commentId: N:SadConsole.UI
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.UI
+  nameWithType: SadConsole.UI
+  fullName: SadConsole.UI
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.UI
+    name: UI
+    isExternal: true
+    href: SadConsole.UI.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.UI
+    name: UI
+    isExternal: true
+    href: SadConsole.UI.html
 - uid: SadConsole.UI.Controls.Panel.SkipDrawing*
   commentId: Overload:SadConsole.UI.Controls.Panel.SkipDrawing
   isExternal: true

@@ -18,12 +18,15 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: Base class for a string processor behavior.
+  example: []
   syntax:
     content: public abstract class ParseCommandBase
     content.vb: Public MustInherit Class ParseCommandBase
   inheritance:
   - System.Object
   derivedClasses:
+  - SadConsole.StringParser.BBCode.BBCodeCommandBase
   - SadConsole.StringParser.ParseCommandBlink
   - SadConsole.StringParser.ParseCommandClearEffect
   - SadConsole.StringParser.ParseCommandDecorator
@@ -54,6 +57,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: Type of command.
+  example: []
   syntax:
     content: public CommandTypes CommandType
     return:
@@ -73,23 +78,32 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
+  summary: Builds a glyph.
+  example: []
   syntax:
     content: public abstract void Build(ref ColoredGlyphAndEffect glyphState, ColoredGlyphAndEffect[] glyphString, int surfaceIndex, ICellSurface? surface, ref int stringIndex, ReadOnlySpan<char> processedString, ParseCommandStacks commandStack)
     parameters:
     - id: glyphState
       type: SadConsole.ColoredGlyphAndEffect
+      description: The current glyph being built.
     - id: glyphString
       type: SadConsole.ColoredGlyphAndEffect[]
+      description: The current string of glyphs that has been processed until now.
     - id: surfaceIndex
       type: System.Int32
+      description: Where on the surface this flyph will appear.
     - id: surface
       type: SadConsole.ICellSurface
+      description: The surface associated with the glyph.
     - id: stringIndex
       type: System.Int32
+      description: Where in the original string this glyph is from.
     - id: processedString
       type: System.ReadOnlySpan{System.Char}
+      description: The entire string being processed.
     - id: commandStack
       type: SadConsole.StringParser.ParseCommandStacks
+      description: The state of commands.
     content.vb: Public MustOverride Sub Build(glyphState As ColoredGlyphAndEffect, glyphString As ColoredGlyphAndEffect(), surfaceIndex As Integer, surface As ICellSurface, stringIndex As Integer, processedString As ReadOnlySpan(Of Char), commandStack As ParseCommandStacks)
   overload: SadConsole.StringParser.ParseCommandBase.Build*
   nameWithType.vb: ParseCommandBase.Build(ColoredGlyphAndEffect, ColoredGlyphAndEffect(), Integer, ICellSurface, Integer, ReadOnlySpan(Of Char), ParseCommandStacks)

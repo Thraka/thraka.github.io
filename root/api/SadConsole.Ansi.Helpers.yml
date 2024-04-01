@@ -18,6 +18,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Ansi
+  summary: Helpers related to ANSI processing.
+  example: []
   syntax:
     content: public static class Helpers
     content.vb: Public Module Helpers
@@ -45,13 +47,18 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Ansi
+  summary: Returns the a normal, dark, ansi color based on the ansi color provided.
+  remarks: If the color provided is not an ansi color, dark or light, the passed in color will be returned.
+  example: []
   syntax:
     content: public static Color AnsiJustNormalColor(Color input)
     parameters:
     - id: input
       type: SadRogue.Primitives.Color
+      description: An ansi color.
     return:
       type: SadRogue.Primitives.Color
+      description: The adjusted color.
     content.vb: Public Shared Function AnsiJustNormalColor(input As Color) As Color
   overload: SadConsole.Ansi.Helpers.AnsiJustNormalColor*
 - uid: SadConsole.Ansi.Helpers.AnsiAdjustColor(SadRogue.Primitives.Color,System.Boolean)
@@ -68,15 +75,21 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Ansi
+  summary: Adjusts the provided color based on the <code class="paramref">bold</code> value.
+  remarks: If the color provided is not an ansi color, dark or light, the passed in color will be returned.
+  example: []
   syntax:
     content: public static Color AnsiAdjustColor(Color input, bool bold)
     parameters:
     - id: input
       type: SadRogue.Primitives.Color
+      description: The ansi color to adjust.
     - id: bold
       type: System.Boolean
+      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, adjusts the color to the bright version. When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>, adjusts the color to the normal version.
     return:
       type: SadRogue.Primitives.Color
+      description: The adjusted color.
     content.vb: Public Shared Function AnsiAdjustColor(input As Color, bold As Boolean) As Color
   overload: SadConsole.Ansi.Helpers.AnsiAdjustColor*
   nameWithType.vb: Helpers.AnsiAdjustColor(Color, Boolean)
@@ -96,15 +109,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Ansi
+  summary: Sets the print appearance of the cursor based on the ANSI.SYS code provided.
+  example: []
   syntax:
     content: public static void AnsiConfigurePrintColor(bool isBackground, int code, State ansiState)
     parameters:
     - id: isBackground
       type: System.Boolean
+      description: When true, changes the background color instead of the foreground.
     - id: code
       type: System.Int32
+      description: The 0-7 color code.
     - id: ansiState
       type: SadConsole.Ansi.State
+      description: The current state of the ANSI settings.
     content.vb: Public Shared Sub AnsiConfigurePrintColor(isBackground As Boolean, code As Integer, ansiState As State)
   overload: SadConsole.Ansi.Helpers.AnsiConfigurePrintColor*
   nameWithType.vb: Helpers.AnsiConfigurePrintColor(Boolean, Integer, State)

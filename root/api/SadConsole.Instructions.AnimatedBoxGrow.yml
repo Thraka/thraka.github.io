@@ -101,14 +101,17 @@ items:
   assemblies:
   - SadConsole.Extended
   namespace: SadConsole.Instructions
+  summary: Executes the instruction. This base class method should be called from derived classes. If the IsFinished property is set to true, will try to repeat if needed and will raise all appropriate events.
   example: []
   syntax:
     content: public override void Update(IScreenObject componentHost, TimeSpan delta)
     parameters:
     - id: componentHost
       type: SadConsole.IScreenObject
+      description: The object that hosts this instruction.
     - id: delta
       type: System.TimeSpan
+      description: The time that has elapsed since this method was last called.
     content.vb: Public Overrides Sub Update(componentHost As IScreenObject, delta As TimeSpan)
   overridden: SadConsole.Instructions.InstructionBase.Update(SadConsole.IScreenObject,System.TimeSpan)
   overload: SadConsole.Instructions.AnimatedBoxGrow.Update*
@@ -126,12 +129,14 @@ items:
   assemblies:
   - SadConsole.Extended
   namespace: SadConsole.Instructions
+  summary: Called when the component is added to a host.
   example: []
   syntax:
     content: public override void OnAdded(IScreenObject host)
     parameters:
     - id: host
       type: SadConsole.IScreenObject
+      description: The host that added the component.
     content.vb: Public Overrides Sub OnAdded(host As IScreenObject)
   overridden: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
   overload: SadConsole.Instructions.AnimatedBoxGrow.OnAdded*

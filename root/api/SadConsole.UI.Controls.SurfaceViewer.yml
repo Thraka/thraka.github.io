@@ -22,6 +22,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Draws a <xref href="SadConsole.ICellSurface" data-throw-if-not-resolved="false"></xref> within an area. Optionally supports scroll bars.
+  example: []
   syntax:
     content: >-
       [DataContract]
@@ -138,6 +140,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The horizontal scroll bar. This shouldn't be changed.
+  example: []
   syntax:
     content: public ScrollBar HorizontalScroller
     return:
@@ -157,6 +161,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: The vertical scroll bar. This shouldn't be changed.
+  example: []
   syntax:
     content: public ScrollBar VerticalScroller
     return:
@@ -176,15 +182,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Creates a new drawing surface control with the specified width and height.
+  example: []
   syntax:
     content: public SurfaceViewer(int width, int height, ICellSurface? surface = null)
     parameters:
     - id: width
       type: System.Int32
+      description: Width of the control.
     - id: height
       type: System.Int32
+      description: Height of the control.
     - id: surface
       type: SadConsole.ICellSurface
+      description: The surface to view.
     content.vb: Public Sub New(width As Integer, height As Integer, surface As ICellSurface = Nothing)
   overload: SadConsole.UI.Controls.SurfaceViewer.#ctor*
   nameWithType.vb: SurfaceViewer.New(Integer, Integer, ICellSurface)
@@ -204,6 +215,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Resets the control's surface to a 1x1 surface transparent surface.
+  example: []
   syntax:
     content: public void ResetSurface()
     content.vb: Public Sub ResetSurface()
@@ -222,14 +235,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Handles and dehandles the <xref href="SadConsole.ICellSurface.IsDirtyChanged" data-throw-if-not-resolved="false"></xref> event for the backing surface.
   example: []
   syntax:
     content: protected override void OnSurfaceChanged(ICellSurface oldSurface, ICellSurface newSurface)
     parameters:
     - id: oldSurface
       type: SadConsole.ICellSurface
+      description: The previous surface instance.
     - id: newSurface
       type: SadConsole.ICellSurface
+      description: The new surface instance.
     content.vb: Protected Overrides Sub OnSurfaceChanged(oldSurface As ICellSurface, newSurface As ICellSurface)
   overridden: SadConsole.UI.Controls.ControlBase.OnSurfaceChanged(SadConsole.ICellSurface,SadConsole.ICellSurface)
   overload: SadConsole.UI.Controls.SurfaceViewer.OnSurfaceChanged*
@@ -247,12 +263,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Updates each control hosted by this control.
   example: []
   syntax:
     content: public override void UpdateAndRedraw(TimeSpan time)
     parameters:
     - id: time
       type: System.TimeSpan
+      description: The game frame time delta.
     content.vb: Public Overrides Sub UpdateAndRedraw(time As TimeSpan)
   overridden: SadConsole.UI.Controls.CompositeControl.UpdateAndRedraw(System.TimeSpan)
   overload: SadConsole.UI.Controls.SurfaceViewer.UpdateAndRedraw*
@@ -270,6 +288,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.UI.Controls
+  summary: Sets the visual behavior of the scroll bars for the control.
+  example: []
   syntax:
     content: >-
       [DataMember]
@@ -288,6 +308,14 @@ items:
     ctor: System.Runtime.Serialization.DataMemberAttribute.#ctor
     arguments: []
 references:
+- uid: SadConsole.ICellSurface
+  commentId: T:SadConsole.ICellSurface
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ICellSurface.html
+  name: ICellSurface
+  nameWithType: ICellSurface
+  fullName: SadConsole.ICellSurface
 - uid: SadConsole.UI.Controls
   commentId: N:SadConsole.UI.Controls
   isExternal: true
@@ -1841,6 +1869,13 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
 - uid: System
   commentId: N:System
   isExternal: true
@@ -2025,21 +2060,6 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
-- uid: SadConsole.ICellSurface
-  commentId: T:SadConsole.ICellSurface
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.ICellSurface.html
-  name: ICellSurface
-  nameWithType: ICellSurface
-  fullName: SadConsole.ICellSurface
-- uid: SadConsole
-  commentId: N:SadConsole
-  isExternal: true
-  href: SadConsole.html
-  name: SadConsole
-  nameWithType: SadConsole
-  fullName: SadConsole
 - uid: SadConsole.UI.Controls.SurfaceViewer.ResetSurface*
   commentId: Overload:SadConsole.UI.Controls.SurfaceViewer.ResetSurface
   isExternal: true
@@ -2047,6 +2067,14 @@ references:
   name: ResetSurface
   nameWithType: SurfaceViewer.ResetSurface
   fullName: SadConsole.UI.Controls.SurfaceViewer.ResetSurface
+- uid: SadConsole.ICellSurface.IsDirtyChanged
+  commentId: E:SadConsole.ICellSurface.IsDirtyChanged
+  parent: SadConsole.ICellSurface
+  isExternal: true
+  href: SadConsole.ICellSurface.html#SadConsole_ICellSurface_IsDirtyChanged
+  name: IsDirtyChanged
+  nameWithType: ICellSurface.IsDirtyChanged
+  fullName: SadConsole.ICellSurface.IsDirtyChanged
 - uid: SadConsole.UI.Controls.ControlBase.OnSurfaceChanged(SadConsole.ICellSurface,SadConsole.ICellSurface)
   commentId: M:SadConsole.UI.Controls.ControlBase.OnSurfaceChanged(SadConsole.ICellSurface,SadConsole.ICellSurface)
   parent: SadConsole.UI.Controls.ControlBase

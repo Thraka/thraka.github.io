@@ -31,6 +31,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Represents an individual piece of a <xref href="SadConsole.ICellSurface" data-throw-if-not-resolved="false"></xref> containing a glyph, foreground color, background color, and a mirror effect.
+  example: []
   syntax:
     content: 'public abstract class ColoredGlyphBase : IMatchable<ColoredGlyphBase>'
     content.vb: Public MustInherit Class ColoredGlyphBase Implements IMatchable(Of ColoredGlyphBase)
@@ -62,13 +64,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Copies the visual appearance to the specified cell. This includes foreground, background, glyph, mirror effect and decorators.
+  example: []
   syntax:
     content: public virtual void CopyAppearanceTo(ColoredGlyphBase cell, bool deepCopy = true)
     parameters:
     - id: cell
       type: SadConsole.ColoredGlyphBase
+      description: The target cell to copy to.
     - id: deepCopy
       type: System.Boolean
+      description: >-
+        Whether to perform a deep copy.  Decorators are copied to a new array when true; when false, the old
+
+        decorator array reference is moved directly.
     content.vb: Public Overridable Sub CopyAppearanceTo(cell As ColoredGlyphBase, deepCopy As Boolean = True)
   overload: SadConsole.ColoredGlyphBase.CopyAppearanceTo*
   nameWithType.vb: ColoredGlyphBase.CopyAppearanceTo(ColoredGlyphBase, Boolean)
@@ -88,13 +97,20 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Sets the foreground, background, glyph, mirror effect and decorators to the same as the specified cell.
+  example: []
   syntax:
     content: public virtual void CopyAppearanceFrom(ColoredGlyphBase cell, bool deepCopy = true)
     parameters:
     - id: cell
       type: SadConsole.ColoredGlyphBase
+      description: The target cell to copy from.
     - id: deepCopy
       type: System.Boolean
+      description: >-
+        Whether to perform a deep copy.  Decorators are copied to a new array when true; when false, the old
+
+        decorator array reference is moved directly.
     content.vb: Public Overridable Sub CopyAppearanceFrom(cell As ColoredGlyphBase, deepCopy As Boolean = True)
   overload: SadConsole.ColoredGlyphBase.CopyAppearanceFrom*
   nameWithType.vb: ColoredGlyphBase.CopyAppearanceFrom(ColoredGlyphBase, Boolean)
@@ -114,6 +130,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Resets the foreground, background, glyph, mirror effect and decorators.
+  example: []
   syntax:
     content: public abstract void Clear()
     content.vb: Public MustOverride Sub Clear()
@@ -132,10 +150,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Returns a new cell with the same properties as this one.
+  example: []
   syntax:
     content: public abstract ColoredGlyphBase Clone()
     return:
       type: SadConsole.ColoredGlyphBase
+      description: The new cell.
     content.vb: Public MustOverride Function Clone() As ColoredGlyphBase
   overload: SadConsole.ColoredGlyphBase.Clone*
 - uid: SadConsole.ColoredGlyphBase.Matches(SadConsole.ColoredGlyphBase)
@@ -152,20 +173,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: >-
-    Returns true if the given object is considered "equal" to the current one, based on the definition
-
-    of equality for the object.
+  summary: Checks if this <xref href="SadConsole.ColoredGlyph" data-throw-if-not-resolved="false"></xref> object's properties match another's.
   example: []
   syntax:
     content: public bool Matches(ColoredGlyphBase? other)
     parameters:
     - id: other
       type: SadConsole.ColoredGlyphBase
-      description: Object to compare to.
+      description: The other object to check.
     return:
       type: System.Boolean
-      description: True if the objects are considered equal, false, otherwise.
+      description: Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the object's properties match; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Public Function Matches(other As ColoredGlyphBase) As Boolean
   overload: SadConsole.ColoredGlyphBase.Matches*
   implements:
@@ -187,13 +205,17 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Creates an array of colored glyphs.
+  example: []
   syntax:
     content: public static ColoredGlyphBase[] CreateArray(int size)
     parameters:
     - id: size
       type: System.Int32
+      description: ''
     return:
       type: SadConsole.ColoredGlyphBase[]
+      description: ''
     content.vb: Public Shared Function CreateArray(size As Integer) As ColoredGlyphBase()
   overload: SadConsole.ColoredGlyphBase.CreateArray*
   nameWithType.vb: ColoredGlyphBase.CreateArray(Integer)
@@ -234,6 +256,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: Modifies the look of a cell with additional character.
+  example: []
   syntax:
     content: public List<CellDecorator>? Decorators { get; set; }
     parameters: []
@@ -255,6 +279,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The foreground color of this cell.
+  example: []
   syntax:
     content: public Color Foreground { get; set; }
     parameters: []
@@ -276,6 +302,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The background color of this cell.
+  example: []
   syntax:
     content: public Color Background { get; set; }
     parameters: []
@@ -297,6 +325,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The glyph index from a font for this cell.
+  example: []
   syntax:
     content: public int Glyph { get; set; }
     parameters: []
@@ -318,6 +348,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The mirror effect for this cell.
+  example: []
   syntax:
     content: public Mirror Mirror { get; set; }
     parameters: []
@@ -339,6 +371,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: The glyph.
+  example: []
   syntax:
     content: >-
       [IgnoreDataMember]
@@ -370,6 +404,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when this cell should be drawn; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+  example: []
   syntax:
     content: public bool IsVisible { get; set; }
     parameters: []
@@ -391,6 +427,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when this cell needs to be redrawn; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+  example: []
   syntax:
     content: public bool IsDirty { get; set; }
     parameters: []
@@ -412,12 +450,22 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
+  summary: An event that is raised when the <xref href="SadConsole.ColoredGlyphBase.IsDirty" data-throw-if-not-resolved="false"></xref> property is set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
+  example: []
   syntax:
     content: public event EventHandler? IsDirtySet
     return:
       type: System.EventHandler
     content.vb: Public Event IsDirtySet As EventHandler
 references:
+- uid: SadConsole.ICellSurface
+  commentId: T:SadConsole.ICellSurface
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ICellSurface.html
+  name: ICellSurface
+  nameWithType: ICellSurface
+  fullName: SadConsole.ICellSurface
 - uid: SadConsole
   commentId: N:SadConsole
   isExternal: true
@@ -794,6 +842,14 @@ references:
   name: Clone
   nameWithType: ColoredGlyphBase.Clone
   fullName: SadConsole.ColoredGlyphBase.Clone
+- uid: SadConsole.ColoredGlyph
+  commentId: T:SadConsole.ColoredGlyph
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ColoredGlyph.html
+  name: ColoredGlyph
+  nameWithType: ColoredGlyph
+  fullName: SadConsole.ColoredGlyph
 - uid: SadConsole.ColoredGlyphBase.Matches*
   commentId: Overload:SadConsole.ColoredGlyphBase.Matches
   isExternal: true
@@ -1081,6 +1137,14 @@ references:
   fullName: SadConsole.ColoredGlyphBase.IsVisible
 - uid: SadConsole.ColoredGlyphBase.IsDirty*
   commentId: Overload:SadConsole.ColoredGlyphBase.IsDirty
+  isExternal: true
+  href: SadConsole.ColoredGlyphBase.html#SadConsole_ColoredGlyphBase_IsDirty
+  name: IsDirty
+  nameWithType: ColoredGlyphBase.IsDirty
+  fullName: SadConsole.ColoredGlyphBase.IsDirty
+- uid: SadConsole.ColoredGlyphBase.IsDirty
+  commentId: P:SadConsole.ColoredGlyphBase.IsDirty
+  parent: SadConsole.ColoredGlyphBase
   isExternal: true
   href: SadConsole.ColoredGlyphBase.html#SadConsole_ColoredGlyphBase_IsDirty
   name: IsDirty

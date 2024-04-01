@@ -17,6 +17,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
+  summary: A component used only with <xref href="SadConsole.GameHost.RootComponents" data-throw-if-not-resolved="false"></xref>. Runs logic before the <xref href="SadConsole.GameHost.Screen" data-throw-if-not-resolved="false"></xref> is processed.
+  example: []
   syntax:
     content: public abstract class RootComponent
     content.vb: Public MustInherit Class RootComponent
@@ -44,11 +46,14 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Components
+  summary: Code to run during update.
+  example: []
   syntax:
     content: public abstract void Run(TimeSpan delta)
     parameters:
     - id: delta
       type: System.TimeSpan
+      description: The time that has elapsed since the last frame.
     content.vb: Public MustOverride Sub Run(delta As TimeSpan)
   overload: SadConsole.Components.RootComponent.Run*
 - uid: SadConsole.Components.RootComponent.#ctor
@@ -73,6 +78,22 @@ items:
   fullName.vb: SadConsole.Components.RootComponent.New()
   name.vb: New()
 references:
+- uid: SadConsole.GameHost.RootComponents
+  commentId: P:SadConsole.GameHost.RootComponents
+  parent: SadConsole.GameHost
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_RootComponents
+  name: RootComponents
+  nameWithType: GameHost.RootComponents
+  fullName: SadConsole.GameHost.RootComponents
+- uid: SadConsole.GameHost.Screen
+  commentId: P:SadConsole.GameHost.Screen
+  parent: SadConsole.GameHost
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_Screen
+  name: Screen
+  nameWithType: GameHost.Screen
+  fullName: SadConsole.GameHost.Screen
 - uid: SadConsole.Components
   commentId: N:SadConsole.Components
   isExternal: true
@@ -330,6 +351,14 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
+- uid: SadConsole.GameHost
+  commentId: T:SadConsole.GameHost
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.GameHost.html
+  name: GameHost
+  nameWithType: GameHost
+  fullName: SadConsole.GameHost
 - uid: System
   commentId: N:System
   isExternal: true
@@ -337,6 +366,13 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
 - uid: SadConsole.Components.RootComponent.Run*
   commentId: Overload:SadConsole.Components.RootComponent.Run
   isExternal: true

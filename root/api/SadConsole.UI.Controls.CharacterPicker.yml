@@ -229,6 +229,7 @@ items:
   assemblies:
   - SadConsole.Extended
   namespace: SadConsole.UI.Controls
+  summary: Called as the mouse moves around the control area. Raises the MouseMove event and calls the <xref href="SadConsole.UI.Controls.ControlBase.DetermineState" data-throw-if-not-resolved="false"></xref> method.
   example: []
   syntax:
     content: protected override void OnMouseIn(ControlBase.ControlMouseState info)
@@ -252,6 +253,7 @@ items:
   assemblies:
   - SadConsole.Extended
   namespace: SadConsole.UI.Controls
+  summary: Called when the left mouse button is clicked. Raises the MouseButtonClicked event and calls the <xref href="SadConsole.UI.Controls.ControlBase.DetermineState" data-throw-if-not-resolved="false"></xref> method.
   example: []
   syntax:
     content: protected override void OnLeftMouseClicked(ControlBase.ControlMouseState info)
@@ -275,14 +277,17 @@ items:
   assemblies:
   - SadConsole.Extended
   namespace: SadConsole.UI.Controls
+  summary: Processes the mouse on each control hosted by this control.
   example: []
   syntax:
     content: public override bool ProcessMouse(MouseScreenObjectState state)
     parameters:
     - id: state
       type: SadConsole.Input.MouseScreenObjectState
+      description: The mouse state based on the parent screen object.
     return:
       type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when a control processes the mouse; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
     content.vb: Public Overrides Function ProcessMouse(state As MouseScreenObjectState) As Boolean
   overridden: SadConsole.UI.Controls.CompositeControl.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
   overload: SadConsole.UI.Controls.CharacterPicker.ProcessMouse*
@@ -300,11 +305,13 @@ items:
   assemblies:
   - SadConsole.Extended
   namespace: SadConsole.UI.Controls
+  summary: Generates the surface to be used by this control. This method is called internally to assign the <xref href="SadConsole.UI.Controls.ControlBase.Surface" data-throw-if-not-resolved="false"></xref> property a value.
   example: []
   syntax:
     content: protected override ICellSurface CreateControlSurface()
     return:
       type: SadConsole.ICellSurface
+      description: A surface that should be assigned to the <xref href="SadConsole.UI.Controls.ControlBase.Surface" data-throw-if-not-resolved="false"></xref> property.
     content.vb: Protected Overrides Function CreateControlSurface() As ICellSurface
   overridden: SadConsole.UI.Controls.ControlBase.CreateControlSurface
   overload: SadConsole.UI.Controls.CharacterPicker.CreateControlSurface*
@@ -322,12 +329,14 @@ items:
   assemblies:
   - SadConsole.Extended
   namespace: SadConsole.UI.Controls
+  summary: Updates each control hosted by this control.
   example: []
   syntax:
     content: public override void UpdateAndRedraw(TimeSpan time)
     parameters:
     - id: time
       type: System.TimeSpan
+      description: The game frame time delta.
     content.vb: Public Overrides Sub UpdateAndRedraw(time As TimeSpan)
   overridden: SadConsole.UI.Controls.SurfaceViewer.UpdateAndRedraw(System.TimeSpan)
   overload: SadConsole.UI.Controls.CharacterPicker.UpdateAndRedraw*
