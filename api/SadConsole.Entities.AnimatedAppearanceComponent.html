@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class AnimatedAppearanceComponent | SadConsole v10">
     
-    
+    <meta name="description" content="A component for  that animates the  property.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -73,7 +73,8 @@
 
 
   <h1 id="SadConsole_Entities_AnimatedAppearanceComponent" data-uid="SadConsole.Entities.AnimatedAppearanceComponent" class="text-break">Class AnimatedAppearanceComponent</h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>A component for <a class="xref" href="SadConsole.Entities.Entity.html">Entity</a> that animates the <a class="xref" href="SadConsole.Entities.Entity.html#SadConsole_Entities_Entity_AppearanceSingle">AppearanceSingle</a> property.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -117,6 +118,7 @@
   <h5 id="SadConsole_Entities_AnimatedAppearanceComponent_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[DataContract]
+[JsonObject(MemberSerialization = MemberSerialization.OptIn)]
 public class AnimatedAppearanceComponent : UpdateComponent, IComponent</code></pre>
   </div>
   <h3 id="constructors">Constructors
@@ -137,7 +139,8 @@ public class AnimatedAppearanceComponent : UpdateComponent, IComponent</code></p
 
   <a id="SadConsole_Entities_AnimatedAppearanceComponent_AnimationTime_" data-uid="SadConsole.Entities.AnimatedAppearanceComponent.AnimationTime*"></a>
   <h4 id="SadConsole_Entities_AnimatedAppearanceComponent_AnimationTime" data-uid="SadConsole.Entities.AnimatedAppearanceComponent.AnimationTime">AnimationTime</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The total time it takes to play all <a class="xref" href="SadConsole.Entities.AnimatedAppearanceComponent.html#SadConsole_Entities_AnimatedAppearanceComponent_Frames">Frames</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -162,7 +165,8 @@ public class AnimatedAppearanceComponent : UpdateComponent, IComponent</code></p
 
   <a id="SadConsole_Entities_AnimatedAppearanceComponent_Frames_" data-uid="SadConsole.Entities.AnimatedAppearanceComponent.Frames*"></a>
   <h4 id="SadConsole_Entities_AnimatedAppearanceComponent_Frames" data-uid="SadConsole.Entities.AnimatedAppearanceComponent.Frames">Frames</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The frames of animation.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -187,7 +191,8 @@ public class AnimatedAppearanceComponent : UpdateComponent, IComponent</code></p
 
   <a id="SadConsole_Entities_AnimatedAppearanceComponent_IsRepeatable_" data-uid="SadConsole.Entities.AnimatedAppearanceComponent.IsRepeatable*"></a>
   <h4 id="SadConsole_Entities_AnimatedAppearanceComponent_IsRepeatable" data-uid="SadConsole.Entities.AnimatedAppearanceComponent.IsRepeatable">IsRepeatable</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the animation will automatically restart after the last frame is applied. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> and the animation stops when completed.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -214,7 +219,8 @@ public class AnimatedAppearanceComponent : UpdateComponent, IComponent</code></p
 
   <a id="SadConsole_Entities_AnimatedAppearanceComponent_OnAdded_" data-uid="SadConsole.Entities.AnimatedAppearanceComponent.OnAdded*"></a>
   <h4 id="SadConsole_Entities_AnimatedAppearanceComponent_OnAdded_SadConsole_IScreenObject_" data-uid="SadConsole.Entities.AnimatedAppearanceComponent.OnAdded(SadConsole.IScreenObject)">OnAdded(IScreenObject)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Called by the component system when this component is added to an object. Must be of type <a class="xref" href="SadConsole.Entities.Entity.html">Entity</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -233,17 +239,35 @@ public class AnimatedAppearanceComponent : UpdateComponent, IComponent</code></p
       <tr>
         <td><a class="xref" href="SadConsole.IScreenObject.html">IScreenObject</a></td>
         <td><span class="parametername">host</span></td>
-        <td></td>
+        <td><p>The component host.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="SadConsole.Components.UpdateComponent.html#SadConsole_Components_UpdateComponent_OnAdded_SadConsole_IScreenObject_">UpdateComponent.OnAdded(IScreenObject)</a></div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidcastexception">InvalidCastException</a></td>
+        <td><p>This component was added to a type other than <a class="xref" href="SadConsole.Entities.Entity.html">Entity</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_Entities_AnimatedAppearanceComponent_OnRemoved_" data-uid="SadConsole.Entities.AnimatedAppearanceComponent.OnRemoved*"></a>
   <h4 id="SadConsole_Entities_AnimatedAppearanceComponent_OnRemoved_SadConsole_IScreenObject_" data-uid="SadConsole.Entities.AnimatedAppearanceComponent.OnRemoved(SadConsole.IScreenObject)">OnRemoved(IScreenObject)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Called by the component system when this component is removed from an object.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -262,7 +286,8 @@ public class AnimatedAppearanceComponent : UpdateComponent, IComponent</code></p
       <tr>
         <td><a class="xref" href="SadConsole.IScreenObject.html">IScreenObject</a></td>
         <td><span class="parametername">host</span></td>
-        <td></td>
+        <td><p>The component host.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -272,7 +297,8 @@ public class AnimatedAppearanceComponent : UpdateComponent, IComponent</code></p
 
   <a id="SadConsole_Entities_AnimatedAppearanceComponent_Restart_" data-uid="SadConsole.Entities.AnimatedAppearanceComponent.Restart*"></a>
   <h4 id="SadConsole_Entities_AnimatedAppearanceComponent_Restart" data-uid="SadConsole.Entities.AnimatedAppearanceComponent.Restart">Restart()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Restarts the animation at the first frame.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -282,17 +308,35 @@ public class AnimatedAppearanceComponent : UpdateComponent, IComponent</code></p
 
   <a id="SadConsole_Entities_AnimatedAppearanceComponent_Start_" data-uid="SadConsole.Entities.AnimatedAppearanceComponent.Start*"></a>
   <h4 id="SadConsole_Entities_AnimatedAppearanceComponent_Start" data-uid="SadConsole.Entities.AnimatedAppearanceComponent.Start">Start()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Starts the animation and immediately applies the current frame to the entity.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Start()</code></pre>
   </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>The animation was started but there aren't any frames to animate.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="SadConsole_Entities_AnimatedAppearanceComponent_Stop_" data-uid="SadConsole.Entities.AnimatedAppearanceComponent.Stop*"></a>
   <h4 id="SadConsole_Entities_AnimatedAppearanceComponent_Stop" data-uid="SadConsole.Entities.AnimatedAppearanceComponent.Stop">Stop()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Stops the animation.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -302,7 +346,8 @@ public class AnimatedAppearanceComponent : UpdateComponent, IComponent</code></p
 
   <a id="SadConsole_Entities_AnimatedAppearanceComponent_Update_" data-uid="SadConsole.Entities.AnimatedAppearanceComponent.Update*"></a>
   <h4 id="SadConsole_Entities_AnimatedAppearanceComponent_Update_SadConsole_IScreenObject_System_TimeSpan_" data-uid="SadConsole.Entities.AnimatedAppearanceComponent.Update(SadConsole.IScreenObject,System.TimeSpan)">Update(IScreenObject, TimeSpan)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Updates the animation frame index and applies the animation to the entity.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -321,12 +366,14 @@ public class AnimatedAppearanceComponent : UpdateComponent, IComponent</code></p
       <tr>
         <td><a class="xref" href="SadConsole.IScreenObject.html">IScreenObject</a></td>
         <td><span class="parametername">host</span></td>
-        <td></td>
+        <td><p>The component host.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
         <td><span class="parametername">delta</span></td>
-        <td></td>
+        <td><p>The time between calls to this method.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -349,8 +396,8 @@ public class AnimatedAppearanceComponent : UpdateComponent, IComponent</code></p
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
                 <h5>In this article</h5>
                 <div></div>
-                <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-              </nav>
+                <p><a class="back-to-top" href="#top">Back to top</a><p>
+              </p></nav>
             </div>
           </div>
         </div>

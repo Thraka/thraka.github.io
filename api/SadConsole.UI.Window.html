@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class Window | SadConsole v10">
     
-    
+    <meta name="description" content="Represents a windowed controls console.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -73,7 +73,8 @@
 
 
   <h1 id="SadConsole_UI_Window" data-uid="SadConsole.UI.Window" class="text-break">Class Window</h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Represents a windowed controls console.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -385,6 +386,7 @@
   <h5 id="SadConsole_UI_Window_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[DataContract]
+[JsonObject(MemberSerialization.OptIn)]
 public class Window : Console, IDisposable, IScreenSurfaceEditable, IScreenSurface, IScreenObject, IPositionable, IComponentHost, ISurface, ISurfaceSettable, IWindowData</code></pre>
   </div>
   <h3 id="constructors">Constructors
@@ -393,7 +395,8 @@ public class Window : Console, IDisposable, IScreenSurfaceEditable, IScreenSurfa
 
   <a id="SadConsole_UI_Window__ctor_" data-uid="SadConsole.UI.Window.#ctor*"></a>
   <h4 id="SadConsole_UI_Window__ctor_SadConsole_ICellSurface_SadConsole_IFont_System_Nullable_SadRogue_Primitives_Point__" data-uid="SadConsole.UI.Window.#ctor(SadConsole.ICellSurface,SadConsole.IFont,System.Nullable{SadRogue.Primitives.Point})">Window(ICellSurface, IFont?, Point?)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a new window using the existing surface.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -412,17 +415,20 @@ public class Window : Console, IDisposable, IScreenSurfaceEditable, IScreenSurfa
       <tr>
         <td><a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a></td>
         <td><span class="parametername">surface</span></td>
-        <td></td>
+        <td><p>The surface.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="SadConsole.IFont.html">IFont</a></td>
         <td><span class="parametername">font</span></td>
-        <td></td>
+        <td><p>The font to use with the surface.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Point.html">Point</a>?</td>
         <td><span class="parametername">fontSize</span></td>
-        <td></td>
+        <td><p>The font size.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -430,7 +436,8 @@ public class Window : Console, IDisposable, IScreenSurfaceEditable, IScreenSurfa
 
   <a id="SadConsole_UI_Window__ctor_" data-uid="SadConsole.UI.Window.#ctor*"></a>
   <h4 id="SadConsole_UI_Window__ctor_System_Int32_System_Int32_" data-uid="SadConsole.UI.Window.#ctor(System.Int32,System.Int32)">Window(int, int)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a new window.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -449,12 +456,14 @@ public class Window : Console, IDisposable, IScreenSurfaceEditable, IScreenSurfa
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">width</span></td>
-        <td></td>
+        <td><p>The width in cells of the surface.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">height</span></td>
-        <td></td>
+        <td><p>The height in cells of the surface.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -462,7 +471,8 @@ public class Window : Console, IDisposable, IScreenSurfaceEditable, IScreenSurfa
 
   <a id="SadConsole_UI_Window__ctor_" data-uid="SadConsole.UI.Window.#ctor*"></a>
   <h4 id="SadConsole_UI_Window__ctor_System_Int32_System_Int32_SadConsole_ColoredGlyphBase___" data-uid="SadConsole.UI.Window.#ctor(System.Int32,System.Int32,SadConsole.ColoredGlyphBase[])">Window(int, int, ColoredGlyphBase[]?)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a new screen object that can render a surface. Uses the specified cells to generate the surface.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -481,17 +491,20 @@ public class Window : Console, IDisposable, IScreenSurfaceEditable, IScreenSurfa
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">width</span></td>
-        <td></td>
+        <td><p>The width in cells of the surface.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">height</span></td>
-        <td></td>
+        <td><p>The height in cells of the surface.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a>[]</td>
         <td><span class="parametername">initialCells</span></td>
-        <td></td>
+        <td><p>The initial cells to seed the surface.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -499,7 +512,8 @@ public class Window : Console, IDisposable, IScreenSurfaceEditable, IScreenSurfa
 
   <a id="SadConsole_UI_Window__ctor_" data-uid="SadConsole.UI.Window.#ctor*"></a>
   <h4 id="SadConsole_UI_Window__ctor_System_Int32_System_Int32_System_Int32_System_Int32_" data-uid="SadConsole.UI.Window.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">Window(int, int, int, int)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a new window with the specified width and height, with <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html#SadRogue_Primitives_Color_Transparent">Transparent</a> for the background and <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html#SadRogue_Primitives_Color_White">White</a> for the foreground.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -518,22 +532,26 @@ public class Window : Console, IDisposable, IScreenSurfaceEditable, IScreenSurfa
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">width</span></td>
-        <td></td>
+        <td><p>The visible width of the window in cells.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">height</span></td>
-        <td></td>
+        <td><p>The visible height of the window in cells.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">bufferWidth</span></td>
-        <td></td>
+        <td><p>The total width of the window in cells.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">bufferHeight</span></td>
-        <td></td>
+        <td><p>The total height of the window in cells.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -541,7 +559,8 @@ public class Window : Console, IDisposable, IScreenSurfaceEditable, IScreenSurfa
 
   <a id="SadConsole_UI_Window__ctor_" data-uid="SadConsole.UI.Window.#ctor*"></a>
   <h4 id="SadConsole_UI_Window__ctor_System_Int32_System_Int32_System_Int32_System_Int32_SadConsole_ColoredGlyphBase___" data-uid="SadConsole.UI.Window.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,SadConsole.ColoredGlyphBase[])">Window(int, int, int, int, ColoredGlyphBase[]?)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a window with the specified width and height, with <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html#SadRogue_Primitives_Color_Transparent">Transparent</a> for the background and <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html#SadRogue_Primitives_Color_White">White</a> for the foreground.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -560,27 +579,32 @@ public class Window : Console, IDisposable, IScreenSurfaceEditable, IScreenSurfa
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">width</span></td>
-        <td></td>
+        <td><p>The width of the window in cells.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">height</span></td>
-        <td></td>
+        <td><p>The height of the window in cells.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">bufferWidth</span></td>
-        <td></td>
+        <td><p>The total width of the window in cells.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">bufferHeight</span></td>
-        <td></td>
+        <td><p>The total height of the window in cells.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a>[]</td>
         <td><span class="parametername">initialCells</span></td>
-        <td></td>
+        <td><p>The cells to seed the window with. If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, creates the cells for you.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -589,7 +613,8 @@ public class Window : Console, IDisposable, IScreenSurfaceEditable, IScreenSurfa
 
 
   <h4 id="SadConsole_UI_Window_PreviousMouseLeftButtonDown" data-uid="SadConsole.UI.Window.PreviousMouseLeftButtonDown">PreviousMouseLeftButtonDown</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The mouse state of the previous update frame.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -616,7 +641,8 @@ public class Window : Console, IDisposable, IScreenSurfaceEditable, IScreenSurfa
 
   <a id="SadConsole_UI_Window_AddedToParent_" data-uid="SadConsole.UI.Window.AddedToParent*"></a>
   <h4 id="SadConsole_UI_Window_AddedToParent" data-uid="SadConsole.UI.Window.AddedToParent">AddedToParent</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that the window has been added to a parent; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -642,7 +668,8 @@ protected bool AddedToParent { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Window_BorderLineStyle_" data-uid="SadConsole.UI.Window.BorderLineStyle*"></a>
   <h4 id="SadConsole_UI_Window_BorderLineStyle" data-uid="SadConsole.UI.Window.BorderLineStyle">BorderLineStyle</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The line style for the border.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -668,7 +695,8 @@ public int[] BorderLineStyle { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Window_CanDrag_" data-uid="SadConsole.UI.Window.CanDrag*"></a>
   <h4 id="SadConsole_UI_Window_CanDrag" data-uid="SadConsole.UI.Window.CanDrag">CanDrag</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets or sets whether or not this window can be moved with the mouse.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -694,7 +722,8 @@ public bool CanDrag { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Window_CellAtDragPosition_" data-uid="SadConsole.UI.Window.CellAtDragPosition*"></a>
   <h4 id="SadConsole_UI_Window_CellAtDragPosition" data-uid="SadConsole.UI.Window.CellAtDragPosition">CellAtDragPosition</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The position of the cell that the window drag started at.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -720,7 +749,8 @@ protected Point CellAtDragPosition { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Window_CloseOnEscKey_" data-uid="SadConsole.UI.Window.CloseOnEscKey*"></a>
   <h4 id="SadConsole_UI_Window_CloseOnEscKey" data-uid="SadConsole.UI.Window.CloseOnEscKey">CloseOnEscKey</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets or sets whether or not this window can be closed when the escape key is pressed.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -746,7 +776,8 @@ public bool CloseOnEscKey { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Window_Controls_" data-uid="SadConsole.UI.Window.Controls*"></a>
   <h4 id="SadConsole_UI_Window_Controls" data-uid="SadConsole.UI.Window.Controls">Controls</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The controls host holding all the controls.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -771,7 +802,8 @@ public bool CloseOnEscKey { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Window_DialogResult_" data-uid="SadConsole.UI.Window.DialogResult*"></a>
   <h4 id="SadConsole_UI_Window_DialogResult" data-uid="SadConsole.UI.Window.DialogResult">DialogResult</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets or set the dialog result status of the window.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -797,7 +829,8 @@ public bool DialogResult { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Window_IsDragging_" data-uid="SadConsole.UI.Window.IsDragging*"></a>
   <h4 id="SadConsole_UI_Window_IsDragging" data-uid="SadConsole.UI.Window.IsDragging">IsDragging</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that the window is being dragged; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -823,7 +856,8 @@ protected bool IsDragging { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Window_IsModal_" data-uid="SadConsole.UI.Window.IsModal*"></a>
   <h4 id="SadConsole_UI_Window_IsModal" data-uid="SadConsole.UI.Window.IsModal">IsModal</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the whether or not the window is being shown as modal.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -849,7 +883,8 @@ public bool IsModal { get; }</code></pre>
 
   <a id="SadConsole_UI_Window_IsModalDefault_" data-uid="SadConsole.UI.Window.IsModalDefault*"></a>
   <h4 id="SadConsole_UI_Window_IsModalDefault" data-uid="SadConsole.UI.Window.IsModalDefault">IsModalDefault</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Indicates that when this window is shown by the <a class="xref" href="SadConsole.UI.Window.html#SadConsole_UI_Window_Show">Show()</a> method or by setting the <a class="xref" href="SadConsole.IScreenObject.html#SadConsole_IScreenObject_IsVisible">IsVisible</a> property to true, the window will be shown as modal.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -875,7 +910,8 @@ public bool IsModalDefault { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Window_PreviousMouseExclusiveDrag_" data-uid="SadConsole.UI.Window.PreviousMouseExclusiveDrag*"></a>
   <h4 id="SadConsole_UI_Window_PreviousMouseExclusiveDrag" data-uid="SadConsole.UI.Window.PreviousMouseExclusiveDrag">PreviousMouseExclusiveDrag</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Temporary value to hold the state of <a class="xref" href="SadConsole.IScreenObject.html#SadConsole_IScreenObject_IsExclusiveMouse">IsExclusiveMouse</a> prior to dragging.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -901,7 +937,8 @@ protected bool PreviousMouseExclusiveDrag { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Window_Title_" data-uid="SadConsole.UI.Window.Title*"></a>
   <h4 id="SadConsole_UI_Window_Title" data-uid="SadConsole.UI.Window.Title">Title</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets or sets the title displayed on the window.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -926,7 +963,8 @@ protected bool PreviousMouseExclusiveDrag { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Window_TitleAlignment_" data-uid="SadConsole.UI.Window.TitleAlignment*"></a>
   <h4 id="SadConsole_UI_Window_TitleAlignment" data-uid="SadConsole.UI.Window.TitleAlignment">TitleAlignment</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets or sets the alignment of the window title.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -952,7 +990,8 @@ public HorizontalAlignment TitleAlignment { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Window_TitleAreaLength_" data-uid="SadConsole.UI.Window.TitleAreaLength*"></a>
   <h4 id="SadConsole_UI_Window_TitleAreaLength" data-uid="SadConsole.UI.Window.TitleAreaLength">TitleAreaLength</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The width of the title drawing area. This is automatically set by the theme.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -978,7 +1017,8 @@ public int TitleAreaLength { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Window_TitleAreaX_" data-uid="SadConsole.UI.Window.TitleAreaX*"></a>
   <h4 id="SadConsole_UI_Window_TitleAreaX" data-uid="SadConsole.UI.Window.TitleAreaX">TitleAreaX</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The X coordinate of the title drawing area. This is automatically set by the theme.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1004,7 +1044,8 @@ public int TitleAreaX { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Window_TitleAreaY_" data-uid="SadConsole.UI.Window.TitleAreaY*"></a>
   <h4 id="SadConsole_UI_Window_TitleAreaY" data-uid="SadConsole.UI.Window.TitleAreaY">TitleAreaY</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The Y coordinate of the title drawing area. This can be set to any value &gt; 0 and &lt; the height.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1032,7 +1073,8 @@ public int TitleAreaY { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Window_Ask_" data-uid="SadConsole.UI.Window.Ask*"></a>
   <h4 id="SadConsole_UI_Window_Ask_SadConsole_ColoredString_System_String_System_String_System_Action_System_Boolean_System_String__SadConsole_StringValidation_Validator_System_String_SadConsole_UI_Colors_" data-uid="SadConsole.UI.Window.Ask(SadConsole.ColoredString,System.String,System.String,System.Action{System.Boolean,System.String},SadConsole.StringValidation.Validator,System.String,SadConsole.UI.Colors)">Ask(ColoredString, string, string, Action&lt;bool, string&gt;?, Validator?, string?, Colors?)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Displays a window with an input box and an optional validator, using a <a class="xref" href="SadConsole.ColoredString.html">ColoredString</a> as the prompt text.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1051,37 +1093,44 @@ public int TitleAreaY { get; set; }</code></pre>
       <tr>
         <td><a class="xref" href="SadConsole.ColoredString.html">ColoredString</a></td>
         <td><span class="parametername">message</span></td>
-        <td></td>
+        <td><p>The message to print in the window.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">acceptPrompt</span></td>
-        <td></td>
+        <td><p>The text of the accept button.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">cancelPrompt</span></td>
-        <td></td>
+        <td><p>The text of the cancel button.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
         <td><span class="parametername">closedCallback</span></td>
-        <td></td>
+        <td><p>A delegate called when the window is closed.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="SadConsole.StringValidation.html">StringValidation</a>.<a class="xref" href="SadConsole.StringValidation.Validator.html">Validator</a></td>
         <td><span class="parametername">validator</span></td>
-        <td></td>
+        <td><p>An optional validator to validate the input text.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">defaultValue</span></td>
-        <td></td>
+        <td><p>An optional default value of the input text box.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="SadConsole.UI.Colors.html">Colors</a></td>
         <td><span class="parametername">colors</span></td>
-        <td></td>
+        <td><p>An optional set of colors to apply to the window.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1089,7 +1138,8 @@ public int TitleAreaY { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Window_Ask_" data-uid="SadConsole.UI.Window.Ask*"></a>
   <h4 id="SadConsole_UI_Window_Ask_System_String_System_String_System_String_System_Action_System_Boolean_System_String__SadConsole_StringValidation_Validator_System_String_SadConsole_UI_Colors_" data-uid="SadConsole.UI.Window.Ask(System.String,System.String,System.String,System.Action{System.Boolean,System.String},SadConsole.StringValidation.Validator,System.String,SadConsole.UI.Colors)">Ask(string, string, string, Action&lt;bool, string&gt;?, Validator?, string?, Colors?)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Displays a window with an input box and an optional validator with a text prompt.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1108,37 +1158,44 @@ public int TitleAreaY { get; set; }</code></pre>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">message</span></td>
-        <td></td>
+        <td><p>The message to print in the window.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">acceptPrompt</span></td>
-        <td></td>
+        <td><p>The text of the accept button.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">cancelPrompt</span></td>
-        <td></td>
+        <td><p>The text of the cancel button.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
         <td><span class="parametername">closedCallback</span></td>
-        <td></td>
+        <td><p>A delegate called when the window is closed.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="SadConsole.StringValidation.html">StringValidation</a>.<a class="xref" href="SadConsole.StringValidation.Validator.html">Validator</a></td>
         <td><span class="parametername">validator</span></td>
-        <td></td>
+        <td><p>An optional validator to validate the input text.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">defaultValue</span></td>
-        <td></td>
+        <td><p>An optional default value of the input text box.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="SadConsole.UI.Colors.html">Colors</a></td>
         <td><span class="parametername">colors</span></td>
-        <td></td>
+        <td><p>An optional set of colors to apply to the window.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1146,7 +1203,8 @@ public int TitleAreaY { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Window_Center_" data-uid="SadConsole.UI.Window.Center*"></a>
   <h4 id="SadConsole_UI_Window_Center" data-uid="SadConsole.UI.Window.Center">Center()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Centers the window within the bounds of <a class="xref" href="SadConsole.Settings.Rendering.html#SadConsole_Settings_Rendering_RenderWidth">RenderWidth</a> and <a class="xref" href="SadConsole.Settings.Rendering.html#SadConsole_Settings_Rendering_RenderHeight">RenderHeight</a></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1166,7 +1224,8 @@ public int TitleAreaY { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Window_Hide_" data-uid="SadConsole.UI.Window.Hide*"></a>
   <h4 id="SadConsole_UI_Window_Hide" data-uid="SadConsole.UI.Window.Hide">Hide()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Hides the window.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1176,7 +1235,8 @@ public int TitleAreaY { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Window_Message_" data-uid="SadConsole.UI.Window.Message*"></a>
   <h4 id="SadConsole_UI_Window_Message_SadConsole_ColoredString_System_String_System_Action_SadConsole_UI_Colors_" data-uid="SadConsole.UI.Window.Message(SadConsole.ColoredString,System.String,System.Action,SadConsole.UI.Colors)">Message(ColoredString, string, Action?, Colors?)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Displays a dialog to the user with a specific message.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1195,22 +1255,26 @@ public int TitleAreaY { get; set; }</code></pre>
       <tr>
         <td><a class="xref" href="SadConsole.ColoredString.html">ColoredString</a></td>
         <td><span class="parametername">message</span></td>
-        <td></td>
+        <td><p>The message. (background color is ignored)</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">closeButtonText</span></td>
-        <td></td>
+        <td><p>The text of the dialog's close button.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></td>
         <td><span class="parametername">closedCallback</span></td>
-        <td></td>
+        <td><p>A callback indicating the message was dismissed.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="SadConsole.UI.Colors.html">Colors</a></td>
         <td><span class="parametername">colors</span></td>
-        <td></td>
+        <td><p>The colors to apply for the message box and buttons. If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1218,7 +1282,8 @@ public int TitleAreaY { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Window_Message_" data-uid="SadConsole.UI.Window.Message*"></a>
   <h4 id="SadConsole_UI_Window_Message_System_String_System_String_System_Action_SadConsole_UI_Colors_" data-uid="SadConsole.UI.Window.Message(System.String,System.String,System.Action,SadConsole.UI.Colors)">Message(string, string, Action?, Colors?)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Displays a dialog to the user with a specific message.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1237,22 +1302,26 @@ public int TitleAreaY { get; set; }</code></pre>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">message</span></td>
-        <td></td>
+        <td><p>The message.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">closeButtonText</span></td>
-        <td></td>
+        <td><p>The text of the dialog's close button.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></td>
         <td><span class="parametername">closedCallback</span></td>
-        <td></td>
+        <td><p>A callback indicating the message was dismissed.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="SadConsole.UI.Colors.html">Colors</a></td>
         <td><span class="parametername">colors</span></td>
-        <td></td>
+        <td><p>The colors to apply for the message box and buttons. If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1260,7 +1329,8 @@ public int TitleAreaY { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Window_OnHidden_" data-uid="SadConsole.UI.Window.OnHidden*"></a>
   <h4 id="SadConsole_UI_Window_OnHidden" data-uid="SadConsole.UI.Window.OnHidden">OnHidden()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>User-definable code called when the window is hidden.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1270,7 +1340,8 @@ public int TitleAreaY { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Window_OnShown_" data-uid="SadConsole.UI.Window.OnShown*"></a>
   <h4 id="SadConsole_UI_Window_OnShown" data-uid="SadConsole.UI.Window.OnShown">OnShown()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>User-definable code called when the window is shown.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1280,7 +1351,8 @@ public int TitleAreaY { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Window_OnVisibleChanged_" data-uid="SadConsole.UI.Window.OnVisibleChanged*"></a>
   <h4 id="SadConsole_UI_Window_OnVisibleChanged" data-uid="SadConsole.UI.Window.OnVisibleChanged">OnVisibleChanged()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Depending on if the window is visible, calls <a class="xref" href="SadConsole.UI.Window.html#SadConsole_UI_Window_Show_System_Boolean_">Show(bool)</a> or <a class="xref" href="SadConsole.UI.Window.html#SadConsole_UI_Window_Hide">Hide()</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1292,7 +1364,8 @@ public int TitleAreaY { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Window_ProcessKeyboard_" data-uid="SadConsole.UI.Window.ProcessKeyboard*"></a>
   <h4 id="SadConsole_UI_Window_ProcessKeyboard_SadConsole_Input_Keyboard_" data-uid="SadConsole.UI.Window.ProcessKeyboard(SadConsole.Input.Keyboard)">ProcessKeyboard(Keyboard)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Processes the keyboard looking for the ESC key press to close the window, if required. Otherwise the base ControlsConsole will process the keyboard.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1311,7 +1384,8 @@ public int TitleAreaY { get; set; }</code></pre>
       <tr>
         <td><a class="xref" href="SadConsole.Input.Keyboard.html">Keyboard</a></td>
         <td><span class="parametername">info</span></td>
-        <td></td>
+        <td><p>Keyboard state.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1336,7 +1410,8 @@ public int TitleAreaY { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Window_ProcessMouse_" data-uid="SadConsole.UI.Window.ProcessMouse*"></a>
   <h4 id="SadConsole_UI_Window_ProcessMouse_SadConsole_Input_MouseScreenObjectState_" data-uid="SadConsole.UI.Window.ProcessMouse(SadConsole.Input.MouseScreenObjectState)">ProcessMouse(MouseScreenObjectState)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Processes the mouse.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1355,7 +1430,8 @@ public int TitleAreaY { get; set; }</code></pre>
       <tr>
         <td><a class="xref" href="SadConsole.Input.MouseScreenObjectState.html">MouseScreenObjectState</a></td>
         <td><span class="parametername">state</span></td>
-        <td></td>
+        <td><p>The mouse state related to this object.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1370,7 +1446,8 @@ public int TitleAreaY { get; set; }</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
+        <td><p>True when this object should halt further mouse processing..</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1380,7 +1457,8 @@ public int TitleAreaY { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Window_Prompt_" data-uid="SadConsole.UI.Window.Prompt*"></a>
   <h4 id="SadConsole_UI_Window_Prompt_SadConsole_ColoredString_System_String_System_String_System_Action_System_Boolean__SadConsole_UI_Colors_" data-uid="SadConsole.UI.Window.Prompt(SadConsole.ColoredString,System.String,System.String,System.Action{System.Boolean},SadConsole.UI.Colors)">Prompt(ColoredString, string, string, Action&lt;bool&gt;?, Colors?)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Shows a window prompt with two buttons for the user to click.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1399,27 +1477,32 @@ public int TitleAreaY { get; set; }</code></pre>
       <tr>
         <td><a class="xref" href="SadConsole.ColoredString.html">ColoredString</a></td>
         <td><span class="parametername">message</span></td>
-        <td></td>
+        <td><p>The text to display. (background color is ignored)</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">yesPrompt</span></td>
-        <td></td>
+        <td><p>The yes button's text.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">noPrompt</span></td>
-        <td></td>
+        <td><p>The no button's text.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</td>
         <td><span class="parametername">closedCallback</span></td>
-        <td></td>
+        <td><p>Callback with the yes (true) or no (false) result.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="SadConsole.UI.Colors.html">Colors</a></td>
         <td><span class="parametername">colors</span></td>
-        <td></td>
+        <td><p>The colors to apply for the message box and buttons. If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1427,7 +1510,8 @@ public int TitleAreaY { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Window_Prompt_" data-uid="SadConsole.UI.Window.Prompt*"></a>
   <h4 id="SadConsole_UI_Window_Prompt_System_String_System_String_System_String_System_Action_System_Boolean__SadConsole_UI_Colors_" data-uid="SadConsole.UI.Window.Prompt(System.String,System.String,System.String,System.Action{System.Boolean},SadConsole.UI.Colors)">Prompt(string, string, string, Action&lt;bool&gt;?, Colors?)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Shows a window prompt with two buttons for the user to click.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1446,27 +1530,32 @@ public int TitleAreaY { get; set; }</code></pre>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">message</span></td>
-        <td></td>
+        <td><p>The text to display.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">yesPrompt</span></td>
-        <td></td>
+        <td><p>The yes button's text.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">noPrompt</span></td>
-        <td></td>
+        <td><p>The no button's text.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</td>
         <td><span class="parametername">closedCallback</span></td>
-        <td></td>
+        <td><p>Callback with the yes (true) or no (false) result.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="SadConsole.UI.Colors.html">Colors</a></td>
         <td><span class="parametername">colors</span></td>
-        <td></td>
+        <td><p>The colors to apply for the message box and buttons. If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1474,7 +1563,8 @@ public int TitleAreaY { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Window_Show_" data-uid="SadConsole.UI.Window.Show*"></a>
   <h4 id="SadConsole_UI_Window_Show" data-uid="SadConsole.UI.Window.Show">Show()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Displays this window using the modal value of the <a class="xref" href="SadConsole.UI.Window.html#SadConsole_UI_Window_IsModalDefault">IsModalDefault</a> property.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1484,7 +1574,8 @@ public int TitleAreaY { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Window_Show_" data-uid="SadConsole.UI.Window.Show*"></a>
   <h4 id="SadConsole_UI_Window_Show_System_Boolean_" data-uid="SadConsole.UI.Window.Show(System.Boolean)">Show(bool)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Displays this window.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1503,7 +1594,8 @@ public int TitleAreaY { get; set; }</code></pre>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">modal</span></td>
-        <td></td>
+        <td><p>When true, the window will be displayed as modal; otherwise false.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1511,7 +1603,8 @@ public int TitleAreaY { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Window_ToString_" data-uid="SadConsole.UI.Window.ToString*"></a>
   <h4 id="SadConsole_UI_Window_ToString" data-uid="SadConsole.UI.Window.ToString">ToString()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the value &quot;Window&quot;.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1528,7 +1621,8 @@ public int TitleAreaY { get; set; }</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
+        <td><p>The string &quot;Window&quot;.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1539,7 +1633,8 @@ public int TitleAreaY { get; set; }</code></pre>
 
 
   <h4 id="SadConsole_UI_Window_Closed" data-uid="SadConsole.UI.Window.Closed">Closed</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Raised when the window is closed.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1563,7 +1658,8 @@ public int TitleAreaY { get; set; }</code></pre>
 
 
   <h4 id="SadConsole_UI_Window_Shown" data-uid="SadConsole.UI.Window.Shown">Shown</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Raised when the window is shown.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1965,8 +2061,8 @@ public int TitleAreaY { get; set; }</code></pre>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
                 <h5>In this article</h5>
                 <div></div>
-                <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-              </nav>
+                <p><a class="back-to-top" href="#top">Back to top</a><p>
+              </p></nav>
             </div>
           </div>
         </div>

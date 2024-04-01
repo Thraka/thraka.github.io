@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class TheDrawFont | SadConsole v10">
     
-    
+    <meta name="description" content="Represents a TheDraw ascii font. http://www.roysac.com/thedrawfonts-tdf.html">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -73,7 +73,8 @@
 
 
   <h1 id="SadConsole_Readers_TheDrawFont" data-uid="SadConsole.Readers.TheDrawFont" class="text-break">Class TheDrawFont</h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Represents a TheDraw ascii font. <a href="http://www.roysac.com/thedrawfonts-tdf.html">http://www.roysac.com/thedrawfonts-tdf.html</a></p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -128,7 +129,8 @@
 
   <a id="SadConsole_Readers_TheDrawFont_CharactersSupported_" data-uid="SadConsole.Readers.TheDrawFont.CharactersSupported*"></a>
   <h4 id="SadConsole_Readers_TheDrawFont_CharactersSupported" data-uid="SadConsole.Readers.TheDrawFont.CharactersSupported">CharactersSupported</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>An array indexed by character code, indicating if a glyph character is supported by the font. Characters 33 to 126 are supported, starting at index 0.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -153,7 +155,8 @@
 
   <a id="SadConsole_Readers_TheDrawFont_LetterSpacing_" data-uid="SadConsole.Readers.TheDrawFont.LetterSpacing*"></a>
   <h4 id="SadConsole_Readers_TheDrawFont_LetterSpacing" data-uid="SadConsole.Readers.TheDrawFont.LetterSpacing">LetterSpacing</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The empty characters between letters when drawing.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -178,7 +181,8 @@
 
   <a id="SadConsole_Readers_TheDrawFont_Title_" data-uid="SadConsole.Readers.TheDrawFont.Title*"></a>
   <h4 id="SadConsole_Readers_TheDrawFont_Title" data-uid="SadConsole.Readers.TheDrawFont.Title">Title</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The title of the font.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -203,7 +207,8 @@
 
   <a id="SadConsole_Readers_TheDrawFont_Type_" data-uid="SadConsole.Readers.TheDrawFont.Type*"></a>
   <h4 id="SadConsole_Readers_TheDrawFont_Type" data-uid="SadConsole.Readers.TheDrawFont.Type">Type</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The type of font.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -230,7 +235,8 @@
 
   <a id="SadConsole_Readers_TheDrawFont_GetCharacter_" data-uid="SadConsole.Readers.TheDrawFont.GetCharacter*"></a>
   <h4 id="SadConsole_Readers_TheDrawFont_GetCharacter_System_Int32_" data-uid="SadConsole.Readers.TheDrawFont.GetCharacter(System.Int32)">GetCharacter(int)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets a character from this font by character code.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -249,7 +255,8 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">glyph</span></td>
-        <td></td>
+        <td><p>The character to get.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -264,7 +271,29 @@
     <tbody>
       <tr>
         <td><a class="xref" href="SadConsole.Readers.TheDrawFont.html">TheDrawFont</a>.<a class="xref" href="SadConsole.Readers.TheDrawFont.Character.html">Character</a></td>
-        <td></td>
+        <td><p>The specified character.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>The character glyph index is valid but isn't included in this font.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.indexoutofrangeexception">IndexOutOfRangeException</a></td>
+        <td><p>The character glyph index isn't in range. It must be between 33 and 126.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -272,7 +301,8 @@
 
   <a id="SadConsole_Readers_TheDrawFont_GetSurface_" data-uid="SadConsole.Readers.TheDrawFont.GetSurface*"></a>
   <h4 id="SadConsole_Readers_TheDrawFont_GetSurface_System_Int32_" data-uid="SadConsole.Readers.TheDrawFont.GetSurface(System.Int32)">GetSurface(int)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Generates a surface from the specified glyph using a white foreground and black background for the individual glyphs of the character.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -291,7 +321,8 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">glyph</span></td>
-        <td></td>
+        <td><p>The glyph index.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -306,7 +337,8 @@
     <tbody>
       <tr>
         <td><a class="xref" href="SadConsole.CellSurface.html">CellSurface</a></td>
-        <td></td>
+        <td><p>A surface of just the glyph. Width and height of the surface is based on the TheDraw's font.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -314,7 +346,8 @@
 
   <a id="SadConsole_Readers_TheDrawFont_GetSurface_" data-uid="SadConsole.Readers.TheDrawFont.GetSurface*"></a>
   <h4 id="SadConsole_Readers_TheDrawFont_GetSurface_System_Int32_SadRogue_Primitives_Color_SadRogue_Primitives_Color_" data-uid="SadConsole.Readers.TheDrawFont.GetSurface(System.Int32,SadRogue.Primitives.Color,SadRogue.Primitives.Color)">GetSurface(int, Color, Color)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Generates a surface from the specified glyph using the specified foreground and background for the individual glyphs of the character.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -333,17 +366,20 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">glyph</span></td>
-        <td></td>
+        <td><p>The glyph index.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></td>
         <td><span class="parametername">alternateForeground</span></td>
-        <td></td>
+        <td><p>Foreground color used to draw the glyph.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a></td>
         <td><span class="parametername">alternateBackground</span></td>
-        <td></td>
+        <td><p>Background color used to draw the glyph.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -358,7 +394,8 @@
     <tbody>
       <tr>
         <td><a class="xref" href="SadConsole.CellSurface.html">CellSurface</a></td>
-        <td></td>
+        <td><p>A surface of just the glyph. Width and height of the surface is based on the TheDraw's font.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -366,7 +403,8 @@
 
   <a id="SadConsole_Readers_TheDrawFont_IsCharacterSupported_" data-uid="SadConsole.Readers.TheDrawFont.IsCharacterSupported*"></a>
   <h4 id="SadConsole_Readers_TheDrawFont_IsCharacterSupported_System_Int32_" data-uid="SadConsole.Readers.TheDrawFont.IsCharacterSupported(System.Int32)">IsCharacterSupported(int)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the specified character glyph is supported by this font; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -400,7 +438,8 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
+        <td><p>A boolean value indicating whether or not the specified glyph is supported.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -408,7 +447,8 @@
 
   <a id="SadConsole_Readers_TheDrawFont_ReadFonts_" data-uid="SadConsole.Readers.TheDrawFont.ReadFonts*"></a>
   <h4 id="SadConsole_Readers_TheDrawFont_ReadFonts_System_String_" data-uid="SadConsole.Readers.TheDrawFont.ReadFonts(System.String)">ReadFonts(string)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns a collection of fonts from a TheDraw font file.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -427,7 +467,8 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">file</span></td>
-        <td></td>
+        <td><p>The file to read.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -442,7 +483,8 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="SadConsole.Readers.TheDrawFont.html">TheDrawFont</a>&gt;</td>
-        <td></td>
+        <td><p>A collection of TheDraw fonts.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -459,8 +501,8 @@
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
                 <h5>In this article</h5>
                 <div></div>
-                <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-              </nav>
+                <p><a class="back-to-top" href="#top">Back to top</a><p>
+              </p></nav>
             </div>
           </div>
         </div>

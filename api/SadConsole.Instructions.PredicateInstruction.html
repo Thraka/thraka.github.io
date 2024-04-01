@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class PredicateInstruction | SadConsole v10">
     
-    
+    <meta name="description" content="Instruction that waits until the code callback returns true.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -73,7 +73,8 @@
 
 
   <h1 id="SadConsole_Instructions_PredicateInstruction" data-uid="SadConsole.Instructions.PredicateInstruction" class="text-break">Class PredicateInstruction</h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Instruction that waits until the code callback returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -164,7 +165,8 @@
 
   <a id="SadConsole_Instructions_PredicateInstruction__ctor_" data-uid="SadConsole.Instructions.PredicateInstruction.#ctor*"></a>
   <h4 id="SadConsole_Instructions_PredicateInstruction__ctor_System_Func_System_Boolean__" data-uid="SadConsole.Instructions.PredicateInstruction.#ctor(System.Func{System.Boolean})">PredicateInstruction(Func&lt;bool&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a new instruction with the specified callback.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -183,7 +185,8 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</td>
         <td><span class="parametername">callback</span></td>
-        <td></td>
+        <td><p>The code invoked by this instruction. Return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> to set <a class="xref" href="SadConsole.Instructions.InstructionBase.html#SadConsole_Instructions_InstructionBase_IsFinished">IsFinished</a>.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -193,7 +196,8 @@
 
   <a id="SadConsole_Instructions_PredicateInstruction_ID_" data-uid="SadConsole.Instructions.PredicateInstruction.ID*"></a>
   <h4 id="SadConsole_Instructions_PredicateInstruction_ID" data-uid="SadConsole.Instructions.PredicateInstruction.ID">ID</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Friendly ID to help track what this code instruction was created from since it cannot be fully serialized.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -220,7 +224,8 @@
 
   <a id="SadConsole_Instructions_PredicateInstruction_SetCallback_" data-uid="SadConsole.Instructions.PredicateInstruction.SetCallback*"></a>
   <h4 id="SadConsole_Instructions_PredicateInstruction_SetCallback_System_Func_System_Boolean__" data-uid="SadConsole.Instructions.PredicateInstruction.SetCallback(System.Func{System.Boolean})">SetCallback(Func&lt;bool&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Sets the callback used by the instruction.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -239,7 +244,8 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</td>
         <td><span class="parametername">callback</span></td>
-        <td></td>
+        <td><p>The code invoked by this instruction. Return <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> to set <a class="xref" href="SadConsole.Instructions.InstructionBase.html#SadConsole_Instructions_InstructionBase_IsFinished">IsFinished</a>.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -247,7 +253,8 @@
 
   <a id="SadConsole_Instructions_PredicateInstruction_Update_" data-uid="SadConsole.Instructions.PredicateInstruction.Update*"></a>
   <h4 id="SadConsole_Instructions_PredicateInstruction_Update_SadConsole_IScreenObject_System_TimeSpan_" data-uid="SadConsole.Instructions.PredicateInstruction.Update(SadConsole.IScreenObject,System.TimeSpan)">Update(IScreenObject, TimeSpan)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Executes the instruction. This base class method should be called from derived classes. If the IsFinished property is set to true, will try to repeat if needed and will raise all appropriate events.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -266,12 +273,14 @@
       <tr>
         <td><a class="xref" href="SadConsole.IScreenObject.html">IScreenObject</a></td>
         <td><span class="parametername">componentHost</span></td>
-        <td></td>
+        <td><p>The object that hosts this instruction.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
         <td><span class="parametername">delta</span></td>
-        <td></td>
+        <td><p>The time that has elapsed since this method was last called.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -294,8 +303,8 @@
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
                 <h5>In this article</h5>
                 <div></div>
-                <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-              </nav>
+                <p><a class="back-to-top" href="#top">Back to top</a><p>
+              </p></nav>
             </div>
           </div>
         </div>

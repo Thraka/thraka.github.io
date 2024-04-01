@@ -8,8 +8,8 @@
       <title>Class Extensions | SadConsole v10</title>
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class Extensions | SadConsole v10">
-    <meta name="description" content="Extensions to the  type.">
     
+    <meta name="description" content="Extensions to the  type.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -106,7 +106,7 @@
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="SadConsole.html">SadConsole</a>.<a class="xref" href="SadConsole.Configuration.html">Configuration</a></h6>
-  <h6><strong>Assembly</strong>: SadConsole.Host.MonoGame.dll</h6>
+  <h6><strong>Assembly</strong>: SadConsole.dll</h6>
   <h5 id="SadConsole_Configuration_Extensions_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static class Extensions</code></pre>
@@ -218,13 +218,13 @@
 
 
   <a id="SadConsole_Configuration_Extensions_ConfigureFonts_" data-uid="SadConsole.Configuration.Extensions.ConfigureFonts*"></a>
-  <h4 id="SadConsole_Configuration_Extensions_ConfigureFonts_SadConsole_Configuration_Builder_System_Action_SadConsole_Configuration_FontConfig_SadConsole_Game__" data-uid="SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.Game})">ConfigureFonts(Builder, Action&lt;FontConfig, Game&gt;)</h4>
+  <h4 id="SadConsole_Configuration_Extensions_ConfigureFonts_SadConsole_Configuration_Builder_System_Action_SadConsole_Configuration_FontConfig_SadConsole_GameHost__" data-uid="SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.GameHost})">ConfigureFonts(Builder, Action&lt;FontConfig, GameHost&gt;)</h4>
   <div class="markdown level1 summary"><p>Configures which default font to use during game startup, as well as which other fonts to load for the game.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Builder ConfigureFonts(this Builder configBuilder, Action&lt;FontConfig, Game&gt; fontLoader)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Builder ConfigureFonts(this Builder configBuilder, Action&lt;FontConfig, GameHost&gt; fontLoader)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -243,7 +243,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="SadConsole.Configuration.FontConfig.html">FontConfig</a>, <a class="xref" href="SadConsole.Game.html">Game</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="SadConsole.Configuration.FontConfig.html">FontConfig</a>, <a class="xref" href="SadConsole.GameHost.html">GameHost</a>&gt;</td>
         <td><span class="parametername">fontLoader</span></td>
         <td><p>A method that provides access to the <a class="xref" href="SadConsole.Configuration.FontConfig.html">FontConfig</a> object that loads fonts.</p>
 </td>
@@ -632,13 +632,13 @@
 
 
   <a id="SadConsole_Configuration_Extensions_SetSplashScreen_" data-uid="SadConsole.Configuration.Extensions.SetSplashScreen*"></a>
-  <h4 id="SadConsole_Configuration_Extensions_SetSplashScreen_SadConsole_Configuration_Builder_System_Func_SadConsole_Game_SadConsole_ScreenSurface____" data-uid="SadConsole.Configuration.Extensions.SetSplashScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.ScreenSurface[]})">SetSplashScreen(Builder, Func&lt;Game, ScreenSurface[]&gt;)</h4>
+  <h4 id="SadConsole_Configuration_Extensions_SetSplashScreen_SadConsole_Configuration_Builder_System_Func_SadConsole_GameHost_SadConsole_ScreenSurface____" data-uid="SadConsole.Configuration.Extensions.SetSplashScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.GameHost,SadConsole.ScreenSurface[]})">SetSplashScreen(Builder, Func&lt;GameHost, ScreenSurface[]&gt;)</h4>
   <div class="markdown level1 summary"><p>Sets the startup splash screens to the array returned by the <code class="paramref">creator</code> delegate.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Builder SetSplashScreen(this Builder configBuilder, Func&lt;Game, ScreenSurface[]&gt; creator)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Builder SetSplashScreen(this Builder configBuilder, Func&lt;GameHost, ScreenSurface[]&gt; creator)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -657,7 +657,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="SadConsole.Game.html">Game</a>, <a class="xref" href="SadConsole.ScreenSurface.html">ScreenSurface</a>[]&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="SadConsole.GameHost.html">GameHost</a>, <a class="xref" href="SadConsole.ScreenSurface.html">ScreenSurface</a>[]&gt;</td>
         <td><span class="parametername">creator</span></td>
         <td><p>A delegate that returns an array of surface objects.</p>
 </td>
@@ -744,13 +744,13 @@
 
 
   <a id="SadConsole_Configuration_Extensions_SetStartingScreen_" data-uid="SadConsole.Configuration.Extensions.SetStartingScreen*"></a>
-  <h4 id="SadConsole_Configuration_Extensions_SetStartingScreen_SadConsole_Configuration_Builder_System_Func_SadConsole_Game_SadConsole_IScreenObject__" data-uid="SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.IScreenObject})">SetStartingScreen(Builder, Func&lt;Game, IScreenObject&gt;)</h4>
+  <h4 id="SadConsole_Configuration_Extensions_SetStartingScreen_SadConsole_Configuration_Builder_System_Func_SadConsole_GameHost_SadConsole_IScreenObject__" data-uid="SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.GameHost,SadConsole.IScreenObject})">SetStartingScreen(Builder, Func&lt;GameHost, IScreenObject&gt;)</h4>
   <div class="markdown level1 summary"><p>Sets the <a class="xref" href="SadConsole.GameHost.html#SadConsole_GameHost_Screen">Screen</a> property to the return value of the <code class="paramref">creator</code> parameter.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Builder SetStartingScreen(this Builder configBuilder, Func&lt;Game, IScreenObject&gt; creator)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Builder SetStartingScreen(this Builder configBuilder, Func&lt;GameHost, IScreenObject&gt; creator)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -769,7 +769,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="SadConsole.Game.html">Game</a>, <a class="xref" href="SadConsole.IScreenObject.html">IScreenObject</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="SadConsole.GameHost.html">GameHost</a>, <a class="xref" href="SadConsole.IScreenObject.html">IScreenObject</a>&gt;</td>
         <td><span class="parametername">creator</span></td>
         <td><p>A method that returns an object as the starting screen.</p>
 </td>
@@ -855,51 +855,6 @@
   </table>
 
 
-  <a id="SadConsole_Configuration_Extensions_ShowMonoGameFPS_" data-uid="SadConsole.Configuration.Extensions.ShowMonoGameFPS*"></a>
-  <h4 id="SadConsole_Configuration_Extensions_ShowMonoGameFPS_SadConsole_Configuration_Builder_" data-uid="SadConsole.Configuration.Extensions.ShowMonoGameFPS(SadConsole.Configuration.Builder)">ShowMonoGameFPS(Builder)</h4>
-  <div class="markdown level1 summary"><p>Adds a MonoGame game component that renders the frames per-second of the game.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Builder ShowMonoGameFPS(this Builder configBuilder)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SadConsole.Configuration.Builder.html">Builder</a></td>
-        <td><span class="parametername">configBuilder</span></td>
-        <td><p>The builder object that composes the game startup.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SadConsole.Configuration.Builder.html">Builder</a></td>
-        <td><p>The configuration builder.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
   <a id="SadConsole_Configuration_Extensions_UseDefaultConsole_" data-uid="SadConsole.Configuration.Extensions.UseDefaultConsole*"></a>
   <h4 id="SadConsole_Configuration_Extensions_UseDefaultConsole_SadConsole_Configuration_Builder_" data-uid="SadConsole.Configuration.Extensions.UseDefaultConsole(SadConsole.Configuration.Builder)">UseDefaultConsole(Builder)</h4>
   <div class="markdown level1 summary"><p>Sets the <a class="xref" href="SadConsole.GameHost.html#SadConsole_GameHost_StartingConsole">StartingConsole</a> and <a class="xref" href="SadConsole.GameHost.html#SadConsole_GameHost_Screen">Screen</a> properties to new console when the game starts.</p>
@@ -944,102 +899,6 @@
     </tbody>
   </table>
 
-
-  <a id="SadConsole_Configuration_Extensions_UseUnlimitedFPS_" data-uid="SadConsole.Configuration.Extensions.UseUnlimitedFPS*"></a>
-  <h4 id="SadConsole_Configuration_Extensions_UseUnlimitedFPS_SadConsole_Configuration_Builder_" data-uid="SadConsole.Configuration.Extensions.UseUnlimitedFPS(SadConsole.Configuration.Builder)">UseUnlimitedFPS(Builder)</h4>
-  <div class="markdown level1 summary"><p>Unlimited FPS when rendering (normally limited to 60fps). Must be set before the game is created.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Builder UseUnlimitedFPS(this Builder configBuilder)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SadConsole.Configuration.Builder.html">Builder</a></td>
-        <td><span class="parametername">configBuilder</span></td>
-        <td><p>The builder object that composes the game startup.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SadConsole.Configuration.Builder.html">Builder</a></td>
-        <td><p>The configuration builder.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="SadConsole_Configuration_Extensions_WithMonoGameCtor_" data-uid="SadConsole.Configuration.Extensions.WithMonoGameCtor*"></a>
-  <h4 id="SadConsole_Configuration_Extensions_WithMonoGameCtor_SadConsole_Configuration_Builder_System_Action_SadConsole_Host_Game__" data-uid="SadConsole.Configuration.Extensions.WithMonoGameCtor(SadConsole.Configuration.Builder,System.Action{SadConsole.Host.Game})">WithMonoGameCtor(Builder, Action&lt;Game&gt;)</h4>
-  <div class="markdown level1 summary"><p>The <code class="paramref">monogameCtorCallback</code> method is called by the MonoGame constructor. Some MonoGame specific settings may only be settable via the constructor.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Builder WithMonoGameCtor(this Builder configBuilder, Action&lt;Game&gt; monogameCtorCallback)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SadConsole.Configuration.Builder.html">Builder</a></td>
-        <td><span class="parametername">configBuilder</span></td>
-        <td><p>The builder object that composes the game startup.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="SadConsole.Host.Game.html">Game</a>&gt;</td>
-        <td><span class="parametername">monogameCtorCallback</span></td>
-        <td><p>A method.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SadConsole.Configuration.Builder.html">Builder</a></td>
-        <td><p>The configuration object.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
 </article>
           </div>
 
@@ -1052,8 +911,8 @@
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
                 <h5>In this article</h5>
                 <div></div>
-                <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-              </nav>
+                <p><a class="back-to-top" href="#top">Back to top</a><p>
+              </p></nav>
             </div>
           </div>
         </div>

@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class Panel | SadConsole v10">
     
-    
+    <meta name="description" content="A control container that processes the mouse on each child.  defaults to false.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -73,7 +73,8 @@
 
 
   <h1 id="SadConsole_UI_Controls_Panel" data-uid="SadConsole.UI.Controls.Panel" class="text-break">Class Panel</h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>A control container that processes the mouse on each child. <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_TabStop">TabStop</a> defaults to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -325,7 +326,8 @@ public class Panel : CompositeControl, IContainer, IList&lt;ControlBase&gt;, ICo
 
   <a id="SadConsole_UI_Controls_Panel__ctor_" data-uid="SadConsole.UI.Controls.Panel.#ctor*"></a>
   <h4 id="SadConsole_UI_Controls_Panel__ctor_System_Int32_System_Int32_" data-uid="SadConsole.UI.Controls.Panel.#ctor(System.Int32,System.Int32)">Panel(int, int)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a new drawing surface control with the specified width and height.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -344,12 +346,14 @@ public class Panel : CompositeControl, IContainer, IList&lt;ControlBase&gt;, ICo
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">width</span></td>
-        <td></td>
+        <td><p>Width of the control.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">height</span></td>
-        <td></td>
+        <td><p>Height of the control.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -359,7 +363,8 @@ public class Panel : CompositeControl, IContainer, IList&lt;ControlBase&gt;, ICo
 
   <a id="SadConsole_UI_Controls_Panel_Appearance_" data-uid="SadConsole.UI.Controls.Panel.Appearance*"></a>
   <h4 id="SadConsole_UI_Controls_Panel_Appearance" data-uid="SadConsole.UI.Controls.Panel.Appearance">Appearance</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The current Appearance based on the control state.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -385,7 +390,8 @@ public ColoredGlyphBase? Appearance { get; protected set; }</code></pre>
 
   <a id="SadConsole_UI_Controls_Panel_DrawBorder_" data-uid="SadConsole.UI.Controls.Panel.DrawBorder*"></a>
   <h4 id="SadConsole_UI_Controls_Panel_DrawBorder" data-uid="SadConsole.UI.Controls.Panel.DrawBorder">DrawBorder</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that the theme should draw along the inner bounds of the panel.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -411,7 +417,8 @@ public bool DrawBorder { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Controls_Panel_Item_" data-uid="SadConsole.UI.Controls.Panel.Item*"></a>
   <h4 id="SadConsole_UI_Controls_Panel_Item_System_Int32_" data-uid="SadConsole.UI.Controls.Panel.Item(System.Int32)">this[int]</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets or sets a control in the collection of controls.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -430,7 +437,8 @@ public bool DrawBorder { get; set; }</code></pre>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">index</span></td>
-        <td></td>
+        <td><p>The index of the control.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -445,7 +453,24 @@ public bool DrawBorder { get; set; }</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></td>
-        <td></td>
+        <td><p>The control at the specified index.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.indexoutofrangeexception">IndexOutOfRangeException</a></td>
+        <td><p>Thrown when the index doesn't exist in the collection.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -495,7 +520,8 @@ public bool DrawBorder { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Controls_Panel_SkipDrawing_" data-uid="SadConsole.UI.Controls.Panel.SkipDrawing*"></a>
   <h4 id="SadConsole_UI_Controls_Panel_SkipDrawing" data-uid="SadConsole.UI.Controls.Panel.SkipDrawing">SkipDrawing</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>When true, ignores all states and doesn't draw anything.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -521,7 +547,8 @@ public bool SkipDrawing { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Controls_Panel_UseExtendedBorderGlyphs_" data-uid="SadConsole.UI.Controls.Panel.UseExtendedBorderGlyphs*"></a>
   <h4 id="SadConsole_UI_Controls_Panel_UseExtendedBorderGlyphs" data-uid="SadConsole.UI.Controls.Panel.UseExtendedBorderGlyphs">UseExtendedBorderGlyphs</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that the lines of the theme should use the extended SadConsole font characters if available.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -547,7 +574,8 @@ public bool UseExtendedBorderGlyphs { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Controls_Panel_UseInsetBorder_" data-uid="SadConsole.UI.Controls.Panel.UseInsetBorder*"></a>
   <h4 id="SadConsole_UI_Controls_Panel_UseInsetBorder" data-uid="SadConsole.UI.Controls.Panel.UseInsetBorder">UseInsetBorder</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates that the border colors should make it appear like the border is inset.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -573,7 +601,8 @@ public bool UseInsetBorder { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Controls_Panel_UseNormalStateOnly_" data-uid="SadConsole.UI.Controls.Panel.UseNormalStateOnly*"></a>
   <h4 id="SadConsole_UI_Controls_Panel_UseNormalStateOnly" data-uid="SadConsole.UI.Controls.Panel.UseNormalStateOnly">UseNormalStateOnly</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>When true, only uses <a class="xref" href="SadConsole.UI.ThemeStates.html#SadConsole_UI_ThemeStates_Normal">Normal</a> for drawing.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -628,7 +657,8 @@ public bool UseNormalStateOnly { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Controls_Panel_Clear_" data-uid="SadConsole.UI.Controls.Panel.Clear*"></a>
   <h4 id="SadConsole_UI_Controls_Panel_Clear" data-uid="SadConsole.UI.Controls.Panel.Clear">Clear()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Removes all controls.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -712,7 +742,8 @@ public bool UseNormalStateOnly { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Controls_Panel_GetEnumerator_" data-uid="SadConsole.UI.Controls.Panel.GetEnumerator*"></a>
   <h4 id="SadConsole_UI_Controls_Panel_GetEnumerator" data-uid="SadConsole.UI.Controls.Panel.GetEnumerator">GetEnumerator()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets an enumerator that iterates over the controls in this panel.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -729,7 +760,8 @@ public bool UseNormalStateOnly { get; set; }</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;<a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a>&gt;</td>
-        <td></td>
+        <td><p>The enumerator.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -868,7 +900,8 @@ public bool UseNormalStateOnly { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Controls_Panel_IndexOf_" data-uid="SadConsole.UI.Controls.Panel.IndexOf*"></a>
   <h4 id="SadConsole_UI_Controls_Panel_IndexOf_SadConsole_UI_Controls_ControlBase_" data-uid="SadConsole.UI.Controls.Panel.IndexOf(SadConsole.UI.Controls.ControlBase)">IndexOf(ControlBase)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the index of the specified control.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -887,7 +920,8 @@ public bool UseNormalStateOnly { get; set; }</code></pre>
       <tr>
         <td><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></td>
         <td><span class="parametername">control</span></td>
-        <td></td>
+        <td><p>The control to search for.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -902,7 +936,8 @@ public bool UseNormalStateOnly { get; set; }</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td></td>
+        <td><p>The index of the control.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -910,7 +945,8 @@ public bool UseNormalStateOnly { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Controls_Panel_Insert_" data-uid="SadConsole.UI.Controls.Panel.Insert*"></a>
   <h4 id="SadConsole_UI_Controls_Panel_Insert_System_Int32_SadConsole_UI_Controls_ControlBase_" data-uid="SadConsole.UI.Controls.Panel.Insert(System.Int32,SadConsole.UI.Controls.ControlBase)">Insert(int, ControlBase)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Inserts the control at the specified index.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -929,12 +965,14 @@ public bool UseNormalStateOnly { get; set; }</code></pre>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">index</span></td>
-        <td></td>
+        <td><p>The index to insert at.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a></td>
         <td><span class="parametername">control</span></td>
-        <td></td>
+        <td><p>The control to insert.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -942,7 +980,8 @@ public bool UseNormalStateOnly { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Controls_Panel_OnIsDirtyChanged_" data-uid="SadConsole.UI.Controls.Panel.OnIsDirtyChanged*"></a>
   <h4 id="SadConsole_UI_Controls_Panel_OnIsDirtyChanged" data-uid="SadConsole.UI.Controls.Panel.OnIsDirtyChanged">OnIsDirtyChanged()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>When <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_IsDirty">IsDirty</a> is set to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, changes the child controls to also be dirty.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -954,7 +993,8 @@ public bool UseNormalStateOnly { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Controls_Panel_OnMouseExit_" data-uid="SadConsole.UI.Controls.Panel.OnMouseExit*"></a>
   <h4 id="SadConsole_UI_Controls_Panel_OnMouseExit_SadConsole_UI_Controls_ControlBase_ControlMouseState_" data-uid="SadConsole.UI.Controls.Panel.OnMouseExit(SadConsole.UI.Controls.ControlBase.ControlMouseState)">OnMouseExit(ControlMouseState)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Called when the mouse exits the area of the control. Raises the MouseExit event and calls the <a class="xref" href="SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_DetermineState">DetermineState()</a> method.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -973,7 +1013,8 @@ public bool UseNormalStateOnly { get; set; }</code></pre>
       <tr>
         <td><a class="xref" href="SadConsole.UI.Controls.ControlBase.html">ControlBase</a>.<a class="xref" href="SadConsole.UI.Controls.ControlBase.ControlMouseState.html">ControlMouseState</a></td>
         <td><span class="parametername">state</span></td>
-        <td></td>
+        <td><p>The current mouse data</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -983,7 +1024,8 @@ public bool UseNormalStateOnly { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Controls_Panel_ProcessKeyboard_" data-uid="SadConsole.UI.Controls.Panel.ProcessKeyboard*"></a>
   <h4 id="SadConsole_UI_Controls_Panel_ProcessKeyboard_SadConsole_Input_Keyboard_" data-uid="SadConsole.UI.Controls.Panel.ProcessKeyboard(SadConsole.Input.Keyboard)">ProcessKeyboard(Keyboard)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Called when the keyboard is used on this control.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1002,7 +1044,8 @@ public bool UseNormalStateOnly { get; set; }</code></pre>
       <tr>
         <td><a class="xref" href="SadConsole.Input.Keyboard.html">Keyboard</a></td>
         <td><span class="parametername">state</span></td>
-        <td></td>
+        <td><p>The state of the keyboard.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1069,7 +1112,8 @@ public bool UseNormalStateOnly { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Controls_Panel_RemoveAt_" data-uid="SadConsole.UI.Controls.Panel.RemoveAt*"></a>
   <h4 id="SadConsole_UI_Controls_Panel_RemoveAt_System_Int32_" data-uid="SadConsole.UI.Controls.Panel.RemoveAt(System.Int32)">RemoveAt(int)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Removes a control at the specified index.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1088,7 +1132,8 @@ public bool UseNormalStateOnly { get; set; }</code></pre>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">index</span></td>
-        <td></td>
+        <td><p>The index of the control to remove.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1096,7 +1141,8 @@ public bool UseNormalStateOnly { get; set; }</code></pre>
 
   <a id="SadConsole_UI_Controls_Panel_UpdateAndRedraw_" data-uid="SadConsole.UI.Controls.Panel.UpdateAndRedraw*"></a>
   <h4 id="SadConsole_UI_Controls_Panel_UpdateAndRedraw_System_TimeSpan_" data-uid="SadConsole.UI.Controls.Panel.UpdateAndRedraw(System.TimeSpan)">UpdateAndRedraw(TimeSpan)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Updates each control hosted by this control.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1115,7 +1161,8 @@ public bool UseNormalStateOnly { get; set; }</code></pre>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
         <td><span class="parametername">time</span></td>
-        <td></td>
+        <td><p>The game frame time delta.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1150,8 +1197,8 @@ public bool UseNormalStateOnly { get; set; }</code></pre>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
                 <h5>In this article</h5>
                 <div></div>
-                <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-              </nav>
+                <p><a class="back-to-top" href="#top">Back to top</a><p>
+              </p></nav>
             </div>
           </div>
         </div>

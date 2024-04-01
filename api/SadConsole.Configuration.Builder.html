@@ -8,8 +8,8 @@
       <title>Class Builder | SadConsole v10</title>
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class Builder | SadConsole v10">
-    <meta name="description" content="Composes a game host object.">
     
+    <meta name="description" content="Composes a game host object.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -103,7 +103,7 @@
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="SadConsole.html">SadConsole</a>.<a class="xref" href="SadConsole.Configuration.html">Configuration</a></h6>
-  <h6><strong>Assembly</strong>: SadConsole.Host.MonoGame.dll</h6>
+  <h6><strong>Assembly</strong>: SadConsole.dll</h6>
   <h5 id="SadConsole_Configuration_Builder_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public sealed class Builder</code></pre>
@@ -193,6 +193,35 @@
       </tr>
     </tbody>
   </table>
+
+
+  <a id="SadConsole_Configuration_Builder_Run_" data-uid="SadConsole.Configuration.Builder.Run*"></a>
+  <h4 id="SadConsole_Configuration_Builder_Run_SadConsole_GameHost_" data-uid="SadConsole.Configuration.Builder.Run(SadConsole.GameHost)">Run(GameHost)</h4>
+  <div class="markdown level1 summary"><p>Runs each config object in the <a class="xref" href="SadConsole.Configuration.Builder.html#SadConsole_Configuration_Builder_Configs">Configs</a> collection with the specified game instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Run(GameHost game)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.GameHost.html">GameHost</a></td>
+        <td><span class="parametername">game</span></td>
+        <td><p>The game being created.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_AddFrameRenderEvent_SadConsole_Configuration_Builder_System_EventHandler_SadConsole_GameHost__">Extensions.AddFrameRenderEvent(Builder, EventHandler&lt;GameHost&gt;)</a>
@@ -201,7 +230,7 @@
       <a class="xref" href="SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_AddFrameUpdateEvent_SadConsole_Configuration_Builder_System_EventHandler_SadConsole_GameHost__">Extensions.AddFrameUpdateEvent(Builder, EventHandler&lt;GameHost&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_ConfigureFonts_SadConsole_Configuration_Builder_System_Action_SadConsole_Configuration_FontConfig_SadConsole_Game__">Extensions.ConfigureFonts(Builder, Action&lt;FontConfig, Game&gt;)</a>
+      <a class="xref" href="SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_ConfigureFonts_SadConsole_Configuration_Builder_System_Action_SadConsole_Configuration_FontConfig_SadConsole_GameHost__">Extensions.ConfigureFonts(Builder, Action&lt;FontConfig, GameHost&gt;)</a>
   </div>
   <div>
       <a class="xref" href="SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_ConfigureFonts_SadConsole_Configuration_Builder_System_Boolean_">Extensions.ConfigureFonts(Builder, bool)</a>
@@ -225,28 +254,19 @@
       <a class="xref" href="SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_SetScreenSize_SadConsole_Configuration_Builder_System_Int32_System_Int32_">Extensions.SetScreenSize(Builder, int, int)</a>
   </div>
   <div>
-      <a class="xref" href="SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_SetSplashScreen_SadConsole_Configuration_Builder_System_Func_SadConsole_Game_SadConsole_ScreenSurface____">Extensions.SetSplashScreen(Builder, Func&lt;Game, ScreenSurface[]&gt;)</a>
+      <a class="xref" href="SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_SetSplashScreen_SadConsole_Configuration_Builder_System_Func_SadConsole_GameHost_SadConsole_ScreenSurface____">Extensions.SetSplashScreen(Builder, Func&lt;GameHost, ScreenSurface[]&gt;)</a>
   </div>
   <div>
       <a class="xref" href="SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_SetSplashScreen__1_SadConsole_Configuration_Builder_">Extensions.SetSplashScreen&lt;TSplashScreen&gt;(Builder)</a>
   </div>
   <div>
-      <a class="xref" href="SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_SetStartingScreen_SadConsole_Configuration_Builder_System_Func_SadConsole_Game_SadConsole_IScreenObject__">Extensions.SetStartingScreen(Builder, Func&lt;Game, IScreenObject&gt;)</a>
+      <a class="xref" href="SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_SetStartingScreen_SadConsole_Configuration_Builder_System_Func_SadConsole_GameHost_SadConsole_IScreenObject__">Extensions.SetStartingScreen(Builder, Func&lt;GameHost, IScreenObject&gt;)</a>
   </div>
   <div>
       <a class="xref" href="SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_SetStartingScreen__1_SadConsole_Configuration_Builder_">Extensions.SetStartingScreen&lt;TRootObject&gt;(Builder)</a>
   </div>
   <div>
-      <a class="xref" href="SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_ShowMonoGameFPS_SadConsole_Configuration_Builder_">Extensions.ShowMonoGameFPS(Builder)</a>
-  </div>
-  <div>
       <a class="xref" href="SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_UseDefaultConsole_SadConsole_Configuration_Builder_">Extensions.UseDefaultConsole(Builder)</a>
-  </div>
-  <div>
-      <a class="xref" href="SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_UseUnlimitedFPS_SadConsole_Configuration_Builder_">Extensions.UseUnlimitedFPS(Builder)</a>
-  </div>
-  <div>
-      <a class="xref" href="SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_WithMonoGameCtor_SadConsole_Configuration_Builder_System_Action_SadConsole_Host_Game__">Extensions.WithMonoGameCtor(Builder, Action&lt;Game&gt;)</a>
   </div>
 
 </article>
@@ -261,8 +281,8 @@
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
                 <h5>In this article</h5>
                 <div></div>
-                <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-              </nav>
+                <p><a class="back-to-top" href="#top">Back to top</a><p>
+              </p></nav>
             </div>
           </div>
         </div>

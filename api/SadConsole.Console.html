@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class Console | SadConsole v10">
     
-    
+    <meta name="description" content="A surface that has a cursor.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -73,7 +73,8 @@
 
 
   <h1 id="SadConsole_Console" data-uid="SadConsole.Console" class="text-break">Class Console</h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>A surface that has a cursor.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -376,6 +377,7 @@
   <h5 id="SadConsole_Console_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[DataContract]
+[JsonObject(MemberSerialization = MemberSerialization.OptIn)]
 public class Console : ScreenSurface, IDisposable, IScreenSurfaceEditable, IScreenSurface, IScreenObject, IPositionable, IComponentHost, ISurface, ISurfaceSettable</code></pre>
   </div>
   <h3 id="constructors">Constructors
@@ -384,7 +386,8 @@ public class Console : ScreenSurface, IDisposable, IScreenSurfaceEditable, IScre
 
   <a id="SadConsole_Console__ctor_" data-uid="SadConsole.Console.#ctor*"></a>
   <h4 id="SadConsole_Console__ctor_SadConsole_ICellSurface_SadConsole_IFont_System_Nullable_SadRogue_Primitives_Point__" data-uid="SadConsole.Console.#ctor(SadConsole.ICellSurface,SadConsole.IFont,System.Nullable{SadRogue.Primitives.Point})">Console(ICellSurface, IFont?, Point?)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a new console using the existing surface.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -403,17 +406,20 @@ public class Console : ScreenSurface, IDisposable, IScreenSurfaceEditable, IScre
       <tr>
         <td><a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a></td>
         <td><span class="parametername">surface</span></td>
-        <td></td>
+        <td><p>The surface.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="SadConsole.IFont.html">IFont</a></td>
         <td><span class="parametername">font</span></td>
-        <td></td>
+        <td><p>The font to use with the surface.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Point.html">Point</a>?</td>
         <td><span class="parametername">fontSize</span></td>
-        <td></td>
+        <td><p>The font size.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -421,7 +427,8 @@ public class Console : ScreenSurface, IDisposable, IScreenSurfaceEditable, IScre
 
   <a id="SadConsole_Console__ctor_" data-uid="SadConsole.Console.#ctor*"></a>
   <h4 id="SadConsole_Console__ctor_System_Int32_System_Int32_" data-uid="SadConsole.Console.#ctor(System.Int32,System.Int32)">Console(int, int)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a new console.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -440,12 +447,14 @@ public class Console : ScreenSurface, IDisposable, IScreenSurfaceEditable, IScre
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">width</span></td>
-        <td></td>
+        <td><p>The width in cells of the surface.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">height</span></td>
-        <td></td>
+        <td><p>The height in cells of the surface.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -453,7 +462,8 @@ public class Console : ScreenSurface, IDisposable, IScreenSurfaceEditable, IScre
 
   <a id="SadConsole_Console__ctor_" data-uid="SadConsole.Console.#ctor*"></a>
   <h4 id="SadConsole_Console__ctor_System_Int32_System_Int32_SadConsole_ColoredGlyphBase___" data-uid="SadConsole.Console.#ctor(System.Int32,System.Int32,SadConsole.ColoredGlyphBase[])">Console(int, int, ColoredGlyphBase[])</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a new screen object that can render a surface. Uses the specified cells to generate the surface.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -472,17 +482,20 @@ public class Console : ScreenSurface, IDisposable, IScreenSurfaceEditable, IScre
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">width</span></td>
-        <td></td>
+        <td><p>The width in cells of the surface.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">height</span></td>
-        <td></td>
+        <td><p>The height in cells of the surface.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a>[]</td>
         <td><span class="parametername">initialCells</span></td>
-        <td></td>
+        <td><p>The initial cells to seed the surface.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -490,7 +503,8 @@ public class Console : ScreenSurface, IDisposable, IScreenSurfaceEditable, IScre
 
   <a id="SadConsole_Console__ctor_" data-uid="SadConsole.Console.#ctor*"></a>
   <h4 id="SadConsole_Console__ctor_System_Int32_System_Int32_System_Int32_System_Int32_" data-uid="SadConsole.Console.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">Console(int, int, int, int)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a new console with the specified width and height, with <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html#SadRogue_Primitives_Color_Transparent">Transparent</a> for the background and <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html#SadRogue_Primitives_Color_White">White</a> for the foreground.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -509,22 +523,26 @@ public class Console : ScreenSurface, IDisposable, IScreenSurfaceEditable, IScre
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">width</span></td>
-        <td></td>
+        <td><p>The visible width of the console in cells.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">height</span></td>
-        <td></td>
+        <td><p>The visible height of the console in cells.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">bufferWidth</span></td>
-        <td></td>
+        <td><p>The total width of the console in cells.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">bufferHeight</span></td>
-        <td></td>
+        <td><p>The total height of the console in cells.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -532,7 +550,8 @@ public class Console : ScreenSurface, IDisposable, IScreenSurfaceEditable, IScre
 
   <a id="SadConsole_Console__ctor_" data-uid="SadConsole.Console.#ctor*"></a>
   <h4 id="SadConsole_Console__ctor_System_Int32_System_Int32_System_Int32_System_Int32_SadConsole_ColoredGlyphBase___" data-uid="SadConsole.Console.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,SadConsole.ColoredGlyphBase[])">Console(int, int, int, int, ColoredGlyphBase[]?)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a console with the specified width and height, with <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html#SadRogue_Primitives_Color_Transparent">Transparent</a> for the background and <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html#SadRogue_Primitives_Color_White">White</a> for the foreground.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -551,27 +570,32 @@ public class Console : ScreenSurface, IDisposable, IScreenSurfaceEditable, IScre
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">width</span></td>
-        <td></td>
+        <td><p>The width of the console in cells.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">height</span></td>
-        <td></td>
+        <td><p>The height of the console in cells.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">bufferWidth</span></td>
-        <td></td>
+        <td><p>The total width of the console in cells.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">bufferHeight</span></td>
-        <td></td>
+        <td><p>The total height of the console in cells.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a>[]</td>
         <td><span class="parametername">initialCells</span></td>
-        <td></td>
+        <td><p>The cells to seed the console with. If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, creates the cells for you.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -581,7 +605,8 @@ public class Console : ScreenSurface, IDisposable, IScreenSurfaceEditable, IScre
 
   <a id="SadConsole_Console_AutoCursorOnFocus_" data-uid="SadConsole.Console.AutoCursorOnFocus*"></a>
   <h4 id="SadConsole_Console_AutoCursorOnFocus" data-uid="SadConsole.Console.AutoCursorOnFocus">AutoCursorOnFocus</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Toggles the cursor as visible\hidden when the console if focused\unfocused.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -607,7 +632,8 @@ public bool AutoCursorOnFocus { get; set; }</code></pre>
 
   <a id="SadConsole_Console_Cursor_" data-uid="SadConsole.Console.Cursor*"></a>
   <h4 id="SadConsole_Console_Cursor" data-uid="SadConsole.Console.Cursor">Cursor</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The virtual cursor reference.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -634,7 +660,8 @@ public bool AutoCursorOnFocus { get; set; }</code></pre>
 
   <a id="SadConsole_Console_OnFocusLost_" data-uid="SadConsole.Console.OnFocusLost*"></a>
   <h4 id="SadConsole_Console_OnFocusLost" data-uid="SadConsole.Console.OnFocusLost">OnFocusLost()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Called when this console's focus has been lost. Hides the <a class="xref" href="SadConsole.Console.html#SadConsole_Console_Cursor">Cursor</a> if <a class="xref" href="SadConsole.Console.html#SadConsole_Console_AutoCursorOnFocus">AutoCursorOnFocus</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -646,7 +673,8 @@ public bool AutoCursorOnFocus { get; set; }</code></pre>
 
   <a id="SadConsole_Console_OnFocused_" data-uid="SadConsole.Console.OnFocused*"></a>
   <h4 id="SadConsole_Console_OnFocused" data-uid="SadConsole.Console.OnFocused">OnFocused()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Called when this console is focused. Shows the <a class="xref" href="SadConsole.Console.html#SadConsole_Console_Cursor">Cursor</a> if <a class="xref" href="SadConsole.Console.html#SadConsole_Console_AutoCursorOnFocus">AutoCursorOnFocus</a> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -658,7 +686,8 @@ public bool AutoCursorOnFocus { get; set; }</code></pre>
 
   <a id="SadConsole_Console_OnVisibleChanged_" data-uid="SadConsole.Console.OnVisibleChanged*"></a>
   <h4 id="SadConsole_Console_OnVisibleChanged" data-uid="SadConsole.Console.OnVisibleChanged">OnVisibleChanged()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Called when the visibility of the object changes.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -670,7 +699,8 @@ public bool AutoCursorOnFocus { get; set; }</code></pre>
 
   <a id="SadConsole_Console_ToString_" data-uid="SadConsole.Console.ToString*"></a>
   <h4 id="SadConsole_Console_ToString" data-uid="SadConsole.Console.ToString">ToString()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the value &quot;Console&quot;.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -687,7 +717,8 @@ public bool AutoCursorOnFocus { get; set; }</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td></td>
+        <td><p>The string &quot;Console&quot;.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1071,8 +1102,8 @@ public bool AutoCursorOnFocus { get; set; }</code></pre>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
                 <h5>In this article</h5>
                 <div></div>
-                <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-              </nav>
+                <p><a class="back-to-top" href="#top">Back to top</a><p>
+              </p></nav>
             </div>
           </div>
         </div>

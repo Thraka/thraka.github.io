@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Interface IRenderStep | SadConsole v10">
     
-    
+    <meta name="description" content="A rendering step processed by an .">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -73,7 +73,8 @@
 
 
   <h1 id="SadConsole_Renderers_IRenderStep" data-uid="SadConsole.Renderers.IRenderStep" class="text-break">Interface IRenderStep</h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>A rendering step processed by an <a class="xref" href="SadConsole.Renderers.IRenderer.html">IRenderer</a>.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -93,7 +94,8 @@
 
   <a id="SadConsole_Renderers_IRenderStep_Name_" data-uid="SadConsole.Renderers.IRenderStep.Name*"></a>
   <h4 id="SadConsole_Renderers_IRenderStep_Name" data-uid="SadConsole.Renderers.IRenderStep.Name">Name</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The name of the render step.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -118,7 +120,8 @@
 
   <a id="SadConsole_Renderers_IRenderStep_SortOrder_" data-uid="SadConsole.Renderers.IRenderStep.SortOrder*"></a>
   <h4 id="SadConsole_Renderers_IRenderStep_SortOrder" data-uid="SadConsole.Renderers.IRenderStep.SortOrder">SortOrder</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Indicates priority related to other steps. Lowest runs first.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -145,7 +148,8 @@
 
   <a id="SadConsole_Renderers_IRenderStep_Composing_" data-uid="SadConsole.Renderers.IRenderStep.Composing*"></a>
   <h4 id="SadConsole_Renderers_IRenderStep_Composing_SadConsole_Renderers_IRenderer_SadConsole_IScreenSurface_" data-uid="SadConsole.Renderers.IRenderStep.Composing(SadConsole.Renderers.IRenderer,SadConsole.IScreenSurface)">Composing(IRenderer, IScreenSurface)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Called when the renderer needs to redraw the <a class="xref" href="SadConsole.Renderers.IRenderer.html#SadConsole_Renderers_IRenderer_Output">Output</a> texture.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -164,12 +168,14 @@
       <tr>
         <td><a class="xref" href="SadConsole.Renderers.IRenderer.html">IRenderer</a></td>
         <td><span class="parametername">renderer</span></td>
-        <td></td>
+        <td><p>The renderer the render step is using.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="SadConsole.IScreenSurface.html">IScreenSurface</a></td>
         <td><span class="parametername">screenObject</span></td>
-        <td></td>
+        <td><p>The surface associated with the renderer. This may be null.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -177,7 +183,8 @@
 
   <a id="SadConsole_Renderers_IRenderStep_OnHostUpdated_" data-uid="SadConsole.Renderers.IRenderStep.OnHostUpdated*"></a>
   <h4 id="SadConsole_Renderers_IRenderStep_OnHostUpdated_SadConsole_IScreenObject_" data-uid="SadConsole.Renderers.IRenderStep.OnHostUpdated(SadConsole.IScreenObject)">OnHostUpdated(IScreenObject)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Called when various states in the host change.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -196,7 +203,8 @@
       <tr>
         <td><a class="xref" href="SadConsole.IScreenObject.html">IScreenObject</a></td>
         <td><span class="parametername">host</span></td>
-        <td></td>
+        <td><p>The host that uses this component.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -204,7 +212,8 @@
 
   <a id="SadConsole_Renderers_IRenderStep_Refresh_" data-uid="SadConsole.Renderers.IRenderStep.Refresh*"></a>
   <h4 id="SadConsole_Renderers_IRenderStep_Refresh_SadConsole_Renderers_IRenderer_SadConsole_IScreenSurface_System_Boolean_System_Boolean_" data-uid="SadConsole.Renderers.IRenderStep.Refresh(SadConsole.Renderers.IRenderer,SadConsole.IScreenSurface,System.Boolean,System.Boolean)">Refresh(IRenderer, IScreenSurface, bool, bool)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Called to redraw the render step if needed.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -223,22 +232,26 @@
       <tr>
         <td><a class="xref" href="SadConsole.Renderers.IRenderer.html">IRenderer</a></td>
         <td><span class="parametername">renderer</span></td>
-        <td></td>
+        <td><p>The renderer the render step is using.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="SadConsole.IScreenSurface.html">IScreenSurface</a></td>
         <td><span class="parametername">screenObject</span></td>
-        <td></td>
+        <td><p>The surface associated with the renderer. This may be null.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">backingTextureChanged</span></td>
-        <td></td>
+        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> to indicate the <a class="xref" href="SadConsole.Renderers.IRenderer.html#SadConsole_Renderers_IRenderer_Output">Output</a> changed; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">isForced</span></td>
-        <td></td>
+        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when refresh is being forced; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -253,7 +266,8 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
-        <td></td>
+        <td><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the step is going to draw something new and is requesting a <a class="xref" href="SadConsole.Renderers.IRenderStep.html#SadConsole_Renderers_IRenderStep_Composing_SadConsole_Renderers_IRenderer_SadConsole_IScreenSurface_">Composing(IRenderer, IScreenSurface)</a> step; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -261,7 +275,8 @@
 
   <a id="SadConsole_Renderers_IRenderStep_Render_" data-uid="SadConsole.Renderers.IRenderStep.Render*"></a>
   <h4 id="SadConsole_Renderers_IRenderStep_Render_SadConsole_Renderers_IRenderer_SadConsole_IScreenSurface_" data-uid="SadConsole.Renderers.IRenderStep.Render(SadConsole.Renderers.IRenderer,SadConsole.IScreenSurface)">Render(IRenderer, IScreenSurface)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Called when building draw calls for the render pipeline.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -280,12 +295,14 @@
       <tr>
         <td><a class="xref" href="SadConsole.Renderers.IRenderer.html">IRenderer</a></td>
         <td><span class="parametername">renderer</span></td>
-        <td></td>
+        <td><p>The renderer the render step is using.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="SadConsole.IScreenSurface.html">IScreenSurface</a></td>
         <td><span class="parametername">screenObject</span></td>
-        <td></td>
+        <td><p>The surface associated with the renderer. This may be null.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -293,7 +310,8 @@
 
   <a id="SadConsole_Renderers_IRenderStep_Reset_" data-uid="SadConsole.Renderers.IRenderStep.Reset*"></a>
   <h4 id="SadConsole_Renderers_IRenderStep_Reset" data-uid="SadConsole.Renderers.IRenderStep.Reset">Reset()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Called when the step should reset any state or texture information.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -303,7 +321,8 @@
 
   <a id="SadConsole_Renderers_IRenderStep_SetData_" data-uid="SadConsole.Renderers.IRenderStep.SetData*"></a>
   <h4 id="SadConsole_Renderers_IRenderStep_SetData_System_Object_" data-uid="SadConsole.Renderers.IRenderStep.SetData(System.Object)">SetData(object)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Adds supplemental data to the render step.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -322,7 +341,8 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></td>
         <td><span class="parametername">data</span></td>
-        <td></td>
+        <td><p>The data to add to the step.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -339,8 +359,8 @@
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
                 <h5>In this article</h5>
                 <div></div>
-                <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-              </nav>
+                <p><a class="back-to-top" href="#top">Back to top</a><p>
+              </p></nav>
             </div>
           </div>
         </div>

@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class CellSurface | SadConsole v10">
     
-    
+    <meta name="description" content="An array of  objects used to represent a 2D surface.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -73,7 +73,8 @@
 
 
   <h1 id="SadConsole_CellSurface" data-uid="SadConsole.CellSurface" class="text-break">Class CellSurface</h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>An array of <a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a> objects used to represent a 2D surface.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -119,6 +120,7 @@
   <h5 id="SadConsole_CellSurface_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[DataContract]
+[JsonObject(MemberSerialization = MemberSerialization.OptIn)]
 public class CellSurface : ICellSurface, IGridView&lt;ColoredGlyphBase&gt;, IEnumerable&lt;ColoredGlyphBase&gt;, IEnumerable, ISurface, ICellSurfaceResize, ICellSurfaceSettable</code></pre>
   </div>
   <h3 id="constructors">Constructors
@@ -127,7 +129,8 @@ public class CellSurface : ICellSurface, IGridView&lt;ColoredGlyphBase&gt;, IEnu
 
   <a id="SadConsole_CellSurface__ctor_" data-uid="SadConsole.CellSurface.#ctor*"></a>
   <h4 id="SadConsole_CellSurface__ctor_SadRogue_Primitives_GridViews_IGridView_SadConsole_ColoredGlyphBase__System_Int32_System_Int32_" data-uid="SadConsole.CellSurface.#ctor(SadRogue.Primitives.GridViews.IGridView{SadConsole.ColoredGlyphBase},System.Int32,System.Int32)">CellSurface(IGridView&lt;ColoredGlyphBase&gt;, int, int)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a new surface from a grid view with <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html#SadRogue_Primitives_Color_Transparent">Transparent</a> for the background and <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html#SadRogue_Primitives_Color_White">White</a> for the foreground.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -146,17 +149,20 @@ public class CellSurface : ICellSurface, IGridView&lt;ColoredGlyphBase&gt;, IEnu
       <tr>
         <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.GridViews.IGridView-1.html">IGridView</a>&lt;<a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a>&gt;</td>
         <td><span class="parametername">surface</span></td>
-        <td></td>
+        <td><p>The surface to use as the source of cells.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">visibleWidth</span></td>
-        <td></td>
+        <td><p>Optional view width. If <code>0</code>, the view width matches the width of the surface.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">visibleHeight</span></td>
-        <td></td>
+        <td><p>Optional view height. If <code>0</code>, the view width matches the height of the surface.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -164,7 +170,8 @@ public class CellSurface : ICellSurface, IGridView&lt;ColoredGlyphBase&gt;, IEnu
 
   <a id="SadConsole_CellSurface__ctor_" data-uid="SadConsole.CellSurface.#ctor*"></a>
   <h4 id="SadConsole_CellSurface__ctor_System_Int32_System_Int32_" data-uid="SadConsole.CellSurface.#ctor(System.Int32,System.Int32)">CellSurface(int, int)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a new surface with the specified width and height, with <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html#SadRogue_Primitives_Color_Transparent">Transparent</a> for the background and <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html#SadRogue_Primitives_Color_White">White</a> for the foreground.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -183,12 +190,14 @@ public class CellSurface : ICellSurface, IGridView&lt;ColoredGlyphBase&gt;, IEnu
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">width</span></td>
-        <td></td>
+        <td><p>The width of the surface in cells.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">height</span></td>
-        <td></td>
+        <td><p>The height of the surface in cells.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -196,7 +205,8 @@ public class CellSurface : ICellSurface, IGridView&lt;ColoredGlyphBase&gt;, IEnu
 
   <a id="SadConsole_CellSurface__ctor_" data-uid="SadConsole.CellSurface.#ctor*"></a>
   <h4 id="SadConsole_CellSurface__ctor_System_Int32_System_Int32_SadConsole_ColoredGlyphBase___" data-uid="SadConsole.CellSurface.#ctor(System.Int32,System.Int32,SadConsole.ColoredGlyphBase[])">CellSurface(int, int, ColoredGlyphBase[])</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a new surface with the specified width and height, with <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html#SadRogue_Primitives_Color_Transparent">Transparent</a> for the background and <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html#SadRogue_Primitives_Color_White">White</a> for the foreground.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -215,17 +225,20 @@ public class CellSurface : ICellSurface, IGridView&lt;ColoredGlyphBase&gt;, IEnu
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">width</span></td>
-        <td></td>
+        <td><p>The width of the surface in cells.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">height</span></td>
-        <td></td>
+        <td><p>The height of the surface in cells.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a>[]</td>
         <td><span class="parametername">initialCells</span></td>
-        <td></td>
+        <td><p>The cells to seed the surface with. If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, creates the cell array for you.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -233,7 +246,8 @@ public class CellSurface : ICellSurface, IGridView&lt;ColoredGlyphBase&gt;, IEnu
 
   <a id="SadConsole_CellSurface__ctor_" data-uid="SadConsole.CellSurface.#ctor*"></a>
   <h4 id="SadConsole_CellSurface__ctor_System_Int32_System_Int32_System_Int32_System_Int32_" data-uid="SadConsole.CellSurface.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">CellSurface(int, int, int, int)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a new surface with the specified width and height, with <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html#SadRogue_Primitives_Color_Transparent">Transparent</a> for the background and <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html#SadRogue_Primitives_Color_White">White</a> for the foreground.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -252,22 +266,26 @@ public class CellSurface : ICellSurface, IGridView&lt;ColoredGlyphBase&gt;, IEnu
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">viewWidth</span></td>
-        <td></td>
+        <td><p>The visible width of the surface in cells.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">viewHeight</span></td>
-        <td></td>
+        <td><p>The visible height of the surface in cells.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">totalWidth</span></td>
-        <td></td>
+        <td><p>The total width of the surface in cells.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">totalHeight</span></td>
-        <td></td>
+        <td><p>The total height of the surface in cells.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -275,7 +293,8 @@ public class CellSurface : ICellSurface, IGridView&lt;ColoredGlyphBase&gt;, IEnu
 
   <a id="SadConsole_CellSurface__ctor_" data-uid="SadConsole.CellSurface.#ctor*"></a>
   <h4 id="SadConsole_CellSurface__ctor_System_Int32_System_Int32_System_Int32_System_Int32_SadConsole_ColoredGlyphBase___" data-uid="SadConsole.CellSurface.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,SadConsole.ColoredGlyphBase[])">CellSurface(int, int, int, int, ColoredGlyphBase[]?)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a new surface with the specified width and height, with <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html#SadRogue_Primitives_Color_Transparent">Transparent</a> for the background and <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html#SadRogue_Primitives_Color_White">White</a> for the foreground.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -294,27 +313,32 @@ public class CellSurface : ICellSurface, IGridView&lt;ColoredGlyphBase&gt;, IEnu
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">viewWidth</span></td>
-        <td></td>
+        <td><p>The width of the surface in cells.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">viewHeight</span></td>
-        <td></td>
+        <td><p>The height of the surface in cells.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">totalWidth</span></td>
-        <td></td>
+        <td><p>The total width of the surface in cells.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">totalHeight</span></td>
-        <td></td>
+        <td><p>The total height of the surface in cells.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a>[]</td>
         <td><span class="parametername">initialCells</span></td>
-        <td></td>
+        <td><p>The cells to seed the surface with. If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, creates the cell array for you.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -324,7 +348,8 @@ public class CellSurface : ICellSurface, IGridView&lt;ColoredGlyphBase&gt;, IEnu
 
   <a id="SadConsole_CellSurface_Area_" data-uid="SadConsole.CellSurface.Area*"></a>
   <h4 id="SadConsole_CellSurface_Area" data-uid="SadConsole.CellSurface.Area">Area</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns a rectangle that represents the entire size of the surface.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -375,7 +400,7 @@ public ColoredGlyphBase[] Cells { get; protected set; }</code></pre>
 
   <a id="SadConsole_CellSurface_Count_" data-uid="SadConsole.CellSurface.Count*"></a>
   <h4 id="SadConsole_CellSurface_Count" data-uid="SadConsole.CellSurface.Count">Count</h4>
-  <div class="markdown level1 summary"><p>Number of tiles in the grid; equal to <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.GridViews.IGridView-1.html#SadRogue_Primitives_GridViews_IGridView_1_Width">Width</a> * <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.GridViews.IGridView-1.html#SadRogue_Primitives_GridViews_IGridView_1_Height">Height</a>.</p>
+  <div class="markdown level1 summary"><p>The count of glyphs this surface contains.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -401,7 +426,8 @@ public ColoredGlyphBase[] Cells { get; protected set; }</code></pre>
 
   <a id="SadConsole_CellSurface_DefaultBackground_" data-uid="SadConsole.CellSurface.DefaultBackground*"></a>
   <h4 id="SadConsole_CellSurface_DefaultBackground" data-uid="SadConsole.CellSurface.DefaultBackground">DefaultBackground</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The default background for glyphs on this surface.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -427,7 +453,8 @@ public Color DefaultBackground { get; set; }</code></pre>
 
   <a id="SadConsole_CellSurface_DefaultForeground_" data-uid="SadConsole.CellSurface.DefaultForeground*"></a>
   <h4 id="SadConsole_CellSurface_DefaultForeground" data-uid="SadConsole.CellSurface.DefaultForeground">DefaultForeground</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The default foreground for glyphs on this surface.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -453,7 +480,8 @@ public Color DefaultForeground { get; set; }</code></pre>
 
   <a id="SadConsole_CellSurface_DefaultGlyph_" data-uid="SadConsole.CellSurface.DefaultGlyph*"></a>
   <h4 id="SadConsole_CellSurface_DefaultGlyph" data-uid="SadConsole.CellSurface.DefaultGlyph">DefaultGlyph</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The default glyph used in clearing and erasing.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -479,7 +507,8 @@ public int DefaultGlyph { get; set; }</code></pre>
 
   <a id="SadConsole_CellSurface_Effects_" data-uid="SadConsole.CellSurface.Effects*"></a>
   <h4 id="SadConsole_CellSurface_Effects" data-uid="SadConsole.CellSurface.Effects">Effects</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Processes the effects added to cells with <span class="xref">CellSurfaceEditor.SetEffect*</span>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -505,7 +534,7 @@ public EffectsManager Effects { get; protected set; }</code></pre>
 
   <a id="SadConsole_CellSurface_Height_" data-uid="SadConsole.CellSurface.Height*"></a>
   <h4 id="SadConsole_CellSurface_Height" data-uid="SadConsole.CellSurface.Height">Height</h4>
-  <div class="markdown level1 summary"><p>The height of the grid being represented.</p>
+  <div class="markdown level1 summary"><p>The total height of the surface.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -531,7 +560,8 @@ public EffectsManager Effects { get; protected set; }</code></pre>
 
   <a id="SadConsole_CellSurface_IsDirty_" data-uid="SadConsole.CellSurface.IsDirty*"></a>
   <h4 id="SadConsole_CellSurface_IsDirty" data-uid="SadConsole.CellSurface.IsDirty">IsDirty</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Indicates the surface has changed and needs to be rendered.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -556,7 +586,8 @@ public EffectsManager Effects { get; protected set; }</code></pre>
 
   <a id="SadConsole_CellSurface_IsScrollable_" data-uid="SadConsole.CellSurface.IsScrollable*"></a>
   <h4 id="SadConsole_CellSurface_IsScrollable" data-uid="SadConsole.CellSurface.IsScrollable">IsScrollable</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the <a class="xref" href="SadConsole.ICellSurface.html#SadConsole_ICellSurface_View">View</a> width or height is different from <a class="xref" href="SadConsole.ICellSurface.html#SadConsole_ICellSurface_Area">Area</a>; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -581,8 +612,7 @@ public EffectsManager Effects { get; protected set; }</code></pre>
 
   <a id="SadConsole_CellSurface_Item_" data-uid="SadConsole.CellSurface.Item*"></a>
   <h4 id="SadConsole_CellSurface_Item_SadRogue_Primitives_Point_" data-uid="SadConsole.CellSurface.Item(SadRogue.Primitives.Point)">this[Point]</h4>
-  <div class="markdown level1 summary"><p>Given a position, returns the &quot;value&quot; associated with that location.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -616,8 +646,7 @@ public EffectsManager Effects { get; protected set; }</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a></td>
-        <td><p>The &quot;value&quot; associated with the provided location.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -625,9 +654,7 @@ public EffectsManager Effects { get; protected set; }</code></pre>
 
   <a id="SadConsole_CellSurface_Item_" data-uid="SadConsole.CellSurface.Item*"></a>
   <h4 id="SadConsole_CellSurface_Item_System_Int32_" data-uid="SadConsole.CellSurface.Item(System.Int32)">this[int]</h4>
-  <div class="markdown level1 summary"><p>Given an 1-dimensional index, returns the value associated with the corresponding position
-in the map view.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -661,23 +688,15 @@ in the map view.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a></td>
-        <td><p>The &quot;value&quot; associated with the given location.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
-  <h5 id="SadConsole_CellSurface_Item_System_Int32__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Typically, this may be implemented in terms of <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.GridViews.IGridView-1.html#SadRogue_Primitives_GridViews_IGridView_1_Item_SadRogue_Primitives_Point_">Item[Point]</a> by using
-<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">FromIndex(int, int)</a> to calculate the 2D position represented by that
-1D index, and passing that position to the <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.GridViews.IGridView-1.html#SadRogue_Primitives_GridViews_IGridView_1_Item_SadRogue_Primitives_Point_">Item[Point]</a> indexer to determine
-the value associated with the position.</p>
-</div>
 
 
   <a id="SadConsole_CellSurface_Item_" data-uid="SadConsole.CellSurface.Item*"></a>
   <h4 id="SadConsole_CellSurface_Item_System_Int32_System_Int32_" data-uid="SadConsole.CellSurface.Item(System.Int32,System.Int32)">this[int, int]</h4>
-  <div class="markdown level1 summary"><p>Given an X and Y value, returns the &quot;value&quot; associated with that location.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -696,14 +715,12 @@ the value associated with the position.</p>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">x</span></td>
-        <td><p>X-value of location.</p>
-</td>
+        <td></td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">y</span></td>
-        <td><p>Y-value of location.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -718,19 +735,16 @@ the value associated with the position.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a></td>
-        <td><p>The &quot;value&quot; associated with that location.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
-  <h5 id="SadConsole_CellSurface_Item_System_Int32_System_Int32__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Typically, this can be implemented via <a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.GridViews.IGridView-1.html#SadRogue_Primitives_GridViews_IGridView_1_Item_SadRogue_Primitives_Point_">Item[Point]</a>.</p>
-</div>
 
 
   <a id="SadConsole_CellSurface_Item_" data-uid="SadConsole.CellSurface.Item*"></a>
   <h4 id="SadConsole_CellSurface_Item_System_Range_" data-uid="SadConsole.CellSurface.Item(System.Range)">this[Range]</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Given a position, returns the &quot;value&quot; associated with that location.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -749,7 +763,8 @@ the value associated with the position.</p>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.range">Range</a></td>
         <td><span class="parametername">range</span></td>
-        <td></td>
+        <td><p>The cells to return from the array.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -764,7 +779,8 @@ the value associated with the position.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a>&gt;</td>
-        <td></td>
+        <td><p>The cells associated with the specified range.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -772,7 +788,8 @@ the value associated with the position.</p>
 
   <a id="SadConsole_CellSurface_Surface_" data-uid="SadConsole.CellSurface.Surface*"></a>
   <h4 id="SadConsole_CellSurface_Surface" data-uid="SadConsole.CellSurface.Surface">Surface</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns this object.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -798,7 +815,8 @@ public ICellSurface Surface { get; }</code></pre>
 
   <a id="SadConsole_CellSurface_TimesShiftedDown_" data-uid="SadConsole.CellSurface.TimesShiftedDown*"></a>
   <h4 id="SadConsole_CellSurface_TimesShiftedDown" data-uid="SadConsole.CellSurface.TimesShiftedDown">TimesShiftedDown</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>A variable that tracks how many times this editor shifted the surface down.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -824,7 +842,8 @@ public int TimesShiftedDown { get; set; }</code></pre>
 
   <a id="SadConsole_CellSurface_TimesShiftedLeft_" data-uid="SadConsole.CellSurface.TimesShiftedLeft*"></a>
   <h4 id="SadConsole_CellSurface_TimesShiftedLeft" data-uid="SadConsole.CellSurface.TimesShiftedLeft">TimesShiftedLeft</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>A variable that tracks how many times this editor shifted the surface left.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -850,7 +869,8 @@ public int TimesShiftedLeft { get; set; }</code></pre>
 
   <a id="SadConsole_CellSurface_TimesShiftedRight_" data-uid="SadConsole.CellSurface.TimesShiftedRight*"></a>
   <h4 id="SadConsole_CellSurface_TimesShiftedRight" data-uid="SadConsole.CellSurface.TimesShiftedRight">TimesShiftedRight</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>A variable that tracks how many times this editor shifted the surface right.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -876,7 +896,8 @@ public int TimesShiftedRight { get; set; }</code></pre>
 
   <a id="SadConsole_CellSurface_TimesShiftedUp_" data-uid="SadConsole.CellSurface.TimesShiftedUp*"></a>
   <h4 id="SadConsole_CellSurface_TimesShiftedUp" data-uid="SadConsole.CellSurface.TimesShiftedUp">TimesShiftedUp</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>A variable that tracks how many times this editor shifted the surface up.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -902,7 +923,8 @@ public int TimesShiftedUp { get; set; }</code></pre>
 
   <a id="SadConsole_CellSurface_UsePrintProcessor_" data-uid="SadConsole.CellSurface.UsePrintProcessor*"></a>
   <h4 id="SadConsole_CellSurface_UsePrintProcessor" data-uid="SadConsole.CellSurface.UsePrintProcessor">UsePrintProcessor</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>When true, the <a class="xref" href="SadConsole.ColoredString.html#SadConsole_ColoredString_Parser">Parser</a> is used to generate a <a class="xref" href="SadConsole.ColoredString.html">ColoredString</a> before printing.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -928,7 +950,8 @@ public bool UsePrintProcessor { get; set; }</code></pre>
 
   <a id="SadConsole_CellSurface_View_" data-uid="SadConsole.CellSurface.View*"></a>
   <h4 id="SadConsole_CellSurface_View" data-uid="SadConsole.CellSurface.View">View</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The visible portion of the surface.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -953,7 +976,8 @@ public bool UsePrintProcessor { get; set; }</code></pre>
 
   <a id="SadConsole_CellSurface_ViewHeight_" data-uid="SadConsole.CellSurface.ViewHeight*"></a>
   <h4 id="SadConsole_CellSurface_ViewHeight" data-uid="SadConsole.CellSurface.ViewHeight">ViewHeight</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets or sets the visible height of the surface in cells.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -978,7 +1002,8 @@ public bool UsePrintProcessor { get; set; }</code></pre>
 
   <a id="SadConsole_CellSurface_ViewPosition_" data-uid="SadConsole.CellSurface.ViewPosition*"></a>
   <h4 id="SadConsole_CellSurface_ViewPosition" data-uid="SadConsole.CellSurface.ViewPosition">ViewPosition</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The position of the view within the buffer.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1003,7 +1028,8 @@ public bool UsePrintProcessor { get; set; }</code></pre>
 
   <a id="SadConsole_CellSurface_ViewWidth_" data-uid="SadConsole.CellSurface.ViewWidth*"></a>
   <h4 id="SadConsole_CellSurface_ViewWidth" data-uid="SadConsole.CellSurface.ViewWidth">ViewWidth</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets or sets the visible width of the surface in cells.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1028,7 +1054,7 @@ public bool UsePrintProcessor { get; set; }</code></pre>
 
   <a id="SadConsole_CellSurface_Width_" data-uid="SadConsole.CellSurface.Width*"></a>
   <h4 id="SadConsole_CellSurface_Width" data-uid="SadConsole.CellSurface.Width">Width</h4>
-  <div class="markdown level1 summary"><p>The width of the grid being represented.</p>
+  <div class="markdown level1 summary"><p>The total width of the surface.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1056,7 +1082,8 @@ public bool UsePrintProcessor { get; set; }</code></pre>
 
   <a id="SadConsole_CellSurface_GetEnumerator_" data-uid="SadConsole.CellSurface.GetEnumerator*"></a>
   <h4 id="SadConsole_CellSurface_GetEnumerator" data-uid="SadConsole.CellSurface.GetEnumerator">GetEnumerator()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets an enumerator for <a class="xref" href="SadConsole.CellSurface.html#SadConsole_CellSurface_Cells">Cells</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1073,7 +1100,8 @@ public bool UsePrintProcessor { get; set; }</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;<a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a>&gt;</td>
-        <td></td>
+        <td><p>An enumerator for <a class="xref" href="SadConsole.CellSurface.html#SadConsole_CellSurface_Cells">Cells</a>.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1081,7 +1109,8 @@ public bool UsePrintProcessor { get; set; }</code></pre>
 
   <a id="SadConsole_CellSurface_OnCellsReset_" data-uid="SadConsole.CellSurface.OnCellsReset*"></a>
   <h4 id="SadConsole_CellSurface_OnCellsReset" data-uid="SadConsole.CellSurface.OnCellsReset">OnCellsReset()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Called when the <a class="xref" href="SadConsole.CellSurface.html#SadConsole_CellSurface_Cells">Cells</a> property is reset.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1091,7 +1120,8 @@ public bool UsePrintProcessor { get; set; }</code></pre>
 
   <a id="SadConsole_CellSurface_OnIsDirtyChanged_" data-uid="SadConsole.CellSurface.OnIsDirtyChanged*"></a>
   <h4 id="SadConsole_CellSurface_OnIsDirtyChanged" data-uid="SadConsole.CellSurface.OnIsDirtyChanged">OnIsDirtyChanged()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Called when the <a class="xref" href="SadConsole.CellSurface.html#SadConsole_CellSurface_IsDirty">IsDirty</a> property changes.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1101,7 +1131,8 @@ public bool UsePrintProcessor { get; set; }</code></pre>
 
   <a id="SadConsole_CellSurface_Resize_" data-uid="SadConsole.CellSurface.Resize*"></a>
   <h4 id="SadConsole_CellSurface_Resize_System_Int32_System_Int32_System_Boolean_" data-uid="SadConsole.CellSurface.Resize(System.Int32,System.Int32,System.Boolean)">Resize(int, int, bool)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Resizes the surface and view to the specified width and height.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1130,7 +1161,8 @@ public bool UsePrintProcessor { get; set; }</code></pre>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">clear</span></td>
-        <td></td>
+        <td><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates each cell should be reset to the default values.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1138,7 +1170,8 @@ public bool UsePrintProcessor { get; set; }</code></pre>
 
   <a id="SadConsole_CellSurface_Resize_" data-uid="SadConsole.CellSurface.Resize*"></a>
   <h4 id="SadConsole_CellSurface_Resize_System_Int32_System_Int32_System_Int32_System_Int32_System_Boolean_" data-uid="SadConsole.CellSurface.Resize(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)">Resize(int, int, int, int, bool)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Resizes the surface to the specified width and height.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1157,27 +1190,32 @@ public bool UsePrintProcessor { get; set; }</code></pre>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">viewWidth</span></td>
-        <td></td>
+        <td><p>The viewable width of the surface.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">viewHeight</span></td>
-        <td></td>
+        <td><p>The viewable height of the surface.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">bufferWidth</span></td>
-        <td></td>
+        <td><p>The maximum width of the surface.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">bufferHeight</span></td>
-        <td></td>
+        <td><p>The maximum height of the surface.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
         <td><span class="parametername">clear</span></td>
-        <td></td>
+        <td><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, indicates each cell should be reset to the default values.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1185,7 +1223,8 @@ public bool UsePrintProcessor { get; set; }</code></pre>
 
   <a id="SadConsole_CellSurface_SetIsDirtySafe_" data-uid="SadConsole.CellSurface.SetIsDirtySafe*"></a>
   <h4 id="SadConsole_CellSurface_SetIsDirtySafe" data-uid="SadConsole.CellSurface.SetIsDirtySafe">SetIsDirtySafe()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Sets <a class="xref" href="SadConsole.CellSurface.html#SadConsole_CellSurface_IsDirty">IsDirty</a> to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> without triggering <a class="xref" href="SadConsole.CellSurface.html#SadConsole_CellSurface_OnIsDirtyChanged">OnIsDirtyChanged()</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1195,7 +1234,8 @@ public bool UsePrintProcessor { get; set; }</code></pre>
 
   <a id="SadConsole_CellSurface_SetSurface_" data-uid="SadConsole.CellSurface.SetSurface*"></a>
   <h4 id="SadConsole_CellSurface_SetSurface_SadConsole_ColoredGlyphBase___System_Int32_System_Int32_System_Int32_System_Int32_" data-uid="SadConsole.CellSurface.SetSurface(SadConsole.ColoredGlyphBase[],System.Int32,System.Int32,System.Int32,System.Int32)">SetSurface(ColoredGlyphBase[], int, int, int, int)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Changes the cells of the surface to the provided array.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1214,27 +1254,32 @@ public bool UsePrintProcessor { get; set; }</code></pre>
       <tr>
         <td><a class="xref" href="SadConsole.ColoredGlyphBase.html">ColoredGlyphBase</a>[]</td>
         <td><span class="parametername">cells</span></td>
-        <td></td>
+        <td><p>The cells to replace in this surface.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">width</span></td>
-        <td></td>
+        <td><p>The viewable width of the surface.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">height</span></td>
-        <td></td>
+        <td><p>The viewable height of the surface.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">bufferWidth</span></td>
-        <td></td>
+        <td><p>The maximum width of the surface.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">bufferHeight</span></td>
-        <td></td>
+        <td><p>The maximum height of the surface.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1242,7 +1287,8 @@ public bool UsePrintProcessor { get; set; }</code></pre>
 
   <a id="SadConsole_CellSurface_SetSurface_" data-uid="SadConsole.CellSurface.SetSurface*"></a>
   <h4 id="SadConsole_CellSurface_SetSurface_SadConsole_ICellSurface_SadRogue_Primitives_Rectangle_" data-uid="SadConsole.CellSurface.SetSurface(SadConsole.ICellSurface,SadRogue.Primitives.Rectangle)">SetSurface(ICellSurface, Rectangle)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Remaps the cells of this surface to a view of the <code class="paramref">surface</code>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1261,12 +1307,14 @@ public bool UsePrintProcessor { get; set; }</code></pre>
       <tr>
         <td><a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a></td>
         <td><span class="parametername">surface</span></td>
-        <td></td>
+        <td><p>The target surface to map cells from.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Rectangle.html">Rectangle</a></td>
         <td><span class="parametername">view</span></td>
-        <td></td>
+        <td><p>A view rectangle of the target surface.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1275,7 +1323,8 @@ public bool UsePrintProcessor { get; set; }</code></pre>
 
 
   <h4 id="SadConsole_CellSurface_IsDirtyChanged" data-uid="SadConsole.CellSurface.IsDirtyChanged">IsDirtyChanged</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>An event that is raised when <a class="xref" href="SadConsole.ICellSurface.html#SadConsole_ICellSurface_IsDirty">IsDirty</a> changes.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -1650,8 +1699,8 @@ public bool UsePrintProcessor { get; set; }</code></pre>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
                 <h5>In this article</h5>
                 <div></div>
-                <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-              </nav>
+                <p><a class="back-to-top" href="#top">Back to top</a><p>
+              </p></nav>
             </div>
           </div>
         </div>

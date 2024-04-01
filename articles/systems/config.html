@@ -8,8 +8,8 @@
       <title>Overview of the startup config | SadConsole v10</title>
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Overview of the startup config | SadConsole v10">
-    <meta name="description" content="Learn about the startup configuration for SadConsole. The Builder object provides a fluent API for configuring SadConsole.">
     
+    <meta name="description" content="Learn about the startup configuration for SadConsole. The Builder object provides a fluent API for configuring SadConsole.">
       <link rel="shortcut icon" href="../../favicon.ico">
       <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../../styles/docfx.css">
@@ -103,7 +103,7 @@ Game.Instance.Dispose();
 <td>Configures the <a class="xref" href="../../api/SadConsole.GameHost.html#SadConsole_GameHost_Screen">GameHost.Screen</a> to an object type that contains a parameterless constructor. For more information, see <a href="#startup-screen">Startup screen</a>. Don't use this with <a class="xref" href="../../api/SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_UseDefaultConsole_SadConsole_Configuration_Builder_">UseDefaultConsole(Builder)</a>.</td>
 </tr>
 <tr>
-<td><a class="xref" href="../../api/SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_SetStartingScreen_SadConsole_Configuration_Builder_System_Func_SadConsole_Game_SadConsole_IScreenObject__">SetStartingScreen(Builder, Func&lt;Game, IScreenObject&gt;)</a></td>
+<td>&lt;xref:SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.IScreenObject})&gt;</td>
 <td>Uses the specified delegate to get a <code>IScreenObject</code> that's assigned to <a class="xref" href="../../api/SadConsole.GameHost.html#SadConsole_GameHost_Screen">GameHost.Screen</a>. For more information, see <a href="#startup-screen">Startup screen</a>. Don't use this with <a class="xref" href="../../api/SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_UseDefaultConsole_SadConsole_Configuration_Builder_">UseDefaultConsole(Builder)</a>.</td>
 </tr>
 <tr>
@@ -127,7 +127,7 @@ Game.Instance.Dispose();
 <td>The first string parameter specifies a different default font. The string array that follows is an optional set of extra fonts to load.</td>
 </tr>
 <tr>
-<td><a class="xref" href="../../api/SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_ConfigureFonts_SadConsole_Configuration_Builder_System_Action_SadConsole_Configuration_FontConfig_SadConsole_Game__">ConfigureFonts(Builder, Action&lt;FontConfig, Game&gt;)</a></td>
+<td>&lt;xref:SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.Game})&gt;</td>
 <td>Use a delegate to configure the provided font settings object.</td>
 </tr>
 <tr>
@@ -276,7 +276,7 @@ static void Startup(object? sender, GameHost host)
 <p>The first string parameter specifies a different default font. The string array that follows is an optional set of extra fonts to load.</p>
 </li>
 </ul>
-<p>To have full control over the font loading system, use <a class="xref" href="../../api/SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_ConfigureFonts_SadConsole_Configuration_Builder_System_Action_SadConsole_Configuration_FontConfig_SadConsole_Game__">ConfigureFonts(Builder, Action&lt;FontConfig, Game&gt;)</a> which takes a delegate parameter that configures the fonts.</p>
+<p>To have full control over the font loading system, use &lt;xref:SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.Game})&gt; which takes a delegate parameter that configures the fonts.</p>
 <h3 id="use-the-sadconsole-extended-font">Use the SadConsole Extended font</h3>
 <p>SadConsole includes an extended version of the IBM 8x16 Code Page 437 font with other graphical characters that help with building text-ish interfaces and characters. Pass <code>true</code> to <a class="xref" href="../../api/SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_ConfigureFonts_SadConsole_Configuration_Builder_System_Boolean_">ConfigureFonts(Builder, bool)</a> to set the extended font as the default font.</p>
 <pre><code class="lang-csharp">using SadConsole.Configuration;
@@ -306,7 +306,7 @@ Game.Instance.Run();
 Game.Instance.Dispose();
 </code></pre>
 <h3 id="use-a-delegate-to-configure-the-font-options">Use a delegate to configure the font options</h3>
-<p>The startup config can also use a delegate to configure the default font and to load other fonts. Use the <a class="xref" href="../../api/SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_ConfigureFonts_SadConsole_Configuration_Builder_System_Action_SadConsole_Configuration_FontConfig_SadConsole_Game__">ConfigureFonts(Builder, Action&lt;FontConfig, Game&gt;)</a> option to set the delegate. Then create a method that configures the font.</p>
+<p>The startup config can also use a delegate to configure the default font and to load other fonts. Use the &lt;xref:SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.Game})&gt; option to set the delegate. Then create a method that configures the font.</p>
 <pre><code class="lang-csharp">Builder configuration = new Builder()
     // ...config options...
     .ConfigureFonts(SetupFont)
@@ -335,8 +335,8 @@ static void SetupFont(BuilderFontLoader loader)
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
                 <h5>In this article</h5>
                 <div></div>
-                <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-              </nav>
+                <p><a class="back-to-top" href="#top">Back to top</a><p>
+              </p></nav>
             </div>
           </div>
         </div>
