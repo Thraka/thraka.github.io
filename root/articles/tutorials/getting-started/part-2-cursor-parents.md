@@ -281,7 +281,7 @@ The final thing we'll do is add a second console. This console will be a duplica
 // Second console
 Console console2 = new Console(58, 12);
 console2.Position = new Point(19, 11);
-console2.DefaultBackground = Color.AnsiRed;
+console2.Surface.DefaultBackground = Color.AnsiRed;
 console2.Clear();
 console2.Print(1, 1, "Type on me!");
 console2.Cursor.Position = new Point(1, 2);

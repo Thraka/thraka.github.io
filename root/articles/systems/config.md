@@ -34,13 +34,13 @@ The following table lists the configuration options with an explanation of what 
 | Configuration option                                                                                                 | Description                                                                                                                                                                                                                                      |
 |----------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | <xref:SadConsole.Configuration.Extensions.SetStartingScreen``1(SadConsole.Configuration.Builder)>                    | Configures the <xref:SadConsole.GameHost.Screen?displayProperty=nameWithType> to an object type that contains a parameterless constructor. For more information, see [Startup screen](#startup-screen). Don't use this with <xref:SadConsole.Configuration.Extensions.UseDefaultConsole(SadConsole.Configuration.Builder)>. |
-| <xref:SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.Game,SadConsole.IScreenObject})> | Uses the specified delegate to get a `IScreenObject` that's assigned to <xref:SadConsole.GameHost.Screen?displayProperty=nameWithType>. For more information, see [Startup screen](#startup-screen). Don't use this with <xref:SadConsole.Configuration.Extensions.UseDefaultConsole(SadConsole.Configuration.Builder)>. |
+| <xref:SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.GameHost,SadConsole.IScreenObject})> | Uses the specified delegate to get a `IScreenObject` that's assigned to <xref:SadConsole.GameHost.Screen?displayProperty=nameWithType>. For more information, see [Startup screen](#startup-screen). Don't use this with <xref:SadConsole.Configuration.Extensions.UseDefaultConsole(SadConsole.Configuration.Builder)>. |
 | <xref:SadConsole.Configuration.Extensions.UseDefaultConsole(SadConsole.Configuration.Builder)>                       | Sets <xref:SadConsole.GameHost.StartingConsole?displayProperty=nameWithType> and <xref:SadConsole.GameHost.Screen?displayProperty=nameWithType> to a new console. Don't use this with <xref:SadConsole.Configuration.Extensions.SetStartingScreen*>. |
 | <xref:SadConsole.Configuration.Extensions.IsStartingScreenFocused(SadConsole.Configuration.Builder,System.Boolean)>  | Defaults to `true`. Use this method to pass `false` and disable focusing the <xref:SadConsole.GameHost.Screen?displayProperty=nameWithType> object. |
 | <xref:SadConsole.Configuration.Extensions.SetScreenSize(SadConsole.Configuration.Builder,System.Int32,System.Int32)> | Sets the size of the starting console and sets the <xref:SadConsole.GameHost.ScreenCellsX> and <xref:SadConsole.GameHost.ScreenCellsY> properties to the **Width, Height** values provided, respectively. If not called, defaults to **80, 25**. |
 | <xref:SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Boolean)>           | When passing `true`, uses the extended SadConsole font. |
 | <xref:SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.String,System.String[])>     | The first string parameter specifies a different default font. The string array that follows is an optional set of extra fonts to load. |
-| <xref:SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.Game})> | Use a delegate to configure the provided font settings object. |
+| <xref:SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.GameHost})> | Use a delegate to configure the provided font settings object. |
 | <xref:SadConsole.Configuration.Extensions.OnStart(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})> | The delegate provided to this method is invoked when the game starts running. All startup objects are already created and ready to go by the time it's invoked. |
 | <xref:SadConsole.Configuration.Extensions.OnEnd(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})>   | The delegate provided to this method is invoked when the game is shutting down. |
 
@@ -204,7 +204,7 @@ SadConsole uses the IBM 8x16 Code Page 437 font by default. To change which font
 
   The first string parameter specifies a different default font. The string array that follows is an optional set of extra fonts to load.
 
-To have full control over the font loading system, use <xref:SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.Game})> which takes a delegate parameter that configures the fonts.
+To have full control over the font loading system, use <xref:SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.GameHost})> which takes a delegate parameter that configures the fonts.
 
 ### Use the SadConsole Extended font
 
@@ -244,7 +244,7 @@ Game.Instance.Dispose();
 
 ### Use a delegate to configure the font options
 
-The startup config can also use a delegate to configure the default font and to load other fonts. Use the <xref:SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.Game})> option to set the delegate. Then create a method that configures the font.
+The startup config can also use a delegate to configure the default font and to load other fonts. Use the <xref:SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.GameHost})> option to set the delegate. Then create a method that configures the font.
 
 ```csharp
 Builder configuration = new Builder()
