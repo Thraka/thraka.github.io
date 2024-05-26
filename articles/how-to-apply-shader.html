@@ -1,0 +1,252 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>How to apply a shader | SadConsole v10</title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="How to apply a shader | SadConsole v10">
+    
+    <meta name="description" content="Learn how to apply a shader to the SadConsole output or a surface.">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/dracula.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+      <meta http-equiv='content-language' content='en-us'>
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-9">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="how-to-apply-a-shader">How to apply a shader</h1>
+
+<p>Shaders can be applied both to individual surfaces and the final output texture that SadConsole draws to the screen.</p>
+<p>SadConsole works through a few steps to compose and draw surfaces to the screen. Each surface composes itself to a texture object, drawing the individual cells, any layers, other attached objects such as entities and cursors. If a surface becomes &quot;dirty&quot; and ends up redrawing itself, the process starts over. The final visual of the surface, stored in the texture object, is used any time that surface needs to be drawn.</p>
+<p>When SadConsole draws what you see on the screen, it actually draws all of those cached object textures to a single texture known as the <strong>final draw texture</strong>. This final draw texture is what is actually drawn on the screen.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>To follow this article, you must:</p>
+<ul>
+<li><p>Use the MonoGame host.</p>
+</li>
+<li><p>Target the DesktopGL version of MonoGame. (You could use a different one but the article was written for DesktopGL)</p>
+</li>
+<li><p>A MonoGame Content Builder (MGCB) Editor project, named <em>Assets.mgcb</em>.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>The project file is named Assets.mgcb for the sake of this article. It can be named whatever you want.</p>
+</div>
+</li>
+</ul>
+<p>You can use the <a href="https://docs.monogame.net/articles/tools/mgcb_editor.html">MGCB Editor</a> to create a project file. With this editor you can also compile the assets for your project instead of auto-generating your assets at compile-time.</p>
+<h2 id="1-install-the-tools-and-nuget-packages">1. Install the tools and NuGet packages</h2>
+<p>Shaders are loaded in MonoGame as &quot;compiled&quot; assets. The MonoGame pipeline can take raw assets and compile them to make the final asset used in the game. Some assets can be used in raw form, such as images. Shaders, however, must be compiled for the target graphics system, such as OpenGL or DirectX.</p>
+<p>The following steps install the required NuGet package and tool to support automatically generating your assets at compile-time.</p>
+<ol>
+<li><p>First, install the MonoGame Content Builder .NET tool.</p>
+<p>Open a terminal and navigate to your project's code. Run the following commands:</p>
+<pre><code class="lang-shell">dotnet new tool-manifest
+dotnet tool install dotnet-mgcb
+</code></pre>
+<p>The first command generates the .NET tool manifest file. If you already have one, ignore the failure messages.</p>
+</li>
+<li><p>Next, add the <code>MonoGame.Content.Builder.Task</code> NuGet package to your project.</p>
+<p>You can use Visual Studio (or your editor) to do this, but since you have the terminal opened, use the .NET CLI to add the package. Runn the following command:</p>
+<pre><code class="lang-shell">dotnet add package MonoGame.Content.Builder.Task
+</code></pre>
+</li>
+</ol>
+<h2 id="2-auto-generate-assets-at-compile-time">2. Auto-generate assets at compile-time</h2>
+<ol>
+<li><p>In Visual Studio, find the <strong>Solution Explorer</strong> window and right-click on the project &gt; <strong>Add</strong> &gt; <strong>New Folder</strong>. Set the name to <code>Content</code>.</p>
+</li>
+<li><p>Using your file manager, navigate to that newly created folder and copy in the <em>Assets.mgcb</em> project file and any assets referenced by it.</p>
+</li>
+<li><p>Back in Visual Studio, double-click on the project file in <strong>Solution Explorer</strong> to open the XML editor.</p>
+</li>
+<li><p>Between the starting <code>&lt;Project&gt;</code> and ending <code>&lt;/Project&gt;</code> nodes, add the following XML:</p>
+<pre><code class="lang-xml">&lt;ItemGroup&gt;
+    &lt;MonoGameContentReference Include=&quot;Content\Assets.mgcb&quot; /&gt;
+    &lt;None Remove=&quot;Content\bin\**\*&quot; /&gt;
+    &lt;None Remove=&quot;Content\obj\**\*&quot; /&gt;
+&lt;/ItemGroup&gt;
+</code></pre>
+</li>
+<li><p>Save the file and close the file editor.</p>
+</li>
+</ol>
+<h2 id="3-configure-sadconsole-to-use-a-shader">3. Configure SadConsole to use a shader</h2>
+<p>This step configures SadConsole to use a shader for the final draw that happens on the screen. To do this, you need to disable SadConsole's drawing function and supply your own that uses the shader.</p>
+<ol>
+<li><p>In your startup code, disable SadConsole's final draw:</p>
+<pre><code class="lang-csharp">SadConsole.Settings.DoFinalDraw = false;
+</code></pre>
+<p>If you ran your game now, you would just see a blank screen, though the game is actually running in the background.</p>
+</li>
+<li><p>Add a new class to your project named <code>FinalDrawShader</code>.</p>
+</li>
+<li><p>Replace the code with the following:</p>
+<pre><code class="lang-csharp">using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
+using Color = Microsoft.Xna.Framework.Color;
+
+namespace SadConsole;
+
+public class FinalDrawShader : DrawableGameComponent
+{
+    public Effect Effect;
+    private static int width;
+    private static int height;
+
+    private const string SHADER_FILE = &quot;crt-lottes-mg&quot;;
+
+    public FinalDrawShader() : base(SadConsole.Game.Instance.MonoGameInstance)
+    {
+        DrawOrder = 6;
+
+        Effect = SadConsole.Game.Instance.MonoGameInstance.Content.Load&lt;Effect&gt;(SHADER_FILE);
+
+    }
+
+    protected override void LoadContent()
+    {
+        base.LoadContent();
+    }
+
+    public override void Draw(GameTime gameTime)
+    {
+        if (Visible)
+        {
+            // Respect the draw flag for sadconsole 
+            width = Host.Global.RenderOutput.Width;
+            height = Host.Global.RenderOutput.Height;
+
+            // Configure the shader
+            Effect.Parameters[&quot;hardScan&quot;]?.SetValue(-8.0f);
+            Effect.Parameters[&quot;hardPix&quot;]?.SetValue(-3.0f);
+            //Effect.Parameters[&quot;warpX&quot;]?.SetValue(0.031f);
+            //Effect.Parameters[&quot;warpY&quot;]?.SetValue(0.041f);
+            Effect.Parameters[&quot;maskDark&quot;]?.SetValue(0.5f);
+            Effect.Parameters[&quot;maskLight&quot;]?.SetValue(1.5f);
+            Effect.Parameters[&quot;scaleInLinearGamma&quot;]?.SetValue(0.3f);
+            Effect.Parameters[&quot;brightboost&quot;]?.SetValue(1f);
+            Effect.Parameters[&quot;hardBloomScan&quot;]?.SetValue(-1.5f);
+            Effect.Parameters[&quot;hardBloomPix&quot;]?.SetValue(-2.0f);
+            Effect.Parameters[&quot;bloomAmount&quot;]?.SetValue(0.15f);
+            //Effect.Parameters[&quot;shape&quot;]?.SetValue(2.0f);
+
+            Effect.Parameters[&quot;textureSize&quot;].SetValue(new Vector2(width, height));
+            Effect.Parameters[&quot;outputSize&quot;].SetValue(new Vector2(SadConsole.Settings.Rendering.RenderRect.Width, SadConsole.Settings.Rendering.RenderRect.Height));
+
+            // Start drawing
+            Host.Global.SharedSpriteBatch.Begin(SpriteSortMode.Immediate, BlendState.NonPremultiplied, SamplerState.PointClamp, DepthStencilState.DepthRead, RasterizerState.CullNone);
+
+            //Apply the shader before draw, but after begin.
+            Effect.CurrentTechnique.Passes[0].Apply();
+
+            Host.Global.SharedSpriteBatch.Draw(Host.Global.RenderOutput, SadConsole.Settings.Rendering.RenderRect.ToMonoRectangle(), Color.White);
+            Host.Global.SharedSpriteBatch.End();
+        }
+    }
+}
+
+</code></pre>
+</li>
+<li><p>In your game startup code, after the SadConsole game is configured and running, add the <code>FinalDrawShader</code> to the MonoGame host:</p>
+<pre><code class="lang-csharp">SadConsole.Game.Instance.MonoGameInstance.Components.Add(new FinalDrawShader());
+</code></pre>
+<p>SadConsole does its drawing with a <code>DrawOrder</code> of 5. Because the shader component was created with a <code>DrawOrder</code> of 6, it runs <strong>after</strong> SadConsole prepares the final texture. That way, SadConsole always prepares the final draw texture before the shader is applied.</p>
+</li>
+<li><p>Run the game.</p>
+</li>
+</ol>
+<p>You can download a complete sample project from <a href="snippets/how-to-apply-shader/csharp.zip">here</a>.</p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-3" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+                <p><a class="back-to-top" href="#top">Back to top</a><p>
+              </p></nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
