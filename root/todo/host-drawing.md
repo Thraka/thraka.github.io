@@ -1,10 +1,19 @@
+---
+title: How does drawing work
+description: Learn about how SadConsole draws surfaces and objects to the screen. Objects are drawn and cached for future use before being drawn to screen.
+ms.date: 05/26/2024
+---
+
 # How does drawing work
 
-When SadConsole draws a dirty surface, it does not draw it directly to the screen. Each surface (a Console is a surface) has a <xref:SadConsole.Console.LastRenderResult> property (which is a texture) that represents the last drawn state of the surface. When SadConsole is ready to draw the screen, all of the visible surfaces are gathered together (using their <xref:SadConsole.Console.LastRenderResult> value) and drawn on a final texture, <xref:SadConsole.Global.RenderOutput>. This texture is then drawn to the screen.
+When SadConsole draws a dirty surface, it doesn't draw it directly to the screen. Each <xref:SadConsole.IScreenSurface> object, which a console is, has a renderer. The renderer caches the last drawn state of the surface to a texture. When SadConsole is ready to draw the screen, all of the visible surfaces are gathered together (using their cached textures) and drawn on a final texture, <xref:SadConsole.Host.Global.RenderOutput>. This texture is then drawn to the screen.
 
 ## Cached textures
 
-As stated above, each surface creates a texture that represents the final look of the console-surface. A <xref:SadConsole.Renderers.IRenderer> object is responsible for this. When the renderer processes a surface, it first checks if the <xref:SadConsole.CellSurface.IsDirty> property is set to `true`. If so, it updates the cached texture with the latest state of the surface.
+As stated above, each surface has a texture that represents the final look of the console-surface. A <xref:SadConsole.Renderers.IRenderer> object is responsible for this and is exposed on the surface through the <xref:SadConsole.IScreenSurface.Renderer> property. A renderer is made up of many different <xref:SadConsole.Renderers.IRenderStep> instances that compose the surface and draw it on the cached texture. For example, the default renderer attached to a surface has the <xref:SadConsole.Renderers.SurfaceRenderStep> which draws the surface data.
+
+
+When the renderer processes a surface, it first checks if the <xref:SadConsole.CellSurface.IsDirty> property is set to `true`. If so, it updates the cached texture with the latest state of the surface.
 
 This is very efficient because there is less to render to the screen each frame. A 100x100 console has about 20,000 sprite-draws each frame. If a surface doesn't change very often, this is a lot of wasted time for your GPU. By caching each draw to a texture, a single draw call is required each frame instead of all 20,000 individual draws. Once the 100x100 surface becomes dirty, then you would have the 20,000 individual draw calls that single dirty frame.
 
@@ -64,4 +73,4 @@ The above code tells the graphics device to draw to the final rendered texture. 
 }
 ```
 
-Finally, if the <xref:SadConsole.Settings.DoFinalDraw> is `true`, the final render texture is then drawn to the screen. Why does this `DoFinalDraw` gate exist? This allows you to integrate SadConsole into an existing game. For example, if you had a 3D FPS where the player can walk up to and use a computer in the game, you can use SadConsole to process and draw. Then that final texture created by SadConsole could be mapped to the 3D computer object.
+Finally, if the <xref:SadConsole.Settings.DoFinalDraw> is `true`, the final render texture is then drawn to the screen. Why does this `DoFinalDraw` gate exist? This allows you to integrate SadConsole into an existing game. For example, if you had a 1st-person game where the player can walk up to and use a computer in the game, you can use SadConsole to process and draw the terminal. Then, that final texture created by SadConsole could be mapped to the 3D computer object.
