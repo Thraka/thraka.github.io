@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>How to enable the debugger | SadConsole v10</title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="How to enable the debugger | SadConsole v10">
+    
+    <meta name="description" content="Learn how to enable the debugger in SadConsole. The debugger currently only works with MonoGame.">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/dracula.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+      <meta http-equiv='content-language' content='en-us'>
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-9">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="how-to-enable-the-sadconsole-debugger">How to enable the SadConsole debugger</h1>
+
+<p>The debugger is a helper library that pauses SadConsole and displays a UI over the top of the game, letting you inspect objects. You can alter object properties and provide your own debug UI that integrates with SadConsole.</p>
+<h2 id="enable-the-debugger">Enable the debugger</h2>
+<ol>
+<li>Add the <a href="https://www.nuget.org/packages/SadConsole.Debug.MonoGame/">SadConsole.Debug.MonoGame NuGet package</a> to your project.</li>
+<li>Add <code>EnableImGuiDebugger</code> to the configuration builder. Provide the key that enables the debugger.</li>
+</ol>
+<pre><code class="lang-csharp" highlight-lines="11">using SadConsole.Configuration;
+using SadConsole.Input;
+
+Settings.WindowTitle = &quot;My SadConsole Game&quot;;
+
+Builder gameStartup = new Builder()
+    .SetScreenSize(GameSettings.GAME_WIDTH, GameSettings.GAME_HEIGHT)
+    .SetStartingScreen&lt;SCTesting.Scenes.RootScreen&gt;()
+    .IsStartingScreenFocused(true)
+    .ConfigureFonts(true)
+    .EnableImGuiDebugger(Keys.F12)
+    ;
+
+Game.Create(gameStartup);
+Game.Instance.Run();
+Game.Instance.Dispose();
+</code></pre>
+<p>Once the game is running, press the referenced key, F12 in this example, and the SadConsole Debugger turns on.</p>
+<p><img src="images/how-to-use-debugger/example.png" alt="A SadConsole screen with the SadConsole Debugger turned on."></p>
+<h2 id="parts-of-the-debugger">Parts of the debugger</h2>
+<p>The top-left of the debugger lists the current scene. The object that's focused is displayed in cyan. When you select an object, it's basic properties are displayed.</p>
+<p>The center of the screen displays the render output that SadConsole draws on the screen. If the currently selected object is a <code>IScreenSurface</code>, the second tab displays the render output for that object.</p>
+<h2 id="debugger-events">Debugger events</h2>
+<p>The debugger provides two events, <code>SadConsole.Debug.Debugger.Opened</code> and <code>SadConsole.Debug.Debugger.Closed</code>. The <code>Opened</code> event has a single parameter, a boolean that indicates whether or not this is the first time the debugger is opened.</p>
+<p>The <code>Opened</code> event gives you an opportunity to customize the debugger once it starts. You can provide event handlers for these events on the configuration object used to control the SadConsole startup.</p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-3" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+                <p><a class="back-to-top" href="#top">Back to top</a><p>
+              </p></nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

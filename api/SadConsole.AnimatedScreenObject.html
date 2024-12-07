@@ -1473,13 +1473,13 @@ public bool Repeat { get; set; }</code></pre>
 
 
   <a id="SadConsole_AnimatedScreenObject_FromImage_" data-uid="SadConsole.AnimatedScreenObject.FromImage*"></a>
-  <h4 id="SadConsole_AnimatedScreenObject_FromImage_System_String_System_String_SadRogue_Primitives_Point_System_TimeSpan_System_Nullable_SadRogue_Primitives_Point__System_Nullable_SadRogue_Primitives_Point__SadConsole_IFont_System_Action_SadConsole_ColoredGlyphBase__SadConsole_TextureConvertMode_SadConsole_TextureConvertForegroundStyle_SadConsole_TextureConvertBackgroundStyle_" data-uid="SadConsole.AnimatedScreenObject.FromImage(System.String,System.String,SadRogue.Primitives.Point,System.TimeSpan,System.Nullable{SadRogue.Primitives.Point},System.Nullable{SadRogue.Primitives.Point},SadConsole.IFont,System.Action{SadConsole.ColoredGlyphBase},SadConsole.TextureConvertMode,SadConsole.TextureConvertForegroundStyle,SadConsole.TextureConvertBackgroundStyle)">FromImage(string, string, Point, TimeSpan, Point?, Point?, IFont?, Action&lt;ColoredGlyphBase&gt;?, TextureConvertMode, TextureConvertForegroundStyle, TextureConvertBackgroundStyle)</h4>
+  <h4 id="SadConsole_AnimatedScreenObject_FromImage_System_String_System_String_SadRogue_Primitives_Point_System_TimeSpan_System_Nullable_SadRogue_Primitives_Point__System_Nullable_SadRogue_Primitives_Point__SadConsole_IFont_System_Action_SadConsole_ColoredGlyphBase__SadConsole_TextureConvertMode_SadConsole_TextureConvertForegroundStyle_SadConsole_TextureConvertBackgroundStyle_System_Nullable_SadRogue_Primitives_Color__" data-uid="SadConsole.AnimatedScreenObject.FromImage(System.String,System.String,SadRogue.Primitives.Point,System.TimeSpan,System.Nullable{SadRogue.Primitives.Point},System.Nullable{SadRogue.Primitives.Point},SadConsole.IFont,System.Action{SadConsole.ColoredGlyphBase},SadConsole.TextureConvertMode,SadConsole.TextureConvertForegroundStyle,SadConsole.TextureConvertBackgroundStyle,System.Nullable{SadRogue.Primitives.Color})">FromImage(string, string, Point, TimeSpan, Point?, Point?, IFont?, Action&lt;ColoredGlyphBase&gt;?, TextureConvertMode, TextureConvertForegroundStyle, TextureConvertBackgroundStyle, Color?)</h4>
   <div class="markdown level1 summary"><p>Converts an image file containing frames to an instance of <a class="xref" href="SadConsole.AnimatedScreenObject.html">AnimatedScreenObject</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static AnimatedScreenObject FromImage(string name, string filePath, Point frameLayout, TimeSpan frameDuration, Point? pixelPadding = null, Point? frameStartAndFinish = null, IFont? font = null, Action&lt;ColoredGlyphBase&gt;? action = null, TextureConvertMode convertMode = TextureConvertMode.Foreground, TextureConvertForegroundStyle convertForegroundStyle = TextureConvertForegroundStyle.Block, TextureConvertBackgroundStyle convertBackgroundStyle = TextureConvertBackgroundStyle.Pixel)</code></pre>
+    <pre><code class="lang-csharp hljs">public static AnimatedScreenObject FromImage(string name, string filePath, Point frameLayout, TimeSpan frameDuration, Point? pixelPadding = null, Point? frameStartAndFinish = null, IFont? font = null, Action&lt;ColoredGlyphBase&gt;? action = null, TextureConvertMode convertMode = TextureConvertMode.Foreground, TextureConvertForegroundStyle convertForegroundStyle = TextureConvertForegroundStyle.Block, TextureConvertBackgroundStyle convertBackgroundStyle = TextureConvertBackgroundStyle.Pixel, Color? frameDefaultBackground = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1557,6 +1557,12 @@ public bool Repeat { get; set; }</code></pre>
         <td><p>The style to use when <code class="paramref">convertMode</code> is <a class="xref" href="SadConsole.TextureConvertMode.html#SadConsole_TextureConvertMode_Background">Background</a>.</p>
 </td>
       </tr>
+      <tr>
+        <td><a class="xref" href="https://thesadrogue.github.io/TheSadRogue.Primitives/api/SadRogue.Primitives.Color.html">Color</a>?</td>
+        <td><span class="parametername">frameDefaultBackground</span></td>
+        <td><p>The default background to use in the animation frames. Defaults to transparent.</p>
+</td>
+      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -1575,7 +1581,7 @@ public bool Repeat { get; set; }</code></pre>
       </tr>
     </tbody>
   </table>
-  <h5 id="SadConsole_AnimatedScreenObject_FromImage_System_String_System_String_SadRogue_Primitives_Point_System_TimeSpan_System_Nullable_SadRogue_Primitives_Point__System_Nullable_SadRogue_Primitives_Point__SadConsole_IFont_System_Action_SadConsole_ColoredGlyphBase__SadConsole_TextureConvertMode_SadConsole_TextureConvertForegroundStyle_SadConsole_TextureConvertBackgroundStyle__remarks">Remarks</h5>
+  <h5 id="SadConsole_AnimatedScreenObject_FromImage_System_String_System_String_SadRogue_Primitives_Point_System_TimeSpan_System_Nullable_SadRogue_Primitives_Point__System_Nullable_SadRogue_Primitives_Point__SadConsole_IFont_System_Action_SadConsole_ColoredGlyphBase__SadConsole_TextureConvertMode_SadConsole_TextureConvertForegroundStyle_SadConsole_TextureConvertBackgroundStyle_System_Nullable_SadRogue_Primitives_Color___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>This method assumes the image file contains only frames and optional padding between the frames, no border space.</p>
 <pre><code>        Frame count is calculated by multiplying rows and columns from the frame layout. It can by limited by specifying frame start and finish indexes.
 
@@ -1658,6 +1664,86 @@ public bool Repeat { get; set; }</code></pre>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="SadConsole.ScreenObject.html#SadConsole_ScreenObject_LostMouse_SadConsole_Input_MouseScreenObjectState_">ScreenObject.LostMouse(MouseScreenObjectState)</a></div>
+
+
+  <a id="SadConsole_AnimatedScreenObject_MoveEnd_" data-uid="SadConsole.AnimatedScreenObject.MoveEnd*"></a>
+  <h4 id="SadConsole_AnimatedScreenObject_MoveEnd" data-uid="SadConsole.AnimatedScreenObject.MoveEnd">MoveEnd()</h4>
+  <div class="markdown level1 summary"><p>Changes the <a class="xref" href="SadConsole.AnimatedScreenObject.html#SadConsole_AnimatedScreenObject_CurrentFrame">CurrentFrame</a> to the last frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MoveEnd()</code></pre>
+  </div>
+
+
+  <a id="SadConsole_AnimatedScreenObject_MoveNext_" data-uid="SadConsole.AnimatedScreenObject.MoveNext*"></a>
+  <h4 id="SadConsole_AnimatedScreenObject_MoveNext_System_Boolean_" data-uid="SadConsole.AnimatedScreenObject.MoveNext(System.Boolean)">MoveNext(bool)</h4>
+  <div class="markdown level1 summary"><p>Changes the <a class="xref" href="SadConsole.AnimatedScreenObject.html#SadConsole_AnimatedScreenObject_CurrentFrame">CurrentFrame</a> to the next frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MoveNext(bool circular = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">circular</span></td>
+        <td><p>If true and the current frame is the last, sets the current frame to the first frame.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_AnimatedScreenObject_MovePrevious_" data-uid="SadConsole.AnimatedScreenObject.MovePrevious*"></a>
+  <h4 id="SadConsole_AnimatedScreenObject_MovePrevious_System_Boolean_" data-uid="SadConsole.AnimatedScreenObject.MovePrevious(System.Boolean)">MovePrevious(bool)</h4>
+  <div class="markdown level1 summary"><p>Changes the <a class="xref" href="SadConsole.AnimatedScreenObject.html#SadConsole_AnimatedScreenObject_CurrentFrame">CurrentFrame</a> to the previous frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MovePrevious(bool circular = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">circular</span></td>
+        <td><p>If true and the current frame is the first, sets the current frame to the last frame.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_AnimatedScreenObject_MoveStart_" data-uid="SadConsole.AnimatedScreenObject.MoveStart*"></a>
+  <h4 id="SadConsole_AnimatedScreenObject_MoveStart" data-uid="SadConsole.AnimatedScreenObject.MoveStart">MoveStart()</h4>
+  <div class="markdown level1 summary"><p>Changes the <a class="xref" href="SadConsole.AnimatedScreenObject.html#SadConsole_AnimatedScreenObject_CurrentFrame">CurrentFrame</a> to the first frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MoveStart()</code></pre>
+  </div>
 
 
   <a id="SadConsole_AnimatedScreenObject_OnMouseEnter_" data-uid="SadConsole.AnimatedScreenObject.OnMouseEnter*"></a>
@@ -2046,7 +2132,7 @@ public bool Repeat { get; set; }</code></pre>
 
 
   <h4 id="SadConsole_AnimatedScreenObject_MouseButtonClicked" data-uid="SadConsole.AnimatedScreenObject.MouseButtonClicked">MouseButtonClicked</h4>
-  <div class="markdown level1 summary"><p>Raised when the a mouse button is clicked on this object.</p>
+  <div class="markdown level1 summary"><p>Raised when a mouse button is clicked on this object.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -2183,6 +2269,9 @@ public bool Repeat { get; set; }</code></pre>
   </div>
   <div>
       <a class="xref" href="SadConsole.Quick.Update.html#SadConsole_Quick_Update_WithUpdate_SadConsole_IScreenObject_System_Action_SadConsole_IScreenObject_System_TimeSpan__">Update.WithUpdate(IScreenObject, Action&lt;IScreenObject, TimeSpan&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_">ExtensionsSystem.GetDebuggerDisplayValue(object)</a>
   </div>
 
 </article>

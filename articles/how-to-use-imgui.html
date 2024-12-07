@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>How to use ImGui in SadConsole | SadConsole v10</title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="How to use ImGui in SadConsole | SadConsole v10">
+    
+    <meta name="description" content="Learn how to use ImGui. ImGui support for SadConsole is included in the the debugger package, which only works with MonoGame.">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/dracula.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+      <meta http-equiv='content-language' content='en-us'>
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/SadConsoleLogo.gif" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-9">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="enable-imgui-in-sadconsole">Enable ImGui in SadConsole</h1>
+
+<p>Dear ImGui is a bloat-free graphical user interface library for C++ that is designed to be fast, portable, and easy to integrate. It is particularly popular in the game development industry and real-time applications due to its immediate mode GUI paradigm, which simplifies the creation of dynamic user interfaces.</p>
+<p>ImGui is supported with SadConsole through the <a href="https://www.nuget.org/packages/SadConsole.Debug.MonoGame/">SadConsole.Debug.MonoGame NuGet package</a>. While the package provides a debugger, it also provides a basic ImGui implementation that you can use to render ImGui controls on top of SadConsole.</p>
+<p>Please note that ImGui operates in a unique way. It follows a very specific way of designing the UI. Because of the way it works, you can alter most of the ImGui commands without stopping your game. Simply alter the code and use your IDE to hot-reload the code. ImGui instantly responds to the changes.</p>
+<p>Use the <a href="https://github.com/ocornut/imgui">ImGui GitHub repository</a> to see examples and learn how to use ImGui. ImGui is implemented in C++ so the majority of the examples will be in C++ and you'll have to convert them to C#, which is usually straight forward.</p>
+<h2 id="how-its-implemented">How it's implemented</h2>
+<p>SadConsole uses the <a href="https://github.com/HexaEngine/Hexa.NET.ImGui">Hexa.NET.ImGui</a> library to provide ImGui functionality. ImGui is implemented as a MonoGame Game Component, which runs both before and after the SadConsole Game Component.</p>
+<p>For ImGui to work, it must perform these following steps:</p>
+<ul>
+<li>Update IO state, like the mouse and keyboard.</li>
+<li>Create a new ImGui game frame.</li>
+<li>Create all widgets and UI.</li>
+<li>Generate rendering data.</li>
+<li>Render to MonoGame.</li>
+</ul>
+<p>To render your ImGui widgets, you create instances of either <code>SadConsole.ImGuiSystem.ImGuiObjectBase</code> or <code>SadConsole.ImGuiSystem.ImGuiObjectCollection</code>, and add them to the <code>SadConsole.ImGuiSystem.ImGuiMonoGameComponent.UIComponents</code> collection. These types have a method, <code>BuildUI</code> which is where you write all of your ImGui code to draw UI. The instance of <code>ImGuiMonoGameComponent</code> added to MonoGame is available when SadConsole starts.</p>
+<h2 id="add-imgui-to-your-project">Add ImGui to your project</h2>
+<p>To add ImGui to your project:</p>
+<ol>
+<li>Add the <a href="https://www.nuget.org/packages/SadConsole.Debug.MonoGame/">SadConsole.Debug.MonoGame NuGet package</a> to your project.</li>
+<li>Add <code>EnableImGui</code> to the configuration builder.</li>
+<li>Use a method callback to add the ImGui objects to the ImGui MonoGame Component.</li>
+</ol>
+<pre><code class="lang-csharp" highlight-lines="10-12">using SadConsole.Configuration;
+
+Settings.WindowTitle = &quot;My SadConsole Game&quot;;
+
+Builder gameStartup = new Builder()
+    .SetScreenSize(GameSettings.GAME_WIDTH, GameSettings.GAME_HEIGHT)
+    .SetStartingScreen&lt;SCTesting.Scenes.RootScreen&gt;()
+    .IsStartingScreenFocused(true)
+    .ConfigureFonts(true)
+    .EnableImGui(startupAction: (imguiComponent) =&gt; {
+        imguiComponent.UIComponents.Add(new SCTesting.ImGuiWindow1());
+    })
+    ;
+
+Game.Create(gameStartup);
+Game.Instance.Run();
+Game.Instance.Dispose();
+</code></pre>
+<p>The previous code uses the method callback to add an instance of <code>ImGuiWindow1</code> to the ImGui MonoGame Component. The implementation of <code>ImGuiWindow1</code> is described in the following section.</p>
+<h2 id="create-an-object-that-generates-imgui-ui">Create an object that generates ImGui UI</h2>
+<p>Derive from <code>SadConsole.ImGuiSystem.ImGuiObjectBase</code> to create a class that's processed by ImGui and draws things to the screen. Override the <code>BuildUI</code> method and make calls to the ImGui API. For example, here's the <code>ImGuiWindow1</code> class that was used in the previous section:</p>
+<pre><code class="lang-csharp" highlight-lines="7,11">using Hexa.NET.ImGui;
+using SadConsole.ImGuiSystem;
+using System.Numerics;
+
+namespace SCTesting;
+
+internal class ImGuiWindow1 : SadConsole.ImGuiSystem.ImGuiObjectBase
+{
+    private Vector3 _clearColor = Color.White.ToVector3();
+
+    public override void BuildUI(ImGuiRenderer renderer)
+    {
+        if (ImGui.Begin(&quot;Operations&quot;))
+        {
+            // Run random garbage fill
+            if (ImGui.Button(&quot;Randomize&quot;))
+                ((IScreenSurface)GameHost.Instance.Screen!.Children[0]).Surface.FillWithRandomGarbage(255);
+
+            // Add a random box
+            if (ImGui.Button(&quot;Add box&quot;))
+            {
+                IScreenSurface surface = (IScreenSurface)GameHost.Instance.Screen!.Children[0];
+
+                int x = GameHost.Instance.Random.Next(0, surface.Surface.Width - 10);
+                int y = GameHost.Instance.Random.Next(0, surface.Surface.Height - 10);
+
+                Rectangle area = new(x, y,
+                                     GameHost.Instance.Random.Next(5, surface.Surface.Width - x),
+                                     GameHost.Instance.Random.Next(4, surface.Surface.Height - y));
+
+                ShapeParameters shape = ShapeParameters.CreateStyledBoxFilled(ICellSurface.ConnectedLineThin,
+                                                                              new ColoredGlyph(Color.White.GetRandomColor(GameHost.Instance.Random),
+                                                                                               Color.White.GetRandomColor(GameHost.Instance.Random)),
+                                                                              new ColoredGlyph(Color.White.GetRandomColor(GameHost.Instance.Random),
+                                                                                               Color.White.GetRandomColor(GameHost.Instance.Random))
+                                                                              );
+
+                SadConsole.Instructions.AnimatedBoxGrow box = new(area, TimeSpan.FromSeconds(0.5d), shape);
+                box.RemoveOnFinished = true;
+                surface.SadComponents.Add(box);
+            }
+
+            // Color picking control. When the color changes, fill the surface
+            ImGui.Separator();
+            ImGui.Text(&quot;Set all cell backgrounds&quot;);
+            ImGui.SetNextItemWidth(150);
+            if (ImGui.ColorPicker3(&quot;##clearcolor&quot;, ref _clearColor, ImGuiColorEditFlags.NoInputs | ImGuiColorEditFlags.NoSidePreview))
+                ((IScreenSurface)GameHost.Instance.Screen!.Children[0]).Surface.Fill(background: _clearColor.ToColor());
+        }
+        ImGui.End();
+    }
+}
+</code></pre>
+<p>This ImGui code generates the following UI:</p>
+<p><img src="images/how-to-use-imgui/example.png" alt="A SadConsole screen with a ImGui UI over the top of it."></p>
+<h2 id="how-to-find-the-monogame-component">How to find the MonoGame component</h2>
+<p>After SadConsole starts and creates the ImGui Game Component, you can retrieve reference to it through the MonoGame Game:</p>
+<pre><code class="lang-csharp">SadConsole.Game.Instance.MonoGameInstance.Components.OfType&lt;SadConsole.ImGuiSystem.ImGuiMonoGameComponent&gt;().First()
+</code></pre>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-3" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+                <p><a class="back-to-top" href="#top">Back to top</a><p>
+              </p></nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
