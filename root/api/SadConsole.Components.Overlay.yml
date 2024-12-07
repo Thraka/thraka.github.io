@@ -7,8 +7,12 @@ items:
   children:
   - SadConsole.Components.Overlay.#ctor
   - SadConsole.Components.Overlay.ClearOnAdd
+  - SadConsole.Components.Overlay.Dispose
+  - SadConsole.Components.Overlay.Dispose(System.Boolean)
+  - SadConsole.Components.Overlay.Finalize
   - SadConsole.Components.Overlay.OnAdded(SadConsole.IScreenObject)
   - SadConsole.Components.Overlay.OnRemoved(SadConsole.IScreenObject)
+  - SadConsole.Components.Overlay.RenderStep
   - SadConsole.Components.Overlay.Surface
   - SadConsole.Components.Overlay.Update(SadConsole.IScreenObject,System.TimeSpan)
   langs:
@@ -24,22 +28,46 @@ items:
   summary: A surface that's rendered on top of a host surface.
   example: []
   syntax:
-    content: 'public class Overlay : UpdateComponent, IComponent'
-    content.vb: Public Class Overlay Inherits UpdateComponent Implements IComponent
+    content: 'public sealed class Overlay : UpdateComponent, IComponent, IDisposable'
+    content.vb: Public NotInheritable Class Overlay Inherits UpdateComponent Implements IComponent, IDisposable
   inheritance:
   - System.Object
   - SadConsole.Components.UpdateComponent
   implements:
   - SadConsole.Components.IComponent
+  - System.IDisposable
   inheritedMembers:
   - SadConsole.Components.UpdateComponent.SortOrder
   - System.Object.GetType
-  - System.Object.MemberwiseClone
   - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+  extensionMethods:
+  - System.Object.SadConsole.ExtensionsSystem.GetDebuggerDisplayValue
+- uid: SadConsole.Components.Overlay.RenderStep
+  commentId: F:SadConsole.Components.Overlay.RenderStep
+  id: RenderStep
+  parent: SadConsole.Components.Overlay
+  langs:
+  - csharp
+  - vb
+  name: RenderStep
+  nameWithType: Overlay.RenderStep
+  fullName: SadConsole.Components.Overlay.RenderStep
+  type: Field
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: Internal use.
+  remarks: The render step used to draw the overlay. This render step is added to the host object and should draw the <xref href="SadConsole.Components.Overlay.Surface" data-throw-if-not-resolved="false"></xref> of the Overlay component.
+  example: []
+  syntax:
+    content: public IRenderStep? RenderStep
+    return:
+      type: SadConsole.Renderers.IRenderStep
+    content.vb: Public RenderStep As IRenderStep
 - uid: SadConsole.Components.Overlay.OnAdded(SadConsole.IScreenObject)
   commentId: M:SadConsole.Components.Overlay.OnAdded(SadConsole.IScreenObject)
   id: OnAdded(SadConsole.IScreenObject)
@@ -118,6 +146,74 @@ items:
     content.vb: Public Overrides Sub Update(host As IScreenObject, delta As TimeSpan)
   overridden: SadConsole.Components.UpdateComponent.Update(SadConsole.IScreenObject,System.TimeSpan)
   overload: SadConsole.Components.Overlay.Update*
+- uid: SadConsole.Components.Overlay.Dispose(System.Boolean)
+  commentId: M:SadConsole.Components.Overlay.Dispose(System.Boolean)
+  id: Dispose(System.Boolean)
+  parent: SadConsole.Components.Overlay
+  langs:
+  - csharp
+  - vb
+  name: Dispose(bool)
+  nameWithType: Overlay.Dispose(bool)
+  fullName: SadConsole.Components.Overlay.Dispose(bool)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  example: []
+  syntax:
+    content: protected void Dispose(bool disposing)
+    parameters:
+    - id: disposing
+      type: System.Boolean
+    content.vb: Protected Sub Dispose(disposing As Boolean)
+  overload: SadConsole.Components.Overlay.Dispose*
+  nameWithType.vb: Overlay.Dispose(Boolean)
+  fullName.vb: SadConsole.Components.Overlay.Dispose(Boolean)
+  name.vb: Dispose(Boolean)
+- uid: SadConsole.Components.Overlay.Finalize
+  commentId: M:SadConsole.Components.Overlay.Finalize
+  id: Finalize
+  parent: SadConsole.Components.Overlay
+  langs:
+  - csharp
+  - vb
+  name: ~Overlay()
+  nameWithType: Overlay.~Overlay()
+  fullName: SadConsole.Components.Overlay.~Overlay()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  example: []
+  syntax:
+    content: protected ~Overlay()
+    content.vb: 'Protected '
+  overload: SadConsole.Components.Overlay.Finalize*
+  nameWithType.vb: ''
+  fullName.vb: ''
+  name.vb: ''
+- uid: SadConsole.Components.Overlay.Dispose
+  commentId: M:SadConsole.Components.Overlay.Dispose
+  id: Dispose
+  parent: SadConsole.Components.Overlay
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: Overlay.Dispose()
+  fullName: SadConsole.Components.Overlay.Dispose()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: SadConsole.Components.Overlay.Dispose*
+  implements:
+  - System.IDisposable.Dispose
 - uid: SadConsole.Components.Overlay.#ctor
   commentId: M:SadConsole.Components.Overlay.#ctor
   id: '#ctor'
@@ -156,7 +252,7 @@ items:
   summary: A surface that's sized to match.
   example: []
   syntax:
-    content: public ScreenSurface Surface { get; }
+    content: public ScreenSurface? Surface { get; }
     parameters: []
     return:
       type: SadConsole.ScreenSurface
@@ -240,6 +336,14 @@ references:
   name: IComponent
   nameWithType: IComponent
   fullName: SadConsole.Components.IComponent
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
 - uid: SadConsole.Components.UpdateComponent.SortOrder
   commentId: P:SadConsole.Components.UpdateComponent.SortOrder
   parent: SadConsole.Components.UpdateComponent
@@ -270,30 +374,6 @@ references:
     name: GetType
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object.gettype
-  - name: (
-  - name: )
-- uid: System.Object.MemberwiseClone
-  commentId: M:System.Object.MemberwiseClone
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  name: MemberwiseClone()
-  nameWithType: object.MemberwiseClone()
-  fullName: object.MemberwiseClone()
-  nameWithType.vb: Object.MemberwiseClone()
-  fullName.vb: Object.MemberwiseClone()
-  spec.csharp:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.MemberwiseClone
-    name: MemberwiseClone
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
   - name: )
 - uid: System.Object.ToString
@@ -467,6 +547,39 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
+- uid: System.Object.SadConsole.ExtensionsSystem.GetDebuggerDisplayValue
+  commentId: M:SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  parent: SadConsole.ExtensionsSystem
+  definition: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  name: GetDebuggerDisplayValue(object)
+  nameWithType: ExtensionsSystem.GetDebuggerDisplayValue(object)
+  fullName: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(object)
+  nameWithType.vb: ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  fullName.vb: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  name.vb: GetDebuggerDisplayValue(Object)
+  spec.csharp:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -474,6 +587,95 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  commentId: M:SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  isExternal: true
+  href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  name: GetDebuggerDisplayValue(object)
+  nameWithType: ExtensionsSystem.GetDebuggerDisplayValue(object)
+  fullName: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(object)
+  nameWithType.vb: ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  fullName.vb: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  name.vb: GetDebuggerDisplayValue(Object)
+  spec.csharp:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: SadConsole.ExtensionsSystem
+  commentId: T:SadConsole.ExtensionsSystem
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ExtensionsSystem.html
+  name: ExtensionsSystem
+  nameWithType: ExtensionsSystem
+  fullName: SadConsole.ExtensionsSystem
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
+- uid: SadConsole.Components.Overlay.Surface
+  commentId: P:SadConsole.Components.Overlay.Surface
+  isExternal: true
+  href: SadConsole.Components.Overlay.html#SadConsole_Components_Overlay_Surface
+  name: Surface
+  nameWithType: Overlay.Surface
+  fullName: SadConsole.Components.Overlay.Surface
+- uid: SadConsole.Renderers.IRenderStep
+  commentId: T:SadConsole.Renderers.IRenderStep
+  parent: SadConsole.Renderers
+  isExternal: true
+  href: SadConsole.Renderers.IRenderStep.html
+  name: IRenderStep
+  nameWithType: IRenderStep
+  fullName: SadConsole.Renderers.IRenderStep
+- uid: SadConsole.Renderers
+  commentId: N:SadConsole.Renderers
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Renderers
+  nameWithType: SadConsole.Renderers
+  fullName: SadConsole.Renderers
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Renderers
+    name: Renderers
+    isExternal: true
+    href: SadConsole.Renderers.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Renderers
+    name: Renderers
+    isExternal: true
+    href: SadConsole.Renderers.html
 - uid: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
   commentId: M:SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
   parent: SadConsole.Components.UpdateComponent
@@ -519,13 +721,6 @@ references:
   name: IScreenObject
   nameWithType: IScreenObject
   fullName: SadConsole.IScreenObject
-- uid: SadConsole
-  commentId: N:SadConsole
-  isExternal: true
-  href: SadConsole.html
-  name: SadConsole
-  nameWithType: SadConsole
-  fullName: SadConsole
 - uid: SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
   commentId: M:SadConsole.Components.UpdateComponent.OnRemoved(SadConsole.IScreenObject)
   parent: SadConsole.Components.UpdateComponent
@@ -620,6 +815,59 @@ references:
   name: TimeSpan
   nameWithType: TimeSpan
   fullName: System.TimeSpan
+- uid: SadConsole.Components.Overlay.Dispose*
+  commentId: Overload:SadConsole.Components.Overlay.Dispose
+  isExternal: true
+  href: SadConsole.Components.Overlay.html#SadConsole_Components_Overlay_Dispose_System_Boolean_
+  name: Dispose
+  nameWithType: Overlay.Dispose
+  fullName: SadConsole.Components.Overlay.Dispose
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: SadConsole.Components.Overlay.Finalize*
+  commentId: Overload:SadConsole.Components.Overlay.Finalize
+  isExternal: true
+  href: SadConsole.Components.Overlay.html#SadConsole_Components_Overlay_Finalize
+  name: ~Overlay
+  nameWithType: Overlay.~Overlay
+  fullName: SadConsole.Components.Overlay.~Overlay
+  spec.csharp:
+  - name: "~"
+  - uid: SadConsole.Components.Overlay.Finalize*
+    name: Overlay
+    isExternal: true
+    href: SadConsole.Components.Overlay.html#SadConsole_Components_Overlay_Finalize
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
 - uid: SadConsole.Components.Overlay.#ctor*
   commentId: Overload:SadConsole.Components.Overlay.#ctor
   isExternal: true
@@ -645,13 +893,6 @@ references:
   name: ScreenSurface
   nameWithType: ScreenSurface
   fullName: SadConsole.ScreenSurface
-- uid: SadConsole.Components.Overlay.Surface
-  commentId: P:SadConsole.Components.Overlay.Surface
-  isExternal: true
-  href: SadConsole.Components.Overlay.html#SadConsole_Components_Overlay_Surface
-  name: Surface
-  nameWithType: Overlay.Surface
-  fullName: SadConsole.Components.Overlay.Surface
 - uid: SadConsole.IScreenSurface
   commentId: T:SadConsole.IScreenSurface
   parent: SadConsole
@@ -667,14 +908,3 @@ references:
   name: ClearOnAdd
   nameWithType: Overlay.ClearOnAdd
   fullName: SadConsole.Components.Overlay.ClearOnAdd
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean

@@ -44,11 +44,11 @@ items:
     content: >-
       [DataContract]
 
-      public class EntityManagerZoned : EntityManager, IList<Entity>, ICollection<Entity>, IEnumerable<Entity>, IEnumerable, IComponent
+      public class EntityManagerZoned : EntityManager, IList<Entity>, ICollection<Entity>, IEnumerable<Entity>, IEnumerable, IDisposable, IComponent
     content.vb: >-
       <DataContract>
 
-      Public Class EntityManagerZoned Inherits EntityManager Implements IList(Of Entity), ICollection(Of Entity), IEnumerable(Of Entity), IEnumerable, IComponent
+      Public Class EntityManagerZoned Inherits EntityManager Implements IList(Of Entity), ICollection(Of Entity), IEnumerable(Of Entity), IEnumerable, IDisposable, IComponent
   inheritance:
   - System.Object
   - SadConsole.Components.UpdateComponent
@@ -58,6 +58,7 @@ items:
   - System.Collections.Generic.ICollection{SadConsole.Entities.Entity}
   - System.Collections.Generic.IEnumerable{SadConsole.Entities.Entity}
   - System.Collections.IEnumerable
+  - System.IDisposable
   - SadConsole.Components.IComponent
   inheritedMembers:
   - SadConsole.Entities.EntityManager.IsAttached
@@ -87,6 +88,8 @@ items:
   - SadConsole.Entities.EntityManager.Contains(SadConsole.Entities.Entity)
   - SadConsole.Entities.EntityManager.CopyTo(SadConsole.Entities.Entity[],System.Int32)
   - SadConsole.Entities.EntityManager.GetEnumerator
+  - SadConsole.Entities.EntityManager.Dispose(System.Boolean)
+  - SadConsole.Entities.EntityManager.Dispose
   - SadConsole.Entities.EntityManager.Entities
   - SadConsole.Entities.EntityManager.EntitiesVisible
   - SadConsole.Entities.EntityManager.IsDirty
@@ -104,6 +107,8 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+  extensionMethods:
+  - System.Object.SadConsole.ExtensionsSystem.GetDebuggerDisplayValue
   attributes:
   - type: System.Runtime.Serialization.DataContractAttribute
     ctor: System.Runtime.Serialization.DataContractAttribute.#ctor
@@ -907,6 +912,14 @@ references:
   name: IEnumerable
   nameWithType: IEnumerable
   fullName: System.Collections.IEnumerable
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
 - uid: SadConsole.Components.IComponent
   commentId: T:SadConsole.Components.IComponent
   parent: SadConsole.Components
@@ -1517,6 +1530,56 @@ references:
     isExternal: true
   - name: (
   - name: )
+- uid: SadConsole.Entities.EntityManager.Dispose(System.Boolean)
+  commentId: M:SadConsole.Entities.EntityManager.Dispose(System.Boolean)
+  parent: SadConsole.Entities.EntityManager
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: Dispose(bool)
+  nameWithType: EntityManager.Dispose(bool)
+  fullName: SadConsole.Entities.EntityManager.Dispose(bool)
+  nameWithType.vb: EntityManager.Dispose(Boolean)
+  fullName.vb: SadConsole.Entities.EntityManager.Dispose(Boolean)
+  name.vb: Dispose(Boolean)
+  spec.csharp:
+  - uid: SadConsole.Entities.EntityManager.Dispose(System.Boolean)
+    name: Dispose
+    isExternal: true
+  - name: (
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Entities.EntityManager.Dispose(System.Boolean)
+    name: Dispose
+    isExternal: true
+  - name: (
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: SadConsole.Entities.EntityManager.Dispose
+  commentId: M:SadConsole.Entities.EntityManager.Dispose
+  parent: SadConsole.Entities.EntityManager
+  isExternal: true
+  name: Dispose()
+  nameWithType: EntityManager.Dispose()
+  fullName: SadConsole.Entities.EntityManager.Dispose()
+  spec.csharp:
+  - uid: SadConsole.Entities.EntityManager.Dispose
+    name: Dispose
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.Entities.EntityManager.Dispose
+    name: Dispose
+    isExternal: true
+  - name: (
+  - name: )
 - uid: SadConsole.Entities.EntityManager.Entities
   commentId: P:SadConsole.Entities.EntityManager.Entities
   parent: SadConsole.Entities.EntityManager
@@ -1830,6 +1893,39 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
+- uid: System.Object.SadConsole.ExtensionsSystem.GetDebuggerDisplayValue
+  commentId: M:SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  parent: SadConsole.ExtensionsSystem
+  definition: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  name: GetDebuggerDisplayValue(object)
+  nameWithType: ExtensionsSystem.GetDebuggerDisplayValue(object)
+  fullName: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(object)
+  nameWithType.vb: ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  fullName.vb: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  name.vb: GetDebuggerDisplayValue(Object)
+  spec.csharp:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
 - uid: SadConsole
   commentId: N:SadConsole
   isExternal: true
@@ -2019,6 +2115,46 @@ references:
     name: Collections
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections
+- uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  commentId: M:SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  isExternal: true
+  href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  name: GetDebuggerDisplayValue(object)
+  nameWithType: ExtensionsSystem.GetDebuggerDisplayValue(object)
+  fullName: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(object)
+  nameWithType.vb: ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  fullName.vb: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  name.vb: GetDebuggerDisplayValue(Object)
+  spec.csharp:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: SadConsole.ExtensionsSystem
+  commentId: T:SadConsole.ExtensionsSystem
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ExtensionsSystem.html
+  name: ExtensionsSystem
+  nameWithType: ExtensionsSystem
+  fullName: SadConsole.ExtensionsSystem
 - uid: System.Collections.Generic.List{SadConsole.Entities.Zone}
   commentId: T:System.Collections.Generic.List{SadConsole.Entities.Zone}
   parent: System.Collections.Generic

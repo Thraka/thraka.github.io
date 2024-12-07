@@ -6,8 +6,11 @@ items:
   parent: SadConsole.Configuration
   children:
   - SadConsole.Configuration.ExtensionsHost.ShowMonoGameFPS(SadConsole.Configuration.Builder)
+  - SadConsole.Configuration.ExtensionsHost.SkipMonoGameGameCreation(SadConsole.Configuration.Builder)
+  - SadConsole.Configuration.ExtensionsHost.UseTitleContainer(SadConsole.Configuration.Builder)
   - SadConsole.Configuration.ExtensionsHost.UseUnlimitedFPS(SadConsole.Configuration.Builder)
-  - SadConsole.Configuration.ExtensionsHost.WithMonoGameCtor(SadConsole.Configuration.Builder,System.Action{SadConsole.Host.Game})
+  - SadConsole.Configuration.ExtensionsHost.WithMonoGameCtor(SadConsole.Configuration.Builder,System.Action{Microsoft.Xna.Framework.Game})
+  - SadConsole.Configuration.ExtensionsHost.WithMonoGameInit(SadConsole.Configuration.Builder,System.Action{Microsoft.Xna.Framework.Game})
   langs:
   - csharp
   - vb
@@ -87,9 +90,37 @@ items:
       description: The configuration builder.
     content.vb: Public Shared Function ShowMonoGameFPS(configBuilder As Builder) As Builder
   overload: SadConsole.Configuration.ExtensionsHost.ShowMonoGameFPS*
-- uid: SadConsole.Configuration.ExtensionsHost.WithMonoGameCtor(SadConsole.Configuration.Builder,System.Action{SadConsole.Host.Game})
-  commentId: M:SadConsole.Configuration.ExtensionsHost.WithMonoGameCtor(SadConsole.Configuration.Builder,System.Action{SadConsole.Host.Game})
-  id: WithMonoGameCtor(SadConsole.Configuration.Builder,System.Action{SadConsole.Host.Game})
+- uid: SadConsole.Configuration.ExtensionsHost.UseTitleContainer(SadConsole.Configuration.Builder)
+  commentId: M:SadConsole.Configuration.ExtensionsHost.UseTitleContainer(SadConsole.Configuration.Builder)
+  id: UseTitleContainer(SadConsole.Configuration.Builder)
+  isExtensionMethod: true
+  parent: SadConsole.Configuration.ExtensionsHost
+  langs:
+  - csharp
+  - vb
+  name: UseTitleContainer(Builder)
+  nameWithType: ExtensionsHost.UseTitleContainer(Builder)
+  fullName: SadConsole.Configuration.ExtensionsHost.UseTitleContainer(SadConsole.Configuration.Builder)
+  type: Method
+  assemblies:
+  - SadConsole.Host.MonoGame
+  namespace: SadConsole.Configuration
+  summary: Tells the game host to use the <xref href="Microsoft.Xna.Framework.TitleContainer" data-throw-if-not-resolved="false"></xref> to open streams for reading.
+  example: []
+  syntax:
+    content: public static Builder UseTitleContainer(this Builder configBuilder)
+    parameters:
+    - id: configBuilder
+      type: SadConsole.Configuration.Builder
+      description: The builder object that composes the game startup.
+    return:
+      type: SadConsole.Configuration.Builder
+      description: The configuration object.
+    content.vb: Public Shared Function UseTitleContainer(configBuilder As Builder) As Builder
+  overload: SadConsole.Configuration.ExtensionsHost.UseTitleContainer*
+- uid: SadConsole.Configuration.ExtensionsHost.WithMonoGameCtor(SadConsole.Configuration.Builder,System.Action{Microsoft.Xna.Framework.Game})
+  commentId: M:SadConsole.Configuration.ExtensionsHost.WithMonoGameCtor(SadConsole.Configuration.Builder,System.Action{Microsoft.Xna.Framework.Game})
+  id: WithMonoGameCtor(SadConsole.Configuration.Builder,System.Action{Microsoft.Xna.Framework.Game})
   isExtensionMethod: true
   parent: SadConsole.Configuration.ExtensionsHost
   langs:
@@ -97,7 +128,7 @@ items:
   - vb
   name: WithMonoGameCtor(Builder, Action<Game>)
   nameWithType: ExtensionsHost.WithMonoGameCtor(Builder, Action<Game>)
-  fullName: SadConsole.Configuration.ExtensionsHost.WithMonoGameCtor(SadConsole.Configuration.Builder, System.Action<SadConsole.Host.Game>)
+  fullName: SadConsole.Configuration.ExtensionsHost.WithMonoGameCtor(SadConsole.Configuration.Builder, System.Action<Microsoft.Xna.Framework.Game>)
   type: Method
   assemblies:
   - SadConsole.Host.MonoGame
@@ -111,7 +142,7 @@ items:
       type: SadConsole.Configuration.Builder
       description: The builder object that composes the game startup.
     - id: monogameCtorCallback
-      type: System.Action{SadConsole.Host.Game}
+      type: System.Action{Microsoft.Xna.Framework.Game}
       description: A method.
     return:
       type: SadConsole.Configuration.Builder
@@ -119,8 +150,70 @@ items:
     content.vb: Public Shared Function WithMonoGameCtor(configBuilder As Builder, monogameCtorCallback As Action(Of Game)) As Builder
   overload: SadConsole.Configuration.ExtensionsHost.WithMonoGameCtor*
   nameWithType.vb: ExtensionsHost.WithMonoGameCtor(Builder, Action(Of Game))
-  fullName.vb: SadConsole.Configuration.ExtensionsHost.WithMonoGameCtor(SadConsole.Configuration.Builder, System.Action(Of SadConsole.Host.Game))
+  fullName.vb: SadConsole.Configuration.ExtensionsHost.WithMonoGameCtor(SadConsole.Configuration.Builder, System.Action(Of Microsoft.Xna.Framework.Game))
   name.vb: WithMonoGameCtor(Builder, Action(Of Game))
+- uid: SadConsole.Configuration.ExtensionsHost.WithMonoGameInit(SadConsole.Configuration.Builder,System.Action{Microsoft.Xna.Framework.Game})
+  commentId: M:SadConsole.Configuration.ExtensionsHost.WithMonoGameInit(SadConsole.Configuration.Builder,System.Action{Microsoft.Xna.Framework.Game})
+  id: WithMonoGameInit(SadConsole.Configuration.Builder,System.Action{Microsoft.Xna.Framework.Game})
+  isExtensionMethod: true
+  parent: SadConsole.Configuration.ExtensionsHost
+  langs:
+  - csharp
+  - vb
+  name: WithMonoGameInit(Builder, Action<Game>)
+  nameWithType: ExtensionsHost.WithMonoGameInit(Builder, Action<Game>)
+  fullName: SadConsole.Configuration.ExtensionsHost.WithMonoGameInit(SadConsole.Configuration.Builder, System.Action<Microsoft.Xna.Framework.Game>)
+  type: Method
+  assemblies:
+  - SadConsole.Host.MonoGame
+  namespace: SadConsole.Configuration
+  summary: Internal only. Called by the MonoGame game to finish configuring SadConsole.
+  example: []
+  syntax:
+    content: public static Builder WithMonoGameInit(this Builder configBuilder, Action<Game> monogameInitCallback)
+    parameters:
+    - id: configBuilder
+      type: SadConsole.Configuration.Builder
+      description: The builder object that composes the game startup.
+    - id: monogameInitCallback
+      type: System.Action{Microsoft.Xna.Framework.Game}
+      description: A method.
+    return:
+      type: SadConsole.Configuration.Builder
+      description: The configuration object.
+    content.vb: Public Shared Function WithMonoGameInit(configBuilder As Builder, monogameInitCallback As Action(Of Game)) As Builder
+  overload: SadConsole.Configuration.ExtensionsHost.WithMonoGameInit*
+  nameWithType.vb: ExtensionsHost.WithMonoGameInit(Builder, Action(Of Game))
+  fullName.vb: SadConsole.Configuration.ExtensionsHost.WithMonoGameInit(SadConsole.Configuration.Builder, System.Action(Of Microsoft.Xna.Framework.Game))
+  name.vb: WithMonoGameInit(Builder, Action(Of Game))
+- uid: SadConsole.Configuration.ExtensionsHost.SkipMonoGameGameCreation(SadConsole.Configuration.Builder)
+  commentId: M:SadConsole.Configuration.ExtensionsHost.SkipMonoGameGameCreation(SadConsole.Configuration.Builder)
+  id: SkipMonoGameGameCreation(SadConsole.Configuration.Builder)
+  isExtensionMethod: true
+  parent: SadConsole.Configuration.ExtensionsHost
+  langs:
+  - csharp
+  - vb
+  name: SkipMonoGameGameCreation(Builder)
+  nameWithType: ExtensionsHost.SkipMonoGameGameCreation(Builder)
+  fullName: SadConsole.Configuration.ExtensionsHost.SkipMonoGameGameCreation(SadConsole.Configuration.Builder)
+  type: Method
+  assemblies:
+  - SadConsole.Host.MonoGame
+  namespace: SadConsole.Configuration
+  summary: When called, tells the game host not to create the monogame game instance at <xref href="SadConsole.Game.MonoGameInstance" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static Builder SkipMonoGameGameCreation(this Builder configBuilder)
+    parameters:
+    - id: configBuilder
+      type: SadConsole.Configuration.Builder
+      description: The builder object that composes the game startup.
+    return:
+      type: SadConsole.Configuration.Builder
+      description: The configuration object.
+    content.vb: Public Shared Function SkipMonoGameGameCreation(configBuilder As Builder) As Builder
+  overload: SadConsole.Configuration.ExtensionsHost.SkipMonoGameGameCreation*
 references:
 - uid: SadConsole.Configuration
   commentId: N:SadConsole.Configuration
@@ -408,23 +501,36 @@ references:
   name: ShowMonoGameFPS
   nameWithType: ExtensionsHost.ShowMonoGameFPS
   fullName: SadConsole.Configuration.ExtensionsHost.ShowMonoGameFPS
+- uid: Microsoft.Xna.Framework.TitleContainer
+  commentId: T:Microsoft.Xna.Framework.TitleContainer
+  isExternal: true
+  name: TitleContainer
+  nameWithType: TitleContainer
+  fullName: Microsoft.Xna.Framework.TitleContainer
+- uid: SadConsole.Configuration.ExtensionsHost.UseTitleContainer*
+  commentId: Overload:SadConsole.Configuration.ExtensionsHost.UseTitleContainer
+  isExternal: true
+  href: SadConsole.Configuration.ExtensionsHost.html#SadConsole_Configuration_ExtensionsHost_UseTitleContainer_SadConsole_Configuration_Builder_
+  name: UseTitleContainer
+  nameWithType: ExtensionsHost.UseTitleContainer
+  fullName: SadConsole.Configuration.ExtensionsHost.UseTitleContainer
 - uid: SadConsole.Configuration.ExtensionsHost.WithMonoGameCtor*
   commentId: Overload:SadConsole.Configuration.ExtensionsHost.WithMonoGameCtor
   isExternal: true
-  href: SadConsole.Configuration.ExtensionsHost.html#SadConsole_Configuration_ExtensionsHost_WithMonoGameCtor_SadConsole_Configuration_Builder_System_Action_SadConsole_Host_Game__
+  href: SadConsole.Configuration.ExtensionsHost.html#SadConsole_Configuration_ExtensionsHost_WithMonoGameCtor_SadConsole_Configuration_Builder_System_Action_Microsoft_Xna_Framework_Game__
   name: WithMonoGameCtor
   nameWithType: ExtensionsHost.WithMonoGameCtor
   fullName: SadConsole.Configuration.ExtensionsHost.WithMonoGameCtor
-- uid: System.Action{SadConsole.Host.Game}
-  commentId: T:System.Action{SadConsole.Host.Game}
+- uid: System.Action{Microsoft.Xna.Framework.Game}
+  commentId: T:System.Action{Microsoft.Xna.Framework.Game}
   parent: System
   definition: System.Action`1
   href: https://learn.microsoft.com/dotnet/api/system.action-1
   name: Action<Game>
   nameWithType: Action<Game>
-  fullName: System.Action<SadConsole.Host.Game>
+  fullName: System.Action<Microsoft.Xna.Framework.Game>
   nameWithType.vb: Action(Of Game)
-  fullName.vb: System.Action(Of SadConsole.Host.Game)
+  fullName.vb: System.Action(Of Microsoft.Xna.Framework.Game)
   name.vb: Action(Of Game)
   spec.csharp:
   - uid: System.Action`1
@@ -432,10 +538,9 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.action-1
   - name: <
-  - uid: SadConsole.Host.Game
+  - uid: Microsoft.Xna.Framework.Game
     name: Game
     isExternal: true
-    href: SadConsole.Host.Game.html
   - name: '>'
   spec.vb:
   - uid: System.Action`1
@@ -445,10 +550,9 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: SadConsole.Host.Game
+  - uid: Microsoft.Xna.Framework.Game
     name: Game
     isExternal: true
-    href: SadConsole.Host.Game.html
   - name: )
 - uid: System.Action`1
   commentId: T:System.Action`1
@@ -478,3 +582,24 @@ references:
   - name: " "
   - name: T
   - name: )
+- uid: SadConsole.Configuration.ExtensionsHost.WithMonoGameInit*
+  commentId: Overload:SadConsole.Configuration.ExtensionsHost.WithMonoGameInit
+  isExternal: true
+  href: SadConsole.Configuration.ExtensionsHost.html#SadConsole_Configuration_ExtensionsHost_WithMonoGameInit_SadConsole_Configuration_Builder_System_Action_Microsoft_Xna_Framework_Game__
+  name: WithMonoGameInit
+  nameWithType: ExtensionsHost.WithMonoGameInit
+  fullName: SadConsole.Configuration.ExtensionsHost.WithMonoGameInit
+- uid: SadConsole.Game.MonoGameInstance
+  commentId: P:SadConsole.Game.MonoGameInstance
+  isExternal: true
+  href: SadConsole.Game.html#SadConsole_Game_MonoGameInstance
+  name: MonoGameInstance
+  nameWithType: Game.MonoGameInstance
+  fullName: SadConsole.Game.MonoGameInstance
+- uid: SadConsole.Configuration.ExtensionsHost.SkipMonoGameGameCreation*
+  commentId: Overload:SadConsole.Configuration.ExtensionsHost.SkipMonoGameGameCreation
+  isExternal: true
+  href: SadConsole.Configuration.ExtensionsHost.html#SadConsole_Configuration_ExtensionsHost_SkipMonoGameGameCreation_SadConsole_Configuration_Builder_
+  name: SkipMonoGameGameCreation
+  nameWithType: ExtensionsHost.SkipMonoGameGameCreation
+  fullName: SadConsole.Configuration.ExtensionsHost.SkipMonoGameGameCreation

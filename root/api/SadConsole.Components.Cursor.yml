@@ -19,6 +19,8 @@ items:
   - SadConsole.Components.Cursor.DefaultCursorGlyph
   - SadConsole.Components.Cursor.DisablePrintAutomaticLineFeed
   - SadConsole.Components.Cursor.DisableWordBreak
+  - SadConsole.Components.Cursor.Dispose
+  - SadConsole.Components.Cursor.Dispose(System.Boolean)
   - SadConsole.Components.Cursor.Down(System.Int32)
   - SadConsole.Components.Cursor.Erase(System.Int32)
   - SadConsole.Components.Cursor.EraseColumn(System.Int32)
@@ -27,6 +29,7 @@ items:
   - SadConsole.Components.Cursor.EraseRight(System.Int32)
   - SadConsole.Components.Cursor.EraseRow(System.Int32)
   - SadConsole.Components.Cursor.EraseUp(System.Int32)
+  - SadConsole.Components.Cursor.Finalize
   - SadConsole.Components.Cursor.IsEnabled
   - SadConsole.Components.Cursor.IsVisible
   - SadConsole.Components.Cursor.KeyboardPreview
@@ -78,17 +81,18 @@ items:
 
       [JsonObject(MemberSerialization = MemberSerialization.OptIn)]
 
-      public class Cursor : IComponent
+      public class Cursor : IComponent, IDisposable
     content.vb: >-
       <DataContract>
 
       <JsonObject(MemberSerialization:=MemberSerialization.OptIn)>
 
-      Public Class Cursor Implements IComponent
+      Public Class Cursor Implements IComponent, IDisposable
   inheritance:
   - System.Object
   implements:
   - SadConsole.Components.IComponent
+  - System.IDisposable
   inheritedMembers:
   - System.Object.GetType
   - System.Object.MemberwiseClone
@@ -97,6 +101,8 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+  extensionMethods:
+  - System.Object.SadConsole.ExtensionsSystem.GetDebuggerDisplayValue
   attributes:
   - type: System.Runtime.Serialization.DataContractAttribute
     ctor: System.Runtime.Serialization.DataContractAttribute.#ctor
@@ -1002,6 +1008,74 @@ items:
   nameWithType.vb: Cursor.EraseRight(Integer)
   fullName.vb: SadConsole.Components.Cursor.EraseRight(Integer)
   name.vb: EraseRight(Integer)
+- uid: SadConsole.Components.Cursor.Dispose(System.Boolean)
+  commentId: M:SadConsole.Components.Cursor.Dispose(System.Boolean)
+  id: Dispose(System.Boolean)
+  parent: SadConsole.Components.Cursor
+  langs:
+  - csharp
+  - vb
+  name: Dispose(bool)
+  nameWithType: Cursor.Dispose(bool)
+  fullName: SadConsole.Components.Cursor.Dispose(bool)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  example: []
+  syntax:
+    content: protected virtual void Dispose(bool disposing)
+    parameters:
+    - id: disposing
+      type: System.Boolean
+    content.vb: Protected Overridable Sub Dispose(disposing As Boolean)
+  overload: SadConsole.Components.Cursor.Dispose*
+  nameWithType.vb: Cursor.Dispose(Boolean)
+  fullName.vb: SadConsole.Components.Cursor.Dispose(Boolean)
+  name.vb: Dispose(Boolean)
+- uid: SadConsole.Components.Cursor.Finalize
+  commentId: M:SadConsole.Components.Cursor.Finalize
+  id: Finalize
+  parent: SadConsole.Components.Cursor
+  langs:
+  - csharp
+  - vb
+  name: ~Cursor()
+  nameWithType: Cursor.~Cursor()
+  fullName: SadConsole.Components.Cursor.~Cursor()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  example: []
+  syntax:
+    content: protected ~Cursor()
+    content.vb: 'Protected '
+  overload: SadConsole.Components.Cursor.Finalize*
+  nameWithType.vb: ''
+  fullName.vb: ''
+  name.vb: ''
+- uid: SadConsole.Components.Cursor.Dispose
+  commentId: M:SadConsole.Components.Cursor.Dispose
+  id: Dispose
+  parent: SadConsole.Components.Cursor
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: Cursor.Dispose()
+  fullName: SadConsole.Components.Cursor.Dispose()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: SadConsole.Components.Cursor.Dispose*
+  implements:
+  - System.IDisposable.Dispose
 - uid: SadConsole.Components.Cursor.CursorRenderCell
   commentId: P:SadConsole.Components.Cursor.CursorRenderCell
   id: CursorRenderCell
@@ -1783,6 +1857,14 @@ references:
   name: IComponent
   nameWithType: IComponent
   fullName: SadConsole.Components.IComponent
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
 - uid: System.Object.GetType
   commentId: M:System.Object.GetType
   parent: System.Object
@@ -2002,6 +2084,39 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
+- uid: System.Object.SadConsole.ExtensionsSystem.GetDebuggerDisplayValue
+  commentId: M:SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  parent: SadConsole.ExtensionsSystem
+  definition: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  name: GetDebuggerDisplayValue(object)
+  nameWithType: ExtensionsSystem.GetDebuggerDisplayValue(object)
+  fullName: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(object)
+  nameWithType.vb: ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  fullName.vb: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  name.vb: GetDebuggerDisplayValue(Object)
+  spec.csharp:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
 - uid: SadConsole
   commentId: N:SadConsole
   isExternal: true
@@ -2016,6 +2131,46 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  commentId: M:SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  isExternal: true
+  href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  name: GetDebuggerDisplayValue(object)
+  nameWithType: ExtensionsSystem.GetDebuggerDisplayValue(object)
+  fullName: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(object)
+  nameWithType.vb: ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  fullName.vb: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  name.vb: GetDebuggerDisplayValue(Object)
+  spec.csharp:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: SadConsole.ExtensionsSystem
+  commentId: T:SadConsole.ExtensionsSystem
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ExtensionsSystem.html
+  name: ExtensionsSystem
+  nameWithType: ExtensionsSystem
+  fullName: SadConsole.ExtensionsSystem
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System
@@ -2479,6 +2634,59 @@ references:
   name: EraseRight
   nameWithType: Cursor.EraseRight
   fullName: SadConsole.Components.Cursor.EraseRight
+- uid: SadConsole.Components.Cursor.Dispose*
+  commentId: Overload:SadConsole.Components.Cursor.Dispose
+  isExternal: true
+  href: SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_Dispose_System_Boolean_
+  name: Dispose
+  nameWithType: Cursor.Dispose
+  fullName: SadConsole.Components.Cursor.Dispose
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: SadConsole.Components.Cursor.Finalize*
+  commentId: Overload:SadConsole.Components.Cursor.Finalize
+  isExternal: true
+  href: SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_Finalize
+  name: ~Cursor
+  nameWithType: Cursor.~Cursor
+  fullName: SadConsole.Components.Cursor.~Cursor
+  spec.csharp:
+  - name: "~"
+  - uid: SadConsole.Components.Cursor.Finalize*
+    name: Cursor
+    isExternal: true
+    href: SadConsole.Components.Cursor.html#SadConsole_Components_Cursor_Finalize
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
 - uid: SadConsole.Components.Cursor.CursorRenderCell*
   commentId: Overload:SadConsole.Components.Cursor.CursorRenderCell
   isExternal: true
@@ -2530,17 +2738,6 @@ references:
   name: PrintAppearanceMatchesHost
   nameWithType: Cursor.PrintAppearanceMatchesHost
   fullName: SadConsole.Components.Cursor.PrintAppearanceMatchesHost
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
 - uid: SadConsole.Components.Cursor.PrintEffect*
   commentId: Overload:SadConsole.Components.Cursor.PrintEffect
   isExternal: true

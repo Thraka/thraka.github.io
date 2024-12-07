@@ -6,7 +6,7 @@ items:
   parent: SadConsole.DrawCalls
   children:
   - SadConsole.DrawCalls.DrawCallManager.InterruptBatch
-  - SadConsole.DrawCalls.DrawCallManager.ResumeBatch
+  - SadConsole.DrawCalls.DrawCallManager.ResumeBatch(System.Boolean)
   langs:
   - csharp
   - vb
@@ -32,16 +32,16 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
-- uid: SadConsole.DrawCalls.DrawCallManager.ResumeBatch
-  commentId: M:SadConsole.DrawCalls.DrawCallManager.ResumeBatch
-  id: ResumeBatch
+- uid: SadConsole.DrawCalls.DrawCallManager.ResumeBatch(System.Boolean)
+  commentId: M:SadConsole.DrawCalls.DrawCallManager.ResumeBatch(System.Boolean)
+  id: ResumeBatch(System.Boolean)
   parent: SadConsole.DrawCalls.DrawCallManager
   langs:
   - csharp
   - vb
-  name: ResumeBatch()
-  nameWithType: DrawCallManager.ResumeBatch()
-  fullName: SadConsole.DrawCalls.DrawCallManager.ResumeBatch()
+  name: ResumeBatch(bool)
+  nameWithType: DrawCallManager.ResumeBatch(bool)
+  fullName: SadConsole.DrawCalls.DrawCallManager.ResumeBatch(bool)
   type: Method
   assemblies:
   - SadConsole.Host.MonoGame
@@ -49,9 +49,16 @@ items:
   summary: Resumes rendering to <xref href="SadConsole.Host.Global.RenderOutput" data-throw-if-not-resolved="false"></xref> with SadConsole's default settings.
   example: []
   syntax:
-    content: public static void ResumeBatch()
-    content.vb: Public Shared Sub ResumeBatch()
+    content: public static void ResumeBatch(bool skipSetRenderTarget = false)
+    parameters:
+    - id: skipSetRenderTarget
+      type: System.Boolean
+      description: When true, skips assinging <xref href="SadConsole.Host.Global.RenderOutput" data-throw-if-not-resolved="false"></xref> as the render target.
+    content.vb: Public Shared Sub ResumeBatch(skipSetRenderTarget As Boolean = False)
   overload: SadConsole.DrawCalls.DrawCallManager.ResumeBatch*
+  nameWithType.vb: DrawCallManager.ResumeBatch(Boolean)
+  fullName.vb: SadConsole.DrawCalls.DrawCallManager.ResumeBatch(Boolean)
+  name.vb: ResumeBatch(Boolean)
 - uid: SadConsole.DrawCalls.DrawCallManager.InterruptBatch
   commentId: M:SadConsole.DrawCalls.DrawCallManager.InterruptBatch
   id: InterruptBatch
@@ -354,10 +361,21 @@ references:
 - uid: SadConsole.DrawCalls.DrawCallManager.ResumeBatch*
   commentId: Overload:SadConsole.DrawCalls.DrawCallManager.ResumeBatch
   isExternal: true
-  href: SadConsole.DrawCalls.DrawCallManager.html#SadConsole_DrawCalls_DrawCallManager_ResumeBatch
+  href: SadConsole.DrawCalls.DrawCallManager.html#SadConsole_DrawCalls_DrawCallManager_ResumeBatch_System_Boolean_
   name: ResumeBatch
   nameWithType: DrawCallManager.ResumeBatch
   fullName: SadConsole.DrawCalls.DrawCallManager.ResumeBatch
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
 - uid: SadConsole.DrawCalls.DrawCallManager.InterruptBatch*
   commentId: Overload:SadConsole.DrawCalls.DrawCallManager.InterruptBatch
   isExternal: true

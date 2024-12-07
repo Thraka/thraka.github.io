@@ -5,12 +5,8 @@ items:
   id: Game
   parent: SadConsole.Host
   children:
-  - SadConsole.Host.Game.ClearScreenComponent
+  - SadConsole.Host.Game.#ctor
   - SadConsole.Host.Game.Initialize
-  - SadConsole.Host.Game.RecreateRenderOutput(System.Int32,System.Int32)
-  - SadConsole.Host.Game.ResetRendering
-  - SadConsole.Host.Game.ResizeGraphicsDeviceManager(Microsoft.Xna.Framework.Point,System.Int32,System.Int32,System.Int32,System.Int32)
-  - SadConsole.Host.Game.SadConsoleComponent
   - SadConsole.Host.Game.WindowHeight
   - SadConsole.Host.Game.WindowResized
   - SadConsole.Host.Game.WindowWidth
@@ -78,48 +74,31 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
-- uid: SadConsole.Host.Game.SadConsoleComponent
-  commentId: F:SadConsole.Host.Game.SadConsoleComponent
-  id: SadConsoleComponent
+  extensionMethods:
+  - System.Object.SadConsole.ExtensionsSystem.GetDebuggerDisplayValue
+- uid: SadConsole.Host.Game.#ctor
+  commentId: M:SadConsole.Host.Game.#ctor
+  id: '#ctor'
   parent: SadConsole.Host.Game
   langs:
   - csharp
   - vb
-  name: SadConsoleComponent
-  nameWithType: Game.SadConsoleComponent
-  fullName: SadConsole.Host.Game.SadConsoleComponent
-  type: Field
+  name: Game()
+  nameWithType: Game.Game()
+  fullName: SadConsole.Host.Game.Game()
+  type: Constructor
   assemblies:
   - SadConsole.Host.MonoGame
   namespace: SadConsole.Host
-  summary: The game component to control SadConsole updates, input, and rendering.
+  summary: Creates the new MonoGame game object.
   example: []
   syntax:
-    content: public Game.SadConsoleGameComponent SadConsoleComponent
-    return:
-      type: SadConsole.Host.Game.SadConsoleGameComponent
-    content.vb: Public SadConsoleComponent As Game.SadConsoleGameComponent
-- uid: SadConsole.Host.Game.ClearScreenComponent
-  commentId: F:SadConsole.Host.Game.ClearScreenComponent
-  id: ClearScreenComponent
-  parent: SadConsole.Host.Game
-  langs:
-  - csharp
-  - vb
-  name: ClearScreenComponent
-  nameWithType: Game.ClearScreenComponent
-  fullName: SadConsole.Host.Game.ClearScreenComponent
-  type: Field
-  assemblies:
-  - SadConsole.Host.MonoGame
-  namespace: SadConsole.Host
-  summary: The game component that clears the render output before each frame draw.
-  example: []
-  syntax:
-    content: public Game.ClearScreenGameComponent ClearScreenComponent
-    return:
-      type: SadConsole.Host.Game.ClearScreenGameComponent
-    content.vb: Public ClearScreenComponent As Game.ClearScreenGameComponent
+    content: public Game()
+    content.vb: Public Sub New()
+  overload: SadConsole.Host.Game.#ctor*
+  nameWithType.vb: Game.New()
+  fullName.vb: SadConsole.Host.Game.New()
+  name.vb: New()
 - uid: SadConsole.Host.Game.Initialize
   commentId: M:SadConsole.Host.Game.Initialize
   id: Initialize
@@ -140,95 +119,6 @@ items:
     content.vb: Protected Overrides Sub Initialize()
   overridden: Microsoft.Xna.Framework.Game.Initialize
   overload: SadConsole.Host.Game.Initialize*
-- uid: SadConsole.Host.Game.ResizeGraphicsDeviceManager(Microsoft.Xna.Framework.Point,System.Int32,System.Int32,System.Int32,System.Int32)
-  commentId: M:SadConsole.Host.Game.ResizeGraphicsDeviceManager(Microsoft.Xna.Framework.Point,System.Int32,System.Int32,System.Int32,System.Int32)
-  id: ResizeGraphicsDeviceManager(Microsoft.Xna.Framework.Point,System.Int32,System.Int32,System.Int32,System.Int32)
-  parent: SadConsole.Host.Game
-  langs:
-  - csharp
-  - vb
-  name: ResizeGraphicsDeviceManager(Point, int, int, int, int)
-  nameWithType: Game.ResizeGraphicsDeviceManager(Point, int, int, int, int)
-  fullName: SadConsole.Host.Game.ResizeGraphicsDeviceManager(Microsoft.Xna.Framework.Point, int, int, int, int)
-  type: Method
-  assemblies:
-  - SadConsole.Host.MonoGame
-  namespace: SadConsole.Host
-  summary: Resizes the <xref href="SadConsole.Host.Global.GraphicsDeviceManager" data-throw-if-not-resolved="false"></xref> by the specified font size.
-  example: []
-  syntax:
-    content: public void ResizeGraphicsDeviceManager(Point fontSize, int width, int height, int additionalWidth, int additionalHeight)
-    parameters:
-    - id: fontSize
-      type: Microsoft.Xna.Framework.Point
-      description: The size of the font to base the final values on.
-    - id: width
-      type: System.Int32
-      description: The count of glyphs along the X-axis.
-    - id: height
-      type: System.Int32
-      description: The count of glyphs along the Y-axis.
-    - id: additionalWidth
-      type: System.Int32
-      description: Additional pixel width to add to the resize.
-    - id: additionalHeight
-      type: System.Int32
-      description: Additional pixel height to add to the resize.
-    content.vb: Public Sub ResizeGraphicsDeviceManager(fontSize As Point, width As Integer, height As Integer, additionalWidth As Integer, additionalHeight As Integer)
-  overload: SadConsole.Host.Game.ResizeGraphicsDeviceManager*
-  nameWithType.vb: Game.ResizeGraphicsDeviceManager(Point, Integer, Integer, Integer, Integer)
-  fullName.vb: SadConsole.Host.Game.ResizeGraphicsDeviceManager(Microsoft.Xna.Framework.Point, Integer, Integer, Integer, Integer)
-  name.vb: ResizeGraphicsDeviceManager(Point, Integer, Integer, Integer, Integer)
-- uid: SadConsole.Host.Game.RecreateRenderOutput(System.Int32,System.Int32)
-  commentId: M:SadConsole.Host.Game.RecreateRenderOutput(System.Int32,System.Int32)
-  id: RecreateRenderOutput(System.Int32,System.Int32)
-  parent: SadConsole.Host.Game
-  langs:
-  - csharp
-  - vb
-  name: RecreateRenderOutput(int, int)
-  nameWithType: Game.RecreateRenderOutput(int, int)
-  fullName: SadConsole.Host.Game.RecreateRenderOutput(int, int)
-  type: Method
-  assemblies:
-  - SadConsole.Host.MonoGame
-  namespace: SadConsole.Host
-  summary: Regenerates the <xref href="SadConsole.Host.Global.RenderOutput" data-throw-if-not-resolved="false"></xref> if the desired size doesn't match the current size.
-  example: []
-  syntax:
-    content: protected virtual void RecreateRenderOutput(int width, int height)
-    parameters:
-    - id: width
-      type: System.Int32
-      description: The width of the render output.
-    - id: height
-      type: System.Int32
-      description: The height of the render output.
-    content.vb: Protected Overridable Sub RecreateRenderOutput(width As Integer, height As Integer)
-  overload: SadConsole.Host.Game.RecreateRenderOutput*
-  nameWithType.vb: Game.RecreateRenderOutput(Integer, Integer)
-  fullName.vb: SadConsole.Host.Game.RecreateRenderOutput(Integer, Integer)
-  name.vb: RecreateRenderOutput(Integer, Integer)
-- uid: SadConsole.Host.Game.ResetRendering
-  commentId: M:SadConsole.Host.Game.ResetRendering
-  id: ResetRendering
-  parent: SadConsole.Host.Game
-  langs:
-  - csharp
-  - vb
-  name: ResetRendering()
-  nameWithType: Game.ResetRendering()
-  fullName: SadConsole.Host.Game.ResetRendering()
-  type: Method
-  assemblies:
-  - SadConsole.Host.MonoGame
-  namespace: SadConsole.Host
-  summary: Resets the <xref href="SadConsole.Host.Global.RenderOutput" data-throw-if-not-resolved="false"></xref> target and determines the appropriate <xref href="SadConsole.Settings.Rendering.RenderRect" data-throw-if-not-resolved="false"></xref> and <xref href="SadConsole.Settings.Rendering.RenderScale" data-throw-if-not-resolved="false"></xref> based on the window or fullscreen state.
-  example: []
-  syntax:
-    content: public virtual void ResetRendering()
-    content.vb: Public Overridable Sub ResetRendering()
-  overload: SadConsole.Host.Game.ResetRendering*
 - uid: SadConsole.Host.Game.WindowWidth
   commentId: P:SadConsole.Host.Game.WindowWidth
   id: WindowWidth
@@ -1163,6 +1053,39 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
+- uid: System.Object.SadConsole.ExtensionsSystem.GetDebuggerDisplayValue
+  commentId: M:SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  parent: SadConsole.ExtensionsSystem
+  definition: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  name: GetDebuggerDisplayValue(object)
+  nameWithType: ExtensionsSystem.GetDebuggerDisplayValue(object)
+  fullName: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(object)
+  nameWithType.vb: ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  fullName.vb: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  name.vb: GetDebuggerDisplayValue(Object)
+  spec.csharp:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
 - uid: Microsoft.Xna.Framework
   commentId: N:Microsoft.Xna.Framework
   isExternal: true
@@ -1207,62 +1130,63 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: SadConsole.Host.Game.SadConsoleGameComponent
-  commentId: T:SadConsole.Host.Game.SadConsoleGameComponent
-  parent: SadConsole.Host
+- uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  commentId: M:SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
   isExternal: true
-  href: SadConsole.Host.Game.html
-  name: Game.SadConsoleGameComponent
-  nameWithType: Game.SadConsoleGameComponent
-  fullName: SadConsole.Host.Game.SadConsoleGameComponent
+  href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  name: GetDebuggerDisplayValue(object)
+  nameWithType: ExtensionsSystem.GetDebuggerDisplayValue(object)
+  fullName: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(object)
+  nameWithType.vb: ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  fullName.vb: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  name.vb: GetDebuggerDisplayValue(Object)
   spec.csharp:
-  - uid: SadConsole.Host.Game
-    name: Game
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
     isExternal: true
-    href: SadConsole.Host.Game.html
-  - name: .
-  - uid: SadConsole.Host.Game.SadConsoleGameComponent
-    name: SadConsoleGameComponent
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
     isExternal: true
-    href: SadConsole.Host.Game.SadConsoleGameComponent.html
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
   spec.vb:
-  - uid: SadConsole.Host.Game
-    name: Game
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
     isExternal: true
-    href: SadConsole.Host.Game.html
-  - name: .
-  - uid: SadConsole.Host.Game.SadConsoleGameComponent
-    name: SadConsoleGameComponent
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
     isExternal: true
-    href: SadConsole.Host.Game.SadConsoleGameComponent.html
-- uid: SadConsole.Host.Game.ClearScreenGameComponent
-  commentId: T:SadConsole.Host.Game.ClearScreenGameComponent
-  parent: SadConsole.Host
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: SadConsole.ExtensionsSystem
+  commentId: T:SadConsole.ExtensionsSystem
+  parent: SadConsole
   isExternal: true
-  href: SadConsole.Host.Game.html
-  name: Game.ClearScreenGameComponent
-  nameWithType: Game.ClearScreenGameComponent
-  fullName: SadConsole.Host.Game.ClearScreenGameComponent
-  spec.csharp:
-  - uid: SadConsole.Host.Game
-    name: Game
-    isExternal: true
-    href: SadConsole.Host.Game.html
-  - name: .
-  - uid: SadConsole.Host.Game.ClearScreenGameComponent
-    name: ClearScreenGameComponent
-    isExternal: true
-    href: SadConsole.Host.Game.ClearScreenGameComponent.html
-  spec.vb:
-  - uid: SadConsole.Host.Game
-    name: Game
-    isExternal: true
-    href: SadConsole.Host.Game.html
-  - name: .
-  - uid: SadConsole.Host.Game.ClearScreenGameComponent
-    name: ClearScreenGameComponent
-    isExternal: true
-    href: SadConsole.Host.Game.ClearScreenGameComponent.html
+  href: SadConsole.ExtensionsSystem.html
+  name: ExtensionsSystem
+  nameWithType: ExtensionsSystem
+  fullName: SadConsole.ExtensionsSystem
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
+- uid: SadConsole.Host.Game.#ctor*
+  commentId: Overload:SadConsole.Host.Game.#ctor
+  isExternal: true
+  href: SadConsole.Host.Game.html#SadConsole_Host_Game__ctor
+  name: Game
+  nameWithType: Game.Game
+  fullName: SadConsole.Host.Game.Game
+  nameWithType.vb: Game.New
+  fullName.vb: SadConsole.Host.Game.New
+  name.vb: New
 - uid: Microsoft.Xna.Framework.Game.Initialize
   commentId: M:Microsoft.Xna.Framework.Game.Initialize
   parent: Microsoft.Xna.Framework.Game
@@ -1289,27 +1213,13 @@ references:
   name: Initialize
   nameWithType: Game.Initialize
   fullName: SadConsole.Host.Game.Initialize
-- uid: SadConsole.Host.Global.GraphicsDeviceManager
-  commentId: P:SadConsole.Host.Global.GraphicsDeviceManager
+- uid: SadConsole.Host.Game.WindowWidth*
+  commentId: Overload:SadConsole.Host.Game.WindowWidth
   isExternal: true
-  href: SadConsole.Host.Global.html#SadConsole_Host_Global_GraphicsDeviceManager
-  name: GraphicsDeviceManager
-  nameWithType: Global.GraphicsDeviceManager
-  fullName: SadConsole.Host.Global.GraphicsDeviceManager
-- uid: SadConsole.Host.Game.ResizeGraphicsDeviceManager*
-  commentId: Overload:SadConsole.Host.Game.ResizeGraphicsDeviceManager
-  isExternal: true
-  href: SadConsole.Host.Game.html#SadConsole_Host_Game_ResizeGraphicsDeviceManager_Microsoft_Xna_Framework_Point_System_Int32_System_Int32_System_Int32_System_Int32_
-  name: ResizeGraphicsDeviceManager
-  nameWithType: Game.ResizeGraphicsDeviceManager
-  fullName: SadConsole.Host.Game.ResizeGraphicsDeviceManager
-- uid: Microsoft.Xna.Framework.Point
-  commentId: T:Microsoft.Xna.Framework.Point
-  parent: Microsoft.Xna.Framework
-  isExternal: true
-  name: Point
-  nameWithType: Point
-  fullName: Microsoft.Xna.Framework.Point
+  href: SadConsole.Host.Game.html#SadConsole_Host_Game_WindowWidth
+  name: WindowWidth
+  nameWithType: Game.WindowWidth
+  fullName: SadConsole.Host.Game.WindowWidth
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System
@@ -1321,47 +1231,6 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
-- uid: SadConsole.Host.Global.RenderOutput
-  commentId: P:SadConsole.Host.Global.RenderOutput
-  isExternal: true
-  href: SadConsole.Host.Global.html#SadConsole_Host_Global_RenderOutput
-  name: RenderOutput
-  nameWithType: Global.RenderOutput
-  fullName: SadConsole.Host.Global.RenderOutput
-- uid: SadConsole.Host.Game.RecreateRenderOutput*
-  commentId: Overload:SadConsole.Host.Game.RecreateRenderOutput
-  isExternal: true
-  href: SadConsole.Host.Game.html#SadConsole_Host_Game_RecreateRenderOutput_System_Int32_System_Int32_
-  name: RecreateRenderOutput
-  nameWithType: Game.RecreateRenderOutput
-  fullName: SadConsole.Host.Game.RecreateRenderOutput
-- uid: SadConsole.Settings.Rendering.RenderRect
-  commentId: P:SadConsole.Settings.Rendering.RenderRect
-  isExternal: true
-  href: SadConsole.Settings.Rendering.html#SadConsole_Settings_Rendering_RenderRect
-  name: RenderRect
-  nameWithType: Settings.Rendering.RenderRect
-  fullName: SadConsole.Settings.Rendering.RenderRect
-- uid: SadConsole.Settings.Rendering.RenderScale
-  commentId: P:SadConsole.Settings.Rendering.RenderScale
-  isExternal: true
-  name: RenderScale
-  nameWithType: Settings.Rendering.RenderScale
-  fullName: SadConsole.Settings.Rendering.RenderScale
-- uid: SadConsole.Host.Game.ResetRendering*
-  commentId: Overload:SadConsole.Host.Game.ResetRendering
-  isExternal: true
-  href: SadConsole.Host.Game.html#SadConsole_Host_Game_ResetRendering
-  name: ResetRendering
-  nameWithType: Game.ResetRendering
-  fullName: SadConsole.Host.Game.ResetRendering
-- uid: SadConsole.Host.Game.WindowWidth*
-  commentId: Overload:SadConsole.Host.Game.WindowWidth
-  isExternal: true
-  href: SadConsole.Host.Game.html#SadConsole_Host_Game_WindowWidth
-  name: WindowWidth
-  nameWithType: Game.WindowWidth
-  fullName: SadConsole.Host.Game.WindowWidth
 - uid: SadConsole.Host.Game.WindowHeight*
   commentId: Overload:SadConsole.Host.Game.WindowHeight
   isExternal: true

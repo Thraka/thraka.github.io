@@ -6,7 +6,7 @@ ms.date: 02/02/2024
 
 # Connect lines on a surface
 
-When you draw lines or boxes over each other, they overlay eachother, replacing the glyphs, creating gaps. Consider the following piece of code:
+When you draw lines or boxes over each other, they overlay each other, replacing the glyphs, creating gaps. Consider the following piece of code:
 
 ```csharp
 Surface.DrawBox(new Rectangle(2, 2, 10, 6), ShapeParameters.CreateStyledBoxThin(Color.AliceBlue));

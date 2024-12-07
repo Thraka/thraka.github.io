@@ -12,7 +12,7 @@ If you're using Visual Studio, follow these steps until told to use Visual Studi
 
 ## Prerequisites
 
-- [Download and install the .NET 6.0 (or later) SDK](https://dotnet.microsoft.com/download/dotnet-core/6.0).
+- [Download and install the .NET 6.0 (or later) SDK](https://dotnet.microsoft.com/download/dotnet-core/).
 
   To see what versions you have, run `dotnet --info`. If this command fails, your install may have failed, you don't have .NET, or it's not added to your terminal path variable.
 
@@ -44,14 +44,15 @@ You should see output similar to the following:
 ```shell
 These templates matched your input: 'sadconsole'
 
-Template Name               Short Name       Language  Tags
---------------------------  ---------------  --------  -------------------------------------
-SadConsole Demo             sadconsole-demo  [C#]      Console/Roguelike/SadConsole/MonoGame
-SadConsole Game (MonoGame)  sadconsole-mg    [C#]      Console/Roguelike/SadConsole/MonoGame
-SadConsole Game (SFML)      sadconsole-sfml  [C#]      Console/Roguelike/SadConsole/SFML
+Template Name               Short Name               Language  Tags
+--------------------------  -----------------------  --------  -------------------------------------
+ColoredGlyph Type           sadconsole.coloredglyph  [C#]      Console/Roguelike/SadConsole
+SadConsole Demo             sadconsole.demo          [C#]      Console/Roguelike/SadConsole/MonoGame
+SadConsole Game (MonoGame)  sadconsole.mg            [C#]      Console/Roguelike/SadConsole/MonoGame
+SadConsole Game (SFML)      sadconsole.sfml          [C#]      Console/Roguelike/SadConsole/SFML
 ```
 
-The `SadConsole Game (MonoGame)` template creates a SadConsle game that uses [MonoGame](https://www.monogame.net/) and the `SadConsole Game (SFML)` template creates a game that uses [SFML](https://www.sfml-dev.org/). MonoGame and SFML are the backend renderers for SadConsole. In general, the code you use for SadConsole doesn't care which rendering system you use. However, as your game progresses, which renderer you choose is very important. Currently, it's recommended that you use the MonoGame renderer as it has the following benefits:
+The `SadConsole Game (MonoGame)` template creates a SadConsole game that uses [MonoGame](https://www.monogame.net/) and the `SadConsole Game (SFML)` template creates a game that uses [SFML](https://www.sfml-dev.org/). MonoGame and SFML are the backend renderers for SadConsole. In general, the code you use for SadConsole doesn't care which rendering system you use. However, as your game progresses, which renderer you choose is very important. Currently, it's recommended that you use the MonoGame renderer as it has the following benefits:
 
 - Easier cross-platform targeting.
 - Supports 3D rendering: models, scenes, etc.

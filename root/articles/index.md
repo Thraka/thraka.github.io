@@ -1,7 +1,7 @@
 ---
 title: Introduction
 description: Introduction to SadConsole v10.
-ms.date: 11/08/2023
+ms.date: 12/07/2024
 _disableAffix: true
 ---
 
@@ -9,7 +9,7 @@ _disableAffix: true
 
 SadConsole is a terminal, ascii, console, game engine. It simulates these types of programs and with it you can make ascii-styled games for modern platforms. At its heart, SadConsole is really a giant tile-based game engine. However, its object model is conceptually similar to a traditional **console** app.
 
-SadConsole is offered as a [NuGet package](https://www.nuget.org/packages/SadConsole/) and supports MonoGame and SFML as rendering engines.
+SadConsole is offered as a [NuGet package](https://www.nuget.org/packages/SadConsole/) and supports MonoGame, SFML, and FNA as rendering engines.
 
 To get started with SadConsole, see [Create a new SadConsole .NET project with the SadConsole templates](getting-started-cli.md).
 

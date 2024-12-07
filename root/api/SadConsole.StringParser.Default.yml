@@ -36,6 +36,8 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+  extensionMethods:
+  - System.Object.SadConsole.ExtensionsSystem.GetDebuggerDisplayValue
 - uid: SadConsole.StringParser.Default.CustomProcessor
   commentId: F:SadConsole.StringParser.Default.CustomProcessor
   id: CustomProcessor
@@ -50,7 +52,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.StringParser
-  summary: Custom processor called if any built in command is not triggerd. Signature is ("command", "parameters", existing glyphs, text surface, associated editor, command stacks).
+  summary: Custom processor called before the build in command resolver.
+  remarks: Signature is ("command", "parameters", existing glyphs, text surface, associated editor, command stacks).
   example: []
   syntax:
     content: public Func<string, string, ColoredGlyphAndEffect[], ICellSurface?, ParseCommandStacks?, ParseCommandBase?>? CustomProcessor
@@ -408,6 +411,39 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
+- uid: System.Object.SadConsole.ExtensionsSystem.GetDebuggerDisplayValue
+  commentId: M:SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  parent: SadConsole.ExtensionsSystem
+  definition: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  name: GetDebuggerDisplayValue(object)
+  nameWithType: ExtensionsSystem.GetDebuggerDisplayValue(object)
+  fullName: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(object)
+  nameWithType.vb: ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  fullName.vb: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  name.vb: GetDebuggerDisplayValue(Object)
+  spec.csharp:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -415,6 +451,53 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  commentId: M:SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  isExternal: true
+  href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  name: GetDebuggerDisplayValue(object)
+  nameWithType: ExtensionsSystem.GetDebuggerDisplayValue(object)
+  fullName: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(object)
+  nameWithType.vb: ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  fullName.vb: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  name.vb: GetDebuggerDisplayValue(Object)
+  spec.csharp:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: SadConsole.ExtensionsSystem
+  commentId: T:SadConsole.ExtensionsSystem
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ExtensionsSystem.html
+  name: ExtensionsSystem
+  nameWithType: ExtensionsSystem
+  fullName: SadConsole.ExtensionsSystem
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
 - uid: System.Func{System.String,System.String,SadConsole.ColoredGlyphAndEffect[],SadConsole.ICellSurface,SadConsole.StringParser.ParseCommandStacks,SadConsole.StringParser.ParseCommandBase}
   commentId: T:System.Func{System.String,System.String,SadConsole.ColoredGlyphAndEffect[],SadConsole.ICellSurface,SadConsole.StringParser.ParseCommandStacks,SadConsole.StringParser.ParseCommandBase}
   parent: System
@@ -760,13 +843,6 @@ references:
   - name: " "
   - name: T
   - name: )
-- uid: SadConsole
-  commentId: N:SadConsole
-  isExternal: true
-  href: SadConsole.html
-  name: SadConsole
-  nameWithType: SadConsole
-  fullName: SadConsole
 - uid: SadConsole.StringParser.Default.#ctor*
   commentId: Overload:SadConsole.StringParser.Default.#ctor
   isExternal: true

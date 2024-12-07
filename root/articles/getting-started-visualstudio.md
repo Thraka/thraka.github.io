@@ -1,7 +1,7 @@
 ---
 title: Get started with Visual Studio
 description: Create a SadConsole project with Visual Studio.
-ms.date: 10/31/2023
+ms.date: 12/07/2024
 ---
 
 # Create a new SadConsole .NET project with Visual Studio
@@ -23,7 +23,7 @@ Before using Visual Studio, you'll need to install the SadConsole project templa
 
 Start Visual Studio.
 
-01. In the **Create a new project** dialog, type `sadconsole`` into the search box and select the **SadConsole Game (MonoGame)** project template.
+01. In the **Create a new project** dialog, type `sadconsole` into the search box and select the **SadConsole Game (MonoGame)** project template.
 
     ![create a new sadconsole project in visual studio](images/getting-started-visualstudio/template.png)
 
@@ -94,14 +94,14 @@ Your project file should look similar to this, though the `<TargetFramework>` ma
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <RootNamespace>SadConsoleGame</RootNamespace>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.1.303" />
-    <PackageReference Include="SadConsole.Host.MonoGame" Version="10.0.3" />
+    <PackageReference Include="SadConsole.Host.MonoGame" Version="10.5.0" />
   </ItemGroup>
 
   <ItemGroup>

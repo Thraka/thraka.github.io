@@ -22,7 +22,7 @@ The previous section leads you to material that helps you create a SadConsole pr
 01. Update the project file. Open your project file, it may be named _MyGame.csproj_. Replace the content with the following snippet:
 
     > [!IMPORTANT]
-    > If you're using a different `<TargetFramework>` such as .NET 7, feel free to update the value.
+    > If you're using a different `<TargetFramework>` such as .NET 9, feel free to update the value.
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk">
@@ -30,7 +30,7 @@ The previous section leads you to material that helps you create a SadConsole pr
       <PropertyGroup>
         <OutputType>WinExe</OutputType>
         <RootNamespace>SadConsoleGame</RootNamespace>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
       </PropertyGroup>
@@ -43,7 +43,7 @@ The previous section leads you to material that helps you create a SadConsole pr
     
       <ItemGroup>
         <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.1.303" />
-        <PackageReference Include="SadConsole.Host.MonoGame" Version="10.0.3" />
+        <PackageReference Include="SadConsole.Host.MonoGame" Version="10.5.0" />
       </ItemGroup>
     
     </Project>

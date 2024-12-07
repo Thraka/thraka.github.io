@@ -40,7 +40,7 @@ items:
   - System.Collections.Generic.IEnumerable{SadConsole.UI.Controls.ControlBase}
   - System.Collections.IEnumerable
   inheritedMembers:
-  - SadConsole.UI.Controls.ListBox._reconfigureSrollBar
+  - SadConsole.UI.Controls.ListBox._reconfigureScrollBar
   - SadConsole.UI.Controls.ListBox.OnSelectedItemChanged
   - SadConsole.UI.Controls.ListBox.OnResized
   - SadConsole.UI.Controls.ListBox.SetupScrollBar(SadConsole.Orientation,System.Int32,SadRogue.Primitives.Point)
@@ -71,6 +71,7 @@ items:
   - SadConsole.UI.Controls.ListBox.SelectedItemChanged
   - SadConsole.UI.Controls.ListBox.SelectedItemReselected
   - SadConsole.UI.Controls.ListBox.SelectedItemExecuted
+  - SadConsole.UI.Controls.CompositeControl.MouseLastHandledByChild
   - SadConsole.UI.Controls.CompositeControl.Controls
   - SadConsole.UI.Controls.CompositeControl.NamedControls
   - SadConsole.UI.Controls.CompositeControl.CreateChildControls
@@ -143,6 +144,8 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+  extensionMethods:
+  - System.Object.SadConsole.ExtensionsSystem.GetDebuggerDisplayValue
 - uid: SadConsole.UI.Controls.FileDirectoryListbox.#ctor(System.Int32,System.Int32)
   commentId: M:SadConsole.UI.Controls.FileDirectoryListbox.#ctor(System.Int32,System.Int32)
   id: '#ctor(System.Int32,System.Int32)'
@@ -333,7 +336,7 @@ items:
   assemblies:
   - SadConsole.Extended
   namespace: SadConsole.UI.Controls
-  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, only displays files that match <xref href="SadConsole.UI.Controls.FileDirectoryListbox.FileFilter" data-throw-if-not-resolved="false"></xref>; otherwise <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> to display all files.
+  summary: 'A list of extensions of files to highlight, separated by a semicolon. The extension is just the name without any wildcards or periods, in lowercase. Example: <code>txt;json;xml</code>.'
   example: []
   syntax:
     content: public string? HighlightedExtentions { get; set; }
@@ -536,13 +539,13 @@ references:
   name: IEnumerable
   nameWithType: IEnumerable
   fullName: System.Collections.IEnumerable
-- uid: SadConsole.UI.Controls.ListBox._reconfigureSrollBar
-  commentId: F:SadConsole.UI.Controls.ListBox._reconfigureSrollBar
+- uid: SadConsole.UI.Controls.ListBox._reconfigureScrollBar
+  commentId: F:SadConsole.UI.Controls.ListBox._reconfigureScrollBar
   parent: SadConsole.UI.Controls.ListBox
   isExternal: true
-  name: _reconfigureSrollBar
-  nameWithType: ListBox._reconfigureSrollBar
-  fullName: SadConsole.UI.Controls.ListBox._reconfigureSrollBar
+  name: _reconfigureScrollBar
+  nameWithType: ListBox._reconfigureScrollBar
+  fullName: SadConsole.UI.Controls.ListBox._reconfigureScrollBar
 - uid: SadConsole.UI.Controls.ListBox.OnSelectedItemChanged
   commentId: M:SadConsole.UI.Controls.ListBox.OnSelectedItemChanged
   parent: SadConsole.UI.Controls.ListBox
@@ -973,6 +976,14 @@ references:
   name: SelectedItemExecuted
   nameWithType: ListBox.SelectedItemExecuted
   fullName: SadConsole.UI.Controls.ListBox.SelectedItemExecuted
+- uid: SadConsole.UI.Controls.CompositeControl.MouseLastHandledByChild
+  commentId: F:SadConsole.UI.Controls.CompositeControl.MouseLastHandledByChild
+  parent: SadConsole.UI.Controls.CompositeControl
+  isExternal: true
+  href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_MouseLastHandledByChild
+  name: MouseLastHandledByChild
+  nameWithType: CompositeControl.MouseLastHandledByChild
+  fullName: SadConsole.UI.Controls.CompositeControl.MouseLastHandledByChild
 - uid: SadConsole.UI.Controls.CompositeControl.Controls
   commentId: F:SadConsole.UI.Controls.CompositeControl.Controls
   parent: SadConsole.UI.Controls.CompositeControl
@@ -2241,6 +2252,39 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
+- uid: System.Object.SadConsole.ExtensionsSystem.GetDebuggerDisplayValue
+  commentId: M:SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  parent: SadConsole.ExtensionsSystem
+  definition: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  name: GetDebuggerDisplayValue(object)
+  nameWithType: ExtensionsSystem.GetDebuggerDisplayValue(object)
+  fullName: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(object)
+  nameWithType.vb: ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  fullName.vb: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  name.vb: GetDebuggerDisplayValue(Object)
+  spec.csharp:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -2396,6 +2440,53 @@ references:
     name: Collections
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections
+- uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  commentId: M:SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  isExternal: true
+  href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  name: GetDebuggerDisplayValue(object)
+  nameWithType: ExtensionsSystem.GetDebuggerDisplayValue(object)
+  fullName: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(object)
+  nameWithType.vb: ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  fullName.vb: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  name.vb: GetDebuggerDisplayValue(Object)
+  spec.csharp:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: SadConsole.ExtensionsSystem
+  commentId: T:SadConsole.ExtensionsSystem
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ExtensionsSystem.html
+  name: ExtensionsSystem
+  nameWithType: ExtensionsSystem
+  fullName: SadConsole.ExtensionsSystem
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
 - uid: SadConsole.UI.Controls.FileDirectoryListboxItem
   commentId: T:SadConsole.UI.Controls.FileDirectoryListboxItem
   isExternal: true

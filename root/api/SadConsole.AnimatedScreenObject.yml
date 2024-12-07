@@ -28,7 +28,7 @@ items:
   - SadConsole.AnimatedScreenObject.FontSize
   - SadConsole.AnimatedScreenObject.ForceRendererRefresh
   - SadConsole.AnimatedScreenObject.Frames
-  - SadConsole.AnimatedScreenObject.FromImage(System.String,System.String,SadRogue.Primitives.Point,System.TimeSpan,System.Nullable{SadRogue.Primitives.Point},System.Nullable{SadRogue.Primitives.Point},SadConsole.IFont,System.Action{SadConsole.ColoredGlyphBase},SadConsole.TextureConvertMode,SadConsole.TextureConvertForegroundStyle,SadConsole.TextureConvertBackgroundStyle)
+  - SadConsole.AnimatedScreenObject.FromImage(System.String,System.String,SadRogue.Primitives.Point,System.TimeSpan,System.Nullable{SadRogue.Primitives.Point},System.Nullable{SadRogue.Primitives.Point},SadConsole.IFont,System.Action{SadConsole.ColoredGlyphBase},SadConsole.TextureConvertMode,SadConsole.TextureConvertForegroundStyle,SadConsole.TextureConvertBackgroundStyle,System.Nullable{SadRogue.Primitives.Color})
   - SadConsole.AnimatedScreenObject.Height
   - SadConsole.AnimatedScreenObject.HeightPixels
   - SadConsole.AnimatedScreenObject.IsDirty
@@ -41,6 +41,10 @@ items:
   - SadConsole.AnimatedScreenObject.MouseEnter
   - SadConsole.AnimatedScreenObject.MouseExit
   - SadConsole.AnimatedScreenObject.MouseMove
+  - SadConsole.AnimatedScreenObject.MoveEnd
+  - SadConsole.AnimatedScreenObject.MoveNext(System.Boolean)
+  - SadConsole.AnimatedScreenObject.MovePrevious(System.Boolean)
+  - SadConsole.AnimatedScreenObject.MoveStart
   - SadConsole.AnimatedScreenObject.MoveToFrontOnMouseClick
   - SadConsole.AnimatedScreenObject.Name
   - SadConsole.AnimatedScreenObject.NewFrameHeight
@@ -164,6 +168,7 @@ items:
   - SadConsole.IScreenObject.SadConsole.Quick.Update.RemoveUpdateHook(System.Action{SadConsole.IScreenObject,System.TimeSpan})
   - SadConsole.IScreenObject.SadConsole.Quick.Update.RemoveUpdateHooks
   - SadConsole.IScreenObject.SadConsole.Quick.Update.WithUpdate(System.Action{SadConsole.IScreenObject,System.TimeSpan})
+  - System.Object.SadConsole.ExtensionsSystem.GetDebuggerDisplayValue
   attributes:
   - type: System.Runtime.Serialization.DataContractAttribute
     ctor: System.Runtime.Serialization.DataContractAttribute.#ctor
@@ -404,6 +409,100 @@ items:
     content: public void Restart()
     content.vb: Public Sub Restart()
   overload: SadConsole.AnimatedScreenObject.Restart*
+- uid: SadConsole.AnimatedScreenObject.MoveNext(System.Boolean)
+  commentId: M:SadConsole.AnimatedScreenObject.MoveNext(System.Boolean)
+  id: MoveNext(System.Boolean)
+  parent: SadConsole.AnimatedScreenObject
+  langs:
+  - csharp
+  - vb
+  name: MoveNext(bool)
+  nameWithType: AnimatedScreenObject.MoveNext(bool)
+  fullName: SadConsole.AnimatedScreenObject.MoveNext(bool)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Changes the <xref href="SadConsole.AnimatedScreenObject.CurrentFrame" data-throw-if-not-resolved="false"></xref> to the next frame.
+  example: []
+  syntax:
+    content: public void MoveNext(bool circular = false)
+    parameters:
+    - id: circular
+      type: System.Boolean
+      description: If true and the current frame is the last, sets the current frame to the first frame.
+    content.vb: Public Sub MoveNext(circular As Boolean = False)
+  overload: SadConsole.AnimatedScreenObject.MoveNext*
+  nameWithType.vb: AnimatedScreenObject.MoveNext(Boolean)
+  fullName.vb: SadConsole.AnimatedScreenObject.MoveNext(Boolean)
+  name.vb: MoveNext(Boolean)
+- uid: SadConsole.AnimatedScreenObject.MovePrevious(System.Boolean)
+  commentId: M:SadConsole.AnimatedScreenObject.MovePrevious(System.Boolean)
+  id: MovePrevious(System.Boolean)
+  parent: SadConsole.AnimatedScreenObject
+  langs:
+  - csharp
+  - vb
+  name: MovePrevious(bool)
+  nameWithType: AnimatedScreenObject.MovePrevious(bool)
+  fullName: SadConsole.AnimatedScreenObject.MovePrevious(bool)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Changes the <xref href="SadConsole.AnimatedScreenObject.CurrentFrame" data-throw-if-not-resolved="false"></xref> to the previous frame.
+  example: []
+  syntax:
+    content: public void MovePrevious(bool circular = false)
+    parameters:
+    - id: circular
+      type: System.Boolean
+      description: If true and the current frame is the first, sets the current frame to the last frame.
+    content.vb: Public Sub MovePrevious(circular As Boolean = False)
+  overload: SadConsole.AnimatedScreenObject.MovePrevious*
+  nameWithType.vb: AnimatedScreenObject.MovePrevious(Boolean)
+  fullName.vb: SadConsole.AnimatedScreenObject.MovePrevious(Boolean)
+  name.vb: MovePrevious(Boolean)
+- uid: SadConsole.AnimatedScreenObject.MoveEnd
+  commentId: M:SadConsole.AnimatedScreenObject.MoveEnd
+  id: MoveEnd
+  parent: SadConsole.AnimatedScreenObject
+  langs:
+  - csharp
+  - vb
+  name: MoveEnd()
+  nameWithType: AnimatedScreenObject.MoveEnd()
+  fullName: SadConsole.AnimatedScreenObject.MoveEnd()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Changes the <xref href="SadConsole.AnimatedScreenObject.CurrentFrame" data-throw-if-not-resolved="false"></xref> to the last frame.
+  example: []
+  syntax:
+    content: public void MoveEnd()
+    content.vb: Public Sub MoveEnd()
+  overload: SadConsole.AnimatedScreenObject.MoveEnd*
+- uid: SadConsole.AnimatedScreenObject.MoveStart
+  commentId: M:SadConsole.AnimatedScreenObject.MoveStart
+  id: MoveStart
+  parent: SadConsole.AnimatedScreenObject
+  langs:
+  - csharp
+  - vb
+  name: MoveStart()
+  nameWithType: AnimatedScreenObject.MoveStart()
+  fullName: SadConsole.AnimatedScreenObject.MoveStart()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Changes the <xref href="SadConsole.AnimatedScreenObject.CurrentFrame" data-throw-if-not-resolved="false"></xref> to the first frame.
+  example: []
+  syntax:
+    content: public void MoveStart()
+    content.vb: Public Sub MoveStart()
+  overload: SadConsole.AnimatedScreenObject.MoveStart*
 - uid: SadConsole.AnimatedScreenObject.CreateStatic(System.Int32,System.Int32,System.Int32,System.Double,System.Nullable{SadRogue.Primitives.Color},System.Nullable{SadRogue.Primitives.Color})
   commentId: M:SadConsole.AnimatedScreenObject.CreateStatic(System.Int32,System.Int32,System.Int32,System.Double,System.Nullable{SadRogue.Primitives.Color},System.Nullable{SadRogue.Primitives.Color})
   id: CreateStatic(System.Int32,System.Int32,System.Int32,System.Double,System.Nullable{SadRogue.Primitives.Color},System.Nullable{SadRogue.Primitives.Color})
@@ -449,16 +548,16 @@ items:
   nameWithType.vb: AnimatedScreenObject.CreateStatic(Integer, Integer, Integer, Double, Color?, Color?)
   fullName.vb: SadConsole.AnimatedScreenObject.CreateStatic(Integer, Integer, Integer, Double, SadRogue.Primitives.Color?, SadRogue.Primitives.Color?)
   name.vb: CreateStatic(Integer, Integer, Integer, Double, Color?, Color?)
-- uid: SadConsole.AnimatedScreenObject.FromImage(System.String,System.String,SadRogue.Primitives.Point,System.TimeSpan,System.Nullable{SadRogue.Primitives.Point},System.Nullable{SadRogue.Primitives.Point},SadConsole.IFont,System.Action{SadConsole.ColoredGlyphBase},SadConsole.TextureConvertMode,SadConsole.TextureConvertForegroundStyle,SadConsole.TextureConvertBackgroundStyle)
-  commentId: M:SadConsole.AnimatedScreenObject.FromImage(System.String,System.String,SadRogue.Primitives.Point,System.TimeSpan,System.Nullable{SadRogue.Primitives.Point},System.Nullable{SadRogue.Primitives.Point},SadConsole.IFont,System.Action{SadConsole.ColoredGlyphBase},SadConsole.TextureConvertMode,SadConsole.TextureConvertForegroundStyle,SadConsole.TextureConvertBackgroundStyle)
-  id: FromImage(System.String,System.String,SadRogue.Primitives.Point,System.TimeSpan,System.Nullable{SadRogue.Primitives.Point},System.Nullable{SadRogue.Primitives.Point},SadConsole.IFont,System.Action{SadConsole.ColoredGlyphBase},SadConsole.TextureConvertMode,SadConsole.TextureConvertForegroundStyle,SadConsole.TextureConvertBackgroundStyle)
+- uid: SadConsole.AnimatedScreenObject.FromImage(System.String,System.String,SadRogue.Primitives.Point,System.TimeSpan,System.Nullable{SadRogue.Primitives.Point},System.Nullable{SadRogue.Primitives.Point},SadConsole.IFont,System.Action{SadConsole.ColoredGlyphBase},SadConsole.TextureConvertMode,SadConsole.TextureConvertForegroundStyle,SadConsole.TextureConvertBackgroundStyle,System.Nullable{SadRogue.Primitives.Color})
+  commentId: M:SadConsole.AnimatedScreenObject.FromImage(System.String,System.String,SadRogue.Primitives.Point,System.TimeSpan,System.Nullable{SadRogue.Primitives.Point},System.Nullable{SadRogue.Primitives.Point},SadConsole.IFont,System.Action{SadConsole.ColoredGlyphBase},SadConsole.TextureConvertMode,SadConsole.TextureConvertForegroundStyle,SadConsole.TextureConvertBackgroundStyle,System.Nullable{SadRogue.Primitives.Color})
+  id: FromImage(System.String,System.String,SadRogue.Primitives.Point,System.TimeSpan,System.Nullable{SadRogue.Primitives.Point},System.Nullable{SadRogue.Primitives.Point},SadConsole.IFont,System.Action{SadConsole.ColoredGlyphBase},SadConsole.TextureConvertMode,SadConsole.TextureConvertForegroundStyle,SadConsole.TextureConvertBackgroundStyle,System.Nullable{SadRogue.Primitives.Color})
   parent: SadConsole.AnimatedScreenObject
   langs:
   - csharp
   - vb
-  name: FromImage(string, string, Point, TimeSpan, Point?, Point?, IFont?, Action<ColoredGlyphBase>?, TextureConvertMode, TextureConvertForegroundStyle, TextureConvertBackgroundStyle)
-  nameWithType: AnimatedScreenObject.FromImage(string, string, Point, TimeSpan, Point?, Point?, IFont?, Action<ColoredGlyphBase>?, TextureConvertMode, TextureConvertForegroundStyle, TextureConvertBackgroundStyle)
-  fullName: SadConsole.AnimatedScreenObject.FromImage(string, string, SadRogue.Primitives.Point, System.TimeSpan, SadRogue.Primitives.Point?, SadRogue.Primitives.Point?, SadConsole.IFont?, System.Action<SadConsole.ColoredGlyphBase>?, SadConsole.TextureConvertMode, SadConsole.TextureConvertForegroundStyle, SadConsole.TextureConvertBackgroundStyle)
+  name: FromImage(string, string, Point, TimeSpan, Point?, Point?, IFont?, Action<ColoredGlyphBase>?, TextureConvertMode, TextureConvertForegroundStyle, TextureConvertBackgroundStyle, Color?)
+  nameWithType: AnimatedScreenObject.FromImage(string, string, Point, TimeSpan, Point?, Point?, IFont?, Action<ColoredGlyphBase>?, TextureConvertMode, TextureConvertForegroundStyle, TextureConvertBackgroundStyle, Color?)
+  fullName: SadConsole.AnimatedScreenObject.FromImage(string, string, SadRogue.Primitives.Point, System.TimeSpan, SadRogue.Primitives.Point?, SadRogue.Primitives.Point?, SadConsole.IFont?, System.Action<SadConsole.ColoredGlyphBase>?, SadConsole.TextureConvertMode, SadConsole.TextureConvertForegroundStyle, SadConsole.TextureConvertBackgroundStyle, SadRogue.Primitives.Color?)
   type: Method
   assemblies:
   - SadConsole
@@ -472,7 +571,7 @@ items:
                 Frame size and the subsequent AnimatedScreenSurface size is calculated from the size of the image file, number of frames, padding and the font size ratio.
   example: []
   syntax:
-    content: public static AnimatedScreenObject FromImage(string name, string filePath, Point frameLayout, TimeSpan frameDuration, Point? pixelPadding = null, Point? frameStartAndFinish = null, IFont? font = null, Action<ColoredGlyphBase>? action = null, TextureConvertMode convertMode = TextureConvertMode.Foreground, TextureConvertForegroundStyle convertForegroundStyle = TextureConvertForegroundStyle.Block, TextureConvertBackgroundStyle convertBackgroundStyle = TextureConvertBackgroundStyle.Pixel)
+    content: public static AnimatedScreenObject FromImage(string name, string filePath, Point frameLayout, TimeSpan frameDuration, Point? pixelPadding = null, Point? frameStartAndFinish = null, IFont? font = null, Action<ColoredGlyphBase>? action = null, TextureConvertMode convertMode = TextureConvertMode.Foreground, TextureConvertForegroundStyle convertForegroundStyle = TextureConvertForegroundStyle.Block, TextureConvertBackgroundStyle convertBackgroundStyle = TextureConvertBackgroundStyle.Pixel, Color? frameDefaultBackground = null)
     parameters:
     - id: name
       type: System.String
@@ -507,14 +606,17 @@ items:
     - id: convertBackgroundStyle
       type: SadConsole.TextureConvertBackgroundStyle
       description: The style to use when <code class="paramref">convertMode</code> is <xref href="SadConsole.TextureConvertMode.Background" data-throw-if-not-resolved="false"></xref>.
+    - id: frameDefaultBackground
+      type: System.Nullable{SadRogue.Primitives.Color}
+      description: The default background to use in the animation frames. Defaults to transparent.
     return:
       type: SadConsole.AnimatedScreenObject
       description: An instance of <xref href="SadConsole.AnimatedScreenObject" data-throw-if-not-resolved="false"></xref> with converted frames.
-    content.vb: Public Shared Function FromImage(name As String, filePath As String, frameLayout As Point, frameDuration As TimeSpan, pixelPadding As Point? = Nothing, frameStartAndFinish As Point? = Nothing, font As IFont = Nothing, action As Action(Of ColoredGlyphBase) = Nothing, convertMode As TextureConvertMode = TextureConvertMode.Foreground, convertForegroundStyle As TextureConvertForegroundStyle = TextureConvertForegroundStyle.Block, convertBackgroundStyle As TextureConvertBackgroundStyle = TextureConvertBackgroundStyle.Pixel) As AnimatedScreenObject
+    content.vb: Public Shared Function FromImage(name As String, filePath As String, frameLayout As Point, frameDuration As TimeSpan, pixelPadding As Point? = Nothing, frameStartAndFinish As Point? = Nothing, font As IFont = Nothing, action As Action(Of ColoredGlyphBase) = Nothing, convertMode As TextureConvertMode = TextureConvertMode.Foreground, convertForegroundStyle As TextureConvertForegroundStyle = TextureConvertForegroundStyle.Block, convertBackgroundStyle As TextureConvertBackgroundStyle = TextureConvertBackgroundStyle.Pixel, frameDefaultBackground As Color? = Nothing) As AnimatedScreenObject
   overload: SadConsole.AnimatedScreenObject.FromImage*
-  nameWithType.vb: AnimatedScreenObject.FromImage(String, String, Point, TimeSpan, Point?, Point?, IFont, Action(Of ColoredGlyphBase), TextureConvertMode, TextureConvertForegroundStyle, TextureConvertBackgroundStyle)
-  fullName.vb: SadConsole.AnimatedScreenObject.FromImage(String, String, SadRogue.Primitives.Point, System.TimeSpan, SadRogue.Primitives.Point?, SadRogue.Primitives.Point?, SadConsole.IFont, System.Action(Of SadConsole.ColoredGlyphBase), SadConsole.TextureConvertMode, SadConsole.TextureConvertForegroundStyle, SadConsole.TextureConvertBackgroundStyle)
-  name.vb: FromImage(String, String, Point, TimeSpan, Point?, Point?, IFont, Action(Of ColoredGlyphBase), TextureConvertMode, TextureConvertForegroundStyle, TextureConvertBackgroundStyle)
+  nameWithType.vb: AnimatedScreenObject.FromImage(String, String, Point, TimeSpan, Point?, Point?, IFont, Action(Of ColoredGlyphBase), TextureConvertMode, TextureConvertForegroundStyle, TextureConvertBackgroundStyle, Color?)
+  fullName.vb: SadConsole.AnimatedScreenObject.FromImage(String, String, SadRogue.Primitives.Point, System.TimeSpan, SadRogue.Primitives.Point?, SadRogue.Primitives.Point?, SadConsole.IFont, System.Action(Of SadConsole.ColoredGlyphBase), SadConsole.TextureConvertMode, SadConsole.TextureConvertForegroundStyle, SadConsole.TextureConvertBackgroundStyle, SadRogue.Primitives.Color?)
+  name.vb: FromImage(String, String, Point, TimeSpan, Point?, Point?, IFont, Action(Of ColoredGlyphBase), TextureConvertMode, TextureConvertForegroundStyle, TextureConvertBackgroundStyle, Color?)
 - uid: SadConsole.AnimatedScreenObject.Save(System.String)
   commentId: M:SadConsole.AnimatedScreenObject.Save(System.String)
   id: Save(System.String)
@@ -1863,7 +1965,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Raised when the a mouse button is clicked on this object.
+  summary: Raised when a mouse button is clicked on this object.
   example: []
   syntax:
     content: public event EventHandler<MouseScreenObjectState>? MouseButtonClicked
@@ -3902,6 +4004,39 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.timespan
   - name: )
   - name: )
+- uid: System.Object.SadConsole.ExtensionsSystem.GetDebuggerDisplayValue
+  commentId: M:SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  parent: SadConsole.ExtensionsSystem
+  definition: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  name: GetDebuggerDisplayValue(object)
+  nameWithType: ExtensionsSystem.GetDebuggerDisplayValue(object)
+  fullName: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(object)
+  nameWithType.vb: ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  fullName.vb: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  name.vb: GetDebuggerDisplayValue(Object)
+  spec.csharp:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -4578,6 +4713,46 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.timespan
   - name: )
   - name: )
+- uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  commentId: M:SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  isExternal: true
+  href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  name: GetDebuggerDisplayValue(object)
+  nameWithType: ExtensionsSystem.GetDebuggerDisplayValue(object)
+  fullName: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(object)
+  nameWithType.vb: ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  fullName.vb: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  name.vb: GetDebuggerDisplayValue(Object)
+  spec.csharp:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: SadConsole.ExtensionsSystem
+  commentId: T:SadConsole.ExtensionsSystem
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ExtensionsSystem.html
+  name: ExtensionsSystem
+  nameWithType: ExtensionsSystem
+  fullName: SadConsole.ExtensionsSystem
 - uid: SadConsole.Quick
   commentId: N:SadConsole.Quick
   isExternal: true
@@ -4684,6 +4859,41 @@ references:
   name: Restart
   nameWithType: AnimatedScreenObject.Restart
   fullName: SadConsole.AnimatedScreenObject.Restart
+- uid: SadConsole.AnimatedScreenObject.CurrentFrame
+  commentId: P:SadConsole.AnimatedScreenObject.CurrentFrame
+  isExternal: true
+  href: SadConsole.AnimatedScreenObject.html#SadConsole_AnimatedScreenObject_CurrentFrame
+  name: CurrentFrame
+  nameWithType: AnimatedScreenObject.CurrentFrame
+  fullName: SadConsole.AnimatedScreenObject.CurrentFrame
+- uid: SadConsole.AnimatedScreenObject.MoveNext*
+  commentId: Overload:SadConsole.AnimatedScreenObject.MoveNext
+  isExternal: true
+  href: SadConsole.AnimatedScreenObject.html#SadConsole_AnimatedScreenObject_MoveNext_System_Boolean_
+  name: MoveNext
+  nameWithType: AnimatedScreenObject.MoveNext
+  fullName: SadConsole.AnimatedScreenObject.MoveNext
+- uid: SadConsole.AnimatedScreenObject.MovePrevious*
+  commentId: Overload:SadConsole.AnimatedScreenObject.MovePrevious
+  isExternal: true
+  href: SadConsole.AnimatedScreenObject.html#SadConsole_AnimatedScreenObject_MovePrevious_System_Boolean_
+  name: MovePrevious
+  nameWithType: AnimatedScreenObject.MovePrevious
+  fullName: SadConsole.AnimatedScreenObject.MovePrevious
+- uid: SadConsole.AnimatedScreenObject.MoveEnd*
+  commentId: Overload:SadConsole.AnimatedScreenObject.MoveEnd
+  isExternal: true
+  href: SadConsole.AnimatedScreenObject.html#SadConsole_AnimatedScreenObject_MoveEnd
+  name: MoveEnd
+  nameWithType: AnimatedScreenObject.MoveEnd
+  fullName: SadConsole.AnimatedScreenObject.MoveEnd
+- uid: SadConsole.AnimatedScreenObject.MoveStart*
+  commentId: Overload:SadConsole.AnimatedScreenObject.MoveStart
+  isExternal: true
+  href: SadConsole.AnimatedScreenObject.html#SadConsole_AnimatedScreenObject_MoveStart
+  name: MoveStart
+  nameWithType: AnimatedScreenObject.MoveStart
+  fullName: SadConsole.AnimatedScreenObject.MoveStart
 - uid: System.Random.NextDouble
   commentId: M:System.Random.NextDouble
   isExternal: true
@@ -4809,7 +5019,7 @@ references:
 - uid: SadConsole.AnimatedScreenObject.FromImage*
   commentId: Overload:SadConsole.AnimatedScreenObject.FromImage
   isExternal: true
-  href: SadConsole.AnimatedScreenObject.html#SadConsole_AnimatedScreenObject_FromImage_System_String_System_String_SadRogue_Primitives_Point_System_TimeSpan_System_Nullable_SadRogue_Primitives_Point__System_Nullable_SadRogue_Primitives_Point__SadConsole_IFont_System_Action_SadConsole_ColoredGlyphBase__SadConsole_TextureConvertMode_SadConsole_TextureConvertForegroundStyle_SadConsole_TextureConvertBackgroundStyle_
+  href: SadConsole.AnimatedScreenObject.html#SadConsole_AnimatedScreenObject_FromImage_System_String_System_String_SadRogue_Primitives_Point_System_TimeSpan_System_Nullable_SadRogue_Primitives_Point__System_Nullable_SadRogue_Primitives_Point__SadConsole_IFont_System_Action_SadConsole_ColoredGlyphBase__SadConsole_TextureConvertMode_SadConsole_TextureConvertForegroundStyle_SadConsole_TextureConvertBackgroundStyle_System_Nullable_SadRogue_Primitives_Color__
   name: FromImage
   nameWithType: AnimatedScreenObject.FromImage
   fullName: SadConsole.AnimatedScreenObject.FromImage

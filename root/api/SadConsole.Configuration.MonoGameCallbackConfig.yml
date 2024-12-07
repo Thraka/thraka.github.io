@@ -9,6 +9,7 @@ items:
   - SadConsole.Configuration.MonoGameCallbackConfig.MonoGameCtorCallback
   - SadConsole.Configuration.MonoGameCallbackConfig.MonoGameInitCallback
   - SadConsole.Configuration.MonoGameCallbackConfig.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
+  - SadConsole.Configuration.MonoGameCallbackConfig.SkipMonoGameGameCreation
   langs:
   - csharp
   - vb
@@ -34,6 +35,8 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
+  extensionMethods:
+  - System.Object.SadConsole.ExtensionsSystem.GetDebuggerDisplayValue
 - uid: SadConsole.Configuration.MonoGameCallbackConfig.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
   commentId: M:SadConsole.Configuration.MonoGameCallbackConfig.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
   id: Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
@@ -102,7 +105,7 @@ items:
     content: public Action<Game>? MonoGameCtorCallback { get; set; }
     parameters: []
     return:
-      type: System.Action{SadConsole.Host.Game}
+      type: System.Action{Microsoft.Xna.Framework.Game}
     content.vb: Public Property MonoGameCtorCallback As Action(Of Game)
   overload: SadConsole.Configuration.MonoGameCallbackConfig.MonoGameCtorCallback*
 - uid: SadConsole.Configuration.MonoGameCallbackConfig.MonoGameInitCallback
@@ -123,9 +126,30 @@ items:
     content: public Action<Game>? MonoGameInitCallback { get; set; }
     parameters: []
     return:
-      type: System.Action{SadConsole.Host.Game}
+      type: System.Action{Microsoft.Xna.Framework.Game}
     content.vb: Public Property MonoGameInitCallback As Action(Of Game)
   overload: SadConsole.Configuration.MonoGameCallbackConfig.MonoGameInitCallback*
+- uid: SadConsole.Configuration.MonoGameCallbackConfig.SkipMonoGameGameCreation
+  commentId: P:SadConsole.Configuration.MonoGameCallbackConfig.SkipMonoGameGameCreation
+  id: SkipMonoGameGameCreation
+  parent: SadConsole.Configuration.MonoGameCallbackConfig
+  langs:
+  - csharp
+  - vb
+  name: SkipMonoGameGameCreation
+  nameWithType: MonoGameCallbackConfig.SkipMonoGameGameCreation
+  fullName: SadConsole.Configuration.MonoGameCallbackConfig.SkipMonoGameGameCreation
+  type: Property
+  assemblies:
+  - SadConsole.Host.MonoGame
+  namespace: SadConsole.Configuration
+  syntax:
+    content: public bool SkipMonoGameGameCreation { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SkipMonoGameGameCreation As Boolean
+  overload: SadConsole.Configuration.MonoGameCallbackConfig.SkipMonoGameGameCreation*
 references:
 - uid: SadConsole.Configuration
   commentId: N:SadConsole.Configuration
@@ -392,6 +416,39 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
+- uid: System.Object.SadConsole.ExtensionsSystem.GetDebuggerDisplayValue
+  commentId: M:SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  parent: SadConsole.ExtensionsSystem
+  definition: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  name: GetDebuggerDisplayValue(object)
+  nameWithType: ExtensionsSystem.GetDebuggerDisplayValue(object)
+  fullName: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(object)
+  nameWithType.vb: ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  fullName.vb: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  name.vb: GetDebuggerDisplayValue(Object)
+  spec.csharp:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -399,6 +456,53 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  commentId: M:SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  isExternal: true
+  href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  name: GetDebuggerDisplayValue(object)
+  nameWithType: ExtensionsSystem.GetDebuggerDisplayValue(object)
+  fullName: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(object)
+  nameWithType.vb: ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  fullName.vb: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  name.vb: GetDebuggerDisplayValue(Object)
+  spec.csharp:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: SadConsole.ExtensionsSystem
+  commentId: T:SadConsole.ExtensionsSystem
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ExtensionsSystem.html
+  name: ExtensionsSystem
+  nameWithType: ExtensionsSystem
+  fullName: SadConsole.ExtensionsSystem
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
 - uid: SadConsole.Configuration.Builder
   commentId: T:SadConsole.Configuration.Builder
   parent: SadConsole.Configuration
@@ -464,13 +568,6 @@ references:
   name: GameHost
   nameWithType: GameHost
   fullName: SadConsole.GameHost
-- uid: SadConsole
-  commentId: N:SadConsole
-  isExternal: true
-  href: SadConsole.html
-  name: SadConsole
-  nameWithType: SadConsole
-  fullName: SadConsole
 - uid: SadConsole.Configuration.MonoGameCallbackConfig.#ctor*
   commentId: Overload:SadConsole.Configuration.MonoGameCallbackConfig.#ctor
   isExternal: true
@@ -488,16 +585,16 @@ references:
   name: MonoGameCtorCallback
   nameWithType: MonoGameCallbackConfig.MonoGameCtorCallback
   fullName: SadConsole.Configuration.MonoGameCallbackConfig.MonoGameCtorCallback
-- uid: System.Action{SadConsole.Host.Game}
-  commentId: T:System.Action{SadConsole.Host.Game}
+- uid: System.Action{Microsoft.Xna.Framework.Game}
+  commentId: T:System.Action{Microsoft.Xna.Framework.Game}
   parent: System
   definition: System.Action`1
   href: https://learn.microsoft.com/dotnet/api/system.action-1
   name: Action<Game>
   nameWithType: Action<Game>
-  fullName: System.Action<SadConsole.Host.Game>
+  fullName: System.Action<Microsoft.Xna.Framework.Game>
   nameWithType.vb: Action(Of Game)
-  fullName.vb: System.Action(Of SadConsole.Host.Game)
+  fullName.vb: System.Action(Of Microsoft.Xna.Framework.Game)
   name.vb: Action(Of Game)
   spec.csharp:
   - uid: System.Action`1
@@ -505,10 +602,9 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.action-1
   - name: <
-  - uid: SadConsole.Host.Game
+  - uid: Microsoft.Xna.Framework.Game
     name: Game
     isExternal: true
-    href: SadConsole.Host.Game.html
   - name: '>'
   spec.vb:
   - uid: System.Action`1
@@ -518,10 +614,9 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: SadConsole.Host.Game
+  - uid: Microsoft.Xna.Framework.Game
     name: Game
     isExternal: true
-    href: SadConsole.Host.Game.html
   - name: )
 - uid: System.Action`1
   commentId: T:System.Action`1
@@ -558,3 +653,21 @@ references:
   name: MonoGameInitCallback
   nameWithType: MonoGameCallbackConfig.MonoGameInitCallback
   fullName: SadConsole.Configuration.MonoGameCallbackConfig.MonoGameInitCallback
+- uid: SadConsole.Configuration.MonoGameCallbackConfig.SkipMonoGameGameCreation*
+  commentId: Overload:SadConsole.Configuration.MonoGameCallbackConfig.SkipMonoGameGameCreation
+  isExternal: true
+  href: SadConsole.Configuration.MonoGameCallbackConfig.html#SadConsole_Configuration_MonoGameCallbackConfig_SkipMonoGameGameCreation
+  name: SkipMonoGameGameCreation
+  nameWithType: MonoGameCallbackConfig.SkipMonoGameGameCreation
+  fullName: SadConsole.Configuration.MonoGameCallbackConfig.SkipMonoGameGameCreation
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
