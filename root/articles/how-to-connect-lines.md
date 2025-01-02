@@ -1,7 +1,7 @@
 ---
 title: How to connect lines on a surface
 description: Learn how to connect lines on a surface so that they use junction glyphs to create smoothly connected intersections, in SadConsole.
-ms.date: 02/02/2024
+ms.date: 01/01/2025
 ---
 
 # Connect lines on a surface

@@ -1,7 +1,7 @@
 ---
 title: Create a new project from the template
 description: Create a SadConsole project with the SadConsole templates.
-ms.date: 10/31/2023
+ms.date: 01/01/2025
 ---
 
 # Create a new SadConsole .NET project with the SadConsole templates

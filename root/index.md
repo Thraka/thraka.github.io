@@ -1,7 +1,7 @@
 ---
 title: Welcome to SadConsole, a console-style game framework
 description: Introduction to SadConsole, a hardware accelerated game framework. SadConsole makes it easy to write console, terminal, and text-based games. SadConsole is written in C# and targets .NET 6 and .NET 7.
-ms.date: 11/08/2023
+ms.date: 01/01/2025
 _appTitle: ''
 _disableAffix: true
 ---
@@ -17,7 +17,7 @@ SadConsole is cross-platform .NET game library that provides an engine to emulat
 The .NET templates provided by SadConsole can generate a demo application that showcases SadConsole. The follwoing commands install the SadConsole templates, generates the demo application, and then runs it.
 
 ```shell
-dotnet new --install SadConsole.Templates
+dotnet new install SadConsole.Templates
 dotnet new sadconsole.demo
 dotnet run
 ```
