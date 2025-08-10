@@ -27,6 +27,8 @@ items:
   - SadConsole.Components.LayeredSurface.RemoveAt(System.Int32)
   - SadConsole.Components.LayeredSurface.RenderStep
   - SadConsole.Components.LayeredSurface.Replace(SadConsole.ICellSurface,SadConsole.ICellSurface)
+  - SadConsole.Components.LayeredSurface.Resize(System.Int32,System.Int32,System.Boolean)
+  - SadConsole.Components.LayeredSurface.Resize(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)
   - SadConsole.Components.LayeredSurface.Update(SadConsole.IScreenObject,System.TimeSpan)
   - SadConsole.Components.LayeredSurface.View
   - SadConsole.Components.LayeredSurface._layers
@@ -48,11 +50,11 @@ items:
     content: >-
       [DataContract]
 
-      public class LayeredSurface : UpdateComponent, IComponent, IList<ICellSurface>, ICollection<ICellSurface>, IEnumerable<ICellSurface>, IEnumerable
+      public class LayeredSurface : UpdateComponent, IComponent, IList<ICellSurface>, ICollection<ICellSurface>, IEnumerable<ICellSurface>, IEnumerable, ICellSurfaceResize
     content.vb: >-
       <DataContract>
 
-      Public Class LayeredSurface Inherits UpdateComponent Implements IComponent, IList(Of ICellSurface), ICollection(Of ICellSurface), IEnumerable(Of ICellSurface), IEnumerable
+      Public Class LayeredSurface Inherits UpdateComponent Implements IComponent, IList(Of ICellSurface), ICollection(Of ICellSurface), IEnumerable(Of ICellSurface), IEnumerable, ICellSurfaceResize
   inheritance:
   - System.Object
   - SadConsole.Components.UpdateComponent
@@ -62,6 +64,7 @@ items:
   - System.Collections.Generic.ICollection{SadConsole.ICellSurface}
   - System.Collections.Generic.IEnumerable{SadConsole.ICellSurface}
   - System.Collections.IEnumerable
+  - SadConsole.ICellSurfaceResize
   inheritedMembers:
   - SadConsole.Components.UpdateComponent.SortOrder
   - System.Object.GetType
@@ -537,6 +540,82 @@ items:
   - type: System.Exception
     commentId: T:System.Exception
     description: ''
+- uid: SadConsole.Components.LayeredSurface.Resize(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)
+  commentId: M:SadConsole.Components.LayeredSurface.Resize(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)
+  id: Resize(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)
+  parent: SadConsole.Components.LayeredSurface
+  langs:
+  - csharp
+  - vb
+  name: Resize(int, int, int, int, bool)
+  nameWithType: LayeredSurface.Resize(int, int, int, int, bool)
+  fullName: SadConsole.Components.LayeredSurface.Resize(int, int, int, int, bool)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: Resizes each layer to the specified width and height.
+  example: []
+  syntax:
+    content: public void Resize(int viewWidth, int viewHeight, int totalWidth, int totalHeight, bool clear)
+    parameters:
+    - id: viewWidth
+      type: System.Int32
+      description: The viewable width of the surface.
+    - id: viewHeight
+      type: System.Int32
+      description: The viewable height of the surface.
+    - id: totalWidth
+      type: System.Int32
+      description: The maximum width of the surface.
+    - id: totalHeight
+      type: System.Int32
+      description: The maximum height of the surface.
+    - id: clear
+      type: System.Boolean
+      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, resets every cell to the <xref href="SadConsole.ICellSurface.DefaultForeground" data-throw-if-not-resolved="false"></xref>, <xref href="SadConsole.ICellSurface.DefaultBackground" data-throw-if-not-resolved="false"></xref> and glyph 0.
+    content.vb: Public Sub Resize(viewWidth As Integer, viewHeight As Integer, totalWidth As Integer, totalHeight As Integer, clear As Boolean)
+  overload: SadConsole.Components.LayeredSurface.Resize*
+  implements:
+  - SadConsole.ICellSurfaceResize.Resize(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)
+  nameWithType.vb: LayeredSurface.Resize(Integer, Integer, Integer, Integer, Boolean)
+  fullName.vb: SadConsole.Components.LayeredSurface.Resize(Integer, Integer, Integer, Integer, Boolean)
+  name.vb: Resize(Integer, Integer, Integer, Integer, Boolean)
+- uid: SadConsole.Components.LayeredSurface.Resize(System.Int32,System.Int32,System.Boolean)
+  commentId: M:SadConsole.Components.LayeredSurface.Resize(System.Int32,System.Int32,System.Boolean)
+  id: Resize(System.Int32,System.Int32,System.Boolean)
+  parent: SadConsole.Components.LayeredSurface
+  langs:
+  - csharp
+  - vb
+  name: Resize(int, int, bool)
+  nameWithType: LayeredSurface.Resize(int, int, bool)
+  fullName: SadConsole.Components.LayeredSurface.Resize(int, int, bool)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Components
+  summary: Resizes the surface and view to the specified width and height.
+  example: []
+  syntax:
+    content: public void Resize(int width, int height, bool clear)
+    parameters:
+    - id: width
+      type: System.Int32
+      description: The width of the surface and view.
+    - id: height
+      type: System.Int32
+      description: The height of the surface and view.
+    - id: clear
+      type: System.Boolean
+      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, resets every cell to the <xref href="SadConsole.ICellSurface.DefaultForeground" data-throw-if-not-resolved="false"></xref>, <xref href="SadConsole.ICellSurface.DefaultBackground" data-throw-if-not-resolved="false"></xref> and glyph 0.
+    content.vb: Public Sub Resize(width As Integer, height As Integer, clear As Boolean)
+  overload: SadConsole.Components.LayeredSurface.Resize*
+  implements:
+  - SadConsole.ICellSurfaceResize.Resize(System.Int32,System.Int32,System.Boolean)
+  nameWithType.vb: LayeredSurface.Resize(Integer, Integer, Boolean)
+  fullName.vb: SadConsole.Components.LayeredSurface.Resize(Integer, Integer, Boolean)
+  name.vb: Resize(Integer, Integer, Boolean)
 - uid: SadConsole.Components.LayeredSurface.OnAdded(SadConsole.IScreenObject)
   commentId: M:SadConsole.Components.LayeredSurface.OnAdded(SadConsole.IScreenObject)
   id: OnAdded(SadConsole.IScreenObject)
@@ -961,6 +1040,14 @@ references:
   name: IEnumerable
   nameWithType: IEnumerable
   fullName: System.Collections.IEnumerable
+- uid: SadConsole.ICellSurfaceResize
+  commentId: T:SadConsole.ICellSurfaceResize
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ICellSurfaceResize.html
+  name: ICellSurfaceResize
+  nameWithType: ICellSurfaceResize
+  fullName: SadConsole.ICellSurfaceResize
 - uid: SadConsole.Components.UpdateComponent.SortOrder
   commentId: P:SadConsole.Components.UpdateComponent.SortOrder
   parent: SadConsole.Components.UpdateComponent
@@ -1376,6 +1463,13 @@ references:
     name: Collections
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
 - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
   commentId: M:SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
   isExternal: true
@@ -1416,13 +1510,6 @@ references:
   name: ExtensionsSystem
   nameWithType: ExtensionsSystem
   fullName: SadConsole.ExtensionsSystem
-- uid: SadConsole
-  commentId: N:SadConsole
-  isExternal: true
-  href: SadConsole.html
-  name: SadConsole
-  nameWithType: SadConsole
-  fullName: SadConsole
 - uid: SadConsole.IScreenSurface
   commentId: T:SadConsole.IScreenSurface
   parent: SadConsole
@@ -2355,6 +2442,167 @@ references:
   name: CellSurface
   nameWithType: CellSurface
   fullName: SadConsole.CellSurface
+- uid: SadConsole.ICellSurface.DefaultForeground
+  commentId: P:SadConsole.ICellSurface.DefaultForeground
+  parent: SadConsole.ICellSurface
+  isExternal: true
+  href: SadConsole.ICellSurface.html#SadConsole_ICellSurface_DefaultForeground
+  name: DefaultForeground
+  nameWithType: ICellSurface.DefaultForeground
+  fullName: SadConsole.ICellSurface.DefaultForeground
+- uid: SadConsole.ICellSurface.DefaultBackground
+  commentId: P:SadConsole.ICellSurface.DefaultBackground
+  parent: SadConsole.ICellSurface
+  isExternal: true
+  href: SadConsole.ICellSurface.html#SadConsole_ICellSurface_DefaultBackground
+  name: DefaultBackground
+  nameWithType: ICellSurface.DefaultBackground
+  fullName: SadConsole.ICellSurface.DefaultBackground
+- uid: SadConsole.Components.LayeredSurface.Resize*
+  commentId: Overload:SadConsole.Components.LayeredSurface.Resize
+  isExternal: true
+  href: SadConsole.Components.LayeredSurface.html#SadConsole_Components_LayeredSurface_Resize_System_Int32_System_Int32_System_Int32_System_Int32_System_Boolean_
+  name: Resize
+  nameWithType: LayeredSurface.Resize
+  fullName: SadConsole.Components.LayeredSurface.Resize
+- uid: SadConsole.ICellSurfaceResize.Resize(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)
+  commentId: M:SadConsole.ICellSurfaceResize.Resize(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)
+  parent: SadConsole.ICellSurfaceResize
+  isExternal: true
+  href: SadConsole.ICellSurfaceResize.html#SadConsole_ICellSurfaceResize_Resize_System_Int32_System_Int32_System_Int32_System_Int32_System_Boolean_
+  name: Resize(int, int, int, int, bool)
+  nameWithType: ICellSurfaceResize.Resize(int, int, int, int, bool)
+  fullName: SadConsole.ICellSurfaceResize.Resize(int, int, int, int, bool)
+  nameWithType.vb: ICellSurfaceResize.Resize(Integer, Integer, Integer, Integer, Boolean)
+  fullName.vb: SadConsole.ICellSurfaceResize.Resize(Integer, Integer, Integer, Integer, Boolean)
+  name.vb: Resize(Integer, Integer, Integer, Integer, Boolean)
+  spec.csharp:
+  - uid: SadConsole.ICellSurfaceResize.Resize(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)
+    name: Resize
+    isExternal: true
+    href: SadConsole.ICellSurfaceResize.html#SadConsole_ICellSurfaceResize_Resize_System_Int32_System_Int32_System_Int32_System_Int32_System_Boolean_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ICellSurfaceResize.Resize(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)
+    name: Resize
+    isExternal: true
+    href: SadConsole.ICellSurfaceResize.html#SadConsole_ICellSurfaceResize_Resize_System_Int32_System_Int32_System_Int32_System_Int32_System_Boolean_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: SadConsole.ICellSurfaceResize.Resize(System.Int32,System.Int32,System.Boolean)
+  commentId: M:SadConsole.ICellSurfaceResize.Resize(System.Int32,System.Int32,System.Boolean)
+  parent: SadConsole.ICellSurfaceResize
+  isExternal: true
+  href: SadConsole.ICellSurfaceResize.html#SadConsole_ICellSurfaceResize_Resize_System_Int32_System_Int32_System_Boolean_
+  name: Resize(int, int, bool)
+  nameWithType: ICellSurfaceResize.Resize(int, int, bool)
+  fullName: SadConsole.ICellSurfaceResize.Resize(int, int, bool)
+  nameWithType.vb: ICellSurfaceResize.Resize(Integer, Integer, Boolean)
+  fullName.vb: SadConsole.ICellSurfaceResize.Resize(Integer, Integer, Boolean)
+  name.vb: Resize(Integer, Integer, Boolean)
+  spec.csharp:
+  - uid: SadConsole.ICellSurfaceResize.Resize(System.Int32,System.Int32,System.Boolean)
+    name: Resize
+    isExternal: true
+    href: SadConsole.ICellSurfaceResize.html#SadConsole_ICellSurfaceResize_Resize_System_Int32_System_Int32_System_Boolean_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ICellSurfaceResize.Resize(System.Int32,System.Int32,System.Boolean)
+    name: Resize
+    isExternal: true
+    href: SadConsole.ICellSurfaceResize.html#SadConsole_ICellSurfaceResize_Resize_System_Int32_System_Int32_System_Boolean_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
 - uid: SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
   commentId: M:SadConsole.Components.UpdateComponent.OnAdded(SadConsole.IScreenObject)
   parent: SadConsole.Components.UpdateComponent

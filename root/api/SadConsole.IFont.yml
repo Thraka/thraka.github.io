@@ -13,6 +13,7 @@ items:
   - SadConsole.IFont.GlyphDefinitions
   - SadConsole.IFont.GlyphHeight
   - SadConsole.IFont.GlyphPadding
+  - SadConsole.IFont.GlyphRectangles
   - SadConsole.IFont.GlyphWidth
   - SadConsole.IFont.HasGlyphDefinition(System.String)
   - SadConsole.IFont.Image
@@ -356,7 +357,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Which glyph index is considered completely solid. Used for shading.
+  summary: Which glyph index is considered completely solid white. Used for shading.
   example: []
   syntax:
     content: int SolidGlyphIndex { get; set; }
@@ -480,6 +481,29 @@ items:
       type: SadConsole.ITexture
     content.vb: Property Image As ITexture
   overload: SadConsole.IFont.Image*
+- uid: SadConsole.IFont.GlyphRectangles
+  commentId: P:SadConsole.IFont.GlyphRectangles
+  id: GlyphRectangles
+  parent: SadConsole.IFont
+  langs:
+  - csharp
+  - vb
+  name: GlyphRectangles
+  nameWithType: IFont.GlyphRectangles
+  fullName: SadConsole.IFont.GlyphRectangles
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: A dictionary that stores the source rectangles of the font by glyph id.
+  example: []
+  syntax:
+    content: Dictionary<int, Rectangle> GlyphRectangles { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.Int32,SadRogue.Primitives.Rectangle}
+    content.vb: ReadOnly Property GlyphRectangles As Dictionary(Of Integer, Rectangle)
+  overload: SadConsole.IFont.GlyphRectangles*
 - uid: SadConsole.IFont.GlyphDefinitions
   commentId: P:SadConsole.IFont.GlyphDefinitions
   id: GlyphDefinitions
@@ -1263,40 +1287,39 @@ references:
   name: ITexture
   nameWithType: ITexture
   fullName: SadConsole.ITexture
-- uid: SadConsole.IFont.GlyphDefinitions*
-  commentId: Overload:SadConsole.IFont.GlyphDefinitions
+- uid: SadConsole.IFont.GlyphRectangles*
+  commentId: Overload:SadConsole.IFont.GlyphRectangles
   isExternal: true
-  href: SadConsole.IFont.html#SadConsole_IFont_GlyphDefinitions
-  name: GlyphDefinitions
-  nameWithType: IFont.GlyphDefinitions
-  fullName: SadConsole.IFont.GlyphDefinitions
-- uid: System.Collections.Generic.Dictionary{System.String,SadConsole.GlyphDefinition}
-  commentId: T:System.Collections.Generic.Dictionary{System.String,SadConsole.GlyphDefinition}
+  href: SadConsole.IFont.html#SadConsole_IFont_GlyphRectangles
+  name: GlyphRectangles
+  nameWithType: IFont.GlyphRectangles
+  fullName: SadConsole.IFont.GlyphRectangles
+- uid: System.Collections.Generic.Dictionary{System.Int32,SadRogue.Primitives.Rectangle}
+  commentId: T:System.Collections.Generic.Dictionary{System.Int32,SadRogue.Primitives.Rectangle}
   parent: System.Collections.Generic
   definition: System.Collections.Generic.Dictionary`2
   href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
-  name: Dictionary<string, GlyphDefinition>
-  nameWithType: Dictionary<string, GlyphDefinition>
-  fullName: System.Collections.Generic.Dictionary<string, SadConsole.GlyphDefinition>
-  nameWithType.vb: Dictionary(Of String, GlyphDefinition)
-  fullName.vb: System.Collections.Generic.Dictionary(Of String, SadConsole.GlyphDefinition)
-  name.vb: Dictionary(Of String, GlyphDefinition)
+  name: Dictionary<int, Rectangle>
+  nameWithType: Dictionary<int, Rectangle>
+  fullName: System.Collections.Generic.Dictionary<int, SadRogue.Primitives.Rectangle>
+  nameWithType.vb: Dictionary(Of Integer, Rectangle)
+  fullName.vb: System.Collections.Generic.Dictionary(Of Integer, SadRogue.Primitives.Rectangle)
+  name.vb: Dictionary(Of Integer, Rectangle)
   spec.csharp:
   - uid: System.Collections.Generic.Dictionary`2
     name: Dictionary
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
   - name: <
-  - uid: System.String
-    name: string
+  - uid: System.Int32
+    name: int
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
+    href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: ','
   - name: " "
-  - uid: SadConsole.GlyphDefinition
-    name: GlyphDefinition
+  - uid: SadRogue.Primitives.Rectangle
+    name: Rectangle
     isExternal: true
-    href: SadConsole.GlyphDefinition.html
   - name: '>'
   spec.vb:
   - uid: System.Collections.Generic.Dictionary`2
@@ -1306,16 +1329,15 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: System.String
-    name: String
+  - uid: System.Int32
+    name: Integer
     isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
+    href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: ','
   - name: " "
-  - uid: SadConsole.GlyphDefinition
-    name: GlyphDefinition
+  - uid: SadRogue.Primitives.Rectangle
+    name: Rectangle
     isExternal: true
-    href: SadConsole.GlyphDefinition.html
   - name: )
 - uid: System.Collections.Generic.Dictionary`2
   commentId: T:System.Collections.Generic.Dictionary`2
@@ -1388,3 +1410,57 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: SadConsole.IFont.GlyphDefinitions*
+  commentId: Overload:SadConsole.IFont.GlyphDefinitions
+  isExternal: true
+  href: SadConsole.IFont.html#SadConsole_IFont_GlyphDefinitions
+  name: GlyphDefinitions
+  nameWithType: IFont.GlyphDefinitions
+  fullName: SadConsole.IFont.GlyphDefinitions
+- uid: System.Collections.Generic.Dictionary{System.String,SadConsole.GlyphDefinition}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,SadConsole.GlyphDefinition}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, GlyphDefinition>
+  nameWithType: Dictionary<string, GlyphDefinition>
+  fullName: System.Collections.Generic.Dictionary<string, SadConsole.GlyphDefinition>
+  nameWithType.vb: Dictionary(Of String, GlyphDefinition)
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, SadConsole.GlyphDefinition)
+  name.vb: Dictionary(Of String, GlyphDefinition)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: SadConsole.GlyphDefinition
+    name: GlyphDefinition
+    isExternal: true
+    href: SadConsole.GlyphDefinition.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: SadConsole.GlyphDefinition
+    name: GlyphDefinition
+    isExternal: true
+    href: SadConsole.GlyphDefinition.html
+  - name: )

@@ -26,6 +26,7 @@ items:
   - SadConsole.GameHost.FrameRender
   - SadConsole.GameHost.FrameUpdate
   - SadConsole.GameHost.GameRunningTotalTime
+  - SadConsole.GameHost.GetDeviceScreenSize(System.Int32@,System.Int32@)
   - SadConsole.GameHost.GetKeyboardState
   - SadConsole.GameHost.GetMouseState
   - SadConsole.GameHost.GetRenderer(System.String)
@@ -527,6 +528,36 @@ items:
       description: The state of the mouse.
     content.vb: Public MustOverride Function GetMouseState() As IMouseState
   overload: SadConsole.GameHost.GetMouseState*
+- uid: SadConsole.GameHost.GetDeviceScreenSize(System.Int32@,System.Int32@)
+  commentId: M:SadConsole.GameHost.GetDeviceScreenSize(System.Int32@,System.Int32@)
+  id: GetDeviceScreenSize(System.Int32@,System.Int32@)
+  parent: SadConsole.GameHost
+  langs:
+  - csharp
+  - vb
+  name: GetDeviceScreenSize(out int, out int)
+  nameWithType: GameHost.GetDeviceScreenSize(out int, out int)
+  fullName: SadConsole.GameHost.GetDeviceScreenSize(out int, out int)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Gets the size of the current device's screen in pixels.
+  example: []
+  syntax:
+    content: public abstract void GetDeviceScreenSize(out int width, out int height)
+    parameters:
+    - id: width
+      type: System.Int32
+      description: The width of the screen.
+    - id: height
+      type: System.Int32
+      description: The height of the screen.
+    content.vb: Public MustOverride Sub GetDeviceScreenSize(width As Integer, height As Integer)
+  overload: SadConsole.GameHost.GetDeviceScreenSize*
+  nameWithType.vb: GameHost.GetDeviceScreenSize(Integer, Integer)
+  fullName.vb: SadConsole.GameHost.GetDeviceScreenSize(Integer, Integer)
+  name.vb: GetDeviceScreenSize(Integer, Integer)
 - uid: SadConsole.GameHost.SetSplashScreens(SadConsole.IScreenSurface[])
   commentId: M:SadConsole.GameHost.SetSplashScreens(SadConsole.IScreenSurface[])
   id: SetSplashScreens(SadConsole.IScreenSurface[])
@@ -1058,11 +1089,11 @@ items:
   summary: How many cells fit in the render area width used by SadConsole.
   example: []
   syntax:
-    content: public int ScreenCellsX { get; protected set; }
+    content: public int ScreenCellsX { get; }
     parameters: []
     return:
       type: System.Int32
-    content.vb: Public Property ScreenCellsX As Integer
+    content.vb: Public ReadOnly Property ScreenCellsX As Integer
   overload: SadConsole.GameHost.ScreenCellsX*
 - uid: SadConsole.GameHost.ScreenCellsY
   commentId: P:SadConsole.GameHost.ScreenCellsY
@@ -1081,11 +1112,11 @@ items:
   summary: How many cells fit in the render area width used by SadConsole.
   example: []
   syntax:
-    content: public int ScreenCellsY { get; protected set; }
+    content: public int ScreenCellsY { get; }
     parameters: []
     return:
       type: System.Int32
-    content.vb: Public Property ScreenCellsY As Integer
+    content.vb: Public ReadOnly Property ScreenCellsY As Integer
   overload: SadConsole.GameHost.ScreenCellsY*
 - uid: SadConsole.GameHost.FrameNumber
   commentId: P:SadConsole.GameHost.FrameNumber
@@ -2284,6 +2315,13 @@ references:
   name: IMouseState
   nameWithType: IMouseState
   fullName: SadConsole.Input.IMouseState
+- uid: SadConsole.GameHost.GetDeviceScreenSize*
+  commentId: Overload:SadConsole.GameHost.GetDeviceScreenSize
+  isExternal: true
+  href: SadConsole.GameHost.html#SadConsole_GameHost_GetDeviceScreenSize_System_Int32__System_Int32__
+  name: GetDeviceScreenSize
+  nameWithType: GameHost.GetDeviceScreenSize
+  fullName: SadConsole.GameHost.GetDeviceScreenSize
 - uid: SadConsole.GameHost.SetSplashScreens*
   commentId: Overload:SadConsole.GameHost.SetSplashScreens
   isExternal: true

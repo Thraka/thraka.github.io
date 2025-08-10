@@ -51,6 +51,8 @@ items:
   - SadConsole.CellSurfaceEditor.GetStringColored(SadConsole.ISurface,System.Int32,System.Int32,System.Int32)
   - SadConsole.CellSurfaceEditor.GetSubSurface(SadConsole.ISurface)
   - SadConsole.CellSurfaceEditor.GetSubSurface(SadConsole.ISurface,SadRogue.Primitives.Rectangle)
+  - SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface,SadRogue.Primitives.Point)
+  - SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface,SadRogue.Primitives.Point,System.Int32@)
   - SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface,System.Int32)
   - SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface,System.Int32,System.Int32)
   - SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface,System.Int32,System.Int32,System.Int32@)
@@ -72,6 +74,7 @@ items:
   - SadConsole.CellSurfaceEditor.RemoveDecorator(SadConsole.ISurface,System.Int32,System.Int32,System.Int32,SadConsole.CellDecorator[])
   - SadConsole.CellSurfaceEditor.SetBackground(SadConsole.ISurface,System.Int32,System.Int32,SadRogue.Primitives.Color)
   - SadConsole.CellSurfaceEditor.SetCellAppearance(SadConsole.ISurface,System.Int32,System.Int32,SadConsole.ColoredGlyphBase)
+  - SadConsole.CellSurfaceEditor.SetCellAppearance(SadConsole.ISurface,System.Int32,System.Int32,SadConsole.GlyphDefinition)
   - SadConsole.CellSurfaceEditor.SetDecorator(SadConsole.ISurface,SadRogue.Primitives.Point,SadConsole.CellDecorator[])
   - SadConsole.CellSurfaceEditor.SetDecorator(SadConsole.ISurface,System.Int32,SadConsole.CellDecorator[])
   - SadConsole.CellSurfaceEditor.SetDecorator(SadConsole.ISurface,System.Int32,System.Int32,SadConsole.CellDecorator[])
@@ -83,6 +86,7 @@ items:
   - SadConsole.CellSurfaceEditor.SetEffect(SadConsole.ISurface,System.Int32,SadConsole.Effects.ICellEffect)
   - SadConsole.CellSurfaceEditor.SetEffect(SadConsole.ISurface,System.Int32,System.Int32,SadConsole.Effects.ICellEffect)
   - SadConsole.CellSurfaceEditor.SetForeground(SadConsole.ISurface,System.Int32,System.Int32,SadRogue.Primitives.Color)
+  - SadConsole.CellSurfaceEditor.SetGlyph(SadConsole.ISurface,System.Int32,System.Int32,SadConsole.GlyphDefinition)
   - SadConsole.CellSurfaceEditor.SetGlyph(SadConsole.ISurface,System.Int32,System.Int32,System.Int32)
   - SadConsole.CellSurfaceEditor.SetGlyph(SadConsole.ISurface,System.Int32,System.Int32,System.Int32,SadRogue.Primitives.Color)
   - SadConsole.CellSurfaceEditor.SetGlyph(SadConsole.ISurface,System.Int32,System.Int32,System.Int32,SadRogue.Primitives.Color,SadRogue.Primitives.Color)
@@ -238,6 +242,37 @@ items:
   nameWithType.vb: CellSurfaceEditor.IsValidCell(ISurface, Integer, Integer)
   fullName.vb: SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface, Integer, Integer)
   name.vb: IsValidCell(ISurface, Integer, Integer)
+- uid: SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface,SadRogue.Primitives.Point)
+  commentId: M:SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface,SadRogue.Primitives.Point)
+  id: IsValidCell(SadConsole.ISurface,SadRogue.Primitives.Point)
+  isExtensionMethod: true
+  parent: SadConsole.CellSurfaceEditor
+  langs:
+  - csharp
+  - vb
+  name: IsValidCell(ISurface, Point)
+  nameWithType: CellSurfaceEditor.IsValidCell(ISurface, Point)
+  fullName: SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface, SadRogue.Primitives.Point)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Tests if a cell is valid based on its x,y position.
+  example: []
+  syntax:
+    content: public static bool IsValidCell(this ISurface obj, Point coordinate)
+    parameters:
+    - id: obj
+      type: SadConsole.ISurface
+      description: The surface being edited.
+    - id: coordinate
+      type: SadRogue.Primitives.Point
+      description: The coordinate of the cell to test.
+    return:
+      type: System.Boolean
+      description: A true value indicating the cell by x,y does exist in this cell obj.Surface.
+    content.vb: Public Shared Function IsValidCell(obj As ISurface, coordinate As Point) As Boolean
+  overload: SadConsole.CellSurfaceEditor.IsValidCell*
 - uid: SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface,System.Int32,System.Int32,System.Int32@)
   commentId: M:SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface,System.Int32,System.Int32,System.Int32@)
   id: IsValidCell(SadConsole.ISurface,System.Int32,System.Int32,System.Int32@)
@@ -278,6 +313,43 @@ items:
   nameWithType.vb: CellSurfaceEditor.IsValidCell(ISurface, Integer, Integer, Integer)
   fullName.vb: SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface, Integer, Integer, Integer)
   name.vb: IsValidCell(ISurface, Integer, Integer, Integer)
+- uid: SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface,SadRogue.Primitives.Point,System.Int32@)
+  commentId: M:SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface,SadRogue.Primitives.Point,System.Int32@)
+  id: IsValidCell(SadConsole.ISurface,SadRogue.Primitives.Point,System.Int32@)
+  isExtensionMethod: true
+  parent: SadConsole.CellSurfaceEditor
+  langs:
+  - csharp
+  - vb
+  name: IsValidCell(ISurface, Point, out int)
+  nameWithType: CellSurfaceEditor.IsValidCell(ISurface, Point, out int)
+  fullName: SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface, SadRogue.Primitives.Point, out int)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Tests if a cell is valid based on its x,y position.
+  example: []
+  syntax:
+    content: public static bool IsValidCell(this ISurface obj, Point coordinate, out int index)
+    parameters:
+    - id: obj
+      type: SadConsole.ISurface
+      description: The surface being edited.
+    - id: coordinate
+      type: SadRogue.Primitives.Point
+      description: The coordinate of the cell to test.
+    - id: index
+      type: System.Int32
+      description: If the cell is valid, the index of the cell when found.
+    return:
+      type: System.Boolean
+      description: A true value indicating the cell by x,y does exist in this cell obj.Surface.
+    content.vb: Public Shared Function IsValidCell(obj As ISurface, coordinate As Point, index As Integer) As Boolean
+  overload: SadConsole.CellSurfaceEditor.IsValidCell*
+  nameWithType.vb: CellSurfaceEditor.IsValidCell(ISurface, Point, Integer)
+  fullName.vb: SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface, SadRogue.Primitives.Point, Integer)
+  name.vb: IsValidCell(ISurface, Point, Integer)
 - uid: SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface,System.Int32)
   commentId: M:SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface,System.Int32)
   id: IsValidCell(SadConsole.ISurface,System.Int32)
@@ -312,6 +384,43 @@ items:
   nameWithType.vb: CellSurfaceEditor.IsValidCell(ISurface, Integer)
   fullName.vb: SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface, Integer)
   name.vb: IsValidCell(ISurface, Integer)
+- uid: SadConsole.CellSurfaceEditor.SetGlyph(SadConsole.ISurface,System.Int32,System.Int32,SadConsole.GlyphDefinition)
+  commentId: M:SadConsole.CellSurfaceEditor.SetGlyph(SadConsole.ISurface,System.Int32,System.Int32,SadConsole.GlyphDefinition)
+  id: SetGlyph(SadConsole.ISurface,System.Int32,System.Int32,SadConsole.GlyphDefinition)
+  isExtensionMethod: true
+  parent: SadConsole.CellSurfaceEditor
+  langs:
+  - csharp
+  - vb
+  name: SetGlyph(ISurface, int, int, GlyphDefinition)
+  nameWithType: CellSurfaceEditor.SetGlyph(ISurface, int, int, GlyphDefinition)
+  fullName: SadConsole.CellSurfaceEditor.SetGlyph(SadConsole.ISurface, int, int, SadConsole.GlyphDefinition)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Changes the glyph and mirror of the specified cell.
+  example: []
+  syntax:
+    content: public static void SetGlyph(this ISurface obj, int x, int y, GlyphDefinition definition)
+    parameters:
+    - id: obj
+      type: SadConsole.ISurface
+      description: The surface being edited.
+    - id: x
+      type: System.Int32
+      description: The x location of the cell.
+    - id: y
+      type: System.Int32
+      description: The y location of the cell.
+    - id: definition
+      type: SadConsole.GlyphDefinition
+      description: The glyph and mirror of the cell.
+    content.vb: Public Shared Sub SetGlyph(obj As ISurface, x As Integer, y As Integer, definition As GlyphDefinition)
+  overload: SadConsole.CellSurfaceEditor.SetGlyph*
+  nameWithType.vb: CellSurfaceEditor.SetGlyph(ISurface, Integer, Integer, GlyphDefinition)
+  fullName.vb: SadConsole.CellSurfaceEditor.SetGlyph(SadConsole.ISurface, Integer, Integer, SadConsole.GlyphDefinition)
+  name.vb: SetGlyph(ISurface, Integer, Integer, GlyphDefinition)
 - uid: SadConsole.CellSurfaceEditor.SetGlyph(SadConsole.ISurface,System.Int32,System.Int32,System.Int32)
   commentId: M:SadConsole.CellSurfaceEditor.SetGlyph(SadConsole.ISurface,System.Int32,System.Int32,System.Int32)
   id: SetGlyph(SadConsole.ISurface,System.Int32,System.Int32,System.Int32)
@@ -1005,7 +1114,7 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Changes the appearance of the cell. The appearance represents the look of a cell and will first be cloned, then applied to the cell.
+  summary: Changes the appearance of the cell to that of the provided colored glyph object.
   example: []
   syntax:
     content: public static void SetCellAppearance(this ISurface obj, int x, int y, ColoredGlyphBase appearance)
@@ -1027,6 +1136,43 @@ items:
   nameWithType.vb: CellSurfaceEditor.SetCellAppearance(ISurface, Integer, Integer, ColoredGlyphBase)
   fullName.vb: SadConsole.CellSurfaceEditor.SetCellAppearance(SadConsole.ISurface, Integer, Integer, SadConsole.ColoredGlyphBase)
   name.vb: SetCellAppearance(ISurface, Integer, Integer, ColoredGlyphBase)
+- uid: SadConsole.CellSurfaceEditor.SetCellAppearance(SadConsole.ISurface,System.Int32,System.Int32,SadConsole.GlyphDefinition)
+  commentId: M:SadConsole.CellSurfaceEditor.SetCellAppearance(SadConsole.ISurface,System.Int32,System.Int32,SadConsole.GlyphDefinition)
+  id: SetCellAppearance(SadConsole.ISurface,System.Int32,System.Int32,SadConsole.GlyphDefinition)
+  isExtensionMethod: true
+  parent: SadConsole.CellSurfaceEditor
+  langs:
+  - csharp
+  - vb
+  name: SetCellAppearance(ISurface, int, int, GlyphDefinition)
+  nameWithType: CellSurfaceEditor.SetCellAppearance(ISurface, int, int, GlyphDefinition)
+  fullName: SadConsole.CellSurfaceEditor.SetCellAppearance(SadConsole.ISurface, int, int, SadConsole.GlyphDefinition)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Changes the appearance of the cell to that of the provided colored glyph object.
+  example: []
+  syntax:
+    content: public static void SetCellAppearance(this ISurface obj, int x, int y, GlyphDefinition definition)
+    parameters:
+    - id: obj
+      type: SadConsole.ISurface
+      description: The surface being edited.
+    - id: x
+      type: System.Int32
+      description: The x location of the cell.
+    - id: y
+      type: System.Int32
+      description: The y location of the cell.
+    - id: definition
+      type: SadConsole.GlyphDefinition
+      description: The glyph and mirror of the cell.
+    content.vb: Public Shared Sub SetCellAppearance(obj As ISurface, x As Integer, y As Integer, definition As GlyphDefinition)
+  overload: SadConsole.CellSurfaceEditor.SetCellAppearance*
+  nameWithType.vb: CellSurfaceEditor.SetCellAppearance(ISurface, Integer, Integer, GlyphDefinition)
+  fullName.vb: SadConsole.CellSurfaceEditor.SetCellAppearance(SadConsole.ISurface, Integer, Integer, SadConsole.GlyphDefinition)
+  name.vb: SetCellAppearance(ISurface, Integer, Integer, GlyphDefinition)
 - uid: SadConsole.CellSurfaceEditor.GetCellAppearance(SadConsole.ISurface,System.Int32,System.Int32)
   commentId: M:SadConsole.CellSurfaceEditor.GetCellAppearance(SadConsole.ISurface,System.Int32,System.Int32)
   id: GetCellAppearance(SadConsole.ISurface,System.Int32,System.Int32)
@@ -4400,13 +4546,28 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: SadRogue.Primitives.Point
+  commentId: T:SadRogue.Primitives.Point
+  parent: SadRogue.Primitives
+  isExternal: true
+  name: Point
+  nameWithType: Point
+  fullName: SadRogue.Primitives.Point
 - uid: SadConsole.CellSurfaceEditor.SetGlyph*
   commentId: Overload:SadConsole.CellSurfaceEditor.SetGlyph
   isExternal: true
-  href: SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_SetGlyph_SadConsole_ISurface_System_Int32_System_Int32_System_Int32_
+  href: SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_SetGlyph_SadConsole_ISurface_System_Int32_System_Int32_SadConsole_GlyphDefinition_
   name: SetGlyph
   nameWithType: CellSurfaceEditor.SetGlyph
   fullName: SadConsole.CellSurfaceEditor.SetGlyph
+- uid: SadConsole.GlyphDefinition
+  commentId: T:SadConsole.GlyphDefinition
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.GlyphDefinition.html
+  name: GlyphDefinition
+  nameWithType: GlyphDefinition
+  fullName: SadConsole.GlyphDefinition
 - uid: SadRogue.Primitives.Color
   commentId: T:SadRogue.Primitives.Color
   parent: SadRogue.Primitives
@@ -4789,13 +4950,6 @@ references:
     href: SadConsole.CellDecorator.html
   - name: (
   - name: )
-- uid: SadRogue.Primitives.Point
-  commentId: T:SadRogue.Primitives.Point
-  parent: SadRogue.Primitives
-  isExternal: true
-  name: Point
-  nameWithType: Point
-  fullName: SadRogue.Primitives.Point
 - uid: SadConsole.CellSurfaceEditor.AddDecorator*
   commentId: Overload:SadConsole.CellSurfaceEditor.AddDecorator
   isExternal: true

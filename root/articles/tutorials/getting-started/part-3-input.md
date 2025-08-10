@@ -8,7 +8,7 @@ ms.date: 10/31/2023
 
 In this part of the tutorial we'll explore how input works in SadConsole. You'll learn how to create a basic map with a player that you can use the mouse and keyboard to interact with.
 
-Input is made up of both keyboard and mouse processing. SadConsole does not provide any input processing for gamepads and joysticks. However, MonoGame provides gamepad and joystick processing, which SadConsole is built on.
+Input is made up of both keyboard and mouse processing. SadConsole does not provide any input processing for gamepads. However, MonoGame provides gamepad and joystick processing, which SadConsole is built on.
 
 Previous articles in this tutorial:
 
@@ -46,15 +46,13 @@ using SadConsoleGame;
 
 Settings.WindowTitle = "My SadConsole Game";
 
-Builder configuration = new Builder()
-    .SetScreenSize(120, 38)
+Builder
+    .GetBuilder()
+    .SetWindowSizeInCells(120, 38)
+    .ConfigureFonts(true)
     .SetStartingScreen<RootScreen>()
     .IsStartingScreenFocused(true)
-    ;
-
-Game.Create(configuration);
-Game.Instance.Run();
-Game.Instance.Dispose();
+    .Run();
 ```
 
 Notice the differences in this code from the previous startup code:
@@ -69,11 +67,11 @@ Notice the differences in this code from the previous startup code:
 - `IsStartingScreenFocused(true)` is called, which automatically sets the starting screen to focused.
 - The `Startup()` method was removed.
 
-The `SetStartingScreen` configuration method designates an object as the starting object. It automatically assigns a new instance of that object to the `Game.Instance.Screen` property. This simplifies game setup. In this case, the newly created `RootScreen` class is going to be our container that is the game screen. All the startup code goes into that object.
+The `SetStartingScreen` configuration method designates an object as the starting object. It automatically assigns a new instance of that object to the `Game.Instance.Screen` property. This simplifies game setup. In this case, the newly created `RootScreen` class is our container for the current game screen. All the startup code goes into that object.
 
 ## Create a basic map
 
-Next, lets add a basic map to the screen.
+Next, lets add a basic map surface to the screen.
 
 01. Open the _RootScreen.cs_ file.
 01. Add a new `ScreenSurface` field to the class named `_map`.
@@ -82,10 +80,10 @@ Next, lets add a basic map to the screen.
     internal class RootScreen: ScreenObject
     {
         private ScreenSurface _map;
-    
+
         public RootScreen()
         {
-    
+
         }
     }
     ```
@@ -93,32 +91,32 @@ Next, lets add a basic map to the screen.
     This surface represents the map data.
 
 01. Modify the constructor of `RootScreen` to create an instance of the map:
-    
+
     ```csharp
     internal class RootScreen: ScreenObject
     {
         private ScreenSurface _map;
-    
+
         public RootScreen()
         {
             _map = new ScreenSurface(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY - 5);
             _map.UseMouse = false;
-    
+
             Children.Add(_map);
         }
     }
     ```
-    
+
     Notice two things about the `_map` variable:
-    
+
     - It's a `ScreenSurface` and not a `Console`.
-    
+
       The map isn't going to use a cursor object to print and collect input from the user, so we don't need a full console object. Most of the time when you create objects in SadConsole that don't need a cursor you'll probably just use a `ScreenSurface`.
-    
-    The width and height of the object is set to the `Game.Instance.ScreenCellsX` and `Game.Instance.ScreenCellsY` variables, respectively.
-    
+
+    - The width and height of the object is set to the `Game.Instance.ScreenCellsX` and `Game.Instance.ScreenCellsY` variables, respectively.
+
       `ScreenCellsX/Y` represent how many cells in the default font size the SadConsole game can fit on the screen. These are from the width and height values passed to the `Game.Create` method at the start of the game. This makes it easy to create a surface that fills the window. For the `Y` height though, we're trimming off _5_ from the bottom. This leaves some space at the bottom of the screen to add a status console later.
-    
+
     Next, lets add some background to the map. Instead of using the `FillWithRandomGarbage` method that we previously used, we'll draw a gradient. The background doesn't really represent anything, but it makes it easier to see our objects and demonstrate some key concepts.
 
 01. Add the `FillBackground` method to the class to fill the map surface with a gradient:
@@ -128,7 +126,7 @@ Next, lets add a basic map to the screen.
     {
         Color[] colors = new[] { Color.LightGreen, Color.Coral, Color.CornflowerBlue, Color.DarkGreen };
         float[] colorStops = new[] { 0f, 0.35f, 0.75f, 1f };
-    
+
         Algorithms.GradientFill(_map.FontSize, 
                                 _map.Surface.Area.Center, 
                                 _map.Surface.Width / 3, 
@@ -140,7 +138,7 @@ Next, lets add a basic map to the screen.
     ```
 
     The way the gradient algorithm works is by calculating each X,Y of an area, and providing a color that maps to it. What you do with that information is up to you. In this example we colored the background of each cell based on what the algorithm gave us. The number of colors in the gradient and the number of steps must match for the gradient to work. The following diagram may help understand how this is put together, but it's not really important at this point:
-    
+
     The `FontSize` used helps stretch the gradient evenly over the surface. The default font used by SadConsole has a 2:1 ratio in width to height. The following image illustrates how the gradient is laid out, it uses a smaller window for the purpose of the illustration:
 
     ![SadConsole gradient diagram](images/part-3-input/gradient.png)
@@ -152,9 +150,9 @@ Next, lets add a basic map to the screen.
     {
         _map = new ScreenSurface(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY - 5);
         _map.UseMouse = false;
-    
+
         FillBackground();
-    
+
         Children.Add(_map);
     }
     ```
@@ -170,20 +168,20 @@ The game will have a player-controlled object, along with other non-player chara
 
     ```csharp
     namespace SadConsoleGame;
-    
+
     internal class GameObject
     {
         public Point Position { get; private set; }
-    
+
         public ColoredGlyph Appearance { get; set; }
-    
+
         public GameObject(ColoredGlyph appearance, Point position, IScreenSurface hostingSurface)
         {
             Appearance = appearance;
             Position = position;
             DrawGameObject(hostingSurface);
         }
-    
+
         private void DrawGameObject(IScreenSurface screenSurface)
         {
             Appearance.CopyAppearanceTo(screenSurface.Surface[Position]);
@@ -227,13 +225,13 @@ Now that the `GameObject` type has been created, it can be used to represent the
 
 01. Open the _RootScreen.cs_ file.
 01. Add a new field to the class to represent the controlled player object:
-    
+
     ```csharp
     internal class RootScreen: ScreenObject
     {
         private ScreenSurface _map;
         private GameObject _controlledObject;
-    
+
     // ... other code ...
     ```
 
@@ -244,11 +242,11 @@ Now that the `GameObject` type has been created, it can be used to represent the
     {
         _map = new ScreenSurface(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY - 5);
         _map.UseMouse = false;
-    
+
         FillBackground();
-    
+
         Children.Add(_map);
-    
+
         _controlledObject = new GameObject(new ColoredGlyph(Color.White, Color.Black, 2), _map.Surface.Area.Center, _map);
     }
     ```
@@ -352,7 +350,7 @@ For this code you're going to edit the _GameObject.cs_ file.
     internal class GameObject
     {
         private ColoredGlyph _mapAppearance = new ColoredGlyph();
-    
+
         public Point Position { get; private set; }
 
         // ... other code ...
@@ -365,10 +363,10 @@ For this code you're going to edit the _GameObject.cs_ file.
     {
         Appearance = appearance;
         Position = position;
-    
+
         // Store the map cell
         hostingSurface.Surface[position].CopyAppearanceTo(_mapAppearance);
-    
+
         // draw the object
         DrawGameObject(hostingSurface);
     }
@@ -381,10 +379,10 @@ For this code you're going to edit the _GameObject.cs_ file.
     { 
         // Restore the old cell
         _mapAppearance.CopyAppearanceTo(screenSurface.Surface[Position]);
-    
+
         // Store the map cell of the new position
         screenSurface.Surface[newPosition].CopyAppearanceTo(_mapAppearance);
-    
+
         Position = newPosition;
         DrawGameObject(screenSurface);
     }

@@ -31,10 +31,10 @@ To create the treasure class, perform the following:
 
     ```csharp
     namespace SadConsoleGame;
-    
+
     internal class Treasure: GameObject
     {
-    
+
     }
     ```
 
@@ -50,7 +50,7 @@ To create the treasure class, perform the following:
 
     Unlike instantiating a normal `GameObject` type, where you must specify how the game object looks, `Treasure` always looks like "treasure" in the game. This is because the constructor for `Treasure` specifies the `ColoredGlyph` used by the game object. Any other defaults (though they aren't any yet) could be specified in the constructor.
 
-01. Next, add the code for the `Touched` method. Note that the `map.RemoveMapObject` method doesn't yet exist. 
+01. Next, add the code for the `Touched` method. Note that the `map.RemoveMapObject` method doesn't yet exist.
 
     ```csharp
     public override bool Touched(GameObject source, Map map)
@@ -76,13 +76,13 @@ To create the monster class, perform the following:
 
 01. Add a new class to the project, named _Monster.cs_.
 01. Open the code file and replace the code with the following snippet:
-    
+
     ```csharp
     namespace SadConsoleGame;
-    
+
     internal class Monster : GameObject
     {
-    
+
     }
     ```
 
@@ -92,13 +92,13 @@ To create the monster class, perform the following:
     public Monster(Point position, IScreenSurface hostingSurface)
         : base(new ColoredGlyph(Color.Red, Color.Black, 'M'), position, hostingSurface)
     {
-    
+
     }
     ```
 
     Just like `Treasure`, `Monster` specifies the `ColoredGlyph` for every `Monster` type. You can introduce variation later, but for now, they'll all be `M` on the screen.
 
-01. Next, add the code for the `Touched` method. 
+01. Next, add the code for the `Touched` method.
 
     ```csharp
     public override bool Touched(GameObject source, Map map)
@@ -149,29 +149,29 @@ The map has the `CreateTreasure` and `CreateMonster` methods, but they currently
 01. Change the code in the `CreateTreasure` method. Alter the type used when creating the treasure instance:
 
     From:
-    
+
     ```csharp
     GameObject treasure = new GameObject(new ColoredGlyph(Color.Yellow, Color.Black, 'v'), randomPosition, _mapSurface);
     ```
-    
+
     To:
-    
+
     ```csharp
     Treasure treasure = new Treasure(randomPosition, _mapSurface);
     ```
-    
-    Note that the constructor parameters changed. The `Treaasure` type doesn't require a `ColoredGlyph` to describe how it looks.
+
+    Note that the constructor parameters changed. The `Treasure` type doesn't require a `ColoredGlyph` to describe how it looks.
 
 01. Next, change the code in the `CreateMonster` method in the same way as `CreateTreasure`:
 
     From:
-    
+
     ```csharp
     GameObject monster = new GameObject(new ColoredGlyph(Color.Red, Color.Black, 'M'), randomPosition, _mapSurface);
     ```
-    
+
     To:
-    
+
     ```csharp
     Monster monster = new Monster(randomPosition, _mapSurface);
     ```

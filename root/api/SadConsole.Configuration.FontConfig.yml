@@ -9,8 +9,10 @@ items:
   - SadConsole.Configuration.FontConfig.AddExtraFonts(System.String[])
   - SadConsole.Configuration.FontConfig.AlternativeDefaultFont
   - SadConsole.Configuration.FontConfig.CustomFonts
+  - SadConsole.Configuration.FontConfig.DefaultFontSize
   - SadConsole.Configuration.FontConfig.FontLoader
-  - SadConsole.Configuration.FontConfig.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
+  - SadConsole.Configuration.FontConfig.Run(SadConsole.Configuration.BuilderBase,SadConsole.GameHost)
+  - SadConsole.Configuration.FontConfig.SetDefaultFontSize(SadConsole.IFont.Sizes)
   - SadConsole.Configuration.FontConfig.UseBuiltinFont
   - SadConsole.Configuration.FontConfig.UseBuiltinFontExtended
   - SadConsole.Configuration.FontConfig.UseCustomFont(System.String)
@@ -58,6 +60,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Configuration
+  summary: An array of custom font files to load into SadConsole. The default is an empty array.
+  example: []
   syntax:
     content: public string[] CustomFonts
     return:
@@ -77,6 +81,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Configuration
+  summary: The default font to use when the game starts. A <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> value indicates that the default font is the built-in font.
+  example: []
   syntax:
     content: public string? AlternativeDefaultFont
     return:
@@ -96,11 +102,34 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Configuration
+  summary: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the default font is the SadConsole extended font. The default is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+  example: []
   syntax:
     content: public bool UseExtendedFont
     return:
       type: System.Boolean
     content.vb: Public UseExtendedFont As Boolean
+- uid: SadConsole.Configuration.FontConfig.DefaultFontSize
+  commentId: F:SadConsole.Configuration.FontConfig.DefaultFontSize
+  id: DefaultFontSize
+  parent: SadConsole.Configuration.FontConfig
+  langs:
+  - csharp
+  - vb
+  name: DefaultFontSize
+  nameWithType: FontConfig.DefaultFontSize
+  fullName: SadConsole.Configuration.FontConfig.DefaultFontSize
+  type: Field
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Configuration
+  summary: The size of font to use with the default font. The default is <xref href="SadConsole.IFont.Sizes.One" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public IFont.Sizes DefaultFontSize
+    return:
+      type: SadConsole.IFont.Sizes
+    content.vb: Public DefaultFontSize As IFont.Sizes
 - uid: SadConsole.Configuration.FontConfig.UseBuiltinFont
   commentId: M:SadConsole.Configuration.FontConfig.UseBuiltinFont
   id: UseBuiltinFont
@@ -195,16 +224,40 @@ items:
   nameWithType.vb: FontConfig.AddExtraFonts(ParamArray String())
   fullName.vb: SadConsole.Configuration.FontConfig.AddExtraFonts(ParamArray String())
   name.vb: AddExtraFonts(ParamArray String())
-- uid: SadConsole.Configuration.FontConfig.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
-  commentId: M:SadConsole.Configuration.FontConfig.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
-  id: Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
+- uid: SadConsole.Configuration.FontConfig.SetDefaultFontSize(SadConsole.IFont.Sizes)
+  commentId: M:SadConsole.Configuration.FontConfig.SetDefaultFontSize(SadConsole.IFont.Sizes)
+  id: SetDefaultFontSize(SadConsole.IFont.Sizes)
   parent: SadConsole.Configuration.FontConfig
   langs:
   - csharp
   - vb
-  name: Run(Builder, GameHost)
-  nameWithType: FontConfig.Run(Builder, GameHost)
-  fullName: SadConsole.Configuration.FontConfig.Run(SadConsole.Configuration.Builder, SadConsole.GameHost)
+  name: SetDefaultFontSize(Sizes)
+  nameWithType: FontConfig.SetDefaultFontSize(IFont.Sizes)
+  fullName: SadConsole.Configuration.FontConfig.SetDefaultFontSize(SadConsole.IFont.Sizes)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Configuration
+  summary: Sets the default font size for the game. The default is <xref href="SadConsole.IFont.Sizes.One" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public void SetDefaultFontSize(IFont.Sizes size)
+    parameters:
+    - id: size
+      type: SadConsole.IFont.Sizes
+      description: The default font size.
+    content.vb: Public Sub SetDefaultFontSize(size As IFont.Sizes)
+  overload: SadConsole.Configuration.FontConfig.SetDefaultFontSize*
+- uid: SadConsole.Configuration.FontConfig.Run(SadConsole.Configuration.BuilderBase,SadConsole.GameHost)
+  commentId: M:SadConsole.Configuration.FontConfig.Run(SadConsole.Configuration.BuilderBase,SadConsole.GameHost)
+  id: Run(SadConsole.Configuration.BuilderBase,SadConsole.GameHost)
+  parent: SadConsole.Configuration.FontConfig
+  langs:
+  - csharp
+  - vb
+  name: Run(BuilderBase, GameHost)
+  nameWithType: FontConfig.Run(BuilderBase, GameHost)
+  fullName: SadConsole.Configuration.FontConfig.Run(SadConsole.Configuration.BuilderBase, SadConsole.GameHost)
   type: Method
   assemblies:
   - SadConsole
@@ -212,18 +265,18 @@ items:
   summary: Invokes the <xref href="SadConsole.Configuration.FontConfig.FontLoader" data-throw-if-not-resolved="false"></xref> delegate.
   example: []
   syntax:
-    content: public void Run(Builder config, GameHost game)
+    content: public void Run(BuilderBase config, GameHost game)
     parameters:
     - id: config
-      type: SadConsole.Configuration.Builder
+      type: SadConsole.Configuration.BuilderBase
       description: The builder running this configurator.
     - id: game
       type: SadConsole.GameHost
       description: The game being created.
-    content.vb: Public Sub Run(config As Builder, game As GameHost)
+    content.vb: Public Sub Run(config As BuilderBase, game As GameHost)
   overload: SadConsole.Configuration.FontConfig.Run*
   implements:
-  - SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
+  - SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.BuilderBase,SadConsole.GameHost)
 - uid: SadConsole.Configuration.FontConfig.#ctor
   commentId: M:SadConsole.Configuration.FontConfig.#ctor
   id: '#ctor'
@@ -259,6 +312,8 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole.Configuration
+  summary: The method invoked by the <xref href="SadConsole.GameHost" data-throw-if-not-resolved="false"></xref> as fonts are loaded.
+  example: []
   syntax:
     content: public Action<FontConfig, GameHost>? FontLoader { get; set; }
     parameters: []
@@ -664,6 +719,41 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
+- uid: SadConsole.IFont.Sizes.One
+  commentId: F:SadConsole.IFont.Sizes.One
+  isExternal: true
+  href: SadConsole.IFont.Sizes.html#SadConsole_IFont_Sizes_One
+  name: One
+  nameWithType: IFont.Sizes.One
+  fullName: SadConsole.IFont.Sizes.One
+- uid: SadConsole.IFont.Sizes
+  commentId: T:SadConsole.IFont.Sizes
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IFont.html
+  name: IFont.Sizes
+  nameWithType: IFont.Sizes
+  fullName: SadConsole.IFont.Sizes
+  spec.csharp:
+  - uid: SadConsole.IFont
+    name: IFont
+    isExternal: true
+    href: SadConsole.IFont.html
+  - name: .
+  - uid: SadConsole.IFont.Sizes
+    name: Sizes
+    isExternal: true
+    href: SadConsole.IFont.Sizes.html
+  spec.vb:
+  - uid: SadConsole.IFont
+    name: IFont
+    isExternal: true
+    href: SadConsole.IFont.html
+  - name: .
+  - uid: SadConsole.IFont.Sizes
+    name: Sizes
+    isExternal: true
+    href: SadConsole.IFont.Sizes.html
 - uid: SadConsole.Configuration.FontConfig.UseBuiltinFont*
   commentId: Overload:SadConsole.Configuration.FontConfig.UseBuiltinFont
   isExternal: true
@@ -692,6 +782,13 @@ references:
   name: AddExtraFonts
   nameWithType: FontConfig.AddExtraFonts
   fullName: SadConsole.Configuration.FontConfig.AddExtraFonts
+- uid: SadConsole.Configuration.FontConfig.SetDefaultFontSize*
+  commentId: Overload:SadConsole.Configuration.FontConfig.SetDefaultFontSize
+  isExternal: true
+  href: SadConsole.Configuration.FontConfig.html#SadConsole_Configuration_FontConfig_SetDefaultFontSize_SadConsole_IFont_Sizes_
+  name: SetDefaultFontSize
+  nameWithType: FontConfig.SetDefaultFontSize
+  fullName: SadConsole.Configuration.FontConfig.SetDefaultFontSize
 - uid: SadConsole.Configuration.FontConfig.FontLoader
   commentId: P:SadConsole.Configuration.FontConfig.FontLoader
   isExternal: true
@@ -702,28 +799,28 @@ references:
 - uid: SadConsole.Configuration.FontConfig.Run*
   commentId: Overload:SadConsole.Configuration.FontConfig.Run
   isExternal: true
-  href: SadConsole.Configuration.FontConfig.html#SadConsole_Configuration_FontConfig_Run_SadConsole_Configuration_Builder_SadConsole_GameHost_
+  href: SadConsole.Configuration.FontConfig.html#SadConsole_Configuration_FontConfig_Run_SadConsole_Configuration_BuilderBase_SadConsole_GameHost_
   name: Run
   nameWithType: FontConfig.Run
   fullName: SadConsole.Configuration.FontConfig.Run
-- uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
-  commentId: M:SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
+- uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.BuilderBase,SadConsole.GameHost)
+  commentId: M:SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.BuilderBase,SadConsole.GameHost)
   parent: SadConsole.Configuration.IConfigurator
   isExternal: true
-  href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_Builder_SadConsole_GameHost_
-  name: Run(Builder, GameHost)
-  nameWithType: IConfigurator.Run(Builder, GameHost)
-  fullName: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder, SadConsole.GameHost)
+  href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_BuilderBase_SadConsole_GameHost_
+  name: Run(BuilderBase, GameHost)
+  nameWithType: IConfigurator.Run(BuilderBase, GameHost)
+  fullName: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.BuilderBase, SadConsole.GameHost)
   spec.csharp:
-  - uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
+  - uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.BuilderBase,SadConsole.GameHost)
     name: Run
     isExternal: true
-    href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_Builder_SadConsole_GameHost_
+    href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_BuilderBase_SadConsole_GameHost_
   - name: (
-  - uid: SadConsole.Configuration.Builder
-    name: Builder
+  - uid: SadConsole.Configuration.BuilderBase
+    name: BuilderBase
     isExternal: true
-    href: SadConsole.Configuration.Builder.html
+    href: SadConsole.Configuration.BuilderBase.html
   - name: ','
   - name: " "
   - uid: SadConsole.GameHost
@@ -732,15 +829,15 @@ references:
     href: SadConsole.GameHost.html
   - name: )
   spec.vb:
-  - uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
+  - uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.BuilderBase,SadConsole.GameHost)
     name: Run
     isExternal: true
-    href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_Builder_SadConsole_GameHost_
+    href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_BuilderBase_SadConsole_GameHost_
   - name: (
-  - uid: SadConsole.Configuration.Builder
-    name: Builder
+  - uid: SadConsole.Configuration.BuilderBase
+    name: BuilderBase
     isExternal: true
-    href: SadConsole.Configuration.Builder.html
+    href: SadConsole.Configuration.BuilderBase.html
   - name: ','
   - name: " "
   - uid: SadConsole.GameHost
@@ -748,14 +845,14 @@ references:
     isExternal: true
     href: SadConsole.GameHost.html
   - name: )
-- uid: SadConsole.Configuration.Builder
-  commentId: T:SadConsole.Configuration.Builder
+- uid: SadConsole.Configuration.BuilderBase
+  commentId: T:SadConsole.Configuration.BuilderBase
   parent: SadConsole.Configuration
   isExternal: true
-  href: SadConsole.Configuration.Builder.html
-  name: Builder
-  nameWithType: Builder
-  fullName: SadConsole.Configuration.Builder
+  href: SadConsole.Configuration.BuilderBase.html
+  name: BuilderBase
+  nameWithType: BuilderBase
+  fullName: SadConsole.Configuration.BuilderBase
 - uid: SadConsole.GameHost
   commentId: T:SadConsole.GameHost
   parent: SadConsole

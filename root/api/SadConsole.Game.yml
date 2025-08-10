@@ -11,6 +11,7 @@ items:
   - SadConsole.Game.Create(System.Int32,System.Int32,System.EventHandler{SadConsole.GameHost})
   - SadConsole.Game.Create(System.Int32,System.Int32,System.String,System.EventHandler{SadConsole.GameHost})
   - SadConsole.Game.CreateTexture(System.Int32,System.Int32)
+  - SadConsole.Game.GetDeviceScreenSize(System.Int32@,System.Int32@)
   - SadConsole.Game.GetKeyboardState
   - SadConsole.Game.GetMouseState
   - SadConsole.Game.GetTexture(System.IO.Stream)
@@ -412,6 +413,37 @@ items:
     content.vb: Public Overrides Function GetMouseState() As IMouseState
   overridden: SadConsole.GameHost.GetMouseState
   overload: SadConsole.Game.GetMouseState*
+- uid: SadConsole.Game.GetDeviceScreenSize(System.Int32@,System.Int32@)
+  commentId: M:SadConsole.Game.GetDeviceScreenSize(System.Int32@,System.Int32@)
+  id: GetDeviceScreenSize(System.Int32@,System.Int32@)
+  parent: SadConsole.Game
+  langs:
+  - csharp
+  - vb
+  name: GetDeviceScreenSize(out int, out int)
+  nameWithType: Game.GetDeviceScreenSize(out int, out int)
+  fullName: SadConsole.Game.GetDeviceScreenSize(out int, out int)
+  type: Method
+  assemblies:
+  - SadConsole.Host.MonoGame
+  namespace: SadConsole
+  summary: Gets the size of the current device's screen in pixels.
+  example: []
+  syntax:
+    content: public override void GetDeviceScreenSize(out int width, out int height)
+    parameters:
+    - id: width
+      type: System.Int32
+      description: The width of the screen.
+    - id: height
+      type: System.Int32
+      description: The height of the screen.
+    content.vb: Public Overrides Sub GetDeviceScreenSize(width As Integer, height As Integer)
+  overridden: SadConsole.GameHost.GetDeviceScreenSize(System.Int32@,System.Int32@)
+  overload: SadConsole.Game.GetDeviceScreenSize*
+  nameWithType.vb: Game.GetDeviceScreenSize(Integer, Integer)
+  fullName.vb: SadConsole.Game.GetDeviceScreenSize(Integer, Integer)
+  name.vb: GetDeviceScreenSize(Integer, Integer)
 - uid: SadConsole.Game.OpenStream(System.String,System.IO.FileMode,System.IO.FileAccess)
   commentId: M:SadConsole.Game.OpenStream(System.String,System.IO.FileMode,System.IO.FileAccess)
   id: OpenStream(System.String,System.IO.FileMode,System.IO.FileAccess)
@@ -1920,6 +1952,60 @@ references:
   name: IMouseState
   nameWithType: IMouseState
   fullName: SadConsole.Input.IMouseState
+- uid: SadConsole.GameHost.GetDeviceScreenSize(System.Int32@,System.Int32@)
+  commentId: M:SadConsole.GameHost.GetDeviceScreenSize(System.Int32@,System.Int32@)
+  parent: SadConsole.GameHost
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: GetDeviceScreenSize(out int, out int)
+  nameWithType: GameHost.GetDeviceScreenSize(out int, out int)
+  fullName: SadConsole.GameHost.GetDeviceScreenSize(out int, out int)
+  nameWithType.vb: GameHost.GetDeviceScreenSize(Integer, Integer)
+  fullName.vb: SadConsole.GameHost.GetDeviceScreenSize(Integer, Integer)
+  name.vb: GetDeviceScreenSize(Integer, Integer)
+  spec.csharp:
+  - uid: SadConsole.GameHost.GetDeviceScreenSize(System.Int32@,System.Int32@)
+    name: GetDeviceScreenSize
+    isExternal: true
+  - name: (
+  - name: out
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: SadConsole.GameHost.GetDeviceScreenSize(System.Int32@,System.Int32@)
+    name: GetDeviceScreenSize
+    isExternal: true
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: SadConsole.Game.GetDeviceScreenSize*
+  commentId: Overload:SadConsole.Game.GetDeviceScreenSize
+  isExternal: true
+  href: SadConsole.Game.html#SadConsole_Game_GetDeviceScreenSize_System_Int32__System_Int32__
+  name: GetDeviceScreenSize
+  nameWithType: Game.GetDeviceScreenSize
+  fullName: SadConsole.Game.GetDeviceScreenSize
 - uid: SadConsole.GameHost.OpenStream(System.String,System.IO.FileMode,System.IO.FileAccess)
   commentId: M:SadConsole.GameHost.OpenStream(System.String,System.IO.FileMode,System.IO.FileAccess)
   parent: SadConsole.GameHost

@@ -1,36 +1,42 @@
 ### YamlMime:ManagedReference
 items:
-- uid: SadConsole.Debug.FinalOutputWindow
-  commentId: T:SadConsole.Debug.FinalOutputWindow
-  id: FinalOutputWindow
-  parent: SadConsole.Debug
+- uid: Hexa.NET.ImGui.SC.Windows.MessageWindow
+  commentId: T:Hexa.NET.ImGui.SC.Windows.MessageWindow
+  id: MessageWindow
+  parent: Hexa.NET.ImGui.SC.Windows
   children:
-  - SadConsole.Debug.FinalOutputWindow.#ctor(System.String,System.Boolean)
-  - SadConsole.Debug.FinalOutputWindow.BuildUI(SadConsole.ImGuiSystem.ImGuiRenderer)
+  - Hexa.NET.ImGui.SC.Windows.MessageWindow.#ctor(System.String,System.String)
+  - Hexa.NET.ImGui.SC.Windows.MessageWindow.BuildUI(SadConsole.ImGuiSystem.ImGuiRenderer)
+  - Hexa.NET.ImGui.SC.Windows.MessageWindow.Show(System.String,System.String)
   langs:
   - csharp
   - vb
-  name: FinalOutputWindow
-  nameWithType: FinalOutputWindow
-  fullName: SadConsole.Debug.FinalOutputWindow
+  name: MessageWindow
+  nameWithType: MessageWindow
+  fullName: Hexa.NET.ImGui.SC.Windows.MessageWindow
   type: Class
   assemblies:
   - SadConsole.Debug.MonoGame
-  namespace: SadConsole.Debug
+  namespace: Hexa.NET.ImGui.SC.Windows
   syntax:
-    content: 'public class FinalOutputWindow : ImGuiWindow'
-    content.vb: Public Class FinalOutputWindow Inherits ImGuiWindow
+    content: 'public class MessageWindow : ImGuiWindowBase'
+    content.vb: Public Class MessageWindow Inherits ImGuiWindowBase
   inheritance:
   - System.Object
   - SadConsole.ImGuiSystem.ImGuiObjectBase
-  - SadConsole.ImGuiSystem.ImGuiWindow
+  - SadConsole.ImGuiSystem.ImGuiWindowBase
   inheritedMembers:
-  - SadConsole.ImGuiSystem.ImGuiWindow.IsOpen
-  - SadConsole.ImGuiSystem.ImGuiWindow.DialogResult
-  - SadConsole.ImGuiSystem.ImGuiWindow.OnClosed
-  - SadConsole.ImGuiSystem.ImGuiWindow.DrawButtons(System.Boolean@,System.Boolean)
-  - SadConsole.ImGuiSystem.ImGuiWindow.Title
-  - SadConsole.ImGuiSystem.ImGuiWindow.Closed
+  - SadConsole.ImGuiSystem.ImGuiWindowBase.IsOpen
+  - SadConsole.ImGuiSystem.ImGuiWindowBase.RemoveOnClose
+  - SadConsole.ImGuiSystem.ImGuiWindowBase.AddOnOpen
+  - SadConsole.ImGuiSystem.ImGuiWindowBase.DialogResult
+  - SadConsole.ImGuiSystem.ImGuiWindowBase.Close
+  - SadConsole.ImGuiSystem.ImGuiWindowBase.OnClosed
+  - SadConsole.ImGuiSystem.ImGuiWindowBase.Open
+  - SadConsole.ImGuiSystem.ImGuiWindowBase.OnOpened
+  - SadConsole.ImGuiSystem.ImGuiWindowBase.DrawButtons(System.Boolean@,System.Boolean,System.String,System.String)
+  - SadConsole.ImGuiSystem.ImGuiWindowBase.Title
+  - SadConsole.ImGuiSystem.ImGuiWindowBase.Closed
   - SadConsole.ImGuiSystem.ImGuiObjectBase.IsVisible
   - System.Object.GetType
   - System.Object.MemberwiseClone
@@ -41,46 +47,46 @@ items:
   - System.Object.GetHashCode
   extensionMethods:
   - System.Object.SadConsole.ExtensionsSystem.GetDebuggerDisplayValue
-- uid: SadConsole.Debug.FinalOutputWindow.#ctor(System.String,System.Boolean)
-  commentId: M:SadConsole.Debug.FinalOutputWindow.#ctor(System.String,System.Boolean)
-  id: '#ctor(System.String,System.Boolean)'
-  parent: SadConsole.Debug.FinalOutputWindow
+- uid: Hexa.NET.ImGui.SC.Windows.MessageWindow.#ctor(System.String,System.String)
+  commentId: M:Hexa.NET.ImGui.SC.Windows.MessageWindow.#ctor(System.String,System.String)
+  id: '#ctor(System.String,System.String)'
+  parent: Hexa.NET.ImGui.SC.Windows.MessageWindow
   langs:
   - csharp
   - vb
-  name: FinalOutputWindow(string, bool)
-  nameWithType: FinalOutputWindow.FinalOutputWindow(string, bool)
-  fullName: SadConsole.Debug.FinalOutputWindow.FinalOutputWindow(string, bool)
+  name: MessageWindow(string, string)
+  nameWithType: MessageWindow.MessageWindow(string, string)
+  fullName: Hexa.NET.ImGui.SC.Windows.MessageWindow.MessageWindow(string, string)
   type: Constructor
   assemblies:
   - SadConsole.Debug.MonoGame
-  namespace: SadConsole.Debug
+  namespace: Hexa.NET.ImGui.SC.Windows
   syntax:
-    content: public FinalOutputWindow(string title, bool isOpen)
+    content: public MessageWindow(string message, string title = "Message")
     parameters:
+    - id: message
+      type: System.String
     - id: title
       type: System.String
-    - id: isOpen
-      type: System.Boolean
-    content.vb: Public Sub New(title As String, isOpen As Boolean)
-  overload: SadConsole.Debug.FinalOutputWindow.#ctor*
-  nameWithType.vb: FinalOutputWindow.New(String, Boolean)
-  fullName.vb: SadConsole.Debug.FinalOutputWindow.New(String, Boolean)
-  name.vb: New(String, Boolean)
-- uid: SadConsole.Debug.FinalOutputWindow.BuildUI(SadConsole.ImGuiSystem.ImGuiRenderer)
-  commentId: M:SadConsole.Debug.FinalOutputWindow.BuildUI(SadConsole.ImGuiSystem.ImGuiRenderer)
+    content.vb: Public Sub New(message As String, title As String = "Message")
+  overload: Hexa.NET.ImGui.SC.Windows.MessageWindow.#ctor*
+  nameWithType.vb: MessageWindow.New(String, String)
+  fullName.vb: Hexa.NET.ImGui.SC.Windows.MessageWindow.New(String, String)
+  name.vb: New(String, String)
+- uid: Hexa.NET.ImGui.SC.Windows.MessageWindow.BuildUI(SadConsole.ImGuiSystem.ImGuiRenderer)
+  commentId: M:Hexa.NET.ImGui.SC.Windows.MessageWindow.BuildUI(SadConsole.ImGuiSystem.ImGuiRenderer)
   id: BuildUI(SadConsole.ImGuiSystem.ImGuiRenderer)
-  parent: SadConsole.Debug.FinalOutputWindow
+  parent: Hexa.NET.ImGui.SC.Windows.MessageWindow
   langs:
   - csharp
   - vb
   name: BuildUI(ImGuiRenderer)
-  nameWithType: FinalOutputWindow.BuildUI(ImGuiRenderer)
-  fullName: SadConsole.Debug.FinalOutputWindow.BuildUI(SadConsole.ImGuiSystem.ImGuiRenderer)
+  nameWithType: MessageWindow.BuildUI(ImGuiRenderer)
+  fullName: Hexa.NET.ImGui.SC.Windows.MessageWindow.BuildUI(SadConsole.ImGuiSystem.ImGuiRenderer)
   type: Method
   assemblies:
   - SadConsole.Debug.MonoGame
-  namespace: SadConsole.Debug
+  namespace: Hexa.NET.ImGui.SC.Windows
   summary: Draws this object.
   example: []
   syntax:
@@ -91,35 +97,91 @@ items:
       description: The ImGui renderer drawing this object.
     content.vb: Public Overrides Sub BuildUI(renderer As ImGuiRenderer)
   overridden: SadConsole.ImGuiSystem.ImGuiObjectBase.BuildUI(SadConsole.ImGuiSystem.ImGuiRenderer)
-  overload: SadConsole.Debug.FinalOutputWindow.BuildUI*
+  overload: Hexa.NET.ImGui.SC.Windows.MessageWindow.BuildUI*
+- uid: Hexa.NET.ImGui.SC.Windows.MessageWindow.Show(System.String,System.String)
+  commentId: M:Hexa.NET.ImGui.SC.Windows.MessageWindow.Show(System.String,System.String)
+  id: Show(System.String,System.String)
+  parent: Hexa.NET.ImGui.SC.Windows.MessageWindow
+  langs:
+  - csharp
+  - vb
+  name: Show(string, string)
+  nameWithType: MessageWindow.Show(string, string)
+  fullName: Hexa.NET.ImGui.SC.Windows.MessageWindow.Show(string, string)
+  type: Method
+  assemblies:
+  - SadConsole.Debug.MonoGame
+  namespace: Hexa.NET.ImGui.SC.Windows
+  syntax:
+    content: public static void Show(string message, string title)
+    parameters:
+    - id: message
+      type: System.String
+    - id: title
+      type: System.String
+    content.vb: Public Shared Sub Show(message As String, title As String)
+  overload: Hexa.NET.ImGui.SC.Windows.MessageWindow.Show*
+  nameWithType.vb: MessageWindow.Show(String, String)
+  fullName.vb: Hexa.NET.ImGui.SC.Windows.MessageWindow.Show(String, String)
+  name.vb: Show(String, String)
 references:
-- uid: SadConsole.Debug
-  commentId: N:SadConsole.Debug
+- uid: Hexa.NET.ImGui.SC.Windows
+  commentId: N:Hexa.NET.ImGui.SC.Windows
   isExternal: true
-  href: SadConsole.html
-  name: SadConsole.Debug
-  nameWithType: SadConsole.Debug
-  fullName: SadConsole.Debug
+  href: Hexa.html
+  name: Hexa.NET.ImGui.SC.Windows
+  nameWithType: Hexa.NET.ImGui.SC.Windows
+  fullName: Hexa.NET.ImGui.SC.Windows
   spec.csharp:
-  - uid: SadConsole
-    name: SadConsole
+  - uid: Hexa
+    name: Hexa
     isExternal: true
-    href: SadConsole.html
+    href: Hexa.html
   - name: .
-  - uid: SadConsole.Debug
-    name: Debug
+  - uid: Hexa.NET
+    name: NET
     isExternal: true
-    href: SadConsole.Debug.html
+    href: Hexa.NET.html
+  - name: .
+  - uid: Hexa.NET.ImGui
+    name: ImGui
+    isExternal: true
+    href: Hexa.NET.ImGui.html
+  - name: .
+  - uid: Hexa.NET.ImGui.SC
+    name: SC
+    isExternal: true
+    href: Hexa.NET.ImGui.SC.html
+  - name: .
+  - uid: Hexa.NET.ImGui.SC.Windows
+    name: Windows
+    isExternal: true
+    href: Hexa.NET.ImGui.SC.Windows.html
   spec.vb:
-  - uid: SadConsole
-    name: SadConsole
+  - uid: Hexa
+    name: Hexa
     isExternal: true
-    href: SadConsole.html
+    href: Hexa.html
   - name: .
-  - uid: SadConsole.Debug
-    name: Debug
+  - uid: Hexa.NET
+    name: NET
     isExternal: true
-    href: SadConsole.Debug.html
+    href: Hexa.NET.html
+  - name: .
+  - uid: Hexa.NET.ImGui
+    name: ImGui
+    isExternal: true
+    href: Hexa.NET.ImGui.html
+  - name: .
+  - uid: Hexa.NET.ImGui.SC
+    name: SC
+    isExternal: true
+    href: Hexa.NET.ImGui.SC.html
+  - name: .
+  - uid: Hexa.NET.ImGui.SC.Windows
+    name: Windows
+    isExternal: true
+    href: Hexa.NET.ImGui.SC.Windows.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -139,68 +201,150 @@ references:
   name: ImGuiObjectBase
   nameWithType: ImGuiObjectBase
   fullName: SadConsole.ImGuiSystem.ImGuiObjectBase
-- uid: SadConsole.ImGuiSystem.ImGuiWindow
-  commentId: T:SadConsole.ImGuiSystem.ImGuiWindow
+- uid: SadConsole.ImGuiSystem.ImGuiWindowBase
+  commentId: T:SadConsole.ImGuiSystem.ImGuiWindowBase
   parent: SadConsole.ImGuiSystem
   isExternal: true
-  href: SadConsole.ImGuiSystem.ImGuiWindow.html
-  name: ImGuiWindow
-  nameWithType: ImGuiWindow
-  fullName: SadConsole.ImGuiSystem.ImGuiWindow
-- uid: SadConsole.ImGuiSystem.ImGuiWindow.IsOpen
-  commentId: F:SadConsole.ImGuiSystem.ImGuiWindow.IsOpen
-  parent: SadConsole.ImGuiSystem.ImGuiWindow
+  href: SadConsole.ImGuiSystem.ImGuiWindowBase.html
+  name: ImGuiWindowBase
+  nameWithType: ImGuiWindowBase
+  fullName: SadConsole.ImGuiSystem.ImGuiWindowBase
+- uid: SadConsole.ImGuiSystem.ImGuiWindowBase.IsOpen
+  commentId: F:SadConsole.ImGuiSystem.ImGuiWindowBase.IsOpen
+  parent: SadConsole.ImGuiSystem.ImGuiWindowBase
   isExternal: true
-  href: SadConsole.ImGuiSystem.ImGuiWindow.html#SadConsole_ImGuiSystem_ImGuiWindow_IsOpen
+  href: SadConsole.ImGuiSystem.ImGuiWindowBase.html#SadConsole_ImGuiSystem_ImGuiWindowBase_IsOpen
   name: IsOpen
-  nameWithType: ImGuiWindow.IsOpen
-  fullName: SadConsole.ImGuiSystem.ImGuiWindow.IsOpen
-- uid: SadConsole.ImGuiSystem.ImGuiWindow.DialogResult
-  commentId: F:SadConsole.ImGuiSystem.ImGuiWindow.DialogResult
-  parent: SadConsole.ImGuiSystem.ImGuiWindow
+  nameWithType: ImGuiWindowBase.IsOpen
+  fullName: SadConsole.ImGuiSystem.ImGuiWindowBase.IsOpen
+- uid: SadConsole.ImGuiSystem.ImGuiWindowBase.RemoveOnClose
+  commentId: F:SadConsole.ImGuiSystem.ImGuiWindowBase.RemoveOnClose
+  parent: SadConsole.ImGuiSystem.ImGuiWindowBase
   isExternal: true
-  href: SadConsole.ImGuiSystem.ImGuiWindow.html#SadConsole_ImGuiSystem_ImGuiWindow_DialogResult
+  href: SadConsole.ImGuiSystem.ImGuiWindowBase.html#SadConsole_ImGuiSystem_ImGuiWindowBase_RemoveOnClose
+  name: RemoveOnClose
+  nameWithType: ImGuiWindowBase.RemoveOnClose
+  fullName: SadConsole.ImGuiSystem.ImGuiWindowBase.RemoveOnClose
+- uid: SadConsole.ImGuiSystem.ImGuiWindowBase.AddOnOpen
+  commentId: F:SadConsole.ImGuiSystem.ImGuiWindowBase.AddOnOpen
+  parent: SadConsole.ImGuiSystem.ImGuiWindowBase
+  isExternal: true
+  href: SadConsole.ImGuiSystem.ImGuiWindowBase.html#SadConsole_ImGuiSystem_ImGuiWindowBase_AddOnOpen
+  name: AddOnOpen
+  nameWithType: ImGuiWindowBase.AddOnOpen
+  fullName: SadConsole.ImGuiSystem.ImGuiWindowBase.AddOnOpen
+- uid: SadConsole.ImGuiSystem.ImGuiWindowBase.DialogResult
+  commentId: F:SadConsole.ImGuiSystem.ImGuiWindowBase.DialogResult
+  parent: SadConsole.ImGuiSystem.ImGuiWindowBase
+  isExternal: true
+  href: SadConsole.ImGuiSystem.ImGuiWindowBase.html#SadConsole_ImGuiSystem_ImGuiWindowBase_DialogResult
   name: DialogResult
-  nameWithType: ImGuiWindow.DialogResult
-  fullName: SadConsole.ImGuiSystem.ImGuiWindow.DialogResult
-- uid: SadConsole.ImGuiSystem.ImGuiWindow.OnClosed
-  commentId: M:SadConsole.ImGuiSystem.ImGuiWindow.OnClosed
-  parent: SadConsole.ImGuiSystem.ImGuiWindow
+  nameWithType: ImGuiWindowBase.DialogResult
+  fullName: SadConsole.ImGuiSystem.ImGuiWindowBase.DialogResult
+- uid: SadConsole.ImGuiSystem.ImGuiWindowBase.Close
+  commentId: M:SadConsole.ImGuiSystem.ImGuiWindowBase.Close
+  parent: SadConsole.ImGuiSystem.ImGuiWindowBase
   isExternal: true
-  href: SadConsole.ImGuiSystem.ImGuiWindow.html#SadConsole_ImGuiSystem_ImGuiWindow_OnClosed
-  name: OnClosed()
-  nameWithType: ImGuiWindow.OnClosed()
-  fullName: SadConsole.ImGuiSystem.ImGuiWindow.OnClosed()
+  href: SadConsole.ImGuiSystem.ImGuiWindowBase.html#SadConsole_ImGuiSystem_ImGuiWindowBase_Close
+  name: Close()
+  nameWithType: ImGuiWindowBase.Close()
+  fullName: SadConsole.ImGuiSystem.ImGuiWindowBase.Close()
   spec.csharp:
-  - uid: SadConsole.ImGuiSystem.ImGuiWindow.OnClosed
-    name: OnClosed
+  - uid: SadConsole.ImGuiSystem.ImGuiWindowBase.Close
+    name: Close
     isExternal: true
-    href: SadConsole.ImGuiSystem.ImGuiWindow.html#SadConsole_ImGuiSystem_ImGuiWindow_OnClosed
+    href: SadConsole.ImGuiSystem.ImGuiWindowBase.html#SadConsole_ImGuiSystem_ImGuiWindowBase_Close
   - name: (
   - name: )
   spec.vb:
-  - uid: SadConsole.ImGuiSystem.ImGuiWindow.OnClosed
-    name: OnClosed
+  - uid: SadConsole.ImGuiSystem.ImGuiWindowBase.Close
+    name: Close
     isExternal: true
-    href: SadConsole.ImGuiSystem.ImGuiWindow.html#SadConsole_ImGuiSystem_ImGuiWindow_OnClosed
+    href: SadConsole.ImGuiSystem.ImGuiWindowBase.html#SadConsole_ImGuiSystem_ImGuiWindowBase_Close
   - name: (
   - name: )
-- uid: SadConsole.ImGuiSystem.ImGuiWindow.DrawButtons(System.Boolean@,System.Boolean)
-  commentId: M:SadConsole.ImGuiSystem.ImGuiWindow.DrawButtons(System.Boolean@,System.Boolean)
-  parent: SadConsole.ImGuiSystem.ImGuiWindow
+- uid: SadConsole.ImGuiSystem.ImGuiWindowBase.OnClosed
+  commentId: M:SadConsole.ImGuiSystem.ImGuiWindowBase.OnClosed
+  parent: SadConsole.ImGuiSystem.ImGuiWindowBase
   isExternal: true
-  href: SadConsole.ImGuiSystem.ImGuiWindow.html#SadConsole_ImGuiSystem_ImGuiWindow_DrawButtons_System_Boolean__System_Boolean_
-  name: DrawButtons(out bool, bool)
-  nameWithType: ImGuiWindow.DrawButtons(out bool, bool)
-  fullName: SadConsole.ImGuiSystem.ImGuiWindow.DrawButtons(out bool, bool)
-  nameWithType.vb: ImGuiWindow.DrawButtons(Boolean, Boolean)
-  fullName.vb: SadConsole.ImGuiSystem.ImGuiWindow.DrawButtons(Boolean, Boolean)
-  name.vb: DrawButtons(Boolean, Boolean)
+  href: SadConsole.ImGuiSystem.ImGuiWindowBase.html#SadConsole_ImGuiSystem_ImGuiWindowBase_OnClosed
+  name: OnClosed()
+  nameWithType: ImGuiWindowBase.OnClosed()
+  fullName: SadConsole.ImGuiSystem.ImGuiWindowBase.OnClosed()
   spec.csharp:
-  - uid: SadConsole.ImGuiSystem.ImGuiWindow.DrawButtons(System.Boolean@,System.Boolean)
+  - uid: SadConsole.ImGuiSystem.ImGuiWindowBase.OnClosed
+    name: OnClosed
+    isExternal: true
+    href: SadConsole.ImGuiSystem.ImGuiWindowBase.html#SadConsole_ImGuiSystem_ImGuiWindowBase_OnClosed
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ImGuiSystem.ImGuiWindowBase.OnClosed
+    name: OnClosed
+    isExternal: true
+    href: SadConsole.ImGuiSystem.ImGuiWindowBase.html#SadConsole_ImGuiSystem_ImGuiWindowBase_OnClosed
+  - name: (
+  - name: )
+- uid: SadConsole.ImGuiSystem.ImGuiWindowBase.Open
+  commentId: M:SadConsole.ImGuiSystem.ImGuiWindowBase.Open
+  parent: SadConsole.ImGuiSystem.ImGuiWindowBase
+  isExternal: true
+  href: SadConsole.ImGuiSystem.ImGuiWindowBase.html#SadConsole_ImGuiSystem_ImGuiWindowBase_Open
+  name: Open()
+  nameWithType: ImGuiWindowBase.Open()
+  fullName: SadConsole.ImGuiSystem.ImGuiWindowBase.Open()
+  spec.csharp:
+  - uid: SadConsole.ImGuiSystem.ImGuiWindowBase.Open
+    name: Open
+    isExternal: true
+    href: SadConsole.ImGuiSystem.ImGuiWindowBase.html#SadConsole_ImGuiSystem_ImGuiWindowBase_Open
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ImGuiSystem.ImGuiWindowBase.Open
+    name: Open
+    isExternal: true
+    href: SadConsole.ImGuiSystem.ImGuiWindowBase.html#SadConsole_ImGuiSystem_ImGuiWindowBase_Open
+  - name: (
+  - name: )
+- uid: SadConsole.ImGuiSystem.ImGuiWindowBase.OnOpened
+  commentId: M:SadConsole.ImGuiSystem.ImGuiWindowBase.OnOpened
+  parent: SadConsole.ImGuiSystem.ImGuiWindowBase
+  isExternal: true
+  href: SadConsole.ImGuiSystem.ImGuiWindowBase.html#SadConsole_ImGuiSystem_ImGuiWindowBase_OnOpened
+  name: OnOpened()
+  nameWithType: ImGuiWindowBase.OnOpened()
+  fullName: SadConsole.ImGuiSystem.ImGuiWindowBase.OnOpened()
+  spec.csharp:
+  - uid: SadConsole.ImGuiSystem.ImGuiWindowBase.OnOpened
+    name: OnOpened
+    isExternal: true
+    href: SadConsole.ImGuiSystem.ImGuiWindowBase.html#SadConsole_ImGuiSystem_ImGuiWindowBase_OnOpened
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ImGuiSystem.ImGuiWindowBase.OnOpened
+    name: OnOpened
+    isExternal: true
+    href: SadConsole.ImGuiSystem.ImGuiWindowBase.html#SadConsole_ImGuiSystem_ImGuiWindowBase_OnOpened
+  - name: (
+  - name: )
+- uid: SadConsole.ImGuiSystem.ImGuiWindowBase.DrawButtons(System.Boolean@,System.Boolean,System.String,System.String)
+  commentId: M:SadConsole.ImGuiSystem.ImGuiWindowBase.DrawButtons(System.Boolean@,System.Boolean,System.String,System.String)
+  parent: SadConsole.ImGuiSystem.ImGuiWindowBase
+  isExternal: true
+  href: SadConsole.ImGuiSystem.ImGuiWindowBase.html#SadConsole_ImGuiSystem_ImGuiWindowBase_DrawButtons_System_Boolean__System_Boolean_System_String_System_String_
+  name: DrawButtons(out bool, bool, string, string)
+  nameWithType: ImGuiWindowBase.DrawButtons(out bool, bool, string, string)
+  fullName: SadConsole.ImGuiSystem.ImGuiWindowBase.DrawButtons(out bool, bool, string, string)
+  nameWithType.vb: ImGuiWindowBase.DrawButtons(Boolean, Boolean, String, String)
+  fullName.vb: SadConsole.ImGuiSystem.ImGuiWindowBase.DrawButtons(Boolean, Boolean, String, String)
+  name.vb: DrawButtons(Boolean, Boolean, String, String)
+  spec.csharp:
+  - uid: SadConsole.ImGuiSystem.ImGuiWindowBase.DrawButtons(System.Boolean@,System.Boolean,System.String,System.String)
     name: DrawButtons
     isExternal: true
-    href: SadConsole.ImGuiSystem.ImGuiWindow.html#SadConsole_ImGuiSystem_ImGuiWindow_DrawButtons_System_Boolean__System_Boolean_
+    href: SadConsole.ImGuiSystem.ImGuiWindowBase.html#SadConsole_ImGuiSystem_ImGuiWindowBase_DrawButtons_System_Boolean__System_Boolean_System_String_System_String_
   - name: (
   - name: out
   - name: " "
@@ -214,12 +358,24 @@ references:
     name: bool
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )
   spec.vb:
-  - uid: SadConsole.ImGuiSystem.ImGuiWindow.DrawButtons(System.Boolean@,System.Boolean)
+  - uid: SadConsole.ImGuiSystem.ImGuiWindowBase.DrawButtons(System.Boolean@,System.Boolean,System.String,System.String)
     name: DrawButtons
     isExternal: true
-    href: SadConsole.ImGuiSystem.ImGuiWindow.html#SadConsole_ImGuiSystem_ImGuiWindow_DrawButtons_System_Boolean__System_Boolean_
+    href: SadConsole.ImGuiSystem.ImGuiWindowBase.html#SadConsole_ImGuiSystem_ImGuiWindowBase_DrawButtons_System_Boolean__System_Boolean_System_String_System_String_
   - name: (
   - uid: System.Boolean
     name: Boolean
@@ -231,23 +387,35 @@ references:
     name: Boolean
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )
-- uid: SadConsole.ImGuiSystem.ImGuiWindow.Title
-  commentId: P:SadConsole.ImGuiSystem.ImGuiWindow.Title
-  parent: SadConsole.ImGuiSystem.ImGuiWindow
+- uid: SadConsole.ImGuiSystem.ImGuiWindowBase.Title
+  commentId: P:SadConsole.ImGuiSystem.ImGuiWindowBase.Title
+  parent: SadConsole.ImGuiSystem.ImGuiWindowBase
   isExternal: true
-  href: SadConsole.ImGuiSystem.ImGuiWindow.html#SadConsole_ImGuiSystem_ImGuiWindow_Title
+  href: SadConsole.ImGuiSystem.ImGuiWindowBase.html#SadConsole_ImGuiSystem_ImGuiWindowBase_Title
   name: Title
-  nameWithType: ImGuiWindow.Title
-  fullName: SadConsole.ImGuiSystem.ImGuiWindow.Title
-- uid: SadConsole.ImGuiSystem.ImGuiWindow.Closed
-  commentId: E:SadConsole.ImGuiSystem.ImGuiWindow.Closed
-  parent: SadConsole.ImGuiSystem.ImGuiWindow
+  nameWithType: ImGuiWindowBase.Title
+  fullName: SadConsole.ImGuiSystem.ImGuiWindowBase.Title
+- uid: SadConsole.ImGuiSystem.ImGuiWindowBase.Closed
+  commentId: E:SadConsole.ImGuiSystem.ImGuiWindowBase.Closed
+  parent: SadConsole.ImGuiSystem.ImGuiWindowBase
   isExternal: true
-  href: SadConsole.ImGuiSystem.ImGuiWindow.html#SadConsole_ImGuiSystem_ImGuiWindow_Closed
+  href: SadConsole.ImGuiSystem.ImGuiWindowBase.html#SadConsole_ImGuiSystem_ImGuiWindowBase_Closed
   name: Closed
-  nameWithType: ImGuiWindow.Closed
-  fullName: SadConsole.ImGuiSystem.ImGuiWindow.Closed
+  nameWithType: ImGuiWindowBase.Closed
+  fullName: SadConsole.ImGuiSystem.ImGuiWindowBase.Closed
 - uid: SadConsole.ImGuiSystem.ImGuiObjectBase.IsVisible
   commentId: P:SadConsole.ImGuiSystem.ImGuiObjectBase.IsVisible
   parent: SadConsole.ImGuiSystem.ImGuiObjectBase
@@ -589,15 +757,15 @@ references:
   name: SadConsole
   nameWithType: SadConsole
   fullName: SadConsole
-- uid: SadConsole.Debug.FinalOutputWindow.#ctor*
-  commentId: Overload:SadConsole.Debug.FinalOutputWindow.#ctor
+- uid: Hexa.NET.ImGui.SC.Windows.MessageWindow.#ctor*
+  commentId: Overload:Hexa.NET.ImGui.SC.Windows.MessageWindow.#ctor
   isExternal: true
-  href: SadConsole.Debug.FinalOutputWindow.html#SadConsole_Debug_FinalOutputWindow__ctor_System_String_System_Boolean_
-  name: FinalOutputWindow
-  nameWithType: FinalOutputWindow.FinalOutputWindow
-  fullName: SadConsole.Debug.FinalOutputWindow.FinalOutputWindow
-  nameWithType.vb: FinalOutputWindow.New
-  fullName.vb: SadConsole.Debug.FinalOutputWindow.New
+  href: Hexa.NET.ImGui.SC.Windows.MessageWindow.html#Hexa_NET_ImGui_SC_Windows_MessageWindow__ctor_System_String_System_String_
+  name: MessageWindow
+  nameWithType: MessageWindow.MessageWindow
+  fullName: Hexa.NET.ImGui.SC.Windows.MessageWindow.MessageWindow
+  nameWithType.vb: MessageWindow.New
+  fullName.vb: Hexa.NET.ImGui.SC.Windows.MessageWindow.New
   name.vb: New
 - uid: System.String
   commentId: T:System.String
@@ -610,17 +778,6 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
 - uid: SadConsole.ImGuiSystem.ImGuiObjectBase.BuildUI(SadConsole.ImGuiSystem.ImGuiRenderer)
   commentId: M:SadConsole.ImGuiSystem.ImGuiObjectBase.BuildUI(SadConsole.ImGuiSystem.ImGuiRenderer)
   parent: SadConsole.ImGuiSystem.ImGuiObjectBase
@@ -651,13 +808,13 @@ references:
     isExternal: true
     href: SadConsole.ImGuiSystem.ImGuiRenderer.html
   - name: )
-- uid: SadConsole.Debug.FinalOutputWindow.BuildUI*
-  commentId: Overload:SadConsole.Debug.FinalOutputWindow.BuildUI
+- uid: Hexa.NET.ImGui.SC.Windows.MessageWindow.BuildUI*
+  commentId: Overload:Hexa.NET.ImGui.SC.Windows.MessageWindow.BuildUI
   isExternal: true
-  href: SadConsole.Debug.FinalOutputWindow.html#SadConsole_Debug_FinalOutputWindow_BuildUI_SadConsole_ImGuiSystem_ImGuiRenderer_
+  href: Hexa.NET.ImGui.SC.Windows.MessageWindow.html#Hexa_NET_ImGui_SC_Windows_MessageWindow_BuildUI_SadConsole_ImGuiSystem_ImGuiRenderer_
   name: BuildUI
-  nameWithType: FinalOutputWindow.BuildUI
-  fullName: SadConsole.Debug.FinalOutputWindow.BuildUI
+  nameWithType: MessageWindow.BuildUI
+  fullName: Hexa.NET.ImGui.SC.Windows.MessageWindow.BuildUI
 - uid: SadConsole.ImGuiSystem.ImGuiRenderer
   commentId: T:SadConsole.ImGuiSystem.ImGuiRenderer
   parent: SadConsole.ImGuiSystem
@@ -666,3 +823,10 @@ references:
   name: ImGuiRenderer
   nameWithType: ImGuiRenderer
   fullName: SadConsole.ImGuiSystem.ImGuiRenderer
+- uid: Hexa.NET.ImGui.SC.Windows.MessageWindow.Show*
+  commentId: Overload:Hexa.NET.ImGui.SC.Windows.MessageWindow.Show
+  isExternal: true
+  href: Hexa.NET.ImGui.SC.Windows.MessageWindow.html#Hexa_NET_ImGui_SC_Windows_MessageWindow_Show_System_String_System_String_
+  name: Show
+  nameWithType: MessageWindow.Show
+  fullName: Hexa.NET.ImGui.SC.Windows.MessageWindow.Show

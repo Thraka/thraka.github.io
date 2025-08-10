@@ -7,6 +7,7 @@ if ($args.Count -eq 1) {
   Write-Host "Rebuild API docs..."
   Write-Host "==================="
 
+  rm .\root\api\ -force -recurse
   docfx metadata .\root\docfx.json
 }
 

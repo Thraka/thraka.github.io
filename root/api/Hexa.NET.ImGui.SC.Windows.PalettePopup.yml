@@ -1,24 +1,25 @@
 ### YamlMime:ManagedReference
 items:
-- uid: Hexa.NET.ImGui.ImGui2.GlyphPickerPopup
-  commentId: T:Hexa.NET.ImGui.ImGui2.GlyphPickerPopup
-  id: ImGui2.GlyphPickerPopup
-  parent: Hexa.NET.ImGui
+- uid: Hexa.NET.ImGui.SC.Windows.PalettePopup
+  commentId: T:Hexa.NET.ImGui.SC.Windows.PalettePopup
+  id: PalettePopup
+  parent: Hexa.NET.ImGui.SC.Windows
   children:
-  - Hexa.NET.ImGui.ImGui2.GlyphPickerPopup.Show(SadConsole.ImGuiSystem.ImGuiRenderer,System.String,SadConsole.IFont,Hexa.NET.ImGui.ImTextureID,SadRogue.Primitives.Point,System.Int32@)
+  - Hexa.NET.ImGui.SC.Windows.PalettePopup.ExtraPalettes
+  - Hexa.NET.ImGui.SC.Windows.PalettePopup.Show(System.String,SadRogue.Primitives.Color@)
   langs:
   - csharp
   - vb
-  name: ImGui2.GlyphPickerPopup
-  nameWithType: ImGui2.GlyphPickerPopup
-  fullName: Hexa.NET.ImGui.ImGui2.GlyphPickerPopup
+  name: PalettePopup
+  nameWithType: PalettePopup
+  fullName: Hexa.NET.ImGui.SC.Windows.PalettePopup
   type: Class
   assemblies:
   - SadConsole.Debug.MonoGame
-  namespace: Hexa.NET.ImGui
+  namespace: Hexa.NET.ImGui.SC.Windows
   syntax:
-    content: public static class ImGui2.GlyphPickerPopup
-    content.vb: Public Module ImGui2.GlyphPickerPopup
+    content: public static class PalettePopup
+    content.vb: Public Module PalettePopup
   inheritance:
   - System.Object
   inheritedMembers:
@@ -29,50 +30,61 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
-- uid: Hexa.NET.ImGui.ImGui2.GlyphPickerPopup.Show(SadConsole.ImGuiSystem.ImGuiRenderer,System.String,SadConsole.IFont,Hexa.NET.ImGui.ImTextureID,SadRogue.Primitives.Point,System.Int32@)
-  commentId: M:Hexa.NET.ImGui.ImGui2.GlyphPickerPopup.Show(SadConsole.ImGuiSystem.ImGuiRenderer,System.String,SadConsole.IFont,Hexa.NET.ImGui.ImTextureID,SadRogue.Primitives.Point,System.Int32@)
-  id: Show(SadConsole.ImGuiSystem.ImGuiRenderer,System.String,SadConsole.IFont,Hexa.NET.ImGui.ImTextureID,SadRogue.Primitives.Point,System.Int32@)
-  parent: Hexa.NET.ImGui.ImGui2.GlyphPickerPopup
+- uid: Hexa.NET.ImGui.SC.Windows.PalettePopup.ExtraPalettes
+  commentId: F:Hexa.NET.ImGui.SC.Windows.PalettePopup.ExtraPalettes
+  id: ExtraPalettes
+  parent: Hexa.NET.ImGui.SC.Windows.PalettePopup
   langs:
   - csharp
   - vb
-  name: Show(ImGuiRenderer, string, IFont, ImTextureID, Point, ref int)
-  nameWithType: ImGui2.GlyphPickerPopup.Show(ImGuiRenderer, string, IFont, ImTextureID, Point, ref int)
-  fullName: Hexa.NET.ImGui.ImGui2.GlyphPickerPopup.Show(SadConsole.ImGuiSystem.ImGuiRenderer, string, SadConsole.IFont, Hexa.NET.ImGui.ImTextureID, SadRogue.Primitives.Point, ref int)
+  name: ExtraPalettes
+  nameWithType: PalettePopup.ExtraPalettes
+  fullName: Hexa.NET.ImGui.SC.Windows.PalettePopup.ExtraPalettes
+  type: Field
+  assemblies:
+  - SadConsole.Debug.MonoGame
+  namespace: Hexa.NET.ImGui.SC.Windows
+  syntax:
+    content: public static List<Tuple<string, NamedColor[]>> ExtraPalettes
+    return:
+      type: System.Collections.Generic.List{System.Tuple{System.String,SadConsole.UI.NamedColor[]}}
+    content.vb: Public Shared ExtraPalettes As List(Of Tuple(Of String, NamedColor()))
+- uid: Hexa.NET.ImGui.SC.Windows.PalettePopup.Show(System.String,SadRogue.Primitives.Color@)
+  commentId: M:Hexa.NET.ImGui.SC.Windows.PalettePopup.Show(System.String,SadRogue.Primitives.Color@)
+  id: Show(System.String,SadRogue.Primitives.Color@)
+  parent: Hexa.NET.ImGui.SC.Windows.PalettePopup
+  langs:
+  - csharp
+  - vb
+  name: Show(string, ref Color)
+  nameWithType: PalettePopup.Show(string, ref Color)
+  fullName: Hexa.NET.ImGui.SC.Windows.PalettePopup.Show(string, ref SadRogue.Primitives.Color)
   type: Method
   assemblies:
   - SadConsole.Debug.MonoGame
-  namespace: Hexa.NET.ImGui
+  namespace: Hexa.NET.ImGui.SC.Windows
   syntax:
-    content: public static bool Show(ImGuiRenderer renderer, string popupId, IFont font, ImTextureID fontTexture, Point fontTextureSize, ref int selectedGlyph)
+    content: public static bool Show(string popupId, ref Color color)
     parameters:
-    - id: renderer
-      type: SadConsole.ImGuiSystem.ImGuiRenderer
     - id: popupId
       type: System.String
-    - id: font
-      type: SadConsole.IFont
-    - id: fontTexture
-      type: Hexa.NET.ImGui.ImTextureID
-    - id: fontTextureSize
-      type: SadRogue.Primitives.Point
-    - id: selectedGlyph
-      type: System.Int32
+    - id: color
+      type: SadRogue.Primitives.Color
     return:
       type: System.Boolean
-    content.vb: Public Shared Function Show(renderer As ImGuiRenderer, popupId As String, font As IFont, fontTexture As ImTextureID, fontTextureSize As Point, selectedGlyph As Integer) As Boolean
-  overload: Hexa.NET.ImGui.ImGui2.GlyphPickerPopup.Show*
-  nameWithType.vb: ImGui2.GlyphPickerPopup.Show(ImGuiRenderer, String, IFont, ImTextureID, Point, Integer)
-  fullName.vb: Hexa.NET.ImGui.ImGui2.GlyphPickerPopup.Show(SadConsole.ImGuiSystem.ImGuiRenderer, String, SadConsole.IFont, Hexa.NET.ImGui.ImTextureID, SadRogue.Primitives.Point, Integer)
-  name.vb: Show(ImGuiRenderer, String, IFont, ImTextureID, Point, Integer)
+    content.vb: Public Shared Function Show(popupId As String, color As Color) As Boolean
+  overload: Hexa.NET.ImGui.SC.Windows.PalettePopup.Show*
+  nameWithType.vb: PalettePopup.Show(String, Color)
+  fullName.vb: Hexa.NET.ImGui.SC.Windows.PalettePopup.Show(String, SadRogue.Primitives.Color)
+  name.vb: Show(String, Color)
 references:
-- uid: Hexa.NET.ImGui
-  commentId: N:Hexa.NET.ImGui
+- uid: Hexa.NET.ImGui.SC.Windows
+  commentId: N:Hexa.NET.ImGui.SC.Windows
   isExternal: true
   href: Hexa.html
-  name: Hexa.NET.ImGui
-  nameWithType: Hexa.NET.ImGui
-  fullName: Hexa.NET.ImGui
+  name: Hexa.NET.ImGui.SC.Windows
+  nameWithType: Hexa.NET.ImGui.SC.Windows
+  fullName: Hexa.NET.ImGui.SC.Windows
   spec.csharp:
   - uid: Hexa
     name: Hexa
@@ -88,6 +100,16 @@ references:
     name: ImGui
     isExternal: true
     href: Hexa.NET.ImGui.html
+  - name: .
+  - uid: Hexa.NET.ImGui.SC
+    name: SC
+    isExternal: true
+    href: Hexa.NET.ImGui.SC.html
+  - name: .
+  - uid: Hexa.NET.ImGui.SC.Windows
+    name: Windows
+    isExternal: true
+    href: Hexa.NET.ImGui.SC.Windows.html
   spec.vb:
   - uid: Hexa
     name: Hexa
@@ -103,6 +125,16 @@ references:
     name: ImGui
     isExternal: true
     href: Hexa.NET.ImGui.html
+  - name: .
+  - uid: Hexa.NET.ImGui.SC
+    name: SC
+    isExternal: true
+    href: Hexa.NET.ImGui.SC.html
+  - name: .
+  - uid: Hexa.NET.ImGui.SC.Windows
+    name: Windows
+    isExternal: true
+    href: Hexa.NET.ImGui.SC.Windows.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -340,21 +372,141 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: Hexa.NET.ImGui.ImGui2.GlyphPickerPopup.Show*
-  commentId: Overload:Hexa.NET.ImGui.ImGui2.GlyphPickerPopup.Show
+- uid: System.Collections.Generic.List{System.Tuple{System.String,SadConsole.UI.NamedColor[]}}
+  commentId: T:System.Collections.Generic.List{System.Tuple{System.String,SadConsole.UI.NamedColor[]}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Tuple<string, NamedColor[]>>
+  nameWithType: List<Tuple<string, NamedColor[]>>
+  fullName: System.Collections.Generic.List<System.Tuple<string, SadConsole.UI.NamedColor[]>>
+  nameWithType.vb: List(Of Tuple(Of String, NamedColor()))
+  fullName.vb: System.Collections.Generic.List(Of System.Tuple(Of String, SadConsole.UI.NamedColor()))
+  name.vb: List(Of Tuple(Of String, NamedColor()))
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Tuple`2
+    name: Tuple
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.tuple-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: SadConsole.UI.NamedColor
+    name: NamedColor
+    isExternal: true
+  - name: '['
+  - name: ']'
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Tuple`2
+    name: Tuple
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.tuple-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: SadConsole.UI.NamedColor
+    name: NamedColor
+    isExternal: true
+  - name: (
+  - name: )
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
   isExternal: true
-  href: Hexa.NET.ImGui.ImGui2.GlyphPickerPopup.html#Hexa_NET_ImGui_ImGui2_GlyphPickerPopup_Show_SadConsole_ImGuiSystem_ImGuiRenderer_System_String_SadConsole_IFont_Hexa_NET_ImGui_ImTextureID_SadRogue_Primitives_Point_System_Int32__
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Hexa.NET.ImGui.SC.Windows.PalettePopup.Show*
+  commentId: Overload:Hexa.NET.ImGui.SC.Windows.PalettePopup.Show
+  isExternal: true
+  href: Hexa.NET.ImGui.SC.Windows.PalettePopup.html#Hexa_NET_ImGui_SC_Windows_PalettePopup_Show_System_String_SadRogue_Primitives_Color__
   name: Show
-  nameWithType: ImGui2.GlyphPickerPopup.Show
-  fullName: Hexa.NET.ImGui.ImGui2.GlyphPickerPopup.Show
-- uid: SadConsole.ImGuiSystem.ImGuiRenderer
-  commentId: T:SadConsole.ImGuiSystem.ImGuiRenderer
-  parent: SadConsole.ImGuiSystem
-  isExternal: true
-  href: SadConsole.ImGuiSystem.ImGuiRenderer.html
-  name: ImGuiRenderer
-  nameWithType: ImGuiRenderer
-  fullName: SadConsole.ImGuiSystem.ImGuiRenderer
+  nameWithType: PalettePopup.Show
+  fullName: Hexa.NET.ImGui.SC.Windows.PalettePopup.Show
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -366,39 +518,13 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: SadConsole.IFont
-  commentId: T:SadConsole.IFont
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.IFont.html
-  name: IFont
-  nameWithType: IFont
-  fullName: SadConsole.IFont
-- uid: Hexa.NET.ImGui.ImTextureID
-  commentId: T:Hexa.NET.ImGui.ImTextureID
-  parent: Hexa.NET.ImGui
-  isExternal: true
-  name: ImTextureID
-  nameWithType: ImTextureID
-  fullName: Hexa.NET.ImGui.ImTextureID
-- uid: SadRogue.Primitives.Point
-  commentId: T:SadRogue.Primitives.Point
+- uid: SadRogue.Primitives.Color
+  commentId: T:SadRogue.Primitives.Color
   parent: SadRogue.Primitives
   isExternal: true
-  name: Point
-  nameWithType: Point
-  fullName: SadRogue.Primitives.Point
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
+  name: Color
+  nameWithType: Color
+  fullName: SadRogue.Primitives.Color
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -410,40 +536,6 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
-- uid: SadConsole.ImGuiSystem
-  commentId: N:SadConsole.ImGuiSystem
-  isExternal: true
-  href: SadConsole.html
-  name: SadConsole.ImGuiSystem
-  nameWithType: SadConsole.ImGuiSystem
-  fullName: SadConsole.ImGuiSystem
-  spec.csharp:
-  - uid: SadConsole
-    name: SadConsole
-    isExternal: true
-    href: SadConsole.html
-  - name: .
-  - uid: SadConsole.ImGuiSystem
-    name: ImGuiSystem
-    isExternal: true
-    href: SadConsole.ImGuiSystem.html
-  spec.vb:
-  - uid: SadConsole
-    name: SadConsole
-    isExternal: true
-    href: SadConsole.html
-  - name: .
-  - uid: SadConsole.ImGuiSystem
-    name: ImGuiSystem
-    isExternal: true
-    href: SadConsole.ImGuiSystem.html
-- uid: SadConsole
-  commentId: N:SadConsole
-  isExternal: true
-  href: SadConsole.html
-  name: SadConsole
-  nameWithType: SadConsole
-  fullName: SadConsole
 - uid: SadRogue.Primitives
   commentId: N:SadRogue.Primitives
   isExternal: true

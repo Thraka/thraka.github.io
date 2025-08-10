@@ -1,29 +1,29 @@
 ### YamlMime:ManagedReference
 items:
-- uid: SadConsole.Configuration.InternalHostStartupData
-  commentId: T:SadConsole.Configuration.InternalHostStartupData
-  id: InternalHostStartupData
-  parent: SadConsole.Configuration
+- uid: SadConsole.Debug.Editors.ComponentEditorCursor
+  commentId: T:SadConsole.Debug.Editors.ComponentEditorCursor
+  id: ComponentEditorCursor
+  parent: SadConsole.Debug.Editors
   children:
-  - SadConsole.Configuration.InternalHostStartupData.#ctor
-  - SadConsole.Configuration.InternalHostStartupData.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
+  - SadConsole.Debug.Editors.ComponentEditorCursor.#ctor
+  - SadConsole.Debug.Editors.ComponentEditorCursor.BuildUI(SadConsole.ImGuiSystem.ImGuiRenderer,SadConsole.Debug.ScreenObjectState,SadConsole.Components.IComponent)
   langs:
   - csharp
   - vb
-  name: InternalHostStartupData
-  nameWithType: InternalHostStartupData
-  fullName: SadConsole.Configuration.InternalHostStartupData
+  name: ComponentEditorCursor
+  nameWithType: ComponentEditorCursor
+  fullName: SadConsole.Debug.Editors.ComponentEditorCursor
   type: Class
   assemblies:
-  - SadConsole.Host.MonoGame
-  namespace: SadConsole.Configuration
+  - SadConsole.Debug.MonoGame
+  namespace: SadConsole.Debug.Editors
   syntax:
-    content: 'public class InternalHostStartupData : IConfigurator'
-    content.vb: Public Class InternalHostStartupData Implements IConfigurator
+    content: 'public class ComponentEditorCursor : ISadComponentPanel'
+    content.vb: Public Class ComponentEditorCursor Implements ISadComponentPanel
   inheritance:
   - System.Object
   implements:
-  - SadConsole.Configuration.IConfigurator
+  - SadConsole.Debug.Editors.ISadComponentPanel
   inheritedMembers:
   - System.Object.GetType
   - System.Object.MemberwiseClone
@@ -34,84 +34,93 @@ items:
   - System.Object.GetHashCode
   extensionMethods:
   - System.Object.SadConsole.ExtensionsSystem.GetDebuggerDisplayValue
-- uid: SadConsole.Configuration.InternalHostStartupData.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
-  commentId: M:SadConsole.Configuration.InternalHostStartupData.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
-  id: Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
-  parent: SadConsole.Configuration.InternalHostStartupData
+- uid: SadConsole.Debug.Editors.ComponentEditorCursor.BuildUI(SadConsole.ImGuiSystem.ImGuiRenderer,SadConsole.Debug.ScreenObjectState,SadConsole.Components.IComponent)
+  commentId: M:SadConsole.Debug.Editors.ComponentEditorCursor.BuildUI(SadConsole.ImGuiSystem.ImGuiRenderer,SadConsole.Debug.ScreenObjectState,SadConsole.Components.IComponent)
+  id: BuildUI(SadConsole.ImGuiSystem.ImGuiRenderer,SadConsole.Debug.ScreenObjectState,SadConsole.Components.IComponent)
+  parent: SadConsole.Debug.Editors.ComponentEditorCursor
   langs:
   - csharp
   - vb
-  name: Run(Builder, GameHost)
-  nameWithType: InternalHostStartupData.Run(Builder, GameHost)
-  fullName: SadConsole.Configuration.InternalHostStartupData.Run(SadConsole.Configuration.Builder, SadConsole.GameHost)
+  name: BuildUI(ImGuiRenderer, ScreenObjectState, IComponent)
+  nameWithType: ComponentEditorCursor.BuildUI(ImGuiRenderer, ScreenObjectState, IComponent)
+  fullName: SadConsole.Debug.Editors.ComponentEditorCursor.BuildUI(SadConsole.ImGuiSystem.ImGuiRenderer, SadConsole.Debug.ScreenObjectState, SadConsole.Components.IComponent)
   type: Method
   assemblies:
-  - SadConsole.Host.MonoGame
-  namespace: SadConsole.Configuration
-  summary: Called by the <xref href="SadConsole.Configuration.Builder" data-throw-if-not-resolved="false"></xref>; Runs the specific config for this object.
+  - SadConsole.Debug.MonoGame
+  namespace: SadConsole.Debug.Editors
   example: []
   syntax:
-    content: public void Run(Builder config, GameHost game)
+    content: public void BuildUI(ImGuiRenderer renderer, ScreenObjectState state, IComponent component)
     parameters:
-    - id: config
-      type: SadConsole.Configuration.Builder
-      description: The builder configuration object.
-    - id: game
-      type: SadConsole.GameHost
-      description: The game object being created.
-    content.vb: Public Sub Run(config As Builder, game As GameHost)
-  overload: SadConsole.Configuration.InternalHostStartupData.Run*
+    - id: renderer
+      type: SadConsole.ImGuiSystem.ImGuiRenderer
+    - id: state
+      type: SadConsole.Debug.ScreenObjectState
+    - id: component
+      type: SadConsole.Components.IComponent
+    content.vb: Public Sub BuildUI(renderer As ImGuiRenderer, state As ScreenObjectState, component As IComponent)
+  overload: SadConsole.Debug.Editors.ComponentEditorCursor.BuildUI*
   implements:
-  - SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
-- uid: SadConsole.Configuration.InternalHostStartupData.#ctor
-  commentId: M:SadConsole.Configuration.InternalHostStartupData.#ctor
+  - SadConsole.Debug.Editors.ISadComponentPanel.BuildUI(SadConsole.ImGuiSystem.ImGuiRenderer,SadConsole.Debug.ScreenObjectState,SadConsole.Components.IComponent)
+- uid: SadConsole.Debug.Editors.ComponentEditorCursor.#ctor
+  commentId: M:SadConsole.Debug.Editors.ComponentEditorCursor.#ctor
   id: '#ctor'
-  parent: SadConsole.Configuration.InternalHostStartupData
+  parent: SadConsole.Debug.Editors.ComponentEditorCursor
   langs:
   - csharp
   - vb
-  name: InternalHostStartupData()
-  nameWithType: InternalHostStartupData.InternalHostStartupData()
-  fullName: SadConsole.Configuration.InternalHostStartupData.InternalHostStartupData()
+  name: ComponentEditorCursor()
+  nameWithType: ComponentEditorCursor.ComponentEditorCursor()
+  fullName: SadConsole.Debug.Editors.ComponentEditorCursor.ComponentEditorCursor()
   type: Constructor
   assemblies:
-  - SadConsole.Host.MonoGame
-  namespace: SadConsole.Configuration
+  - SadConsole.Debug.MonoGame
+  namespace: SadConsole.Debug.Editors
   syntax:
-    content: public InternalHostStartupData()
+    content: public ComponentEditorCursor()
     content.vb: Public Sub New()
-  overload: SadConsole.Configuration.InternalHostStartupData.#ctor*
-  nameWithType.vb: InternalHostStartupData.New()
-  fullName.vb: SadConsole.Configuration.InternalHostStartupData.New()
+  overload: SadConsole.Debug.Editors.ComponentEditorCursor.#ctor*
+  nameWithType.vb: ComponentEditorCursor.New()
+  fullName.vb: SadConsole.Debug.Editors.ComponentEditorCursor.New()
   name.vb: New()
 references:
-- uid: SadConsole.Configuration
-  commentId: N:SadConsole.Configuration
+- uid: SadConsole.Debug.Editors
+  commentId: N:SadConsole.Debug.Editors
   isExternal: true
   href: SadConsole.html
-  name: SadConsole.Configuration
-  nameWithType: SadConsole.Configuration
-  fullName: SadConsole.Configuration
+  name: SadConsole.Debug.Editors
+  nameWithType: SadConsole.Debug.Editors
+  fullName: SadConsole.Debug.Editors
   spec.csharp:
   - uid: SadConsole
     name: SadConsole
     isExternal: true
     href: SadConsole.html
   - name: .
-  - uid: SadConsole.Configuration
-    name: Configuration
+  - uid: SadConsole.Debug
+    name: Debug
     isExternal: true
-    href: SadConsole.Configuration.html
+    href: SadConsole.Debug.html
+  - name: .
+  - uid: SadConsole.Debug.Editors
+    name: Editors
+    isExternal: true
+    href: SadConsole.Debug.Editors.html
   spec.vb:
   - uid: SadConsole
     name: SadConsole
     isExternal: true
     href: SadConsole.html
   - name: .
-  - uid: SadConsole.Configuration
-    name: Configuration
+  - uid: SadConsole.Debug
+    name: Debug
     isExternal: true
-    href: SadConsole.Configuration.html
+    href: SadConsole.Debug.html
+  - name: .
+  - uid: SadConsole.Debug.Editors
+    name: Editors
+    isExternal: true
+    href: SadConsole.Debug.Editors.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -123,14 +132,14 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: SadConsole.Configuration.IConfigurator
-  commentId: T:SadConsole.Configuration.IConfigurator
-  parent: SadConsole.Configuration
+- uid: SadConsole.Debug.Editors.ISadComponentPanel
+  commentId: T:SadConsole.Debug.Editors.ISadComponentPanel
+  parent: SadConsole.Debug.Editors
   isExternal: true
-  href: SadConsole.Configuration.IConfigurator.html
-  name: IConfigurator
-  nameWithType: IConfigurator
-  fullName: SadConsole.Configuration.IConfigurator
+  href: SadConsole.Debug.Editors.ISadComponentPanel.html
+  name: ISadComponentPanel
+  nameWithType: ISadComponentPanel
+  fullName: SadConsole.Debug.Editors.ISadComponentPanel
 - uid: System.Object.GetType
   commentId: M:System.Object.GetType
   parent: System.Object
@@ -437,78 +446,177 @@ references:
   name: SadConsole
   nameWithType: SadConsole
   fullName: SadConsole
-- uid: SadConsole.Configuration.Builder
-  commentId: T:SadConsole.Configuration.Builder
-  parent: SadConsole.Configuration
+- uid: SadConsole.Debug.Editors.ComponentEditorCursor.BuildUI*
+  commentId: Overload:SadConsole.Debug.Editors.ComponentEditorCursor.BuildUI
   isExternal: true
-  href: SadConsole.Configuration.Builder.html
-  name: Builder
-  nameWithType: Builder
-  fullName: SadConsole.Configuration.Builder
-- uid: SadConsole.Configuration.InternalHostStartupData.Run*
-  commentId: Overload:SadConsole.Configuration.InternalHostStartupData.Run
+  href: SadConsole.Debug.Editors.ComponentEditorCursor.html#SadConsole_Debug_Editors_ComponentEditorCursor_BuildUI_SadConsole_ImGuiSystem_ImGuiRenderer_SadConsole_Debug_ScreenObjectState_SadConsole_Components_IComponent_
+  name: BuildUI
+  nameWithType: ComponentEditorCursor.BuildUI
+  fullName: SadConsole.Debug.Editors.ComponentEditorCursor.BuildUI
+- uid: SadConsole.Debug.Editors.ISadComponentPanel.BuildUI(SadConsole.ImGuiSystem.ImGuiRenderer,SadConsole.Debug.ScreenObjectState,SadConsole.Components.IComponent)
+  commentId: M:SadConsole.Debug.Editors.ISadComponentPanel.BuildUI(SadConsole.ImGuiSystem.ImGuiRenderer,SadConsole.Debug.ScreenObjectState,SadConsole.Components.IComponent)
+  parent: SadConsole.Debug.Editors.ISadComponentPanel
   isExternal: true
-  href: SadConsole.Configuration.InternalHostStartupData.html#SadConsole_Configuration_InternalHostStartupData_Run_SadConsole_Configuration_Builder_SadConsole_GameHost_
-  name: Run
-  nameWithType: InternalHostStartupData.Run
-  fullName: SadConsole.Configuration.InternalHostStartupData.Run
-- uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
-  commentId: M:SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
-  parent: SadConsole.Configuration.IConfigurator
-  isExternal: true
-  href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_Builder_SadConsole_GameHost_
-  name: Run(Builder, GameHost)
-  nameWithType: IConfigurator.Run(Builder, GameHost)
-  fullName: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder, SadConsole.GameHost)
+  href: SadConsole.Debug.Editors.ISadComponentPanel.html#SadConsole_Debug_Editors_ISadComponentPanel_BuildUI_SadConsole_ImGuiSystem_ImGuiRenderer_SadConsole_Debug_ScreenObjectState_SadConsole_Components_IComponent_
+  name: BuildUI(ImGuiRenderer, ScreenObjectState, IComponent)
+  nameWithType: ISadComponentPanel.BuildUI(ImGuiRenderer, ScreenObjectState, IComponent)
+  fullName: SadConsole.Debug.Editors.ISadComponentPanel.BuildUI(SadConsole.ImGuiSystem.ImGuiRenderer, SadConsole.Debug.ScreenObjectState, SadConsole.Components.IComponent)
   spec.csharp:
-  - uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
-    name: Run
+  - uid: SadConsole.Debug.Editors.ISadComponentPanel.BuildUI(SadConsole.ImGuiSystem.ImGuiRenderer,SadConsole.Debug.ScreenObjectState,SadConsole.Components.IComponent)
+    name: BuildUI
     isExternal: true
-    href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_Builder_SadConsole_GameHost_
+    href: SadConsole.Debug.Editors.ISadComponentPanel.html#SadConsole_Debug_Editors_ISadComponentPanel_BuildUI_SadConsole_ImGuiSystem_ImGuiRenderer_SadConsole_Debug_ScreenObjectState_SadConsole_Components_IComponent_
   - name: (
-  - uid: SadConsole.Configuration.Builder
-    name: Builder
+  - uid: SadConsole.ImGuiSystem.ImGuiRenderer
+    name: ImGuiRenderer
     isExternal: true
-    href: SadConsole.Configuration.Builder.html
+    href: SadConsole.ImGuiSystem.ImGuiRenderer.html
   - name: ','
   - name: " "
-  - uid: SadConsole.GameHost
-    name: GameHost
+  - uid: SadConsole.Debug.ScreenObjectState
+    name: ScreenObjectState
     isExternal: true
-    href: SadConsole.GameHost.html
+    href: SadConsole.Debug.ScreenObjectState.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
   - name: )
   spec.vb:
-  - uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
-    name: Run
+  - uid: SadConsole.Debug.Editors.ISadComponentPanel.BuildUI(SadConsole.ImGuiSystem.ImGuiRenderer,SadConsole.Debug.ScreenObjectState,SadConsole.Components.IComponent)
+    name: BuildUI
     isExternal: true
-    href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_Builder_SadConsole_GameHost_
+    href: SadConsole.Debug.Editors.ISadComponentPanel.html#SadConsole_Debug_Editors_ISadComponentPanel_BuildUI_SadConsole_ImGuiSystem_ImGuiRenderer_SadConsole_Debug_ScreenObjectState_SadConsole_Components_IComponent_
   - name: (
-  - uid: SadConsole.Configuration.Builder
-    name: Builder
+  - uid: SadConsole.ImGuiSystem.ImGuiRenderer
+    name: ImGuiRenderer
     isExternal: true
-    href: SadConsole.Configuration.Builder.html
+    href: SadConsole.ImGuiSystem.ImGuiRenderer.html
   - name: ','
   - name: " "
-  - uid: SadConsole.GameHost
-    name: GameHost
+  - uid: SadConsole.Debug.ScreenObjectState
+    name: ScreenObjectState
     isExternal: true
-    href: SadConsole.GameHost.html
+    href: SadConsole.Debug.ScreenObjectState.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Components.IComponent
+    name: IComponent
+    isExternal: true
   - name: )
-- uid: SadConsole.GameHost
-  commentId: T:SadConsole.GameHost
-  parent: SadConsole
+- uid: SadConsole.ImGuiSystem.ImGuiRenderer
+  commentId: T:SadConsole.ImGuiSystem.ImGuiRenderer
+  parent: SadConsole.ImGuiSystem
   isExternal: true
-  href: SadConsole.GameHost.html
-  name: GameHost
-  nameWithType: GameHost
-  fullName: SadConsole.GameHost
-- uid: SadConsole.Configuration.InternalHostStartupData.#ctor*
-  commentId: Overload:SadConsole.Configuration.InternalHostStartupData.#ctor
+  href: SadConsole.ImGuiSystem.ImGuiRenderer.html
+  name: ImGuiRenderer
+  nameWithType: ImGuiRenderer
+  fullName: SadConsole.ImGuiSystem.ImGuiRenderer
+- uid: SadConsole.Debug.ScreenObjectState
+  commentId: T:SadConsole.Debug.ScreenObjectState
+  parent: SadConsole.Debug
   isExternal: true
-  href: SadConsole.Configuration.InternalHostStartupData.html#SadConsole_Configuration_InternalHostStartupData__ctor
-  name: InternalHostStartupData
-  nameWithType: InternalHostStartupData.InternalHostStartupData
-  fullName: SadConsole.Configuration.InternalHostStartupData.InternalHostStartupData
-  nameWithType.vb: InternalHostStartupData.New
-  fullName.vb: SadConsole.Configuration.InternalHostStartupData.New
+  href: SadConsole.Debug.ScreenObjectState.html
+  name: ScreenObjectState
+  nameWithType: ScreenObjectState
+  fullName: SadConsole.Debug.ScreenObjectState
+- uid: SadConsole.Components.IComponent
+  commentId: T:SadConsole.Components.IComponent
+  parent: SadConsole.Components
+  isExternal: true
+  href: SadConsole.Components.IComponent.html
+  name: IComponent
+  nameWithType: IComponent
+  fullName: SadConsole.Components.IComponent
+- uid: SadConsole.ImGuiSystem
+  commentId: N:SadConsole.ImGuiSystem
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.ImGuiSystem
+  nameWithType: SadConsole.ImGuiSystem
+  fullName: SadConsole.ImGuiSystem
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.ImGuiSystem
+    name: ImGuiSystem
+    isExternal: true
+    href: SadConsole.ImGuiSystem.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.ImGuiSystem
+    name: ImGuiSystem
+    isExternal: true
+    href: SadConsole.ImGuiSystem.html
+- uid: SadConsole.Debug
+  commentId: N:SadConsole.Debug
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Debug
+  nameWithType: SadConsole.Debug
+  fullName: SadConsole.Debug
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Debug
+    name: Debug
+    isExternal: true
+    href: SadConsole.Debug.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Debug
+    name: Debug
+    isExternal: true
+    href: SadConsole.Debug.html
+- uid: SadConsole.Components
+  commentId: N:SadConsole.Components
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Components
+  nameWithType: SadConsole.Components
+  fullName: SadConsole.Components
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Components
+    name: Components
+    isExternal: true
+    href: SadConsole.Components.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Components
+    name: Components
+    isExternal: true
+    href: SadConsole.Components.html
+- uid: SadConsole.Debug.Editors.ComponentEditorCursor.#ctor*
+  commentId: Overload:SadConsole.Debug.Editors.ComponentEditorCursor.#ctor
+  isExternal: true
+  href: SadConsole.Debug.Editors.ComponentEditorCursor.html#SadConsole_Debug_Editors_ComponentEditorCursor__ctor
+  name: ComponentEditorCursor
+  nameWithType: ComponentEditorCursor.ComponentEditorCursor
+  fullName: SadConsole.Debug.Editors.ComponentEditorCursor.ComponentEditorCursor
+  nameWithType.vb: ComponentEditorCursor.New
+  fullName.vb: SadConsole.Debug.Editors.ComponentEditorCursor.New
   name.vb: New

@@ -1,0 +1,656 @@
+### YamlMime:ManagedReference
+items:
+- uid: SadConsole.Configuration.BuilderBase
+  commentId: T:SadConsole.Configuration.BuilderBase
+  id: BuilderBase
+  parent: SadConsole.Configuration
+  children:
+  - SadConsole.Configuration.BuilderBase.#ctor
+  - SadConsole.Configuration.BuilderBase.Configs
+  - SadConsole.Configuration.BuilderBase.GetOrCreateConfig``1
+  - SadConsole.Configuration.BuilderBase.ProcessConfigs(SadConsole.GameHost)
+  langs:
+  - csharp
+  - vb
+  name: BuilderBase
+  nameWithType: BuilderBase
+  fullName: SadConsole.Configuration.BuilderBase
+  type: Class
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Configuration
+  summary: Base class for building startup config options.
+  example: []
+  syntax:
+    content: public abstract class BuilderBase
+    content.vb: Public MustInherit Class BuilderBase
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - SadConsole.Configuration.Builder
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  extensionMethods:
+  - System.Object.SadConsole.ExtensionsSystem.GetDebuggerDisplayValue
+- uid: SadConsole.Configuration.BuilderBase.GetOrCreateConfig``1
+  commentId: M:SadConsole.Configuration.BuilderBase.GetOrCreateConfig``1
+  id: GetOrCreateConfig``1
+  parent: SadConsole.Configuration.BuilderBase
+  langs:
+  - csharp
+  - vb
+  name: GetOrCreateConfig<TConfig>()
+  nameWithType: BuilderBase.GetOrCreateConfig<TConfig>()
+  fullName: SadConsole.Configuration.BuilderBase.GetOrCreateConfig<TConfig>()
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Configuration
+  summary: Adds or gets the specified config object from the <xref href="SadConsole.Configuration.BuilderBase.Configs" data-throw-if-not-resolved="false"></xref> collection.
+  example: []
+  syntax:
+    content: 'public TConfig GetOrCreateConfig<TConfig>() where TConfig : IConfigurator, new()'
+    typeParameters:
+    - id: TConfig
+      description: The type of config object.
+    return:
+      type: '{TConfig}'
+      description: A new instance of <code class="typeparamref">TConfig</code> if it's not found in the <xref href="SadConsole.Configuration.BuilderBase.Configs" data-throw-if-not-resolved="false"></xref> collection. If found in the collection, that instance is returned.
+    content.vb: Public Function GetOrCreateConfig(Of TConfig As {IConfigurator, New})() As TConfig
+  overload: SadConsole.Configuration.BuilderBase.GetOrCreateConfig*
+  nameWithType.vb: BuilderBase.GetOrCreateConfig(Of TConfig)()
+  fullName.vb: SadConsole.Configuration.BuilderBase.GetOrCreateConfig(Of TConfig)()
+  name.vb: GetOrCreateConfig(Of TConfig)()
+- uid: SadConsole.Configuration.BuilderBase.ProcessConfigs(SadConsole.GameHost)
+  commentId: M:SadConsole.Configuration.BuilderBase.ProcessConfigs(SadConsole.GameHost)
+  id: ProcessConfigs(SadConsole.GameHost)
+  parent: SadConsole.Configuration.BuilderBase
+  langs:
+  - csharp
+  - vb
+  name: ProcessConfigs(GameHost)
+  nameWithType: BuilderBase.ProcessConfigs(GameHost)
+  fullName: SadConsole.Configuration.BuilderBase.ProcessConfigs(SadConsole.GameHost)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Configuration
+  summary: Runs each config object in the <xref href="SadConsole.Configuration.BuilderBase.Configs" data-throw-if-not-resolved="false"></xref> collection with the specified game instance.
+  example: []
+  syntax:
+    content: public void ProcessConfigs(GameHost game)
+    parameters:
+    - id: game
+      type: SadConsole.GameHost
+      description: The game being created.
+    content.vb: Public Sub ProcessConfigs(game As GameHost)
+  overload: SadConsole.Configuration.BuilderBase.ProcessConfigs*
+- uid: SadConsole.Configuration.BuilderBase.#ctor
+  commentId: M:SadConsole.Configuration.BuilderBase.#ctor
+  id: '#ctor'
+  parent: SadConsole.Configuration.BuilderBase
+  langs:
+  - csharp
+  - vb
+  name: BuilderBase()
+  nameWithType: BuilderBase.BuilderBase()
+  fullName: SadConsole.Configuration.BuilderBase.BuilderBase()
+  type: Constructor
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Configuration
+  syntax:
+    content: protected BuilderBase()
+    content.vb: Protected Sub New()
+  overload: SadConsole.Configuration.BuilderBase.#ctor*
+  nameWithType.vb: BuilderBase.New()
+  fullName.vb: SadConsole.Configuration.BuilderBase.New()
+  name.vb: New()
+- uid: SadConsole.Configuration.BuilderBase.Configs
+  commentId: P:SadConsole.Configuration.BuilderBase.Configs
+  id: Configs
+  parent: SadConsole.Configuration.BuilderBase
+  langs:
+  - csharp
+  - vb
+  name: Configs
+  nameWithType: BuilderBase.Configs
+  fullName: SadConsole.Configuration.BuilderBase.Configs
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Configuration
+  summary: A collection of <xref href="SadConsole.Configuration.IConfigurator" data-throw-if-not-resolved="false"></xref> objects.
+  example: []
+  syntax:
+    content: public List<IConfigurator> Configs { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{SadConsole.Configuration.IConfigurator}
+    content.vb: Public ReadOnly Property Configs As List(Of IConfigurator)
+  overload: SadConsole.Configuration.BuilderBase.Configs*
+references:
+- uid: SadConsole.Configuration
+  commentId: N:SadConsole.Configuration
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.Configuration
+  nameWithType: SadConsole.Configuration
+  fullName: SadConsole.Configuration
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Configuration
+    name: Configuration
+    isExternal: true
+    href: SadConsole.Configuration.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.Configuration
+    name: Configuration
+    isExternal: true
+    href: SadConsole.Configuration.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.SadConsole.ExtensionsSystem.GetDebuggerDisplayValue
+  commentId: M:SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  parent: SadConsole.ExtensionsSystem
+  definition: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  name: GetDebuggerDisplayValue(object)
+  nameWithType: ExtensionsSystem.GetDebuggerDisplayValue(object)
+  fullName: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(object)
+  nameWithType.vb: ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  fullName.vb: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  name.vb: GetDebuggerDisplayValue(Object)
+  spec.csharp:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  commentId: M:SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+  isExternal: true
+  href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  name: GetDebuggerDisplayValue(object)
+  nameWithType: ExtensionsSystem.GetDebuggerDisplayValue(object)
+  fullName: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(object)
+  nameWithType.vb: ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  fullName.vb: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(Object)
+  name.vb: GetDebuggerDisplayValue(Object)
+  spec.csharp:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
+    name: GetDebuggerDisplayValue
+    isExternal: true
+    href: SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: SadConsole.ExtensionsSystem
+  commentId: T:SadConsole.ExtensionsSystem
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ExtensionsSystem.html
+  name: ExtensionsSystem
+  nameWithType: ExtensionsSystem
+  fullName: SadConsole.ExtensionsSystem
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
+- uid: SadConsole.Configuration.BuilderBase.Configs
+  commentId: P:SadConsole.Configuration.BuilderBase.Configs
+  parent: SadConsole.Configuration.BuilderBase
+  isExternal: true
+  href: SadConsole.Configuration.BuilderBase.html#SadConsole_Configuration_BuilderBase_Configs
+  name: Configs
+  nameWithType: BuilderBase.Configs
+  fullName: SadConsole.Configuration.BuilderBase.Configs
+- uid: SadConsole.Configuration.BuilderBase.GetOrCreateConfig*
+  commentId: Overload:SadConsole.Configuration.BuilderBase.GetOrCreateConfig
+  isExternal: true
+  href: SadConsole.Configuration.BuilderBase.html#SadConsole_Configuration_BuilderBase_GetOrCreateConfig__1
+  name: GetOrCreateConfig
+  nameWithType: BuilderBase.GetOrCreateConfig
+  fullName: SadConsole.Configuration.BuilderBase.GetOrCreateConfig
+- uid: '{TConfig}'
+  commentId: '!:TConfig'
+  definition: TConfig
+  name: TConfig
+  nameWithType: TConfig
+  fullName: TConfig
+- uid: SadConsole.Configuration.BuilderBase
+  commentId: T:SadConsole.Configuration.BuilderBase
+  parent: SadConsole.Configuration
+  isExternal: true
+  href: SadConsole.Configuration.BuilderBase.html
+  name: BuilderBase
+  nameWithType: BuilderBase
+  fullName: SadConsole.Configuration.BuilderBase
+- uid: TConfig
+  commentId: '!:TConfig'
+  name: TConfig
+  nameWithType: TConfig
+  fullName: TConfig
+- uid: SadConsole.Configuration.BuilderBase.ProcessConfigs*
+  commentId: Overload:SadConsole.Configuration.BuilderBase.ProcessConfigs
+  isExternal: true
+  href: SadConsole.Configuration.BuilderBase.html#SadConsole_Configuration_BuilderBase_ProcessConfigs_SadConsole_GameHost_
+  name: ProcessConfigs
+  nameWithType: BuilderBase.ProcessConfigs
+  fullName: SadConsole.Configuration.BuilderBase.ProcessConfigs
+- uid: SadConsole.GameHost
+  commentId: T:SadConsole.GameHost
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.GameHost.html
+  name: GameHost
+  nameWithType: GameHost
+  fullName: SadConsole.GameHost
+- uid: SadConsole.Configuration.BuilderBase.#ctor*
+  commentId: Overload:SadConsole.Configuration.BuilderBase.#ctor
+  isExternal: true
+  href: SadConsole.Configuration.BuilderBase.html#SadConsole_Configuration_BuilderBase__ctor
+  name: BuilderBase
+  nameWithType: BuilderBase.BuilderBase
+  fullName: SadConsole.Configuration.BuilderBase.BuilderBase
+  nameWithType.vb: BuilderBase.New
+  fullName.vb: SadConsole.Configuration.BuilderBase.New
+  name.vb: New
+- uid: SadConsole.Configuration.IConfigurator
+  commentId: T:SadConsole.Configuration.IConfigurator
+  parent: SadConsole.Configuration
+  isExternal: true
+  href: SadConsole.Configuration.IConfigurator.html
+  name: IConfigurator
+  nameWithType: IConfigurator
+  fullName: SadConsole.Configuration.IConfigurator
+- uid: SadConsole.Configuration.BuilderBase.Configs*
+  commentId: Overload:SadConsole.Configuration.BuilderBase.Configs
+  isExternal: true
+  href: SadConsole.Configuration.BuilderBase.html#SadConsole_Configuration_BuilderBase_Configs
+  name: Configs
+  nameWithType: BuilderBase.Configs
+  fullName: SadConsole.Configuration.BuilderBase.Configs
+- uid: System.Collections.Generic.List{SadConsole.Configuration.IConfigurator}
+  commentId: T:System.Collections.Generic.List{SadConsole.Configuration.IConfigurator}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<IConfigurator>
+  nameWithType: List<IConfigurator>
+  fullName: System.Collections.Generic.List<SadConsole.Configuration.IConfigurator>
+  nameWithType.vb: List(Of IConfigurator)
+  fullName.vb: System.Collections.Generic.List(Of SadConsole.Configuration.IConfigurator)
+  name.vb: List(Of IConfigurator)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: SadConsole.Configuration.IConfigurator
+    name: IConfigurator
+    isExternal: true
+    href: SadConsole.Configuration.IConfigurator.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Configuration.IConfigurator
+    name: IConfigurator
+    isExternal: true
+    href: SadConsole.Configuration.IConfigurator.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

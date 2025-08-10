@@ -6,8 +6,9 @@ items:
   parent: SadConsole.Configuration
   children:
   - SadConsole.Configuration.StartingScreenConfig.#ctor
+  - SadConsole.Configuration.StartingScreenConfig.FocusStartingScreen
   - SadConsole.Configuration.StartingScreenConfig.GenerateStartingObject
-  - SadConsole.Configuration.StartingScreenConfig.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
+  - SadConsole.Configuration.StartingScreenConfig.Run(SadConsole.Configuration.BuilderBase,SadConsole.GameHost)
   langs:
   - csharp
   - vb
@@ -35,16 +36,16 @@ items:
   - System.Object.GetHashCode
   extensionMethods:
   - System.Object.SadConsole.ExtensionsSystem.GetDebuggerDisplayValue
-- uid: SadConsole.Configuration.StartingScreenConfig.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
-  commentId: M:SadConsole.Configuration.StartingScreenConfig.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
-  id: Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
+- uid: SadConsole.Configuration.StartingScreenConfig.Run(SadConsole.Configuration.BuilderBase,SadConsole.GameHost)
+  commentId: M:SadConsole.Configuration.StartingScreenConfig.Run(SadConsole.Configuration.BuilderBase,SadConsole.GameHost)
+  id: Run(SadConsole.Configuration.BuilderBase,SadConsole.GameHost)
   parent: SadConsole.Configuration.StartingScreenConfig
   langs:
   - csharp
   - vb
-  name: Run(Builder, GameHost)
-  nameWithType: StartingScreenConfig.Run(Builder, GameHost)
-  fullName: SadConsole.Configuration.StartingScreenConfig.Run(SadConsole.Configuration.Builder, SadConsole.GameHost)
+  name: Run(BuilderBase, GameHost)
+  nameWithType: StartingScreenConfig.Run(BuilderBase, GameHost)
+  fullName: SadConsole.Configuration.StartingScreenConfig.Run(SadConsole.Configuration.BuilderBase, SadConsole.GameHost)
   type: Method
   assemblies:
   - SadConsole
@@ -52,17 +53,17 @@ items:
   summary: Called by the <xref href="SadConsole.Configuration.Builder" data-throw-if-not-resolved="false"></xref>; Runs the specific config for this object.
   example: []
   syntax:
-    content: public void Run(Builder configBuilder, GameHost game)
+    content: public void Run(BuilderBase configBuilder, GameHost game)
     parameters:
     - id: configBuilder
-      type: SadConsole.Configuration.Builder
+      type: SadConsole.Configuration.BuilderBase
     - id: game
       type: SadConsole.GameHost
       description: The game object being created.
-    content.vb: Public Sub Run(configBuilder As Builder, game As GameHost)
+    content.vb: Public Sub Run(configBuilder As BuilderBase, game As GameHost)
   overload: SadConsole.Configuration.StartingScreenConfig.Run*
   implements:
-  - SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
+  - SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.BuilderBase,SadConsole.GameHost)
 - uid: SadConsole.Configuration.StartingScreenConfig.#ctor
   commentId: M:SadConsole.Configuration.StartingScreenConfig.#ctor
   id: '#ctor'
@@ -105,6 +106,27 @@ items:
       type: System.Func{SadConsole.GameHost,SadConsole.IScreenObject}
     content.vb: Public Property GenerateStartingObject As Func(Of GameHost, IScreenObject)
   overload: SadConsole.Configuration.StartingScreenConfig.GenerateStartingObject*
+- uid: SadConsole.Configuration.StartingScreenConfig.FocusStartingScreen
+  commentId: P:SadConsole.Configuration.StartingScreenConfig.FocusStartingScreen
+  id: FocusStartingScreen
+  parent: SadConsole.Configuration.StartingScreenConfig
+  langs:
+  - csharp
+  - vb
+  name: FocusStartingScreen
+  nameWithType: StartingScreenConfig.FocusStartingScreen
+  fullName: SadConsole.Configuration.StartingScreenConfig.FocusStartingScreen
+  type: Property
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Configuration
+  syntax:
+    content: public bool? FocusStartingScreen { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Public Property FocusStartingScreen As Boolean?
+  overload: SadConsole.Configuration.StartingScreenConfig.FocusStartingScreen*
 references:
 - uid: SadConsole.Configuration
   commentId: N:SadConsole.Configuration
@@ -469,28 +491,28 @@ references:
 - uid: SadConsole.Configuration.StartingScreenConfig.Run*
   commentId: Overload:SadConsole.Configuration.StartingScreenConfig.Run
   isExternal: true
-  href: SadConsole.Configuration.StartingScreenConfig.html#SadConsole_Configuration_StartingScreenConfig_Run_SadConsole_Configuration_Builder_SadConsole_GameHost_
+  href: SadConsole.Configuration.StartingScreenConfig.html#SadConsole_Configuration_StartingScreenConfig_Run_SadConsole_Configuration_BuilderBase_SadConsole_GameHost_
   name: Run
   nameWithType: StartingScreenConfig.Run
   fullName: SadConsole.Configuration.StartingScreenConfig.Run
-- uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
-  commentId: M:SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
+- uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.BuilderBase,SadConsole.GameHost)
+  commentId: M:SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.BuilderBase,SadConsole.GameHost)
   parent: SadConsole.Configuration.IConfigurator
   isExternal: true
-  href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_Builder_SadConsole_GameHost_
-  name: Run(Builder, GameHost)
-  nameWithType: IConfigurator.Run(Builder, GameHost)
-  fullName: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder, SadConsole.GameHost)
+  href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_BuilderBase_SadConsole_GameHost_
+  name: Run(BuilderBase, GameHost)
+  nameWithType: IConfigurator.Run(BuilderBase, GameHost)
+  fullName: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.BuilderBase, SadConsole.GameHost)
   spec.csharp:
-  - uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
+  - uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.BuilderBase,SadConsole.GameHost)
     name: Run
     isExternal: true
-    href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_Builder_SadConsole_GameHost_
+    href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_BuilderBase_SadConsole_GameHost_
   - name: (
-  - uid: SadConsole.Configuration.Builder
-    name: Builder
+  - uid: SadConsole.Configuration.BuilderBase
+    name: BuilderBase
     isExternal: true
-    href: SadConsole.Configuration.Builder.html
+    href: SadConsole.Configuration.BuilderBase.html
   - name: ','
   - name: " "
   - uid: SadConsole.GameHost
@@ -499,15 +521,15 @@ references:
     href: SadConsole.GameHost.html
   - name: )
   spec.vb:
-  - uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
+  - uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.BuilderBase,SadConsole.GameHost)
     name: Run
     isExternal: true
-    href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_Builder_SadConsole_GameHost_
+    href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_BuilderBase_SadConsole_GameHost_
   - name: (
-  - uid: SadConsole.Configuration.Builder
-    name: Builder
+  - uid: SadConsole.Configuration.BuilderBase
+    name: BuilderBase
     isExternal: true
-    href: SadConsole.Configuration.Builder.html
+    href: SadConsole.Configuration.BuilderBase.html
   - name: ','
   - name: " "
   - uid: SadConsole.GameHost
@@ -515,6 +537,14 @@ references:
     isExternal: true
     href: SadConsole.GameHost.html
   - name: )
+- uid: SadConsole.Configuration.BuilderBase
+  commentId: T:SadConsole.Configuration.BuilderBase
+  parent: SadConsole.Configuration
+  isExternal: true
+  href: SadConsole.Configuration.BuilderBase.html
+  name: BuilderBase
+  nameWithType: BuilderBase
+  fullName: SadConsole.Configuration.BuilderBase
 - uid: SadConsole.GameHost
   commentId: T:SadConsole.GameHost
   parent: SadConsole
@@ -620,4 +650,62 @@ references:
   - name: ','
   - name: " "
   - name: TResult
+  - name: )
+- uid: SadConsole.Configuration.StartingScreenConfig.FocusStartingScreen*
+  commentId: Overload:SadConsole.Configuration.StartingScreenConfig.FocusStartingScreen
+  isExternal: true
+  href: SadConsole.Configuration.StartingScreenConfig.html#SadConsole_Configuration_StartingScreenConfig_FocusStartingScreen
+  name: FocusStartingScreen
+  nameWithType: StartingScreenConfig.FocusStartingScreen
+  fullName: SadConsole.Configuration.StartingScreenConfig.FocusStartingScreen
+- uid: System.Nullable{System.Boolean}
+  commentId: T:System.Nullable{System.Boolean}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool?
+  nameWithType: bool?
+  fullName: bool?
+  nameWithType.vb: Boolean?
+  fullName.vb: Boolean?
+  name.vb: Boolean?
+  spec.csharp:
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+  spec.vb:
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
   - name: )

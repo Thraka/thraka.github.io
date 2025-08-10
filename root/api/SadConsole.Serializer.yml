@@ -10,6 +10,7 @@ items:
   - SadConsole.Serializer.Save``1(``0,System.String,System.Boolean,Newtonsoft.Json.JsonSerializerSettings)
   - SadConsole.Serializer.Serialize``1(``0)
   - SadConsole.Serializer.Settings
+  - SadConsole.Serializer.TryLoad``1(System.String,System.Boolean,``0@,Newtonsoft.Json.JsonSerializerSettings)
   langs:
   - csharp
   - vb
@@ -178,6 +179,48 @@ items:
   nameWithType.vb: Serializer.Load(Of T)(String, Boolean, JsonSerializerSettings)
   fullName.vb: SadConsole.Serializer.Load(Of T)(String, Boolean, Newtonsoft.Json.JsonSerializerSettings)
   name.vb: Load(Of T)(String, Boolean, JsonSerializerSettings)
+- uid: SadConsole.Serializer.TryLoad``1(System.String,System.Boolean,``0@,Newtonsoft.Json.JsonSerializerSettings)
+  commentId: M:SadConsole.Serializer.TryLoad``1(System.String,System.Boolean,``0@,Newtonsoft.Json.JsonSerializerSettings)
+  id: TryLoad``1(System.String,System.Boolean,``0@,Newtonsoft.Json.JsonSerializerSettings)
+  parent: SadConsole.Serializer
+  langs:
+  - csharp
+  - vb
+  name: TryLoad<T>(string, bool, out T?, JsonSerializerSettings?)
+  nameWithType: Serializer.TryLoad<T>(string, bool, out T?, JsonSerializerSettings?)
+  fullName: SadConsole.Serializer.TryLoad<T>(string, bool, out T?, Newtonsoft.Json.JsonSerializerSettings?)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Tries to load the file, returning it as the specified tyupe.
+  example: []
+  syntax:
+    content: public static bool TryLoad<T>(string file, bool isCompressed, out T? obj, JsonSerializerSettings? settings = null)
+    parameters:
+    - id: file
+      type: System.String
+      description: The file to load from.
+    - id: isCompressed
+      type: System.Boolean
+      description: When true, indicates that the json <code class="paramref">file</code> should be decompressed with GZIP compression.
+    - id: obj
+      type: '{T}'
+      description: The loaded object.
+    - id: settings
+      type: Newtonsoft.Json.JsonSerializerSettings
+      description: Optional settings to use during deserialization. If <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>, uses the <xref href="SadConsole.Serializer.Settings" data-throw-if-not-resolved="false"></xref> property.
+    typeParameters:
+    - id: T
+      description: The type of object to deserialize.
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Shared Function TryLoad(Of T)(file As String, isCompressed As Boolean, obj As T, settings As JsonSerializerSettings = Nothing) As Boolean
+  overload: SadConsole.Serializer.TryLoad*
+  nameWithType.vb: Serializer.TryLoad(Of T)(String, Boolean, T, JsonSerializerSettings)
+  fullName.vb: SadConsole.Serializer.TryLoad(Of T)(String, Boolean, T, Newtonsoft.Json.JsonSerializerSettings)
+  name.vb: TryLoad(Of T)(String, Boolean, T, JsonSerializerSettings)
 - uid: SadConsole.Serializer.Settings
   commentId: P:SadConsole.Serializer.Settings
   id: Settings
@@ -646,6 +689,13 @@ references:
   name: Load
   nameWithType: Serializer.Load
   fullName: SadConsole.Serializer.Load
+- uid: SadConsole.Serializer.TryLoad*
+  commentId: Overload:SadConsole.Serializer.TryLoad
+  isExternal: true
+  href: SadConsole.Serializer.html#SadConsole_Serializer_TryLoad__1_System_String_System_Boolean___0__Newtonsoft_Json_JsonSerializerSettings_
+  name: TryLoad
+  nameWithType: Serializer.TryLoad
+  fullName: SadConsole.Serializer.TryLoad
 - uid: SadConsole.Serializer.Save``1(``0,System.String,System.Boolean,Newtonsoft.Json.JsonSerializerSettings)
   commentId: M:SadConsole.Serializer.Save``1(``0,System.String,System.Boolean,Newtonsoft.Json.JsonSerializerSettings)
   isExternal: true

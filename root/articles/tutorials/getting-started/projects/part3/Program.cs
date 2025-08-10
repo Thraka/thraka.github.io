@@ -3,12 +3,10 @@ using SadConsoleGame;
 
 Settings.WindowTitle = "My SadConsole Game";
 
-Builder configuration = new Builder()
-    .SetScreenSize(120, 38)
+Builder
+    .GetBuilder()
+    .SetWindowSizeInCells(120, 38)
+    .ConfigureFonts(true)
     .SetStartingScreen<RootScreen>()
     .IsStartingScreenFocused(true)
-    ;
-
-Game.Create(configuration);
-Game.Instance.Run();
-Game.Instance.Dispose();
+    .Run();

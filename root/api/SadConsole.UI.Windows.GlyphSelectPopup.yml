@@ -23,8 +23,8 @@ items:
   summary: A popup window that displays the glyphs of a font.
   example: []
   syntax:
-    content: 'public class GlyphSelectPopup : Window, IDisposable, IScreenSurfaceEditable, IScreenSurface, IScreenObject, IPositionable, IComponentHost, ISurface, ISurfaceSettable, IWindowData'
-    content.vb: Public Class GlyphSelectPopup Inherits Window Implements IDisposable, IScreenSurfaceEditable, IScreenSurface, IScreenObject, IPositionable, IComponentHost, ISurface, ISurfaceSettable, IWindowData
+    content: 'public class GlyphSelectPopup : Window, IDisposable, IScreenSurfaceEditable, IScreenSurface, IScreenObject, IPositionable, IComponentHost, ISurface, ISurfaceSettable, ICellSurfaceResize, IWindowData'
+    content.vb: Public Class GlyphSelectPopup Inherits Window Implements IDisposable, IScreenSurfaceEditable, IScreenSurface, IScreenObject, IPositionable, IComponentHost, ISurface, ISurfaceSettable, ICellSurfaceResize, IWindowData
   inheritance:
   - System.Object
   - SadConsole.ScreenObject
@@ -40,6 +40,7 @@ items:
   - SadConsole.Components.IComponentHost
   - SadConsole.ISurface
   - SadConsole.ISurfaceSettable
+  - SadConsole.ICellSurfaceResize
   - SadConsole.Renderers.IWindowData
   inheritedMembers:
   - SadConsole.UI.Window.PreviousMouseLeftButtonDown
@@ -81,6 +82,7 @@ items:
   - SadConsole.Console.OnFocused
   - SadConsole.Console.Cursor
   - SadConsole.Console.AutoCursorOnFocus
+  - SadConsole.ScreenSurface.MouseState_EnteredWithButtonDown
   - SadConsole.ScreenSurface.IsMouseOver
   - SadConsole.ScreenSurface.Resize(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)
   - SadConsole.ScreenSurface.Resize(System.Int32,System.Int32,System.Boolean)
@@ -456,6 +458,14 @@ references:
   name: ISurfaceSettable
   nameWithType: ISurfaceSettable
   fullName: SadConsole.ISurfaceSettable
+- uid: SadConsole.ICellSurfaceResize
+  commentId: T:SadConsole.ICellSurfaceResize
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ICellSurfaceResize.html
+  name: ICellSurfaceResize
+  nameWithType: ICellSurfaceResize
+  fullName: SadConsole.ICellSurfaceResize
 - uid: SadConsole.Renderers.IWindowData
   commentId: T:SadConsole.Renderers.IWindowData
   parent: SadConsole.Renderers
@@ -1437,6 +1447,14 @@ references:
   name: AutoCursorOnFocus
   nameWithType: Console.AutoCursorOnFocus
   fullName: SadConsole.Console.AutoCursorOnFocus
+- uid: SadConsole.ScreenSurface.MouseState_EnteredWithButtonDown
+  commentId: F:SadConsole.ScreenSurface.MouseState_EnteredWithButtonDown
+  parent: SadConsole.ScreenSurface
+  isExternal: true
+  href: SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_MouseState_EnteredWithButtonDown
+  name: MouseState_EnteredWithButtonDown
+  nameWithType: ScreenSurface.MouseState_EnteredWithButtonDown
+  fullName: SadConsole.ScreenSurface.MouseState_EnteredWithButtonDown
 - uid: SadConsole.ScreenSurface.IsMouseOver
   commentId: F:SadConsole.ScreenSurface.IsMouseOver
   parent: SadConsole.ScreenSurface

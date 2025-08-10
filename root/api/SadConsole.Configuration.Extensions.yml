@@ -10,15 +10,19 @@ items:
   - SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.GameHost})
   - SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Boolean)
   - SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.String,System.String[])
+  - SadConsole.Configuration.Extensions.ConfigureWindow(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.ConfigureWindowConfig,SadConsole.Configuration.BuilderBase,SadConsole.GameHost})
   - SadConsole.Configuration.Extensions.FixOldFontName(SadConsole.Configuration.Builder)
   - SadConsole.Configuration.Extensions.IsStartingScreenFocused(SadConsole.Configuration.Builder,System.Boolean)
   - SadConsole.Configuration.Extensions.OnEnd(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
   - SadConsole.Configuration.Extensions.OnStart(SadConsole.Configuration.Builder,System.EventHandler{SadConsole.GameHost})
+  - SadConsole.Configuration.Extensions.SetDefaultFontSize(SadConsole.Configuration.Builder,SadConsole.IFont.Sizes)
   - SadConsole.Configuration.Extensions.SetScreenSize(SadConsole.Configuration.Builder,System.Int32,System.Int32)
   - SadConsole.Configuration.Extensions.SetSplashScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.GameHost,SadConsole.ScreenSurface[]})
   - SadConsole.Configuration.Extensions.SetSplashScreen``1(SadConsole.Configuration.Builder)
   - SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder,System.Func{SadConsole.GameHost,SadConsole.IScreenObject})
   - SadConsole.Configuration.Extensions.SetStartingScreen``1(SadConsole.Configuration.Builder)
+  - SadConsole.Configuration.Extensions.SetWindowSizeInCells(SadConsole.Configuration.Builder,System.Int32,System.Int32,System.Boolean)
+  - SadConsole.Configuration.Extensions.SetWindowSizeInPixels(SadConsole.Configuration.Builder,System.Int32,System.Int32)
   - SadConsole.Configuration.Extensions.UseDefaultConsole(SadConsole.Configuration.Builder)
   langs:
   - csharp
@@ -181,6 +185,178 @@ items:
   nameWithType.vb: Extensions.AddFrameRenderEvent(Builder, EventHandler(Of GameHost))
   fullName.vb: SadConsole.Configuration.Extensions.AddFrameRenderEvent(SadConsole.Configuration.Builder, System.EventHandler(Of SadConsole.GameHost))
   name.vb: AddFrameRenderEvent(Builder, EventHandler(Of GameHost))
+- uid: SadConsole.Configuration.Extensions.ConfigureWindow(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.ConfigureWindowConfig,SadConsole.Configuration.BuilderBase,SadConsole.GameHost})
+  commentId: M:SadConsole.Configuration.Extensions.ConfigureWindow(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.ConfigureWindowConfig,SadConsole.Configuration.BuilderBase,SadConsole.GameHost})
+  id: ConfigureWindow(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.ConfigureWindowConfig,SadConsole.Configuration.BuilderBase,SadConsole.GameHost})
+  isExtensionMethod: true
+  parent: SadConsole.Configuration.Extensions
+  langs:
+  - csharp
+  - vb
+  name: ConfigureWindow(Builder, Action<ConfigureWindowConfig, BuilderBase, GameHost>)
+  nameWithType: Extensions.ConfigureWindow(Builder, Action<ConfigureWindowConfig, BuilderBase, GameHost>)
+  fullName: SadConsole.Configuration.Extensions.ConfigureWindow(SadConsole.Configuration.Builder, System.Action<SadConsole.Configuration.ConfigureWindowConfig, SadConsole.Configuration.BuilderBase, SadConsole.GameHost>)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Configuration
+  summary: Configures the game window.
+  example: []
+  syntax:
+    content: public static Builder ConfigureWindow(this Builder configBuilder, Action<ConfigureWindowConfig, BuilderBase, GameHost> loader)
+    parameters:
+    - id: configBuilder
+      type: SadConsole.Configuration.Builder
+      description: The builder object that composes the game startup.
+    - id: loader
+      type: System.Action{SadConsole.Configuration.ConfigureWindowConfig,SadConsole.Configuration.BuilderBase,SadConsole.GameHost}
+      description: The method to invoke when this is run.
+    return:
+      type: SadConsole.Configuration.Builder
+      description: The configuration builder.
+    content.vb: Public Shared Function ConfigureWindow(configBuilder As Builder, loader As Action(Of ConfigureWindowConfig, BuilderBase, GameHost)) As Builder
+  overload: SadConsole.Configuration.Extensions.ConfigureWindow*
+  nameWithType.vb: Extensions.ConfigureWindow(Builder, Action(Of ConfigureWindowConfig, BuilderBase, GameHost))
+  fullName.vb: SadConsole.Configuration.Extensions.ConfigureWindow(SadConsole.Configuration.Builder, System.Action(Of SadConsole.Configuration.ConfigureWindowConfig, SadConsole.Configuration.BuilderBase, SadConsole.GameHost))
+  name.vb: ConfigureWindow(Builder, Action(Of ConfigureWindowConfig, BuilderBase, GameHost))
+- uid: SadConsole.Configuration.Extensions.SetScreenSize(SadConsole.Configuration.Builder,System.Int32,System.Int32)
+  commentId: M:SadConsole.Configuration.Extensions.SetScreenSize(SadConsole.Configuration.Builder,System.Int32,System.Int32)
+  id: SetScreenSize(SadConsole.Configuration.Builder,System.Int32,System.Int32)
+  isExtensionMethod: true
+  parent: SadConsole.Configuration.Extensions
+  langs:
+  - csharp
+  - vb
+  name: SetScreenSize(Builder, int, int)
+  nameWithType: Extensions.SetScreenSize(Builder, int, int)
+  fullName: SadConsole.Configuration.Extensions.SetScreenSize(SadConsole.Configuration.Builder, int, int)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Configuration
+  summary: Sets the initial screen size of the window, in cells.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use SetWindowSizeInCells instead.")]
+
+      public static Builder SetScreenSize(this Builder configBuilder, int width, int height)
+    parameters:
+    - id: configBuilder
+      type: SadConsole.Configuration.Builder
+      description: The builder object that composes the game startup.
+    - id: width
+      type: System.Int32
+      description: The cell count along the x-axis.
+    - id: height
+      type: System.Int32
+      description: The cell count along the y-axis.
+    return:
+      type: SadConsole.Configuration.Builder
+      description: The configuration builder.
+    content.vb: >-
+      <Obsolete("Use SetWindowSizeInCells instead.")>
+
+      Public Shared Function SetScreenSize(configBuilder As Builder, width As Integer, height As Integer) As Builder
+  overload: SadConsole.Configuration.Extensions.SetScreenSize*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use SetWindowSizeInCells instead.
+  nameWithType.vb: Extensions.SetScreenSize(Builder, Integer, Integer)
+  fullName.vb: SadConsole.Configuration.Extensions.SetScreenSize(SadConsole.Configuration.Builder, Integer, Integer)
+  name.vb: SetScreenSize(Builder, Integer, Integer)
+- uid: SadConsole.Configuration.Extensions.SetWindowSizeInCells(SadConsole.Configuration.Builder,System.Int32,System.Int32,System.Boolean)
+  commentId: M:SadConsole.Configuration.Extensions.SetWindowSizeInCells(SadConsole.Configuration.Builder,System.Int32,System.Int32,System.Boolean)
+  id: SetWindowSizeInCells(SadConsole.Configuration.Builder,System.Int32,System.Int32,System.Boolean)
+  isExtensionMethod: true
+  parent: SadConsole.Configuration.Extensions
+  langs:
+  - csharp
+  - vb
+  name: SetWindowSizeInCells(Builder, int, int, bool)
+  nameWithType: Extensions.SetWindowSizeInCells(Builder, int, int, bool)
+  fullName: SadConsole.Configuration.Extensions.SetWindowSizeInCells(SadConsole.Configuration.Builder, int, int, bool)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Configuration
+  summary: Sets the desired resolution of the SadConsole window in cells using the default font.
+  remarks: >-
+    The <code class="paramref">width</code> and <code class="paramref">height</code> values are used to generate the game window based
+
+    on how large the font is. For example, if the font is 10x8, and you request window size of 20x20, a window is
+
+    created with a width of 10 * 20 and a height of 8 * 20 in pixels, which is 200x160.
+
+
+    When <code class="paramref">zoom</code> is set to true, the window will try to get as big as possible while keeping
+
+    the SadConsole output crisp.
+  example: []
+  syntax:
+    content: public static Builder SetWindowSizeInCells(this Builder configBuilder, int width, int height, bool zoom = false)
+    parameters:
+    - id: configBuilder
+      type: SadConsole.Configuration.Builder
+      description: The builder object that composes the game startup.
+    - id: width
+      type: System.Int32
+      description: How wide the window is in font cells.
+    - id: height
+      type: System.Int32
+      description: How tall the window is in font cells.
+    - id: zoom
+      type: System.Boolean
+      description: When true, creates a larger window to automatically zoom the contents.
+    return:
+      type: SadConsole.Configuration.Builder
+    content.vb: Public Shared Function SetWindowSizeInCells(configBuilder As Builder, width As Integer, height As Integer, zoom As Boolean = False) As Builder
+  overload: SadConsole.Configuration.Extensions.SetWindowSizeInCells*
+  nameWithType.vb: Extensions.SetWindowSizeInCells(Builder, Integer, Integer, Boolean)
+  fullName.vb: SadConsole.Configuration.Extensions.SetWindowSizeInCells(SadConsole.Configuration.Builder, Integer, Integer, Boolean)
+  name.vb: SetWindowSizeInCells(Builder, Integer, Integer, Boolean)
+- uid: SadConsole.Configuration.Extensions.SetWindowSizeInPixels(SadConsole.Configuration.Builder,System.Int32,System.Int32)
+  commentId: M:SadConsole.Configuration.Extensions.SetWindowSizeInPixels(SadConsole.Configuration.Builder,System.Int32,System.Int32)
+  id: SetWindowSizeInPixels(SadConsole.Configuration.Builder,System.Int32,System.Int32)
+  isExtensionMethod: true
+  parent: SadConsole.Configuration.Extensions
+  langs:
+  - csharp
+  - vb
+  name: SetWindowSizeInPixels(Builder, int, int)
+  nameWithType: Extensions.SetWindowSizeInPixels(Builder, int, int)
+  fullName: SadConsole.Configuration.Extensions.SetWindowSizeInPixels(SadConsole.Configuration.Builder, int, int)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Configuration
+  summary: >-
+    Sets the desired resolution of the SadConsole window in pixels. The output surface and initial cell counts are calculated based on
+
+    the current font, and set to a value that allows the most cells to appear on screen.
+  example: []
+  syntax:
+    content: public static Builder SetWindowSizeInPixels(this Builder configBuilder, int width, int height)
+    parameters:
+    - id: configBuilder
+      type: SadConsole.Configuration.Builder
+      description: The builder object that composes the game startup.
+    - id: width
+      type: System.Int32
+      description: The width of the window.
+    - id: height
+      type: System.Int32
+      description: The height of the window.
+    return:
+      type: SadConsole.Configuration.Builder
+    content.vb: Public Shared Function SetWindowSizeInPixels(configBuilder As Builder, width As Integer, height As Integer) As Builder
+  overload: SadConsole.Configuration.Extensions.SetWindowSizeInPixels*
+  nameWithType.vb: Extensions.SetWindowSizeInPixels(Builder, Integer, Integer)
+  fullName.vb: SadConsole.Configuration.Extensions.SetWindowSizeInPixels(SadConsole.Configuration.Builder, Integer, Integer)
+  name.vb: SetWindowSizeInPixels(Builder, Integer, Integer)
 - uid: SadConsole.Configuration.Extensions.UseDefaultConsole(SadConsole.Configuration.Builder)
   commentId: M:SadConsole.Configuration.Extensions.UseDefaultConsole(SadConsole.Configuration.Builder)
   id: UseDefaultConsole(SadConsole.Configuration.Builder)
@@ -209,40 +385,6 @@ items:
       description: The configuration builder.
     content.vb: Public Shared Function UseDefaultConsole(configBuilder As Builder) As Builder
   overload: SadConsole.Configuration.Extensions.UseDefaultConsole*
-- uid: SadConsole.Configuration.Extensions.IsStartingScreenFocused(SadConsole.Configuration.Builder,System.Boolean)
-  commentId: M:SadConsole.Configuration.Extensions.IsStartingScreenFocused(SadConsole.Configuration.Builder,System.Boolean)
-  id: IsStartingScreenFocused(SadConsole.Configuration.Builder,System.Boolean)
-  isExtensionMethod: true
-  parent: SadConsole.Configuration.Extensions
-  langs:
-  - csharp
-  - vb
-  name: IsStartingScreenFocused(Builder, bool)
-  nameWithType: Extensions.IsStartingScreenFocused(Builder, bool)
-  fullName: SadConsole.Configuration.Extensions.IsStartingScreenFocused(SadConsole.Configuration.Builder, bool)
-  type: Method
-  assemblies:
-  - SadConsole
-  namespace: SadConsole.Configuration
-  summary: Either focuses or unfocuses the starting screen.
-  example: []
-  syntax:
-    content: public static Builder IsStartingScreenFocused(this Builder configBuilder, bool value)
-    parameters:
-    - id: configBuilder
-      type: SadConsole.Configuration.Builder
-      description: The builder object that composes the game startup.
-    - id: value
-      type: System.Boolean
-      description: Indicates whether or not <xref href="SadConsole.GameHost.Screen" data-throw-if-not-resolved="false"></xref> is focused.
-    return:
-      type: SadConsole.Configuration.Builder
-      description: The configuration builder.
-    content.vb: Public Shared Function IsStartingScreenFocused(configBuilder As Builder, value As Boolean) As Builder
-  overload: SadConsole.Configuration.Extensions.IsStartingScreenFocused*
-  nameWithType.vb: Extensions.IsStartingScreenFocused(Builder, Boolean)
-  fullName.vb: SadConsole.Configuration.Extensions.IsStartingScreenFocused(SadConsole.Configuration.Builder, Boolean)
-  name.vb: IsStartingScreenFocused(Builder, Boolean)
 - uid: SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.GameHost})
   commentId: M:SadConsole.Configuration.Extensions.ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.GameHost})
   id: ConfigureFonts(SadConsole.Configuration.Builder,System.Action{SadConsole.Configuration.FontConfig,SadConsole.GameHost})
@@ -376,6 +518,37 @@ items:
       description: The configuration builder.
     content.vb: Public Shared Function FixOldFontName(configBuilder As Builder) As Builder
   overload: SadConsole.Configuration.Extensions.FixOldFontName*
+- uid: SadConsole.Configuration.Extensions.SetDefaultFontSize(SadConsole.Configuration.Builder,SadConsole.IFont.Sizes)
+  commentId: M:SadConsole.Configuration.Extensions.SetDefaultFontSize(SadConsole.Configuration.Builder,SadConsole.IFont.Sizes)
+  id: SetDefaultFontSize(SadConsole.Configuration.Builder,SadConsole.IFont.Sizes)
+  isExtensionMethod: true
+  parent: SadConsole.Configuration.Extensions
+  langs:
+  - csharp
+  - vb
+  name: SetDefaultFontSize(Builder, Sizes)
+  nameWithType: Extensions.SetDefaultFontSize(Builder, IFont.Sizes)
+  fullName: SadConsole.Configuration.Extensions.SetDefaultFontSize(SadConsole.Configuration.Builder, SadConsole.IFont.Sizes)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.Configuration
+  summary: Sets the default font size for the game. The default is <xref href="SadConsole.IFont.Sizes.One" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static Builder SetDefaultFontSize(this Builder configBuilder, IFont.Sizes size)
+    parameters:
+    - id: configBuilder
+      type: SadConsole.Configuration.Builder
+      description: The builder object that composes the game startup.
+    - id: size
+      type: SadConsole.IFont.Sizes
+      description: The size of the default font.
+    return:
+      type: SadConsole.Configuration.Builder
+      description: The configuration builder.
+    content.vb: Public Shared Function SetDefaultFontSize(configBuilder As Builder, size As IFont.Sizes) As Builder
+  overload: SadConsole.Configuration.Extensions.SetDefaultFontSize*
 - uid: SadConsole.Configuration.Extensions.SetSplashScreen``1(SadConsole.Configuration.Builder)
   commentId: M:SadConsole.Configuration.Extensions.SetSplashScreen``1(SadConsole.Configuration.Builder)
   id: SetSplashScreen``1(SadConsole.Configuration.Builder)
@@ -512,43 +685,40 @@ items:
   nameWithType.vb: Extensions.SetStartingScreen(Builder, Func(Of GameHost, IScreenObject))
   fullName.vb: SadConsole.Configuration.Extensions.SetStartingScreen(SadConsole.Configuration.Builder, System.Func(Of SadConsole.GameHost, SadConsole.IScreenObject))
   name.vb: SetStartingScreen(Builder, Func(Of GameHost, IScreenObject))
-- uid: SadConsole.Configuration.Extensions.SetScreenSize(SadConsole.Configuration.Builder,System.Int32,System.Int32)
-  commentId: M:SadConsole.Configuration.Extensions.SetScreenSize(SadConsole.Configuration.Builder,System.Int32,System.Int32)
-  id: SetScreenSize(SadConsole.Configuration.Builder,System.Int32,System.Int32)
+- uid: SadConsole.Configuration.Extensions.IsStartingScreenFocused(SadConsole.Configuration.Builder,System.Boolean)
+  commentId: M:SadConsole.Configuration.Extensions.IsStartingScreenFocused(SadConsole.Configuration.Builder,System.Boolean)
+  id: IsStartingScreenFocused(SadConsole.Configuration.Builder,System.Boolean)
   isExtensionMethod: true
   parent: SadConsole.Configuration.Extensions
   langs:
   - csharp
   - vb
-  name: SetScreenSize(Builder, int, int)
-  nameWithType: Extensions.SetScreenSize(Builder, int, int)
-  fullName: SadConsole.Configuration.Extensions.SetScreenSize(SadConsole.Configuration.Builder, int, int)
+  name: IsStartingScreenFocused(Builder, bool)
+  nameWithType: Extensions.IsStartingScreenFocused(Builder, bool)
+  fullName: SadConsole.Configuration.Extensions.IsStartingScreenFocused(SadConsole.Configuration.Builder, bool)
   type: Method
   assemblies:
   - SadConsole
   namespace: SadConsole.Configuration
-  summary: Sets the initial screen size of the window, in cells.
+  summary: Either focuses or unfocuses the starting screen.
   example: []
   syntax:
-    content: public static Builder SetScreenSize(this Builder configBuilder, int width, int height)
+    content: public static Builder IsStartingScreenFocused(this Builder configBuilder, bool value)
     parameters:
     - id: configBuilder
       type: SadConsole.Configuration.Builder
       description: The builder object that composes the game startup.
-    - id: width
-      type: System.Int32
-      description: The cell count along the x-axis.
-    - id: height
-      type: System.Int32
-      description: The cell count along the y-axis.
+    - id: value
+      type: System.Boolean
+      description: Indicates whether or not <xref href="SadConsole.GameHost.Screen" data-throw-if-not-resolved="false"></xref> is focused.
     return:
       type: SadConsole.Configuration.Builder
       description: The configuration builder.
-    content.vb: Public Shared Function SetScreenSize(configBuilder As Builder, width As Integer, height As Integer) As Builder
-  overload: SadConsole.Configuration.Extensions.SetScreenSize*
-  nameWithType.vb: Extensions.SetScreenSize(Builder, Integer, Integer)
-  fullName.vb: SadConsole.Configuration.Extensions.SetScreenSize(SadConsole.Configuration.Builder, Integer, Integer)
-  name.vb: SetScreenSize(Builder, Integer, Integer)
+    content.vb: Public Shared Function IsStartingScreenFocused(configBuilder As Builder, value As Boolean) As Builder
+  overload: SadConsole.Configuration.Extensions.IsStartingScreenFocused*
+  nameWithType.vb: Extensions.IsStartingScreenFocused(Builder, Boolean)
+  fullName.vb: SadConsole.Configuration.Extensions.IsStartingScreenFocused(SadConsole.Configuration.Builder, Boolean)
+  name.vb: IsStartingScreenFocused(Builder, Boolean)
 references:
 - uid: SadConsole.Configuration.Builder
   commentId: T:SadConsole.Configuration.Builder
@@ -960,6 +1130,155 @@ references:
   name: AddFrameRenderEvent
   nameWithType: Extensions.AddFrameRenderEvent
   fullName: SadConsole.Configuration.Extensions.AddFrameRenderEvent
+- uid: SadConsole.Configuration.Extensions.ConfigureWindow*
+  commentId: Overload:SadConsole.Configuration.Extensions.ConfigureWindow
+  isExternal: true
+  href: SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_ConfigureWindow_SadConsole_Configuration_Builder_System_Action_SadConsole_Configuration_ConfigureWindowConfig_SadConsole_Configuration_BuilderBase_SadConsole_GameHost__
+  name: ConfigureWindow
+  nameWithType: Extensions.ConfigureWindow
+  fullName: SadConsole.Configuration.Extensions.ConfigureWindow
+- uid: System.Action{SadConsole.Configuration.ConfigureWindowConfig,SadConsole.Configuration.BuilderBase,SadConsole.GameHost}
+  commentId: T:System.Action{SadConsole.Configuration.ConfigureWindowConfig,SadConsole.Configuration.BuilderBase,SadConsole.GameHost}
+  parent: System
+  definition: System.Action`3
+  href: https://learn.microsoft.com/dotnet/api/system.action-3
+  name: Action<ConfigureWindowConfig, BuilderBase, GameHost>
+  nameWithType: Action<ConfigureWindowConfig, BuilderBase, GameHost>
+  fullName: System.Action<SadConsole.Configuration.ConfigureWindowConfig, SadConsole.Configuration.BuilderBase, SadConsole.GameHost>
+  nameWithType.vb: Action(Of ConfigureWindowConfig, BuilderBase, GameHost)
+  fullName.vb: System.Action(Of SadConsole.Configuration.ConfigureWindowConfig, SadConsole.Configuration.BuilderBase, SadConsole.GameHost)
+  name.vb: Action(Of ConfigureWindowConfig, BuilderBase, GameHost)
+  spec.csharp:
+  - uid: System.Action`3
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-3
+  - name: <
+  - uid: SadConsole.Configuration.ConfigureWindowConfig
+    name: ConfigureWindowConfig
+    isExternal: true
+    href: SadConsole.Configuration.ConfigureWindowConfig.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Configuration.BuilderBase
+    name: BuilderBase
+    isExternal: true
+    href: SadConsole.Configuration.BuilderBase.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.GameHost
+    name: GameHost
+    isExternal: true
+    href: SadConsole.GameHost.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`3
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-3
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SadConsole.Configuration.ConfigureWindowConfig
+    name: ConfigureWindowConfig
+    isExternal: true
+    href: SadConsole.Configuration.ConfigureWindowConfig.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.Configuration.BuilderBase
+    name: BuilderBase
+    isExternal: true
+    href: SadConsole.Configuration.BuilderBase.html
+  - name: ','
+  - name: " "
+  - uid: SadConsole.GameHost
+    name: GameHost
+    isExternal: true
+    href: SadConsole.GameHost.html
+  - name: )
+- uid: System.Action`3
+  commentId: T:System.Action`3
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-3
+  name: Action<T1, T2, T3>
+  nameWithType: Action<T1, T2, T3>
+  fullName: System.Action<T1, T2, T3>
+  nameWithType.vb: Action(Of T1, T2, T3)
+  fullName.vb: System.Action(Of T1, T2, T3)
+  name.vb: Action(Of T1, T2, T3)
+  spec.csharp:
+  - uid: System.Action`3
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-3
+  - name: <
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`3
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-3
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: ','
+  - name: " "
+  - name: T3
+  - name: )
+- uid: SadConsole.Configuration.Extensions.SetScreenSize*
+  commentId: Overload:SadConsole.Configuration.Extensions.SetScreenSize
+  isExternal: true
+  href: SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_SetScreenSize_SadConsole_Configuration_Builder_System_Int32_System_Int32_
+  name: SetScreenSize
+  nameWithType: Extensions.SetScreenSize
+  fullName: SadConsole.Configuration.Extensions.SetScreenSize
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: SadConsole.Configuration.Extensions.SetWindowSizeInCells*
+  commentId: Overload:SadConsole.Configuration.Extensions.SetWindowSizeInCells
+  isExternal: true
+  href: SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_SetWindowSizeInCells_SadConsole_Configuration_Builder_System_Int32_System_Int32_System_Boolean_
+  name: SetWindowSizeInCells
+  nameWithType: Extensions.SetWindowSizeInCells
+  fullName: SadConsole.Configuration.Extensions.SetWindowSizeInCells
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: SadConsole.Configuration.Extensions.SetWindowSizeInPixels*
+  commentId: Overload:SadConsole.Configuration.Extensions.SetWindowSizeInPixels
+  isExternal: true
+  href: SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_SetWindowSizeInPixels_SadConsole_Configuration_Builder_System_Int32_System_Int32_
+  name: SetWindowSizeInPixels
+  nameWithType: Extensions.SetWindowSizeInPixels
+  fullName: SadConsole.Configuration.Extensions.SetWindowSizeInPixels
 - uid: SadConsole.GameHost.StartingConsole
   commentId: P:SadConsole.GameHost.StartingConsole
   parent: SadConsole.GameHost
@@ -983,24 +1302,6 @@ references:
   name: UseDefaultConsole
   nameWithType: Extensions.UseDefaultConsole
   fullName: SadConsole.Configuration.Extensions.UseDefaultConsole
-- uid: SadConsole.Configuration.Extensions.IsStartingScreenFocused*
-  commentId: Overload:SadConsole.Configuration.Extensions.IsStartingScreenFocused
-  isExternal: true
-  href: SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_IsStartingScreenFocused_SadConsole_Configuration_Builder_System_Boolean_
-  name: IsStartingScreenFocused
-  nameWithType: Extensions.IsStartingScreenFocused
-  fullName: SadConsole.Configuration.Extensions.IsStartingScreenFocused
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
 - uid: SadConsole.Configuration.FontConfig
   commentId: T:SadConsole.Configuration.FontConfig
   isExternal: true
@@ -1153,6 +1454,48 @@ references:
   name: FixOldFontName
   nameWithType: Extensions.FixOldFontName
   fullName: SadConsole.Configuration.Extensions.FixOldFontName
+- uid: SadConsole.IFont.Sizes.One
+  commentId: F:SadConsole.IFont.Sizes.One
+  isExternal: true
+  href: SadConsole.IFont.Sizes.html#SadConsole_IFont_Sizes_One
+  name: One
+  nameWithType: IFont.Sizes.One
+  fullName: SadConsole.IFont.Sizes.One
+- uid: SadConsole.Configuration.Extensions.SetDefaultFontSize*
+  commentId: Overload:SadConsole.Configuration.Extensions.SetDefaultFontSize
+  isExternal: true
+  href: SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_SetDefaultFontSize_SadConsole_Configuration_Builder_SadConsole_IFont_Sizes_
+  name: SetDefaultFontSize
+  nameWithType: Extensions.SetDefaultFontSize
+  fullName: SadConsole.Configuration.Extensions.SetDefaultFontSize
+- uid: SadConsole.IFont.Sizes
+  commentId: T:SadConsole.IFont.Sizes
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IFont.html
+  name: IFont.Sizes
+  nameWithType: IFont.Sizes
+  fullName: SadConsole.IFont.Sizes
+  spec.csharp:
+  - uid: SadConsole.IFont
+    name: IFont
+    isExternal: true
+    href: SadConsole.IFont.html
+  - name: .
+  - uid: SadConsole.IFont.Sizes
+    name: Sizes
+    isExternal: true
+    href: SadConsole.IFont.Sizes.html
+  spec.vb:
+  - uid: SadConsole.IFont
+    name: IFont
+    isExternal: true
+    href: SadConsole.IFont.html
+  - name: .
+  - uid: SadConsole.IFont.Sizes
+    name: Sizes
+    isExternal: true
+    href: SadConsole.IFont.Sizes.html
 - uid: SadConsole.IScreenSurface
   commentId: T:SadConsole.IScreenSurface
   parent: SadConsole
@@ -1315,21 +1658,10 @@ references:
     isExternal: true
     href: SadConsole.IScreenObject.html
   - name: )
-- uid: SadConsole.Configuration.Extensions.SetScreenSize*
-  commentId: Overload:SadConsole.Configuration.Extensions.SetScreenSize
+- uid: SadConsole.Configuration.Extensions.IsStartingScreenFocused*
+  commentId: Overload:SadConsole.Configuration.Extensions.IsStartingScreenFocused
   isExternal: true
-  href: SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_SetScreenSize_SadConsole_Configuration_Builder_System_Int32_System_Int32_
-  name: SetScreenSize
-  nameWithType: Extensions.SetScreenSize
-  fullName: SadConsole.Configuration.Extensions.SetScreenSize
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
+  href: SadConsole.Configuration.Extensions.html#SadConsole_Configuration_Extensions_IsStartingScreenFocused_SadConsole_Configuration_Builder_System_Boolean_
+  name: IsStartingScreenFocused
+  nameWithType: Extensions.IsStartingScreenFocused
+  fullName: SadConsole.Configuration.Extensions.IsStartingScreenFocused

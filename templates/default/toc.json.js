@@ -1,10 +1,19 @@
 // Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
+var extension = require('./toc.extension.js')
 
 exports.transform = function (model) {
 
+    if (extension && extension.preTransform) {
+      model = extension.preTransform(model);
+    }
+
     if (model.memberLayout === 'SeparatePages') {
       model = transformMemberPage(model);
+    }
+
+    if (extension && extension.postTransform) {
+      model = extension.postTransform(model);
     }
   
     for (var key in model) {
@@ -27,6 +36,12 @@ exports.transform = function (model) {
         "event":       { key: "eventsInSubtitle" },
         "operator":    { key: "operatorsInSubtitle" },
         "eii":         { key: "eiisInSubtitle" },
+        "class":       { key: "classesInSubtitle" },
+        "struct":      { key: "structsInSubtitle" },
+        "enum":        { key: "enumsInSubtitle" },
+        "interface":   { key: "interfacesInSubtitle" },
+        "namespace":   { key: "namespacesInSubtitle" },
+        "delegate":    { key: "delegatesInSubtitle" },
     };
   
     groupChildren(model);

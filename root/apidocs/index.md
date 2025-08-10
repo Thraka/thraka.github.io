@@ -1,6 +1,6 @@
 ---
 description: SadConsole API documentation
-ms.date: 09/05/2023
+ms.date: 08/10/2025
 ---
 
 # SadConsole API

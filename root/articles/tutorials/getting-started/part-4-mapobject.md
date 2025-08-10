@@ -46,16 +46,16 @@ For now, the `GameObject.Move` method is receiving the map surface, so we can qu
     {
         // Check new position is valid
         if (!screenSurface.Surface.IsValidCell(newPosition.X, newPosition.Y)) return false;
-    
+
         // Restore the old cell
         _mapAppearance.CopyAppearanceTo(screenSurface.Surface[Position]);
-    
+
         // Store the map cell of the new position
         screenSurface.Surface[newPosition].CopyAppearanceTo(_mapAppearance);
-    
+
         Position = newPosition;
         DrawGameObject(screenSurface);
-    
+
         return true;
     }
     ```
@@ -73,29 +73,29 @@ Soon we'll add more game object types such as monsters and treasure. However, ad
     using System.Diagnostics.CodeAnalysis;
 
     namespace SadConsoleGame;
-    
+
     internal class Map
     {
         private ScreenSurface _mapSurface;
-    
+
         public ScreenSurface SurfaceObject => _mapSurface;
         public GameObject UserControlledObject { get; set; }
-    
+
         public Map(int mapWidth, int mapHeight)
         {
             _mapSurface = new ScreenSurface(mapWidth, mapHeight);
             _mapSurface.UseMouse = false;
-    
+
             FillBackground();
-    
+
             UserControlledObject = new GameObject(new ColoredGlyph(Color.White, Color.Black, 2), _mapSurface.Surface.Area.Center, _mapSurface);
         }
-    
+
         private void FillBackground()
         {
             Color[] colors = new[] { Color.LightGreen, Color.Coral, Color.CornflowerBlue, Color.DarkGreen };
             float[] colorStops = new[] { 0f, 0.35f, 0.75f, 1f };
-    
+
             Algorithms.GradientFill(_mapSurface.FontSize,
                                     _mapSurface.Surface.Area.Center,
                                     _mapSurface.Surface.Width / 3,
@@ -108,33 +108,33 @@ Soon we'll add more game object types such as monsters and treasure. However, ad
     ```
 
     This code is slightly different from the previous _RootScreen.cs_ code, with the following changes:
-    
+
     - The variable that represented the game map surface was renamed from `_map` to `_mapSurface`.
     - The game map surface is exposed publicly through the get-only `SurfaceObject` property.
     - The `_controlledObject` variable held the player object, but now that's a public property named `UserControlledObject`.
     - The `System.Diagnostics.CodeAnalysis` namespace is imported at the top of the file. This is described later.
 
-01. Next, update the code in _RootObject.cs_, removing the code ported to the new map object. This class still handles the keyboard input though. Replace the code in the class with the following:
+01. Next, update the code in _RootScreen.cs_, removing the code ported to the new map object. This class still handles the keyboard input though. Replace the code in the class with the following:
 
     ```csharp
     using SadConsole.Input;
-    
+
     namespace SadConsoleGame;
-    
+
     internal class RootScreen: ScreenObject
     {
         private Map _map;
-    
+
         public RootScreen()
         {
             _map = new Map(Game.Instance.ScreenCellsX, Game.Instance.ScreenCellsY - 5);
             Children.Add(_map.SurfaceObject);
         }
-    
+
         public override bool ProcessKeyboard(Keyboard keyboard)
         {
             bool handled = false;
-    
+
             if (keyboard.IsKeyPressed(Keys.Up))
             {
                 _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Up, _map.SurfaceObject);
@@ -145,7 +145,7 @@ Soon we'll add more game object types such as monsters and treasure. However, ad
                 _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Down, _map.SurfaceObject);
                 handled = true;
             }
-    
+
             if (keyboard.IsKeyPressed(Keys.Left))
             {
                 _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Left, _map.SurfaceObject);
@@ -156,7 +156,7 @@ Soon we'll add more game object types such as monsters and treasure. However, ad
                 _map.UserControlledObject.Move(_map.UserControlledObject.Position + Direction.Right, _map.SurfaceObject);
                 handled = true;
             }
-    
+
             return handled;
         }
     }
@@ -180,7 +180,7 @@ First, the map needs to be able to create these new objects.
     {
         private List<GameObject> _mapObjects;
         private ScreenSurface _mapSurface;
-    
+
         public IReadOnlyList<GameObject> GameObjects => _mapObjects.AsReadOnly();
         public ScreenSurface SurfaceObject => _mapSurface;
         public GameObject UserControlledObject { get; set; }
@@ -244,11 +244,11 @@ Now that the map can contain other objects, lets create a treasure object.
         _mapObjects = new List<GameObject>();
         _mapSurface = new ScreenSurface(mapWidth, mapHeight);
         _mapSurface.UseMouse = false;
-    
+
         FillBackground();
              
         UserControlledObject = new GameObject(new ColoredGlyph(Color.White, Color.Black, 2), _mapSurface.Surface.Area.Center, _mapSurface);
-    
+
         CreateTreasure();
     }
     ```
@@ -294,11 +294,11 @@ Similar to the treasure, let's add a method to create a monster object:
         _mapObjects = new List<GameObject>();
         _mapSurface = new ScreenSurface(mapWidth, mapHeight);
         _mapSurface.UseMouse = false;
-    
+
         FillBackground();
              
         UserControlledObject = new GameObject(new ColoredGlyph(Color.White, Color.Black, 2), _mapSurface.Surface.Area.Center, _mapSurface);
-    
+
         CreateTreasure();
         CreateMonster();
     }
@@ -333,16 +333,16 @@ Now that we have multiple game objects, we need to handle collision between obje
     {
         // Check new position is valid
         if (!map.SurfaceObject.IsValidCell(newPosition.X, newPosition.Y)) return false;
-    
+
         // Restore the old cell
         _mapAppearance.CopyAppearanceTo(map.SurfaceObject.Surface[Position]);
-    
+
         // Store the map cell of the new position
         map.SurfaceObject.Surface[newPosition].CopyAppearanceTo(_mapAppearance);
-    
+
         Position = newPosition;
         DrawGameObject(map.SurfaceObject);
-    
+
         return true;
     }
     ```
@@ -375,15 +375,15 @@ Now that we have multiple game objects, we need to handle collision between obje
                 return true;
             }
         }
-    
+
         gameObject = null;
         return false;
     }
     ```
-    
+
     There are two C# concepts you may not be familiar with that are introduced in this code. Modern C# projects are created [nullable aware][csharp-nullableaware]. This means that code assumes you're **not** going to use null, and that objects should always be assigned values. So, when you do use null, you mark it as such. When you declare a variable with the modification `?` you're indicating that it _could_ be null.
-    
-    To help developers understand when null is expected, the `System.Diagnostics.CodeAnalysis` contains many attributes that help annotate your code with how null is expected. In this case, the `gameObject` parameter was marked with the `[NotNullWhen(true)]` attribute. Attributes are like metadata assigned to any sort of code declaration. The `NotNullWhen` attribute is reserved for method parameters and indicates that when either `true` or `false` is returned, the parameter won't be null. In the case of this method, when `true` is returned, it's indicating that the `gameObject` parameter is going to contain an instance of the game object at that position. 
+
+    To help developers understand when null is expected, the `System.Diagnostics.CodeAnalysis` contains many attributes that help annotate your code with how null is expected. In this case, the `gameObject` parameter was marked with the `[NotNullWhen(true)]` attribute. Attributes are like metadata assigned to any sort of code declaration. The `NotNullWhen` attribute is reserved for method parameters and indicates that when either `true` or `false` is returned, the parameter won't be null. In the case of this method, when `true` is returned, it's indicating that the `gameObject` parameter is going to contain an instance of the game object at that position.
 
 01. Back in _GameObject.cs_, update the `Move` method to check the map for any other object. If an object is found at that position, we want to **touch** it. If the **touch** test returns `false` it means that we can't move into that position, so the `Move` method must also return `false` to indicate that the movement failed.
 

@@ -11,6 +11,8 @@ items:
   - SadConsole.LayeredScreenSurface.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)
   - SadConsole.LayeredScreenSurface.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,SadConsole.ColoredGlyphBase[])
   - SadConsole.LayeredScreenSurface.Layers
+  - SadConsole.LayeredScreenSurface.Resize(System.Int32,System.Int32,System.Boolean)
+  - SadConsole.LayeredScreenSurface.Resize(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)
   - SadConsole.LayeredScreenSurface.ToString
   langs:
   - csharp
@@ -28,11 +30,11 @@ items:
     content: >-
       [DataContract]
 
-      public class LayeredScreenSurface : ScreenSurface, IDisposable, IScreenSurfaceEditable, IScreenSurface, IScreenObject, IPositionable, IComponentHost, ISurface, ISurfaceSettable, ILayeredData
+      public class LayeredScreenSurface : ScreenSurface, IDisposable, IScreenSurfaceEditable, IScreenSurface, IScreenObject, IPositionable, IComponentHost, ISurface, ISurfaceSettable, ILayeredData, ICellSurfaceResize
     content.vb: >-
       <DataContract>
 
-      Public Class LayeredScreenSurface Inherits ScreenSurface Implements IDisposable, IScreenSurfaceEditable, IScreenSurface, IScreenObject, IPositionable, IComponentHost, ISurface, ISurfaceSettable, ILayeredData
+      Public Class LayeredScreenSurface Inherits ScreenSurface Implements IDisposable, IScreenSurfaceEditable, IScreenSurface, IScreenObject, IPositionable, IComponentHost, ISurface, ISurfaceSettable, ILayeredData, ICellSurfaceResize
   inheritance:
   - System.Object
   - SadConsole.ScreenObject
@@ -47,10 +49,10 @@ items:
   - SadConsole.ISurface
   - SadConsole.ISurfaceSettable
   - SadConsole.Renderers.ILayeredData
+  - SadConsole.ICellSurfaceResize
   inheritedMembers:
+  - SadConsole.ScreenSurface.MouseState_EnteredWithButtonDown
   - SadConsole.ScreenSurface.IsMouseOver
-  - SadConsole.ScreenSurface.Resize(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)
-  - SadConsole.ScreenSurface.Resize(System.Int32,System.Int32,System.Boolean)
   - SadConsole.ScreenSurface.UpdateAbsolutePosition
   - SadConsole.ScreenSurface.Render(System.TimeSpan)
   - SadConsole.ScreenSurface.Update(System.TimeSpan)
@@ -198,6 +200,8 @@ items:
   - SadConsole.ISurface.SadConsole.CellSurfaceEditor.GetStringColored(System.Int32,System.Int32,System.Int32)
   - SadConsole.ISurface.SadConsole.CellSurfaceEditor.GetSubSurface
   - SadConsole.ISurface.SadConsole.CellSurfaceEditor.GetSubSurface(SadRogue.Primitives.Rectangle)
+  - SadConsole.ISurface.SadConsole.CellSurfaceEditor.IsValidCell(SadRogue.Primitives.Point)
+  - SadConsole.ISurface.SadConsole.CellSurfaceEditor.IsValidCell(SadRogue.Primitives.Point,System.Int32@)
   - SadConsole.ISurface.SadConsole.CellSurfaceEditor.IsValidCell(System.Int32)
   - SadConsole.ISurface.SadConsole.CellSurfaceEditor.IsValidCell(System.Int32,System.Int32)
   - SadConsole.ISurface.SadConsole.CellSurfaceEditor.IsValidCell(System.Int32,System.Int32,System.Int32@)
@@ -217,6 +221,7 @@ items:
   - SadConsole.ISurface.SadConsole.CellSurfaceEditor.RemoveDecorator(System.Int32,System.Int32,System.Int32,SadConsole.CellDecorator[])
   - SadConsole.ISurface.SadConsole.CellSurfaceEditor.SetBackground(System.Int32,System.Int32,SadRogue.Primitives.Color)
   - SadConsole.ISurface.SadConsole.CellSurfaceEditor.SetCellAppearance(System.Int32,System.Int32,SadConsole.ColoredGlyphBase)
+  - SadConsole.ISurface.SadConsole.CellSurfaceEditor.SetCellAppearance(System.Int32,System.Int32,SadConsole.GlyphDefinition)
   - SadConsole.ISurface.SadConsole.CellSurfaceEditor.SetDecorator(SadRogue.Primitives.Point,SadConsole.CellDecorator[])
   - SadConsole.ISurface.SadConsole.CellSurfaceEditor.SetDecorator(System.Int32,SadConsole.CellDecorator[])
   - SadConsole.ISurface.SadConsole.CellSurfaceEditor.SetDecorator(System.Int32,System.Int32,SadConsole.CellDecorator[])
@@ -228,6 +233,7 @@ items:
   - SadConsole.ISurface.SadConsole.CellSurfaceEditor.SetEffect(System.Int32,SadConsole.Effects.ICellEffect)
   - SadConsole.ISurface.SadConsole.CellSurfaceEditor.SetEffect(System.Int32,System.Int32,SadConsole.Effects.ICellEffect)
   - SadConsole.ISurface.SadConsole.CellSurfaceEditor.SetForeground(System.Int32,System.Int32,SadRogue.Primitives.Color)
+  - SadConsole.ISurface.SadConsole.CellSurfaceEditor.SetGlyph(System.Int32,System.Int32,SadConsole.GlyphDefinition)
   - SadConsole.ISurface.SadConsole.CellSurfaceEditor.SetGlyph(System.Int32,System.Int32,System.Int32)
   - SadConsole.ISurface.SadConsole.CellSurfaceEditor.SetGlyph(System.Int32,System.Int32,System.Int32,SadRogue.Primitives.Color)
   - SadConsole.ISurface.SadConsole.CellSurfaceEditor.SetGlyph(System.Int32,System.Int32,System.Int32,SadRogue.Primitives.Color,SadRogue.Primitives.Color)
@@ -432,6 +438,82 @@ items:
   nameWithType.vb: LayeredScreenSurface.New(ICellSurface, IFont, Point?)
   fullName.vb: SadConsole.LayeredScreenSurface.New(SadConsole.ICellSurface, SadConsole.IFont, SadRogue.Primitives.Point?)
   name.vb: New(ICellSurface, IFont, Point?)
+- uid: SadConsole.LayeredScreenSurface.Resize(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)
+  commentId: M:SadConsole.LayeredScreenSurface.Resize(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)
+  id: Resize(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)
+  parent: SadConsole.LayeredScreenSurface
+  langs:
+  - csharp
+  - vb
+  name: Resize(int, int, int, int, bool)
+  nameWithType: LayeredScreenSurface.Resize(int, int, int, int, bool)
+  fullName: SadConsole.LayeredScreenSurface.Resize(int, int, int, int, bool)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Resizes the surface to the specified width and height.
+  example: []
+  syntax:
+    content: public void Resize(int viewWidth, int viewHeight, int totalWidth, int totalHeight, bool clear)
+    parameters:
+    - id: viewWidth
+      type: System.Int32
+      description: The viewable width of the surface.
+    - id: viewHeight
+      type: System.Int32
+      description: The viewable height of the surface.
+    - id: totalWidth
+      type: System.Int32
+      description: The maximum width of the surface.
+    - id: totalHeight
+      type: System.Int32
+      description: The maximum height of the surface.
+    - id: clear
+      type: System.Boolean
+      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, resets every cell to the <xref href="SadConsole.ICellSurface.DefaultForeground" data-throw-if-not-resolved="false"></xref>, <xref href="SadConsole.ICellSurface.DefaultBackground" data-throw-if-not-resolved="false"></xref> and glyph 0.
+    content.vb: Public Sub Resize(viewWidth As Integer, viewHeight As Integer, totalWidth As Integer, totalHeight As Integer, clear As Boolean)
+  overload: SadConsole.LayeredScreenSurface.Resize*
+  implements:
+  - SadConsole.ICellSurfaceResize.Resize(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)
+  nameWithType.vb: LayeredScreenSurface.Resize(Integer, Integer, Integer, Integer, Boolean)
+  fullName.vb: SadConsole.LayeredScreenSurface.Resize(Integer, Integer, Integer, Integer, Boolean)
+  name.vb: Resize(Integer, Integer, Integer, Integer, Boolean)
+- uid: SadConsole.LayeredScreenSurface.Resize(System.Int32,System.Int32,System.Boolean)
+  commentId: M:SadConsole.LayeredScreenSurface.Resize(System.Int32,System.Int32,System.Boolean)
+  id: Resize(System.Int32,System.Int32,System.Boolean)
+  parent: SadConsole.LayeredScreenSurface
+  langs:
+  - csharp
+  - vb
+  name: Resize(int, int, bool)
+  nameWithType: LayeredScreenSurface.Resize(int, int, bool)
+  fullName: SadConsole.LayeredScreenSurface.Resize(int, int, bool)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole
+  summary: Resizes the surface and view to the specified width and height.
+  example: []
+  syntax:
+    content: public void Resize(int width, int height, bool clear)
+    parameters:
+    - id: width
+      type: System.Int32
+      description: The width of the surface and view.
+    - id: height
+      type: System.Int32
+      description: The height of the surface and view.
+    - id: clear
+      type: System.Boolean
+      description: When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, resets every cell to the <xref href="SadConsole.ICellSurface.DefaultForeground" data-throw-if-not-resolved="false"></xref>, <xref href="SadConsole.ICellSurface.DefaultBackground" data-throw-if-not-resolved="false"></xref> and glyph 0.
+    content.vb: Public Sub Resize(width As Integer, height As Integer, clear As Boolean)
+  overload: SadConsole.LayeredScreenSurface.Resize*
+  implements:
+  - SadConsole.ICellSurfaceResize.Resize(System.Int32,System.Int32,System.Boolean)
+  nameWithType.vb: LayeredScreenSurface.Resize(Integer, Integer, Boolean)
+  fullName.vb: SadConsole.LayeredScreenSurface.Resize(Integer, Integer, Boolean)
+  name.vb: Resize(Integer, Integer, Boolean)
 - uid: SadConsole.LayeredScreenSurface.ToString
   commentId: M:SadConsole.LayeredScreenSurface.ToString
   id: ToString
@@ -446,13 +528,13 @@ items:
   assemblies:
   - SadConsole
   namespace: SadConsole
-  summary: Returns the value "Console (Controls)".
+  summary: Returns the value "ScreenSurface (Layered)".
   example: []
   syntax:
     content: public override string ToString()
     return:
       type: System.String
-      description: The string "Console (Controls)".
+      description: The string "ScreenSurface (Layered)".
     content.vb: Public Overrides Function ToString() As String
   overridden: SadConsole.ScreenSurface.ToString
   overload: SadConsole.LayeredScreenSurface.ToString*
@@ -587,6 +669,22 @@ references:
   name: ILayeredData
   nameWithType: ILayeredData
   fullName: SadConsole.Renderers.ILayeredData
+- uid: SadConsole.ICellSurfaceResize
+  commentId: T:SadConsole.ICellSurfaceResize
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.ICellSurfaceResize.html
+  name: ICellSurfaceResize
+  nameWithType: ICellSurfaceResize
+  fullName: SadConsole.ICellSurfaceResize
+- uid: SadConsole.ScreenSurface.MouseState_EnteredWithButtonDown
+  commentId: F:SadConsole.ScreenSurface.MouseState_EnteredWithButtonDown
+  parent: SadConsole.ScreenSurface
+  isExternal: true
+  href: SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_MouseState_EnteredWithButtonDown
+  name: MouseState_EnteredWithButtonDown
+  nameWithType: ScreenSurface.MouseState_EnteredWithButtonDown
+  fullName: SadConsole.ScreenSurface.MouseState_EnteredWithButtonDown
 - uid: SadConsole.ScreenSurface.IsMouseOver
   commentId: F:SadConsole.ScreenSurface.IsMouseOver
   parent: SadConsole.ScreenSurface
@@ -595,144 +693,6 @@ references:
   name: IsMouseOver
   nameWithType: ScreenSurface.IsMouseOver
   fullName: SadConsole.ScreenSurface.IsMouseOver
-- uid: SadConsole.ScreenSurface.Resize(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)
-  commentId: M:SadConsole.ScreenSurface.Resize(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)
-  parent: SadConsole.ScreenSurface
-  isExternal: true
-  href: SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_Resize_System_Int32_System_Int32_System_Int32_System_Int32_System_Boolean_
-  name: Resize(int, int, int, int, bool)
-  nameWithType: ScreenSurface.Resize(int, int, int, int, bool)
-  fullName: SadConsole.ScreenSurface.Resize(int, int, int, int, bool)
-  nameWithType.vb: ScreenSurface.Resize(Integer, Integer, Integer, Integer, Boolean)
-  fullName.vb: SadConsole.ScreenSurface.Resize(Integer, Integer, Integer, Integer, Boolean)
-  name.vb: Resize(Integer, Integer, Integer, Integer, Boolean)
-  spec.csharp:
-  - uid: SadConsole.ScreenSurface.Resize(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)
-    name: Resize
-    isExternal: true
-    href: SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_Resize_System_Int32_System_Int32_System_Int32_System_Int32_System_Boolean_
-  - name: (
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: ','
-  - name: " "
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: ','
-  - name: " "
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: ','
-  - name: " "
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: ','
-  - name: " "
-  - uid: System.Boolean
-    name: bool
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: )
-  spec.vb:
-  - uid: SadConsole.ScreenSurface.Resize(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)
-    name: Resize
-    isExternal: true
-    href: SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_Resize_System_Int32_System_Int32_System_Int32_System_Int32_System_Boolean_
-  - name: (
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: ','
-  - name: " "
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: ','
-  - name: " "
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: ','
-  - name: " "
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: ','
-  - name: " "
-  - uid: System.Boolean
-    name: Boolean
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: )
-- uid: SadConsole.ScreenSurface.Resize(System.Int32,System.Int32,System.Boolean)
-  commentId: M:SadConsole.ScreenSurface.Resize(System.Int32,System.Int32,System.Boolean)
-  parent: SadConsole.ScreenSurface
-  isExternal: true
-  href: SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_Resize_System_Int32_System_Int32_System_Boolean_
-  name: Resize(int, int, bool)
-  nameWithType: ScreenSurface.Resize(int, int, bool)
-  fullName: SadConsole.ScreenSurface.Resize(int, int, bool)
-  nameWithType.vb: ScreenSurface.Resize(Integer, Integer, Boolean)
-  fullName.vb: SadConsole.ScreenSurface.Resize(Integer, Integer, Boolean)
-  name.vb: Resize(Integer, Integer, Boolean)
-  spec.csharp:
-  - uid: SadConsole.ScreenSurface.Resize(System.Int32,System.Int32,System.Boolean)
-    name: Resize
-    isExternal: true
-    href: SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_Resize_System_Int32_System_Int32_System_Boolean_
-  - name: (
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: ','
-  - name: " "
-  - uid: System.Int32
-    name: int
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: ','
-  - name: " "
-  - uid: System.Boolean
-    name: bool
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: )
-  spec.vb:
-  - uid: SadConsole.ScreenSurface.Resize(System.Int32,System.Int32,System.Boolean)
-    name: Resize
-    isExternal: true
-    href: SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_Resize_System_Int32_System_Int32_System_Boolean_
-  - name: (
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: ','
-  - name: " "
-  - uid: System.Int32
-    name: Integer
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: ','
-  - name: " "
-  - uid: System.Boolean
-    name: Boolean
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.boolean
-  - name: )
 - uid: SadConsole.ScreenSurface.UpdateAbsolutePosition
   commentId: M:SadConsole.ScreenSurface.UpdateAbsolutePosition
   parent: SadConsole.ScreenSurface
@@ -6050,6 +6010,103 @@ references:
     name: Rectangle
     isExternal: true
   - name: )
+- uid: SadConsole.ISurface.SadConsole.CellSurfaceEditor.IsValidCell(SadRogue.Primitives.Point)
+  commentId: M:SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface,SadRogue.Primitives.Point)
+  parent: SadConsole.CellSurfaceEditor
+  definition: SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface,SadRogue.Primitives.Point)
+  href: SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_IsValidCell_SadConsole_ISurface_SadRogue_Primitives_Point_
+  name: IsValidCell(ISurface, Point)
+  nameWithType: CellSurfaceEditor.IsValidCell(ISurface, Point)
+  fullName: SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface, SadRogue.Primitives.Point)
+  spec.csharp:
+  - uid: SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface,SadRogue.Primitives.Point)
+    name: IsValidCell
+    isExternal: true
+    href: SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_IsValidCell_SadConsole_ISurface_SadRogue_Primitives_Point_
+  - name: (
+  - uid: SadConsole.ISurface
+    name: ISurface
+    isExternal: true
+    href: SadConsole.ISurface.html
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface,SadRogue.Primitives.Point)
+    name: IsValidCell
+    isExternal: true
+    href: SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_IsValidCell_SadConsole_ISurface_SadRogue_Primitives_Point_
+  - name: (
+  - uid: SadConsole.ISurface
+    name: ISurface
+    isExternal: true
+    href: SadConsole.ISurface.html
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: )
+- uid: SadConsole.ISurface.SadConsole.CellSurfaceEditor.IsValidCell(SadRogue.Primitives.Point,System.Int32@)
+  commentId: M:SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface,SadRogue.Primitives.Point,System.Int32@)
+  parent: SadConsole.CellSurfaceEditor
+  definition: SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface,SadRogue.Primitives.Point,System.Int32@)
+  href: SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_IsValidCell_SadConsole_ISurface_SadRogue_Primitives_Point_System_Int32__
+  name: IsValidCell(ISurface, Point, out int)
+  nameWithType: CellSurfaceEditor.IsValidCell(ISurface, Point, out int)
+  fullName: SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface, SadRogue.Primitives.Point, out int)
+  nameWithType.vb: CellSurfaceEditor.IsValidCell(ISurface, Point, Integer)
+  fullName.vb: SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface, SadRogue.Primitives.Point, Integer)
+  name.vb: IsValidCell(ISurface, Point, Integer)
+  spec.csharp:
+  - uid: SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface,SadRogue.Primitives.Point,System.Int32@)
+    name: IsValidCell
+    isExternal: true
+    href: SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_IsValidCell_SadConsole_ISurface_SadRogue_Primitives_Point_System_Int32__
+  - name: (
+  - uid: SadConsole.ISurface
+    name: ISurface
+    isExternal: true
+    href: SadConsole.ISurface.html
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface,SadRogue.Primitives.Point,System.Int32@)
+    name: IsValidCell
+    isExternal: true
+    href: SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_IsValidCell_SadConsole_ISurface_SadRogue_Primitives_Point_System_Int32__
+  - name: (
+  - uid: SadConsole.ISurface
+    name: ISurface
+    isExternal: true
+    href: SadConsole.ISurface.html
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
 - uid: SadConsole.ISurface.SadConsole.CellSurfaceEditor.IsValidCell(System.Int32)
   commentId: M:SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface,System.Int32)
   parent: SadConsole.CellSurfaceEditor
@@ -7507,6 +7564,75 @@ references:
     isExternal: true
     href: SadConsole.ColoredGlyphBase.html
   - name: )
+- uid: SadConsole.ISurface.SadConsole.CellSurfaceEditor.SetCellAppearance(System.Int32,System.Int32,SadConsole.GlyphDefinition)
+  commentId: M:SadConsole.CellSurfaceEditor.SetCellAppearance(SadConsole.ISurface,System.Int32,System.Int32,SadConsole.GlyphDefinition)
+  parent: SadConsole.CellSurfaceEditor
+  definition: SadConsole.CellSurfaceEditor.SetCellAppearance(SadConsole.ISurface,System.Int32,System.Int32,SadConsole.GlyphDefinition)
+  href: SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_SetCellAppearance_SadConsole_ISurface_System_Int32_System_Int32_SadConsole_GlyphDefinition_
+  name: SetCellAppearance(ISurface, int, int, GlyphDefinition)
+  nameWithType: CellSurfaceEditor.SetCellAppearance(ISurface, int, int, GlyphDefinition)
+  fullName: SadConsole.CellSurfaceEditor.SetCellAppearance(SadConsole.ISurface, int, int, SadConsole.GlyphDefinition)
+  nameWithType.vb: CellSurfaceEditor.SetCellAppearance(ISurface, Integer, Integer, GlyphDefinition)
+  fullName.vb: SadConsole.CellSurfaceEditor.SetCellAppearance(SadConsole.ISurface, Integer, Integer, SadConsole.GlyphDefinition)
+  name.vb: SetCellAppearance(ISurface, Integer, Integer, GlyphDefinition)
+  spec.csharp:
+  - uid: SadConsole.CellSurfaceEditor.SetCellAppearance(SadConsole.ISurface,System.Int32,System.Int32,SadConsole.GlyphDefinition)
+    name: SetCellAppearance
+    isExternal: true
+    href: SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_SetCellAppearance_SadConsole_ISurface_System_Int32_System_Int32_SadConsole_GlyphDefinition_
+  - name: (
+  - uid: SadConsole.ISurface
+    name: ISurface
+    isExternal: true
+    href: SadConsole.ISurface.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: SadConsole.GlyphDefinition
+    name: GlyphDefinition
+    isExternal: true
+    href: SadConsole.GlyphDefinition.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.CellSurfaceEditor.SetCellAppearance(SadConsole.ISurface,System.Int32,System.Int32,SadConsole.GlyphDefinition)
+    name: SetCellAppearance
+    isExternal: true
+    href: SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_SetCellAppearance_SadConsole_ISurface_System_Int32_System_Int32_SadConsole_GlyphDefinition_
+  - name: (
+  - uid: SadConsole.ISurface
+    name: ISurface
+    isExternal: true
+    href: SadConsole.ISurface.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: SadConsole.GlyphDefinition
+    name: GlyphDefinition
+    isExternal: true
+    href: SadConsole.GlyphDefinition.html
+  - name: )
 - uid: SadConsole.ISurface.SadConsole.CellSurfaceEditor.SetDecorator(SadRogue.Primitives.Point,SadConsole.CellDecorator[])
   commentId: M:SadConsole.CellSurfaceEditor.SetDecorator(SadConsole.ISurface,SadRogue.Primitives.Point,SadConsole.CellDecorator[])
   parent: SadConsole.CellSurfaceEditor
@@ -8258,6 +8384,75 @@ references:
   - uid: SadRogue.Primitives.Color
     name: Color
     isExternal: true
+  - name: )
+- uid: SadConsole.ISurface.SadConsole.CellSurfaceEditor.SetGlyph(System.Int32,System.Int32,SadConsole.GlyphDefinition)
+  commentId: M:SadConsole.CellSurfaceEditor.SetGlyph(SadConsole.ISurface,System.Int32,System.Int32,SadConsole.GlyphDefinition)
+  parent: SadConsole.CellSurfaceEditor
+  definition: SadConsole.CellSurfaceEditor.SetGlyph(SadConsole.ISurface,System.Int32,System.Int32,SadConsole.GlyphDefinition)
+  href: SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_SetGlyph_SadConsole_ISurface_System_Int32_System_Int32_SadConsole_GlyphDefinition_
+  name: SetGlyph(ISurface, int, int, GlyphDefinition)
+  nameWithType: CellSurfaceEditor.SetGlyph(ISurface, int, int, GlyphDefinition)
+  fullName: SadConsole.CellSurfaceEditor.SetGlyph(SadConsole.ISurface, int, int, SadConsole.GlyphDefinition)
+  nameWithType.vb: CellSurfaceEditor.SetGlyph(ISurface, Integer, Integer, GlyphDefinition)
+  fullName.vb: SadConsole.CellSurfaceEditor.SetGlyph(SadConsole.ISurface, Integer, Integer, SadConsole.GlyphDefinition)
+  name.vb: SetGlyph(ISurface, Integer, Integer, GlyphDefinition)
+  spec.csharp:
+  - uid: SadConsole.CellSurfaceEditor.SetGlyph(SadConsole.ISurface,System.Int32,System.Int32,SadConsole.GlyphDefinition)
+    name: SetGlyph
+    isExternal: true
+    href: SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_SetGlyph_SadConsole_ISurface_System_Int32_System_Int32_SadConsole_GlyphDefinition_
+  - name: (
+  - uid: SadConsole.ISurface
+    name: ISurface
+    isExternal: true
+    href: SadConsole.ISurface.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: SadConsole.GlyphDefinition
+    name: GlyphDefinition
+    isExternal: true
+    href: SadConsole.GlyphDefinition.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.CellSurfaceEditor.SetGlyph(SadConsole.ISurface,System.Int32,System.Int32,SadConsole.GlyphDefinition)
+    name: SetGlyph
+    isExternal: true
+    href: SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_SetGlyph_SadConsole_ISurface_System_Int32_System_Int32_SadConsole_GlyphDefinition_
+  - name: (
+  - uid: SadConsole.ISurface
+    name: ISurface
+    isExternal: true
+    href: SadConsole.ISurface.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: SadConsole.GlyphDefinition
+    name: GlyphDefinition
+    isExternal: true
+    href: SadConsole.GlyphDefinition.html
   - name: )
 - uid: SadConsole.ISurface.SadConsole.CellSurfaceEditor.SetGlyph(System.Int32,System.Int32,System.Int32)
   commentId: M:SadConsole.CellSurfaceEditor.SetGlyph(SadConsole.ISurface,System.Int32,System.Int32,System.Int32)
@@ -13758,6 +13953,101 @@ references:
     name: Rectangle
     isExternal: true
   - name: )
+- uid: SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface,SadRogue.Primitives.Point)
+  commentId: M:SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface,SadRogue.Primitives.Point)
+  isExternal: true
+  href: SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_IsValidCell_SadConsole_ISurface_SadRogue_Primitives_Point_
+  name: IsValidCell(ISurface, Point)
+  nameWithType: CellSurfaceEditor.IsValidCell(ISurface, Point)
+  fullName: SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface, SadRogue.Primitives.Point)
+  spec.csharp:
+  - uid: SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface,SadRogue.Primitives.Point)
+    name: IsValidCell
+    isExternal: true
+    href: SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_IsValidCell_SadConsole_ISurface_SadRogue_Primitives_Point_
+  - name: (
+  - uid: SadConsole.ISurface
+    name: ISurface
+    isExternal: true
+    href: SadConsole.ISurface.html
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface,SadRogue.Primitives.Point)
+    name: IsValidCell
+    isExternal: true
+    href: SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_IsValidCell_SadConsole_ISurface_SadRogue_Primitives_Point_
+  - name: (
+  - uid: SadConsole.ISurface
+    name: ISurface
+    isExternal: true
+    href: SadConsole.ISurface.html
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: )
+- uid: SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface,SadRogue.Primitives.Point,System.Int32@)
+  commentId: M:SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface,SadRogue.Primitives.Point,System.Int32@)
+  isExternal: true
+  href: SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_IsValidCell_SadConsole_ISurface_SadRogue_Primitives_Point_System_Int32__
+  name: IsValidCell(ISurface, Point, out int)
+  nameWithType: CellSurfaceEditor.IsValidCell(ISurface, Point, out int)
+  fullName: SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface, SadRogue.Primitives.Point, out int)
+  nameWithType.vb: CellSurfaceEditor.IsValidCell(ISurface, Point, Integer)
+  fullName.vb: SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface, SadRogue.Primitives.Point, Integer)
+  name.vb: IsValidCell(ISurface, Point, Integer)
+  spec.csharp:
+  - uid: SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface,SadRogue.Primitives.Point,System.Int32@)
+    name: IsValidCell
+    isExternal: true
+    href: SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_IsValidCell_SadConsole_ISurface_SadRogue_Primitives_Point_System_Int32__
+  - name: (
+  - uid: SadConsole.ISurface
+    name: ISurface
+    isExternal: true
+    href: SadConsole.ISurface.html
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface,SadRogue.Primitives.Point,System.Int32@)
+    name: IsValidCell
+    isExternal: true
+    href: SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_IsValidCell_SadConsole_ISurface_SadRogue_Primitives_Point_System_Int32__
+  - name: (
+  - uid: SadConsole.ISurface
+    name: ISurface
+    isExternal: true
+    href: SadConsole.ISurface.html
+  - name: ','
+  - name: " "
+  - uid: SadRogue.Primitives.Point
+    name: Point
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
 - uid: SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface,System.Int32)
   commentId: M:SadConsole.CellSurfaceEditor.IsValidCell(SadConsole.ISurface,System.Int32)
   isExternal: true
@@ -15196,6 +15486,74 @@ references:
     isExternal: true
     href: SadConsole.ColoredGlyphBase.html
   - name: )
+- uid: SadConsole.CellSurfaceEditor.SetCellAppearance(SadConsole.ISurface,System.Int32,System.Int32,SadConsole.GlyphDefinition)
+  commentId: M:SadConsole.CellSurfaceEditor.SetCellAppearance(SadConsole.ISurface,System.Int32,System.Int32,SadConsole.GlyphDefinition)
+  isExternal: true
+  href: SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_SetCellAppearance_SadConsole_ISurface_System_Int32_System_Int32_SadConsole_GlyphDefinition_
+  name: SetCellAppearance(ISurface, int, int, GlyphDefinition)
+  nameWithType: CellSurfaceEditor.SetCellAppearance(ISurface, int, int, GlyphDefinition)
+  fullName: SadConsole.CellSurfaceEditor.SetCellAppearance(SadConsole.ISurface, int, int, SadConsole.GlyphDefinition)
+  nameWithType.vb: CellSurfaceEditor.SetCellAppearance(ISurface, Integer, Integer, GlyphDefinition)
+  fullName.vb: SadConsole.CellSurfaceEditor.SetCellAppearance(SadConsole.ISurface, Integer, Integer, SadConsole.GlyphDefinition)
+  name.vb: SetCellAppearance(ISurface, Integer, Integer, GlyphDefinition)
+  spec.csharp:
+  - uid: SadConsole.CellSurfaceEditor.SetCellAppearance(SadConsole.ISurface,System.Int32,System.Int32,SadConsole.GlyphDefinition)
+    name: SetCellAppearance
+    isExternal: true
+    href: SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_SetCellAppearance_SadConsole_ISurface_System_Int32_System_Int32_SadConsole_GlyphDefinition_
+  - name: (
+  - uid: SadConsole.ISurface
+    name: ISurface
+    isExternal: true
+    href: SadConsole.ISurface.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: SadConsole.GlyphDefinition
+    name: GlyphDefinition
+    isExternal: true
+    href: SadConsole.GlyphDefinition.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.CellSurfaceEditor.SetCellAppearance(SadConsole.ISurface,System.Int32,System.Int32,SadConsole.GlyphDefinition)
+    name: SetCellAppearance
+    isExternal: true
+    href: SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_SetCellAppearance_SadConsole_ISurface_System_Int32_System_Int32_SadConsole_GlyphDefinition_
+  - name: (
+  - uid: SadConsole.ISurface
+    name: ISurface
+    isExternal: true
+    href: SadConsole.ISurface.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: SadConsole.GlyphDefinition
+    name: GlyphDefinition
+    isExternal: true
+    href: SadConsole.GlyphDefinition.html
+  - name: )
 - uid: SadConsole.CellSurfaceEditor.SetDecorator(SadConsole.ISurface,SadRogue.Primitives.Point,SadConsole.CellDecorator[])
   commentId: M:SadConsole.CellSurfaceEditor.SetDecorator(SadConsole.ISurface,SadRogue.Primitives.Point,SadConsole.CellDecorator[])
   isExternal: true
@@ -15936,6 +16294,74 @@ references:
   - uid: SadRogue.Primitives.Color
     name: Color
     isExternal: true
+  - name: )
+- uid: SadConsole.CellSurfaceEditor.SetGlyph(SadConsole.ISurface,System.Int32,System.Int32,SadConsole.GlyphDefinition)
+  commentId: M:SadConsole.CellSurfaceEditor.SetGlyph(SadConsole.ISurface,System.Int32,System.Int32,SadConsole.GlyphDefinition)
+  isExternal: true
+  href: SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_SetGlyph_SadConsole_ISurface_System_Int32_System_Int32_SadConsole_GlyphDefinition_
+  name: SetGlyph(ISurface, int, int, GlyphDefinition)
+  nameWithType: CellSurfaceEditor.SetGlyph(ISurface, int, int, GlyphDefinition)
+  fullName: SadConsole.CellSurfaceEditor.SetGlyph(SadConsole.ISurface, int, int, SadConsole.GlyphDefinition)
+  nameWithType.vb: CellSurfaceEditor.SetGlyph(ISurface, Integer, Integer, GlyphDefinition)
+  fullName.vb: SadConsole.CellSurfaceEditor.SetGlyph(SadConsole.ISurface, Integer, Integer, SadConsole.GlyphDefinition)
+  name.vb: SetGlyph(ISurface, Integer, Integer, GlyphDefinition)
+  spec.csharp:
+  - uid: SadConsole.CellSurfaceEditor.SetGlyph(SadConsole.ISurface,System.Int32,System.Int32,SadConsole.GlyphDefinition)
+    name: SetGlyph
+    isExternal: true
+    href: SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_SetGlyph_SadConsole_ISurface_System_Int32_System_Int32_SadConsole_GlyphDefinition_
+  - name: (
+  - uid: SadConsole.ISurface
+    name: ISurface
+    isExternal: true
+    href: SadConsole.ISurface.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: SadConsole.GlyphDefinition
+    name: GlyphDefinition
+    isExternal: true
+    href: SadConsole.GlyphDefinition.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.CellSurfaceEditor.SetGlyph(SadConsole.ISurface,System.Int32,System.Int32,SadConsole.GlyphDefinition)
+    name: SetGlyph
+    isExternal: true
+    href: SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_SetGlyph_SadConsole_ISurface_System_Int32_System_Int32_SadConsole_GlyphDefinition_
+  - name: (
+  - uid: SadConsole.ISurface
+    name: ISurface
+    isExternal: true
+    href: SadConsole.ISurface.html
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: SadConsole.GlyphDefinition
+    name: GlyphDefinition
+    isExternal: true
+    href: SadConsole.GlyphDefinition.html
   - name: )
 - uid: SadConsole.CellSurfaceEditor.SetGlyph(SadConsole.ISurface,System.Int32,System.Int32,System.Int32)
   commentId: M:SadConsole.CellSurfaceEditor.SetGlyph(SadConsole.ISurface,System.Int32,System.Int32,System.Int32)
@@ -18146,6 +18572,178 @@ references:
   - name: Of
   - name: " "
   - name: T
+  - name: )
+- uid: SadConsole.ICellSurface.DefaultForeground
+  commentId: P:SadConsole.ICellSurface.DefaultForeground
+  parent: SadConsole.ICellSurface
+  isExternal: true
+  href: SadConsole.ICellSurface.html#SadConsole_ICellSurface_DefaultForeground
+  name: DefaultForeground
+  nameWithType: ICellSurface.DefaultForeground
+  fullName: SadConsole.ICellSurface.DefaultForeground
+- uid: SadConsole.ICellSurface.DefaultBackground
+  commentId: P:SadConsole.ICellSurface.DefaultBackground
+  parent: SadConsole.ICellSurface
+  isExternal: true
+  href: SadConsole.ICellSurface.html#SadConsole_ICellSurface_DefaultBackground
+  name: DefaultBackground
+  nameWithType: ICellSurface.DefaultBackground
+  fullName: SadConsole.ICellSurface.DefaultBackground
+- uid: SadConsole.LayeredScreenSurface.Resize*
+  commentId: Overload:SadConsole.LayeredScreenSurface.Resize
+  isExternal: true
+  href: SadConsole.LayeredScreenSurface.html#SadConsole_LayeredScreenSurface_Resize_System_Int32_System_Int32_System_Int32_System_Int32_System_Boolean_
+  name: Resize
+  nameWithType: LayeredScreenSurface.Resize
+  fullName: SadConsole.LayeredScreenSurface.Resize
+- uid: SadConsole.ICellSurfaceResize.Resize(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)
+  commentId: M:SadConsole.ICellSurfaceResize.Resize(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)
+  parent: SadConsole.ICellSurfaceResize
+  isExternal: true
+  href: SadConsole.ICellSurfaceResize.html#SadConsole_ICellSurfaceResize_Resize_System_Int32_System_Int32_System_Int32_System_Int32_System_Boolean_
+  name: Resize(int, int, int, int, bool)
+  nameWithType: ICellSurfaceResize.Resize(int, int, int, int, bool)
+  fullName: SadConsole.ICellSurfaceResize.Resize(int, int, int, int, bool)
+  nameWithType.vb: ICellSurfaceResize.Resize(Integer, Integer, Integer, Integer, Boolean)
+  fullName.vb: SadConsole.ICellSurfaceResize.Resize(Integer, Integer, Integer, Integer, Boolean)
+  name.vb: Resize(Integer, Integer, Integer, Integer, Boolean)
+  spec.csharp:
+  - uid: SadConsole.ICellSurfaceResize.Resize(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)
+    name: Resize
+    isExternal: true
+    href: SadConsole.ICellSurfaceResize.html#SadConsole_ICellSurfaceResize_Resize_System_Int32_System_Int32_System_Int32_System_Int32_System_Boolean_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ICellSurfaceResize.Resize(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)
+    name: Resize
+    isExternal: true
+    href: SadConsole.ICellSurfaceResize.html#SadConsole_ICellSurfaceResize_Resize_System_Int32_System_Int32_System_Int32_System_Int32_System_Boolean_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: SadConsole.ICellSurfaceResize.Resize(System.Int32,System.Int32,System.Boolean)
+  commentId: M:SadConsole.ICellSurfaceResize.Resize(System.Int32,System.Int32,System.Boolean)
+  parent: SadConsole.ICellSurfaceResize
+  isExternal: true
+  href: SadConsole.ICellSurfaceResize.html#SadConsole_ICellSurfaceResize_Resize_System_Int32_System_Int32_System_Boolean_
+  name: Resize(int, int, bool)
+  nameWithType: ICellSurfaceResize.Resize(int, int, bool)
+  fullName: SadConsole.ICellSurfaceResize.Resize(int, int, bool)
+  nameWithType.vb: ICellSurfaceResize.Resize(Integer, Integer, Boolean)
+  fullName.vb: SadConsole.ICellSurfaceResize.Resize(Integer, Integer, Boolean)
+  name.vb: Resize(Integer, Integer, Boolean)
+  spec.csharp:
+  - uid: SadConsole.ICellSurfaceResize.Resize(System.Int32,System.Int32,System.Boolean)
+    name: Resize
+    isExternal: true
+    href: SadConsole.ICellSurfaceResize.html#SadConsole_ICellSurfaceResize_Resize_System_Int32_System_Int32_System_Boolean_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: SadConsole.ICellSurfaceResize.Resize(System.Int32,System.Int32,System.Boolean)
+    name: Resize
+    isExternal: true
+    href: SadConsole.ICellSurfaceResize.html#SadConsole_ICellSurfaceResize_Resize_System_Int32_System_Int32_System_Boolean_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
   - name: )
 - uid: SadConsole.ScreenSurface.ToString
   commentId: M:SadConsole.ScreenSurface.ToString

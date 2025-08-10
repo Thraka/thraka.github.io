@@ -10,10 +10,10 @@ items:
   - SadConsole.UI.Controls.CompositeControl.Controls
   - SadConsole.UI.Controls.CompositeControl.Count
   - SadConsole.UI.Controls.CompositeControl.CreateChildControls
-  - SadConsole.UI.Controls.CompositeControl.IsDirtyEventHandler(System.Boolean)
   - SadConsole.UI.Controls.CompositeControl.Item(System.Int32)
   - SadConsole.UI.Controls.CompositeControl.MouseLastHandledByChild
   - SadConsole.UI.Controls.CompositeControl.NamedControls
+  - SadConsole.UI.Controls.CompositeControl.OnMouseExit(SadConsole.UI.Controls.ControlBase.ControlMouseState)
   - SadConsole.UI.Controls.CompositeControl.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
   - SadConsole.UI.Controls.CompositeControl.RemoveControl(SadConsole.UI.Controls.ControlBase)
   - SadConsole.UI.Controls.CompositeControl.UpdateAndRedraw(System.TimeSpan)
@@ -72,7 +72,6 @@ items:
   - SadConsole.UI.Controls.ControlBase.CreateControlSurface
   - SadConsole.UI.Controls.ControlBase.RefreshThemeStateColors(SadConsole.UI.Colors)
   - SadConsole.UI.Controls.ControlBase.OnMouseEnter(SadConsole.UI.Controls.ControlBase.ControlMouseState)
-  - SadConsole.UI.Controls.ControlBase.OnMouseExit(SadConsole.UI.Controls.ControlBase.ControlMouseState)
   - SadConsole.UI.Controls.ControlBase.OnMouseIn(SadConsole.UI.Controls.ControlBase.ControlMouseState)
   - SadConsole.UI.Controls.ControlBase.OnLeftMouseClicked(SadConsole.UI.Controls.ControlBase.ControlMouseState)
   - SadConsole.UI.Controls.ControlBase.OnRightMouseClicked(SadConsole.UI.Controls.ControlBase.ControlMouseState)
@@ -229,33 +228,6 @@ items:
     content: protected virtual void CreateChildControls()
     content.vb: Protected Overridable Sub CreateChildControls()
   overload: SadConsole.UI.Controls.CompositeControl.CreateChildControls*
-- uid: SadConsole.UI.Controls.CompositeControl.IsDirtyEventHandler(System.Boolean)
-  commentId: M:SadConsole.UI.Controls.CompositeControl.IsDirtyEventHandler(System.Boolean)
-  id: IsDirtyEventHandler(System.Boolean)
-  parent: SadConsole.UI.Controls.CompositeControl
-  langs:
-  - csharp
-  - vb
-  name: IsDirtyEventHandler(bool)
-  nameWithType: CompositeControl.IsDirtyEventHandler(bool)
-  fullName: SadConsole.UI.Controls.CompositeControl.IsDirtyEventHandler(bool)
-  type: Method
-  assemblies:
-  - SadConsole
-  namespace: SadConsole.UI.Controls
-  summary: A handler to forward state to <xref href="SadConsole.UI.Controls.ControlBase.IsDirty" data-throw-if-not-resolved="false"></xref>.
-  example: []
-  syntax:
-    content: protected void IsDirtyEventHandler(bool value)
-    parameters:
-    - id: value
-      type: System.Boolean
-      description: ''
-    content.vb: Protected Sub IsDirtyEventHandler(value As Boolean)
-  overload: SadConsole.UI.Controls.CompositeControl.IsDirtyEventHandler*
-  nameWithType.vb: CompositeControl.IsDirtyEventHandler(Boolean)
-  fullName.vb: SadConsole.UI.Controls.CompositeControl.IsDirtyEventHandler(Boolean)
-  name.vb: IsDirtyEventHandler(Boolean)
 - uid: SadConsole.UI.Controls.CompositeControl.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
   commentId: M:SadConsole.UI.Controls.CompositeControl.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
   id: ProcessMouse(SadConsole.Input.MouseScreenObjectState)
@@ -284,6 +256,31 @@ items:
     content.vb: Public Overrides Function ProcessMouse(state As MouseScreenObjectState) As Boolean
   overridden: SadConsole.UI.Controls.ControlBase.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
   overload: SadConsole.UI.Controls.CompositeControl.ProcessMouse*
+- uid: SadConsole.UI.Controls.CompositeControl.OnMouseExit(SadConsole.UI.Controls.ControlBase.ControlMouseState)
+  commentId: M:SadConsole.UI.Controls.CompositeControl.OnMouseExit(SadConsole.UI.Controls.ControlBase.ControlMouseState)
+  id: OnMouseExit(SadConsole.UI.Controls.ControlBase.ControlMouseState)
+  parent: SadConsole.UI.Controls.CompositeControl
+  langs:
+  - csharp
+  - vb
+  name: OnMouseExit(ControlMouseState)
+  nameWithType: CompositeControl.OnMouseExit(ControlBase.ControlMouseState)
+  fullName: SadConsole.UI.Controls.CompositeControl.OnMouseExit(SadConsole.UI.Controls.ControlBase.ControlMouseState)
+  type: Method
+  assemblies:
+  - SadConsole
+  namespace: SadConsole.UI.Controls
+  summary: Called when the mouse exits the area of the control. Raises the MouseExit event and calls the <xref href="SadConsole.UI.Controls.ControlBase.DetermineState" data-throw-if-not-resolved="false"></xref> method.
+  example: []
+  syntax:
+    content: protected override void OnMouseExit(ControlBase.ControlMouseState state)
+    parameters:
+    - id: state
+      type: SadConsole.UI.Controls.ControlBase.ControlMouseState
+      description: The current mouse data
+    content.vb: Protected Overrides Sub OnMouseExit(state As ControlBase.ControlMouseState)
+  overridden: SadConsole.UI.Controls.ControlBase.OnMouseExit(SadConsole.UI.Controls.ControlBase.ControlMouseState)
+  overload: SadConsole.UI.Controls.CompositeControl.OnMouseExit*
 - uid: SadConsole.UI.Controls.CompositeControl.AddControl(SadConsole.UI.Controls.ControlBase)
   commentId: M:SadConsole.UI.Controls.CompositeControl.AddControl(SadConsole.UI.Controls.ControlBase)
   id: AddControl(SadConsole.UI.Controls.ControlBase)
@@ -1188,36 +1185,6 @@ references:
     name: OnMouseEnter
     isExternal: true
     href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_OnMouseEnter_SadConsole_UI_Controls_ControlBase_ControlMouseState_
-  - name: (
-  - uid: SadConsole.UI.Controls.ControlBase.ControlMouseState
-    name: ControlMouseState
-    isExternal: true
-    href: SadConsole.UI.Controls.ControlBase.ControlMouseState.html
-  - name: )
-- uid: SadConsole.UI.Controls.ControlBase.OnMouseExit(SadConsole.UI.Controls.ControlBase.ControlMouseState)
-  commentId: M:SadConsole.UI.Controls.ControlBase.OnMouseExit(SadConsole.UI.Controls.ControlBase.ControlMouseState)
-  parent: SadConsole.UI.Controls.ControlBase
-  isExternal: true
-  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_OnMouseExit_SadConsole_UI_Controls_ControlBase_ControlMouseState_
-  name: OnMouseExit(ControlMouseState)
-  nameWithType: ControlBase.OnMouseExit(ControlBase.ControlMouseState)
-  fullName: SadConsole.UI.Controls.ControlBase.OnMouseExit(SadConsole.UI.Controls.ControlBase.ControlMouseState)
-  spec.csharp:
-  - uid: SadConsole.UI.Controls.ControlBase.OnMouseExit(SadConsole.UI.Controls.ControlBase.ControlMouseState)
-    name: OnMouseExit
-    isExternal: true
-    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_OnMouseExit_SadConsole_UI_Controls_ControlBase_ControlMouseState_
-  - name: (
-  - uid: SadConsole.UI.Controls.ControlBase.ControlMouseState
-    name: ControlMouseState
-    isExternal: true
-    href: SadConsole.UI.Controls.ControlBase.ControlMouseState.html
-  - name: )
-  spec.vb:
-  - uid: SadConsole.UI.Controls.ControlBase.OnMouseExit(SadConsole.UI.Controls.ControlBase.ControlMouseState)
-    name: OnMouseExit
-    isExternal: true
-    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_OnMouseExit_SadConsole_UI_Controls_ControlBase_ControlMouseState_
   - name: (
   - uid: SadConsole.UI.Controls.ControlBase.ControlMouseState
     name: ControlMouseState
@@ -2291,13 +2258,6 @@ references:
   name: CreateChildControls
   nameWithType: CompositeControl.CreateChildControls
   fullName: SadConsole.UI.Controls.CompositeControl.CreateChildControls
-- uid: SadConsole.UI.Controls.CompositeControl.IsDirtyEventHandler*
-  commentId: Overload:SadConsole.UI.Controls.CompositeControl.IsDirtyEventHandler
-  isExternal: true
-  href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_IsDirtyEventHandler_System_Boolean_
-  name: IsDirtyEventHandler
-  nameWithType: CompositeControl.IsDirtyEventHandler
-  fullName: SadConsole.UI.Controls.CompositeControl.IsDirtyEventHandler
 - uid: SadConsole.UI.Controls.ControlBase.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
   commentId: M:SadConsole.UI.Controls.ControlBase.ProcessMouse(SadConsole.Input.MouseScreenObjectState)
   parent: SadConsole.UI.Controls.ControlBase
@@ -2370,6 +2330,71 @@ references:
     name: Input
     isExternal: true
     href: SadConsole.Input.html
+- uid: SadConsole.UI.Controls.ControlBase.OnMouseExit(SadConsole.UI.Controls.ControlBase.ControlMouseState)
+  commentId: M:SadConsole.UI.Controls.ControlBase.OnMouseExit(SadConsole.UI.Controls.ControlBase.ControlMouseState)
+  parent: SadConsole.UI.Controls.ControlBase
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_OnMouseExit_SadConsole_UI_Controls_ControlBase_ControlMouseState_
+  name: OnMouseExit(ControlMouseState)
+  nameWithType: ControlBase.OnMouseExit(ControlBase.ControlMouseState)
+  fullName: SadConsole.UI.Controls.ControlBase.OnMouseExit(SadConsole.UI.Controls.ControlBase.ControlMouseState)
+  spec.csharp:
+  - uid: SadConsole.UI.Controls.ControlBase.OnMouseExit(SadConsole.UI.Controls.ControlBase.ControlMouseState)
+    name: OnMouseExit
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_OnMouseExit_SadConsole_UI_Controls_ControlBase_ControlMouseState_
+  - name: (
+  - uid: SadConsole.UI.Controls.ControlBase.ControlMouseState
+    name: ControlMouseState
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.ControlMouseState.html
+  - name: )
+  spec.vb:
+  - uid: SadConsole.UI.Controls.ControlBase.OnMouseExit(SadConsole.UI.Controls.ControlBase.ControlMouseState)
+    name: OnMouseExit
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html#SadConsole_UI_Controls_ControlBase_OnMouseExit_SadConsole_UI_Controls_ControlBase_ControlMouseState_
+  - name: (
+  - uid: SadConsole.UI.Controls.ControlBase.ControlMouseState
+    name: ControlMouseState
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.ControlMouseState.html
+  - name: )
+- uid: SadConsole.UI.Controls.CompositeControl.OnMouseExit*
+  commentId: Overload:SadConsole.UI.Controls.CompositeControl.OnMouseExit
+  isExternal: true
+  href: SadConsole.UI.Controls.CompositeControl.html#SadConsole_UI_Controls_CompositeControl_OnMouseExit_SadConsole_UI_Controls_ControlBase_ControlMouseState_
+  name: OnMouseExit
+  nameWithType: CompositeControl.OnMouseExit
+  fullName: SadConsole.UI.Controls.CompositeControl.OnMouseExit
+- uid: SadConsole.UI.Controls.ControlBase.ControlMouseState
+  commentId: T:SadConsole.UI.Controls.ControlBase.ControlMouseState
+  parent: SadConsole.UI.Controls
+  isExternal: true
+  href: SadConsole.UI.Controls.ControlBase.html
+  name: ControlBase.ControlMouseState
+  nameWithType: ControlBase.ControlMouseState
+  fullName: SadConsole.UI.Controls.ControlBase.ControlMouseState
+  spec.csharp:
+  - uid: SadConsole.UI.Controls.ControlBase
+    name: ControlBase
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html
+  - name: .
+  - uid: SadConsole.UI.Controls.ControlBase.ControlMouseState
+    name: ControlMouseState
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.ControlMouseState.html
+  spec.vb:
+  - uid: SadConsole.UI.Controls.ControlBase
+    name: ControlBase
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.html
+  - name: .
+  - uid: SadConsole.UI.Controls.ControlBase.ControlMouseState
+    name: ControlMouseState
+    isExternal: true
+    href: SadConsole.UI.Controls.ControlBase.ControlMouseState.html
 - uid: SadConsole.UI.Controls.CompositeControl.AddControl*
   commentId: Overload:SadConsole.UI.Controls.CompositeControl.AddControl
   isExternal: true

@@ -1,7 +1,7 @@
 ---
 title: How to resize console to the window
 description: Learn how to resize a console in response to the SadConsole window size changing.
-ms.date: 10/31/2023
+ms.date: 08/10/2025
 ---
 
 # Resize your main console with the window
@@ -14,18 +14,18 @@ This article demonstrates how to resize the internal rendering surface (which is
 
 If you create a game with a base console size of 80x25, you'll get a window that looks like the following image:
 
-![Picture of sadconsole game window with numbers for each column](./images/how-to-resize-a-console-with-the-window/starting-console.png)
+![Picture of SadConsole game window with numbers for each column](./images/how-to-resize-a-console-with-the-window/starting-console.png)
 
 >[!NOTE]
 >The code to generate the numbers and display the console size is provided at the end of the article.
 
 When you resize the window, SadConsole fills the extra space with black (whatever the <xref:SadConsole.Settings.ClearColor>) property is set to> and centers the console.
 
-![Picture of sadconsole game window with numbers for each column and more columns than before](./images/how-to-resize-a-console-with-the-window/normal-resize.png)
+![Picture of SadConsole game window with numbers for each column and more columns than before](./images/how-to-resize-a-console-with-the-window/normal-resize.png)
 
 To resize a console (or `ScreenSurface`) to the size of the window, you must do the following:
 
-- Configure SadConsole's resize mode to `None`, which allows hte internal rendering surface to fill the window.
+- Configure SadConsole's resize mode to `None`, which allows the internal rendering surface to fill the window.
 - Handle the `WindowResized` event from the game host to detect the new window size.
 - Use a surface object that implements `ICellSurfaceResize`, which the default objects in SadConsole use.
 - Resize the surface object.
@@ -41,18 +41,22 @@ The `WindowResized` event is called **after** the window finishes resizing.
 ```csharp
 void Startup(object? sender, GameHost host)
 {
-    PrintHeader();
     Settings.ResizeMode = Settings.WindowResizeOptions.None;
-    Game.Instance.MonoGameInstance.WindowResized += Game_WindowResized;
+
+    SadConsole.Host.Game monoGameInstance = (SadConsole.Host.Game)SadConsole.Game.Instance.MonoGameInstance;
+    monoGameInstance.WindowResized += MonoGameInstance_WindowResized;
 }
 
-void Game_WindowResized(object? sender, EventArgs e)
+void MonoGameInstance_WindowResized(object? sender, EventArgs e)
 {
-    var rootConsole = (IScreenSurface)Game.Instance.Screen!;
-    var resizableSurface = (ICellSurfaceResize)rootConsole.Surface;
-    resizableSurface.Resize(Game.Instance.MonoGameInstance.WindowWidth / rootConsole.FontSize.X,
-                            Game.Instance.MonoGameInstance.WindowHeight / rootConsole.FontSize.Y, false);
-    PrintHeader();
+    var root = (IScreenSurface)Game.Instance.Screen!;
+    var resizableSurface = (ICellSurfaceResize)root.Surface;
+
+    resizableSurface.Resize(width: SadConsole.Settings.Rendering.RenderWidth / root.FontSize.X,
+                            height: SadConsole.Settings.Rendering.RenderHeight / root.FontSize.Y,
+                            clear: false);
+
+    PrintHeader(root);
 }
 ```
 
@@ -61,22 +65,23 @@ void Game_WindowResized(object? sender, EventArgs e)
 
 Now when you resize the window, the root console resizes to fit.
 
-![picture of sadconsole with a dynamic resized console](./images/how-to-resize-a-console-with-the-window/dynamic-resize.png)
+![picture of SadConsole with a dynamic resized console](./images/how-to-resize-a-console-with-the-window/dynamic-resize.png)
 
 ## Handling viewport consoles
 
-If your console is larger than the screen, you resize the view port instead of the console itself. Since changing the size of the view port doesn't resize the console itself, the viewport will always cut off at the bounds of the console. The viewport will never get larger than the console, but it can be resized as small as needed.
+If you just want to resize a viewport instead of resizing the actual console, change the `Surface.View` property. Since changing the size of the view port doesn't resize the console itself, the viewport will always cut off at the bounds of the console. The viewport will never get larger than the console, but it can be resized as small as needed.
 
 ```csharp
-void Game_WindowResized(object? sender, EventArgs e)
+void MonoGameInstance_WindowResized(object? sender, EventArgs e)
 {
-    var rootConsole = (IScreenSurface)Game.Instance.Screen!;
-    var resizableSurface = (ICellSurfaceResize)rootConsole.Surface;
-    
+    var root = (IScreenSurface)Game.Instance.Screen!;
+    var resizableSurface = (ICellSurfaceResize)root.Surface;
+
     rootConsole.Surface.View = rootConsole.Surface.View.WithSize(
-                                        Game.Instance.MonoGameInstance.WindowWidth / rootConsole.FontSize.X,
-                                        Game.Instance.MonoGameInstance.WindowHeight / rootConsole.FontSize.Y);
-    PrintHeader();
+                                  SadConsole.Settings.Rendering.RenderWidth / root.FontSize.X,
+                                  SadConsole.Settings.Rendering.RenderHeight / root.FontSize.Y);
+
+    PrintHeader(root);
 }
 ```
 
@@ -85,110 +90,126 @@ void Game_WindowResized(object? sender, EventArgs e)
 The following code prints a header along the top and size of a surface, which counts the cells.
 
 ```csharp
-private static void PrintHeader()
+void PrintHeader(IScreenSurface screen)
 {
+    // Print header along the top of the surface
     int counter = 0;
-    var startingColor = Color.Black.GetRandomColor(SadConsole.Global.Random);
-    var color = startingColor;
-    for (int x = 0; x < RootDynamicConsole.Width; x++)
-    {
-        RootDynamicConsole[x].Glyph = counter.ToString()[0];
-        RootDynamicConsole[x].Foreground = color;
-                
-        counter++;
+    Color startingColor = Color.Black.GetRandomColor(Game.Instance.Random);
+    Color color = startingColor;
 
-        if (counter == 10)
-        {
-            counter = 0;
-            color = color.GetRandomColor(SadConsole.Global.Random);
-        }
+    for (int x = 0; x < screen.Surface.Width; x++)
+    {
+        screen.Surface[x].Glyph = counter.ToString()[0];
+        screen.Surface[x].Foreground = color;
+
+        IncrementCounterColor();
     }
 
+    // Print header along the left of the surface
     counter = 0;
     color = startingColor;
-    for (int y = 0; y < RootDynamicConsole.Height; y++)
+    for (int y = 0; y < screen.Surface.Height; y++)
     {
-        RootDynamicConsole[0, y].Glyph = counter.ToString()[0];
-        RootDynamicConsole[0, y].Foreground = color;
+        screen.Surface[0, y].Glyph = counter.ToString()[0];
+        screen.Surface[0, y].Foreground = color;
 
+        IncrementCounterColor();
+    }
+
+    // Quick helper method for the counter logic
+    void IncrementCounterColor()
+    {
         counter++;
 
         if (counter == 10)
         {
             counter = 0;
-            color = color.GetRandomColor(SadConsole.Global.Random);
+            color = color.GetRandomColor(Game.Instance.Random);
         }
     }
 
     // Display console size
-    RootDynamicConsole.Print(4, 2, "Console Size");
-    RootDynamicConsole.Print(4, 3, "                         ");
-    RootDynamicConsole.Print(4, 3, $"{RootDynamicConsole.Width} {RootDynamicConsole.Height}");
+    screen.Surface.Print(4, 2, "Console Size");
+    screen.Surface.Print(4, 3, "                         ");
+    screen.Surface.Print(4, 3, $"{screen.Surface.Width} {screen.Surface.Height}");
 }
 ```
 
 ## Full code example
 
+This code example is self contained to demonstrate the resizing of a console with the window. It creates a new `ScreenSurface` and resizes it when the window is resized. The header is printed to show the size of the console.
+
 ```csharp
 using SadConsole.Configuration;
 
-Settings.WindowTitle = "SadConsole Examples";
+Settings.WindowTitle = "My SadConsole Game";
 
-Builder startup = new Builder()
-    .SetScreenSize(80, 25)
-    .UseDefaultConsole()
+Builder
+    .GetBuilder()
+    .SetWindowSizeInCells(120, 38)
+    .ConfigureFonts(true)
+    .SetStartingScreen(GenerateStartingScreen)
     .OnStart(Startup)
-    ;
+    .IsStartingScreenFocused(true)
+    .Run();
 
-Game.Create(startup);
-Game.Instance.Run();
-Game.Instance.Dispose();
+IScreenObject GenerateStartingScreen(GameHost host)
+{
+    ScreenSurface root = new(host.ScreenCellsX, host.ScreenCellsY);
+    PrintHeader(root);
 
+    return root;
+}
 
 void Startup(object? sender, GameHost host)
 {
-    PrintHeader();
     Settings.ResizeMode = Settings.WindowResizeOptions.None;
-    Game.Instance.MonoGameInstance.WindowResized += Game_WindowResized;
+
+    SadConsole.Host.Game monoGameInstance = (SadConsole.Host.Game)SadConsole.Game.Instance.MonoGameInstance;
+    monoGameInstance.WindowResized += MonoGameInstance_WindowResized;
 }
 
-void Game_WindowResized(object? sender, EventArgs e)
+void MonoGameInstance_WindowResized(object? sender, EventArgs e)
 {
-    var rootConsole = (IScreenSurface)Game.Instance.Screen!;
-    var resizableSurface = (ICellSurfaceResize)rootConsole.Surface;
-    resizableSurface.Resize(Game.Instance.MonoGameInstance.WindowWidth / rootConsole.FontSize.X, Game.Instance.MonoGameInstance.WindowHeight / rootConsole.FontSize.Y, false);
-    PrintHeader();
+    var root = (IScreenSurface)Game.Instance.Screen!;
+    var resizableSurface = (ICellSurfaceResize)root.Surface;
+
+    resizableSurface.Resize(width: SadConsole.Settings.Rendering.RenderWidth / root.FontSize.X,
+                            height: SadConsole.Settings.Rendering.RenderHeight / root.FontSize.Y,
+                            clear: false);
+
+    PrintHeader(root);
 }
 
-void PrintHeader()
+void PrintHeader(IScreenSurface screen)
 {
+    // Print header along the top of the surface
     int counter = 0;
-    var startingColor = Color.Black.GetRandomColor(Game.Instance.Random);
-    var color = startingColor;
+    Color startingColor = Color.Black.GetRandomColor(Game.Instance.Random);
+    Color color = startingColor;
 
-    var rootConsole = (IScreenSurface)Game.Instance.Screen!;
-
-    for (int x = 0; x < rootConsole.Surface.Width; x++)
+    for (int x = 0; x < screen.Surface.Width; x++)
     {
-        rootConsole.Surface[x].Glyph = counter.ToString()[0];
-        rootConsole.Surface[x].Foreground = color;
+        screen.Surface[x].Glyph = counter.ToString()[0];
+        screen.Surface[x].Foreground = color;
 
-        counter++;
-
-        if (counter == 10)
-        {
-            counter = 0;
-            color = color.GetRandomColor(Game.Instance.Random);
-        }
+        IncrementCounterColor();
     }
 
+    // Print header along the left of the surface
     counter = 0;
     color = startingColor;
-    for (int y = 0; y < rootConsole.Surface.Height; y++)
+    for (int y = 0; y < screen.Surface.Height; y++)
     {
-        rootConsole.Surface[0, y].Glyph = counter.ToString()[0];
-        rootConsole.Surface[0, y].Foreground = color;
+        screen.Surface[0, y].Glyph = counter.ToString()[0];
+        screen.Surface[0, y].Foreground = color;
 
+        IncrementCounterColor();
+    }
+
+    // Quick helper method for the counter logic
+    void IncrementCounterColor()
+    {
         counter++;
 
         if (counter == 10)
@@ -199,8 +220,8 @@ void PrintHeader()
     }
 
     // Display console size
-    rootConsole.Surface.Print(4, 2, "Console Size");
-    rootConsole.Surface.Print(4, 3, "                         ");
-    rootConsole.Surface.Print(4, 3, $"{rootConsole.Surface.Width} {rootConsole.Surface.Height}");
+    screen.Surface.Print(4, 2, "Console Size");
+    screen.Surface.Print(4, 3, "                         ");
+    screen.Surface.Print(4, 3, $"{screen.Surface.Width} {screen.Surface.Height}");
 }
 ```

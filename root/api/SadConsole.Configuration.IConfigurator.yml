@@ -5,7 +5,7 @@ items:
   id: IConfigurator
   parent: SadConsole.Configuration
   children:
-  - SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
+  - SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.BuilderBase,SadConsole.GameHost)
   langs:
   - csharp
   - vb
@@ -23,16 +23,16 @@ items:
     content.vb: Public Interface IConfigurator
   extensionMethods:
   - System.Object.SadConsole.ExtensionsSystem.GetDebuggerDisplayValue
-- uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
-  commentId: M:SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
-  id: Run(SadConsole.Configuration.Builder,SadConsole.GameHost)
+- uid: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.BuilderBase,SadConsole.GameHost)
+  commentId: M:SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.BuilderBase,SadConsole.GameHost)
+  id: Run(SadConsole.Configuration.BuilderBase,SadConsole.GameHost)
   parent: SadConsole.Configuration.IConfigurator
   langs:
   - csharp
   - vb
-  name: Run(Builder, GameHost)
-  nameWithType: IConfigurator.Run(Builder, GameHost)
-  fullName: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.Builder, SadConsole.GameHost)
+  name: Run(BuilderBase, GameHost)
+  nameWithType: IConfigurator.Run(BuilderBase, GameHost)
+  fullName: SadConsole.Configuration.IConfigurator.Run(SadConsole.Configuration.BuilderBase, SadConsole.GameHost)
   type: Method
   assemblies:
   - SadConsole
@@ -40,15 +40,15 @@ items:
   summary: Called by the <xref href="SadConsole.Configuration.Builder" data-throw-if-not-resolved="false"></xref>; Runs the specific config for this object.
   example: []
   syntax:
-    content: void Run(Builder config, GameHost game)
+    content: void Run(BuilderBase config, GameHost game)
     parameters:
     - id: config
-      type: SadConsole.Configuration.Builder
+      type: SadConsole.Configuration.BuilderBase
       description: The builder configuration object.
     - id: game
       type: SadConsole.GameHost
       description: The game object being created.
-    content.vb: Sub Run(config As Builder, game As GameHost)
+    content.vb: Sub Run(config As BuilderBase, game As GameHost)
   overload: SadConsole.Configuration.IConfigurator.Run*
 references:
 - uid: SadConsole.Configuration.Builder
@@ -169,10 +169,18 @@ references:
 - uid: SadConsole.Configuration.IConfigurator.Run*
   commentId: Overload:SadConsole.Configuration.IConfigurator.Run
   isExternal: true
-  href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_Builder_SadConsole_GameHost_
+  href: SadConsole.Configuration.IConfigurator.html#SadConsole_Configuration_IConfigurator_Run_SadConsole_Configuration_BuilderBase_SadConsole_GameHost_
   name: Run
   nameWithType: IConfigurator.Run
   fullName: SadConsole.Configuration.IConfigurator.Run
+- uid: SadConsole.Configuration.BuilderBase
+  commentId: T:SadConsole.Configuration.BuilderBase
+  parent: SadConsole.Configuration
+  isExternal: true
+  href: SadConsole.Configuration.BuilderBase.html
+  name: BuilderBase
+  nameWithType: BuilderBase
+  fullName: SadConsole.Configuration.BuilderBase
 - uid: SadConsole.GameHost
   commentId: T:SadConsole.GameHost
   parent: SadConsole

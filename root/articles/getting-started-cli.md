@@ -1,7 +1,7 @@
 ---
 title: Create a new project from the template
 description: Create a SadConsole project with the SadConsole templates.
-ms.date: 01/01/2025
+ms.date: 08/10/2025
 ---
 
 # Create a new SadConsole .NET project with the SadConsole templates
@@ -12,7 +12,7 @@ If you're using Visual Studio, follow these steps until told to use Visual Studi
 
 ## Prerequisites
 
-- [Download and install the .NET 6.0 (or later) SDK](https://dotnet.microsoft.com/download/dotnet-core/).
+- [Download and install the .NET 8.0 (or later) SDK](https://dotnet.microsoft.com/download/dotnet-core/).
 
   To see what versions you have, run `dotnet --info`. If this command fails, your install may have failed, you don't have .NET, or it's not added to your terminal path variable.
 
@@ -30,9 +30,6 @@ Next, install the SadConsole templates:
 dotnet new install SadConsole.Templates
 ```
 
-> [!TIP]
-> The `dotnet` commands used here are based on .NET 7+. If you're using .NET 6 they're slightly different with `dotnet new --install SadConsole.Templates` and `dotnet new --list sadconsole`.
-
 When this command runs, it lists every template installed. You can run a command to list the SadConsole related templates:
 
 ```shell
@@ -41,7 +38,7 @@ dotnet new list sadconsole
 
 You should see output similar to the following:
 
-```shell
+```output
 These templates matched your input: 'sadconsole'
 
 Template Name               Short Name               Language  Tags
@@ -74,7 +71,7 @@ dotnet new sadconsole.mg -n SadConsoleGame
 
 This command generates a small example game that you can then customize. Run the game with `dotnet run` from your terminal, and you'll see the following:
 
-![a new console in sadconsole with hello text](images/getting-started-cli/hello-window.png)
+![a new console in SadConsole with hello text](images/getting-started-cli/hello-window.png)
 
 Use your favorite IDE or editor to open your newly created project, something like Visual Studio or Visual Studio Code.
 

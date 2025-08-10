@@ -1,26 +1,25 @@
 ### YamlMime:ManagedReference
 items:
-- uid: SadConsole.Extensions.ReadOnlySpan
-  commentId: T:SadConsole.Extensions.ReadOnlySpan
-  id: ReadOnlySpan
-  parent: SadConsole.Extensions
+- uid: SadConsole.ImGuiTypes.MirrorConverter
+  commentId: T:SadConsole.ImGuiTypes.MirrorConverter
+  id: MirrorConverter
+  parent: SadConsole.ImGuiTypes
   children:
-  - SadConsole.Extensions.ReadOnlySpan.Next(System.ReadOnlySpan{System.Char},System.Char,System.Int32@)
+  - SadConsole.ImGuiTypes.MirrorConverter.FromSadConsoleMirror(SadConsole.Mirror)
+  - SadConsole.ImGuiTypes.MirrorConverter.ToSadConsoleMirror(SadConsole.ImGuiTypes.Mirror)
   langs:
   - csharp
   - vb
-  name: ReadOnlySpan
-  nameWithType: ReadOnlySpan
-  fullName: SadConsole.Extensions.ReadOnlySpan
+  name: MirrorConverter
+  nameWithType: MirrorConverter
+  fullName: SadConsole.ImGuiTypes.MirrorConverter
   type: Class
   assemblies:
-  - SadConsole
-  namespace: SadConsole.Extensions
-  summary: Extensions for the <xref href="System.ReadOnlySpan%601" data-throw-if-not-resolved="false"></xref> type.
-  example: []
+  - SadConsole.Debug.MonoGame
+  namespace: SadConsole.ImGuiTypes
   syntax:
-    content: public static class ReadOnlySpan
-    content.vb: Public Module ReadOnlySpan
+    content: public static class MirrorConverter
+    content.vb: Public Module MirrorConverter
   inheritance:
   - System.Object
   inheritedMembers:
@@ -31,99 +30,81 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
-- uid: SadConsole.Extensions.ReadOnlySpan.Next(System.ReadOnlySpan{System.Char},System.Char,System.Int32@)
-  commentId: M:SadConsole.Extensions.ReadOnlySpan.Next(System.ReadOnlySpan{System.Char},System.Char,System.Int32@)
-  id: Next(System.ReadOnlySpan{System.Char},System.Char,System.Int32@)
-  isExtensionMethod: true
-  parent: SadConsole.Extensions.ReadOnlySpan
+- uid: SadConsole.ImGuiTypes.MirrorConverter.FromSadConsoleMirror(SadConsole.Mirror)
+  commentId: M:SadConsole.ImGuiTypes.MirrorConverter.FromSadConsoleMirror(SadConsole.Mirror)
+  id: FromSadConsoleMirror(SadConsole.Mirror)
+  parent: SadConsole.ImGuiTypes.MirrorConverter
   langs:
   - csharp
   - vb
-  name: Next(ReadOnlySpan<char>, char, out int)
-  nameWithType: ReadOnlySpan.Next(ReadOnlySpan<char>, char, out int)
-  fullName: SadConsole.Extensions.ReadOnlySpan.Next(System.ReadOnlySpan<char>, char, out int)
+  name: FromSadConsoleMirror(Mirror)
+  nameWithType: MirrorConverter.FromSadConsoleMirror(Mirror)
+  fullName: SadConsole.ImGuiTypes.MirrorConverter.FromSadConsoleMirror(SadConsole.Mirror)
   type: Method
   assemblies:
-  - SadConsole
-  namespace: SadConsole.Extensions
-  summary: Gets the next instnace of the specified character in a <xref href="System.Char" data-throw-if-not-resolved="false"></xref> span.
-  example: []
+  - SadConsole.Debug.MonoGame
+  namespace: SadConsole.ImGuiTypes
   syntax:
-    content: public static bool Next(this ReadOnlySpan<char> span, char value, out int index)
+    content: public static Mirror FromSadConsoleMirror(Mirror mirror)
     parameters:
-    - id: span
-      type: System.ReadOnlySpan{System.Char}
-      description: The span.
-    - id: value
-      type: System.Char
-      description: The character to find.
-    - id: index
-      type: System.Int32
-      description: The index of the character.
+    - id: mirror
+      type: SadConsole.Mirror
     return:
-      type: System.Boolean
-      description: True when the character is found.
-    content.vb: Public Shared Function [Next](span As ReadOnlySpan(Of Char), value As Char, index As Integer) As Boolean
-  overload: SadConsole.Extensions.ReadOnlySpan.Next*
-  nameWithType.vb: ReadOnlySpan.Next(ReadOnlySpan(Of Char), Char, Integer)
-  fullName.vb: SadConsole.Extensions.ReadOnlySpan.Next(System.ReadOnlySpan(Of Char), Char, Integer)
-  name.vb: Next(ReadOnlySpan(Of Char), Char, Integer)
+      type: SadConsole.ImGuiTypes.Mirror
+    content.vb: Public Shared Function FromSadConsoleMirror(mirror As Mirror) As Mirror
+  overload: SadConsole.ImGuiTypes.MirrorConverter.FromSadConsoleMirror*
+- uid: SadConsole.ImGuiTypes.MirrorConverter.ToSadConsoleMirror(SadConsole.ImGuiTypes.Mirror)
+  commentId: M:SadConsole.ImGuiTypes.MirrorConverter.ToSadConsoleMirror(SadConsole.ImGuiTypes.Mirror)
+  id: ToSadConsoleMirror(SadConsole.ImGuiTypes.Mirror)
+  isExtensionMethod: true
+  parent: SadConsole.ImGuiTypes.MirrorConverter
+  langs:
+  - csharp
+  - vb
+  name: ToSadConsoleMirror(Mirror)
+  nameWithType: MirrorConverter.ToSadConsoleMirror(Mirror)
+  fullName: SadConsole.ImGuiTypes.MirrorConverter.ToSadConsoleMirror(SadConsole.ImGuiTypes.Mirror)
+  type: Method
+  assemblies:
+  - SadConsole.Debug.MonoGame
+  namespace: SadConsole.ImGuiTypes
+  syntax:
+    content: public static Mirror ToSadConsoleMirror(this Mirror mirror)
+    parameters:
+    - id: mirror
+      type: SadConsole.ImGuiTypes.Mirror
+    return:
+      type: SadConsole.Mirror
+    content.vb: Public Shared Function ToSadConsoleMirror(mirror As Mirror) As Mirror
+  overload: SadConsole.ImGuiTypes.MirrorConverter.ToSadConsoleMirror*
 references:
-- uid: System.ReadOnlySpan`1
-  commentId: T:System.ReadOnlySpan`1
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
-  name: ReadOnlySpan<T>
-  nameWithType: ReadOnlySpan<T>
-  fullName: System.ReadOnlySpan<T>
-  nameWithType.vb: ReadOnlySpan(Of T)
-  fullName.vb: System.ReadOnlySpan(Of T)
-  name.vb: ReadOnlySpan(Of T)
-  spec.csharp:
-  - uid: System.ReadOnlySpan`1
-    name: ReadOnlySpan
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
-  - name: <
-  - name: T
-  - name: '>'
-  spec.vb:
-  - uid: System.ReadOnlySpan`1
-    name: ReadOnlySpan
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
-  - name: (
-  - name: Of
-  - name: " "
-  - name: T
-  - name: )
-- uid: SadConsole.Extensions
-  commentId: N:SadConsole.Extensions
+- uid: SadConsole.ImGuiTypes
+  commentId: N:SadConsole.ImGuiTypes
   isExternal: true
   href: SadConsole.html
-  name: SadConsole.Extensions
-  nameWithType: SadConsole.Extensions
-  fullName: SadConsole.Extensions
+  name: SadConsole.ImGuiTypes
+  nameWithType: SadConsole.ImGuiTypes
+  fullName: SadConsole.ImGuiTypes
   spec.csharp:
   - uid: SadConsole
     name: SadConsole
     isExternal: true
     href: SadConsole.html
   - name: .
-  - uid: SadConsole.Extensions
-    name: Extensions
+  - uid: SadConsole.ImGuiTypes
+    name: ImGuiTypes
     isExternal: true
-    href: SadConsole.Extensions.html
+    href: SadConsole.ImGuiTypes.html
   spec.vb:
   - uid: SadConsole
     name: SadConsole
     isExternal: true
     href: SadConsole.html
   - name: .
-  - uid: SadConsole.Extensions
-    name: Extensions
+  - uid: SadConsole.ImGuiTypes
+    name: ImGuiTypes
     isExternal: true
-    href: SadConsole.Extensions.html
+    href: SadConsole.ImGuiTypes.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -361,78 +342,40 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: System.Char
-  commentId: T:System.Char
-  parent: System
+- uid: SadConsole.ImGuiTypes.MirrorConverter.FromSadConsoleMirror*
+  commentId: Overload:SadConsole.ImGuiTypes.MirrorConverter.FromSadConsoleMirror
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.char
-  name: char
-  nameWithType: char
-  fullName: char
-  nameWithType.vb: Char
-  fullName.vb: Char
-  name.vb: Char
-- uid: SadConsole.Extensions.ReadOnlySpan.Next*
-  commentId: Overload:SadConsole.Extensions.ReadOnlySpan.Next
+  href: SadConsole.ImGuiTypes.MirrorConverter.html#SadConsole_ImGuiTypes_MirrorConverter_FromSadConsoleMirror_SadConsole_Mirror_
+  name: FromSadConsoleMirror
+  nameWithType: MirrorConverter.FromSadConsoleMirror
+  fullName: SadConsole.ImGuiTypes.MirrorConverter.FromSadConsoleMirror
+- uid: SadConsole.Mirror
+  commentId: T:SadConsole.Mirror
+  parent: SadConsole
   isExternal: true
-  href: SadConsole.Extensions.ReadOnlySpan.html#SadConsole_Extensions_ReadOnlySpan_Next_System_ReadOnlySpan_System_Char__System_Char_System_Int32__
-  name: Next
-  nameWithType: ReadOnlySpan.Next
-  fullName: SadConsole.Extensions.ReadOnlySpan.Next
-- uid: System.ReadOnlySpan{System.Char}
-  commentId: T:System.ReadOnlySpan{System.Char}
-  parent: System
-  definition: System.ReadOnlySpan`1
-  href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
-  name: ReadOnlySpan<char>
-  nameWithType: ReadOnlySpan<char>
-  fullName: System.ReadOnlySpan<char>
-  nameWithType.vb: ReadOnlySpan(Of Char)
-  fullName.vb: System.ReadOnlySpan(Of Char)
-  name.vb: ReadOnlySpan(Of Char)
-  spec.csharp:
-  - uid: System.ReadOnlySpan`1
-    name: ReadOnlySpan
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
-  - name: <
-  - uid: System.Char
-    name: char
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.char
-  - name: '>'
-  spec.vb:
-  - uid: System.ReadOnlySpan`1
-    name: ReadOnlySpan
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.readonlyspan-1
-  - name: (
-  - name: Of
-  - name: " "
-  - uid: System.Char
-    name: Char
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.char
-  - name: )
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
+  href: SadConsole.Mirror.html
+  name: Mirror
+  nameWithType: Mirror
+  fullName: SadConsole.Mirror
+- uid: SadConsole.ImGuiTypes.Mirror
+  commentId: T:SadConsole.ImGuiTypes.Mirror
+  parent: SadConsole.ImGuiTypes
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
+  href: SadConsole.ImGuiTypes.Mirror.html
+  name: Mirror
+  nameWithType: Mirror
+  fullName: SadConsole.ImGuiTypes.Mirror
+- uid: SadConsole
+  commentId: N:SadConsole
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
+- uid: SadConsole.ImGuiTypes.MirrorConverter.ToSadConsoleMirror*
+  commentId: Overload:SadConsole.ImGuiTypes.MirrorConverter.ToSadConsoleMirror
+  isExternal: true
+  href: SadConsole.ImGuiTypes.MirrorConverter.html#SadConsole_ImGuiTypes_MirrorConverter_ToSadConsoleMirror_SadConsole_ImGuiTypes_Mirror_
+  name: ToSadConsoleMirror
+  nameWithType: MirrorConverter.ToSadConsoleMirror
+  fullName: SadConsole.ImGuiTypes.MirrorConverter.ToSadConsoleMirror

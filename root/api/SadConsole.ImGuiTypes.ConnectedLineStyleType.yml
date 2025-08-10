@@ -1,220 +1,184 @@
 ### YamlMime:ManagedReference
 items:
-- uid: SadConsole.ImGuiSystem.ImGuiWindow
-  commentId: T:SadConsole.ImGuiSystem.ImGuiWindow
-  id: ImGuiWindow
-  parent: SadConsole.ImGuiSystem
+- uid: SadConsole.ImGuiTypes.ConnectedLineStyleType
+  commentId: T:SadConsole.ImGuiTypes.ConnectedLineStyleType
+  id: ConnectedLineStyleType
+  parent: SadConsole.ImGuiTypes
   children:
-  - SadConsole.ImGuiSystem.ImGuiWindow.#ctor
-  - SadConsole.ImGuiSystem.ImGuiWindow.Closed
-  - SadConsole.ImGuiSystem.ImGuiWindow.DialogResult
-  - SadConsole.ImGuiSystem.ImGuiWindow.DrawButtons(System.Boolean@,System.Boolean)
-  - SadConsole.ImGuiSystem.ImGuiWindow.IsOpen
-  - SadConsole.ImGuiSystem.ImGuiWindow.OnClosed
-  - SadConsole.ImGuiSystem.ImGuiWindow.Title
+  - SadConsole.ImGuiTypes.ConnectedLineStyleType.#ctor(System.String,System.Int32[])
+  - SadConsole.ImGuiTypes.ConnectedLineStyleType.AllConnectedLineStyles
+  - SadConsole.ImGuiTypes.ConnectedLineStyleType.ConnectedLineStyle
+  - SadConsole.ImGuiTypes.ConnectedLineStyleType.Title
+  - SadConsole.ImGuiTypes.ConnectedLineStyleType.ToString
   langs:
   - csharp
   - vb
-  name: ImGuiWindow
-  nameWithType: ImGuiWindow
-  fullName: SadConsole.ImGuiSystem.ImGuiWindow
+  name: ConnectedLineStyleType
+  nameWithType: ConnectedLineStyleType
+  fullName: SadConsole.ImGuiTypes.ConnectedLineStyleType
   type: Class
   assemblies:
   - SadConsole.Debug.MonoGame
-  namespace: SadConsole.ImGuiSystem
+  namespace: SadConsole.ImGuiTypes
   syntax:
-    content: 'public abstract class ImGuiWindow : ImGuiObjectBase'
-    content.vb: Public MustInherit Class ImGuiWindow Inherits ImGuiObjectBase
+    content: 'public class ConnectedLineStyleType : ITitle'
+    content.vb: Public Class ConnectedLineStyleType Implements ITitle
   inheritance:
   - System.Object
-  - SadConsole.ImGuiSystem.ImGuiObjectBase
-  derivedClasses:
-  - SadConsole.Debug.FinalOutputWindow
+  implements:
+  - SadConsole.ImGuiSystem.ITitle
   inheritedMembers:
-  - SadConsole.ImGuiSystem.ImGuiObjectBase.BuildUI(SadConsole.ImGuiSystem.ImGuiRenderer)
-  - SadConsole.ImGuiSystem.ImGuiObjectBase.IsVisible
   - System.Object.GetType
   - System.Object.MemberwiseClone
-  - System.Object.ToString
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
   extensionMethods:
   - System.Object.SadConsole.ExtensionsSystem.GetDebuggerDisplayValue
-- uid: SadConsole.ImGuiSystem.ImGuiWindow.IsOpen
-  commentId: F:SadConsole.ImGuiSystem.ImGuiWindow.IsOpen
-  id: IsOpen
-  parent: SadConsole.ImGuiSystem.ImGuiWindow
+- uid: SadConsole.ImGuiTypes.ConnectedLineStyleType.#ctor(System.String,System.Int32[])
+  commentId: M:SadConsole.ImGuiTypes.ConnectedLineStyleType.#ctor(System.String,System.Int32[])
+  id: '#ctor(System.String,System.Int32[])'
+  parent: SadConsole.ImGuiTypes.ConnectedLineStyleType
   langs:
   - csharp
   - vb
-  name: IsOpen
-  nameWithType: ImGuiWindow.IsOpen
-  fullName: SadConsole.ImGuiSystem.ImGuiWindow.IsOpen
-  type: Field
-  assemblies:
-  - SadConsole.Debug.MonoGame
-  namespace: SadConsole.ImGuiSystem
-  syntax:
-    content: public bool IsOpen
-    return:
-      type: System.Boolean
-    content.vb: Public IsOpen As Boolean
-- uid: SadConsole.ImGuiSystem.ImGuiWindow.DialogResult
-  commentId: F:SadConsole.ImGuiSystem.ImGuiWindow.DialogResult
-  id: DialogResult
-  parent: SadConsole.ImGuiSystem.ImGuiWindow
-  langs:
-  - csharp
-  - vb
-  name: DialogResult
-  nameWithType: ImGuiWindow.DialogResult
-  fullName: SadConsole.ImGuiSystem.ImGuiWindow.DialogResult
-  type: Field
-  assemblies:
-  - SadConsole.Debug.MonoGame
-  namespace: SadConsole.ImGuiSystem
-  syntax:
-    content: public bool DialogResult
-    return:
-      type: System.Boolean
-    content.vb: Public DialogResult As Boolean
-- uid: SadConsole.ImGuiSystem.ImGuiWindow.OnClosed
-  commentId: M:SadConsole.ImGuiSystem.ImGuiWindow.OnClosed
-  id: OnClosed
-  parent: SadConsole.ImGuiSystem.ImGuiWindow
-  langs:
-  - csharp
-  - vb
-  name: OnClosed()
-  nameWithType: ImGuiWindow.OnClosed()
-  fullName: SadConsole.ImGuiSystem.ImGuiWindow.OnClosed()
-  type: Method
-  assemblies:
-  - SadConsole.Debug.MonoGame
-  namespace: SadConsole.ImGuiSystem
-  syntax:
-    content: protected void OnClosed()
-    content.vb: Protected Sub OnClosed()
-  overload: SadConsole.ImGuiSystem.ImGuiWindow.OnClosed*
-- uid: SadConsole.ImGuiSystem.ImGuiWindow.DrawButtons(System.Boolean@,System.Boolean)
-  commentId: M:SadConsole.ImGuiSystem.ImGuiWindow.DrawButtons(System.Boolean@,System.Boolean)
-  id: DrawButtons(System.Boolean@,System.Boolean)
-  parent: SadConsole.ImGuiSystem.ImGuiWindow
-  langs:
-  - csharp
-  - vb
-  name: DrawButtons(out bool, bool)
-  nameWithType: ImGuiWindow.DrawButtons(out bool, bool)
-  fullName: SadConsole.ImGuiSystem.ImGuiWindow.DrawButtons(out bool, bool)
-  type: Method
-  assemblies:
-  - SadConsole.Debug.MonoGame
-  namespace: SadConsole.ImGuiSystem
-  syntax:
-    content: public static bool DrawButtons(out bool result, bool acceptDisabled = false)
-    parameters:
-    - id: result
-      type: System.Boolean
-    - id: acceptDisabled
-      type: System.Boolean
-    return:
-      type: System.Boolean
-    content.vb: Public Shared Function DrawButtons(result As Boolean, acceptDisabled As Boolean = False) As Boolean
-  overload: SadConsole.ImGuiSystem.ImGuiWindow.DrawButtons*
-  nameWithType.vb: ImGuiWindow.DrawButtons(Boolean, Boolean)
-  fullName.vb: SadConsole.ImGuiSystem.ImGuiWindow.DrawButtons(Boolean, Boolean)
-  name.vb: DrawButtons(Boolean, Boolean)
-- uid: SadConsole.ImGuiSystem.ImGuiWindow.#ctor
-  commentId: M:SadConsole.ImGuiSystem.ImGuiWindow.#ctor
-  id: '#ctor'
-  parent: SadConsole.ImGuiSystem.ImGuiWindow
-  langs:
-  - csharp
-  - vb
-  name: ImGuiWindow()
-  nameWithType: ImGuiWindow.ImGuiWindow()
-  fullName: SadConsole.ImGuiSystem.ImGuiWindow.ImGuiWindow()
+  name: ConnectedLineStyleType(string, int[])
+  nameWithType: ConnectedLineStyleType.ConnectedLineStyleType(string, int[])
+  fullName: SadConsole.ImGuiTypes.ConnectedLineStyleType.ConnectedLineStyleType(string, int[])
   type: Constructor
   assemblies:
   - SadConsole.Debug.MonoGame
-  namespace: SadConsole.ImGuiSystem
+  namespace: SadConsole.ImGuiTypes
   syntax:
-    content: protected ImGuiWindow()
-    content.vb: Protected Sub New()
-  overload: SadConsole.ImGuiSystem.ImGuiWindow.#ctor*
-  nameWithType.vb: ImGuiWindow.New()
-  fullName.vb: SadConsole.ImGuiSystem.ImGuiWindow.New()
-  name.vb: New()
-- uid: SadConsole.ImGuiSystem.ImGuiWindow.Title
-  commentId: P:SadConsole.ImGuiSystem.ImGuiWindow.Title
+    content: public ConnectedLineStyleType(string title, int[] connectedLineStyle)
+    parameters:
+    - id: title
+      type: System.String
+    - id: connectedLineStyle
+      type: System.Int32[]
+    content.vb: Public Sub New(title As String, connectedLineStyle As Integer())
+  overload: SadConsole.ImGuiTypes.ConnectedLineStyleType.#ctor*
+  nameWithType.vb: ConnectedLineStyleType.New(String, Integer())
+  fullName.vb: SadConsole.ImGuiTypes.ConnectedLineStyleType.New(String, Integer())
+  name.vb: New(String, Integer())
+- uid: SadConsole.ImGuiTypes.ConnectedLineStyleType.ToString
+  commentId: M:SadConsole.ImGuiTypes.ConnectedLineStyleType.ToString
+  id: ToString
+  parent: SadConsole.ImGuiTypes.ConnectedLineStyleType
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: ConnectedLineStyleType.ToString()
+  fullName: SadConsole.ImGuiTypes.ConnectedLineStyleType.ToString()
+  type: Method
+  assemblies:
+  - SadConsole.Debug.MonoGame
+  namespace: SadConsole.ImGuiTypes
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: SadConsole.ImGuiTypes.ConnectedLineStyleType.ToString*
+- uid: SadConsole.ImGuiTypes.ConnectedLineStyleType.AllConnectedLineStyles
+  commentId: P:SadConsole.ImGuiTypes.ConnectedLineStyleType.AllConnectedLineStyles
+  id: AllConnectedLineStyles
+  parent: SadConsole.ImGuiTypes.ConnectedLineStyleType
+  langs:
+  - csharp
+  - vb
+  name: AllConnectedLineStyles
+  nameWithType: ConnectedLineStyleType.AllConnectedLineStyles
+  fullName: SadConsole.ImGuiTypes.ConnectedLineStyleType.AllConnectedLineStyles
+  type: Property
+  assemblies:
+  - SadConsole.Debug.MonoGame
+  namespace: SadConsole.ImGuiTypes
+  syntax:
+    content: public static ConnectedLineStyleType[] AllConnectedLineStyles { get; }
+    parameters: []
+    return:
+      type: SadConsole.ImGuiTypes.ConnectedLineStyleType[]
+    content.vb: Public Shared ReadOnly Property AllConnectedLineStyles As ConnectedLineStyleType()
+  overload: SadConsole.ImGuiTypes.ConnectedLineStyleType.AllConnectedLineStyles*
+- uid: SadConsole.ImGuiTypes.ConnectedLineStyleType.Title
+  commentId: P:SadConsole.ImGuiTypes.ConnectedLineStyleType.Title
   id: Title
-  parent: SadConsole.ImGuiSystem.ImGuiWindow
+  parent: SadConsole.ImGuiTypes.ConnectedLineStyleType
   langs:
   - csharp
   - vb
   name: Title
-  nameWithType: ImGuiWindow.Title
-  fullName: SadConsole.ImGuiSystem.ImGuiWindow.Title
+  nameWithType: ConnectedLineStyleType.Title
+  fullName: SadConsole.ImGuiTypes.ConnectedLineStyleType.Title
   type: Property
   assemblies:
   - SadConsole.Debug.MonoGame
-  namespace: SadConsole.ImGuiSystem
+  namespace: SadConsole.ImGuiTypes
+  summary: The title of the object.
+  example: []
   syntax:
-    content: public string Title { get; set; }
+    content: public string Title { get; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property Title As String
-  overload: SadConsole.ImGuiSystem.ImGuiWindow.Title*
-- uid: SadConsole.ImGuiSystem.ImGuiWindow.Closed
-  commentId: E:SadConsole.ImGuiSystem.ImGuiWindow.Closed
-  id: Closed
-  parent: SadConsole.ImGuiSystem.ImGuiWindow
+    content.vb: Public ReadOnly Property Title As String
+  overload: SadConsole.ImGuiTypes.ConnectedLineStyleType.Title*
+  implements:
+  - SadConsole.ImGuiSystem.ITitle.Title
+- uid: SadConsole.ImGuiTypes.ConnectedLineStyleType.ConnectedLineStyle
+  commentId: P:SadConsole.ImGuiTypes.ConnectedLineStyleType.ConnectedLineStyle
+  id: ConnectedLineStyle
+  parent: SadConsole.ImGuiTypes.ConnectedLineStyleType
   langs:
   - csharp
   - vb
-  name: Closed
-  nameWithType: ImGuiWindow.Closed
-  fullName: SadConsole.ImGuiSystem.ImGuiWindow.Closed
-  type: Event
+  name: ConnectedLineStyle
+  nameWithType: ConnectedLineStyleType.ConnectedLineStyle
+  fullName: SadConsole.ImGuiTypes.ConnectedLineStyleType.ConnectedLineStyle
+  type: Property
   assemblies:
   - SadConsole.Debug.MonoGame
-  namespace: SadConsole.ImGuiSystem
+  namespace: SadConsole.ImGuiTypes
   syntax:
-    content: public event EventHandler Closed
+    content: public int[] ConnectedLineStyle { get; }
+    parameters: []
     return:
-      type: System.EventHandler
-    content.vb: Public Event Closed As EventHandler
+      type: System.Int32[]
+    content.vb: Public ReadOnly Property ConnectedLineStyle As Integer()
+  overload: SadConsole.ImGuiTypes.ConnectedLineStyleType.ConnectedLineStyle*
 references:
-- uid: SadConsole.ImGuiSystem
-  commentId: N:SadConsole.ImGuiSystem
+- uid: SadConsole.ImGuiTypes
+  commentId: N:SadConsole.ImGuiTypes
   isExternal: true
   href: SadConsole.html
-  name: SadConsole.ImGuiSystem
-  nameWithType: SadConsole.ImGuiSystem
-  fullName: SadConsole.ImGuiSystem
+  name: SadConsole.ImGuiTypes
+  nameWithType: SadConsole.ImGuiTypes
+  fullName: SadConsole.ImGuiTypes
   spec.csharp:
   - uid: SadConsole
     name: SadConsole
     isExternal: true
     href: SadConsole.html
   - name: .
-  - uid: SadConsole.ImGuiSystem
-    name: ImGuiSystem
+  - uid: SadConsole.ImGuiTypes
+    name: ImGuiTypes
     isExternal: true
-    href: SadConsole.ImGuiSystem.html
+    href: SadConsole.ImGuiTypes.html
   spec.vb:
   - uid: SadConsole
     name: SadConsole
     isExternal: true
     href: SadConsole.html
   - name: .
-  - uid: SadConsole.ImGuiSystem
-    name: ImGuiSystem
+  - uid: SadConsole.ImGuiTypes
+    name: ImGuiTypes
     isExternal: true
-    href: SadConsole.ImGuiSystem.html
+    href: SadConsole.ImGuiTypes.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -226,52 +190,14 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: SadConsole.ImGuiSystem.ImGuiObjectBase
-  commentId: T:SadConsole.ImGuiSystem.ImGuiObjectBase
+- uid: SadConsole.ImGuiSystem.ITitle
+  commentId: T:SadConsole.ImGuiSystem.ITitle
   parent: SadConsole.ImGuiSystem
   isExternal: true
-  href: SadConsole.ImGuiSystem.ImGuiObjectBase.html
-  name: ImGuiObjectBase
-  nameWithType: ImGuiObjectBase
-  fullName: SadConsole.ImGuiSystem.ImGuiObjectBase
-- uid: SadConsole.ImGuiSystem.ImGuiObjectBase.BuildUI(SadConsole.ImGuiSystem.ImGuiRenderer)
-  commentId: M:SadConsole.ImGuiSystem.ImGuiObjectBase.BuildUI(SadConsole.ImGuiSystem.ImGuiRenderer)
-  parent: SadConsole.ImGuiSystem.ImGuiObjectBase
-  isExternal: true
-  href: SadConsole.ImGuiSystem.ImGuiObjectBase.html#SadConsole_ImGuiSystem_ImGuiObjectBase_BuildUI_SadConsole_ImGuiSystem_ImGuiRenderer_
-  name: BuildUI(ImGuiRenderer)
-  nameWithType: ImGuiObjectBase.BuildUI(ImGuiRenderer)
-  fullName: SadConsole.ImGuiSystem.ImGuiObjectBase.BuildUI(SadConsole.ImGuiSystem.ImGuiRenderer)
-  spec.csharp:
-  - uid: SadConsole.ImGuiSystem.ImGuiObjectBase.BuildUI(SadConsole.ImGuiSystem.ImGuiRenderer)
-    name: BuildUI
-    isExternal: true
-    href: SadConsole.ImGuiSystem.ImGuiObjectBase.html#SadConsole_ImGuiSystem_ImGuiObjectBase_BuildUI_SadConsole_ImGuiSystem_ImGuiRenderer_
-  - name: (
-  - uid: SadConsole.ImGuiSystem.ImGuiRenderer
-    name: ImGuiRenderer
-    isExternal: true
-    href: SadConsole.ImGuiSystem.ImGuiRenderer.html
-  - name: )
-  spec.vb:
-  - uid: SadConsole.ImGuiSystem.ImGuiObjectBase.BuildUI(SadConsole.ImGuiSystem.ImGuiRenderer)
-    name: BuildUI
-    isExternal: true
-    href: SadConsole.ImGuiSystem.ImGuiObjectBase.html#SadConsole_ImGuiSystem_ImGuiObjectBase_BuildUI_SadConsole_ImGuiSystem_ImGuiRenderer_
-  - name: (
-  - uid: SadConsole.ImGuiSystem.ImGuiRenderer
-    name: ImGuiRenderer
-    isExternal: true
-    href: SadConsole.ImGuiSystem.ImGuiRenderer.html
-  - name: )
-- uid: SadConsole.ImGuiSystem.ImGuiObjectBase.IsVisible
-  commentId: P:SadConsole.ImGuiSystem.ImGuiObjectBase.IsVisible
-  parent: SadConsole.ImGuiSystem.ImGuiObjectBase
-  isExternal: true
-  href: SadConsole.ImGuiSystem.ImGuiObjectBase.html#SadConsole_ImGuiSystem_ImGuiObjectBase_IsVisible
-  name: IsVisible
-  nameWithType: ImGuiObjectBase.IsVisible
-  fullName: SadConsole.ImGuiSystem.ImGuiObjectBase.IsVisible
+  href: SadConsole.ImGuiSystem.ITitle.html
+  name: ITitle
+  nameWithType: ITitle
+  fullName: SadConsole.ImGuiSystem.ITitle
 - uid: System.Object.GetType
   commentId: M:System.Object.GetType
   parent: System.Object
@@ -318,30 +244,6 @@ references:
     name: MemberwiseClone
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
-  - name: (
-  - name: )
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
 - uid: System.Object.Equals(System.Object)
@@ -531,6 +433,33 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: SadConsole.ImGuiSystem
+  commentId: N:SadConsole.ImGuiSystem
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.ImGuiSystem
+  nameWithType: SadConsole.ImGuiSystem
+  fullName: SadConsole.ImGuiSystem
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.ImGuiSystem
+    name: ImGuiSystem
+    isExternal: true
+    href: SadConsole.ImGuiSystem.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.ImGuiSystem
+    name: ImGuiSystem
+    isExternal: true
+    href: SadConsole.ImGuiSystem.html
 - uid: SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
   commentId: M:SadConsole.ExtensionsSystem.GetDebuggerDisplayValue(System.Object)
   isExternal: true
@@ -578,48 +507,16 @@ references:
   name: SadConsole
   nameWithType: SadConsole
   fullName: SadConsole
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
+- uid: SadConsole.ImGuiTypes.ConnectedLineStyleType.#ctor*
+  commentId: Overload:SadConsole.ImGuiTypes.ConnectedLineStyleType.#ctor
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
-- uid: SadConsole.ImGuiSystem.ImGuiWindow.OnClosed*
-  commentId: Overload:SadConsole.ImGuiSystem.ImGuiWindow.OnClosed
-  isExternal: true
-  href: SadConsole.ImGuiSystem.ImGuiWindow.html#SadConsole_ImGuiSystem_ImGuiWindow_OnClosed
-  name: OnClosed
-  nameWithType: ImGuiWindow.OnClosed
-  fullName: SadConsole.ImGuiSystem.ImGuiWindow.OnClosed
-- uid: SadConsole.ImGuiSystem.ImGuiWindow.DrawButtons*
-  commentId: Overload:SadConsole.ImGuiSystem.ImGuiWindow.DrawButtons
-  isExternal: true
-  href: SadConsole.ImGuiSystem.ImGuiWindow.html#SadConsole_ImGuiSystem_ImGuiWindow_DrawButtons_System_Boolean__System_Boolean_
-  name: DrawButtons
-  nameWithType: ImGuiWindow.DrawButtons
-  fullName: SadConsole.ImGuiSystem.ImGuiWindow.DrawButtons
-- uid: SadConsole.ImGuiSystem.ImGuiWindow.#ctor*
-  commentId: Overload:SadConsole.ImGuiSystem.ImGuiWindow.#ctor
-  isExternal: true
-  href: SadConsole.ImGuiSystem.ImGuiWindow.html#SadConsole_ImGuiSystem_ImGuiWindow__ctor
-  name: ImGuiWindow
-  nameWithType: ImGuiWindow.ImGuiWindow
-  fullName: SadConsole.ImGuiSystem.ImGuiWindow.ImGuiWindow
-  nameWithType.vb: ImGuiWindow.New
-  fullName.vb: SadConsole.ImGuiSystem.ImGuiWindow.New
+  href: SadConsole.ImGuiTypes.ConnectedLineStyleType.html#SadConsole_ImGuiTypes_ConnectedLineStyleType__ctor_System_String_System_Int32___
+  name: ConnectedLineStyleType
+  nameWithType: ConnectedLineStyleType.ConnectedLineStyleType
+  fullName: SadConsole.ImGuiTypes.ConnectedLineStyleType.ConnectedLineStyleType
+  nameWithType.vb: ConnectedLineStyleType.New
+  fullName.vb: SadConsole.ImGuiTypes.ConnectedLineStyleType.New
   name.vb: New
-- uid: SadConsole.ImGuiSystem.ImGuiWindow.Title*
-  commentId: Overload:SadConsole.ImGuiSystem.ImGuiWindow.Title
-  isExternal: true
-  href: SadConsole.ImGuiSystem.ImGuiWindow.html#SadConsole_ImGuiSystem_ImGuiWindow_Title
-  name: Title
-  nameWithType: ImGuiWindow.Title
-  fullName: SadConsole.ImGuiSystem.ImGuiWindow.Title
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -631,11 +528,109 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: System.EventHandler
-  commentId: T:System.EventHandler
-  parent: System
+- uid: System.Int32[]
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.eventhandler
-  name: EventHandler
-  nameWithType: EventHandler
-  fullName: System.EventHandler
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int[]
+  nameWithType: int[]
+  fullName: int[]
+  nameWithType.vb: Integer()
+  fullName.vb: Integer()
+  name.vb: Integer()
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: SadConsole.ImGuiTypes.ConnectedLineStyleType.ToString*
+  commentId: Overload:SadConsole.ImGuiTypes.ConnectedLineStyleType.ToString
+  isExternal: true
+  href: SadConsole.ImGuiTypes.ConnectedLineStyleType.html#SadConsole_ImGuiTypes_ConnectedLineStyleType_ToString
+  name: ToString
+  nameWithType: ConnectedLineStyleType.ToString
+  fullName: SadConsole.ImGuiTypes.ConnectedLineStyleType.ToString
+- uid: SadConsole.ImGuiTypes.ConnectedLineStyleType.AllConnectedLineStyles*
+  commentId: Overload:SadConsole.ImGuiTypes.ConnectedLineStyleType.AllConnectedLineStyles
+  isExternal: true
+  href: SadConsole.ImGuiTypes.ConnectedLineStyleType.html#SadConsole_ImGuiTypes_ConnectedLineStyleType_AllConnectedLineStyles
+  name: AllConnectedLineStyles
+  nameWithType: ConnectedLineStyleType.AllConnectedLineStyles
+  fullName: SadConsole.ImGuiTypes.ConnectedLineStyleType.AllConnectedLineStyles
+- uid: SadConsole.ImGuiTypes.ConnectedLineStyleType[]
+  isExternal: true
+  href: SadConsole.ImGuiTypes.ConnectedLineStyleType.html
+  name: ConnectedLineStyleType[]
+  nameWithType: ConnectedLineStyleType[]
+  fullName: SadConsole.ImGuiTypes.ConnectedLineStyleType[]
+  nameWithType.vb: ConnectedLineStyleType()
+  fullName.vb: SadConsole.ImGuiTypes.ConnectedLineStyleType()
+  name.vb: ConnectedLineStyleType()
+  spec.csharp:
+  - uid: SadConsole.ImGuiTypes.ConnectedLineStyleType
+    name: ConnectedLineStyleType
+    isExternal: true
+    href: SadConsole.ImGuiTypes.ConnectedLineStyleType.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: SadConsole.ImGuiTypes.ConnectedLineStyleType
+    name: ConnectedLineStyleType
+    isExternal: true
+    href: SadConsole.ImGuiTypes.ConnectedLineStyleType.html
+  - name: (
+  - name: )
+- uid: SadConsole.ImGuiTypes.ConnectedLineStyleType.Title*
+  commentId: Overload:SadConsole.ImGuiTypes.ConnectedLineStyleType.Title
+  isExternal: true
+  href: SadConsole.ImGuiTypes.ConnectedLineStyleType.html#SadConsole_ImGuiTypes_ConnectedLineStyleType_Title
+  name: Title
+  nameWithType: ConnectedLineStyleType.Title
+  fullName: SadConsole.ImGuiTypes.ConnectedLineStyleType.Title
+- uid: SadConsole.ImGuiSystem.ITitle.Title
+  commentId: P:SadConsole.ImGuiSystem.ITitle.Title
+  parent: SadConsole.ImGuiSystem.ITitle
+  isExternal: true
+  href: SadConsole.ImGuiSystem.ITitle.html#SadConsole_ImGuiSystem_ITitle_Title
+  name: Title
+  nameWithType: ITitle.Title
+  fullName: SadConsole.ImGuiSystem.ITitle.Title
+- uid: SadConsole.ImGuiTypes.ConnectedLineStyleType.ConnectedLineStyle*
+  commentId: Overload:SadConsole.ImGuiTypes.ConnectedLineStyleType.ConnectedLineStyle
+  isExternal: true
+  href: SadConsole.ImGuiTypes.ConnectedLineStyleType.html#SadConsole_ImGuiTypes_ConnectedLineStyleType_ConnectedLineStyle
+  name: ConnectedLineStyle
+  nameWithType: ConnectedLineStyleType.ConnectedLineStyle
+  fullName: SadConsole.ImGuiTypes.ConnectedLineStyleType.ConnectedLineStyle

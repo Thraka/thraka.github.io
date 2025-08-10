@@ -1,27 +1,24 @@
 ### YamlMime:ManagedReference
 items:
-- uid: SadConsole.Debug.Screen
-  commentId: T:SadConsole.Debug.Screen
-  id: Screen
-  parent: SadConsole.Debug
+- uid: Hexa.NET.ImGui.SC.ImGuiSC.GlyphPickerPopup
+  commentId: T:Hexa.NET.ImGui.SC.ImGuiSC.GlyphPickerPopup
+  id: ImGuiSC.GlyphPickerPopup
+  parent: Hexa.NET.ImGui.SC
   children:
-  - SadConsole.Debug.Screen.Show
-  - SadConsole.Debug.Screen.Show(SadConsole.IFont,SadRogue.Primitives.Point)
+  - Hexa.NET.ImGui.SC.ImGuiSC.GlyphPickerPopup.Show(SadConsole.ImGuiSystem.ImGuiRenderer,System.String,SadConsole.IFont,Hexa.NET.ImGui.ImTextureID,SadRogue.Primitives.Point,System.Int32@)
   langs:
   - csharp
   - vb
-  name: Screen
-  nameWithType: Screen
-  fullName: SadConsole.Debug.Screen
+  name: ImGuiSC.GlyphPickerPopup
+  nameWithType: ImGuiSC.GlyphPickerPopup
+  fullName: Hexa.NET.ImGui.SC.ImGuiSC.GlyphPickerPopup
   type: Class
   assemblies:
-  - SadConsole
-  namespace: SadConsole.Debug
-  summary: A debugging screen that takes the place of the active <xref href="SadConsole.GameHost.Screen" data-throw-if-not-resolved="false"></xref> and displays information about SadConsole.
-  example: []
+  - SadConsole.Debug.MonoGame
+  namespace: Hexa.NET.ImGui.SC
   syntax:
-    content: public static class Screen
-    content.vb: Public Module Screen
+    content: public static class ImGuiSC.GlyphPickerPopup
+    content.vb: Public Module ImGuiSC.GlyphPickerPopup
   inheritance:
   - System.Object
   inheritedMembers:
@@ -32,89 +29,90 @@ items:
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.GetHashCode
-- uid: SadConsole.Debug.Screen.Show(SadConsole.IFont,SadRogue.Primitives.Point)
-  commentId: M:SadConsole.Debug.Screen.Show(SadConsole.IFont,SadRogue.Primitives.Point)
-  id: Show(SadConsole.IFont,SadRogue.Primitives.Point)
-  parent: SadConsole.Debug.Screen
+- uid: Hexa.NET.ImGui.SC.ImGuiSC.GlyphPickerPopup.Show(SadConsole.ImGuiSystem.ImGuiRenderer,System.String,SadConsole.IFont,Hexa.NET.ImGui.ImTextureID,SadRogue.Primitives.Point,System.Int32@)
+  commentId: M:Hexa.NET.ImGui.SC.ImGuiSC.GlyphPickerPopup.Show(SadConsole.ImGuiSystem.ImGuiRenderer,System.String,SadConsole.IFont,Hexa.NET.ImGui.ImTextureID,SadRogue.Primitives.Point,System.Int32@)
+  id: Show(SadConsole.ImGuiSystem.ImGuiRenderer,System.String,SadConsole.IFont,Hexa.NET.ImGui.ImTextureID,SadRogue.Primitives.Point,System.Int32@)
+  parent: Hexa.NET.ImGui.SC.ImGuiSC.GlyphPickerPopup
   langs:
   - csharp
   - vb
-  name: Show(IFont, Point)
-  nameWithType: Screen.Show(IFont, Point)
-  fullName: SadConsole.Debug.Screen.Show(SadConsole.IFont, SadRogue.Primitives.Point)
+  name: Show(ImGuiRenderer, string, IFont, ImTextureID, Point, ref int)
+  nameWithType: ImGuiSC.GlyphPickerPopup.Show(ImGuiRenderer, string, IFont, ImTextureID, Point, ref int)
+  fullName: Hexa.NET.ImGui.SC.ImGuiSC.GlyphPickerPopup.Show(SadConsole.ImGuiSystem.ImGuiRenderer, string, SadConsole.IFont, Hexa.NET.ImGui.ImTextureID, SadRogue.Primitives.Point, ref int)
   type: Method
   assemblies:
-  - SadConsole
-  namespace: SadConsole.Debug
-  summary: Displays the debugger.
-  example: []
+  - SadConsole.Debug.MonoGame
+  namespace: Hexa.NET.ImGui.SC
   syntax:
-    content: public static void Show(IFont font, Point fontSize)
+    content: public static bool Show(ImGuiRenderer renderer, string popupId, IFont font, ImTextureID fontTexture, Point fontTextureSize, ref int selectedGlyph)
     parameters:
+    - id: renderer
+      type: SadConsole.ImGuiSystem.ImGuiRenderer
+    - id: popupId
+      type: System.String
     - id: font
       type: SadConsole.IFont
-      description: The font to use the debugging screen.
-    - id: fontSize
+    - id: fontTexture
+      type: Hexa.NET.ImGui.ImTextureID
+    - id: fontTextureSize
       type: SadRogue.Primitives.Point
-      description: The size of the font.
-    content.vb: Public Shared Sub Show(font As IFont, fontSize As Point)
-  overload: SadConsole.Debug.Screen.Show*
-- uid: SadConsole.Debug.Screen.Show
-  commentId: M:SadConsole.Debug.Screen.Show
-  id: Show
-  parent: SadConsole.Debug.Screen
-  langs:
-  - csharp
-  - vb
-  name: Show()
-  nameWithType: Screen.Show()
-  fullName: SadConsole.Debug.Screen.Show()
-  type: Method
-  assemblies:
-  - SadConsole
-  namespace: SadConsole.Debug
-  summary: Shows the debug screen with the default font and size.
-  example: []
-  syntax:
-    content: public static void Show()
-    content.vb: Public Shared Sub Show()
-  overload: SadConsole.Debug.Screen.Show*
+    - id: selectedGlyph
+      type: System.Int32
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function Show(renderer As ImGuiRenderer, popupId As String, font As IFont, fontTexture As ImTextureID, fontTextureSize As Point, selectedGlyph As Integer) As Boolean
+  overload: Hexa.NET.ImGui.SC.ImGuiSC.GlyphPickerPopup.Show*
+  nameWithType.vb: ImGuiSC.GlyphPickerPopup.Show(ImGuiRenderer, String, IFont, ImTextureID, Point, Integer)
+  fullName.vb: Hexa.NET.ImGui.SC.ImGuiSC.GlyphPickerPopup.Show(SadConsole.ImGuiSystem.ImGuiRenderer, String, SadConsole.IFont, Hexa.NET.ImGui.ImTextureID, SadRogue.Primitives.Point, Integer)
+  name.vb: Show(ImGuiRenderer, String, IFont, ImTextureID, Point, Integer)
 references:
-- uid: SadConsole.GameHost.Screen
-  commentId: P:SadConsole.GameHost.Screen
-  parent: SadConsole.GameHost
+- uid: Hexa.NET.ImGui.SC
+  commentId: N:Hexa.NET.ImGui.SC
   isExternal: true
-  href: SadConsole.GameHost.html#SadConsole_GameHost_Screen
-  name: Screen
-  nameWithType: GameHost.Screen
-  fullName: SadConsole.GameHost.Screen
-- uid: SadConsole.Debug
-  commentId: N:SadConsole.Debug
-  isExternal: true
-  href: SadConsole.html
-  name: SadConsole.Debug
-  nameWithType: SadConsole.Debug
-  fullName: SadConsole.Debug
+  href: Hexa.html
+  name: Hexa.NET.ImGui.SC
+  nameWithType: Hexa.NET.ImGui.SC
+  fullName: Hexa.NET.ImGui.SC
   spec.csharp:
-  - uid: SadConsole
-    name: SadConsole
+  - uid: Hexa
+    name: Hexa
     isExternal: true
-    href: SadConsole.html
+    href: Hexa.html
   - name: .
-  - uid: SadConsole.Debug
-    name: Debug
+  - uid: Hexa.NET
+    name: NET
     isExternal: true
-    href: SadConsole.Debug.html
+    href: Hexa.NET.html
+  - name: .
+  - uid: Hexa.NET.ImGui
+    name: ImGui
+    isExternal: true
+    href: Hexa.NET.ImGui.html
+  - name: .
+  - uid: Hexa.NET.ImGui.SC
+    name: SC
+    isExternal: true
+    href: Hexa.NET.ImGui.SC.html
   spec.vb:
-  - uid: SadConsole
-    name: SadConsole
+  - uid: Hexa
+    name: Hexa
     isExternal: true
-    href: SadConsole.html
+    href: Hexa.html
   - name: .
-  - uid: SadConsole.Debug
-    name: Debug
+  - uid: Hexa.NET
+    name: NET
     isExternal: true
-    href: SadConsole.Debug.html
+    href: Hexa.NET.html
+  - name: .
+  - uid: Hexa.NET.ImGui
+    name: ImGui
+    isExternal: true
+    href: Hexa.NET.ImGui.html
+  - name: .
+  - uid: Hexa.NET.ImGui.SC
+    name: SC
+    isExternal: true
+    href: Hexa.NET.ImGui.SC.html
 - uid: System.Object
   commentId: T:System.Object
   parent: System
@@ -345,14 +343,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
   - name: (
   - name: )
-- uid: SadConsole.GameHost
-  commentId: T:SadConsole.GameHost
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.GameHost.html
-  name: GameHost
-  nameWithType: GameHost
-  fullName: SadConsole.GameHost
 - uid: System
   commentId: N:System
   isExternal: true
@@ -360,20 +350,32 @@ references:
   name: System
   nameWithType: System
   fullName: System
-- uid: SadConsole
-  commentId: N:SadConsole
+- uid: Hexa.NET.ImGui.SC.ImGuiSC.GlyphPickerPopup.Show*
+  commentId: Overload:Hexa.NET.ImGui.SC.ImGuiSC.GlyphPickerPopup.Show
   isExternal: true
-  href: SadConsole.html
-  name: SadConsole
-  nameWithType: SadConsole
-  fullName: SadConsole
-- uid: SadConsole.Debug.Screen.Show*
-  commentId: Overload:SadConsole.Debug.Screen.Show
-  isExternal: true
-  href: SadConsole.Debug.Screen.html#SadConsole_Debug_Screen_Show_SadConsole_IFont_SadRogue_Primitives_Point_
+  href: Hexa.NET.ImGui.SC.ImGuiSC.GlyphPickerPopup.html#Hexa_NET_ImGui_SC_ImGuiSC_GlyphPickerPopup_Show_SadConsole_ImGuiSystem_ImGuiRenderer_System_String_SadConsole_IFont_Hexa_NET_ImGui_ImTextureID_SadRogue_Primitives_Point_System_Int32__
   name: Show
-  nameWithType: Screen.Show
-  fullName: SadConsole.Debug.Screen.Show
+  nameWithType: ImGuiSC.GlyphPickerPopup.Show
+  fullName: Hexa.NET.ImGui.SC.ImGuiSC.GlyphPickerPopup.Show
+- uid: SadConsole.ImGuiSystem.ImGuiRenderer
+  commentId: T:SadConsole.ImGuiSystem.ImGuiRenderer
+  parent: SadConsole.ImGuiSystem
+  isExternal: true
+  href: SadConsole.ImGuiSystem.ImGuiRenderer.html
+  name: ImGuiRenderer
+  nameWithType: ImGuiRenderer
+  fullName: SadConsole.ImGuiSystem.ImGuiRenderer
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
 - uid: SadConsole.IFont
   commentId: T:SadConsole.IFont
   parent: SadConsole
@@ -382,6 +384,13 @@ references:
   name: IFont
   nameWithType: IFont
   fullName: SadConsole.IFont
+- uid: Hexa.NET.ImGui.ImTextureID
+  commentId: T:Hexa.NET.ImGui.ImTextureID
+  parent: Hexa.NET.ImGui
+  isExternal: true
+  name: ImTextureID
+  nameWithType: ImTextureID
+  fullName: Hexa.NET.ImGui.ImTextureID
 - uid: SadRogue.Primitives.Point
   commentId: T:SadRogue.Primitives.Point
   parent: SadRogue.Primitives
@@ -389,6 +398,99 @@ references:
   name: Point
   nameWithType: Point
   fullName: SadRogue.Primitives.Point
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: SadConsole.ImGuiSystem
+  commentId: N:SadConsole.ImGuiSystem
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole.ImGuiSystem
+  nameWithType: SadConsole.ImGuiSystem
+  fullName: SadConsole.ImGuiSystem
+  spec.csharp:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.ImGuiSystem
+    name: ImGuiSystem
+    isExternal: true
+    href: SadConsole.ImGuiSystem.html
+  spec.vb:
+  - uid: SadConsole
+    name: SadConsole
+    isExternal: true
+    href: SadConsole.html
+  - name: .
+  - uid: SadConsole.ImGuiSystem
+    name: ImGuiSystem
+    isExternal: true
+    href: SadConsole.ImGuiSystem.html
+- uid: SadConsole
+  commentId: N:SadConsole
+  isExternal: true
+  href: SadConsole.html
+  name: SadConsole
+  nameWithType: SadConsole
+  fullName: SadConsole
+- uid: Hexa.NET.ImGui
+  commentId: N:Hexa.NET.ImGui
+  isExternal: true
+  href: Hexa.html
+  name: Hexa.NET.ImGui
+  nameWithType: Hexa.NET.ImGui
+  fullName: Hexa.NET.ImGui
+  spec.csharp:
+  - uid: Hexa
+    name: Hexa
+    isExternal: true
+    href: Hexa.html
+  - name: .
+  - uid: Hexa.NET
+    name: NET
+    isExternal: true
+    href: Hexa.NET.html
+  - name: .
+  - uid: Hexa.NET.ImGui
+    name: ImGui
+    isExternal: true
+    href: Hexa.NET.ImGui.html
+  spec.vb:
+  - uid: Hexa
+    name: Hexa
+    isExternal: true
+    href: Hexa.html
+  - name: .
+  - uid: Hexa.NET
+    name: NET
+    isExternal: true
+    href: Hexa.NET.html
+  - name: .
+  - uid: Hexa.NET.ImGui
+    name: ImGui
+    isExternal: true
+    href: Hexa.NET.ImGui.html
 - uid: SadRogue.Primitives
   commentId: N:SadRogue.Primitives
   isExternal: true

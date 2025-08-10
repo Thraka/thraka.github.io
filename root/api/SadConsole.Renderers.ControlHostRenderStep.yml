@@ -13,7 +13,6 @@ items:
   - SadConsole.Renderers.ControlHostRenderStep.Dispose(System.Boolean)
   - SadConsole.Renderers.ControlHostRenderStep.Finalize
   - SadConsole.Renderers.ControlHostRenderStep.Name
-  - SadConsole.Renderers.ControlHostRenderStep.ProcessContainer(SadConsole.UI.Controls.IContainer,SadConsole.Renderers.ScreenSurfaceRenderer,SadConsole.IScreenSurface)
   - SadConsole.Renderers.ControlHostRenderStep.Refresh(SadConsole.Renderers.IRenderer,SadConsole.IScreenSurface,System.Boolean,System.Boolean)
   - SadConsole.Renderers.ControlHostRenderStep.Render(SadConsole.Renderers.IRenderer,SadConsole.IScreenSurface)
   - SadConsole.Renderers.ControlHostRenderStep.RenderControlCells(SadConsole.UI.Controls.ControlBase,SadConsole.Renderers.ScreenSurfaceRenderer,SadConsole.IFont,SadRogue.Primitives.Point,SadRogue.Primitives.Rectangle)
@@ -201,36 +200,6 @@ items:
   overload: SadConsole.Renderers.ControlHostRenderStep.Render*
   implements:
   - SadConsole.Renderers.IRenderStep.Render(SadConsole.Renderers.IRenderer,SadConsole.IScreenSurface)
-- uid: SadConsole.Renderers.ControlHostRenderStep.ProcessContainer(SadConsole.UI.Controls.IContainer,SadConsole.Renderers.ScreenSurfaceRenderer,SadConsole.IScreenSurface)
-  commentId: M:SadConsole.Renderers.ControlHostRenderStep.ProcessContainer(SadConsole.UI.Controls.IContainer,SadConsole.Renderers.ScreenSurfaceRenderer,SadConsole.IScreenSurface)
-  id: ProcessContainer(SadConsole.UI.Controls.IContainer,SadConsole.Renderers.ScreenSurfaceRenderer,SadConsole.IScreenSurface)
-  parent: SadConsole.Renderers.ControlHostRenderStep
-  langs:
-  - csharp
-  - vb
-  name: ProcessContainer(IContainer, ScreenSurfaceRenderer, IScreenSurface)
-  nameWithType: ControlHostRenderStep.ProcessContainer(IContainer, ScreenSurfaceRenderer, IScreenSurface)
-  fullName: SadConsole.Renderers.ControlHostRenderStep.ProcessContainer(SadConsole.UI.Controls.IContainer, SadConsole.Renderers.ScreenSurfaceRenderer, SadConsole.IScreenSurface)
-  type: Method
-  assemblies:
-  - SadConsole.Host.MonoGame
-  namespace: SadConsole.Renderers
-  summary: Processes a container from the control host.
-  example: []
-  syntax:
-    content: protected void ProcessContainer(IContainer container, ScreenSurfaceRenderer renderer, IScreenSurface screenObject)
-    parameters:
-    - id: container
-      type: SadConsole.UI.Controls.IContainer
-      description: The container.
-    - id: renderer
-      type: SadConsole.Renderers.ScreenSurfaceRenderer
-      description: The renderer used with this step.
-    - id: screenObject
-      type: SadConsole.IScreenSurface
-      description: The screen surface with font information.
-    content.vb: Protected Sub ProcessContainer(container As IContainer, renderer As ScreenSurfaceRenderer, screenObject As IScreenSurface)
-  overload: SadConsole.Renderers.ControlHostRenderStep.ProcessContainer*
 - uid: SadConsole.Renderers.ControlHostRenderStep.RenderControlCells(SadConsole.UI.Controls.ControlBase,SadConsole.Renderers.ScreenSurfaceRenderer,SadConsole.IFont,SadRogue.Primitives.Point,SadRogue.Primitives.Rectangle)
   commentId: M:SadConsole.Renderers.ControlHostRenderStep.RenderControlCells(SadConsole.UI.Controls.ControlBase,SadConsole.Renderers.ScreenSurfaceRenderer,SadConsole.IFont,SadRogue.Primitives.Point,SadRogue.Primitives.Rectangle)
   id: RenderControlCells(SadConsole.UI.Controls.ControlBase,SadConsole.Renderers.ScreenSurfaceRenderer,SadConsole.IFont,SadRogue.Primitives.Point,SadRogue.Primitives.Rectangle)
@@ -1121,21 +1090,21 @@ references:
     name: IScreenSurface
     isExternal: true
   - name: )
-- uid: SadConsole.Renderers.ControlHostRenderStep.ProcessContainer*
-  commentId: Overload:SadConsole.Renderers.ControlHostRenderStep.ProcessContainer
+- uid: SadConsole.Renderers.ControlHostRenderStep.RenderControlCells*
+  commentId: Overload:SadConsole.Renderers.ControlHostRenderStep.RenderControlCells
   isExternal: true
-  href: SadConsole.Renderers.ControlHostRenderStep.html#SadConsole_Renderers_ControlHostRenderStep_ProcessContainer_SadConsole_UI_Controls_IContainer_SadConsole_Renderers_ScreenSurfaceRenderer_SadConsole_IScreenSurface_
-  name: ProcessContainer
-  nameWithType: ControlHostRenderStep.ProcessContainer
-  fullName: SadConsole.Renderers.ControlHostRenderStep.ProcessContainer
-- uid: SadConsole.UI.Controls.IContainer
-  commentId: T:SadConsole.UI.Controls.IContainer
+  href: SadConsole.Renderers.ControlHostRenderStep.html#SadConsole_Renderers_ControlHostRenderStep_RenderControlCells_SadConsole_UI_Controls_ControlBase_SadConsole_Renderers_ScreenSurfaceRenderer_SadConsole_IFont_SadRogue_Primitives_Point_SadRogue_Primitives_Rectangle_
+  name: RenderControlCells
+  nameWithType: ControlHostRenderStep.RenderControlCells
+  fullName: SadConsole.Renderers.ControlHostRenderStep.RenderControlCells
+- uid: SadConsole.UI.Controls.ControlBase
+  commentId: T:SadConsole.UI.Controls.ControlBase
   parent: SadConsole.UI.Controls
   isExternal: true
-  href: SadConsole.UI.Controls.IContainer.html
-  name: IContainer
-  nameWithType: IContainer
-  fullName: SadConsole.UI.Controls.IContainer
+  href: SadConsole.UI.Controls.ControlBase.html
+  name: ControlBase
+  nameWithType: ControlBase
+  fullName: SadConsole.UI.Controls.ControlBase
 - uid: SadConsole.Renderers.ScreenSurfaceRenderer
   commentId: T:SadConsole.Renderers.ScreenSurfaceRenderer
   parent: SadConsole.Renderers
@@ -1144,6 +1113,28 @@ references:
   name: ScreenSurfaceRenderer
   nameWithType: ScreenSurfaceRenderer
   fullName: SadConsole.Renderers.ScreenSurfaceRenderer
+- uid: SadConsole.IFont
+  commentId: T:SadConsole.IFont
+  parent: SadConsole
+  isExternal: true
+  href: SadConsole.IFont.html
+  name: IFont
+  nameWithType: IFont
+  fullName: SadConsole.IFont
+- uid: SadRogue.Primitives.Point
+  commentId: T:SadRogue.Primitives.Point
+  parent: SadRogue.Primitives
+  isExternal: true
+  name: Point
+  nameWithType: Point
+  fullName: SadRogue.Primitives.Point
+- uid: SadRogue.Primitives.Rectangle
+  commentId: T:SadRogue.Primitives.Rectangle
+  parent: SadRogue.Primitives
+  isExternal: true
+  name: Rectangle
+  nameWithType: Rectangle
+  fullName: SadRogue.Primitives.Rectangle
 - uid: SadConsole.UI.Controls
   commentId: N:SadConsole.UI.Controls
   isExternal: true
@@ -1181,43 +1172,6 @@ references:
     name: Controls
     isExternal: true
     href: SadConsole.UI.Controls.html
-- uid: SadConsole.Renderers.ControlHostRenderStep.RenderControlCells*
-  commentId: Overload:SadConsole.Renderers.ControlHostRenderStep.RenderControlCells
-  isExternal: true
-  href: SadConsole.Renderers.ControlHostRenderStep.html#SadConsole_Renderers_ControlHostRenderStep_RenderControlCells_SadConsole_UI_Controls_ControlBase_SadConsole_Renderers_ScreenSurfaceRenderer_SadConsole_IFont_SadRogue_Primitives_Point_SadRogue_Primitives_Rectangle_
-  name: RenderControlCells
-  nameWithType: ControlHostRenderStep.RenderControlCells
-  fullName: SadConsole.Renderers.ControlHostRenderStep.RenderControlCells
-- uid: SadConsole.UI.Controls.ControlBase
-  commentId: T:SadConsole.UI.Controls.ControlBase
-  parent: SadConsole.UI.Controls
-  isExternal: true
-  href: SadConsole.UI.Controls.ControlBase.html
-  name: ControlBase
-  nameWithType: ControlBase
-  fullName: SadConsole.UI.Controls.ControlBase
-- uid: SadConsole.IFont
-  commentId: T:SadConsole.IFont
-  parent: SadConsole
-  isExternal: true
-  href: SadConsole.IFont.html
-  name: IFont
-  nameWithType: IFont
-  fullName: SadConsole.IFont
-- uid: SadRogue.Primitives.Point
-  commentId: T:SadRogue.Primitives.Point
-  parent: SadRogue.Primitives
-  isExternal: true
-  name: Point
-  nameWithType: Point
-  fullName: SadRogue.Primitives.Point
-- uid: SadRogue.Primitives.Rectangle
-  commentId: T:SadRogue.Primitives.Rectangle
-  parent: SadRogue.Primitives
-  isExternal: true
-  name: Rectangle
-  nameWithType: Rectangle
-  fullName: SadRogue.Primitives.Rectangle
 - uid: SadRogue.Primitives
   commentId: N:SadRogue.Primitives
   isExternal: true
