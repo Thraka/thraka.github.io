@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
 
@@ -89,6 +89,7 @@
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection</a>&lt;<a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a>&gt;</div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="SadConsole.ICellSurface.html">ICellSurface</a>&gt;</div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
+    <div><a class="xref" href="SadConsole.ICellSurfaceResize.html">ICellSurfaceResize</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -122,7 +123,7 @@
   <h5 id="SadConsole_Components_LayeredSurface_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[DataContract]
-public class LayeredSurface : UpdateComponent, IComponent, IList&lt;ICellSurface&gt;, ICollection&lt;ICellSurface&gt;, IEnumerable&lt;ICellSurface&gt;, IEnumerable</code></pre>
+public class LayeredSurface : UpdateComponent, IComponent, IList&lt;ICellSurface&gt;, ICollection&lt;ICellSurface&gt;, IEnumerable&lt;ICellSurface&gt;, IEnumerable, ICellSurfaceResize</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -928,6 +929,100 @@ protected List&lt;ICellSurface&gt; _layers</code></pre>
   </table>
 
 
+  <a id="SadConsole_Components_LayeredSurface_Resize_" data-uid="SadConsole.Components.LayeredSurface.Resize*"></a>
+  <h4 id="SadConsole_Components_LayeredSurface_Resize_System_Int32_System_Int32_System_Boolean_" data-uid="SadConsole.Components.LayeredSurface.Resize(System.Int32,System.Int32,System.Boolean)">Resize(int, int, bool)</h4>
+  <div class="markdown level1 summary"><p>Resizes the surface and view to the specified width and height.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Resize(int width, int height, bool clear)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">width</span></td>
+        <td><p>The width of the surface and view.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">height</span></td>
+        <td><p>The height of the surface and view.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">clear</span></td>
+        <td><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, resets every cell to the <a class="xref" href="SadConsole.ICellSurface.html#SadConsole_ICellSurface_DefaultForeground">DefaultForeground</a>, <a class="xref" href="SadConsole.ICellSurface.html#SadConsole_ICellSurface_DefaultBackground">DefaultBackground</a> and glyph 0.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_Components_LayeredSurface_Resize_" data-uid="SadConsole.Components.LayeredSurface.Resize*"></a>
+  <h4 id="SadConsole_Components_LayeredSurface_Resize_System_Int32_System_Int32_System_Int32_System_Int32_System_Boolean_" data-uid="SadConsole.Components.LayeredSurface.Resize(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)">Resize(int, int, int, int, bool)</h4>
+  <div class="markdown level1 summary"><p>Resizes each layer to the specified width and height.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Resize(int viewWidth, int viewHeight, int totalWidth, int totalHeight, bool clear)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">viewWidth</span></td>
+        <td><p>The viewable width of the surface.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">viewHeight</span></td>
+        <td><p>The viewable height of the surface.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">totalWidth</span></td>
+        <td><p>The maximum width of the surface.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">totalHeight</span></td>
+        <td><p>The maximum height of the surface.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">clear</span></td>
+        <td><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, resets every cell to the <a class="xref" href="SadConsole.ICellSurface.html#SadConsole_ICellSurface_DefaultForeground">DefaultForeground</a>, <a class="xref" href="SadConsole.ICellSurface.html#SadConsole_ICellSurface_DefaultBackground">DefaultBackground</a> and glyph 0.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
   <a id="SadConsole_Components_LayeredSurface_Update_" data-uid="SadConsole.Components.LayeredSurface.Update*"></a>
   <h4 id="SadConsole_Components_LayeredSurface_Update_SadConsole_IScreenObject_System_TimeSpan_" data-uid="SadConsole.Components.LayeredSurface.Update(SadConsole.IScreenObject,System.TimeSpan)">Update(IScreenObject, TimeSpan)</h4>
   <div class="markdown level1 summary"><p>Called by a host on the update frame.</p>
@@ -978,6 +1073,9 @@ protected List&lt;ICellSurface&gt; _layers</code></pre>
   </div>
   <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a>
+  </div>
+  <div>
+      <a class="xref" href="SadConsole.ICellSurfaceResize.html">ICellSurfaceResize</a>
   </div>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>

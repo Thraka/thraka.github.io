@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
 
@@ -132,7 +132,8 @@
 
 
   <h4 id="SadConsole_Configuration_FontConfig_AlternativeDefaultFont" data-uid="SadConsole.Configuration.FontConfig.AlternativeDefaultFont">AlternativeDefaultFont</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The default font to use when the game starts. A <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> value indicates that the default font is the built-in font.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -156,7 +157,8 @@
 
 
   <h4 id="SadConsole_Configuration_FontConfig_CustomFonts" data-uid="SadConsole.Configuration.FontConfig.CustomFonts">CustomFonts</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>An array of custom font files to load into SadConsole. The default is an empty array.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -179,8 +181,34 @@
   </table>
 
 
+  <h4 id="SadConsole_Configuration_FontConfig_DefaultFontSize" data-uid="SadConsole.Configuration.FontConfig.DefaultFontSize">DefaultFontSize</h4>
+  <div class="markdown level1 summary"><p>The size of font to use with the default font. The default is <a class="xref" href="SadConsole.IFont.Sizes.html#SadConsole_IFont_Sizes_One">One</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IFont.Sizes DefaultFontSize</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.IFont.html">IFont</a>.<a class="xref" href="SadConsole.IFont.Sizes.html">Sizes</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
   <h4 id="SadConsole_Configuration_FontConfig_UseExtendedFont" data-uid="SadConsole.Configuration.FontConfig.UseExtendedFont">UseExtendedFont</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, the default font is the SadConsole extended font. The default is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -207,7 +235,8 @@
 
   <a id="SadConsole_Configuration_FontConfig_FontLoader_" data-uid="SadConsole.Configuration.FontConfig.FontLoader*"></a>
   <h4 id="SadConsole_Configuration_FontConfig_FontLoader" data-uid="SadConsole.Configuration.FontConfig.FontLoader">FontLoader</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The method invoked by the <a class="xref" href="SadConsole.GameHost.html">GameHost</a> as fonts are loaded.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -262,13 +291,13 @@
 
 
   <a id="SadConsole_Configuration_FontConfig_Run_" data-uid="SadConsole.Configuration.FontConfig.Run*"></a>
-  <h4 id="SadConsole_Configuration_FontConfig_Run_SadConsole_Configuration_Builder_SadConsole_GameHost_" data-uid="SadConsole.Configuration.FontConfig.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)">Run(Builder, GameHost)</h4>
+  <h4 id="SadConsole_Configuration_FontConfig_Run_SadConsole_Configuration_BuilderBase_SadConsole_GameHost_" data-uid="SadConsole.Configuration.FontConfig.Run(SadConsole.Configuration.BuilderBase,SadConsole.GameHost)">Run(BuilderBase, GameHost)</h4>
   <div class="markdown level1 summary"><p>Invokes the <a class="xref" href="SadConsole.Configuration.FontConfig.html#SadConsole_Configuration_FontConfig_FontLoader">FontLoader</a> delegate.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Run(Builder config, GameHost game)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Run(BuilderBase config, GameHost game)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -281,7 +310,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="SadConsole.Configuration.Builder.html">Builder</a></td>
+        <td><a class="xref" href="SadConsole.Configuration.BuilderBase.html">BuilderBase</a></td>
         <td><span class="parametername">config</span></td>
         <td><p>The builder running this configurator.</p>
 </td>
@@ -290,6 +319,35 @@
         <td><a class="xref" href="SadConsole.GameHost.html">GameHost</a></td>
         <td><span class="parametername">game</span></td>
         <td><p>The game being created.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_Configuration_FontConfig_SetDefaultFontSize_" data-uid="SadConsole.Configuration.FontConfig.SetDefaultFontSize*"></a>
+  <h4 id="SadConsole_Configuration_FontConfig_SetDefaultFontSize_SadConsole_IFont_Sizes_" data-uid="SadConsole.Configuration.FontConfig.SetDefaultFontSize(SadConsole.IFont.Sizes)">SetDefaultFontSize(Sizes)</h4>
+  <div class="markdown level1 summary"><p>Sets the default font size for the game. The default is <a class="xref" href="SadConsole.IFont.Sizes.html#SadConsole_IFont_Sizes_One">One</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetDefaultFontSize(IFont.Sizes size)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.IFont.html">IFont</a>.<a class="xref" href="SadConsole.IFont.Sizes.html">Sizes</a></td>
+        <td><span class="parametername">size</span></td>
+        <td><p>The default font size.</p>
 </td>
       </tr>
     </tbody>

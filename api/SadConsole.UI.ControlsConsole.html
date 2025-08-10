@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
 
@@ -94,6 +94,7 @@
     <div><a class="xref" href="SadConsole.Components.IComponentHost.html">IComponentHost</a></div>
     <div><a class="xref" href="SadConsole.ISurface.html">ISurface</a></div>
     <div><a class="xref" href="SadConsole.ISurfaceSettable.html">ISurfaceSettable</a></div>
+    <div><a class="xref" href="SadConsole.ICellSurfaceResize.html">ICellSurfaceResize</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -111,6 +112,9 @@
     </div>
     <div>
       <a class="xref" href="SadConsole.Console.html#SadConsole_Console_AutoCursorOnFocus">Console.AutoCursorOnFocus</a>
+    </div>
+    <div>
+      <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_MouseState_EnteredWithButtonDown">ScreenSurface.MouseState_EnteredWithButtonDown</a>
     </div>
     <div>
       <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_IsMouseOver">ScreenSurface.IsMouseOver</a>
@@ -391,7 +395,7 @@
   <h5 id="SadConsole_UI_ControlsConsole_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[DataContract]
-public class ControlsConsole : Console, IDisposable, IScreenSurfaceEditable, IScreenSurface, IScreenObject, IPositionable, IComponentHost, ISurface, ISurfaceSettable</code></pre>
+public class ControlsConsole : Console, IDisposable, IScreenSurfaceEditable, IScreenSurface, IScreenObject, IPositionable, IComponentHost, ISurface, ISurfaceSettable, ICellSurfaceResize</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -696,6 +700,9 @@ public class ControlsConsole : Console, IDisposable, IScreenSurfaceEditable, ISc
   <div>
       <a class="xref" href="SadConsole.ISurfaceSettable.html">ISurfaceSettable</a>
   </div>
+  <div>
+      <a class="xref" href="SadConsole.ICellSurfaceResize.html">ICellSurfaceResize</a>
+  </div>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="SadConsole.Quick.Keyboard.html#SadConsole_Quick_Keyboard_RemoveKeyboardHook_SadConsole_IScreenObject_System_Func_SadConsole_IScreenObject_SadConsole_Input_Keyboard_System_Boolean__">Keyboard.RemoveKeyboardHook(IScreenObject, Func&lt;IScreenObject, Keyboard, bool&gt;)</a>
@@ -863,6 +870,12 @@ public class ControlsConsole : Console, IDisposable, IScreenSurfaceEditable, ISc
       <a class="xref" href="SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_GetSubSurface_SadConsole_ISurface_SadRogue_Primitives_Rectangle_">CellSurfaceEditor.GetSubSurface(ISurface, Rectangle)</a>
   </div>
   <div>
+      <a class="xref" href="SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_IsValidCell_SadConsole_ISurface_SadRogue_Primitives_Point_">CellSurfaceEditor.IsValidCell(ISurface, Point)</a>
+  </div>
+  <div>
+      <a class="xref" href="SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_IsValidCell_SadConsole_ISurface_SadRogue_Primitives_Point_System_Int32__">CellSurfaceEditor.IsValidCell(ISurface, Point, out int)</a>
+  </div>
+  <div>
       <a class="xref" href="SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_IsValidCell_SadConsole_ISurface_System_Int32_">CellSurfaceEditor.IsValidCell(ISurface, int)</a>
   </div>
   <div>
@@ -920,6 +933,9 @@ public class ControlsConsole : Console, IDisposable, IScreenSurfaceEditable, ISc
       <a class="xref" href="SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_SetCellAppearance_SadConsole_ISurface_System_Int32_System_Int32_SadConsole_ColoredGlyphBase_">CellSurfaceEditor.SetCellAppearance(ISurface, int, int, ColoredGlyphBase)</a>
   </div>
   <div>
+      <a class="xref" href="SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_SetCellAppearance_SadConsole_ISurface_System_Int32_System_Int32_SadConsole_GlyphDefinition_">CellSurfaceEditor.SetCellAppearance(ISurface, int, int, GlyphDefinition)</a>
+  </div>
+  <div>
       <a class="xref" href="SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_SetDecorator_SadConsole_ISurface_SadRogue_Primitives_Point_SadConsole_CellDecorator___">CellSurfaceEditor.SetDecorator(ISurface, Point, params CellDecorator[]?)</a>
   </div>
   <div>
@@ -951,6 +967,9 @@ public class ControlsConsole : Console, IDisposable, IScreenSurfaceEditable, ISc
   </div>
   <div>
       <a class="xref" href="SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_SetForeground_SadConsole_ISurface_System_Int32_System_Int32_SadRogue_Primitives_Color_">CellSurfaceEditor.SetForeground(ISurface, int, int, Color)</a>
+  </div>
+  <div>
+      <a class="xref" href="SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_SetGlyph_SadConsole_ISurface_System_Int32_System_Int32_SadConsole_GlyphDefinition_">CellSurfaceEditor.SetGlyph(ISurface, int, int, GlyphDefinition)</a>
   </div>
   <div>
       <a class="xref" href="SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_SetGlyph_SadConsole_ISurface_System_Int32_System_Int32_System_Int32_">CellSurfaceEditor.SetGlyph(ISurface, int, int, int)</a>

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
 
@@ -98,6 +98,7 @@
     <div><a class="xref" href="SadConsole.Components.IComponentHost.html">IComponentHost</a></div>
     <div><a class="xref" href="SadConsole.ISurface.html">ISurface</a></div>
     <div><a class="xref" href="SadConsole.ISurfaceSettable.html">ISurfaceSettable</a></div>
+    <div><a class="xref" href="SadConsole.ICellSurfaceResize.html">ICellSurfaceResize</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -258,7 +259,7 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[DataContract]
 [JsonObject(MemberSerialization.OptIn)]
-public class ScreenSurface : ScreenObject, IDisposable, IScreenSurfaceEditable, IScreenSurface, IScreenObject, IPositionable, IComponentHost, ISurface, ISurfaceSettable</code></pre>
+public class ScreenSurface : ScreenObject, IDisposable, IScreenSurfaceEditable, IScreenSurface, IScreenObject, IPositionable, IComponentHost, ISurface, ISurfaceSettable, ICellSurfaceResize</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -532,6 +533,31 @@ public ScreenSurface(ICellSurface surface, IFont? font = null, Point? fontSize =
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected bool IsMouseOver</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="SadConsole_ScreenSurface_MouseState_EnteredWithButtonDown" data-uid="SadConsole.ScreenSurface.MouseState_EnteredWithButtonDown">MouseState_EnteredWithButtonDown</h4>
+  <div class="markdown level1 summary"><p>A cached value determined by <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_OnMouseEnter_SadConsole_Input_MouseScreenObjectState_">OnMouseEnter(MouseScreenObjectState)</a>. <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> when the mouse entered the surface bounds with the mouse button down.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool MouseState_EnteredWithButtonDown</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-condensed">
@@ -1500,13 +1526,13 @@ public IRenderer? Renderer { get; protected set; }</code></pre>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">width</span></td>
-        <td><p>The viewable width of the surface.</p>
+        <td><p>The width of the surface and view.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
         <td><span class="parametername">height</span></td>
-        <td><p>The viewable height of the surface.</p>
+        <td><p>The height of the surface and view.</p>
 </td>
       </tr>
       <tr>
@@ -1526,7 +1552,7 @@ public IRenderer? Renderer { get; protected set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Resize(int width, int height, int bufferWidth, int bufferHeight, bool clear)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Resize(int viewWidth, int viewHeight, int totalWidth, int totalHeight, bool clear)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1540,25 +1566,25 @@ public IRenderer? Renderer { get; protected set; }</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">width</span></td>
+        <td><span class="parametername">viewWidth</span></td>
         <td><p>The viewable width of the surface.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">height</span></td>
+        <td><span class="parametername">viewHeight</span></td>
         <td><p>The viewable height of the surface.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">bufferWidth</span></td>
+        <td><span class="parametername">totalWidth</span></td>
         <td><p>The maximum width of the surface.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">bufferHeight</span></td>
+        <td><span class="parametername">totalHeight</span></td>
         <td><p>The maximum height of the surface.</p>
 </td>
       </tr>
@@ -1770,6 +1796,9 @@ public IRenderer? Renderer { get; protected set; }</code></pre>
   <div>
       <a class="xref" href="SadConsole.ISurfaceSettable.html">ISurfaceSettable</a>
   </div>
+  <div>
+      <a class="xref" href="SadConsole.ICellSurfaceResize.html">ICellSurfaceResize</a>
+  </div>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="SadConsole.Quick.Keyboard.html#SadConsole_Quick_Keyboard_RemoveKeyboardHook_SadConsole_IScreenObject_System_Func_SadConsole_IScreenObject_SadConsole_Input_Keyboard_System_Boolean__">Keyboard.RemoveKeyboardHook(IScreenObject, Func&lt;IScreenObject, Keyboard, bool&gt;)</a>
@@ -1937,6 +1966,12 @@ public IRenderer? Renderer { get; protected set; }</code></pre>
       <a class="xref" href="SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_GetSubSurface_SadConsole_ISurface_SadRogue_Primitives_Rectangle_">CellSurfaceEditor.GetSubSurface(ISurface, Rectangle)</a>
   </div>
   <div>
+      <a class="xref" href="SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_IsValidCell_SadConsole_ISurface_SadRogue_Primitives_Point_">CellSurfaceEditor.IsValidCell(ISurface, Point)</a>
+  </div>
+  <div>
+      <a class="xref" href="SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_IsValidCell_SadConsole_ISurface_SadRogue_Primitives_Point_System_Int32__">CellSurfaceEditor.IsValidCell(ISurface, Point, out int)</a>
+  </div>
+  <div>
       <a class="xref" href="SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_IsValidCell_SadConsole_ISurface_System_Int32_">CellSurfaceEditor.IsValidCell(ISurface, int)</a>
   </div>
   <div>
@@ -1994,6 +2029,9 @@ public IRenderer? Renderer { get; protected set; }</code></pre>
       <a class="xref" href="SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_SetCellAppearance_SadConsole_ISurface_System_Int32_System_Int32_SadConsole_ColoredGlyphBase_">CellSurfaceEditor.SetCellAppearance(ISurface, int, int, ColoredGlyphBase)</a>
   </div>
   <div>
+      <a class="xref" href="SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_SetCellAppearance_SadConsole_ISurface_System_Int32_System_Int32_SadConsole_GlyphDefinition_">CellSurfaceEditor.SetCellAppearance(ISurface, int, int, GlyphDefinition)</a>
+  </div>
+  <div>
       <a class="xref" href="SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_SetDecorator_SadConsole_ISurface_SadRogue_Primitives_Point_SadConsole_CellDecorator___">CellSurfaceEditor.SetDecorator(ISurface, Point, params CellDecorator[]?)</a>
   </div>
   <div>
@@ -2025,6 +2063,9 @@ public IRenderer? Renderer { get; protected set; }</code></pre>
   </div>
   <div>
       <a class="xref" href="SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_SetForeground_SadConsole_ISurface_System_Int32_System_Int32_SadRogue_Primitives_Color_">CellSurfaceEditor.SetForeground(ISurface, int, int, Color)</a>
+  </div>
+  <div>
+      <a class="xref" href="SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_SetGlyph_SadConsole_ISurface_System_Int32_System_Int32_SadConsole_GlyphDefinition_">CellSurfaceEditor.SetGlyph(ISurface, int, int, GlyphDefinition)</a>
   </div>
   <div>
       <a class="xref" href="SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_SetGlyph_SadConsole_ISurface_System_Int32_System_Int32_System_Int32_">CellSurfaceEditor.SetGlyph(ISurface, int, int, int)</a>

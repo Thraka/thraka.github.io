@@ -1,13 +1,13 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
 
   <head>
     <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>Class InternalHostStartupData | SadConsole v10</title>
+      <title>Class GuiState | SadConsole v10</title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="Class InternalHostStartupData | SadConsole v10">
+      <meta name="title" content="Class GuiState | SadConsole v10">
     
     
       <link rel="shortcut icon" href="../favicon.ico">
@@ -68,21 +68,17 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-9">
-            <article class="content wrap" id="_content" data-uid="SadConsole.Configuration.InternalHostStartupData">
+            <article class="content wrap" id="_content" data-uid="SadConsole.Debug.GuiState">
 
 
 
-  <h1 id="SadConsole_Configuration_InternalHostStartupData" data-uid="SadConsole.Configuration.InternalHostStartupData" class="text-break">Class InternalHostStartupData</h1>
+  <h1 id="SadConsole_Debug_GuiState" data-uid="SadConsole.Debug.GuiState" class="text-break">Class GuiState</h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-    <div class="level1"><span class="xref">InternalHostStartupData</span></div>
-  </div>
-  <div class="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="SadConsole.Configuration.IConfigurator.html">IConfigurator</a></div>
+    <div class="level1"><span class="xref">GuiState</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -108,68 +104,121 @@
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="SadConsole.html">SadConsole</a>.<a class="xref" href="SadConsole.Configuration.html">Configuration</a></h6>
-  <h6><strong>Assembly</strong>: SadConsole.Host.MonoGame.dll</h6>
-  <h5 id="SadConsole_Configuration_InternalHostStartupData_syntax">Syntax</h5>
+  <h6><strong>Namespace</strong>: <a class="xref" href="SadConsole.html">SadConsole</a>.<a class="xref" href="SadConsole.Debug.html">Debug</a></h6>
+  <h6><strong>Assembly</strong>: SadConsole.Debug.MonoGame.dll</h6>
+  <h5 id="SadConsole_Debug_GuiState_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class InternalHostStartupData : IConfigurator</code></pre>
+    <pre><code class="lang-csharp hljs">public static class GuiState</code></pre>
   </div>
-  <h3 id="constructors">Constructors
+  <h3 id="fields">Fields
 </h3>
 
 
-  <a id="SadConsole_Configuration_InternalHostStartupData__ctor_" data-uid="SadConsole.Configuration.InternalHostStartupData.#ctor*"></a>
-  <h4 id="SadConsole_Configuration_InternalHostStartupData__ctor" data-uid="SadConsole.Configuration.InternalHostStartupData.#ctor">InternalHostStartupData()</h4>
+  <h4 id="SadConsole_Debug_GuiState_ScreenObjectUniques" data-uid="SadConsole.Debug.GuiState.ScreenObjectUniques">ScreenObjectUniques</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public InternalHostStartupData()</code></pre>
+    <pre><code class="lang-csharp hljs">public static Dictionary&lt;IScreenObject, ScreenObjectState&gt; ScreenObjectUniques</code></pre>
   </div>
-  <h3 id="methods">Methods
-</h3>
-
-
-  <a id="SadConsole_Configuration_InternalHostStartupData_Run_" data-uid="SadConsole.Configuration.InternalHostStartupData.Run*"></a>
-  <h4 id="SadConsole_Configuration_InternalHostStartupData_Run_SadConsole_Configuration_Builder_SadConsole_GameHost_" data-uid="SadConsole.Configuration.InternalHostStartupData.Run(SadConsole.Configuration.Builder,SadConsole.GameHost)">Run(Builder, GameHost)</h4>
-  <div class="markdown level1 summary"><p>Called by the <a class="xref" href="SadConsole.Configuration.Builder.html">Builder</a>; Runs the specific config for this object.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Run(Builder config, GameHost game)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
+  <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
-        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="SadConsole.Configuration.Builder.html">Builder</a></td>
-        <td><span class="parametername">config</span></td>
-        <td><p>The builder configuration object.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="SadConsole.GameHost.html">GameHost</a></td>
-        <td><span class="parametername">game</span></td>
-        <td><p>The game object being created.</p>
-</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="SadConsole.IScreenObject.html">IScreenObject</a>, <a class="xref" href="SadConsole.Debug.ScreenObjectState.html">ScreenObjectState</a>&gt;</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="SadConsole.Configuration.IConfigurator.html">IConfigurator</a>
+
+
+  <h4 id="SadConsole_Debug_GuiState__hoveredScreenObjectState" data-uid="SadConsole.Debug.GuiState._hoveredScreenObjectState">_hoveredScreenObjectState</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ScreenObjectState? _hoveredScreenObjectState</code></pre>
   </div>
-  <h3 id="extensionmethods">Extension Methods</h3>
-  <div>
-      <a class="xref" href="SadConsole.ExtensionsSystem.html#SadConsole_ExtensionsSystem_GetDebuggerDisplayValue_System_Object_">ExtensionsSystem.GetDebuggerDisplayValue(object)</a>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.Debug.ScreenObjectState.html">ScreenObjectState</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="SadConsole_Debug_GuiState__selectedScreenObject" data-uid="SadConsole.Debug.GuiState._selectedScreenObject">_selectedScreenObject</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IScreenObject? _selectedScreenObject</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.IScreenObject.html">IScreenObject</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="SadConsole_Debug_GuiState__selectedScreenObjectState" data-uid="SadConsole.Debug.GuiState._selectedScreenObjectState">_selectedScreenObjectState</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ScreenObjectState? _selectedScreenObjectState</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SadConsole.Debug.ScreenObjectState.html">ScreenObjectState</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <a id="SadConsole_Debug_GuiState_RefreshScreenObject_" data-uid="SadConsole.Debug.GuiState.RefreshScreenObject*"></a>
+  <h4 id="SadConsole_Debug_GuiState_RefreshScreenObject" data-uid="SadConsole.Debug.GuiState.RefreshScreenObject">RefreshScreenObject()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RefreshScreenObject()</code></pre>
   </div>
 
 </article>

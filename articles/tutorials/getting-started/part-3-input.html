@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
 
@@ -72,7 +72,7 @@
 <h1 id="get-started-3---input">Get Started 3 - Input</h1>
 
 <p>In this part of the tutorial we'll explore how input works in SadConsole. You'll learn how to create a basic map with a player that you can use the mouse and keyboard to interact with.</p>
-<p>Input is made up of both keyboard and mouse processing. SadConsole does not provide any input processing for gamepads and joysticks. However, MonoGame provides gamepad and joystick processing, which SadConsole is built on.</p>
+<p>Input is made up of both keyboard and mouse processing. SadConsole does not provide any input processing for gamepads. However, MonoGame provides gamepad and joystick processing, which SadConsole is built on.</p>
 <p>Previous articles in this tutorial:</p>
 <ul>
 <li><a href="part-1-drawing.html">Get Started 1 - Draw on a console</a></li>
@@ -102,15 +102,13 @@ using SadConsoleGame;
 
 Settings.WindowTitle = &quot;My SadConsole Game&quot;;
 
-Builder configuration = new Builder()
-    .SetScreenSize(120, 38)
+Builder
+    .GetBuilder()
+    .SetWindowSizeInCells(120, 38)
+    .ConfigureFonts(true)
     .SetStartingScreen&lt;RootScreen&gt;()
     .IsStartingScreenFocused(true)
-    ;
-
-Game.Create(configuration);
-Game.Instance.Run();
-Game.Instance.Dispose();
+    .Run();
 </code></pre>
 <p>Notice the differences in this code from the previous startup code:</p>
 <ul>
@@ -129,9 +127,9 @@ Game.Instance.Dispose();
 <li><p>The <code>Startup()</code> method was removed.</p>
 </li>
 </ul>
-<p>The <code>SetStartingScreen</code> configuration method designates an object as the starting object. It automatically assigns a new instance of that object to the <code>Game.Instance.Screen</code> property. This simplifies game setup. In this case, the newly created <code>RootScreen</code> class is going to be our container that is the game screen. All the startup code goes into that object.</p>
+<p>The <code>SetStartingScreen</code> configuration method designates an object as the starting object. It automatically assigns a new instance of that object to the <code>Game.Instance.Screen</code> property. This simplifies game setup. In this case, the newly created <code>RootScreen</code> class is our container for the current game screen. All the startup code goes into that object.</p>
 <h2 id="create-a-basic-map">Create a basic map</h2>
-<p>Next, lets add a basic map to the screen.</p>
+<p>Next, lets add a basic map surface to the screen.</p>
 <ol>
 <li><p>Open the <em>RootScreen.cs</em> file.</p>
 </li>
@@ -167,9 +165,10 @@ Game.Instance.Dispose();
 <li><p>It's a <code>ScreenSurface</code> and not a <code>Console</code>.</p>
 <p>The map isn't going to use a cursor object to print and collect input from the user, so we don't need a full console object. Most of the time when you create objects in SadConsole that don't need a cursor you'll probably just use a <code>ScreenSurface</code>.</p>
 </li>
-</ul>
-<p>The width and height of the object is set to the <code>Game.Instance.ScreenCellsX</code> and <code>Game.Instance.ScreenCellsY</code> variables, respectively.</p>
+<li><p>The width and height of the object is set to the <code>Game.Instance.ScreenCellsX</code> and <code>Game.Instance.ScreenCellsY</code> variables, respectively.</p>
 <p><code>ScreenCellsX/Y</code> represent how many cells in the default font size the SadConsole game can fit on the screen. These are from the width and height values passed to the <code>Game.Create</code> method at the start of the game. This makes it easy to create a surface that fills the window. For the <code>Y</code> height though, we're trimming off <em>5</em> from the bottom. This leaves some space at the bottom of the screen to add a status console later.</p>
+</li>
+</ul>
 <p>Next, lets add some background to the map. Instead of using the <code>FillWithRandomGarbage</code> method that we previously used, we'll draw a gradient. The background doesn't really represent anything, but it makes it easier to see our objects and demonstrate some key concepts.</p>
 </li>
 <li><p>Add the <code>FillBackground</code> method to the class to fill the map surface with a gradient:</p>

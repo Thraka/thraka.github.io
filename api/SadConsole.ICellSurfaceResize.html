@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
 
@@ -88,7 +88,7 @@
 
   <a id="SadConsole_ICellSurfaceResize_Resize_" data-uid="SadConsole.ICellSurfaceResize.Resize*"></a>
   <h4 id="SadConsole_ICellSurfaceResize_Resize_System_Int32_System_Int32_System_Boolean_" data-uid="SadConsole.ICellSurfaceResize.Resize(System.Int32,System.Int32,System.Boolean)">Resize(int, int, bool)</h4>
-  <div class="markdown level1 summary"><p>Resizes the surface and view to the specified width and height.</p>
+  <div class="markdown level1 summary"><p>Resizes the surface and view to the specified width and height. This can destroy the original backing array.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -129,12 +129,12 @@
 
   <a id="SadConsole_ICellSurfaceResize_Resize_" data-uid="SadConsole.ICellSurfaceResize.Resize*"></a>
   <h4 id="SadConsole_ICellSurfaceResize_Resize_System_Int32_System_Int32_System_Int32_System_Int32_System_Boolean_" data-uid="SadConsole.ICellSurfaceResize.Resize(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)">Resize(int, int, int, int, bool)</h4>
-  <div class="markdown level1 summary"><p>Resizes the surface to the specified width and height.</p>
+  <div class="markdown level1 summary"><p>Resizes the surface to the specified width and height. This can destroy the original backing array.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void Resize(int viewWidth, int viewHeight, int bufferWidth, int bufferHeight, bool clear)</code></pre>
+    <pre><code class="lang-csharp hljs">void Resize(int viewWidth, int viewHeight, int totalWidth, int totalHeight, bool clear)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -160,13 +160,13 @@
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">bufferWidth</span></td>
+        <td><span class="parametername">totalWidth</span></td>
         <td><p>The maximum width of the surface.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">bufferHeight</span></td>
+        <td><span class="parametername">totalHeight</span></td>
         <td><p>The maximum height of the surface.</p>
 </td>
       </tr>

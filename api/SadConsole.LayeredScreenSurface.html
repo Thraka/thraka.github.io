@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
 
@@ -94,17 +94,15 @@
     <div><a class="xref" href="SadConsole.ISurface.html">ISurface</a></div>
     <div><a class="xref" href="SadConsole.ISurfaceSettable.html">ISurfaceSettable</a></div>
     <div><a class="xref" href="SadConsole.Renderers.ILayeredData.html">ILayeredData</a></div>
+    <div><a class="xref" href="SadConsole.ICellSurfaceResize.html">ICellSurfaceResize</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
+      <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_MouseState_EnteredWithButtonDown">ScreenSurface.MouseState_EnteredWithButtonDown</a>
+    </div>
+    <div>
       <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_IsMouseOver">ScreenSurface.IsMouseOver</a>
-    </div>
-    <div>
-      <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_Resize_System_Int32_System_Int32_System_Int32_System_Int32_System_Boolean_">ScreenSurface.Resize(int, int, int, int, bool)</a>
-    </div>
-    <div>
-      <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_Resize_System_Int32_System_Int32_System_Boolean_">ScreenSurface.Resize(int, int, bool)</a>
     </div>
     <div>
       <a class="xref" href="SadConsole.ScreenSurface.html#SadConsole_ScreenSurface_UpdateAbsolutePosition">ScreenSurface.UpdateAbsolutePosition()</a>
@@ -385,7 +383,7 @@
   <h5 id="SadConsole_LayeredScreenSurface_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[DataContract]
-public class LayeredScreenSurface : ScreenSurface, IDisposable, IScreenSurfaceEditable, IScreenSurface, IScreenObject, IPositionable, IComponentHost, ISurface, ISurfaceSettable, ILayeredData</code></pre>
+public class LayeredScreenSurface : ScreenSurface, IDisposable, IScreenSurfaceEditable, IScreenSurface, IScreenObject, IPositionable, IComponentHost, ISurface, ISurfaceSettable, ILayeredData, ICellSurfaceResize</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -638,9 +636,103 @@ public class LayeredScreenSurface : ScreenSurface, IDisposable, IScreenSurfaceEd
 </h3>
 
 
+  <a id="SadConsole_LayeredScreenSurface_Resize_" data-uid="SadConsole.LayeredScreenSurface.Resize*"></a>
+  <h4 id="SadConsole_LayeredScreenSurface_Resize_System_Int32_System_Int32_System_Boolean_" data-uid="SadConsole.LayeredScreenSurface.Resize(System.Int32,System.Int32,System.Boolean)">Resize(int, int, bool)</h4>
+  <div class="markdown level1 summary"><p>Resizes the surface and view to the specified width and height.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Resize(int width, int height, bool clear)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">width</span></td>
+        <td><p>The width of the surface and view.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">height</span></td>
+        <td><p>The height of the surface and view.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">clear</span></td>
+        <td><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, resets every cell to the <a class="xref" href="SadConsole.ICellSurface.html#SadConsole_ICellSurface_DefaultForeground">DefaultForeground</a>, <a class="xref" href="SadConsole.ICellSurface.html#SadConsole_ICellSurface_DefaultBackground">DefaultBackground</a> and glyph 0.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="SadConsole_LayeredScreenSurface_Resize_" data-uid="SadConsole.LayeredScreenSurface.Resize*"></a>
+  <h4 id="SadConsole_LayeredScreenSurface_Resize_System_Int32_System_Int32_System_Int32_System_Int32_System_Boolean_" data-uid="SadConsole.LayeredScreenSurface.Resize(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)">Resize(int, int, int, int, bool)</h4>
+  <div class="markdown level1 summary"><p>Resizes the surface to the specified width and height.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Resize(int viewWidth, int viewHeight, int totalWidth, int totalHeight, bool clear)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">viewWidth</span></td>
+        <td><p>The viewable width of the surface.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">viewHeight</span></td>
+        <td><p>The viewable height of the surface.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">totalWidth</span></td>
+        <td><p>The maximum width of the surface.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">totalHeight</span></td>
+        <td><p>The maximum height of the surface.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></td>
+        <td><span class="parametername">clear</span></td>
+        <td><p>When <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>, resets every cell to the <a class="xref" href="SadConsole.ICellSurface.html#SadConsole_ICellSurface_DefaultForeground">DefaultForeground</a>, <a class="xref" href="SadConsole.ICellSurface.html#SadConsole_ICellSurface_DefaultBackground">DefaultBackground</a> and glyph 0.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
   <a id="SadConsole_LayeredScreenSurface_ToString_" data-uid="SadConsole.LayeredScreenSurface.ToString*"></a>
   <h4 id="SadConsole_LayeredScreenSurface_ToString" data-uid="SadConsole.LayeredScreenSurface.ToString">ToString()</h4>
-  <div class="markdown level1 summary"><p>Returns the value &quot;Console (Controls)&quot;.</p>
+  <div class="markdown level1 summary"><p>Returns the value &quot;ScreenSurface (Layered)&quot;.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -658,7 +750,7 @@ public class LayeredScreenSurface : ScreenSurface, IDisposable, IScreenSurfaceEd
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><p>The string &quot;Console (Controls)&quot;.</p>
+        <td><p>The string &quot;ScreenSurface (Layered)&quot;.</p>
 </td>
       </tr>
     </tbody>
@@ -692,6 +784,9 @@ public class LayeredScreenSurface : ScreenSurface, IDisposable, IScreenSurfaceEd
   </div>
   <div>
       <a class="xref" href="SadConsole.Renderers.ILayeredData.html">ILayeredData</a>
+  </div>
+  <div>
+      <a class="xref" href="SadConsole.ICellSurfaceResize.html">ICellSurfaceResize</a>
   </div>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
@@ -860,6 +955,12 @@ public class LayeredScreenSurface : ScreenSurface, IDisposable, IScreenSurfaceEd
       <a class="xref" href="SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_GetSubSurface_SadConsole_ISurface_SadRogue_Primitives_Rectangle_">CellSurfaceEditor.GetSubSurface(ISurface, Rectangle)</a>
   </div>
   <div>
+      <a class="xref" href="SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_IsValidCell_SadConsole_ISurface_SadRogue_Primitives_Point_">CellSurfaceEditor.IsValidCell(ISurface, Point)</a>
+  </div>
+  <div>
+      <a class="xref" href="SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_IsValidCell_SadConsole_ISurface_SadRogue_Primitives_Point_System_Int32__">CellSurfaceEditor.IsValidCell(ISurface, Point, out int)</a>
+  </div>
+  <div>
       <a class="xref" href="SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_IsValidCell_SadConsole_ISurface_System_Int32_">CellSurfaceEditor.IsValidCell(ISurface, int)</a>
   </div>
   <div>
@@ -917,6 +1018,9 @@ public class LayeredScreenSurface : ScreenSurface, IDisposable, IScreenSurfaceEd
       <a class="xref" href="SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_SetCellAppearance_SadConsole_ISurface_System_Int32_System_Int32_SadConsole_ColoredGlyphBase_">CellSurfaceEditor.SetCellAppearance(ISurface, int, int, ColoredGlyphBase)</a>
   </div>
   <div>
+      <a class="xref" href="SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_SetCellAppearance_SadConsole_ISurface_System_Int32_System_Int32_SadConsole_GlyphDefinition_">CellSurfaceEditor.SetCellAppearance(ISurface, int, int, GlyphDefinition)</a>
+  </div>
+  <div>
       <a class="xref" href="SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_SetDecorator_SadConsole_ISurface_SadRogue_Primitives_Point_SadConsole_CellDecorator___">CellSurfaceEditor.SetDecorator(ISurface, Point, params CellDecorator[]?)</a>
   </div>
   <div>
@@ -948,6 +1052,9 @@ public class LayeredScreenSurface : ScreenSurface, IDisposable, IScreenSurfaceEd
   </div>
   <div>
       <a class="xref" href="SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_SetForeground_SadConsole_ISurface_System_Int32_System_Int32_SadRogue_Primitives_Color_">CellSurfaceEditor.SetForeground(ISurface, int, int, Color)</a>
+  </div>
+  <div>
+      <a class="xref" href="SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_SetGlyph_SadConsole_ISurface_System_Int32_System_Int32_SadConsole_GlyphDefinition_">CellSurfaceEditor.SetGlyph(ISurface, int, int, GlyphDefinition)</a>
   </div>
   <div>
       <a class="xref" href="SadConsole.CellSurfaceEditor.html#SadConsole_CellSurfaceEditor_SetGlyph_SadConsole_ISurface_System_Int32_System_Int32_System_Int32_">CellSurfaceEditor.SetGlyph(ISurface, int, int, int)</a>
