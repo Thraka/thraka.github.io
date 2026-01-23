@@ -14,7 +14,7 @@ SadConsole is cross-platform .NET game library that provides an engine to emulat
 
 ## Demo
 
-The .NET templates provided by SadConsole can generate a demo application that showcases SadConsole. The follwoing commands install the SadConsole templates, generates the demo application, and then runs it.
+The .NET templates provided by SadConsole can generate a demo application that showcases SadConsole. The following commands install the SadConsole templates, generates the demo application, and then runs it.
 
 ```shell
 dotnet new install SadConsole.Templates
